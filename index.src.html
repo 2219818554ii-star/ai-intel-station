@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报站 · 日报 · 排行榜 · AI 上手</title>
+<meta name="description" content="AI 情报站：每日 AI 晨报、大模型实力排行榜、可报名比赛地图、零基础 AI 上手指令台。面向研究生与科研党的 AI 提效工具。">
+<meta name="theme-color" content="#4f46e5">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="AI 情报站 · 日报 · 排行榜 · AI 上手">
+<meta property="og:description" content="每日 AI 晨报 + 大模型实力排行榜 + 可报名比赛地图 + AI 上手指令台，面向研究生与科研党。">
+<meta name="twitter:card" content="summary">
+<style>
+  :root {
+    --bg:#f5f7fb;--card-bg:#ffffff;--ink:#1f2433;--ink-soft:#5b6478;--line:#e6e9f2;
+    --brand:#4f46e5;--brand-soft:#eef0ff;--accent:#0ea5a4;--warn:#b45309;
+    --shadow:0 1px 3px rgba(20,30,60,.06),0 8px 24px rgba(20,30,60,.06);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;}
+  a{color:inherit;text-decoration:none;}
+
+  /* ---- app bar (tabs) ---- */
+  .appbar{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .appbar-inner{max-width:1180px;margin:0 auto;padding:8px 14px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  .brand{font-weight:800;font-size:16px;color:var(--brand);white-space:nowrap;}
+  .brand small{color:var(--ink-soft);font-weight:600;font-size:12px;}
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto;}
+  .tab{font-size:14px;color:var(--ink-soft);border:1px solid transparent;background:#fff;border-radius:999px;padding:7px 14px;cursor:pointer;transition:all .15s ease;white-space:nowrap;}
+  .tab:hover{background:var(--brand-soft);color:var(--brand);}
+  .tab.active{background:var(--brand);color:#fff;}
+
+  /* ---- daily view: top status ---- */
+  .topbar{display:flex;align-items:center;justify-content:flex-end;gap:10px;max-width:1180px;margin:0 auto;padding:10px 18px 0;flex-wrap:wrap;}
+  .badge{font-size:12px;color:var(--accent);background:#e7f7f6;border:1px solid #cdeeeb;padding:3px 10px;border-radius:999px;}
+  .badge.hist{color:var(--warn);background:#fef3e2;border-color:#fbd9a8;}
+  .top-btn{font-size:13px;color:var(--brand);border:1px solid var(--brand);background:#fff;padding:4px 12px;border-radius:8px;cursor:pointer;transition:all .15s ease;}
+  .top-btn:hover{background:var(--brand);color:#fff;}
+  .top-btn:disabled{opacity:.45;cursor:default;background:#fff;color:var(--brand);}
+
+  .hero{background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 45%,#0ea5a4 100%);color:#fff;padding:36px 20px 32px;text-align:center;}
+  .hero .kicker{letter-spacing:.3em;font-size:12px;opacity:.85;text-transform:uppercase;}
+  .hero h1{margin:10px 0 4px;font-size:clamp(26px,6vw,44px);font-weight:800;}
+  .hero .sub{opacity:.92;font-size:15px;}
+  .hero .lead{opacity:.95;font-size:13.5px;margin-top:8px;max-width:760px;margin-left:auto;margin-right:auto;}
+  .hero .total-pill{display:inline-block;margin-top:14px;padding:6px 16px;border-radius:999px;background:rgba(255,255,255,.18);backdrop-filter:blur(4px);font-size:14px;font-weight:600;}
+  .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;max-width:960px;margin:26px auto 0;}
+  .stat{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:14px 8px;display:flex;flex-direction:column;align-items:center;}
+  .stat-num{font-size:30px;font-weight:800;line-height:1;}
+  .stat-label{font-size:13px;margin-top:6px;opacity:.95;}
+
+  /* ---- toolbar (sticky, below appbar) ---- */
+  .toolbar{position:sticky;top:54px;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .tool-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;max-width:1180px;margin:0 auto;padding:10px 14px;}
+  .date-sel{flex:1 1 240px;min-width:180px;font-size:14px;color:var(--ink);border:1px solid var(--line);border-radius:9px;padding:7px 10px;background:#fff;cursor:pointer;}
+  .navbtn{font-size:13px;color:var(--ink-soft);border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 12px;cursor:pointer;white-space:nowrap;transition:all .15s ease;}
+  .navbtn:hover:not(:disabled){border-color:var(--brand);color:var(--brand);}
+  .navbtn:disabled{opacity:.4;cursor:default;}
+  .search{flex:1 1 160px;min-width:140px;font-size:14px;border:1px solid var(--line);border-radius:9px;padding:7px 12px;background:#fff;}
+  .search:focus{outline:none;border-color:var(--brand);}
+  .copybtn{font-size:13px;color:var(--brand);border:1px solid var(--brand);background:#fff;border-radius:8px;padding:6px 12px;cursor:pointer;white-space:nowrap;transition:all .15s ease;}
+  .copybtn:hover{background:var(--brand);color:#fff;}
+  .matchinfo{width:100%;font-size:12.5px;color:var(--ink-soft);padding:0 4px 2px;}
+
+  .nav{display:flex;gap:6px;padding:9px 14px;overflow-x:auto;justify-content:center;border-top:1px solid var(--line);}
+  .nav-link{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:999px;white-space:nowrap;font-size:14px;color:var(--ink-soft);border:1px solid transparent;transition:all .15s ease;}
+  .nav-link:hover{background:var(--brand-soft);color:var(--brand);}
+  .nav-link.active{background:var(--brand);color:#fff;}
+  .nav-count{font-size:11px;background:rgba(0,0,0,.08);padding:1px 7px;border-radius:999px;}
+  .nav-link.active .nav-count{background:rgba(255,255,255,.25);}
+
+  main{max-width:1180px;margin:0 auto;padding:28px 18px 60px;}
+  .block{scroll-margin-top:170px;margin-bottom:38px;}
+  .block-head{display:flex;align-items:baseline;gap:12px;margin:0 0 16px;border-left:4px solid var(--brand);padding-left:12px;}
+  .block-head h2{margin:0;font-size:21px;}
+  .block-count{color:var(--ink-soft);font-size:13px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;}
+  .card{background:var(--card-bg);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .15s ease,box-shadow .15s ease;}
+  .card:hover{transform:translateY(-3px);box-shadow:0 4px 10px rgba(20,30,60,.08),0 16px 36px rgba(20,30,60,.1);}
+  .card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;}
+  .num{flex:0 0 auto;width:34px;height:34px;border-radius:10px;background:var(--brand-soft);color:var(--brand);font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;}
+  .source-chip{max-width:78%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;color:var(--accent);background:#e7f7f6;border:1px solid #cdeeeb;padding:4px 10px;border-radius:999px;}
+  .card-title{margin:2px 0 8px;font-size:16px;line-height:1.45;}
+  .card-title a{color:var(--ink);font-weight:700;}
+  .card-title a:hover{color:var(--brand);}
+  .summary{margin:0 0 14px;color:var(--ink-soft);font-size:14px;flex:1;}
+  .orig-link{align-self:flex-start;font-size:13px;font-weight:600;color:var(--brand);border:1px solid var(--brand);padding:5px 12px;border-radius:8px;transition:all .15s ease;}
+  .orig-link:hover{background:var(--brand);color:#fff;}
+
+  footer{border-top:1px solid var(--line);background:#fff;color:var(--ink-soft);text-align:center;padding:26px 18px 40px;font-size:13px;}
+  footer a{color:var(--brand);}
+  footer .big{font-size:15px;color:var(--ink);font-weight:600;}
+
+  #toTop{position:fixed;right:20px;bottom:22px;z-index:60;width:46px;height:46px;border-radius:50%;border:none;cursor:pointer;background:var(--brand);color:#fff;font-size:20px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .2s ease;}
+  #toTop.show{opacity:1;pointer-events:auto;}
+
+  .state{text-align:center;padding:60px 20px;color:var(--ink-soft);}
+  .state .spinner{width:34px;height:34px;border:3px solid var(--line);border-top-color:var(--brand);border-radius:50%;margin:0 auto 16px;animation:spin 1s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .state.error{color:#b91c1c;}
+  .state button{margin-top:14px;font-size:14px;color:var(--brand);border:1px solid var(--brand);background:#fff;padding:7px 16px;border-radius:8px;cursor:pointer;}
+
+  /* ---- rank / learn views ---- */
+  .view{max-width:1180px;margin:0 auto;padding:22px 18px 60px;}
+  .view-head{margin:0 0 6px;}
+  .view-head h2{font-size:26px;margin:0 0 4px;}
+  .view-head p{color:var(--ink-soft);margin:0;font-size:14px;}
+  .news{background:#eef0ff;border:1px solid #c7d2fe;color:#3730a3;border-radius:12px;padding:12px 14px;font-size:13.5px;margin:14px 0 0;line-height:1.7;}
+  .news b{color:#312e81;}
+  .disclaim{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;font-size:13px;padding:12px 14px;border-radius:12px;margin:14px 0 18px;line-height:1.7;}
+  .disclaim b{color:#7c2d12;}
+  .subtabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 16px;}
+  .subtab{font-size:14px;padding:8px 16px;border-radius:10px;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--ink-soft);transition:all .15s ease;}
+  .subtab:hover{border-color:var(--brand);color:var(--brand);}
+  .subtab.active{background:var(--brand);color:#fff;border-color:var(--brand);}
+  .rankpane{display:none;}
+  .rankpane.active{display:block;}
+
+  .legend{font-size:12.5px;color:var(--ink-soft);margin:0 0 12px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;line-height:1.8;}
+  .legend .tier{position:static;}
+  .matrix-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 10px;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);}
+  table.matrix{width:100%;border-collapse:collapse;background:#fff;font-size:13.5px;min-width:840px;}
+  table.matrix th,table.matrix td{padding:9px 10px;text-align:center;border-bottom:1px solid var(--line);white-space:nowrap;}
+  table.matrix th{background:#f8f9fd;color:var(--ink-soft);font-weight:700;font-size:12.5px;}
+  table.matrix td.name{text-align:left;white-space:normal;min-width:150px;}
+  table.matrix td.name .nv{font-weight:800;font-size:14px;color:var(--ink);}
+  table.matrix td.name .mv{font-size:11.5px;color:var(--ink-soft);margin-top:2px;}
+  table.matrix td.note{text-align:left;white-space:normal;min-width:220px;color:var(--ink-soft);font-size:12.5px;line-height:1.6;}
+  table.matrix tr:last-child td{border-bottom:none;}
+  table.matrix tbody tr:hover{background:#fafbff;}
+  .num{font-weight:800;color:var(--brand);}
+  .tier{font-weight:800;font-size:12px;min-width:24px;text-align:center;padding:2px 8px;border-radius:7px;display:inline-block;line-height:1.4;}
+  .t-S{background:#fef3c7;color:#92400e;}
+  .t-A{background:#dcfce7;color:#166534;}
+  .t-B{background:#dbeafe;color:#1e40af;}
+  .t-C{background:#e5e7eb;color:#374151;}
+  .t-none{background:#f1f5f9;color:#94a3b8;}
+  .tier.big{font-size:14px;padding:3px 11px;}
+
+  table.ranktbl{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:0 0 18px;font-size:14px;}
+  table.ranktbl th,table.ranktbl td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);}
+  table.ranktbl th{background:#f8f9fd;color:var(--ink-soft);font-weight:700;font-size:13px;}
+  table.ranktbl tr:last-child td{border-bottom:none;}
+  table.ranktbl td.num-cell{font-weight:800;color:var(--brand);width:48px;}
+  .rsrc{font-size:13px;font-weight:600;color:var(--brand);}
+  .rsrc:hover{text-decoration:underline;}
+
+  .lk-section{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow);margin-bottom:14px;}
+  .lk-section h3{margin:0 0 8px;font-size:17px;border-left:4px solid var(--brand);padding-left:12px;}
+  .lk-section p,.lk-section li{font-size:14px;color:#374151;line-height:1.7;}
+  .lk-section ul,.lk-section ol{margin:6px 0;padding-left:22px;}
+  .lk-section li{margin:3px 0;}
+  .lk-section b{color:var(--ink);}
+  .lk-pill{display:inline-block;background:var(--brand-soft);color:var(--brand);font-size:12px;padding:2px 9px;border-radius:999px;margin:2px 4px 2px 0;font-weight:600;}
+  .lk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin:6px 0;}
+  .lk-card{background:#f8f9fd;border:1px solid var(--line);border-radius:12px;padding:12px 13px;}
+  .lk-card h4{margin:0 0 5px;font-size:14.5px;}
+  .lk-card p{margin:0;font-size:13px;color:var(--ink-soft);line-height:1.6;}
+  .lk-tip{background:#eef0ff;border:1px solid #c7d2fe;color:#3730a3;border-radius:12px;padding:13px 15px;font-size:14px;margin:6px 0 14px;line-height:1.7;}
+  .lk-cmp{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0;}
+  .lk-cmp .bad{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;border-radius:12px;padding:12px 14px;}
+  .lk-cmp .good{background:#f0fdf4;border:1px solid #bbf7d0;color:#166534;border-radius:12px;padding:12px 14px;}
+  .lk-cmp h5{margin:0 0 6px;font-size:14px;}
+  .lk-cmp p{margin:0;font-size:13px;line-height:1.65;}
+  .lk-code{background:#0f172a;color:#e2e8f0;border-radius:12px;padding:14px 16px;font-size:12.5px;line-height:1.75;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;margin:12px 0;overflow-x:auto;}
+  .lk-code .c{color:#94a3b8;}
+
+  /* ---- competition view ---- */
+  .cmp-toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 14px;}
+  .filterbtn{font-size:13px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;cursor:pointer;color:var(--ink-soft);transition:all .15s ease;}
+  .filterbtn:hover{border-color:var(--brand);color:var(--brand);}
+  .filterbtn.active{background:var(--brand);color:#fff;border-color:var(--brand);}
+  .cmp-list{display:flex;flex-direction:column;gap:10px;}
+  .cmp{background:#fff;border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:13px 15px;box-shadow:var(--shadow);}
+  .cmp.open{border-left-color:#16a34a;}
+  .cmp.soon{border-left-color:#d97706;}
+  .cmp.closed{border-left-color:#94a3b8;opacity:.86;}
+  .cmp-head{display:flex;align-items:center;gap:9px;flex-wrap:wrap;cursor:pointer;padding:2px 0;}
+  .cmp-head:hover{opacity:.94;}
+  .cmp-head:focus{outline:none;}
+  .cmp-head:focus .cmp-name{text-decoration:underline;}
+  .cmp-name{font-size:15.5px;font-weight:800;}
+  .chev{margin-left:auto;color:var(--ink-soft);font-size:13px;transition:transform .18s ease;flex:0 0 auto;}
+  .cmp.expanded .chev{transform:rotate(90deg);}
+  .cmp-detail{display:none;border-top:1px dashed var(--line);margin-top:11px;padding-top:12px;}
+  .cmp.expanded .cmp-detail{display:block;}
+  .d-row{display:flex;gap:12px;font-size:13.5px;line-height:1.7;margin:9px 0;}
+  .d-k{flex:0 0 84px;color:var(--ink-soft);font-weight:700;}
+  .d-v{flex:1;color:var(--ink);}
+  .d-v b{color:#111;}
+  .d-go{margin-top:11px;}
+  .cmp a.go{font-size:12.5px;font-weight:700;color:var(--brand);border:1px solid var(--brand);border-radius:8px;padding:5px 12px;transition:all .15s ease;display:inline-block;}
+  .cmp a.go:hover{background:var(--brand);color:#fff;}
+  .chip{font-size:11.5px;padding:2px 9px;border-radius:999px;font-weight:700;white-space:nowrap;}
+  .chip.open{background:#dcfce7;color:#166534;}
+  .chip.soon{background:#fef3c7;color:#92400e;}
+  .chip.closed{background:#e5e7eb;color:#475569;}
+  .chip.type{background:#eef0ff;color:#4f46e5;}
+  .stars{color:#f59e0b;font-weight:800;letter-spacing:1px;}
+  .cmp a.go{font-size:12.5px;font-weight:700;color:var(--brand);border:1px solid var(--brand);border-radius:8px;padding:5px 12px;transition:all .15s ease;}
+  .cmp a.go:hover{background:var(--brand);color:#fff;}
+  .chip.world{background:#dbeafe;color:#1e40af;}
+  .cmp.world{border-left-color:#3b82f6;}
+
+  @media (max-width:720px){
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .grid{grid-template-columns:1fr;}
+    .tool-row{justify-content:flex-start;}
+    .nav{justify-content:flex-start;}
+    .rdims{grid-template-columns:repeat(2,1fr);}
+    .lk-cmp{grid-template-columns:1fr;}
+  }
+  .cmp-pager{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:18px 0 6px;}
+  .cmp-pager .pg{font-size:13px;border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 12px;cursor:pointer;color:var(--ink-soft);min-width:38px;transition:all .15s ease;}
+  .cmp-pager .pg:hover:not([disabled]){border-color:var(--brand);color:var(--brand);}
+  .cmp-pager .pg.active{background:var(--brand);color:#fff;border-color:var(--brand);}
+  .cmp-pager .pg[disabled]{opacity:.4;cursor:default;}
+  .cmp-pager .pg-ell{color:var(--ink-soft);padding:6px 2px;align-self:center;}
+  .autobar{background:var(--brand-soft);border-bottom:1px solid var(--line);font-size:12.5px;color:var(--ink-soft);text-align:center;padding:6px 14px;line-height:1.5;}
+  .autobar b{color:var(--brand);}
+
+  /* ---- learn view: scenario desk ---- */
+  .daily-tip{background:linear-gradient(90deg,var(--brand-soft),#fff);border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:12px;padding:12px 16px;margin:0 0 14px;font-size:14.5px;color:var(--ink);line-height:1.7;}
+  .lk-h{font-size:17px;margin:18px 0 10px;border-left:4px solid var(--brand);padding-left:12px;}
+  .sc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px;margin-bottom:8px;}
+  .sc-card{background:var(--card-bg);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden;}
+  .sc-head{display:flex;align-items:center;gap:10px;padding:13px 15px;cursor:pointer;}
+  .sc-head:hover{background:var(--brand-soft);}
+  .sc-head:focus{outline:none;}
+  .sc-head:focus .sc-name{text-decoration:underline;}
+  .sc-ico{font-size:20px;flex:0 0 auto;}
+  .sc-name{font-size:15px;font-weight:800;flex:1;}
+  .sc-head .chev{transition:transform .18s ease;color:var(--brand);font-weight:800;flex:0 0 auto;}
+  .sc-card.expanded .sc-head .chev{transform:rotate(90deg);}
+  .sc-detail{display:none;border-top:1px dashed var(--line);padding:12px 15px;}
+  .sc-card.expanded .sc-detail{display:block;}
+  .sc-why{font-size:13.5px;color:var(--ink-soft);margin:0 0 8px;line-height:1.6;}
+  .sc-foot{display:flex;align-items:center;gap:10px;margin-top:10px;}
+  .sc-tool{font-size:12.5px;color:var(--ink-soft);}
+</style>
+</head>
+<body>
+  <div class="appbar">
+    <div class="appbar-inner">
+      <div class="brand">AI 情报站 <small>日报 · 排名 · 学习</small></div>
+      <nav class="tabs" role="tablist" aria-label="主导航">
+        <button class="tab active" id="tab-daily" role="tab" aria-selected="true" aria-controls="view-daily" data-tab="daily">📰 每日日报</button>
+        <button class="tab" id="tab-rank" role="tab" aria-selected="false" aria-controls="view-rank" data-tab="rank">🏆 实力排行榜</button>
+        <button class="tab" id="tab-comp" role="tab" aria-selected="false" aria-controls="view-comp" data-tab="comp">🏁 可报名比赛</button>
+        <button class="tab" id="tab-learn" role="tab" aria-selected="false" aria-controls="view-learn" data-tab="learn">📚 AI 上手</button>
+      </nav>
+    </div>
+  </div>
+
+  <div class="autobar"><span id="autoBar">🔄 自动刷新初始化中…</span></div>
+
+  <!-- ================= DAILY VIEW ================= -->
+  <div id="view-daily" role="tabpanel" aria-labelledby="tab-daily">
+    <div class="topbar">
+      <span class="badge" id="statusBadge">实时拉取 · 每 30 分钟自动刷新</span>
+      <button class="top-btn" id="refreshBtn">刷新</button>
+    </div>
+    <header class="hero" id="hero"></header>
+    <div class="toolbar" id="toolbar">
+      <div class="tool-row">
+        <select class="date-sel" id="dateSel" aria-label="选择日期查看历史日报">
+          <option>加载日期中…</option>
+        </select>
+        <button class="navbtn" id="newerBtn" title="跳到更新的日报">‹ 更新</button>
+        <button class="navbtn" id="todayBtn">今日</button>
+        <button class="navbtn" id="olderBtn" title="跳到更早的日报">更早 ›</button>
+        <input class="search" id="search" type="search" placeholder="搜索本日标题/来源/摘要…" aria-label="搜索">
+        <button class="copybtn" id="copyBtn" title="复制当前日报链接">复制链接</button>
+      </div>
+      <div class="matchinfo" id="matchInfo"></div>
+      <nav class="nav" id="nav"></nav>
+    </div>
+    <main id="main">
+      <div class="state" id="state">
+        <div class="spinner"></div>
+        <div>正在从 AI HOT 拉取日报…</div>
+      </div>
+    </main>
+    <footer id="footer" style="display:none"></footer>
+  </div>
+
+  <!-- ================= RANK VIEW ================= -->
+  <div id="view-rank" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-rank">
+    <div class="view-head"><h2>🏆 AI 实力排行榜</h2>
+      <p>大模型 / 编程工具 / 工具×模型组合 的分维度与综合实力评级。数据截至 <b>2026-09-22</b>。</p></div>
+    <div class="news">
+      🆕 <b>2026 年 9 月新动态：</b>Claude Fable 5.1（9-1，AA 智能指数并列第一）、GPT-6 Astra（9-3，号称 AGI 时代但<b>几乎不可用</b>）、Gemini 3.8 Flash（9-2，多模态标杆）、Muse Spark 1.3（9-2）、Qwen3.8-Max 登 Code Arena WebDev 榜首（9-2）、GLM-5.3-Flash 开源（8-26）、腾讯 Hy4 Preview 开源（8-28）。<b>注意：GPT-6 Astra 被定为「关键网络安全」级，目前仅 Daybreak 计划批准者可用，投票榜样本极少，排名可能随时变化。</b>
+    </div>
+    <div class="disclaim">
+      <b>数据说明：</b>本页为<b>观点整理快照</b>，非官方实时排名。评级依据 2026-09 公开基准：Artificial Analysis 智能指数 <b>v4.3</b>（10 项标准化评测合成，满分≈53，<b>不同版本分数不可直接比较</b>）、Terminal-Bench 2.1（终端/编码 Agent 实跑）、SWE-bench Verified / Pro（真实 GitHub 任务）。<b>提示：SWE-bench Verified 已被指出存在测试集污染，前沿评测更看 SWE-bench Pro 与 Terminal-Bench 2.1。</b>模型迭代极快，具体分数请以来源链接的实时数据为准。
+    </div>
+
+    <div class="subtabs" id="rankSubtabs">
+      <button class="subtab active" data-pane="models">🤖 大模型</button>
+      <button class="subtab" data-pane="tools">🛠 编程工具</button>
+      <button class="subtab" data-pane="combos">🔗 工具×模型组合</button>
+      <button class="subtab" data-pane="tables">📊 真实榜单 Top10</button>
+    </div>
+
+    <div class="rankpane active" id="p-models"></div>
+    <div class="rankpane" id="p-tools"></div>
+    <div class="rankpane" id="p-combos"></div>
+    <div class="rankpane" id="p-tables"></div>
+  </div>
+
+  <!-- ================= LEARN VIEW ================= -->
+  <div id="view-learn" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-learn">
+    <div class="view-head"><h2>📚 AI 上手实战</h2>
+      <p>不是教科书——这是你的<b>随用随取指令台</b>。挑一个你正在做的场景，点开就有能直接复制去用的指令；下面还有下指令公式、工具分工和避坑。</p></div>
+
+    <div class="daily-tip" id="learn-daily-tip">💡 <b>今日一招：</b>把 AI 当新来的师弟，不当搜索引擎——交代背景越多，它干得越像样。</div>
+
+    <div class="lk-tip">💡 <b>大实话：</b>你用 WorkBuddy 当总入口就已经在"用 AI"了。这一页帮你把<b>"怎么下指令"</b>练熟——这是提效最大杠杆，省得被名词吓到。</div>
+
+    <h3 class="lk-h">🎯 按场景挑一个练（点开卡片，一键复制指令）</h3>
+    <div class="sc-grid" id="sc-grid">
+
+      <div class="sc-card">
+        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
+          <span class="sc-ico">📝</span><span class="sc-name">论文改稿 · 导师批注清零</span><span class="chev">▸</span>
+        </div>
+        <div class="sc-detail">
+          <p class="sc-why">把导师在 Word 里留的批注系统化清零：先出清单再动手，避免改漏、防 AI 擅自改。</p>
+          <div class="lk-code" id="sc-p1">你是我同课题组的师弟，严谨细心。附件是导师在 Word 里留的 N 条批注（已导出为列表）。
+请逐条：①判断批注类型（事实错误／表达／数据／格式／待定）；②给出修改建议与可直接替换的中文；
+③标出需要我人工确认的（数值、专业术语、可能的事实问题），不要擅自改。
+先输出"批注处理清单"（表格：序号｜类型｜建议｜是否需我确认），不要直接改原文。</div>
+          <div class="sc-foot"><span class="sc-tool">🛠 用：WorkBuddy</span><button class="copybtn" data-copy="sc-p1">复制指令</button></div>
+        </div>
+      </div>
+
+      <div class="sc-card">
+        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
+          <span class="sc-ico">📚</span><span class="sc-name">文献速读（3 分钟判断值不值得精读）</span><span class="chev">▸</span>
+        </div>
+        <div class="sc-detail">
+          <p class="sc-why">长 PDF 丢进去，先要"结论＋方法＋创新＋局限"，再决定精读哪篇，省时间。</p>
+          <div class="lk-code" id="sc-p2">你是文献助手。下面这篇 PDF／文字是 [文献标题或方向]。
+请用 3 分钟能读完的篇幅给我：①一句话结论；②方法核心；③相对已有工作的创新点；
+④局限与可借鉴处；⑤3 个值得引用的关键句（附原文页码或位置）。
+不确定处一律注明"待核"，不要编造 DOI。</div>
+          <div class="sc-foot"><span class="sc-tool">🛠 用：Gemini（长文通读）</span><button class="copybtn" data-copy="sc-p2">复制指令</button></div>
+        </div>
+      </div>
+
+      <div class="sc-card">
+        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
+          <span class="sc-ico">🌐</span><span class="sc-name">中英翻译润色（学术英文）</span><span class="chev">▸</span>
+        </div>
+        <div class="sc-detail">
+          <p class="sc-why">对齐你已有的"论文改稿格式规范.md"：ACS／Elsevier 风格，数值化学式零改动。</p>
+          <div class="lk-code" id="sc-p3">你是材料科学方向、母语为英的 co-author。把下面中文译成学术英文，风格贴近 ACS／Elsevier（Applied Surface Science 基调）；
+保留所有化学式、数值与单位；难译术语附原文并在首次出现给缩写。
+先给术语表，再给译文；译后数值须与原文逐项一致，不一致请标出。</div>
+          <div class="sc-foot"><span class="sc-tool">🛠 用：GPT / WorkBuddy</span><button class="copybtn" data-copy="sc-p3">复制指令</button></div>
+        </div>
+      </div>
+
+      <div class="sc-card">
+        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
+          <span class="sc-ico">📊</span><span class="sc-name">数据处理 · 实验记录整理</span><span class="chev">▸</span>
+        </div>
+        <div class="sc-detail">
+          <p class="sc-why">散落笔记／截图，让 AI 整理成规范表格，标出异常值——你只复核。</p>
+          <div class="lk-code" id="sc-p4">你是我实验室的助手。下面是 [实验记录／一堆数据]（可贴文本或表格）。请：
+①整理成 Markdown 表格（列：样品｜条件｜表征结果｜备注）；
+②标出缺失或异常值；③用一句话总结趋势。
+严禁编造任何缺失数据——缺失就写"缺"，异常就标"⚠"。</div>
+          <div class="sc-foot"><span class="sc-tool">🛠 用：WorkBuddy</span><button class="copybtn" data-copy="sc-p4">复制指令</button></div>
+        </div>
+      </div>
+
+      <div class="sc-card">
+        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
+          <span class="sc-ico">🧮</span><span class="sc-name">数学建模 · 华为杯（你已有 3 人队）</span><span class="chev">▸</span>
+        </div>
+        <div class="sc-detail">
+          <p class="sc-why">你零编程也要能看懂流程图——先讲思路再给可跑代码，不炫技。</p>
+          <div class="lk-code" id="sc-p5">你是我数模队的队友（我化工背景、零编程）。题目：[粘贴题面]。请：
+①用大白话讲清建模思路与可采用的模型；②给出可运行的 Python 代码框架（带注释，数据用占位）；
+③列出论文该写哪几节、每节要点；④给出可用 matplotlib 画的 2–3 张图建议。
+代码要能跑、要注释，别堆术语。</div>
+          <div class="sc-foot"><span class="sc-tool">🛠 用：WorkBuddy</span><button class="copybtn" data-copy="sc-p5">复制指令</button></div>
+        </div>
+      </div>
+
+      <div class="sc-card">
+        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
+          <span class="sc-ico">🧠</span><span class="sc-name">信息素养大赛 · 答题双轨</span><span class="chev">▸</span>
+        </div>
+        <div class="sc-detail">
+          <p class="sc-why">按你定的规则：有把握的题直接答并给依据；没把握的题改成教你自己查。</p>
+          <div class="lk-code" id="sc-p6">我在参加 AI＋信息素养大赛。规则：有把握的题你直接给答案并说明依据让我复核；
+没把握的题你改为教我操作步骤（打开哪个网站、点哪里、填什么、看哪个数），让我自己查。
+现在这题：[题目]。先判断你是否有把握，再按对应方式回答，不要猜了就选。</div>
+          <div class="sc-foot"><span class="sc-tool">🛠 用：WorkBuddy</span><button class="copybtn" data-copy="sc-p6">复制指令</button></div>
+        </div>
+      </div>
+
+      <div class="sc-card">
+        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
+          <span class="sc-ico">✍️</span><span class="sc-name">中文写作 · 小说／材料文案</span><span class="chev">▸</span>
+        </div>
+        <div class="sc-detail">
+          <p class="sc-why">保持已有的人设与节奏，不擅自加设定——尤其《灾变炉心》这种反复改的。</p>
+          <div class="lk-code" id="sc-p7">你是我写作的搭档，熟悉《灾变炉心》的设定与人设。任务：[续写／润色／出大纲]。
+要求：保持已有的人设、语气与节奏；不擅自加设定；若续写请给 2 个走向让我选。
+先确认你对当前情节的理解，再动手。</div>
+          <div class="sc-foot"><span class="sc-tool">🛠 用：WorkBuddy / GPT</span><button class="copybtn" data-copy="sc-p7">复制指令</button></div>
+        </div>
+      </div>
+
+      <div class="sc-card">
+        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
+          <span class="sc-ico">🔍</span><span class="sc-name">图表解读（给假设，不装结论）</span><span class="chev">▸</span>
+        </div>
+        <div class="sc-detail">
+          <p class="sc-why">贴数据或描述图，让它讲趋势、给可能原因——原因只是假设，要你验证。</p>
+          <div class="lk-code" id="sc-p8">你帮我解读数据。下面是 [数据／图的描述]：_____。请：
+①说明整体趋势；②给出 2–3 条可能的原因（明确标注"这是假设，需实验验证"）；
+③指出有没有异常点。不要假装这是已证实结论。</div>
+          <div class="sc-foot"><span class="sc-tool">🛠 用：WorkBuddy</span><button class="copybtn" data-copy="sc-p8">复制指令</button></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="lk-section">
+      <h3>✍️ 下指令公式（你最该练的）</h3>
+      <p>好指令 = <b>角色 + 背景 + 任务 + 约束 + 验收</b>。后两条（约束、验收）最容易被漏，偏偏是你最需要的。</p>
+      <div class="lk-grid">
+        <div class="lk-card"><h4>角色</h4><p>你让我当谁（"你是我同课题组的师弟"）。</p></div>
+        <div class="lk-card"><h4>背景</h4><p>相关上下文（"在改 Cu(II) 配位聚合物 SCI 论文"）。</p></div>
+        <div class="lk-card"><h4>任务</h4><p>具体要我做啥（"把这段中文译成学术英文"）。</p></div>
+        <div class="lk-card"><h4>约束</h4><p>格式／风格／边界（"保留数值，不改单位"）。</p></div>
+        <div class="lk-card"><h4>验收</h4><p>怎么算对（"译后数值须与表 5.1 一致"）。</p></div>
+      </div>
+    </div>
+
+    <div class="lk-section">
+      <h3>🧰 工具分工速查</h3>
+      <ul>
+        <li><b>WorkBuddy</b>＝总入口与执行（读写本机文件、跑脚本、跨文件核对）。最该用熟。</li>
+        <li><b>Gemini</b>＝长文献通读 + 第二意见（网页端用）。</li>
+        <li><b>GPT</b>＝英文润色 / 脑暴。</li>
+        <li><b>opencode / Cursor</b>＝想"让 AI 直接写改代码"时再上（免费／低门槛）。</li>
+        <li><b>Claude Code / Codex</b>＝命令行 Agent，进阶后再碰，现在别花时间。</li>
+      </ul>
+    </div>
+
+    <div class="lk-section">
+      <h3>⚠️ 避坑</h3>
+      <ul>
+        <li><b>幻觉</b>：AI 会编引用 / DOI / 数据，关键处务必你亲自核对原文。</li>
+        <li><b>别当搜索引擎</b>：给背景＋约束它才像同事；只丢一句"查一下"它会编。</li>
+        <li><b>隐私</b>：未发表稿件、未公开实验数据、个人信息，别随手传公有模型。</li>
+        <li><b>一个文件别让多个模型同时改</b>：防版本冲突（你的硬规则）。</li>
+        <li><b>模型会过时</b>：本站排行榜是静态快照，实时排名看各榜单官网。</li>
+      </ul>
+    </div>
+
+    <style>
+      .rlib-intro{font-size:14px;color:#374151;line-height:1.75;margin:6px 0 14px}
+      .rlib-intro b{color:var(--ink)}
+      .cat-h{font-size:15px;margin:18px 0 10px;color:var(--brand);font-weight:700}
+      .rsrc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px;margin-bottom:4px}
+      .rsrc-item{border:1px solid var(--line);border-radius:10px;padding:12px 13px;background:#fcfdff;box-shadow:var(--shadow)}
+      .rsrc-item .rsrc{font-size:14.5px;font-weight:700;color:var(--brand);text-decoration:none;word-break:break-word}
+      .rsrc-item .rsrc:hover{text-decoration:underline}
+      .plat{display:inline-block;font-size:11px;font-weight:600;color:#6b7280;background:#eef2f7;border-radius:6px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+      .rsrc-item>p{font-size:13px;color:#374151;line-height:1.6;margin:7px 0 9px}
+      .tag{display:inline-block;font-size:11px;color:#0f766e;background:#e6f7f3;border:1px solid #b8e6dd;border-radius:999px;padding:1px 8px;margin:2px 5px 0 0}
+      .rlib-note{font-size:13px;color:#374151;line-height:1.7;margin-top:14px;padding:10px 12px;background:#fff7ed;border:1px solid #fed7aa;border-radius:10px}
+      .rlib-mini{font-size:13px;color:#374151;line-height:1.7;margin-top:12px}
+      .rlib-mini a{color:var(--brand);text-decoration:none}
+      .rlib-mini a:hover{text-decoration:underline}
+    </style>
+
+    <div class="lk-section">
+      <h3>📚 全网优质 AI 教学资源库（别人怎么教，照着学）</h3>
+      <p class="rlib-intro">下面是从全网筛出来的<b>火或权威</b>的 AI 教学——视频 / 课程 / 图文都有，按"你想要什么"分类。链接都点得开，<b>中文优先、零基础友好</b>排在前面。挑一个今天就看 15 分钟，比收藏 100 个更有用。⚠️ 别囤课：看完一个再看下一个。</p>
+
+      <h4 class="cat-h">🎬 一、大佬白话科普（搞懂 AI/LLM 是什么，零基础）</h4>
+      <div class="rsrc-grid">
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi" target="_blank" rel="noopener noreferrer">3Blue1Brown《神经网络》系列<span class="plat">YouTube</span></a>
+          <p>用动画把神经网络、梯度下降、Transformer、扩散模型一层层讲透，公认最直观的入门。不用写代码，看就懂。</p>
+          <span class="tag">零基础</span><span class="tag">视频</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.youtube.com/@AndrejKarpathy" target="_blank" rel="noopener noreferrer">Karpathy：Intro to LLMs / How I use LLMs<span class="plat">YouTube</span></a>
+          <p>前 OpenAI、Tesla AI 总监。频道里这两场通俗演讲必看：一场讲清 LLM 原理，一场讲日常怎么用。想深究可看《Zero to Hero》从零写 GPT 系列。</p>
+          <span class="tag">零基础</span><span class="tag">视频</span><span class="tag">进阶可挖</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.bilibili.com/video/BV1KUNjzpEpM/" target="_blank" rel="noopener noreferrer">李宏毅《生成式AI导论 2025》<span class="plat">B站</span></a>
+          <p>台大教授，中文授课，明确写"不需任何先验知识"。从 Transformer 一路讲到 DeepSeek、RLHF，是最顺的中文入门。</p>
+          <span class="tag">零基础</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.bilibili.com/video/BV1aiADewEBC/" target="_blank" rel="noopener noreferrer">李宏毅《机器学习 2025》<span class="plat">B站</span></a>
+          <p>已授权完整版，今年内容偏实际应用、紧跟大模型趋势。想系统打底就看这一套（经典机器学习认准此版）。</p>
+          <span class="tag">进阶</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+      </div>
+
+      <h4 class="cat-h">🛠 二、工具实操（科研人怎么用 AI 真干活）</h4>
+      <div class="rsrc-grid">
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=%E5%81%9A%E7%A7%91%E7%A0%94%E7%9A%84%E5%A4%A7%E5%B8%88%E5%85%84" target="_blank" rel="noopener noreferrer">做科研的大师兄<span class="plat">B站</span></a>
+          <p>中山医博后，讲 ChatGPT / DeepSeek 辅助论文写作、文献带读、GraphPad 作图，全是科研人能直接抄的实战，35 万+粉。</p>
+          <span class="tag">科研向</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=%E5%A4%A9JIANG" target="_blank" rel="noopener noreferrer">天JIANG<span class="plat">B站</span></a>
+          <p>AI 工具使用实战派，ChatGPT / DeepSeek 新手技巧系列很接地气，适合刚上手的人。</p>
+          <span class="tag">新手</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=%E5%90%8C%E6%B5%8E%E5%AD%90%E8%B1%AA%E5%85%84" target="_blank" rel="noopener noreferrer">同济子豪兄<span class="plat">B站</span></a>
+          <p>计算机视觉实战专家，从项目出发讲 AI 应用，教程详细可复现。想做图像/检测类方向可跟。</p>
+          <span class="tag">进阶</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://igniva-review.com/chatgpt-and-claude-ai/" target="_blank" rel="noopener noreferrer">ChatGPT + Claude 协同用法（图文）<span class="plat">博客</span></a>
+          <p>心法：ChatGPT 头脑风暴+写初稿，Claude 吃长文档做总结+润色。两个配合比单用一个强。附分步上手教程。</p>
+          <span class="tag">科研向</span><span class="tag">图文</span>
+        </div>
+      </div>
+
+      <h4 class="cat-h">📚 三、系统权威课（想系统学就上，多数免费）</h4>
+      <div class="rsrc-grid">
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.deeplearning.ai/" target="_blank" rel="noopener noreferrer">DeepLearning.AI（Andrew Ng）<span class="plat">官网</span></a>
+          <p>吴恩达出品。《AI for Everyone》非技术向、《ChatGPT Prompt Engineering for Developers》等，免费，质量天花板。</p>
+          <span class="tag">系统</span><span class="tag">免费</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://developers.google.com/machine-learning/crash-course" target="_blank" rel="noopener noreferrer">Google 机器学习速成课 MLCC<span class="plat">官网</span></a>
+          <p>30+ 互动练习、真实案例，支持中文，约 15 小时。想搞懂机器学习基本功就刷这个。</p>
+          <span class="tag">零基础</span><span class="tag">免费</span><span class="tag">中文可选</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://cs50.harvard.edu/ai/" target="_blank" rel="noopener noreferrer">Harvard CS50 AI with Python<span class="plat">edX</span></a>
+          <p>哈佛传奇 CS50 系列的 AI 版，搜索/知识表示/机器学习/LLM 都用 Python 实战，免费旁听。</p>
+          <span class="tag">系统</span><span class="tag">免费旁听</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.fast.ai/" target="_blank" rel="noopener noreferrer">fast.ai《Practical Deep Learning》<span class="plat">官网</span></a>
+          <p>"自顶向下"：第一天就跑通 SOTA 模型，再回头讲理论。全程免费 Colab，社区活跃。</p>
+          <span class="tag">进阶</span><span class="tag">免费</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.elementsofai.com/" target="_blank" rel="noopener noreferrer">Elements of AI（赫尔辛基大学）<span class="plat">官网</span></a>
+          <p>零数学、零代码，面向所有人讲清 AI 基础，超百万人学过，多语言。</p>
+          <span class="tag">零基础</span><span class="tag">免费</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="http://introtodeeplearning.com/" target="_blank" rel="noopener noreferrer">MIT 6.S191 深度学习导论<span class="plat">官网</span></a>
+          <p>MIT 每年更新的公开讲座+实验，覆盖 CV / NLP / 生成模型，研究级视角，全部免费。</p>
+          <span class="tag">进阶</span><span class="tag">免费</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.bilibili.com/video/BV1daQAYuEYm/" target="_blank" rel="noopener noreferrer">李沐《动手学深度学习》<span class="plat">B站</span></a>
+          <p>亚马逊首席科学家，逐行敲代码讲深度学习，配套开源书 d2l.ai。想真动手实现就看这个。</p>
+          <span class="tag">进阶</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+      </div>
+
+      <h4 class="cat-h">✍️ 四、提示词 / 指令工程（专练"下指令"，你最该练的）</h4>
+      <div class="rsrc-grid">
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" rel="noopener noreferrer">OpenAI 官方提示工程指南<span class="plat">文档</span></a>
+          <p>最权威基线：清晰指令、角色设定、示例、输出约束、评估。短小精悍，每个用 AI 的人都该过一遍。</p>
+          <span class="tag">必看</span><span class="tag">文档</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank" rel="noopener noreferrer">Anthropic 提示工程概览 + Prompt Library<span class="plat">文档</span></a>
+          <p>Claude 官方：什么时候该调提示词、什么时候该换模型/微调的决策框架，外加 50+ 现成模板直接改。</p>
+          <span class="tag">必看</span><span class="tag">文档</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://learnprompting.org/" target="_blank" rel="noopener noreferrer">Learn Prompting<span class="plat">课程</span></a>
+          <p>免费互动课，从零基础到进阶技术，结构清晰，边学边练。</p>
+          <span class="tag">免费</span><span class="tag">课程</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.promptingguide.ai/" target="_blank" rel="noopener noreferrer">DAIR.AI Prompt Engineering Guide<span class="plat">文档</span></a>
+          <p>最全开源指南，18+ 技术、各模型专项建议，常作为权威参考。</p>
+          <span class="tag">进阶</span><span class="tag">文档</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://cookbook.openai.com/" target="_blank" rel="noopener noreferrer">OpenAI Cookbook<span class="plat">GitHub</span></a>
+          <p>官方范例代码集：RAG、函数调用、评估、复杂工作流，想让 AI 干复杂活就翻这里。</p>
+          <span class="tag">进阶</span><span class="tag">代码</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://ai.google.dev/gemini-api/docs/prompting-strategies" target="_blank" rel="noopener noreferrer">Google Gemini 提示策略<span class="plat">文档</span></a>
+          <p>多模态提示（文字+图+视频）怎么写，Gemini 特化技巧。</p>
+          <span class="tag">文档</span><span class="tag">多模态</span>
+        </div>
+      </div>
+
+      <h4 class="cat-h">📝 五、图文 / 博客（随时翻的权威参考）</h4>
+      <div class="rsrc-grid">
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://huggingface.co/learn" target="_blank" rel="noopener noreferrer">Hugging Face Learn<span class="plat">官网</span></a>
+          <p>开源模型与 AIGC 工具链教程，从 Transformer 到微调部署，工程师向。</p>
+          <span class="tag">进阶</span><span class="tag">文档</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.kaggle.com/learn" target="_blank" rel="noopener noreferrer">Kaggle Learn<span class="plat">官网</span></a>
+          <p>浏览器内边做边学，免费数据集+实战微课程，想练手直接上。</p>
+          <span class="tag">免费</span><span class="tag">实战</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.deeplearning.ai/the-batch/" target="_blank" rel="noopener noreferrer">The Batch（DeepLearning.AI 周报）<span class="plat">资讯</span></a>
+          <p>吴恩达团队每周 AI 资讯，紧跟产业与研究动态。</p>
+          <span class="tag">资讯</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://lilianweng.github.io/" target="_blank" rel="noopener noreferrer">Lilian Weng Blog<span class="plat">博客</span></a>
+          <p>OpenAI 研究员的技术博客，提示工程、Agent 等主题写得很深，进阶必读。</p>
+          <span class="tag">进阶</span><span class="tag">博客</span>
+        </div>
+      </div>
+
+      <div class="rlib-note">💡 <b>科研 workflow 心法：</b>把 AI 当"新来的师弟"。①<b>文献/长文</b>丢给 Claude 或 Gemini 做总结带读（它们吃长文本强）；②<b>头脑风暴/写初稿/画图</b>用 ChatGPT 或 WorkBuddy；③<b>数值/化学式/DOI</b> 务必你亲自核对原文，AI 会编。核心创新点和实验数据必须是你自己的。</div>
+
+      <div class="rlib-mini">📊 <b>顺手看排名/日报：</b>
+        <a href="https://aihot.virxact.com/" target="_blank" rel="noopener noreferrer">AIHOT 每日日报</a>（本站数据源）·
+        <a href="https://lmarena.ai/leaderboard/text" target="_blank" rel="noopener noreferrer">LMArena 文本榜</a>（用起来谁最强）·
+        <a href="https://artificialanalysis.ai/" target="_blank" rel="noopener noreferrer">Artificial Analysis</a>（智能指数+价格）·
+        <a href="https://www.swebench.com/" target="_blank" rel="noopener noreferrer">SWE-bench</a>（代码能力）。
+        本机还有你的 <code>AI指令手册.html</code>（20 条可复制模板，电脑里双击打开）。
+      </div>
+    </div>
+
+    <div class="lk-section">
+      <h3>📖 还想深究？名词 / 排行榜速查</h3>
+      <p>
+        <span class="lk-pill">LLM 大语言模型</span><span class="lk-pill">Token 计费/长度单位</span>
+        <span class="lk-pill">Prompt 指令</span><span class="lk-pill">Agent 智能体</span>
+        <span class="lk-pill">RAG 读你的资料再答</span><span class="lk-pill">推理模型 会"想一下"</span>
+        <span class="lk-pill">上下文窗口 一次看多少</span><span class="lk-pill">多模态 图文音视频</span>
+        <span class="lk-pill">幻觉 编假内容</span><span class="lk-pill">Benchmark 基准测试</span>
+      </p>
+      <p style="margin-top:10px"><b>排行榜在比什么：</b>LMArena（真人盲测体感）、AA 智能指数（客观总分）、SWE-bench（写代码）、GPQA / MMLU（硬核学科）、Terminal-Bench（命令行 Agent）。同一模型聊天第一、写代码未必第一——看"比什么"。</p>
+    </div>
+
+  </div>
+
+  <!-- ================= COMPETITION VIEW ================= -->
+  <div id="view-comp" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-comp">
+    <div class="view-head"><h2>🏁 比赛地图：我能报 + 全球一览</h2>
+      <p>两块内容：① <b>我能报的</b>——搜罗全网现在和接下来能报名、且能靠 AI 大幅提效的比赛（数据核对于 <b>2026-09-22</b>，状态灯按当天判定；共收录 <b id="comp-count">0</b> 项，分页浏览、每页 12 条），点卡片直达官网；② <b>🌍 全球一览</b>——世界级赛事（AI/机器人/航天/科创），多数你报不了，但能开眼界看全球在比什么、顶尖水平在哪。用上方按钮切换，结果可翻页。</p></div>
+    <div class="news">
+      🎯 <b>挑赛思路：</b>研究生优先看「中国研究生创新实践系列大赛」（官网 cpipc.acge.org.cn，20 项主题赛 + 2 专项赛）；想零门槛拿奖就选 <b>科大讯飞 AI 开发者大赛的"应用赛 / Skill 开发赛"</b>和 <b>天池 / DataFountain / Kaggle</b> 这类数据赛——几乎全程可用 AI 辅助。创新创业类（互联网+、挑战杯）AI 帮写商业计划书和路演。⚠️ 注意：<b>英语翻译大赛有"AI 生成检测"规定，AI 只能辅助、不能代写</b>。
+    </div>
+    <div class="disclaim">
+      <b>说明：</b>赛程与截止时间以<b>官网最新通知</b>为准（本页数据核对于 2026-09-22，状态灯按当天判定；部分赛事每年滚动，已截止的可直接关注下一届）。🟠 即将截止（约一周内）的请优先处理。状态：🟢 可报名 / 🟠 即将截止 / ⚪ 已截止或需等下一届。
+    </div>
+
+    <div class="cmp-toolbar">
+      <span id="comp-stat" style="font-size:13px;color:var(--ink-soft);margin-right:auto"></span>
+      <span id="comp-updated" style="font-size:12px;color:var(--ink-soft);margin-left:8px"></span>
+      <div id="compScope" style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="filterbtn active" data-s="me">我能报的</button>
+        <button class="filterbtn" data-s="world">🌍 全球一览</button>
+        <button class="filterbtn" data-s="all">全部</button>
+      </div>
+      <div id="compFilters" style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="filterbtn" data-f="all">全部状态</button>
+        <button class="filterbtn" data-f="soon">🟠 即将截止</button>
+        <button class="filterbtn active" data-f="open">🟢 可报名</button>
+        <button class="filterbtn" data-f="closed">⚪ 已截止</button>
+      </div>
+      <div id="compSort" style="display:flex;gap:8px;flex-wrap:wrap;margin-left:8px">
+        <span style="font-size:12px;color:var(--ink-soft);align-self:center">排序</span>
+        <button class="filterbtn active" data-sort="pri">🔥 推荐优先</button>
+        <button class="filterbtn" data-sort="default">默认</button>
+      </div>
+    </div>
+    <div id="comp-world-note" class="news" style="display:none">
+      🌍 <b>全球一览：</b>以下为世界级赛事——AI / 机器人 / 航天 / 科创的"奥运会"。多数你<b>无法以个人身份报名</b>（限国籍 / 年龄 / 高校团队 / 邀请制），列出仅供开眼界：看全球在比什么、顶尖水平在哪。少数（如 NASA Space Apps、Kaggle）其实对中国开放，卡片里标了就说明你能上。
+    </div>
+
+    <div class="cmp-list" id="comp-list"></div>
+    <div class="cmp-pager" id="comp-pager"></div>
+
+    <div class="lk-tip" style="margin-top:18px">
+      💡 <b>AI 参赛心法：</b>把 AI 当"队友"而不是"枪手"。用它做思路脑暴、代码实现、资料整理、图表美化、文档与 PPT 撰写；但<b>核心创新点、实验数据、诚信底线必须是你自己的</b>。多数比赛评的是你的理解与贡献，AI 只是放大器。
+    </div>
+  </div>
+
+  <button id="toTop" title="回到顶部" aria-label="回到顶部">↑</button>
+
+  <script src="competitions.js"></script>
+<script>
+(function(){
+  "use strict";
+
+  /* ============ TAB SWITCHING ============ */
+  function showTab(tab){
+    document.querySelectorAll(".tab").forEach(function(t){ var on=(t.dataset.tab===tab); t.classList.toggle("active", on); t.setAttribute("aria-selected", on?"true":"false"); });
+    ["daily","rank","comp","learn"].forEach(function(v){
+      var el=document.getElementById("view-"+v);
+      if(el){ el.style.display = (v===tab)?"":"none"; el.setAttribute("aria-hidden", v===tab?"false":"true"); }
+    });
+    window.scrollTo(0,0);
+  }
+  document.querySelectorAll(".tab").forEach(function(t){
+    t.addEventListener("click", function(){ showTab(t.dataset.tab); });
+  });
+
+  /* ============ RANK DATA (snapshot 2026-09-22) ============ */
+  var RANK = {
+    models: [
+      {name:"Claude Fable 5.1", vendor:"Anthropic（美国）", price:"Pro $17–20/月；API $10/$50 每百万", iaa:53, tb:91.4,
+       t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"B",性价比:"C",开源:"—"},
+       note:"2026-09-01 发布，AA 智能指数 v4.3 并列第一（53）；TB2.1 第一（91.4%）。⚠ 官方 8/29 已升级 Terminal-Bench v4.0（66 题、难度大幅提升），AA v4.3 起改用 TB4.0：Astra 59.1% > Fable 5.1 52.0% > Opus 5 49.0% > GPT-5.6 Sol 39.9%；本页 TB 列仍为 2.1 旧口径。推理/综合最强，但价格最高、中文偏弱。"},
+      {name:"GPT-6 Astra", vendor:"OpenAI（美国）", price:"API $10/$50 每百万", iaa:53, tb:89.9,
+       t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"A",性价比:"C",开源:"—"},
+       note:"2026-09-03 发布，号称进入 AGI 时代；AA 指数并列第一（53）、代码 Agent 指数 67；TB4.0 59.1%（max）现居第一。但被定为「关键网络安全」级，目前仅 Daybreak 计划批准者可用，投票榜样本极少。"},
+      {name:"Claude Opus 5", vendor:"Anthropic（美国）", price:"Pro $17–20/月；API $5/$25 每百万", iaa:51, tb:89.1,
+       t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"B",性价比:"B",开源:"—"},
+       note:"投票榜 coding 冠军（image-to-WebDev 第一），价格仅 Fable 5.1 一半（$5/$25）；TB2.1 89.1%（TB4.0 49.0%）。英文/代码极强，中文偏弱。"},
+      {name:"Claude Fable 5", vendor:"Anthropic（美国）", price:"Pro $17–20/月；API $10/$50 每百万", iaa:50, tb:83.1,
+       t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"B",性价比:"C",开源:"—"},
+       note:"LMArena 文本盲测长期第一（体感最佳）；AA 50。配 Claude Code 时 SWE-bench Verified 达 95%。综合 S 但价格高。"},
+      {name:"GPT-5.6 Sol", vendor:"OpenAI（美国）", price:"Plus $20/月；API $4/$20 每百万", iaa:47, tb:89.5,
+       t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"A",性价比:"B",开源:"—"},
+       note:"AA 47、TB2.1 89.5%（与 Astra 同档）；⚠ TB4.0 掉到 39.9%，与 Astra 拉开 19.2 分。代码 Agent 指数 67，生态最全。中文与代码均强，性价比优于 Claude。"},
+      {name:"Grok 4.6", vendor:"xAI（美国）", price:"API $2/$6 每百万", iaa:44, tb:88.4,
+       t:{综合:"A",推理:"A",代码:"A",多模态:"A",长上下文:"B",中文:"B",性价比:"B",开源:"—"},
+       note:"8 月后训练刷新，AA 跳至 44；TB2.1 88.4%。价格低、长任务回合少。中文/长上下文略逊。"},
+      {name:"Grok 4.7", vendor:"xAI（美国）", price:"API 价格待公布", iaa:null, tb:null,
+       t:{综合:"A",推理:"A",代码:"A",多模态:"A",长上下文:"B",中文:"B",性价比:"B",开源:"—"},
+       note:"2026-09-12 发布，参数 2.1 万亿（较 Grok 4.6 的 1.5 万亿增约 40%），xAI 称性能与效率全面提升。⚠ 目前尚无 AA 智能指数 / Terminal-Bench 公开分数，评级暂沿用 4.6 档，待核实。"},
+      {name:"Muse Spark 1.3", vendor:"Meta（美国）", price:"闭源（开发者发布）", iaa:48, tb:null,
+       t:{综合:"A",推理:"A",代码:"A",多模态:"B",长上下文:"B",中文:"C",性价比:"B",开源:"—"},
+       note:"2026-09-02 发布，AA 48（8 点跃升）；开发者发布、无消费端入口；agent 行全面落后（Meta 自家图）；TB4.0 约 33.3%（AA 口径）。英文生态为主。"},
+      {name:"GLM-5.3 / GLM-5.3-Flash", vendor:"智谱 Zhipu（中国）", price:"Flash 开源 MIT；API $0.15/$0.50 每百万", iaa:45, tb:84.3,
+       t:{综合:"A",推理:"A",代码:"A",多模态:"B",长上下文:"A",中文:"S",性价比:"A",开源:"A"},
+       note:"国产综合最强之一；Flash 版 8-26 发布即 MIT 开源、AA 42、性价比之王（列表价 $0.15/$0.50）。中文 S。"},
+      {name:"Kimi K3", vendor:"Moonshot AI（中国）", price:"免费商用 / API 低价", iaa:44, tb:85.0,
+       t:{综合:"A",推理:"A",代码:"A",多模态:"B",长上下文:"A",中文:"A",性价比:"A",开源:"A"},
+       note:"AA 44、Terminal-Bench 85.0；长上下文与中文强，部分权重开源可自部署。"},
+      {name:"Gemini 3.8 Flash", vendor:"Google（美国）", price:"API $0.75/$3.75 每百万（2027 起翻倍）", iaa:41, tb:87.6,
+       t:{综合:"A",推理:"A",代码:"A",多模态:"S",长上下文:"S",中文:"A",性价比:"A",开源:"—"},
+       note:"2026-09-02 发布，Google 当前主力 workhorse；多模态/超长上下文（1M）标杆，TB2.1 87.6%。⚠ TB4.0 仅 19.7%（新榜难度陡增，同模型跌幅最大）。价格友好（限时）。"},
+      {name:"Gemini 3.1 Pro", vendor:"Google（美国）", price:"API $2/$12 每百万", iaa:null, tb:null,
+       t:{综合:"A",推理:"S",代码:"A",多模态:"A",长上下文:"S",中文:"A",性价比:"B",开源:"—"},
+       note:"现仍在售的真正旗舰 Pro（3.5 Pro 一再跳票）；GPQA Diamond 94.3%、ARC-AGI-1 98%。最强纯推理与超长上下文，价格高于 Flash。"},
+      {name:"Qwen3.8-Max", vendor:"阿里巴巴（中国）", price:"闭源顶配 / Qwen3.8-Flash-Next 开源", iaa:40, tb:null,
+       t:{综合:"A",推理:"A",代码:"A",多模态:"B",长上下文:"A",中文:"A",性价比:"A",开源:"A"},
+       note:"Qwen3.8-Max-0902 于 9-2 登 Code Arena WebDev 榜首（1691）；开源 Qwen3.8-Flash-Next 首发 Qwen4 架构。生态最大。"},
+      {name:"DeepSeek V4.1-Flash", vendor:"DeepSeek（中国）", price:"限时 API 预览 / 低价", iaa:40, tb:null,
+       t:{综合:"B",推理:"B",代码:"A",多模态:"B",长上下文:"B",中文:"A",性价比:"A",开源:"—"},
+       note:"2026-09-10 发布，552B MoE（每 token 激活 8–16B）、原生多模态，推理效率大幅提升；AA 指数 40（max，2026-09-13 版）。⚠ 限时 API 预览版，是否开放权重待核实；TB4.0 各家 harness 差异极大（约 11.6%–26.8%），暂不填。"},
+      {name:"DeepSeek V4 Pro", vendor:"DeepSeek（中国）", price:"开源免费 / API 低价", iaa:36, tb:78.7,
+       t:{综合:"B",推理:"B",代码:"A",多模态:"B",长上下文:"B",中文:"A",性价比:"S",开源:"S"},
+       note:"DeepSWE 1.1 80.6%（开源权重最高）；性价比/开源双 S，可完全自部署。综合与英文稍弱。"},
+      {name:"Hunyuan 混元", vendor:"腾讯（中国）", price:"Hy4 Preview 开源（Apache 2.0）", iaa:null, tb:null,
+       t:{综合:"B",推理:"B",代码:"B",多模态:"B",长上下文:"B",中文:"A",性价比:"B",开源:"A"},
+       note:"国产主力，中文与性价比均衡；Hy4 Preview 8-28 开源（770B，Apache 2.0），适合国内合规与本地化。"},
+      {name:"Llama 4", vendor:"Meta（美国）", price:"开源权重", iaa:null, tb:null,
+       t:{综合:"B",推理:"B",代码:"B",多模态:"B",长上下文:"B",中文:"C",性价比:"B",开源:"S"},
+       note:"经典开源底座，生态与工具链最成熟；中文弱，是许多自部署方案的首选底模。"},
+      {name:"MiniMax M3", vendor:"MiniMax（中国）", price:"开源权重 / API", iaa:null, tb:null,
+       t:{综合:"B",推理:"B",代码:"B",多模态:"B",长上下文:"B",中文:"A",性价比:"B",开源:"A"},
+       note:"国产新锐，中文与多模态均衡，已开放部分权重；综合处于第二梯队。"}
+    ],
+    tools: [
+      {name:"Claude Code", model:"默认 Claude Opus 5 / Fable 5", price:"Pro $17–20/月（按 token 计）", tb:89.1, sv:95.0,
+       t:{上手:"B",开源:"—"},
+       note:"终端优先、harness 最深：1M 上下文、子代理并行、钩子（hooks）可编程。SWE-bench V 95%（Fable 5）、TB2.1 89.1% 标杆；缺点 token 消耗大（约 Codex 3–4 倍），无 IDE 图形界面。"},
+      {name:"OpenAI Codex", model:"默认 GPT-5.6 Sol", price:"Plus $20/月", tb:89.5, sv:88.7,
+       t:{上手:"B",开源:"—"},
+       note:"并行/异步云虚拟机跑任务、git worktree 排队不冲突、自动提 PR；Terminal-Bench 2.1 89.5% 第一。跨 CLI/IDE/云/GitHub 最全。"},
+      {name:"opencode", model:"任意（BYOK，75+ 供应商）", price:"开源免费，只付模型费", tb:null, sv:null,
+       t:{上手:"C",开源:"S"},
+       note:"星标最多的开源编码 Agent（约 193K，MIT）；自带并行子代理、可换任意模型、可本地/自托管。能力取决于你选的底层模型，灵活度最高。"},
+      {name:"Cursor", model:"前沿模型（可换）", price:"$20/月 + 用量", tb:null, sv:74.1,
+       t:{上手:"A",开源:"—"},
+       note:"VS Code 分支，编辑器内最顺手：Composer 多文件编辑、最高 8 个并行 Agent。适合不想碰命令行的交互式编码。"},
+      {name:"Gemini CLI", model:"Gemini 3.1 Pro / 3.8 Flash", price:"免费额度大（约 1000 请求/天）", tb:70.7, sv:80.6,
+       t:{上手:"B",开源:"—"},
+       note:"免费、零成本入门命令行 AI 编码；SWE-bench V 80.6%、Terminal-Bench 70.7%。轻度任务足够，重度不如前几位。"},
+      {name:"GitHub Copilot", model:"多模型", price:"Pro $10/月起（最便宜付费）", tb:null, sv:null,
+       t:{上手:"A",开源:"—"},
+       note:"IDE 原生、issue→PR 自动化；按 AI Credit 计费，补全免费。适合已在 GitHub 工作的团队，门槛最低。"},
+      {name:"Google Antigravity", model:"Gemini 3.5/3.8 Flash", price:"AI Pro $19.99/月", tb:71.2, sv:79.4,
+       t:{上手:"A",开源:"—"},
+       note:"2026 最技术激进的 IDE：多智能体编排、内置 Chromium 浏览器、约 289 tok/s（Opus 4.8 的 4 倍）。快但深推理不如 Claude Code。"},
+      {name:"Cline / Aider", model:"任意（BYOK）", price:"开源免费，只付模型费", tb:null, sv:null,
+       t:{上手:"B",开源:"S"},
+       note:"开源、Git 原生、按需付费模型。Aider 偏结对编程+自动提交，Cline 偏 VS Code 内自主编辑。零成本试水 Agent 编码的好选择。"}
+    ],
+    combos: [
+      {name:"Claude Code + Claude Fable 5 / Opus 5", score:"S",
+       note:"代码 + Agent 综合最强：SWE-bench Verified 95%（Fable 5），Terminal-Bench 89.1%。要最强质量、不怕烧 token 选它。"},
+      {name:"Codex CLI + GPT-5.6 Sol", score:"S",
+       note:"Terminal-Bench 89.5% 第一，后台并行 PR、跨端体验最好。OpenAI 生态 / 要异步批量任务选它。"},
+      {name:"opencode + 任意模型（如 Claude/GPT/Gemini/本地）", score:"A",
+       note:"灵活度与性价比之王：自由换模型、成本低、开源可自托管。战斗力 ≈ 你选的底层模型 + 它的 harness。"},
+      {name:"Cursor + 前沿模型", score:"A",
+       note:"编辑器内最顺手，多文件编辑强。要在 IDE 里交互式写代码而非整任务外包选它。"},
+      {name:"Google Antigravity + Gemini", score:"A",
+       note:"最快吞吐（约 289 tok/s）、多智能体编排。重速度轻深推理的迭代循环选它。"},
+      {name:"Gemini CLI + Gemini 3.1/3.8", score:"B",
+       note:"免费额度大、零成本。轻度脚本/学习阶段够用，重度工程不推荐。"},
+      {name:"GitHub Copilot + 多模型", score:"B",
+       note:"最便宜付费、IDE 原生、issue→PR。团队已在 GitHub 且要低门槛选它。"}
+    ],
+    tables: {
+      aa: {title:"Artificial Analysis 智能指数 v4.3 Top13（满分≈53，2026-09-22 复核）", unit:"分", rows:[
+        ["Claude Fable 5.1",53],["GPT-6 Astra",53],["Claude Opus 5",51],["Claude Fable 5",50],
+        ["Muse Spark 1.3",48],["GLM-5.3",45],["Grok 4.6",44],["Kimi K3",44],
+        ["GLM-5.3-Flash",42],["Gemini 3.8 Flash",41],["Qwen3.8 (2.4T)",40],["DeepSeek V4.1-Flash",40],
+        ["DeepSeek V4 Pro",36]
+      ]},
+      tb: {title:"Terminal-Bench 2.1 Top10（旧版口径，2026-09；⚠ 官方 8/29 已升级 v4.0，AA v4.3 起改用 TB4.0：Astra 59.1 > Fable 5.1 52.0 > Opus 5 49.0 > GPT-5.6 Sol 39.9）", unit:"%", rows:[
+        ["Claude Fable 5.1",91.4],["GPT-6 Astra",89.9],["GPT-5.6 Sol",89.5],["Claude Opus 5",89.1],
+        ["Grok 4.6",88.4],["GPT-5.6 Terra",88.0],["Gemini 3.8 Flash",87.6],["Kimi K3",85.0],
+        ["GLM-5.3-Flash",84.3],["DeepSeek V4 Pro",78.7]
+      ]},
+      swe: {title:"SWE-bench（真实 GitHub 修 bug，agent 配对，2026-08）", unit:"%", rows:[
+        ["Claude Code + Fable 5 — Verified",95.0],
+        ["Claude Code + Fable 5 — Pro",80.3],
+        ["Codex + GPT-5.5 — Verified",88.7],
+        ["Codex + GPT-5.5 — Pro",58.6],
+        ["Claude Code + Opus 4.8 — Verified",88.6],
+        ["Gemini CLI + Gemini 3.1 Pro — Verified",80.6],
+        ["Gemini CLI + Gemini 3.1 Pro — Pro",54.2],
+        ["Codex + GPT-5.6 Sol — Terminal-Bench 2.1",89.5]
+      ]}
+    }
+  };
+
+  function tierBadge(t){
+    var cls = {"S":"t-S","A":"t-A","B":"t-B","C":"t-C","—":"t-none"}[t] || "t-none";
+    return '<span class="tier '+cls+'">'+t+'</span>';
+  }
+  function numCell(v){
+    if(v==null) return '<span class="tier t-none">—</span>';
+    return '<span class="num">'+v+'</span>';
+  }
+  function renderModels(){
+    var dims = ["综合","推理","代码","多模态","长上下文","中文","性价比","开源"];
+    var head = '<tr><th>#</th><th style="text-align:left">模型 / 厂商 · 价格</th>'
+      + '<th>AA<br>指数</th><th>代码<br>TB2.1</th>'
+      + dims.map(function(d){return '<th>'+d+'</th>';}).join('')
+      + '<th style="text-align:left">一句话点评</th></tr>';
+    var rows = RANK.models.map(function(m,i){
+      var tds = dims.map(function(d){ return '<td>'+tierBadge(m.t[d]||"—")+'</td>'; }).join('');
+      return '<tr>'
+        + '<td class="num-cell">'+(i+1)+'</td>'
+        + '<td class="name"><div class="nv">'+esc(m.name)+'</div><div class="mv">'+esc(m.vendor)+' · '+esc(m.price)+'</div></td>'
+        + '<td>'+numCell(m.iaa)+'</td><td>'+numCell(m.tb)+'</td>'
+        + tds
+        + '<td class="note">'+esc(m.note)+'</td>'
+        + '</tr>';
+    }).join('');
+    document.getElementById("p-models").innerHTML =
+      '<div class="legend">评级：<span class="tier t-S">S</span>顶尖/第一梯队 <span class="tier t-A">A</span>很强/第二梯队 <span class="tier t-B">B</span>够用/第三梯队 <span class="tier t-C">C</span>偏弱 <span class="tier t-none">—</span>不适用。AA = Artificial Analysis 智能指数 v4.3（满分≈53），TB2.1 = Terminal-Bench 2.1（%）。表格可左右滑动查看全部列。</div>'
+      + '<div class="matrix-wrap"><table class="matrix"><thead>'+head+'</thead><tbody>'+rows+'</tbody></table></div>';
+  }
+  function renderTools(){
+    var head = '<tr><th>#</th><th style="text-align:left">编码工具 / 默认模型</th>'
+      + '<th>代码<br>TB2.1</th><th>SWE-bench<br>Verified</th><th>价格/月</th><th>上手</th><th>开源</th><th style="text-align:left">最适合谁</th></tr>';
+    var rows = RANK.tools.map(function(m,i){
+      return '<tr>'
+        + '<td class="num-cell">'+(i+1)+'</td>'
+        + '<td class="name"><div class="nv">'+esc(m.name)+'</div><div class="mv">'+esc(m.model)+'</div></td>'
+        + '<td>'+numCell(m.tb)+'</td><td>'+numCell(m.sv)+'</td>'
+        + '<td style="white-space:nowrap">'+esc(m.price)+'</td>'
+        + '<td>'+tierBadge(m.t.up||"—")+'</td><td>'+tierBadge(m.t.os||"—")+'</td>'
+        + '<td class="note">'+esc(m.note)+'</td>'
+        + '</tr>';
+    }).join('');
+    document.getElementById("p-tools").innerHTML =
+      '<div class="legend">开源工具（opencode/Cline/Aider）能力≈所选底层模型，下表按"默认最佳实践"给。TB2.1 = Terminal-Bench 2.1（%），SWE-bench Verified 为真实 GitHub 修 bug 通过率。上手：<span class="tier t-A">A</span>最易 / <span class="tier t-B">B</span>需一点基础 / <span class="tier t-C">C</span>需会用终端。</div>'
+      + '<div class="matrix-wrap"><table class="matrix"><thead>'+head+'</thead><tbody>'+rows+'</tbody></table></div>';
+  }
+  function renderCombos(){
+    var head = '<tr><th>#</th><th style="text-align:left">工具 × 模型 组合</th><th>评分</th><th style="text-align:left">说明</th></tr>';
+    var rows = RANK.combos.map(function(c,i){
+      var sc = ({"S":"t-S","A":"t-A","B":"t-B"}[c.score]||"t-none");
+      return '<tr>'
+        + '<td class="num-cell">'+(i+1)+'</td>'
+        + '<td class="name"><div class="nv">'+esc(c.name)+'</div></td>'
+        + '<td><span class="tier '+sc+' big">'+c.score+'</span></td>'
+        + '<td class="note">'+esc(c.note)+'</td>'
+        + '</tr>';
+    }).join('');
+    document.getElementById("p-combos").innerHTML =
+      '<div class="legend">"组合战斗力"= 工具 harness × 底层模型。同一工具换不同模型，排名会变；下表按"当前最强默认组合"评级。</div>'
+      + '<div class="matrix-wrap"><table class="matrix"><thead>'+head+'</thead><tbody>'+rows+'</tbody></table></div>';
+  }
+  function renderTables(){
+    function t(obj){
+      var rows = obj.rows.map(function(r,i){
+        return '<tr><td class="num-cell">'+(i+1)+'</td><td>'+esc(r[0])+'</td><td style="font-weight:700">'+r[1]+' '+esc(obj.unit)+'</td></tr>';
+      }).join("");
+      return '<h3 style="margin:18px 0 8px;font-size:16px">'+esc(obj.title)+'</h3>'+
+        '<table class="ranktbl"><thead><tr><th>#</th><th>模型 / 组合</th><th>分数</th></tr></thead><tbody>'+rows+'</tbody></table>';
+    }
+    document.getElementById("p-tables").innerHTML = t(RANK.tables.aa)+t(RANK.tables.tb)+t(RANK.tables.swe)+
+      '<p style="color:var(--ink-soft);font-size:13px;margin-top:8px">分数会随版本快速变化，仅供快照参考；权威实时数据请见各榜单官网（Artificial Analysis、Terminal-Bench、SWE-bench）。</p>';
+  }
+  renderModels(); renderTools(); renderCombos(); renderTables();
+
+  document.querySelectorAll("#rankSubtabs .subtab").forEach(function(b){
+    b.addEventListener("click", function(){
+      document.querySelectorAll("#rankSubtabs .subtab").forEach(function(x){x.classList.toggle("active",x===b);});
+      document.querySelectorAll(".rankpane").forEach(function(p){p.classList.toggle("active",p.id==="p-"+b.dataset.pane);});
+    });
+  });
+
+    /* COMPETITIONS loaded from competitions.js (每日自动更新) */
+  var COMP = window.COMP || [];
+  (function(){ var el=document.getElementById('comp-updated'); if(el){ el.textContent='比赛数据更新于 '+(window.COMP_UPDATED||'未知'); } var cc=document.getElementById('comp-count'); if(cc){ cc.textContent=COMP.length; } })();
+  function compStars(k){ var s=""; for(var i=0;i<5;i++){ s += (i<k?"★":"☆"); } return s; }
+  var COMP_FILTER = "open";
+  var COMP_SCOPE = "me";
+  var COMP_SORT = "pri";
+  var COMP_PER_PAGE = 12;
+  var COMP_PAGE = 1;
+  function renderComp(){
+    var cnt = {open:0, soon:0, closed:0};
+    COMP.forEach(function(c){ if(c.scope!=="world") cnt[c.st] = (cnt[c.st]||0)+1; });
+    var statusChip = {open:'<span class="chip open">🟢 可报名</span>',
+                      soon:'<span class="chip soon">🟠 即将截止</span>',
+                      closed:'<span class="chip closed">⚪ 已截止 / 关注下届</span>'};
+    var list = COMP.filter(function(c){
+      var okScope = (COMP_SCOPE==="all") || (c.scope===COMP_SCOPE);
+      var okStatus = (COMP_SCOPE==="world") ? true : (COMP_FILTER==="all" || c.st===COMP_FILTER);
+      return okScope && okStatus;
+    });
+    if(COMP_SORT==="pri"){
+      var prOrder = {open:0, soon:1, closed:2};
+      list.sort(function(a,b){
+        var pa=(a.pri||2), pb=(b.pri||2);
+        if(pa!==pb) return pa-pb;
+        var sa=prOrder[a.st]!==undefined?prOrder[a.st]:1, sb=prOrder[b.st]!==undefined?prOrder[b.st]:1;
+        if(sa!==sb) return sa-sb;
+        return (b.ai||0)-(a.ai||0);
+      });
+    }
+    var totalPages = Math.max(1, Math.ceil(list.length / COMP_PER_PAGE));
+    if(COMP_PAGE > totalPages) COMP_PAGE = totalPages;
+    if(COMP_PAGE < 1) COMP_PAGE = 1;
+    var start = (COMP_PAGE - 1) * COMP_PER_PAGE;
+    var pageList = list.slice(start, start + COMP_PER_PAGE);
+    document.getElementById("comp-list").innerHTML = pageList.map(function(c){
+      var topChip = (c.scope==="world") ? '<span class="chip world">🌍 全球赛 · 开眼界</span>' : statusChip[c.st];
+      var priMap={1:["#e8553a","🔥 强推"],2:["#2f8f57","👍 可冲"],3:["#9aa0a6","👀 开眼界"]};
+      var pm=priMap[c.pri||2];
+      var priChip='<span class="chip" style="border-color:'+pm[0]+';color:'+pm[0]+';background:rgba(255,255,255,0)">'+pm[1]+'</span>';
+      return '<article class="cmp '+(c.scope==="world"?"world":c.st)+'">'+
+        '<div class="cmp-head" tabindex="0" role="button" aria-expanded="false">'+
+          topChip+priChip+
+          '<span class="cmp-name">'+esc(c.n)+'</span>'+
+          '<span class="chip type">'+esc(c.type)+'</span>'+
+          '<span class="stars">'+compStars(c.ai)+'</span>'+
+          '<span class="chev">▸</span>'+
+        '</div>'+
+        '<div class="cmp-detail">'+
+          '<div class="d-row"><span class="d-k">这是什么</span><span class="d-v">'+esc(c.desc||"")+'</span></div>'+
+          '<div class="d-row"><span class="d-k">'+(c.scope==="world"?"对你意味着":"为什么适合你")+'</span><span class="d-v">'+esc(c.fit||"")+'</span></div>'+
+          '<div class="d-row"><span class="d-k">AI 能帮你</span><span class="d-v">'+esc(c.help||"")+'</span></div>'+
+          '<div class="d-row"><span class="d-k">时间</span><span class="d-v"><b>报名</b> '+esc(c.reg)+' ｜ <b>赛期</b> '+esc(c.run)+'</span></div>'+
+          '<div class="d-row"><span class="d-k">主办</span><span class="d-v">'+esc(c.org)+'</span></div>'+
+          (c.team?'<div class="d-row"><span class="d-k">组队</span><span class="d-v">'+esc(c.team)+'</span></div>':'')+
+          '<div class="d-go"><a class="go" href="'+esc(c.url)+'" target="_blank" rel="noopener noreferrer">官网 / 报名 ↗</a></div>'+
+        '</div>'+
+      '</article>';
+    }).join("");
+    var meN = COMP.filter(function(c){return c.scope==="me";}).length;
+    var worldN = COMP.filter(function(c){return c.scope==="world";}).length;
+    document.getElementById("comp-stat").textContent = "共 "+list.length+" 项（本页 "+pageList.length+" 条） · 我能报的 "+meN+" ｜ 🌍 全球 "+worldN+" ｜ 第 "+COMP_PAGE+"/"+totalPages+" 页";
+    document.getElementById("comp-world-note").style.display = (COMP_SCOPE==="world") ? "" : "none";
+    document.getElementById("compFilters").style.display = (COMP_SCOPE==="world") ? "none" : "flex";
+    var pager = document.getElementById("comp-pager");
+    if(totalPages <= 1){ pager.innerHTML = ""; }
+    else {
+      var btns = [];
+      btns.push('<button class="pg" data-p="prev"'+(COMP_PAGE===1?' disabled':'')+'>‹ 上一页</button>');
+      var win = 5;
+      var s0 = Math.max(1, COMP_PAGE - Math.floor(win/2));
+      var e0 = Math.min(totalPages, s0 + win - 1);
+      s0 = Math.max(1, e0 - win + 1);
+      if(s0 > 1){ btns.push('<button class="pg" data-p="1">1</button>'); if(s0 > 2) btns.push('<span class="pg-ell">…</span>'); }
+      for(var pi=s0; pi<=e0; pi++){ btns.push('<button class="pg'+(pi===COMP_PAGE?' active':'')+'" data-p="'+pi+'">'+pi+'</button>'); }
+      if(e0 < totalPages){ if(e0 < totalPages-1) btns.push('<span class="pg-ell">…</span>'); btns.push('<button class="pg" data-p="'+totalPages+'">'+totalPages+'</button>'); }
+      btns.push('<button class="pg" data-p="next"'+(COMP_PAGE===totalPages?' disabled':'')+'>下一页 ›</button>');
+      pager.innerHTML = btns.join("");
+    }
+  }
+  document.querySelectorAll("#compFilters .filterbtn").forEach(function(b){
+    b.addEventListener("click", function(){
+      document.querySelectorAll("#compFilters .filterbtn").forEach(function(x){x.classList.toggle("active", x===b);});
+      COMP_FILTER = b.dataset.f;
+      COMP_PAGE = 1;
+      renderComp();
+    });
+  });
+  document.querySelectorAll("#compScope .filterbtn").forEach(function(b){
+    b.addEventListener("click", function(){
+      document.querySelectorAll("#compScope .filterbtn").forEach(function(x){x.classList.toggle("active", x===b);});
+      COMP_SCOPE = b.dataset.s;
+      COMP_PAGE = 1;
+      renderComp();
+    });
+  });
+  document.querySelectorAll("#compSort .filterbtn").forEach(function(b){
+    b.addEventListener("click", function(){
+      document.querySelectorAll("#compSort .filterbtn").forEach(function(x){x.classList.toggle("active", x===b);});
+      COMP_SORT = b.dataset.sort;
+      COMP_PAGE = 1;
+      renderComp();
+    });
+  });
+  document.getElementById("comp-pager").addEventListener("click", function(ev){
+    var t = ev.target.closest ? ev.target.closest("button.pg") : null;
+    if(!t || t.disabled) return;
+    var p = t.dataset.p;
+    if(p === "prev") COMP_PAGE = Math.max(1, COMP_PAGE - 1);
+    else if(p === "next") COMP_PAGE = COMP_PAGE + 1;
+    else COMP_PAGE = parseInt(p, 10);
+    renderComp();
+    var vc = document.getElementById("view-comp");
+    if(vc && vc.scrollIntoView) vc.scrollIntoView({behavior:"smooth", block:"start"});
+  });
+  document.getElementById("comp-list").addEventListener("click", function(ev){
+    var head = ev.target.closest ? ev.target.closest(".cmp-head") : null;
+    if(!head) return;
+    var art = head.parentElement;
+    art.classList.toggle("expanded");
+    head.setAttribute("aria-expanded", art.classList.contains("expanded") ? "true" : "false");
+  });
+  document.getElementById("comp-list").addEventListener("keydown", function(ev){
+    if(ev.key!=="Enter" && ev.key!==" ") return;
+    var head = ev.target.closest ? ev.target.closest(".cmp-head") : null;
+    if(!head) return;
+    ev.preventDefault();
+    var art = head.parentElement;
+    art.classList.toggle("expanded");
+    head.setAttribute("aria-expanded", art.classList.contains("expanded") ? "true" : "false");
+  });
+  renderComp();
+
+  /* ============ DAILY REPORT (existing, with fix) ============ */
+  var API = "https://aihot.virxact.com/api/v1";
+  var SECTIONS = [
+    {label:"模型发布/更新", id:"sec-models"},
+    {label:"产品发布/更新", id:"sec-products"},
+    {label:"行业动态",     id:"sec-industry"},
+    {label:"论文研究",     id:"sec-papers"},
+    {label:"技巧与观点",   id:"sec-tips"}
+  ];
+  var WEEK = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+
+  var INDEX = [];
+  var CURRENT = null;
+
+  function esc(s){
+    return (s==null?"":String(s)).replace(/[&<>"']/g, function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+    });
+  }
+  function trunc(s, n){ n = n||59; s = s||""; return s.length>n ? s.slice(0,n)+"…" : s; }
+  function shanghaiDate(d){
+    var f = new Intl.DateTimeFormat("zh-CN",{timeZone:"Asia/Shanghai",year:"numeric",month:"2-digit",day:"2-digit"});
+    var p = f.formatToParts(d);
+    var g = function(t){ for(var i=0;i<p.length;i++){ if(p[i].type===t) return p[i].value; } return ""; };
+    return g("year")+"-"+g("month")+"-"+g("day");
+  }
+  function beijingHuman(iso){
+    var g = new Intl.DateTimeFormat("zh-CN",{timeZone:"Asia/Shanghai",year:"numeric",month:"long",day:"numeric",hour:"2-digit",minute:"2-digit"});
+    return g.format(new Date(iso));
+  }
+  function nowBeijing(){
+    var g = new Intl.DateTimeFormat("zh-CN",{timeZone:"Asia/Shanghai",hour:"2-digit",minute:"2-digit",second:"2-digit"});
+    return g.format(new Date());
+  }
+  function weekdayOf(dateStr){ return WEEK[new Date(dateStr+"T00:00:00+08:00").getDay()]; }
+  function humanDate(dateStr){
+    var d = new Date(dateStr+"T00:00:00+08:00");
+    return d.getFullYear()+"年"+(d.getMonth()+1)+"月"+d.getDate()+"日";
+  }
+
+  function fetchIndex(){
+    var ctrl = new AbortController();
+    var to = setTimeout(function(){ ctrl.abort(); }, 15000);
+    return fetch(API + "/dailies?limit=180", {cache:"no-store", signal: ctrl.signal})
+      .then(function(r){ if(!r.ok) throw new Error("HTTP "+r.status); return r.json(); })
+      .then(function(d){
+        clearTimeout(to);
+        if(!d || !d.items) throw new Error("索引返回异常");
+        INDEX = d.items.map(function(it){
+          return {date:it.date, leadTitle:(it.leadTitle||""), links:(it.links&&it.links.aihot)||""};
+        });
+        return INDEX;
+      });
+  }
+  function indexOfDate(date){
+    for(var i=0;i<INDEX.length;i++){ if(INDEX[i].date===date) return i; }
+    return -1;
+  }
+  function populateSelect(){
+    var sel = document.getElementById("dateSel");
+    sel.innerHTML = "";
+    INDEX.forEach(function(it){
+      var wd = weekdayOf(it.date);
+      var title = it.leadTitle ? " · " + trunc(it.leadTitle, 20) : "";
+      var opt = document.createElement("option");
+      opt.value = it.date;
+      opt.textContent = it.date + " " + wd + title;
+      sel.appendChild(opt);
+    });
+    sel.value = CURRENT || "";
+  }
+  function render(report, meta){
+    var dateStr = report.date;
+    var wd = weekdayOf(dateStr);
+    var dateText = humanDate(dateStr);
+    var genHuman = report.generatedAt ? ("AI HOT 生成于 北京时间 " + beijingHuman(report.generatedAt)) : "";
+    var leadTitle = (meta && meta.leadTitle) || "";
+
+    var byLabel = {};
+    (report.sections||[]).forEach(function(s){ byLabel[s.label] = s.items||[]; });
+
+    var globalN = 0;
+    var secs = SECTIONS.map(function(m){
+      var items = (byLabel[m.label]||[]).map(function(it){
+        globalN++;
+        var aihot = (it.links && it.links.aihot) || "";
+        var original = (it.links && it.links.original) || aihot || "#";
+        return { n: globalN, title: it.title||"", source: (it.source && it.source.name) || "未知来源",
+          summary: trunc(it.summary), full: it.summary||"", aihot: aihot, original: original };
+      });
+      return {label:m.label, id:m.id, items:items};
+    }).filter(function(s){ return s.items.length>0; });
+    var total = globalN;
+
+    var badge = document.getElementById("statusBadge");
+    if(meta && meta.isToday){ badge.textContent = "实时拉取 · 最新一期 · 每 30 分钟自动刷新"; badge.className = "badge"; }
+    else { badge.textContent = "历史日报 · " + dateStr; badge.className = "badge hist"; }
+
+    var statsHtml = secs.map(function(s){
+      return '<div class="stat"><span class="stat-num">'+s.items.length+'</span><span class="stat-label">'+esc(s.label)+'</span></div>';
+    }).join("");
+    var leadHtml = leadTitle ? '<div class="lead">今日头条：'+esc(leadTitle)+'</div>' : '';
+    document.getElementById("hero").innerHTML =
+      '<div class="kicker">AI HOT 每日晨报</div>'+
+      '<h1>'+esc(dateText)+' · '+wd+'</h1>'+
+      '<div class="sub">'+esc(genHuman)+'</div>'+ leadHtml+
+      '<div class="total-pill">共 '+total+' 条 · 五大版块</div>'+
+      '<div class="stats">'+statsHtml+'</div>';
+
+    var navHtml = secs.map(function(s){
+      return '<a class="nav-link" href="#'+s.id+'" data-target="'+s.id+'">'+esc(s.label)+'<span class="nav-count">'+s.items.length+'</span></a>';
+    }).join("") + '<a class="nav-link" href="#footer" data-target="footer">文末</a>';
+    document.getElementById("nav").innerHTML = navHtml;
+
+    var mainHtml = secs.map(function(s){
+      var cards = s.items.map(function(it){
+        var hay = (it.title+" "+it.source+" "+it.full).toLowerCase();
+        return ''+
+        '<article class="card" data-search="'+esc(hay)+'">'+
+          '<div class="card-head">'+
+            '<span class="num">'+("0"+it.n).slice(-2)+'</span>'+
+            '<a class="source-chip" title="'+esc(it.source)+'">'+esc(it.source)+'</a>'+
+          '</div>'+
+          '<h3 class="card-title"><a href="'+esc(it.aihot)+'" target="_blank" rel="noopener noreferrer">'+esc(it.title)+'</a></h3>'+
+          '<p class="summary" title="'+esc(it.full)+'">'+esc(it.summary)+'</p>'+
+          '<a class="orig-link" href="'+esc(it.original)+'" target="_blank" rel="noopener noreferrer">阅读原文 →</a>'+
+        '</article>';
+      }).join("");
+      return ''+
+      '<section class="block" id="'+s.id+'">'+
+        '<div class="block-head"><h2>'+esc(s.label)+'</h2><span class="block-count">'+s.items.length+' 条</span></div>'+
+        '<div class="grid">'+cards+'</div>'+
+      '</section>';
+    }).join("");
+    document.getElementById("main").innerHTML = mainHtml;
+    document.getElementById("main").style.display = "";
+
+    var srcUrl = (report.links && report.links.aihot) || "https://aihot.virxact.com/";
+    document.getElementById("footer").style.display = "";
+    document.getElementById("footer").innerHTML =
+      '<div class="big">本期共 '+total+' 条 AI 动态</div>'+
+      '<div style="margin-top:8px">数据来源：<a href="'+esc(srcUrl)+'" target="_blank" rel="noopener noreferrer">AIHOT · '+esc(srcUrl)+'</a></div>'+
+      '<div style="margin-top:6px">日报日期 '+esc(dateText)+'（'+wd+'）· 本页每次打开实时拉取 AI HOT 公开 API，内容以原文为准</div>'+
+      '<div style="margin-top:4px">更新于 北京时间 '+nowBeijing()+'</div>';
+
+    document.getElementById("dateSel").value = dateStr;
+    setupScrollSpy();
+    applyFilter();
+  }
+  function applyFilter(){
+    var q = (document.getElementById("search").value || "").trim().toLowerCase();
+    var cards = document.querySelectorAll("#main .card");
+    var visibleTotal = 0;
+    cards.forEach(function(card){
+      var hit = !q || card.getAttribute("data-search").indexOf(q) !== -1;
+      card.style.display = hit ? "" : "none";
+      if(hit) visibleTotal++;
+    });
+    document.querySelectorAll("#main .block").forEach(function(block){
+      var any = block.querySelector(".card:not([style*='display: none'])");
+      block.style.display = any ? "" : "none";
+    });
+    document.getElementById("matchInfo").textContent = q ? ("搜索“"+q+"”：命中 "+visibleTotal+" / "+cards.length+" 条") : "";
+  }
+  function setStateLoading(){
+    document.getElementById("main").style.display = "";
+    document.getElementById("main").innerHTML = '<div class="state"><div class="spinner"></div><div>正在从 AI HOT 拉取日报…</div></div>';
+    document.getElementById("hero").innerHTML = "";
+    document.getElementById("nav").innerHTML = "";
+    document.getElementById("footer").style.display = "none";
+    document.getElementById("matchInfo").textContent = "";
+  }
+  function setStateError(msg){
+    document.getElementById("main").style.display = "";
+    document.getElementById("main").innerHTML =
+      '<div class="state error"><div>⚠️ 拉取失败：'+esc(msg)+'</div>'+
+      '<div style="font-size:13px;margin-top:6px">请检查网络后点击刷新重试（AI HOT 接口偶发波动）。</div>'+
+      '<button id="retryBtn">重试</button></div>';
+    var b = document.getElementById("retryBtn");
+    if(b) b.addEventListener("click", function(){ loadDate(CURRENT, {refreshIndex:true}); });
+  }
+  function loadDate(date, opts){
+    opts = opts || {};
+    setStateLoading();
+    var btn = document.getElementById("refreshBtn");
+    if(btn) btn.disabled = true;
+    var meta = {};
+    var idx = indexOfDate(date);
+    if(idx !== -1){
+      meta.leadTitle = INDEX[idx].leadTitle;
+      meta.isToday = (date === shanghaiDate(new Date())) || (idx === 0 && !INDEX.some(function(x){return x.date === shanghaiDate(new Date());}));
+    }
+    var ctrl = new AbortController();
+    var to = setTimeout(function(){ ctrl.abort(); }, 20000);
+    fetch(API + "/dailies/" + date, {cache:"no-store", signal: ctrl.signal})
+      .then(function(r){ if(!r.ok) throw new Error("HTTP "+r.status+(r.status===404?"（该日期暂无日报）":"")); return r.json(); })
+      .then(function(data){
+        clearTimeout(to);
+        if(!data || !data.report) throw new Error("返回数据缺少 report 字段");
+        CURRENT = date;
+        render(data.report, meta);
+      })
+      .catch(function(err){ setStateError(err && err.message ? err.message : String(err)); })
+      .then(function(){ if(btn) btn.disabled = false; });
+  }
+  function goto(date, pushHash){
+    if(indexOfDate(date) === -1) return;
+    if(pushHash !== false) history.pushState(null, "", "#" + date);
+    var older = document.getElementById("olderBtn");
+    var newer = document.getElementById("newerBtn");
+    var i = indexOfDate(date);
+    newer.disabled = (i <= 0);
+    older.disabled = (i >= INDEX.length-1);
+    loadDate(date);
+  }
+  function syncNavButtons(){
+    var i = indexOfDate(CURRENT);
+    document.getElementById("newerBtn").disabled = (i <= 0);
+    document.getElementById("olderBtn").disabled = (i >= INDEX.length-1);
+  }
+  function resolveInitialDate(){
+    var today = shanghaiDate(new Date());
+    var hash = (location.hash || "").replace(/^#/, "");
+    if(hash && /^\d{4}-\d{2}-\d{2}$/.test(hash) && indexOfDate(hash) !== -1) return hash;
+    if(indexOfDate(today) !== -1) return today;
+    return INDEX.length ? INDEX[0].date : today;
+  }
+  function boot(){
+    fetchIndex()
+      .then(function(){
+        populateSelect();
+        var date = resolveInitialDate();
+        if(location.hash !== "#"+date) history.replaceState(null, "", "#"+date);
+        CURRENT = date;
+        syncNavButtons();
+        loadDate(date);
+      })
+      .catch(function(err){ setStateError("无法获取日报列表：" + (err && err.message ? err.message : err)); });
+  }
+  document.getElementById("dateSel").addEventListener("change", function(e){ goto(e.target.value); });
+  document.getElementById("newerBtn").addEventListener("click", function(){ var i=indexOfDate(CURRENT); if(i>0) goto(INDEX[i-1].date); });
+  document.getElementById("olderBtn").addEventListener("click", function(){ var i=indexOfDate(CURRENT); if(i<INDEX.length-1) goto(INDEX[i+1].date); });
+  document.getElementById("todayBtn").addEventListener("click", function(){
+    var today = shanghaiDate(new Date());
+    goto(indexOfDate(today) !== -1 ? today : (INDEX.length?INDEX[0].date:today));
+  });
+  document.getElementById("search").addEventListener("input", applyFilter);
+  document.getElementById("refreshBtn").addEventListener("click", function(){
+    autoLastAt = new Date(); autoNextAt = Date.now() + AUTO_MS;
+    renderAutoBar();
+    fetchIndex().then(function(){ populateSelect(); loadDate(CURRENT); }).catch(function(){}).then(renderAutoBar);
+  });
+  document.getElementById("copyBtn").addEventListener("click", function(){
+    var url = location.href;
+    function done(){ var b=document.getElementById("copyBtn"); b.textContent="已复制 ✓"; setTimeout(function(){b.textContent="复制链接";},1500); }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(done, fallback); }
+    else { fallback(); }
+    function fallback(){
+      var ta=document.createElement("textarea"); ta.value=url; document.body.appendChild(ta); ta.select();
+      try{ document.execCommand("copy"); done(); }catch(e){}
+      document.body.removeChild(ta);
+    }
+  });
+  window.addEventListener("hashchange", function(){
+    var hash = (location.hash||"").replace(/^#/, "");
+    if(/^\d{4}-\d{2}-\d{2}$/.test(hash) && indexOfDate(hash) !== -1 && hash !== CURRENT){
+      CURRENT = hash; syncNavButtons(); loadDate(hash);
+    }
+  });
+  function setupScrollSpy(){
+    var links = Array.prototype.slice.call(document.querySelectorAll(".nav-link[data-target]"));
+    var map = {};
+    links.forEach(function(l){ map[l.getAttribute("data-target")] = l; });
+    var targets = links.map(function(l){ return document.getElementById(l.getAttribute("data-target")); }).filter(Boolean);
+    var toTop = document.getElementById("toTop");
+    function onScroll(){
+      var pos = window.scrollY + 170, current = null;
+      targets.forEach(function(t){ if(t.offsetTop <= pos) current = t.id; });
+      links.forEach(function(l){ l.classList.remove("active"); });
+      if(current && map[current]) map[current].classList.add("active");
+      if(window.scrollY > 400) toTop.classList.add("show"); else toTop.classList.remove("show");
+    }
+    window.addEventListener("scroll", onScroll, {passive:true});
+    toTop.addEventListener("click", function(){ window.scrollTo({top:0, behavior:"smooth"}); });
+    onScroll();
+  }
+  /* ============ 自动刷新：每 30 分钟 ============ */
+  var AUTO_MS = 30 * 60 * 1000;
+  var autoLastAt = new Date();
+  var autoNextAt = Date.now() + AUTO_MS;
+  function pad2n(n){ return (n<10?"0":"")+n; }
+  function fmtMMSS(ms){ var t=Math.max(0,Math.floor(ms/1000)); return pad2n(Math.floor(t/60))+":"+pad2n(t%60); }
+  function bjClock(d){
+    try{ return new Intl.DateTimeFormat("zh-CN",{timeZone:"Asia/Shanghai",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).format(d); }
+    catch(e){ return d.toTimeString().slice(0,8); }
+  }
+  function renderAutoBar(){
+    var el = document.getElementById("autoBar");
+    if(!el) return;
+    el.innerHTML = "🔄 <b>每 30 分钟自动刷新</b> · 日报实时拉取（下次还有 <b>"+fmtMMSS(autoNextAt-Date.now())+"</b>）· 上次刷新 <b>"+bjClock(autoLastAt)+"</b> · 排行榜 / 比赛 / AI 上手 为人工核对快照（2026-09-22）";
+  }
+  function autoRefreshNow(){
+    autoLastAt = new Date();
+    autoNextAt = Date.now() + AUTO_MS;
+    renderAutoBar();
+    fetchIndex().then(function(){
+      populateSelect();
+      var today = shanghaiDate(new Date());
+      if(!CURRENT || indexOfDate(CURRENT) === -1){ var d = resolveInitialDate(); CURRENT = d; syncNavButtons(); loadDate(d); }
+      else if(CURRENT === today){ loadDate(CURRENT); }
+    }).catch(function(){}).then(renderAutoBar);
+  }
+  setInterval(function(){
+    if(Date.now() >= autoNextAt){ autoRefreshNow(); } else { renderAutoBar(); }
+  }, 1000);
+  renderAutoBar();
+
+  boot();
+})();
+
+  /* ============ LEARN VIEW: daily tip + scenario desk ============ */
+  (function(){
+    var TIPS = [
+      "把 AI 当新来的师弟，不当搜索引擎——交代背景越多，它干得越像样。",
+      "任何 AI 给的文献 DOI 和数值，关键处都要你亲自核对原文（防幻觉）。",
+      "一条好指令 = 角色 + 背景 + 任务 + 约束 + 验收，后两条最容易被漏。",
+      "长 PDF 丢给 Gemini 先要“结论+方法+创新+局限”，再决定精读哪篇。",
+      "论文改稿先让 AI 出“批注处理清单”，别让它直接改原文，防改漏。",
+      "翻译让 AI 先给术语表，再给译文——专业词不翻车。",
+      "数据整理让 AI 标“缺”和“⚠”，严禁它编造缺失值。",
+      "一个文件别让多个模型同时改，防版本冲突（你的硬规则）。",
+      "未发表稿件、未公开实验数据，别随手传公有模型（隐私）。",
+      "数模赛先让 AI 讲建模思路再写代码——你零编程也要能看懂流程图。",
+      "排行榜看“比什么”——同一模型聊天第一、写代码未必第一。",
+      "想让 AI 写代码，先用 Cursor/opencode 小任务试水，再决定进阶。"
+    ];
+    var base = Date.UTC(2026,0,1);
+    var idx = Math.floor((Date.now()-base)/86400000) % TIPS.length;
+    if(idx<0) idx += TIPS.length;
+    var dt = document.getElementById("learn-daily-tip");
+    if(dt) dt.innerHTML = "💡 <b>今日一招：</b>" + TIPS[idx];
+
+    var grid = document.getElementById("sc-grid");
+    if(grid){
+      function toggle(card){
+        var open = card.classList.toggle("expanded");
+        var h = card.querySelector(".sc-head");
+        if(h) h.setAttribute("aria-expanded", open?"true":"false");
+      }
+      grid.addEventListener("click", function(ev){
+        var head = ev.target.closest ? ev.target.closest(".sc-head") : null;
+        if(head){ toggle(head.parentElement); return; }
+        var btn = ev.target.closest ? ev.target.closest(".copybtn") : null;
+        if(!btn) return;
+        var id = btn.getAttribute("data-copy");
+        var el = id && document.getElementById(id);
+        if(!el) return;
+        var txt = el.innerText || el.textContent;
+        function done(){ var t=btn.textContent; btn.textContent="已复制✓"; btn.disabled=true; setTimeout(function(){btn.textContent=t;btn.disabled=false;},1400); }
+        function fb(){ try{ var r=document.createRange(); r.selectNode(el); var sel=getSelection(); sel.removeAllRanges(); sel.addRange(r); document.execCommand("copy"); sel.removeAllRanges(); done(); }catch(e){} }
+        if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done, fb); }
+        else { fb(); }
+      });
+      grid.addEventListener("keydown", function(ev){
+        if(ev.key!=="Enter" && ev.key!==" ") return;
+        var head = ev.target.closest ? ev.target.closest(".sc-head") : null;
+        if(!head) return; ev.preventDefault(); toggle(head.parentElement);
+      });
+    }
+  })();
+</script>
+</body>
+</html>

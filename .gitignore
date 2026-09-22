@@ -1,0 +1,9 @@
+# 本地临时/缓存
+.workbuddy/
+gh_install.log
+_remote_idx.html
+_cmp*.py
+_verify.py
+# 冗余产物（GitHub Pages 直接用根目录 index.html）
+gh-pages/
+ai_intel_station_standalone.html
