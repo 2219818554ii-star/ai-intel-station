@@ -1,0 +1,2286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报站 · 日报 · 排行榜 · AI 上手</title>
+<meta name="description" content="AI 情报站：每日 AI 晨报、大模型实力排行榜、可报名比赛地图、零基础 AI 上手指令台。面向研究生与科研党的 AI 提效工具。">
+<meta name="theme-color" content="#4f46e5">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="AI 情报站 · 日报 · 排行榜 · AI 上手">
+<meta property="og:description" content="每日 AI 晨报 + 大模型实力排行榜 + 可报名比赛地图 + AI 上手指令台，面向研究生与科研党。">
+<meta name="twitter:card" content="summary">
+<style>
+  :root {
+    --bg:#f5f7fb;--card-bg:#ffffff;--ink:#1f2433;--ink-soft:#5b6478;--line:#e6e9f2;
+    --brand:#4f46e5;--brand-soft:#eef0ff;--accent:#0ea5a4;--warn:#b45309;
+    --shadow:0 1px 3px rgba(20,30,60,.06),0 8px 24px rgba(20,30,60,.06);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;}
+  a{color:inherit;text-decoration:none;}
+
+  /* ---- app bar (tabs) ---- */
+  .appbar{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .appbar-inner{max-width:1180px;margin:0 auto;padding:8px 14px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  .brand{font-weight:800;font-size:16px;color:var(--brand);white-space:nowrap;}
+  .brand small{color:var(--ink-soft);font-weight:600;font-size:12px;}
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto;}
+  .tab{font-size:14px;color:var(--ink-soft);border:1px solid transparent;background:#fff;border-radius:999px;padding:7px 14px;cursor:pointer;transition:all .15s ease;white-space:nowrap;}
+  .tab:hover{background:var(--brand-soft);color:var(--brand);}
+  .tab.active{background:var(--brand);color:#fff;}
+
+  /* ---- daily view: top status ---- */
+  .topbar{display:flex;align-items:center;justify-content:flex-end;gap:10px;max-width:1180px;margin:0 auto;padding:10px 18px 0;flex-wrap:wrap;}
+  .badge{font-size:12px;color:var(--accent);background:#e7f7f6;border:1px solid #cdeeeb;padding:3px 10px;border-radius:999px;}
+  .badge.hist{color:var(--warn);background:#fef3e2;border-color:#fbd9a8;}
+  .top-btn{font-size:13px;color:var(--brand);border:1px solid var(--brand);background:#fff;padding:4px 12px;border-radius:8px;cursor:pointer;transition:all .15s ease;}
+  .top-btn:hover{background:var(--brand);color:#fff;}
+  .top-btn:disabled{opacity:.45;cursor:default;background:#fff;color:var(--brand);}
+
+  .hero{background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 45%,#0ea5a4 100%);color:#fff;padding:36px 20px 32px;text-align:center;}
+  .hero .kicker{letter-spacing:.3em;font-size:12px;opacity:.85;text-transform:uppercase;}
+  .hero h1{margin:10px 0 4px;font-size:clamp(26px,6vw,44px);font-weight:800;}
+  .hero .sub{opacity:.92;font-size:15px;}
+  .hero .lead{opacity:.95;font-size:13.5px;margin-top:8px;max-width:760px;margin-left:auto;margin-right:auto;}
+  .hero .total-pill{display:inline-block;margin-top:14px;padding:6px 16px;border-radius:999px;background:rgba(255,255,255,.18);backdrop-filter:blur(4px);font-size:14px;font-weight:600;}
+  .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;max-width:960px;margin:26px auto 0;}
+  .stat{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:14px 8px;display:flex;flex-direction:column;align-items:center;}
+  .stat-num{font-size:30px;font-weight:800;line-height:1;}
+  .stat-label{font-size:13px;margin-top:6px;opacity:.95;}
+
+  /* ---- toolbar (sticky, below appbar) ---- */
+  .toolbar{position:sticky;top:54px;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .tool-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;max-width:1180px;margin:0 auto;padding:10px 14px;}
+  .date-sel{flex:1 1 240px;min-width:180px;font-size:14px;color:var(--ink);border:1px solid var(--line);border-radius:9px;padding:7px 10px;background:#fff;cursor:pointer;}
+  .navbtn{font-size:13px;color:var(--ink-soft);border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 12px;cursor:pointer;white-space:nowrap;transition:all .15s ease;}
+  .navbtn:hover:not(:disabled){border-color:var(--brand);color:var(--brand);}
+  .navbtn:disabled{opacity:.4;cursor:default;}
+  .search{flex:1 1 160px;min-width:140px;font-size:14px;border:1px solid var(--line);border-radius:9px;padding:7px 12px;background:#fff;}
+  .search:focus{outline:none;border-color:var(--brand);}
+  .copybtn{font-size:13px;color:var(--brand);border:1px solid var(--brand);background:#fff;border-radius:8px;padding:6px 12px;cursor:pointer;white-space:nowrap;transition:all .15s ease;}
+  .copybtn:hover{background:var(--brand);color:#fff;}
+  .matchinfo{width:100%;font-size:12.5px;color:var(--ink-soft);padding:0 4px 2px;}
+
+  .nav{display:flex;gap:6px;padding:9px 14px;overflow-x:auto;justify-content:center;border-top:1px solid var(--line);}
+  .nav-link{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:999px;white-space:nowrap;font-size:14px;color:var(--ink-soft);border:1px solid transparent;transition:all .15s ease;}
+  .nav-link:hover{background:var(--brand-soft);color:var(--brand);}
+  .nav-link.active{background:var(--brand);color:#fff;}
+  .nav-count{font-size:11px;background:rgba(0,0,0,.08);padding:1px 7px;border-radius:999px;}
+  .nav-link.active .nav-count{background:rgba(255,255,255,.25);}
+
+  main{max-width:1180px;margin:0 auto;padding:28px 18px 60px;}
+  .block{scroll-margin-top:170px;margin-bottom:38px;}
+  .block-head{display:flex;align-items:baseline;gap:12px;margin:0 0 16px;border-left:4px solid var(--brand);padding-left:12px;}
+  .block-head h2{margin:0;font-size:21px;}
+  .block-count{color:var(--ink-soft);font-size:13px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;}
+  .card{background:var(--card-bg);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .15s ease,box-shadow .15s ease;}
+  .card:hover{transform:translateY(-3px);box-shadow:0 4px 10px rgba(20,30,60,.08),0 16px 36px rgba(20,30,60,.1);}
+  .card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;}
+  .num{flex:0 0 auto;width:34px;height:34px;border-radius:10px;background:var(--brand-soft);color:var(--brand);font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;}
+  .source-chip{max-width:78%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;color:var(--accent);background:#e7f7f6;border:1px solid #cdeeeb;padding:4px 10px;border-radius:999px;}
+  .card-title{margin:2px 0 8px;font-size:16px;line-height:1.45;}
+  .card-title a{color:var(--ink);font-weight:700;}
+  .card-title a:hover{color:var(--brand);}
+  .summary{margin:0 0 14px;color:var(--ink-soft);font-size:14px;flex:1;}
+  .orig-link{align-self:flex-start;font-size:13px;font-weight:600;color:var(--brand);border:1px solid var(--brand);padding:5px 12px;border-radius:8px;transition:all .15s ease;}
+  .orig-link:hover{background:var(--brand);color:#fff;}
+
+  footer{border-top:1px solid var(--line);background:#fff;color:var(--ink-soft);text-align:center;padding:26px 18px 40px;font-size:13px;}
+  footer a{color:var(--brand);}
+  footer .big{font-size:15px;color:var(--ink);font-weight:600;}
+
+  #toTop{position:fixed;right:20px;bottom:22px;z-index:60;width:46px;height:46px;border-radius:50%;border:none;cursor:pointer;background:var(--brand);color:#fff;font-size:20px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .2s ease;}
+  #toTop.show{opacity:1;pointer-events:auto;}
+
+  .state{text-align:center;padding:60px 20px;color:var(--ink-soft);}
+  .state .spinner{width:34px;height:34px;border:3px solid var(--line);border-top-color:var(--brand);border-radius:50%;margin:0 auto 16px;animation:spin 1s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .state.error{color:#b91c1c;}
+  .state button{margin-top:14px;font-size:14px;color:var(--brand);border:1px solid var(--brand);background:#fff;padding:7px 16px;border-radius:8px;cursor:pointer;}
+
+  /* ---- rank / learn views ---- */
+  .view{max-width:1180px;margin:0 auto;padding:22px 18px 60px;}
+  .view-head{margin:0 0 6px;}
+  .view-head h2{font-size:26px;margin:0 0 4px;}
+  .view-head p{color:var(--ink-soft);margin:0;font-size:14px;}
+  .news{background:#eef0ff;border:1px solid #c7d2fe;color:#3730a3;border-radius:12px;padding:12px 14px;font-size:13.5px;margin:14px 0 0;line-height:1.7;}
+  .news b{color:#312e81;}
+  .disclaim{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;font-size:13px;padding:12px 14px;border-radius:12px;margin:14px 0 18px;line-height:1.7;}
+  .disclaim b{color:#7c2d12;}
+  .subtabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 16px;}
+  .subtab{font-size:14px;padding:8px 16px;border-radius:10px;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--ink-soft);transition:all .15s ease;}
+  .subtab:hover{border-color:var(--brand);color:var(--brand);}
+  .subtab.active{background:var(--brand);color:#fff;border-color:var(--brand);}
+  .rankpane{display:none;}
+  .rankpane.active{display:block;}
+
+  .legend{font-size:12.5px;color:var(--ink-soft);margin:0 0 12px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;line-height:1.8;}
+  .legend .tier{position:static;}
+  .matrix-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 10px;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);}
+  table.matrix{width:100%;border-collapse:collapse;background:#fff;font-size:13.5px;min-width:840px;}
+  table.matrix th,table.matrix td{padding:9px 10px;text-align:center;border-bottom:1px solid var(--line);white-space:nowrap;}
+  table.matrix th{background:#f8f9fd;color:var(--ink-soft);font-weight:700;font-size:12.5px;}
+  table.matrix td.name{text-align:left;white-space:normal;min-width:150px;}
+  table.matrix td.name .nv{font-weight:800;font-size:14px;color:var(--ink);}
+  table.matrix td.name .mv{font-size:11.5px;color:var(--ink-soft);margin-top:2px;}
+  table.matrix td.note{text-align:left;white-space:normal;min-width:220px;color:var(--ink-soft);font-size:12.5px;line-height:1.6;}
+  table.matrix tr:last-child td{border-bottom:none;}
+  table.matrix tbody tr:hover{background:#fafbff;}
+  .num{font-weight:800;color:var(--brand);}
+  .tier{font-weight:800;font-size:12px;min-width:24px;text-align:center;padding:2px 8px;border-radius:7px;display:inline-block;line-height:1.4;}
+  .t-S{background:#fef3c7;color:#92400e;}
+  .t-A{background:#dcfce7;color:#166534;}
+  .t-B{background:#dbeafe;color:#1e40af;}
+  .t-C{background:#e5e7eb;color:#374151;}
+  .t-none{background:#f1f5f9;color:#94a3b8;}
+  .tier.big{font-size:14px;padding:3px 11px;}
+
+  table.ranktbl{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:0 0 18px;font-size:14px;}
+  table.ranktbl th,table.ranktbl td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);}
+  table.ranktbl th{background:#f8f9fd;color:var(--ink-soft);font-weight:700;font-size:13px;}
+  table.ranktbl tr:last-child td{border-bottom:none;}
+  table.ranktbl td.num-cell{font-weight:800;color:var(--brand);width:48px;}
+  .rsrc{font-size:13px;font-weight:600;color:var(--brand);}
+  .rsrc:hover{text-decoration:underline;}
+
+  .lk-section{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow);margin-bottom:14px;}
+  .lk-section h3{margin:0 0 8px;font-size:17px;border-left:4px solid var(--brand);padding-left:12px;}
+  .lk-section p,.lk-section li{font-size:14px;color:#374151;line-height:1.7;}
+  .lk-section ul,.lk-section ol{margin:6px 0;padding-left:22px;}
+  .lk-section li{margin:3px 0;}
+  .lk-section b{color:var(--ink);}
+  .lk-pill{display:inline-block;background:var(--brand-soft);color:var(--brand);font-size:12px;padding:2px 9px;border-radius:999px;margin:2px 4px 2px 0;font-weight:600;}
+  .lk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin:6px 0;}
+  .lk-card{background:#f8f9fd;border:1px solid var(--line);border-radius:12px;padding:12px 13px;}
+  .lk-card h4{margin:0 0 5px;font-size:14.5px;}
+  .lk-card p{margin:0;font-size:13px;color:var(--ink-soft);line-height:1.6;}
+  .lk-tip{background:#eef0ff;border:1px solid #c7d2fe;color:#3730a3;border-radius:12px;padding:13px 15px;font-size:14px;margin:6px 0 14px;line-height:1.7;}
+  .lk-cmp{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0;}
+  .lk-cmp .bad{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;border-radius:12px;padding:12px 14px;}
+  .lk-cmp .good{background:#f0fdf4;border:1px solid #bbf7d0;color:#166534;border-radius:12px;padding:12px 14px;}
+  .lk-cmp h5{margin:0 0 6px;font-size:14px;}
+  .lk-cmp p{margin:0;font-size:13px;line-height:1.65;}
+  .lk-code{background:#0f172a;color:#e2e8f0;border-radius:12px;padding:14px 16px;font-size:12.5px;line-height:1.75;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;margin:12px 0;overflow-x:auto;}
+  .lk-code .c{color:#94a3b8;}
+
+  /* ---- competition view ---- */
+  .cmp-toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 14px;}
+  .filterbtn{font-size:13px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;cursor:pointer;color:var(--ink-soft);transition:all .15s ease;}
+  .filterbtn:hover{border-color:var(--brand);color:var(--brand);}
+  .filterbtn.active{background:var(--brand);color:#fff;border-color:var(--brand);}
+  .cmp-list{display:flex;flex-direction:column;gap:10px;}
+  .cmp{background:#fff;border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:13px 15px;box-shadow:var(--shadow);}
+  .cmp.open{border-left-color:#16a34a;}
+  .cmp.soon{border-left-color:#d97706;}
+  .cmp.closed{border-left-color:#94a3b8;opacity:.86;}
+  .cmp-head{display:flex;align-items:center;gap:9px;flex-wrap:wrap;cursor:pointer;padding:2px 0;}
+  .cmp-head:hover{opacity:.94;}
+  .cmp-head:focus{outline:none;}
+  .cmp-head:focus .cmp-name{text-decoration:underline;}
+  .cmp-name{font-size:15.5px;font-weight:800;}
+  .chev{margin-left:auto;color:var(--ink-soft);font-size:13px;transition:transform .18s ease;flex:0 0 auto;}
+  .cmp.expanded .chev{transform:rotate(90deg);}
+  .cmp-detail{display:none;border-top:1px dashed var(--line);margin-top:11px;padding-top:12px;}
+  .cmp.expanded .cmp-detail{display:block;}
+  .d-row{display:flex;gap:12px;font-size:13.5px;line-height:1.7;margin:9px 0;}
+  .d-k{flex:0 0 84px;color:var(--ink-soft);font-weight:700;}
+  .d-v{flex:1;color:var(--ink);}
+  .d-v b{color:#111;}
+  .d-go{margin-top:11px;}
+  .cmp a.go{font-size:12.5px;font-weight:700;color:var(--brand);border:1px solid var(--brand);border-radius:8px;padding:5px 12px;transition:all .15s ease;display:inline-block;}
+  .cmp a.go:hover{background:var(--brand);color:#fff;}
+  .chip{font-size:11.5px;padding:2px 9px;border-radius:999px;font-weight:700;white-space:nowrap;}
+  .chip.open{background:#dcfce7;color:#166534;}
+  .chip.soon{background:#fef3c7;color:#92400e;}
+  .chip.closed{background:#e5e7eb;color:#475569;}
+  .chip.type{background:#eef0ff;color:#4f46e5;}
+  .stars{color:#f59e0b;font-weight:800;letter-spacing:1px;}
+  .cmp a.go{font-size:12.5px;font-weight:700;color:var(--brand);border:1px solid var(--brand);border-radius:8px;padding:5px 12px;transition:all .15s ease;}
+  .cmp a.go:hover{background:var(--brand);color:#fff;}
+  .chip.world{background:#dbeafe;color:#1e40af;}
+  .cmp.world{border-left-color:#3b82f6;}
+
+  @media (max-width:720px){
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .grid{grid-template-columns:1fr;}
+    .tool-row{justify-content:flex-start;}
+    .nav{justify-content:flex-start;}
+    .rdims{grid-template-columns:repeat(2,1fr);}
+    .lk-cmp{grid-template-columns:1fr;}
+  }
+  .cmp-pager{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:18px 0 6px;}
+  .cmp-pager .pg{font-size:13px;border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 12px;cursor:pointer;color:var(--ink-soft);min-width:38px;transition:all .15s ease;}
+  .cmp-pager .pg:hover:not([disabled]){border-color:var(--brand);color:var(--brand);}
+  .cmp-pager .pg.active{background:var(--brand);color:#fff;border-color:var(--brand);}
+  .cmp-pager .pg[disabled]{opacity:.4;cursor:default;}
+  .cmp-pager .pg-ell{color:var(--ink-soft);padding:6px 2px;align-self:center;}
+  .autobar{background:var(--brand-soft);border-bottom:1px solid var(--line);font-size:12.5px;color:var(--ink-soft);text-align:center;padding:6px 14px;line-height:1.5;}
+  .autobar b{color:var(--brand);}
+
+  /* ---- learn view: scenario desk ---- */
+  .daily-tip{background:linear-gradient(90deg,var(--brand-soft),#fff);border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:12px;padding:12px 16px;margin:0 0 14px;font-size:14.5px;color:var(--ink);line-height:1.7;}
+  .lk-h{font-size:17px;margin:18px 0 10px;border-left:4px solid var(--brand);padding-left:12px;}
+  .sc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px;margin-bottom:8px;}
+  .sc-card{background:var(--card-bg);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden;}
+  .sc-head{display:flex;align-items:center;gap:10px;padding:13px 15px;cursor:pointer;}
+  .sc-head:hover{background:var(--brand-soft);}
+  .sc-head:focus{outline:none;}
+  .sc-head:focus .sc-name{text-decoration:underline;}
+  .sc-ico{font-size:20px;flex:0 0 auto;}
+  .sc-name{font-size:15px;font-weight:800;flex:1;}
+  .sc-head .chev{transition:transform .18s ease;color:var(--brand);font-weight:800;flex:0 0 auto;}
+  .sc-card.expanded .sc-head .chev{transform:rotate(90deg);}
+  .sc-detail{display:none;border-top:1px dashed var(--line);padding:12px 15px;}
+  .sc-card.expanded .sc-detail{display:block;}
+  .sc-why{font-size:13.5px;color:var(--ink-soft);margin:0 0 8px;line-height:1.6;}
+  .sc-foot{display:flex;align-items:center;gap:10px;margin-top:10px;}
+  .sc-tool{font-size:12.5px;color:var(--ink-soft);}
+</style>
+</head>
+<body>
+  <div class="appbar">
+    <div class="appbar-inner">
+      <div class="brand">AI 情报站 <small>日报 · 排名 · 学习</small></div>
+      <nav class="tabs" role="tablist" aria-label="主导航">
+        <button class="tab active" id="tab-daily" role="tab" aria-selected="true" aria-controls="view-daily" data-tab="daily">📰 每日日报</button>
+        <button class="tab" id="tab-rank" role="tab" aria-selected="false" aria-controls="view-rank" data-tab="rank">🏆 实力排行榜</button>
+        <button class="tab" id="tab-comp" role="tab" aria-selected="false" aria-controls="view-comp" data-tab="comp">🏁 可报名比赛</button>
+        <button class="tab" id="tab-learn" role="tab" aria-selected="false" aria-controls="view-learn" data-tab="learn">📚 AI 上手</button>
+      </nav>
+    </div>
+  </div>
+
+  <div class="autobar"><span id="autoBar">🔄 自动刷新初始化中…</span></div>
+
+  <!-- ================= DAILY VIEW ================= -->
+  <div id="view-daily" role="tabpanel" aria-labelledby="tab-daily">
+    <div class="topbar">
+      <span class="badge" id="statusBadge">实时拉取 · 每 30 分钟自动刷新</span>
+      <button class="top-btn" id="refreshBtn">刷新</button>
+    </div>
+    <header class="hero" id="hero"></header>
+    <div class="toolbar" id="toolbar">
+      <div class="tool-row">
+        <select class="date-sel" id="dateSel" aria-label="选择日期查看历史日报">
+          <option>加载日期中…</option>
+        </select>
+        <button class="navbtn" id="newerBtn" title="跳到更新的日报">‹ 更新</button>
+        <button class="navbtn" id="todayBtn">今日</button>
+        <button class="navbtn" id="olderBtn" title="跳到更早的日报">更早 ›</button>
+        <input class="search" id="search" type="search" placeholder="搜索本日标题/来源/摘要…" aria-label="搜索">
+        <button class="copybtn" id="copyBtn" title="复制当前日报链接">复制链接</button>
+      </div>
+      <div class="matchinfo" id="matchInfo"></div>
+      <nav class="nav" id="nav"></nav>
+    </div>
+    <main id="main">
+      <div class="state" id="state">
+        <div class="spinner"></div>
+        <div>正在从 AI HOT 拉取日报…</div>
+      </div>
+    </main>
+    <footer id="footer" style="display:none"></footer>
+  </div>
+
+  <!-- ================= RANK VIEW ================= -->
+  <div id="view-rank" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-rank">
+    <div class="view-head"><h2>🏆 AI 实力排行榜</h2>
+      <p>大模型 / 编程工具 / 工具×模型组合 的分维度与综合实力评级。数据截至 <b>2026-09-22</b>。</p></div>
+    <div class="news">
+      🆕 <b>2026 年 9 月新动态：</b>Claude Fable 5.1（9-1，AA 智能指数并列第一）、GPT-6 Astra（9-3，号称 AGI 时代但<b>几乎不可用</b>）、Gemini 3.8 Flash（9-2，多模态标杆）、Muse Spark 1.3（9-2）、Qwen3.8-Max 登 Code Arena WebDev 榜首（9-2）、GLM-5.3-Flash 开源（8-26）、腾讯 Hy4 Preview 开源（8-28）。<b>注意：GPT-6 Astra 被定为「关键网络安全」级，目前仅 Daybreak 计划批准者可用，投票榜样本极少，排名可能随时变化。</b>
+    </div>
+    <div class="disclaim">
+      <b>数据说明：</b>本页为<b>观点整理快照</b>，非官方实时排名。评级依据 2026-09 公开基准：Artificial Analysis 智能指数 <b>v4.3</b>（10 项标准化评测合成，满分≈53，<b>不同版本分数不可直接比较</b>）、Terminal-Bench 2.1（终端/编码 Agent 实跑）、SWE-bench Verified / Pro（真实 GitHub 任务）。<b>提示：SWE-bench Verified 已被指出存在测试集污染，前沿评测更看 SWE-bench Pro 与 Terminal-Bench 2.1。</b>模型迭代极快，具体分数请以来源链接的实时数据为准。
+    </div>
+
+    <div class="subtabs" id="rankSubtabs">
+      <button class="subtab active" data-pane="models">🤖 大模型</button>
+      <button class="subtab" data-pane="tools">🛠 编程工具</button>
+      <button class="subtab" data-pane="combos">🔗 工具×模型组合</button>
+      <button class="subtab" data-pane="tables">📊 真实榜单 Top10</button>
+    </div>
+
+    <div class="rankpane active" id="p-models"></div>
+    <div class="rankpane" id="p-tools"></div>
+    <div class="rankpane" id="p-combos"></div>
+    <div class="rankpane" id="p-tables"></div>
+  </div>
+
+  <!-- ================= LEARN VIEW ================= -->
+  <div id="view-learn" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-learn">
+    <div class="view-head"><h2>📚 AI 上手实战</h2>
+      <p>不是教科书——这是你的<b>随用随取指令台</b>。挑一个你正在做的场景，点开就有能直接复制去用的指令；下面还有下指令公式、工具分工和避坑。</p></div>
+
+    <div class="daily-tip" id="learn-daily-tip">💡 <b>今日一招：</b>把 AI 当新来的师弟，不当搜索引擎——交代背景越多，它干得越像样。</div>
+
+    <div class="lk-tip">💡 <b>大实话：</b>你用 WorkBuddy 当总入口就已经在"用 AI"了。这一页帮你把<b>"怎么下指令"</b>练熟——这是提效最大杠杆，省得被名词吓到。</div>
+
+    <h3 class="lk-h">🎯 按场景挑一个练（点开卡片，一键复制指令）</h3>
+    <div class="sc-grid" id="sc-grid">
+
+      <div class="sc-card">
+        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
+          <span class="sc-ico">📝</span><span class="sc-name">论文改稿 · 导师批注清零</span><span class="chev">▸</span>
+        </div>
+        <div class="sc-detail">
+          <p class="sc-why">把导师在 Word 里留的批注系统化清零：先出清单再动手，避免改漏、防 AI 擅自改。</p>
+          <div class="lk-code" id="sc-p1">你是我同课题组的师弟，严谨细心。附件是导师在 Word 里留的 N 条批注（已导出为列表）。
+请逐条：①判断批注类型（事实错误／表达／数据／格式／待定）；②给出修改建议与可直接替换的中文；
+③标出需要我人工确认的（数值、专业术语、可能的事实问题），不要擅自改。
+先输出"批注处理清单"（表格：序号｜类型｜建议｜是否需我确认），不要直接改原文。</div>
+          <div class="sc-foot"><span class="sc-tool">🛠 用：WorkBuddy</span><button class="copybtn" data-copy="sc-p1">复制指令</button></div>
+        </div>
+      </div>
+
+      <div class="sc-card">
+        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
+          <span class="sc-ico">📚</span><span class="sc-name">文献速读（3 分钟判断值不值得精读）</span><span class="chev">▸</span>
+        </div>
+        <div class="sc-detail">
+          <p class="sc-why">长 PDF 丢进去，先要"结论＋方法＋创新＋局限"，再决定精读哪篇，省时间。</p>
+          <div class="lk-code" id="sc-p2">你是文献助手。下面这篇 PDF／文字是 [文献标题或方向]。
+请用 3 分钟能读完的篇幅给我：①一句话结论；②方法核心；③相对已有工作的创新点；
+④局限与可借鉴处；⑤3 个值得引用的关键句（附原文页码或位置）。
+不确定处一律注明"待核"，不要编造 DOI。</div>
+          <div class="sc-foot"><span class="sc-tool">🛠 用：Gemini（长文通读）</span><button class="copybtn" data-copy="sc-p2">复制指令</button></div>
+        </div>
+      </div>
+
+      <div class="sc-card">
+        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
+          <span class="sc-ico">🌐</span><span class="sc-name">中英翻译润色（学术英文）</span><span class="chev">▸</span>
+        </div>
+        <div class="sc-detail">
+          <p class="sc-why">对齐你已有的"论文改稿格式规范.md"：ACS／Elsevier 风格，数值化学式零改动。</p>
+          <div class="lk-code" id="sc-p3">你是材料科学方向、母语为英的 co-author。把下面中文译成学术英文，风格贴近 ACS／Elsevier（Applied Surface Science 基调）；
+保留所有化学式、数值与单位；难译术语附原文并在首次出现给缩写。
+先给术语表，再给译文；译后数值须与原文逐项一致，不一致请标出。</div>
+          <div class="sc-foot"><span class="sc-tool">🛠 用：GPT / WorkBuddy</span><button class="copybtn" data-copy="sc-p3">复制指令</button></div>
+        </div>
+      </div>
+
+      <div class="sc-card">
+        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
+          <span class="sc-ico">📊</span><span class="sc-name">数据处理 · 实验记录整理</span><span class="chev">▸</span>
+        </div>
+        <div class="sc-detail">
+          <p class="sc-why">散落笔记／截图，让 AI 整理成规范表格，标出异常值——你只复核。</p>
+          <div class="lk-code" id="sc-p4">你是我实验室的助手。下面是 [实验记录／一堆数据]（可贴文本或表格）。请：
+①整理成 Markdown 表格（列：样品｜条件｜表征结果｜备注）；
+②标出缺失或异常值；③用一句话总结趋势。
+严禁编造任何缺失数据——缺失就写"缺"，异常就标"⚠"。</div>
+          <div class="sc-foot"><span class="sc-tool">🛠 用：WorkBuddy</span><button class="copybtn" data-copy="sc-p4">复制指令</button></div>
+        </div>
+      </div>
+
+      <div class="sc-card">
+        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
+          <span class="sc-ico">🧮</span><span class="sc-name">数学建模 · 华为杯（你已有 3 人队）</span><span class="chev">▸</span>
+        </div>
+        <div class="sc-detail">
+          <p class="sc-why">你零编程也要能看懂流程图——先讲思路再给可跑代码，不炫技。</p>
+          <div class="lk-code" id="sc-p5">你是我数模队的队友（我化工背景、零编程）。题目：[粘贴题面]。请：
+①用大白话讲清建模思路与可采用的模型；②给出可运行的 Python 代码框架（带注释，数据用占位）；
+③列出论文该写哪几节、每节要点；④给出可用 matplotlib 画的 2–3 张图建议。
+代码要能跑、要注释，别堆术语。</div>
+          <div class="sc-foot"><span class="sc-tool">🛠 用：WorkBuddy</span><button class="copybtn" data-copy="sc-p5">复制指令</button></div>
+        </div>
+      </div>
+
+      <div class="sc-card">
+        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
+          <span class="sc-ico">🧠</span><span class="sc-name">信息素养大赛 · 答题双轨</span><span class="chev">▸</span>
+        </div>
+        <div class="sc-detail">
+          <p class="sc-why">按你定的规则：有把握的题直接答并给依据；没把握的题改成教你自己查。</p>
+          <div class="lk-code" id="sc-p6">我在参加 AI＋信息素养大赛。规则：有把握的题你直接给答案并说明依据让我复核；
+没把握的题你改为教我操作步骤（打开哪个网站、点哪里、填什么、看哪个数），让我自己查。
+现在这题：[题目]。先判断你是否有把握，再按对应方式回答，不要猜了就选。</div>
+          <div class="sc-foot"><span class="sc-tool">🛠 用：WorkBuddy</span><button class="copybtn" data-copy="sc-p6">复制指令</button></div>
+        </div>
+      </div>
+
+      <div class="sc-card">
+        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
+          <span class="sc-ico">✍️</span><span class="sc-name">中文写作 · 小说／材料文案</span><span class="chev">▸</span>
+        </div>
+        <div class="sc-detail">
+          <p class="sc-why">保持已有的人设与节奏，不擅自加设定——尤其《灾变炉心》这种反复改的。</p>
+          <div class="lk-code" id="sc-p7">你是我写作的搭档，熟悉《灾变炉心》的设定与人设。任务：[续写／润色／出大纲]。
+要求：保持已有的人设、语气与节奏；不擅自加设定；若续写请给 2 个走向让我选。
+先确认你对当前情节的理解，再动手。</div>
+          <div class="sc-foot"><span class="sc-tool">🛠 用：WorkBuddy / GPT</span><button class="copybtn" data-copy="sc-p7">复制指令</button></div>
+        </div>
+      </div>
+
+      <div class="sc-card">
+        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
+          <span class="sc-ico">🔍</span><span class="sc-name">图表解读（给假设，不装结论）</span><span class="chev">▸</span>
+        </div>
+        <div class="sc-detail">
+          <p class="sc-why">贴数据或描述图，让它讲趋势、给可能原因——原因只是假设，要你验证。</p>
+          <div class="lk-code" id="sc-p8">你帮我解读数据。下面是 [数据／图的描述]：_____。请：
+①说明整体趋势；②给出 2–3 条可能的原因（明确标注"这是假设，需实验验证"）；
+③指出有没有异常点。不要假装这是已证实结论。</div>
+          <div class="sc-foot"><span class="sc-tool">🛠 用：WorkBuddy</span><button class="copybtn" data-copy="sc-p8">复制指令</button></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="lk-section">
+      <h3>✍️ 下指令公式（你最该练的）</h3>
+      <p>好指令 = <b>角色 + 背景 + 任务 + 约束 + 验收</b>。后两条（约束、验收）最容易被漏，偏偏是你最需要的。</p>
+      <div class="lk-grid">
+        <div class="lk-card"><h4>角色</h4><p>你让我当谁（"你是我同课题组的师弟"）。</p></div>
+        <div class="lk-card"><h4>背景</h4><p>相关上下文（"在改 Cu(II) 配位聚合物 SCI 论文"）。</p></div>
+        <div class="lk-card"><h4>任务</h4><p>具体要我做啥（"把这段中文译成学术英文"）。</p></div>
+        <div class="lk-card"><h4>约束</h4><p>格式／风格／边界（"保留数值，不改单位"）。</p></div>
+        <div class="lk-card"><h4>验收</h4><p>怎么算对（"译后数值须与表 5.1 一致"）。</p></div>
+      </div>
+    </div>
+
+    <div class="lk-section">
+      <h3>🧰 工具分工速查</h3>
+      <ul>
+        <li><b>WorkBuddy</b>＝总入口与执行（读写本机文件、跑脚本、跨文件核对）。最该用熟。</li>
+        <li><b>Gemini</b>＝长文献通读 + 第二意见（网页端用）。</li>
+        <li><b>GPT</b>＝英文润色 / 脑暴。</li>
+        <li><b>opencode / Cursor</b>＝想"让 AI 直接写改代码"时再上（免费／低门槛）。</li>
+        <li><b>Claude Code / Codex</b>＝命令行 Agent，进阶后再碰，现在别花时间。</li>
+      </ul>
+    </div>
+
+    <div class="lk-section">
+      <h3>⚠️ 避坑</h3>
+      <ul>
+        <li><b>幻觉</b>：AI 会编引用 / DOI / 数据，关键处务必你亲自核对原文。</li>
+        <li><b>别当搜索引擎</b>：给背景＋约束它才像同事；只丢一句"查一下"它会编。</li>
+        <li><b>隐私</b>：未发表稿件、未公开实验数据、个人信息，别随手传公有模型。</li>
+        <li><b>一个文件别让多个模型同时改</b>：防版本冲突（你的硬规则）。</li>
+        <li><b>模型会过时</b>：本站排行榜是静态快照，实时排名看各榜单官网。</li>
+      </ul>
+    </div>
+
+    <style>
+      .rlib-intro{font-size:14px;color:#374151;line-height:1.75;margin:6px 0 14px}
+      .rlib-intro b{color:var(--ink)}
+      .cat-h{font-size:15px;margin:18px 0 10px;color:var(--brand);font-weight:700}
+      .rsrc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px;margin-bottom:4px}
+      .rsrc-item{border:1px solid var(--line);border-radius:10px;padding:12px 13px;background:#fcfdff;box-shadow:var(--shadow)}
+      .rsrc-item .rsrc{font-size:14.5px;font-weight:700;color:var(--brand);text-decoration:none;word-break:break-word}
+      .rsrc-item .rsrc:hover{text-decoration:underline}
+      .plat{display:inline-block;font-size:11px;font-weight:600;color:#6b7280;background:#eef2f7;border-radius:6px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+      .rsrc-item>p{font-size:13px;color:#374151;line-height:1.6;margin:7px 0 9px}
+      .tag{display:inline-block;font-size:11px;color:#0f766e;background:#e6f7f3;border:1px solid #b8e6dd;border-radius:999px;padding:1px 8px;margin:2px 5px 0 0}
+      .rlib-note{font-size:13px;color:#374151;line-height:1.7;margin-top:14px;padding:10px 12px;background:#fff7ed;border:1px solid #fed7aa;border-radius:10px}
+      .rlib-mini{font-size:13px;color:#374151;line-height:1.7;margin-top:12px}
+      .rlib-mini a{color:var(--brand);text-decoration:none}
+      .rlib-mini a:hover{text-decoration:underline}
+    </style>
+
+    <div class="lk-section">
+      <h3>📚 全网优质 AI 教学资源库（别人怎么教，照着学）</h3>
+      <p class="rlib-intro">下面是从全网筛出来的<b>火或权威</b>的 AI 教学——视频 / 课程 / 图文都有，按"你想要什么"分类。链接都点得开，<b>中文优先、零基础友好</b>排在前面。挑一个今天就看 15 分钟，比收藏 100 个更有用。⚠️ 别囤课：看完一个再看下一个。</p>
+
+      <h4 class="cat-h">🎬 一、大佬白话科普（搞懂 AI/LLM 是什么，零基础）</h4>
+      <div class="rsrc-grid">
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi" target="_blank" rel="noopener noreferrer">3Blue1Brown《神经网络》系列<span class="plat">YouTube</span></a>
+          <p>用动画把神经网络、梯度下降、Transformer、扩散模型一层层讲透，公认最直观的入门。不用写代码，看就懂。</p>
+          <span class="tag">零基础</span><span class="tag">视频</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.youtube.com/@AndrejKarpathy" target="_blank" rel="noopener noreferrer">Karpathy：Intro to LLMs / How I use LLMs<span class="plat">YouTube</span></a>
+          <p>前 OpenAI、Tesla AI 总监。频道里这两场通俗演讲必看：一场讲清 LLM 原理，一场讲日常怎么用。想深究可看《Zero to Hero》从零写 GPT 系列。</p>
+          <span class="tag">零基础</span><span class="tag">视频</span><span class="tag">进阶可挖</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.bilibili.com/video/BV1KUNjzpEpM/" target="_blank" rel="noopener noreferrer">李宏毅《生成式AI导论 2025》<span class="plat">B站</span></a>
+          <p>台大教授，中文授课，明确写"不需任何先验知识"。从 Transformer 一路讲到 DeepSeek、RLHF，是最顺的中文入门。</p>
+          <span class="tag">零基础</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.bilibili.com/video/BV1aiADewEBC/" target="_blank" rel="noopener noreferrer">李宏毅《机器学习 2025》<span class="plat">B站</span></a>
+          <p>已授权完整版，今年内容偏实际应用、紧跟大模型趋势。想系统打底就看这一套（经典机器学习认准此版）。</p>
+          <span class="tag">进阶</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+      </div>
+
+      <h4 class="cat-h">🛠 二、工具实操（科研人怎么用 AI 真干活）</h4>
+      <div class="rsrc-grid">
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=%E5%81%9A%E7%A7%91%E7%A0%94%E7%9A%84%E5%A4%A7%E5%B8%88%E5%85%84" target="_blank" rel="noopener noreferrer">做科研的大师兄<span class="plat">B站</span></a>
+          <p>中山医博后，讲 ChatGPT / DeepSeek 辅助论文写作、文献带读、GraphPad 作图，全是科研人能直接抄的实战，35 万+粉。</p>
+          <span class="tag">科研向</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=%E5%A4%A9JIANG" target="_blank" rel="noopener noreferrer">天JIANG<span class="plat">B站</span></a>
+          <p>AI 工具使用实战派，ChatGPT / DeepSeek 新手技巧系列很接地气，适合刚上手的人。</p>
+          <span class="tag">新手</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=%E5%90%8C%E6%B5%8E%E5%AD%90%E8%B1%AA%E5%85%84" target="_blank" rel="noopener noreferrer">同济子豪兄<span class="plat">B站</span></a>
+          <p>计算机视觉实战专家，从项目出发讲 AI 应用，教程详细可复现。想做图像/检测类方向可跟。</p>
+          <span class="tag">进阶</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://igniva-review.com/chatgpt-and-claude-ai/" target="_blank" rel="noopener noreferrer">ChatGPT + Claude 协同用法（图文）<span class="plat">博客</span></a>
+          <p>心法：ChatGPT 头脑风暴+写初稿，Claude 吃长文档做总结+润色。两个配合比单用一个强。附分步上手教程。</p>
+          <span class="tag">科研向</span><span class="tag">图文</span>
+        </div>
+      </div>
+
+      <h4 class="cat-h">📚 三、系统权威课（想系统学就上，多数免费）</h4>
+      <div class="rsrc-grid">
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.deeplearning.ai/" target="_blank" rel="noopener noreferrer">DeepLearning.AI（Andrew Ng）<span class="plat">官网</span></a>
+          <p>吴恩达出品。《AI for Everyone》非技术向、《ChatGPT Prompt Engineering for Developers》等，免费，质量天花板。</p>
+          <span class="tag">系统</span><span class="tag">免费</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://developers.google.com/machine-learning/crash-course" target="_blank" rel="noopener noreferrer">Google 机器学习速成课 MLCC<span class="plat">官网</span></a>
+          <p>30+ 互动练习、真实案例，支持中文，约 15 小时。想搞懂机器学习基本功就刷这个。</p>
+          <span class="tag">零基础</span><span class="tag">免费</span><span class="tag">中文可选</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://cs50.harvard.edu/ai/" target="_blank" rel="noopener noreferrer">Harvard CS50 AI with Python<span class="plat">edX</span></a>
+          <p>哈佛传奇 CS50 系列的 AI 版，搜索/知识表示/机器学习/LLM 都用 Python 实战，免费旁听。</p>
+          <span class="tag">系统</span><span class="tag">免费旁听</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.fast.ai/" target="_blank" rel="noopener noreferrer">fast.ai《Practical Deep Learning》<span class="plat">官网</span></a>
+          <p>"自顶向下"：第一天就跑通 SOTA 模型，再回头讲理论。全程免费 Colab，社区活跃。</p>
+          <span class="tag">进阶</span><span class="tag">免费</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.elementsofai.com/" target="_blank" rel="noopener noreferrer">Elements of AI（赫尔辛基大学）<span class="plat">官网</span></a>
+          <p>零数学、零代码，面向所有人讲清 AI 基础，超百万人学过，多语言。</p>
+          <span class="tag">零基础</span><span class="tag">免费</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="http://introtodeeplearning.com/" target="_blank" rel="noopener noreferrer">MIT 6.S191 深度学习导论<span class="plat">官网</span></a>
+          <p>MIT 每年更新的公开讲座+实验，覆盖 CV / NLP / 生成模型，研究级视角，全部免费。</p>
+          <span class="tag">进阶</span><span class="tag">免费</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.bilibili.com/video/BV1daQAYuEYm/" target="_blank" rel="noopener noreferrer">李沐《动手学深度学习》<span class="plat">B站</span></a>
+          <p>亚马逊首席科学家，逐行敲代码讲深度学习，配套开源书 d2l.ai。想真动手实现就看这个。</p>
+          <span class="tag">进阶</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+      </div>
+
+      <h4 class="cat-h">✍️ 四、提示词 / 指令工程（专练"下指令"，你最该练的）</h4>
+      <div class="rsrc-grid">
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" rel="noopener noreferrer">OpenAI 官方提示工程指南<span class="plat">文档</span></a>
+          <p>最权威基线：清晰指令、角色设定、示例、输出约束、评估。短小精悍，每个用 AI 的人都该过一遍。</p>
+          <span class="tag">必看</span><span class="tag">文档</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank" rel="noopener noreferrer">Anthropic 提示工程概览 + Prompt Library<span class="plat">文档</span></a>
+          <p>Claude 官方：什么时候该调提示词、什么时候该换模型/微调的决策框架，外加 50+ 现成模板直接改。</p>
+          <span class="tag">必看</span><span class="tag">文档</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://learnprompting.org/" target="_blank" rel="noopener noreferrer">Learn Prompting<span class="plat">课程</span></a>
+          <p>免费互动课，从零基础到进阶技术，结构清晰，边学边练。</p>
+          <span class="tag">免费</span><span class="tag">课程</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.promptingguide.ai/" target="_blank" rel="noopener noreferrer">DAIR.AI Prompt Engineering Guide<span class="plat">文档</span></a>
+          <p>最全开源指南，18+ 技术、各模型专项建议，常作为权威参考。</p>
+          <span class="tag">进阶</span><span class="tag">文档</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://cookbook.openai.com/" target="_blank" rel="noopener noreferrer">OpenAI Cookbook<span class="plat">GitHub</span></a>
+          <p>官方范例代码集：RAG、函数调用、评估、复杂工作流，想让 AI 干复杂活就翻这里。</p>
+          <span class="tag">进阶</span><span class="tag">代码</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://ai.google.dev/gemini-api/docs/prompting-strategies" target="_blank" rel="noopener noreferrer">Google Gemini 提示策略<span class="plat">文档</span></a>
+          <p>多模态提示（文字+图+视频）怎么写，Gemini 特化技巧。</p>
+          <span class="tag">文档</span><span class="tag">多模态</span>
+        </div>
+      </div>
+
+      <h4 class="cat-h">📝 五、图文 / 博客（随时翻的权威参考）</h4>
+      <div class="rsrc-grid">
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://huggingface.co/learn" target="_blank" rel="noopener noreferrer">Hugging Face Learn<span class="plat">官网</span></a>
+          <p>开源模型与 AIGC 工具链教程，从 Transformer 到微调部署，工程师向。</p>
+          <span class="tag">进阶</span><span class="tag">文档</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.kaggle.com/learn" target="_blank" rel="noopener noreferrer">Kaggle Learn<span class="plat">官网</span></a>
+          <p>浏览器内边做边学，免费数据集+实战微课程，想练手直接上。</p>
+          <span class="tag">免费</span><span class="tag">实战</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.deeplearning.ai/the-batch/" target="_blank" rel="noopener noreferrer">The Batch（DeepLearning.AI 周报）<span class="plat">资讯</span></a>
+          <p>吴恩达团队每周 AI 资讯，紧跟产业与研究动态。</p>
+          <span class="tag">资讯</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://lilianweng.github.io/" target="_blank" rel="noopener noreferrer">Lilian Weng Blog<span class="plat">博客</span></a>
+          <p>OpenAI 研究员的技术博客，提示工程、Agent 等主题写得很深，进阶必读。</p>
+          <span class="tag">进阶</span><span class="tag">博客</span>
+        </div>
+      </div>
+
+      <div class="rlib-note">💡 <b>科研 workflow 心法：</b>把 AI 当"新来的师弟"。①<b>文献/长文</b>丢给 Claude 或 Gemini 做总结带读（它们吃长文本强）；②<b>头脑风暴/写初稿/画图</b>用 ChatGPT 或 WorkBuddy；③<b>数值/化学式/DOI</b> 务必你亲自核对原文，AI 会编。核心创新点和实验数据必须是你自己的。</div>
+
+      <div class="rlib-mini">📊 <b>顺手看排名/日报：</b>
+        <a href="https://aihot.virxact.com/" target="_blank" rel="noopener noreferrer">AIHOT 每日日报</a>（本站数据源）·
+        <a href="https://lmarena.ai/leaderboard/text" target="_blank" rel="noopener noreferrer">LMArena 文本榜</a>（用起来谁最强）·
+        <a href="https://artificialanalysis.ai/" target="_blank" rel="noopener noreferrer">Artificial Analysis</a>（智能指数+价格）·
+        <a href="https://www.swebench.com/" target="_blank" rel="noopener noreferrer">SWE-bench</a>（代码能力）。
+        本机还有你的 <code>AI指令手册.html</code>（20 条可复制模板，电脑里双击打开）。
+      </div>
+    </div>
+
+    <div class="lk-section">
+      <h3>📖 还想深究？名词 / 排行榜速查</h3>
+      <p>
+        <span class="lk-pill">LLM 大语言模型</span><span class="lk-pill">Token 计费/长度单位</span>
+        <span class="lk-pill">Prompt 指令</span><span class="lk-pill">Agent 智能体</span>
+        <span class="lk-pill">RAG 读你的资料再答</span><span class="lk-pill">推理模型 会"想一下"</span>
+        <span class="lk-pill">上下文窗口 一次看多少</span><span class="lk-pill">多模态 图文音视频</span>
+        <span class="lk-pill">幻觉 编假内容</span><span class="lk-pill">Benchmark 基准测试</span>
+      </p>
+      <p style="margin-top:10px"><b>排行榜在比什么：</b>LMArena（真人盲测体感）、AA 智能指数（客观总分）、SWE-bench（写代码）、GPQA / MMLU（硬核学科）、Terminal-Bench（命令行 Agent）。同一模型聊天第一、写代码未必第一——看"比什么"。</p>
+    </div>
+
+  </div>
+
+  <!-- ================= COMPETITION VIEW ================= -->
+  <div id="view-comp" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-comp">
+    <div class="view-head"><h2>🏁 比赛地图：我能报 + 全球一览</h2>
+      <p>两块内容：① <b>我能报的</b>——搜罗全网现在和接下来能报名、且能靠 AI 大幅提效的比赛（数据核对于 <b>2026-09-22</b>，状态灯按当天判定；共收录 <b id="comp-count">0</b> 项，分页浏览、每页 12 条），点卡片直达官网；② <b>🌍 全球一览</b>——世界级赛事（AI/机器人/航天/科创），多数你报不了，但能开眼界看全球在比什么、顶尖水平在哪。用上方按钮切换，结果可翻页。</p></div>
+    <div class="news">
+      🎯 <b>挑赛思路：</b>研究生优先看「中国研究生创新实践系列大赛」（官网 cpipc.acge.org.cn，20 项主题赛 + 2 专项赛）；想零门槛拿奖就选 <b>科大讯飞 AI 开发者大赛的"应用赛 / Skill 开发赛"</b>和 <b>天池 / DataFountain / Kaggle</b> 这类数据赛——几乎全程可用 AI 辅助。创新创业类（互联网+、挑战杯）AI 帮写商业计划书和路演。⚠️ 注意：<b>英语翻译大赛有"AI 生成检测"规定，AI 只能辅助、不能代写</b>。
+    </div>
+    <div class="disclaim">
+      <b>说明：</b>赛程与截止时间以<b>官网最新通知</b>为准（本页数据核对于 2026-09-22，状态灯按当天判定；部分赛事每年滚动，已截止的可直接关注下一届）。🟠 即将截止（约一周内）的请优先处理。状态：🟢 可报名 / 🟠 即将截止 / ⚪ 已截止或需等下一届。
+    </div>
+
+    <div class="cmp-toolbar">
+      <span id="comp-stat" style="font-size:13px;color:var(--ink-soft);margin-right:auto"></span>
+      <span id="comp-updated" style="font-size:12px;color:var(--ink-soft);margin-left:8px"></span>
+      <div id="compScope" style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="filterbtn active" data-s="me">我能报的</button>
+        <button class="filterbtn" data-s="world">🌍 全球一览</button>
+        <button class="filterbtn" data-s="all">全部</button>
+      </div>
+      <div id="compFilters" style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="filterbtn" data-f="all">全部状态</button>
+        <button class="filterbtn" data-f="soon">🟠 即将截止</button>
+        <button class="filterbtn active" data-f="open">🟢 可报名</button>
+        <button class="filterbtn" data-f="closed">⚪ 已截止</button>
+      </div>
+      <div id="compSort" style="display:flex;gap:8px;flex-wrap:wrap;margin-left:8px">
+        <span style="font-size:12px;color:var(--ink-soft);align-self:center">排序</span>
+        <button class="filterbtn active" data-sort="pri">🔥 推荐优先</button>
+        <button class="filterbtn" data-sort="default">默认</button>
+      </div>
+    </div>
+    <div id="comp-world-note" class="news" style="display:none">
+      🌍 <b>全球一览：</b>以下为世界级赛事——AI / 机器人 / 航天 / 科创的"奥运会"。多数你<b>无法以个人身份报名</b>（限国籍 / 年龄 / 高校团队 / 邀请制），列出仅供开眼界：看全球在比什么、顶尖水平在哪。少数（如 NASA Space Apps、Kaggle）其实对中国开放，卡片里标了就说明你能上。
+    </div>
+
+    <div class="cmp-list" id="comp-list"></div>
+    <div class="cmp-pager" id="comp-pager"></div>
+
+    <div class="lk-tip" style="margin-top:18px">
+      💡 <b>AI 参赛心法：</b>把 AI 当"队友"而不是"枪手"。用它做思路脑暴、代码实现、资料整理、图表美化、文档与 PPT 撰写；但<b>核心创新点、实验数据、诚信底线必须是你自己的</b>。多数比赛评的是你的理解与贡献，AI 只是放大器。
+    </div>
+  </div>
+
+  <button id="toTop" title="回到顶部" aria-label="回到顶部">↑</button>
+
+  <script>
+/* AI 情报站 - 比赛数据（每日自动更新） */
+window.COMP_UPDATED = "2026-09-22";
+/* ============ COMPETITIONS (snapshot 2026-09-22) ============ */
+  var CPIPC = "https://cpipc.acge.org.cn/cw/hp/";
+  window.COMP = [
+    /* ===== 我能报的（国内 + 全球开放低门槛） ===== */
+    {scope:"me", n:"“华为杯”第23届中国研究生数学建模竞赛", type:"数学建模", st:"closed", ai:5, pri:1, team:"3 人队（你已有）",
+     org:"教育部学位管理与研究生教育司指导 · 中国学位与研究生教育学会",
+     reg:"报名 6/1–9/19 17:00、学校审核 9/20 17:00 均截止；缴费 9/21 17:00 截止（报名已结束）", run:"竞赛 9/23 8:00 – 9/27 12:00 进行中（你已报名，全力备赛）；论文提交 9/26 12:00–9/28 24:00",
+     desc:"围绕真实科研/工程问题建立数学模型并求解，通常 3 人团队在 3–4 天赛期内完成研究论文，比拼建模思路、算法实现与论文表达。", fit:"数学建模是研究生通用硬通货，3 人化工队即可上场，是你性价比最高的一站。", help:"AI 帮建模思路、Python/MATLAB 代码、论文撰写与 LaTeX 排版、图表美化。你已有 3 人队伍与备赛基础，是性价比最高的一站。",
+     url:"https://cpipc.acge.org.cn/cw/hp/4/"},
+    {scope:"me", n:"中国国际大学生创新大赛(2026)（原“互联网+”）", type:"创新创业", st:"soon", ai:4, pri:1, team:"组队（跨专业友好）",
+     org:"教育部等 12 部门联合主办 · 全国大学生创业服务网",
+     reg:"8/10 – 9/25 12:00", run:"校赛 8–10 月；总决赛 11 月",
+     desc:"中国研究生创新实践系列大赛或同类研究生赛事，由权威学会/部委指导，面向研究生，可凭专业背景参与。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"AI 帮商业计划书、路演稿、PPT、竞品分析、财务测算、答辩提纲。含高教主赛道 + 产业赛道。",
+     url:"https://cy.ncss.cn/"},
+    {scope:"me", n:"中国研究生企业管理创新大赛（第四届）", type:"管理/商业分析", st:"soon", ai:4, pri:2, team:"组队（跨专业友好）",
+     org:"教育部学位管理与研究生教育司指导 · 北京外国语大学承办",
+     reg:"8/10 – 9/22 19:00（报名最后一天，今晚 19:00 截止；审核 9/23 17:00 截止）", run:"初赛作品提交 9/24–10/18；复赛 11/10–15；总决赛 12/5–6（北京外国语大学承办）",
+     desc:"面向公共治理或企业管理的案例与方案竞赛，重分析与决策。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"含「商业分析与实践」「数字技术应用」赛道：AI 帮数据分析、报告撰写、案例研究、可视化。",
+     url:"https://cpipc.acge.org.cn/cw/hp/2c90801786cfa2b60186de4143390279"},
+    {scope:"me", n:"2026 科大讯飞 AI 开发者大赛（含星火杯·大模型应用创新赛）", type:"AI 应用/大模型", st:"open", ai:5, pri:1, team:"组队 / 单人可",
+     org:"科大讯飞 · 联合挑战杯（共青团中央+教育部双认证）",
+     reg:"滚动报名中（部分赛题 8–9 月截止）", run:"视赛题而定，多赛道全年",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"★ 最推荐给非算法背景：'AI 应用赛'与'Skill 开发挑战赛'用星辰 Agent 平台搭智能体，AI 全程帮你写方案、做 Demo、写文档、录演示。有奖金 + 就业绿色通道。",
+     url:"https://challenge.xfyun.cn/"},
+    {scope:"me", n:"阿里云天池（Tianchi）算法大赛", type:"数据/AI", st:"open", ai:5, pri:1, team:"单人可 / 可组队",
+     org:"阿里巴巴 · 天池平台",
+     reg:"长期滚动，随时报名", run:"视赛题而定",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"★ AI 能直接帮你写 baseline 代码、调参、写方案解析、做可视化；入门赛多，适合练手兼拿奖。",
+     url:"https://tianchi.aliyun.com/"},
+    {scope:"me", n:"DataFountain · CCF BDCI 大数据与计算智能大赛", type:"数据挖掘", st:"open", ai:4, pri:1, team:"单人可 / 可组队",
+     org:"中国计算机学会（CCF）等",
+     reg:"年度滚动", run:"视赛题而定",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"AI 帮数据清洗、特征工程、建模、实验报告。获奖有奖金、证书与面试绿色通道，单赛题 1–5 人组队。",
+     url:"https://www.datafountain.cn/"},
+    {scope:"me", n:"Kaggle 竞赛（国际·全球开放）", type:"数据科学", st:"open", ai:4, pri:1, team:"单人可 / 可组队",
+     org:"Kaggle（Google 旗下）",
+     reg:"全年滚动", run:"视赛题而定",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"AI 帮读赛题、写 baseline、调参、整理 notebook、写方案说明。国际排名 + 奖金，简历加分；对中国个人完全开放。",
+     url:"https://www.kaggle.com/competitions"},
+    {scope:"me", n:"全国大学生英语翻译大赛（NETCCS，大英赛同主办）", type:"翻译（A 类=研究生）", st:"open", ai:3, pri:2, team:"组队 / 单人可",
+     org:"高等学校大学外语教学研究会 · 全国高等师范院校外语教学与研究协作组",
+     reg:"9/1 – 12/11 23:59", run:"译文提交 11/12 – 12/16 15:00",
+     desc:"设计与文化创意/语言类竞赛，AI 可辅助出图、排版、生成与润色。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"AI 帮翻译初稿、术语表、润色。⚠ 赛事有「AI 生成内容检测查重」规定，必须以自己为主、AI 仅辅助，代写会被取消资格。",
+     url:"https://netccs.saikr.com/"},
+    {scope:"me", n:"中国研究生智慧城市技术与创意设计大赛（第十二届）", type:"创意设计", st:"open", ai:4, pri:3, team:"组队 / 单人可",
+     org:"教育部学位管理与研究生教育司指导",
+     reg:"6/27 – 10/23 12:00", run:"作品提交至 10/25；决赛 12/26–27",
+     desc:"设计与文化创意/语言类竞赛，AI 可辅助出图、排版、生成与润色。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"AI 帮方案策划、示意图/原型设想、文案与答辩 PPT；跨专业组队友好。",
+     url:"https://cpipc.acge.org.cn"},
+    {scope:"me", n:"“挑战杯”中国大学生创业计划竞赛（第十五届）", type:"创新创业", st:"open", ai:4, pri:1, team:"组队（跨专业友好）",
+     org:"共青团中央等 · 挑战杯官网",
+     reg:"全年滚动（1 – 12 月）", run:"校赛→省赛→国赛逐级",
+     desc:"中国研究生创新实践系列大赛或同类研究生赛事，由权威学会/部委指导，面向研究生，可凭专业背景参与。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"AI 帮创业计划书、市场分析、路演稿、财务模型。",
+     url:"http://www.tiaozhanbei.net/"},
+    {scope:"me", n:"“挑战杯”全国大学生课外学术科技作品竞赛（第十九届）", type:"学术科技", st:"open", ai:4, pri:1, team:"组队（跨专业友好）",
+     org:"共青团中央等 · 挑战杯官网",
+     reg:"全年滚动（1 – 11 月）", run:"逐级选拔",
+     desc:"面向广泛专业学生的科技/技能综合赛事，门槛低、易于上手。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"AI 帮学术论文/报告撰写、数据分析与可视化、答辩稿打磨。",
+     url:"http://www.tiaozhanbei.net/"},
+    {scope:"me", n:"中国研究生网络安全创新大赛（第五届）", type:"网络安全", st:"open", ai:2, pri:2, team:"组队（技术向）",
+     org:"教育部学位管理与研究生教育司指导 · 哈尔滨工业大学承办",
+     reg:"6/18 – 10/18 23:59", run:"作品提交至 10/22；决赛 12/26–27",
+     desc:"网络安全攻防与技术竞赛，含 CTF、漏洞挖掘与防护方案。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"需网安基础，AI 主要帮资料整理与文档撰写；契合度较低，化工背景慎选。",
+     url:"https://cpipc.acge.org.cn/cw/hp/2c90800c8093eef401809d33b36f0652"},
+    {scope:"me", n:"中国研究生 EDA 精英挑战赛", type:"集成电路/EDA", st:"open", ai:2, pri:2, team:"组队（技术向）",
+     org:"教育部学位管理与研究生教育司指导 · 国防科技大学承办",
+     reg:"8/4 – 10/16", run:"作品提交 8/10 – 11/7",
+     desc:"硬件、嵌入式或芯片相关竞赛，含电路设计、EDA、验证与光电技术。", fit:"偏硬件/工程，与化工交叉少，但可作跨方向练手，或在队里当 AI/数据担当。", help:"需微电子/集成电路背景，AI 帮算法与文档；契合度较低。",
+     url:"https://cpipc.acge.org.cn/cw/hp/2c9080158ee9c272018f229208b610a6"},
+    {scope:"me", n:"赛氪（Saikr）竞赛平台 · 在线学科赛汇总", type:"综合（低门槛）", st:"open", ai:3, pri:2, team:"组队 / 单人可",
+     org:"赛氪平台（汇总各类国家级/省级赛事）",
+     reg:"全年滚动", run:"视赛事而定",
+     desc:"面向广泛专业学生的科技/技能综合赛事，门槛低、易于上手。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"英语、数学、学科类在线赛汇总，多数门槛低、支持个人报名，AI 辅助空间大。",
+     url:"https://www.saikr.com/"},
+    {scope:"me", n:"中国研究生“双碳”创新与创意大赛（第五届）", type:"双碳/能源", st:"closed", ai:4, pri:1, team:"组队（专业相关）",
+     org:"教育部学位管理与研究生教育司指导 · 西北工业大学承办",
+     reg:"6/23 – 9/11（本届已截止）", run:"决赛 11 月下旬",
+     desc:"第五届中国研究生“双碳”创新与创意大赛——你正以柚子皮衍生氮掺杂碳作纳米硅负极双缓冲层项目参赛（重庆理工大学校内选拔）。聚焦碳中和方案，与你新能源/环境方向无缝对接。", fit:"与你的双碳/新能源/环境方向高度契合，可直接搬实验室课题参赛。", help:"你已参与校内选拔。若未晋级，可关注下届；AI 帮方案、数据、PPT。专业不限、允许跨校跨专业组队。",
+     url:"https://cpipc.acge.org.cn/cw/hp/2c90800c8093eef401809d348f8b0653"},
+    {scope:"me", n:"全国大学生化工设计竞赛", type:"化工设计", st:"closed", ai:3, pri:1, team:"组队（专业相关）",
+     org:"中国化工学会等 · 浙江大学承办",
+     reg:"2 – 4 月（每年，关注下届）", run:"暑期分赛区→全国总决赛",
+     desc:"面向化工/化学/材料领域，强调工艺设计、实验表征与工程应用，可直接用你实验室课题作素材。", fit:"就是你本行——化工/材料方向，用现有课题与表征数据即可组队。", help:"本专业最对口：AI 帮工艺流程计算、文献检索、设计说明书与图纸说明。",
+     url:"http://iche.zju.edu.cn/"},
+    {scope:"me", n:"全国大学生化学实验创新设计大赛", type:"化学实验", st:"closed", ai:3, pri:1, team:"组队（专业相关）",
+     org:"教育部高等学校化学类专业教学指导委员会 · 南京大学",
+     reg:"2 – 4 月（每年，关注下届）", run:"视届次而定",
+     desc:"面向化工/化学/材料领域，强调工艺设计、实验表征与工程应用，可直接用你实验室课题作素材。", fit:"就是你本行——化工/材料方向，用现有课题与表征数据即可组队。", help:"AI 帮实验方案设计、数据处理、论文撰写。",
+     url:"https://cid.nju.edu.cn/"},
+    {scope:"me", n:"全国大学生低碳循环科技创新大赛", type:"低碳/环保", st:"closed", ai:3, pri:1, team:"组队（专业相关）",
+     org:"中国循环经济协会等",
+     reg:"2 – 5 月（每年，关注下届）", run:"视届次而定",
+     desc:"聚焦碳中和与绿色低碳，覆盖能源转型、储能、碳捕集、工业减排与生态环境方向，与你的课题强相关。", fit:"与你的双碳/新能源/环境方向高度契合，可直接搬实验室课题参赛。", help:"AI 帮方案、数据整理、报告与路演。与你的双碳/吸附材料方向契合。",
+     url:"https://www.cnlcr.com/"},
+    {scope:"me", n:"2026 年大学生“AI+信息素养”大赛（含重理工校赛）", type:"信息素养 / AI 应用", st:"closed", ai:5, pri:2, team:"组队 / 单人可",
+     org:"教育部高校图工委、重庆市教委、四川省教育厅指导 · 重庆大学 / 四川大学承办",
+     reg:"学生报名 7/3 – 9/17（已截止）；校赛 9/19–21 进行中（9/21 为最后一天）；省赛 10/17–11/2", run:"省赛 10/17–11/2；全国联赛 11/26–27",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"★ 你正在参加的比赛！官方明确「比赛可以用 AI，没有限制」；AI 帮检索策略、CNKI / LeapSpace 实操、知识点速记与模拟练习答题思路。研究生赛道，校赛个人线上答题（50 题 / 100 分）。",
+     url:"https://csc.xxsuyang.com/"},
+    {scope:"me", n:"中国研究生人工智能创新大赛（第八届）", type:"AI 创新/研究生主场", st:"closed", ai:5, pri:1, team:"组队 / 单人可",
+     org:"教育部学位管理与研究生教育司指导 · 中国学位与研究生教育学会 · 山东大学承办",
+     reg:"报名 5/22 – 8/25（本届已截止）；作品提交至 9/1", run:"初赛线上评审 9/2 – 9/23；决赛晋级后通知",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"★ 研究生 AI 第一主场赛事（'中国研究生创新实践系列大赛'主题赛事之一），与你方向高度契合：开放赛题含『生成式大语言模型与智能体』『AI+X 科学/工程应用』『机器人与具身智能』等。本届报名已截止、初赛评审进行中；记下它，2027 第九届（约明年 5 月开报）重点冲。AI 帮选题、文献、方案、代码与答辩。",
+     url:"https://cpipc.acge.org.cn/cw/hp/2c9088a5696cbf370169a3f8101510bd"},
+    {scope:"me", n:"2026 高校大学生“工创杯”人工智能知识大赛", type:"AI 知识赛/客观题", st:"open", ai:5, pri:2, team:"组队 / 单人可",
+     org:"中国商业技师协会主办 · 赛氪网技术支持",
+     reg:"即日起 – 12/20（四场次任选其一：9/6、10/11、11/15、12/20）", run:"线上个人赛，50 道客观单选，限时 60 分钟，提供免费练习题库",
+     desc:"2026 高校大学生“工创杯”人工智能知识大赛：线上客观题（50 道单选/60 分钟），提供免费题库，零基础友好，三等奖以上可申《人工智能工程师》技能证书。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"★ 零基础友好：官方给题库、正式考抽 50% 原题，刷几遍就能拿证。研究生可报、专业不限、线上单机位。三等奖及以上还可申领《人工智能工程师》专项技能证书。适合作为你 AI 入门的『练手+镀金』第一站，AI 帮你过知识点+押题。",
+     url:"https://www.saikr.com/vse/2026RGZN"},
+    {scope:"me", n:"MathorCup 数学应用挑战赛·大数据竞赛（第七届）", type:"大数据/AI 建模", st:"open", ai:4, pri:2, team:"组队 / 单人可",
+     org:"中国优选法统筹法与经济数学研究会（国家级学会）",
+     reg:"即日起 – 10/23 12:00（研究生组单独评奖）", run:"初赛 10/23 18:00 – 10/30 20:00；复赛 12/4 – 12/11",
+     desc:"MathorCup 数学应用挑战赛·大数据竞赛：企业真实场景数据赛，研究生组单独评奖，1–3 人可跨校，金奖 1 万。是华为杯数模之外的优质大数据练兵场。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"企业真实场景数据赛，管理/大数据/AI/数学/计算机等专业均可，1–3 人组队、可跨校。金奖 1 万、银奖 5 千、铜奖 2 千。AI 帮数据清洗、特征工程、建模、论文与代码。是你『华为杯数模』之外的优质大数据练兵场。",
+     url:"https://new.saikr.com/vse/bigdata2026"},
+    {scope:"me", n:"2026 怀柔科学城 AI for Science·OPC 创新挑战赛", type:"AI for Science", st:"open", ai:5, pri:2, team:"组队 / 单人可",
+     org:"怀柔科学城管委会指导 · 怀柔科学城发展集团等（科技日报 9/13 报道）",
+     reg:"9/11 启动 – 10/10 截止", run:"揭榜挂帅赛道（团队）+ 48 小时黑客松赛道（高校学生可单人组队）",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"★ 与你的科研路子最贴：10 大榜单来自中科院物理所怀柔研究部、浪潮云洲等，覆盖大科学装置智能化升级、科研智能体、多模态科学数据处理——正是「AI + 化工/材料实验」的方向。单榜悬赏最低 10 万、总奖金池超 300 万，优胜团队可直接与发榜单位签采购合同。黑客松赛道面向高校学生、可单人报名，另有 10 万奖金池。⚠ 报名入口为「怀柔科创」小程序 / 赛事官网，本条链接是科技日报报道页，报名前请先确认官网。",
+     url:"https://www.stdaily.com/web/gdxw/2026-09/13/content_580127.html"},
+    {scope:"me", n:"第八届全球校园人工智能算法精英大赛", type:"AI 算法/创新", st:"open", ai:5, pri:2, team:"单人可 / 可组队",
+     org:"全国普通高校大学生学科竞赛目录赛事 · 大赛组委会",
+     reg:"算法挑战赛道报名/初赛提交 9/20 18:00–20:00 截止；算法创新/主题/产业等赛道官网报名 10/15 20:00 截止", run:"作品提交 9/15 – 10/8；校赛答辩 10 月中",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"在校研究生可报，可单人建队（不可跨校，每队最多 2 名指导教师）。设算法挑战赛、算法创新赛、算法主题赛（AI+学科交叉）、产业命题赛等赛道——「AI+学科交叉」正好放你的材料/化工场景。AI 帮写 baseline、技术报告与答辩 PPT。",
+     url:"https://www.aicomp.cn/"},
+    {scope:"world", n:"NeurIPS Competition Track（神经信息处理系统大会竞赛单元）", type:"AI / 机器学习", st:"open", ai:5, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"NeurIPS 基金会",
+     reg:"全球研究者可投，需较强 ML 基础（顶尖门槛）", run:"每年随 NeurIPS 会议（12 月），春季发榜",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"你不一定能报，但能看全球在比什么、顶级水平在哪，启发自己的科研与选题。", help:"AI 顶会竞赛是前沿方向风向标（RL、因果推断、生物医药、ML 系统），跟住就知道业界在卷什么。",
+     url:"https://neurips.cc/"},
+    {scope:"world", n:"XPRIZE 大奖赛（碳移除 / 雨林 / 海洋等）", type:"科技公益大奖", st:"open", ai:5, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"XPRIZE 基金会",
+     reg:"全球团队申请制，奖金数百万–1 亿美元，须组队 + 资金", run:"长年征集，按赛事周期（数年）",
+     desc:"面向广泛专业学生的科技/技能综合赛事，门槛低、易于上手。", fit:"你不一定能报，但能看全球在比什么、顶级水平在哪，启发自己的科研与选题。", help:"人类重大挑战的'登月计划'式大奖，看全球如何用科技解决碳移除、生态保护等大命题。",
+     url:"https://www.xprize.org/"},
+    {scope:"world", n:"Amazon Alexa Prize（亚马逊 Alexa 大奖）", type:"对话式 AI", st:"open", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"Amazon Science",
+     reg:"高校团队申请 / 邀请制（美及合作高校）", run:"约两年一届",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"你不一定能报，但能看全球在比什么、顶级水平在哪，启发自己的科研与选题。", help:"对话 AI 的顶级练兵场，看大模型时代语音助手能做到哪一步。",
+     url:"https://www.amazon.science/alexa-prize"},
+    {scope:"world", n:"WMT（机器翻译国际评测）", type:"自然语言处理", st:"open", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"Conference on Machine Translation",
+     reg:"全球开放，机器翻译年度评测", run:"每年（6–9 月评测）",
+     desc:"设计与文化创意/语言类竞赛，AI 可辅助出图、排版、生成与润色。", fit:"你不一定能报，但能看全球在比什么、顶级水平在哪，启发自己的科研与选题。", help:"机器翻译的'世界杯'，看翻译模型年度演进与多语言难点。",
+     url:"https://wmt-conf.net/"},
+    {scope:"world", n:"BioASQ（生物医学语义问答挑战）", type:"AI + 生命科学", st:"open", ai:3, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"National Centre for Scientific Research 'Demokritos'（希腊）",
+     reg:"全球开放，生物医学语义问答 / 信息检索", run:"每年（1–11 月任务）",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"你不一定能报，但能看全球在比什么、顶级水平在哪，启发自己的科研与选题。", help:"生物医学文本理解与检索，交叉 AI + 生命科学，和你的科研方向有交集。",
+     url:"https://bioasq.org/"},
+    {scope:"world", n:"ChaLearn AutoML Challenges（自动机器学习系列赛）", type:"AutoML / 机器学习", st:"open", ai:3, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"ChaLearn（非盈利 ML 组织）",
+     reg:"全球开放", run:"常年滚动多赛事",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"你不一定能报，但能看全球在比什么、顶级水平在哪，启发自己的科研与选题。", help:"AutoML / 终身学习 / 因果表征等，看'自动化建模'前沿到哪了。",
+     url:"http://www.chalearn.org/"},
+    {scope:"world", n:"iGEM（国际基因工程机器大赛）", type:"合成生物学", st:"open", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"iGEM Foundation",
+     reg:"全球高校 / 社区队，需组队 + 注册费（中国多校有队）", run:"每年（1–10 月，10 月决赛）",
+     desc:"工程/系统/软件类竞赛，重实现、设计与综合素养。", fit:"你不一定能报，但能看全球在比什么、顶级水平在哪，启发自己的科研与选题。", help:"合成生物学全球盛会，和你的材料 / 化学背景有交叉，国内清北 / 上交等校常年参赛。",
+     url:"https://igem.org/"},
+    {scope:"world", n:"Regeneron ISEF（英特尔国际科学与工程大奖赛）", type:"科创（中学）", st:"open", ai:5, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"Society for Science",
+     reg:"仅美 9–12 年级（+ 各国选拔），研究生超龄不符", run:"每年 5 月（美国）",
+     desc:"工程/系统/软件类竞赛，重实现、设计与综合素养。", fit:"你不一定能报，但能看全球在比什么、顶级水平在哪，启发自己的科研与选题。", help:"全球中学生科创最高舞台，看下一代在做什么——你已超龄，纯开眼界。",
+     url:"https://www.societyforscience.org/isef/"},
+    {scope:"world", n:"Regeneron STS（美国再生元科学天才奖）", type:"科创（中学）", st:"open", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"Society for Science",
+     reg:"仅美公民 / 永居，pre-college，你不符", run:"每年（8 月 – 次年 3 月）",
+     desc:"面向广泛专业学生的科技/技能综合赛事，门槛低、易于上手。", fit:"你不一定能报，但能看全球在比什么、顶级水平在哪，启发自己的科研与选题。", help:"美国本科生前沿科研奖，往届出过诺奖得主，看顶尖青年科研长啥样。",
+     url:"https://www.societyforscience.org/regeneron-sts/"},
+    {scope:"world", n:"RoboCup（机器人世界杯）", type:"机器人", st:"open", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"RoboCup Federation",
+     reg:"全球高校队可参加，机器人足球 / 救援 / 家庭", run:"每年 7 月世界杯",
+     desc:"机器人系统设计与智能控制，含感知、运动规划、仿真与硬件集成。", fit:"你不一定能报，但能看全球在比什么、顶级水平在哪，启发自己的科研与选题。", help:"机器人足球 / 救援 / 家庭服务的全球最高赛事，看具身智能落地到什么程度。",
+     url:"https://www.robocup.org/"},
+    {scope:"world", n:"Formula Student / Formula SAE（大学生方程式）", type:"工程（赛车）", st:"open", ai:3, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"IMechE / SAE International",
+     reg:"全球大学生车队，赛车设计 / 制造 / 竞赛", run:"每年赛季（夏）",
+     desc:"工程/系统/软件类竞赛，重实现、设计与综合素养。", fit:"你不一定能报，但能看全球在比什么、顶级水平在哪，启发自己的科研与选题。", help:"工程教育的'赛车'，看全球大学生把机械 / 电控 / 空气动力玩到什么程度。",
+     url:"https://www.formulastudent.de/"},
+    {scope:"world", n:"Solar Decathlon（太阳能十项全能）", type:"绿色建筑", st:"open", ai:3, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"U.S. DOE / 各国承办方",
+     reg:"全球高校团队申请，绿色建筑设计与建造", run:"约两年一届",
+     desc:"聚焦碳中和与绿色低碳，覆盖能源转型、储能、碳捕集、工业减排与生态环境方向，与你的课题强相关。", fit:"你不一定能报，但能看全球在比什么、顶级水平在哪，启发自己的科研与选题。", help:"高校用真房子比拼零能耗建筑，看可持续建造前沿。",
+     url:"https://solardecathlon.net/"},
+    {scope:"world", n:"DARPA Challenges（美国防高级研究计划局挑战赛）", type:"国防科技", st:"closed", ai:5, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"DARPA（美国防高级研究计划局）",
+     reg:"美防务高级研究项目，多为美实体 / 邀请制", run:"不定期发布挑战赛",
+     desc:"工程/系统/软件类竞赛，重实现、设计与综合素养。", fit:"你不一定能报，但能看全球在比什么、顶级水平在哪，启发自己的科研与选题。", help:"引爆互联网、自动驾驶、AI 安全的技术源头，看国家级科技风向。",
+     url:"https://www.darpa.mil/"},
+    {scope:"world", n:"IChO（国际化学奥林匹克）", type:"化学奥赛", st:"open", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"International Chemistry Olympiad",
+     reg:"仅各国国家队（中学生选拔），你不符", run:"每年 7 月",
+     desc:"面向化工/化学/材料领域，强调工艺设计、实验表征与工程应用，可直接用你实验室课题作素材。", fit:"你不一定能报，但能看全球在比什么、顶级水平在哪，启发自己的科研与选题。", help:"化学奥赛之巅，看中学生化学极限——你已研究生，纯怀旧 / 开眼。",
+     url:"https://www.icho.science/"},
+    {scope:"world", n:"NASA Space Apps Challenge（NASA 太空应用黑客松）", type:"航天 / 数据黑客松", st:"open", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"NASA",
+     reg:"全球开放黑客松（含中国），太空主题", run:"每年 10 月（48 小时黑客松）",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"你不一定能报，但能看全球在比什么、顶级水平在哪，启发自己的科研与选题。", help:"全球最大太空黑客松，对中国参与者开放，真想练手可以上。",
+     url:"https://www.spaceappschallenge.org/"},
+    {scope:"me", n:"中国研究生未来飞行器创新大赛（2026）", type:"航天/飞行器", st:"closed", ai:3, pri:2, team:"组队 / 单人可",
+     org:"中国学位与研究生教育学会等",
+     reg:"报名 6/10–8/30（2026，已截止）", run:"提交 6/10–9/1；决赛 10 月底",
+     desc:"航空航天飞行器创意与关键技术，含总体设计、动力、结构与控制。", fit:"偏硬件/工程，与化工交叉少，但可作跨方向练手，或在队里当 AI/数据担当。", help:"航天/飞行器创意，AI 可辅助气动仿真与方案撰写。",
+     url:"https://cpipc.acge.org.cn"},
+    {scope:"me", n:"中国研究生电子设计竞赛（2026）", type:"电子/嵌入式", st:"closed", ai:3, pri:2, team:"组队（技术向）",
+     org:"中国学位与研究生教育学会等",
+     reg:"报名 4/3–6/20（2026，已截止）", run:"初赛 6 月；决赛 8 月",
+     desc:"硬件、嵌入式或芯片相关竞赛，含电路设计、EDA、验证与光电技术。", fit:"偏硬件/工程，与化工交叉少，但可作跨方向练手，或在队里当 AI/数据担当。", help:"硬件+嵌入式，AI 用于信号/控制算法辅助。",
+     url:"https://cpipc.acge.org.cn"},
+    {scope:"me", n:"中国研究生创“芯”大赛（2026）", type:"集成电路", st:"closed", ai:2, pri:2, team:"组队（技术向）",
+     org:"中国学位与研究生教育学会等",
+     reg:"报名 3/20–6/30（2026，已截止）", run:"提交 5/16–7/7；决赛 8/13–17",
+     desc:"硬件、嵌入式或芯片相关竞赛，含电路设计、EDA、验证与光电技术。", fit:"偏硬件/工程，与化工交叉少，但可作跨方向练手，或在队里当 AI/数据担当。", help:"集成电路，AI 用于 EDA/验证环节。",
+     url:"https://cpipc.acge.org.cn"},
+    {scope:"me", n:"中国研究生机器人创新设计大赛（2026）", type:"机器人", st:"closed", ai:4, pri:2, team:"组队（技术向）",
+     org:"中国学位与研究生教育学会等",
+     reg:"报名 6/23–8/24（2026，已截止）", run:"提交 6/23–8/25；决赛 11 月上旬",
+     desc:"机器人系统设计与智能控制，含感知、运动规划、仿真与硬件集成。", fit:"偏硬件/工程，与化工交叉少，但可作跨方向练手，或在队里当 AI/数据担当。", help:"机器人系统，AI 是核心方向。",
+     url:"https://cpipc.acge.org.cn"},
+    {scope:"me", n:"中国研究生能源装备创新设计大赛（2026）", type:"能源装备", st:"closed", ai:3, pri:2, team:"组队（技术向）",
+     org:"中国学位与研究生教育学会等",
+     reg:"报名 2026年6月25日–8月15日截止（第十三届，承办西北工业大学）；决赛作品 9/20–9/30", run:"全国总决赛 2026年10月",
+     desc:"能源装备与电力系统创新，含新能源、储能与节能技术。", fit:"偏硬件/工程，与化工交叉少，但可作跨方向练手，或在队里当 AI/数据担当。", help:"能源装备，AI 用于故障诊断/运行优化。",
+     url:"https://cpipc.acge.org.cn"},
+    {scope:"me", n:"中国研究生公共管理案例大赛（2026）", type:"公共管理", st:"closed", ai:2, pri:1, team:"组队（跨专业友好）",
+     org:"中国学位与研究生教育学会等",
+     reg:"报名 1/13–3/13（2026，已截止）", run:"提交 1/13–3/31；决赛 6/13–14",
+     desc:"面向公共治理或企业管理的案例与方案竞赛，重分析与决策。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"案例分析，AI 辅助资料搜集与写作。",
+     url:"https://cpipc.acge.org.cn"},
+    {scope:"me", n:"中国研究生乡村振兴科技强农+创新大赛（2026）", type:"农业科技", st:"closed", ai:3, pri:1, team:"组队（专业相关）",
+     org:"中国学位与研究生教育学会等",
+     reg:"报名 5/19–9/5（2026，已截止）", run:"提交 6/15–9/5；决赛 10/16–17",
+     desc:"农业科技与乡村振兴主题，涵盖技术、产业与案例。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"农业科技，含研究生乡村振兴赛道。",
+     url:"https://cpipc.acge.org.cn"},
+    {scope:"me", n:"中国研究生金融科技创新大赛（2026）", type:"金融科技", st:"closed", ai:4, pri:2, team:"组队 / 单人可",
+     org:"中国学位与研究生教育学会等",
+     reg:"报名 5/22–8/17（2026，已截止）", run:"提交 7/10–8/31；决赛 10 月中下旬",
+     desc:"金融科技与量化、风控方向，重数据与模型。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"金融科技，AI 用于风控/量化策略。",
+     url:"https://cpipc.acge.org.cn"},
+    {scope:"me", n:"中国研究生“美丽中国”创新设计大赛（2026）", type:"设计", st:"closed", ai:3, pri:3, team:"组队 / 单人可",
+     org:"中国学位与研究生教育学会等",
+     reg:"报名 6/20–8/20（2026，已截止）", run:"决赛 10 月下旬",
+     desc:"设计与文化创意/语言类竞赛，AI 可辅助出图、排版、生成与润色。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"设计类，AI 辅助出图与排版。",
+     url:"https://cpipc.acge.org.cn"},
+    {scope:"me", n:"中国研究生工程管理案例大赛（2026）", type:"工程管理", st:"closed", ai:2, pri:2, team:"组队 / 单人可",
+     org:"中国学位与研究生教育学会等",
+     reg:"报名 2026年6月1日–9月1日截止（cpipc 工程管理案例大赛）", run:"初赛/决赛以官网通知为准",
+     desc:"面向公共治理或企业管理的案例与方案竞赛，重分析与决策。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"工程硕士案例，AI 辅助数据分析。",
+     url:"https://cpipc.acge.org.cn"},
+    {scope:"me", n:"中国研究生操作系统开源创新大赛（2026）", type:"开源/系统", st:"closed", ai:3, pri:2, team:"组队（技术向）",
+     org:"中国学位与研究生教育学会等",
+     reg:"报名 5/15–7/28（2026，已截止）", run:"提交 5/30–7/30；决赛 10 月",
+     desc:"工程/系统/软件类竞赛，重实现、设计与综合素养。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"开源 OS，AI 用于内核/驱动辅助。",
+     url:"https://cpipc.acge.org.cn"},
+    {scope:"me", n:"中国研究生“文化中国”两创大赛（2026）", type:"文化创新", st:"closed", ai:2, pri:3, team:"组队 / 单人可",
+     org:"中国学位与研究生教育学会等",
+     reg:"报名 5/25–9/14（2026，已截止）", run:"决赛 11 月初",
+     desc:"设计与文化创意/语言类竞赛，AI 可辅助出图、排版、生成与润色。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"文化创新，AI 辅助文创生成。",
+     url:"https://cpipc.acge.org.cn"},
+    {scope:"me", n:"中国研究生国际中文教育案例大赛（2026）", type:"中文教育", st:"closed", ai:2, pri:3, team:"单人可",
+     org:"中国学位与研究生教育学会等",
+     reg:"报名 6/1–6/30（2026，已截止）", run:"提交 6/1–7/13；决赛 10 月中旬",
+     desc:"设计与文化创意/语言类竞赛，AI 可辅助出图、排版、生成与润色。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"中文教育，AI 辅助教案设计。",
+     url:"https://cpipc.acge.org.cn"},
+    {scope:"me", n:"中国研究生智能建造创新大赛（2026）", type:"智能建造", st:"closed", ai:3, pri:2, team:"组队（技术向）",
+     org:"中国学位与研究生教育学会等",
+     reg:"报名 5/18–8/20（2026，已截止）", run:"提交 5/18–8/31；决赛 11 月",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"智能建造，AI + BIM 方向。",
+     url:"https://cpipc.acge.org.cn"},
+    {scope:"me", n:"中国研究生“美丽中国”生物多样性保护与利用大赛（专项，2026）", type:"生态/专项", st:"open", ai:3, pri:2, team:"组队 / 单人可",
+     org:"中国学位与研究生教育学会等",
+     reg:"2026 专项赛日程官网待定", run:"以官网通知为准",
+     desc:"聚焦碳中和与绿色低碳，覆盖能源转型、储能、碳捕集、工业减排与生态环境方向，与你的课题强相关。", fit:"与你的双碳/新能源/环境方向高度契合，可直接搬实验室课题参赛。", help:"生物多样性，AI 用于物种识别。",
+     url:"https://cpipc.acge.org.cn"},
+    {scope:"me", n:"中国大学生计算机设计大赛（2026）", type:"计算机", st:"closed", ai:4, pri:2, team:"组队 / 单人可",
+     org:"教育部计算机类教指委等",
+     reg:"报名 4–5 月（2026，已截止）", run:"省赛 5–8 月，国赛暑期",
+     desc:"设计与文化创意/语言类竞赛，AI 可辅助出图、排版、生成与润色。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"软件/数媒/AI 类，几乎全程可 AI 辅助。",
+     url:"https://jsjds.blcu.edu.cn/index.htm"},
+    {scope:"me", n:"“中国软件杯”大学生软件设计大赛（第十五届，2026）", type:"软件开发", st:"closed", ai:5, pri:2, team:"单人可 / 可组队",
+     org:"工信部、教育部、江苏省政府",
+     reg:"报名 3/24–6/30（2026，已截止）", run:"作品提交 6/30；总决赛 8 月",
+     desc:"设计与文化创意/语言类竞赛，AI 可辅助出图、排版、生成与润色。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"软件开发，AI 写代码神器。",
+     url:"https://www.cnsoftbei.com/"},
+    {scope:"me", n:"全国大学生信息安全竞赛（2026）", type:"网络安全", st:"closed", ai:3, pri:2, team:"组队（技术向）",
+     org:"教育部高等学校信息安全教指委",
+     reg:"报名 4–6 月（2026，已截止）", run:"决赛 7 月",
+     desc:"网络安全攻防与技术竞赛，含 CTF、漏洞挖掘与防护方案。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"网络安全，AI 用于攻防分析。",
+     url:"http://www.ciscn.cn/"},
+    {scope:"me", n:"全国大学生节能减排社会实践与科技竞赛（2026）", type:"绿色科技", st:"closed", ai:3, pri:1, team:"组队（专业相关）",
+     org:"教育部高等教育司",
+     reg:"报名截至 4 月（2026，已截止）", run:"决赛暑期",
+     desc:"聚焦碳中和与绿色低碳，覆盖能源转型、储能、碳捕集、工业减排与生态环境方向，与你的课题强相关。", fit:"与你的双碳/新能源/环境方向高度契合，可直接搬实验室课题参赛。", help:"绿色科技，AI 用于建模优化。",
+     url:"https://www.jienengjianpai.org/"},
+    {scope:"me", n:"iCAN 大学生创新创业大赛（2026）", type:"创新创业", st:"closed", ai:4, pri:1, team:"组队（跨专业友好）",
+     org:"iCAN 联盟等",
+     reg:"报名 4–7 月（2026，已截止）", run:"总决赛 10 月前后",
+     desc:"中国研究生创新实践系列大赛或同类研究生赛事，由权威学会/部委指导，面向研究生，可凭专业背景参与。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"硬科技创新创业，AI 写商业计划书。",
+     url:"http://g-ican.com/"},
+    {scope:"me", n:"百度之星·程序设计大赛（2026）", type:"算法", st:"closed", ai:2, pri:1, team:"单人可 / 可组队",
+     org:"百度",
+     reg:"报名 4–6 月（2026，已截止）", run:"决赛暑期",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"算法竞赛，AI 辅助刷题备考。",
+     url:"https://star.baidu.com/"},
+    {scope:"me", n:"全国大学生光电设计竞赛（2026）", type:"光电", st:"closed", ai:3, pri:2, team:"组队（技术向）",
+     org:"中国光学学会",
+     reg:"报名 4 月起（2026，已截止）", run:"决赛 8 月",
+     desc:"硬件、嵌入式或芯片相关竞赛，含电路设计、EDA、验证与光电技术。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"光电，AI 用于图像处理。",
+     url:"https://gd.moocollege.com/home/homepage"},
+    {scope:"me", n:"全国大学生水利创新设计竞赛（2026）", type:"水利", st:"closed", ai:2, pri:2, team:"组队（专业相关）",
+     org:"中国水利教育协会",
+     reg:"报名 4–5 月（2026，已截止）", run:"决赛暑期",
+     desc:"设计与文化创意/语言类竞赛，AI 可辅助出图、排版、生成与润色。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"水利，AI 辅助仿真计算。",
+     url:"http://www.cahee.org.cn/"},
+    {scope:"me", n:"全国大学生先进成图技术与产品信息建模创新大赛（2026）", type:"制图/CAD", st:"closed", ai:2, pri:3, team:"组队 / 单人可",
+     org:"教育部工程图学教指委",
+     reg:"报名 4 月（2026，已截止）", run:"决赛暑期",
+     desc:"工程/系统/软件类竞赛，重实现、设计与综合素养。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"制图/CAD，AI 辅助建模。",
+     url:"http://www.chengtudasai.com/"},
+    {scope:"me", n:"两岸新锐设计竞赛·华灿奖（2026）", type:"设计", st:"closed", ai:3, pri:3, team:"组队 / 单人可",
+     org:"中国高等教育学会等",
+     reg:"报名 4 月（2026，已截止）", run:"决赛 9–12 月",
+     desc:"设计与文化创意/语言类竞赛，AI 可辅助出图、排版、生成与润色。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"设计类，AI 生图辅助。",
+     url:"http://www.huacanjiang.com/"},
+    {scope:"me", n:"中华经典诵写讲大赛（2026）", type:"语言文化", st:"closed", ai:1, pri:3, team:"单人可",
+     org:"教育部、国家语委",
+     reg:"报名 4–7 月（2026，已截止）", run:"决赛暑期",
+     desc:"设计与文化创意/语言类竞赛，AI 可辅助出图、排版、生成与润色。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"语言文化，AI 辅助朗诵稿/书法。",
+     url:"https://jdsxj.eduyun.cn/"},
+    {scope:"me", n:"蓝桥杯全国软件和信息技术专业人才大赛（2026）", type:"软件/算法", st:"closed", ai:3, pri:1, team:"组队 / 单人可",
+     org:"工信部人才交流中心",
+     reg:"报名 4 月初（2026，已截止）", run:"省赛 4 月，国赛 6 月",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"软件/算法，AI 辅助备赛。",
+     url:"https://www.lanqiao.cn/"},
+    {scope:"me", n:"全国大学生计算机系统能力大赛（2026）", type:"系统编程", st:"closed", ai:3, pri:2, team:"组队 / 单人可",
+     org:"全国高等学校计算机教育研究会",
+     reg:"报名 4–6 月（2026，已截止）", run:"决赛暑期",
+     desc:"工程/系统/软件类竞赛，重实现、设计与综合素养。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"系统编程，AI 辅助调试。",
+     url:"https://os.educg.net/"},
+    {scope:"me", n:"华为 ICT 大赛（2026–2027）", type:"网络/云/计算", st:"open", ai:4, pri:3, team:"组队 / 单人可",
+     org:"华为技术有限公司",
+     reg:"省赛 9 月–12 月（2026）", run:"全球总决赛 2027 年 3 月",
+     desc:"网络安全攻防与技术竞赛，含 CTF、漏洞挖掘与防护方案。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"网络/云/计算，AI 赛道可 AI 备赛。",
+     url:"https://e.huawei.com/cn/talent/ict-academy/"},
+    {scope:"me", n:"一带一路暨金砖国家技能发展与技术创新大赛（2026）", type:"技能创新", st:"open", ai:3, pri:2, team:"组队 / 单人可",
+     org:"金砖国家工商理事会中方理事会等",
+     reg:"每年 10–11 月（2026 待官网）", run:"线上/线下",
+     desc:"面向广泛专业学生的科技/技能综合赛事，门槛低、易于上手。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"技能创新，含 AI 应用赛项。",
+     url:"http://www.brskills.com/"},
+    {scope:"me", n:"未来设计师·全国高校数字艺术设计大赛 NCDA（2026）", type:"数字艺术", st:"open", ai:4, pri:3, team:"组队 / 单人可",
+     org:"工信部人才交流中心",
+     reg:"报名 10 月起（2026）", run:"省赛/国赛年底-次年",
+     desc:"设计与文化创意/语言类竞赛，AI 可辅助出图、排版、生成与润色。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"数字艺术，AI 生图辅助出图。",
+     url:"https://www.ncda.org.cn/"},
+    {scope:"me", n:"全国大学生数字媒体科技作品及创意竞赛（2026）", type:"数字媒体", st:"open", ai:4, pri:3, team:"组队 / 单人可",
+     org:"中国人工智能学会",
+     reg:"报名 9–11 月（2026）", run:"决赛年底",
+     desc:"设计与文化创意/语言类竞赛，AI 可辅助出图、排版、生成与润色。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"数字媒体，AI 生成内容。",
+     url:"https://www.cmatd.cn/"},
+    {scope:"me", n:"码蹄杯全国大学生程序设计大赛（2026）", type:"程序设计", st:"closed", ai:2, pri:2, team:"单人可 / 可组队",
+     org:"全国高等学校计算机教育研究会",
+     reg:"报名 3–8 月（2026，已截止）", run:"决赛暑期",
+     desc:"设计与文化创意/语言类竞赛，AI 可辅助出图、排版、生成与润色。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"程序设计，AI 辅助刷题。",
+     url:"https://www.matibei.com/"},
+    {scope:"me", n:"中国高校计算机大赛-人工智能创意赛（2026）", type:"AI 创意", st:"open", ai:5, pri:2, team:"组队 / 单人可",
+     org:"教育部高等学校计算机类专业教指委等",
+     reg:"报名 6/5–11/15（2026）", run:"决赛年底",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"AI 创意落地，AI 全程可辅助。",
+     url:"https://www.c4best.cn/"},
+    {scope:"me", n:"中国青年“揭榜挂帅”·华为赛道（2026）", type:"企业命题", st:"open", ai:4, pri:2, team:"组队 / 单人可",
+     org:"华为技术有限公司",
+     reg:"2026 赛季官网开放中（奖金 ¥34 万+）", run:"以官网为准",
+     desc:"面向公共治理或企业管理的案例与方案竞赛，重分析与决策。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"企业命题揭榜，AI 解题利器。",
+     url:"https://developer.huaweicloud.com/"},
+    {scope:"me", n:"华为软件精英挑战赛（2026）", type:"算法挑战", st:"closed", ai:4, pri:2, team:"组队 / 单人可",
+     org:"华为技术有限公司",
+     reg:"报名春季 3–5 月（2026，已截止）", run:"决赛暑期",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"算法挑战，AI 辅助建模。",
+     url:"https://developer.huaweicloud.com/"},
+    {scope:"me", n:"华为算法挑战赛", type:"算法", st:"open", ai:4, pri:2, team:"单人可 / 可组队",
+     org:"华为技术有限公司",
+     reg:"常年多期（每期奖金 ¥10 万）", run:"滚动开赛",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"算法赛，随时可上。",
+     url:"https://developer.huaweicloud.com/"},
+    {scope:"me", n:"昇腾 AI 原生创新算子挑战赛（S2 赛季）", type:"AI 算力", st:"open", ai:5, pri:2, team:"组队 / 单人可",
+     org:"华为昇腾",
+     reg:"2026 赛季官网开放中（奖金 ¥64 万）", run:"以官网为准",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"昇腾算子开发，AI 算力方向。",
+     url:"https://www.hiascend.com/"},
+    {scope:"me", n:"全国大学生化工实验大赛（2026）", type:"化工实验", st:"closed", ai:3, pri:1, team:"组队（专业相关）",
+     org:"中国化工教育协会",
+     reg:"报名 4–6 月（2026，已截止）", run:"决赛暑期",
+     desc:"面向化工/化学/材料领域，强调工艺设计、实验表征与工程应用，可直接用你实验室课题作素材。", fit:"就是你本行——化工/材料方向，用现有课题与表征数据即可组队。", help:"化工实验，AI 辅助数据处理。",
+     url:"http://edu.cteic.com/match/app/main"},
+    {scope:"me", n:"全国大学生化工安全设计竞赛（2026）", type:"化工安全", st:"closed", ai:3, pri:1, team:"组队（专业相关）",
+     org:"中国化工教育协会",
+     reg:"报名春季（2026，已截止）", run:"决赛暑期",
+     desc:"面向化工/化学/材料领域，强调工艺设计、实验表征与工程应用，可直接用你实验室课题作素材。", fit:"就是你本行——化工/材料方向，用现有课题与表征数据即可组队。", help:"化工安全，AI 辅助 HAZOP 分析。",
+     url:"http://www.ciedu.com.cn/"},
+    {scope:"me", n:"中国大学生服务外包创新创业大赛（2026）", type:"服务外包", st:"closed", ai:4, pri:2, team:"组队 / 单人可",
+     org:"教育部等",
+     reg:"报名 3–6 月（2026，已截止）", run:"总决赛暑期",
+     desc:"软件服务外包与开发竞赛，重工程实现与交付。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"服务外包，AI 应用开发。",
+     url:"http://www.fwwb.org.cn/"},
+    {scope:"me", n:"全国大学生数学建模竞赛·高教社杯（2026）", type:"数学建模", st:"closed", ai:4, pri:1, team:"3 人队（你已有）",
+     org:"中国工业与应用数学学会",
+     reg:"国赛 9/11–14（2026，已结束）", run:"国赛 9/11–14",
+     desc:"围绕真实科研/工程问题建立数学模型并求解，通常 3 人团队在 3–4 天赛期内完成研究论文，比拼建模思路、算法实现与论文表达。", fit:"数学建模是研究生通用硬通货，3 人化工队即可上场，是你性价比最高的一站。", help:"国赛刚结束；2027 届明年 9 月，提前组队。",
+     url:"http://www.mcm.edu.cn"},
+    {scope:"me", n:"美国大学生数学建模竞赛 MCM/ICM（2027 届）", type:"国际数模", st:"open", ai:4, pri:1, team:"3 人队（你已有）",
+     org:"COMAP",
+     reg:"2027 届预计 2026 年 11 月开启报名", run:"比赛 2027 年 1 月末（美东）",
+     desc:"围绕真实科研/工程问题建立数学模型并求解，通常 3 人团队在 3–4 天赛期内完成研究论文，比拼建模思路、算法实现与论文表达。", fit:"数学建模是研究生通用硬通货，3 人化工队即可上场，是你性价比最高的一站。", help:"国际数模，AI 辅助建模与英文写作。",
+     url:"https://www.comap.com/undergraduate/contests"},
+    {scope:"me", n:"ACM-ICPC 国际大学生程序设计竞赛（2026–2027 赛季）", type:"算法", st:"open", ai:2, pri:2, team:"单人可 / 可组队",
+     org:"ICPC 基金会",
+     reg:"区域赛赛季 9 月起（2026–2027）", run:"区域赛-总决赛跨年",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"算法，AI 辅助刷题训练。",
+     url:"https://icpc.global/"},
+    {scope:"me", n:"天池·CCKS2026 大模型生成文本检测及溯源", type:"NLP/安全", st:"closed", ai:5, pri:1, team:"组队（技术向）",
+     org:"中科院信息工程所·阿里云天池",
+     reg:"报名 4/28–7/2（2026，已截止）", run:"评测 7 月；会议 8/21–23",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"大模型文本检测，AI 安全方向。",
+     url:"https://tianchi.aliyun.com/competition/entrance/532474"},
+    {scope:"me", n:"天池·Qwen3 推理部署优化挑战赛", type:"大模型/推理", st:"closed", ai:5, pri:1, team:"单人可 / 可组队",
+     org:"阿里云天池·通义实验室",
+     reg:"初赛 2/3–4/18（2026，已截止）", run:"复赛 4/28–5/28",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"大模型推理优化，硬核 AI。",
+     url:"https://tianchi.aliyun.com/competition/entrance/532450"},
+    {scope:"me", n:"天池·Agent / 数据共情者算法大赛", type:"AI Agent", st:"open", ai:5, pri:1, team:"单人可 / 可组队",
+     org:"阿里云天池",
+     reg:"报名 7/19–10/20（2026）", run:"黑客松决赛 11 月",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"Agent/客服 AI，可练手拿奖。",
+     url:"https://tianchi.aliyun.com/competition/entrance/532503"},
+    {scope:"me", n:"科大讯飞 AI 开发者大赛·算法赛（2026）", type:"AI 算法", st:"closed", ai:5, pri:1, team:"单人可 / 可组队",
+     org:"科大讯飞·中国信息协会",
+     reg:"作品征集 5/25–9/10（本届已截止）", run:"复赛评审 9/14–9/30；总决赛 10/8–10/21；盛典 10/23–24",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"海量算法赛题，AI 全程可上。本届作品征集已结束（个别赛道提交延至 9/28，以官网为准），可关注 2027 届。",
+     url:"https://challenge.xfyun.cn/competition"},
+    {scope:"me", n:"科大讯飞 AI 开发者大赛·星火杯大模型应用创新赛（2026）", type:"大模型应用", st:"closed", ai:5, pri:1, team:"单人可 / 可组队",
+     org:"科大讯飞",
+     reg:"作品征集 6/9–8/13（本届已截止）", run:"复赛优化 8/27–9/13；复赛评审 9/14–9/30；总决赛 10/8–10/21；盛典 10/23–24",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"基于讯飞星辰 Agent 平台开发。本届已进入复赛评审阶段，2027 届约明年 6 月开报（以官网为准）。",
+     url:"https://challenge.xfyun.cn/"},
+    {scope:"me", n:"和鲸 Heywhale 数据竞赛", type:"数据科学", st:"open", ai:4, pri:2, team:"单人可 / 可组队",
+     org:"和鲸社区",
+     reg:"平台常年滚动发布", run:"滚动",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"数据科学竞赛，门槛低易上手。",
+     url:"https://www.heywhale.com/home/competition"},
+    {scope:"me", n:"极市 Extreme Mart 计算机视觉竞赛", type:"CV 算法", st:"open", ai:4, pri:2, team:"组队（技术向）",
+     org:"极视角",
+     reg:"平台常年滚动发布", run:"滚动",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"CV 算法赛，练视觉方向。",
+     url:"https://www.cvmart.net/"},
+    {scope:"me", n:"Biendata 算法竞赛", type:"NLP/CV 数据赛", st:"open", ai:4, pri:2, team:"组队 / 单人可",
+     org:"Biendata",
+     reg:"平台常年滚动发布", run:"滚动",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"NLP/CV 数据赛，新手友好。",
+     url:"https://biendata.xyz/"},
+    {scope:"me", n:"FlyAI 算法竞赛", type:"算法新手赛", st:"open", ai:3, pri:2, team:"组队 / 单人可",
+     org:"FlyAI",
+     reg:"平台常年滚动发布", run:"滚动",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"新手友好算法赛，练手拿证书。",
+     url:"https://www.flyai.com/"},
+    {scope:"world", n:"KDD Cup（ACM SIGKDD 数据挖据杯）", type:"数据挖掘", st:"open", ai:5, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"ACM SIGKDD",
+     reg:"每年滚动（2026 赛季官网）", run:"KDD 会议期间",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"你不一定能报，但能看全球在比什么、顶级水平在哪，启发自己的科研与选题。", help:"数据挖掘顶会赛，AI 核心赛事。",
+     url:"https://www.kdd.org/kdd-cup"},
+    {scope:"world", n:"CVPR Workshops 挑战赛", type:"计算机视觉", st:"open", ai:5, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"IEEE/CVF",
+     reg:"每年会议前（2027 CVPR 待官网）", run:"会议期间",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"你不一定能报，但能看全球在比什么、顶级水平在哪，启发自己的科研与选题。", help:"计算机视觉顶会赛，看全球 SOTA。",
+     url:"https://cvpr.thecvf.com/"},
+    {scope:"world", n:"IJCAI 竞赛", type:"AI 综合", st:"open", ai:5, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"IJCAI",
+     reg:"每年滚动", run:"会议期间",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"你不一定能报，但能看全球在比什么、顶级水平在哪，启发自己的科研与选题。", help:"AI 顶会赛，全球高手同台。",
+     url:"https://ijcai.org/"},
+    {scope:"world", n:"SemEval（语义评测）", type:"自然语言处理", st:"open", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"ACL",
+     reg:"每年滚动", run:"会议期间",
+     desc:"设计与文化创意/语言类竞赛，AI 可辅助出图、排版、生成与润色。", fit:"你不一定能报，但能看全球在比什么、顶级水平在哪，启发自己的科研与选题。", help:"语义评测，NLP 方向经典赛。",
+     url:"https://semeval.github.io/"},
+    {scope:"world", n:"AutoDrive Challenge（自动驾驶挑战赛）", type:"自动驾驶", st:"open", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"自动驾驶挑战组织",
+     reg:"常年", run:"滚动",
+     desc:"世界级赛事，通常不限国籍、可远程参加，用于了解全球顶尖水平与趋势，开眼界为主。", fit:"你不一定能报，但能看全球在比什么、顶级水平在哪，启发自己的科研与选题。", help:"自动驾驶，AI 核心应用场景。",
+     url:"https://www.autodrive.ai/"},
+    {scope:"world", n:"Waymo Open Dataset Challenge（Waymo 开放数据集挑战）", type:"自动驾驶感知", st:"open", ai:5, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"Waymo",
+     reg:"不定期开放", run:"滚动",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"你不一定能报，但能看全球在比什么、顶级水平在哪，启发自己的科研与选题。", help:"自动驾驶感知赛，工业级数据。",
+     url:"https://waymo.com/open/"},
+    {scope:"world", n:"ImageNet / ILSVRC（深度学习里程碑，已停办）", type:"计算机视觉", st:"closed", ai:5, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"ImageNet / Stanford",
+     reg:"2010–2017 举办（已停办）", run:"已结束",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"你不一定能报，但能看全球在比什么、顶级水平在哪，启发自己的科研与选题。", help:"深度学习里程碑赛事，已成经典教材案例。",
+     url:"https://image-net.org/"},
+    {scope:"world", n:"SpaceNet 卫星影像 AI 挑战赛", type:"遥感/计算机视觉", st:"open", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"SpaceNet / Maxar",
+     reg:"常年滚动发布", run:"滚动",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"你不一定能报，但能看全球在比什么、顶级水平在哪，启发自己的科研与选题。", help:"卫星影像 AI，看全球遥感水平。",
+     url:"https://spacenet.ai/"},
+    {scope:"world", n:"AI Driving Olympics (AIDO)", type:"自动驾驶 Olympiad", st:"open", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"NeurIPS / Duckietown",
+     reg:"常年", run:"滚动",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"你不一定能报，但能看全球在比什么、顶级水平在哪，启发自己的科研与选题。", help:"自动驾驶 Olympiad，全球高校参与。",
+     url:"https://www.duckietown.org/"},
+    {scope:"world", n:"Google AI Challenge（经典 AI 编程赛，历史）", type:"AI 编程", st:"closed", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"Google（历史）",
+     reg:"历史赛事（已停）", run:"已结束",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"你不一定能报，但能看全球在比什么、顶级水平在哪，启发自己的科研与选题。", help:"经典 AI 编程赛，AI 早期里程碑。",
+     url:"https://www.kaggle.com/competitions"},
+    {scope:"me", n:"中国大学生Chem-E-Car竞赛", type:"化工/材料", st:"closed", ai:4, pri:1, team:"组队（专业相关）",
+     org:"中国化工学会",
+     reg:"3–5 月", run:"8 月全国赛",
+     desc:"与化工、材料、环境、能源、双碳高度相关的专业赛事，正对你的科研方向。", fit:"你的本行主场，实验室成果可直接转化参赛，无需从零学起。", help:"AI 帮文献调研、实验方案设计、数据拟合与图表、申报书/论文撰写、答辩 PPT。",
+     url:"http://www.chemecar.cn"},
+    {scope:"me", n:"全国大学生环境生态科技创新大赛", type:"环境/生态", st:"closed", ai:4, pri:1, team:"组队（专业相关）",
+     org:"中国生态学学会",
+     reg:"3–6 月", run:"7–8 月总决赛",
+     desc:"与化工、材料、环境、能源、双碳高度相关的专业赛事，正对你的科研方向。", fit:"你的本行主场，实验室成果可直接转化参赛，无需从零学起。", help:"AI 帮文献调研、实验方案设计、数据拟合与图表、申报书/论文撰写、答辩 PPT。",
+     url:"http://www.csec.org.cn"},
+    {scope:"me", n:"全国大学生金相技能大赛", type:"材料", st:"closed", ai:3, pri:1, team:"组队（专业相关）",
+     org:"教育部材料类教指委",
+     reg:"3–5 月校赛", run:"7 月国赛",
+     desc:"与化工、材料、环境、能源、双碳高度相关的专业赛事，正对你的科研方向。", fit:"你的本行主场，实验室成果可直接转化参赛，无需从零学起。", help:"AI 帮文献调研、实验方案设计、数据拟合与图表、申报书/论文撰写、答辩 PPT。",
+     url:"http://www.jxskills.cn"},
+    {scope:"me", n:"中国大学生材料热处理创新创业大赛", type:"材料", st:"closed", ai:3, pri:1, team:"组队（专业相关）",
+     org:"中国机械工程学会热处理分会",
+     reg:"3–6 月", run:"7–8 月",
+     desc:"与化工、材料、环境、能源、双碳高度相关的专业赛事，正对你的科研方向。", fit:"你的本行主场，实验室成果可直接转化参赛，无需从零学起。", help:"AI 帮文献调研、实验方案设计、数据拟合与图表、申报书/论文撰写、答辩 PPT。",
+     url:"http://www.cmes.org"},
+    {scope:"me", n:"全国大学生复合材料设计与制作大赛", type:"材料", st:"closed", ai:3, pri:1, team:"组队（专业相关）",
+     org:"中国复合材料学会",
+     reg:"5–7 月", run:"9–10 月",
+     desc:"与化工、材料、环境、能源、双碳高度相关的专业赛事，正对你的科研方向。", fit:"你的本行主场，实验室成果可直接转化参赛，无需从零学起。", help:"AI 帮文献调研、实验方案设计、数据拟合与图表、申报书/论文撰写、答辩 PPT。",
+     url:"http://www.frp.cn"},
+    {scope:"me", n:"光威杯全国大学生碳纤维复合材料创新应用设计大赛", type:"材料", st:"closed", ai:3, pri:1, team:"组队（专业相关）",
+     org:"中国复合材料学会",
+     reg:"4–8 月", run:"9–10 月决赛",
+     desc:"与化工、材料、环境、能源、双碳高度相关的专业赛事，正对你的科研方向。", fit:"你的本行主场，实验室成果可直接转化参赛，无需从零学起。", help:"AI 帮文献调研、实验方案设计、数据拟合与图表、申报书/论文撰写、答辩 PPT。",
+     url:"http://www.gw-cup.com"},
+    {scope:"me", n:"全国大学生资源循环利用创新设计大赛", type:"化工/环境", st:"closed", ai:4, pri:1, team:"组队（专业相关）",
+     org:"中国有色金属学会",
+     reg:"4–6 月", run:"8–9 月",
+     desc:"与化工、材料、环境、能源、双碳高度相关的专业赛事，正对你的科研方向。", fit:"你的本行主场，实验室成果可直接转化参赛，无需从零学起。", help:"AI 帮文献调研、实验方案设计、数据拟合与图表、申报书/论文撰写、答辩 PPT。",
+     url:"http://www.nfsoc.org.cn"},
+    {scope:"me", n:"国药工程杯全国大学生制药工程设计竞赛", type:"化工/制药", st:"closed", ai:4, pri:1, team:"组队（专业相关）",
+     org:"中国医药设备工程协会",
+     reg:"3–6 月", run:"8 月",
+     desc:"与化工、材料、环境、能源、双碳高度相关的专业赛事，正对你的科研方向。", fit:"你的本行主场，实验室成果可直接转化参赛，无需从零学起。", help:"AI 帮文献调研、实验方案设计、数据拟合与图表、申报书/论文撰写、答辩 PPT。",
+     url:"http://www.cpia.org.cn"},
+    {scope:"me", n:"全国大学生生物制药创新大赛", type:"生物制药", st:"closed", ai:4, pri:1, team:"组队（专业相关）",
+     org:"相关学会/高校",
+     reg:"3–6 月", run:"7–8 月",
+     desc:"与化工、材料、环境、能源、双碳高度相关的专业赛事，正对你的科研方向。", fit:"你的本行主场，实验室成果可直接转化参赛，无需从零学起。", help:"AI 帮文献调研、实验方案设计、数据拟合与图表、申报书/论文撰写、答辩 PPT。",
+     url:"http://www.biopharm.org.cn"},
+    {scope:"me", n:"全国大学生可再生能源竞赛", type:"能源", st:"closed", ai:4, pri:1, team:"组队（专业相关）",
+     org:"中国可再生能源学会",
+     reg:"3–6 月", run:"8 月",
+     desc:"与化工、材料、环境、能源、双碳高度相关的专业赛事，正对你的科研方向。", fit:"你的本行主场，实验室成果可直接转化参赛，无需从零学起。", help:"AI 帮文献调研、实验方案设计、数据拟合与图表、申报书/论文撰写、答辩 PPT。",
+     url:"http://www.cres.org.cn"},
+    {scope:"me", n:"全国大学生冶金科技竞赛", type:"材料/冶金", st:"closed", ai:3, pri:2, team:"组队 / 单人可",
+     org:"中国金属学会",
+     reg:"3–6 月", run:"7 月",
+     desc:"与化工、材料、环境、能源、双碳高度相关的专业赛事，正对你的科研方向。", fit:"你的本行主场，实验室成果可直接转化参赛，无需从零学起。", help:"AI 帮文献调研、实验方案设计、数据拟合与图表、申报书/论文撰写、答辩 PPT。",
+     url:"http://www.csm.org.cn"},
+    {scope:"me", n:"全国大学生水利创新设计大赛", type:"水利", st:"closed", ai:3, pri:2, team:"组队（专业相关）",
+     org:"中国水利学会",
+     reg:"3–5 月", run:"7 月",
+     desc:"与化工、材料、环境、能源、双碳高度相关的专业赛事，正对你的科研方向。", fit:"你的本行主场，实验室成果可直接转化参赛，无需从零学起。", help:"AI 帮文献调研、实验方案设计、数据拟合与图表、申报书/论文撰写、答辩 PPT。",
+     url:"http://www.ches.org.cn"},
+    {scope:"me", n:"能源·智慧·未来全国大学生油气储运工程设计大赛", type:"能源", st:"closed", ai:4, pri:1, team:"组队（专业相关）",
+     org:"中国石油学会",
+     reg:"4–7 月", run:"9 月",
+     desc:"与化工、材料、环境、能源、双碳高度相关的专业赛事，正对你的科研方向。", fit:"你的本行主场，实验室成果可直接转化参赛，无需从零学起。", help:"AI 帮文献调研、实验方案设计、数据拟合与图表、申报书/论文撰写、答辩 PPT。",
+     url:"http://www.cup.edu.cn"},
+    {scope:"me", n:"全国大学生能源经济学术创意大赛", type:"能源经济", st:"closed", ai:4, pri:1, team:"组队（专业相关）",
+     org:"中国优选法统筹与经济数学研究会",
+     reg:"3–5 月", run:"6 月",
+     desc:"与化工、材料、环境、能源、双碳高度相关的专业赛事，正对你的科研方向。", fit:"你的本行主场，实验室成果可直接转化参赛，无需从零学起。", help:"AI 帮文献调研、实验方案设计、数据拟合与图表、申报书/论文撰写、答辩 PPT。",
+     url:"http://www.ceeea.org"},
+    {scope:"me", n:"中国软件杯大学生软件设计大赛", type:"软件开发", st:"closed", ai:4, pri:2, team:"单人可 / 可组队",
+     org:"工信部/教育部",
+     reg:"3–6 月", run:"8–9 月",
+     desc:"面向研究生/大学生的创新实践与科技赛事，重方案、作品与路演，可凭专业背景参与。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐短板。", help:"AI 帮商业/项目计划书、路演稿、PPT、数据分析、答辩提纲。",
+     url:"http://www.cnsoftbei.com"},
+    {scope:"me", n:"全国大学生电子商务创新创意及创业挑战赛(三创赛)", type:"创新创业", st:"closed", ai:4, pri:1, team:"组队（跨专业友好）",
+     org:"全国电子商务产教融合创新联盟",
+     reg:"3–5 月", run:"6–8 月",
+     desc:"面向研究生/大学生的创新实践与科技赛事，重方案、作品与路演，可凭专业背景参与。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐短板。", help:"AI 帮商业/项目计划书、路演稿、PPT、数据分析、答辩提纲。",
+     url:"http://www.3chuang.net"},
+    {scope:"me", n:"全国大学生市场调查与分析大赛", type:"管理/统计", st:"closed", ai:4, pri:2, team:"组队 / 单人可",
+     org:"中国商业统计学会",
+     reg:"10–次年4月(跨年)", run:"5 月国赛",
+     desc:"面向研究生/大学生的创新实践与科技赛事，重方案、作品与路演，可凭专业背景参与。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐短板。", help:"AI 帮商业/项目计划书、路演稿、PPT、数据分析、答辩提纲。",
+     url:"http://www.china-cma.org"},
+    {scope:"me", n:"学创杯全国大学生创业综合模拟大赛", type:"创新创业", st:"closed", ai:3, pri:1, team:"组队（跨专业友好）",
+     org:"国家级实验教学示范中心联席会",
+     reg:"3–5 月", run:"6–7 月",
+     desc:"面向研究生/大学生的创新实践与科技赛事，重方案、作品与路演，可凭专业背景参与。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐短板。", help:"AI 帮商业/项目计划书、路演稿、PPT、数据分析、答辩提纲。",
+     url:"http://www.xcbds.com"},
+    {scope:"me", n:"全国大学生广告艺术大赛(大广赛)", type:"设计", st:"closed", ai:3, pri:3, team:"组队 / 单人可",
+     org:"教育部高教司",
+     reg:"3–6 月", run:"7 月",
+     desc:"面向研究生/大学生的创新实践与科技赛事，重方案、作品与路演，可凭专业背景参与。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐短板。", help:"AI 帮商业/项目计划书、路演稿、PPT、数据分析、答辩提纲。",
+     url:"http://www.sun-ada.net"},
+    {scope:"me", n:"全国大学生工业设计大赛", type:"设计", st:"closed", ai:3, pri:3, team:"组队 / 单人可",
+     org:"教育部高教司",
+     reg:"4–6 月", run:"8–9 月",
+     desc:"面向研究生/大学生的创新实践与科技赛事，重方案、作品与路演，可凭专业背景参与。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐短板。", help:"AI 帮商业/项目计划书、路演稿、PPT、数据分析、答辩提纲。",
+     url:"http://www.cuidc.net"},
+    {scope:"me", n:"西门子杯中国智能制造挑战赛", type:"工程", st:"closed", ai:4, pri:2, team:"组队（专业相关）",
+     org:"教育部国际合作与交流司",
+     reg:"3–6 月", run:"7–8 月",
+     desc:"面向研究生/大学生的创新实践与科技赛事，重方案、作品与路演，可凭专业背景参与。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐短板。", help:"AI 帮商业/项目计划书、路演稿、PPT、数据分析、答辩提纲。",
+     url:"http://www.siemenscup.com"},
+    {scope:"me", n:"全国大学生智能汽车竞赛", type:"自动驾驶", st:"closed", ai:4, pri:2, team:"组队（技术向）",
+     org:"教育部自动化类教指委",
+     reg:"3–7 月", run:"8 月",
+     desc:"面向研究生/大学生的创新实践与科技赛事，重方案、作品与路演，可凭专业背景参与。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐短板。", help:"AI 帮商业/项目计划书、路演稿、PPT、数据分析、答辩提纲。",
+     url:"http://www.smartcar.au.tsinghua.edu.cn"},
+    {scope:"me", n:"全国大学生机器人大赛RoboMaster", type:"机器人", st:"closed", ai:4, pri:2, team:"组队（技术向）",
+     org:"大疆创新",
+     reg:"3–7 月", run:"7–8 月",
+     desc:"面向研究生/大学生的创新实践与科技赛事，重方案、作品与路演，可凭专业背景参与。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐短板。", help:"AI 帮商业/项目计划书、路演稿、PPT、数据分析、答辩提纲。",
+     url:"https://www.robomaster.com"},
+    {scope:"me", n:"全国大学生机器人大赛RoboCon", type:"机器人", st:"closed", ai:4, pri:2, team:"组队（技术向）",
+     org:"共青团中央/央视",
+     reg:"3–6 月", run:"7 月",
+     desc:"面向研究生/大学生的创新实践与科技赛事，重方案、作品与路演，可凭专业背景参与。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐短板。", help:"AI 帮商业/项目计划书、路演稿、PPT、数据分析、答辩提纲。",
+     url:"https://www.robocon.net"},
+    {scope:"me", n:"外研社·国才杯全国英语演讲写作阅读大赛", type:"语言文化", st:"open", ai:3, pri:3, team:"单人可",
+     org:"外语教学与研究出版社",
+     reg:"6–10 月", run:"11–12 月",
+     desc:"英语/翻译类竞赛，AI 可辅助润色但须以自己为主，注意赛事查重规定。", fit:"跨方向练手或丰富履历，低门槛、可单人参加。", help:"AI 帮翻译初稿、术语表、润色；⚠ 多数赛事禁止 AI 代写，须以自己为主、AI 仅辅助。",
+     url:"https://uchallenge.unipus.cn"},
+    {scope:"me", n:"全国大学生英语竞赛NECCS", type:"语言文化", st:"closed", ai:2, pri:3, team:"单人可",
+     org:"国际英语外语教师协会",
+     reg:"1–4 月", run:"5 月决赛",
+     desc:"英语/翻译类竞赛，AI 可辅助润色但须以自己为主，注意赛事查重规定。", fit:"跨方向练手或丰富履历，低门槛、可单人参加。", help:"AI 帮翻译初稿、术语表、润色；⚠ 多数赛事禁止 AI 代写，须以自己为主、AI 仅辅助。",
+     url:"http://www.chinaneccs.cn"},
+    {scope:"me", n:"普译赛全国大学生英语翻译比赛", type:"翻译", st:"closed", ai:3, pri:3, team:"单人可",
+     org:"中国英汉语比较研究会",
+     reg:"3–6 月", run:"6 月",
+     desc:"英语/翻译类竞赛，AI 可辅助润色但须以自己为主，注意赛事查重规定。", fit:"跨方向练手或丰富履历，低门槛、可单人参加。", help:"AI 帮翻译初稿、术语表、润色；⚠ 多数赛事禁止 AI 代写，须以自己为主、AI 仅辅助。",
+     url:"http://www.putiyi.com"},
+    {scope:"me", n:"华数杯国际大学生数学建模竞赛", type:"数学建模", st:"closed", ai:4, pri:1, team:"3 人队（你已有）",
+     org:"华数杯组委会",
+     reg:"每年2月/8月两届", run:"2 月/8 月",
+     desc:"以建模、统计或数据分析解决真实问题，团队在数天内完成研究论文/报告。", fit:"数学建模是研究生通用硬通货，3 人队即可上场，性价比高。", help:"AI 帮建模思路、代码实现、论文撰写与排版、图表美化。",
+     url:"http://www.huashubei.com"},
+    {scope:"me", n:"亚太杯国际大学生数学建模竞赛", type:"数学建模", st:"closed", ai:4, pri:1, team:"3 人队（你已有）",
+     org:"亚太数学建模组委会",
+     reg:"每年11–次年2月", run:"2 月",
+     desc:"以建模、统计或数据分析解决真实问题，团队在数天内完成研究论文/报告。", fit:"数学建模是研究生通用硬通货，3 人队即可上场，性价比高。", help:"AI 帮建模思路、代码实现、论文撰写与排版、图表美化。",
+     url:"http://www.apmcm.org"},
+    {scope:"me", n:"认证杯数学中国数学建模网络挑战赛", type:"数学建模", st:"open", ai:4, pri:1, team:"3 人队（你已有）",
+     org:"数学中国",
+     reg:"4–5月/11–12月", run:"5 月/12 月",
+     desc:"以建模、统计或数据分析解决真实问题，团队在数天内完成研究论文/报告。", fit:"数学建模是研究生通用硬通货，3 人队即可上场，性价比高。", help:"AI 帮建模思路、代码实现、论文撰写与排版、图表美化。",
+     url:"http://www.madio.net"},
+    {scope:"me", n:"全国大学生数学竞赛", type:"数学", st:"open", ai:3, pri:2, team:"组队（专业相关）",
+     org:"中国数学会",
+     reg:"10–12 月", run:"次年3月决赛",
+     desc:"以建模、统计或数据分析解决真实问题，团队在数天内完成研究论文/报告。", fit:"数学建模是研究生通用硬通货，3 人队即可上场，性价比高。", help:"AI 帮建模思路、代码实现、论文撰写与排版、图表美化。",
+     url:"http://www.cmathc.cn"},
+    {scope:"me", n:"全国大学生物理实验竞赛", type:"物理", st:"closed", ai:3, pri:2, team:"组队（专业相关）",
+     org:"教育部物理学类教指委",
+     reg:"3–6 月", run:"7–8 月",
+     desc:"以建模、统计或数据分析解决真实问题，团队在数天内完成研究论文/报告。", fit:"数学建模是研究生通用硬通货，3 人队即可上场，性价比高。", help:"AI 帮建模思路、代码实现、论文撰写与排版、图表美化。",
+     url:"http://www.physlab.cn"},
+    {scope:"me", n:"全国大学生结构设计竞赛", type:"工程", st:"closed", ai:3, pri:2, team:"组队（专业相关）",
+     org:"教育部土木工程类教指委",
+     reg:"3–6 月", run:"7 月",
+     desc:"面向研究生/大学生的创新实践与科技赛事，重方案、作品与路演，可凭专业背景参与。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐短板。", help:"AI 帮商业/项目计划书、路演稿、PPT、数据分析、答辩提纲。",
+     url:"http://www.structure.org.cn"},
+    {scope:"me", n:"全国大学生FPGA创新设计竞赛", type:"集成电路", st:"open", ai:4, pri:2, team:"组队（技术向）",
+     org:"国家级实验教学示范中心",
+     reg:"6–10 月", run:"11 月",
+     desc:"与化工、材料、环境、能源、双碳高度相关的专业赛事，正对你的科研方向。", fit:"你的本行主场，实验室成果可直接转化参赛，无需从零学起。", help:"AI 帮文献调研、实验方案设计、数据拟合与图表、申报书/论文撰写、答辩 PPT。",
+     url:"http://www.socchina.net"},
+    {scope:"me", n:"华为ICT大赛", type:"网络/云", st:"open", ai:4, pri:2, team:"组队 / 单人可",
+     org:"华为",
+     reg:"6–12 月(分区到全球)", run:"次年5月全球总决赛",
+     desc:"面向研究生/大学生的创新实践与科技赛事，重方案、作品与路演，可凭专业背景参与。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐短板。", help:"AI 帮商业/项目计划书、路演稿、PPT、数据分析、答辩提纲。",
+     url:"https://e.huawei.com"},
+    {scope:"me", n:"百度之星程序设计大赛", type:"算法", st:"closed", ai:4, pri:1, team:"单人可 / 可组队",
+     org:"百度",
+     reg:"5–8 月", run:"8 月总决赛",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"AI 帮写 baseline、调参、方案解析、可视化；企业命题赛多有奖金与就业绿色通道。",
+     url:"https://star.baidu.com"},
+    {scope:"me", n:"中国高校计算机大赛(大数据/AI/微信小程序)", type:"数据/AI", st:"closed", ai:4, pri:2, team:"单人可 / 可组队",
+     org:"教育部计算机类教指委",
+     reg:"3–6 月", run:"7–8 月",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"AI 帮写 baseline、调参、方案解析、可视化；企业命题赛多有奖金与就业绿色通道。",
+     url:"http://www.c4best.cn"},
+    {scope:"me", n:"全国大学生服务外包创新创业大赛", type:"服务外包", st:"closed", ai:4, pri:2, team:"组队 / 单人可",
+     org:"商务部/教育部",
+     reg:"3–6 月", run:"8 月",
+     desc:"面向研究生/大学生的创新实践与科技赛事，重方案、作品与路演，可凭专业背景参与。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐短板。", help:"AI 帮商业/项目计划书、路演稿、PPT、数据分析、答辩提纲。",
+     url:"http://www.fwwb.org.cn"},
+    {scope:"me", n:"中国创翼创业创新大赛", type:"创新创业", st:"closed", ai:4, pri:1, team:"组队（跨专业友好）",
+     org:"人社部等",
+     reg:"2–6 月(地方选拔)", run:"9 月总决赛",
+     desc:"面向研究生/大学生的创新实践与科技赛事，重方案、作品与路演，可凭专业背景参与。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐短板。", help:"AI 帮商业/项目计划书、路演稿、PPT、数据分析、答辩提纲。",
+     url:"http://www.cxcyds.cn"},
+    {scope:"me", n:"全国大学生集成电路创新创业大赛", type:"集成电路", st:"closed", ai:4, pri:2, team:"组队（技术向）",
+     org:"工信部人才交流中心",
+     reg:"3–6 月", run:"8 月",
+     desc:"与化工、材料、环境、能源、双碳高度相关的专业赛事，正对你的科研方向。", fit:"你的本行主场，实验室成果可直接转化参赛，无需从零学起。", help:"AI 帮文献调研、实验方案设计、数据拟合与图表、申报书/论文撰写、答辩 PPT。",
+     url:"http://www.ciciec.com"},
+    {scope:"me", n:"全国大学生物联网设计竞赛", type:"物联网", st:"closed", ai:4, pri:2, team:"组队（技术向）",
+     org:"教育部计算机类教指委",
+     reg:"3–6 月", run:"8 月",
+     desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"AI 帮写 baseline、调参、方案解析、可视化；企业命题赛多有奖金与就业绿色通道。",
+     url:"http://www.iotcontest.net"},
+    {scope:"me", n:"共享杯科技资源共享服务创新大赛", type:"综合", st:"open", ai:4, pri:2, team:"组队 / 单人可",
+     org:"国家科技基础条件平台中心",
+     reg:"5–10 月", run:"11 月",
+     desc:"面向研究生/大学生的创新实践与科技赛事，重方案、作品与路演，可凭专业背景参与。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐短板。", help:"AI 帮商业/项目计划书、路演稿、PPT、数据分析、答辩提纲。",
+     url:"http://share.escience.net.cn"},
+    {scope:"me", n:"全国大学生测绘技能竞赛", type:"测绘", st:"closed", ai:3, pri:2, team:"组队（专业相关）",
+     org:"教育部测绘类教指委",
+     reg:"3–6 月", run:"7 月",
+     desc:"面向研究生/大学生的创新实践与科技赛事，重方案、作品与路演，可凭专业背景参与。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐短板。", help:"AI 帮商业/项目计划书、路演稿、PPT、数据分析、答辩提纲。",
+     url:"http://www.csgpc.org"},
+    {scope:"me", n:"全国大学生GIS应用技能大赛", type:"地理信息", st:"open", ai:3, pri:2, team:"组队 / 单人可",
+     org:"中国地理信息产业协会",
+     reg:"4–10 月", run:"11 月",
+     desc:"面向研究生/大学生的创新实践与科技赛事，重方案、作品与路演，可凭专业背景参与。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐短板。", help:"AI 帮商业/项目计划书、路演稿、PPT、数据分析、答辩提纲。",
+     url:"http://www.csgpc.org"},
+    {scope:"me", n:"东方杯全国大学生勘探地球物理竞赛", type:"地球物理", st:"closed", ai:3, pri:2, team:"组队（专业相关）",
+     org:"中国石油学会",
+     reg:"3–6 月", run:"7 月",
+     desc:"与化工、材料、环境、能源、双碳高度相关的专业赛事，正对你的科研方向。", fit:"你的本行主场，实验室成果可直接转化参赛，无需从零学起。", help:"AI 帮文献调研、实验方案设计、数据拟合与图表、申报书/论文撰写、答辩 PPT。",
+     url:"http://www.cup.edu.cn"},
+    {scope:"me", n:"全国大学生统计建模大赛", type:"数学建模", st:"closed", ai:4, pri:1, team:"3 人队（你已有）",
+     org:"国家统计局/中国统计学会",
+     reg:"3–5 月", run:"6–7 月",
+     desc:"以建模、统计或数据分析解决真实问题，团队在数天内完成研究论文/报告。", fit:"数学建模是研究生通用硬通货，3 人队即可上场，性价比高。", help:"AI 帮建模思路、代码实现、论文撰写与排版、图表美化。",
+     url:"http://tjjmds.aii.edu.cn"},
+    {scope:"world", n:"Zindi 非洲人工智能挑战赛", type:"数据科学", st:"open", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"Zindi",
+     reg:"常年滚动", run:"视赛题",
+     desc:"国际开放赛事，全球高校均可远程参与，看全球在比什么、顶级水平在哪。", fit:"可远程参赛或仅作眼界参考，启发科研与选题，拓展国际视野。", help:"AI 帮读赛题、写 baseline、调参、整理方案；多数对中国个人开放、远程可完成。",
+     url:"https://zindi.africa"},
+    {scope:"world", n:"DrivenData 数据科学公益赛", type:"数据科学", st:"open", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"DrivenData",
+     reg:"常年滚动", run:"视赛题",
+     desc:"国际开放赛事，全球高校均可远程参与，看全球在比什么、顶级水平在哪。", fit:"可远程参赛或仅作眼界参考，启发科研与选题，拓展国际视野。", help:"AI 帮读赛题、写 baseline、调参、整理方案；多数对中国个人开放、远程可完成。",
+     url:"https://www.drivendata.org"},
+    {scope:"world", n:"Numerai 加密量化预测赛", type:"量化/ML", st:"open", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"Numerai",
+     reg:"常年滚动", run:"每周/滚动",
+     desc:"国际开放赛事，全球高校均可远程参与，看全球在比什么、顶级水平在哪。", fit:"可远程参赛或仅作眼界参考，启发科研与选题，拓展国际视野。", help:"AI 帮读赛题、写 baseline、调参、整理方案；多数对中国个人开放、远程可完成。",
+     url:"https://numer.ai"},
+    {scope:"world", n:"Topcoder 算法与开发赛", type:"算法", st:"open", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"Topcoder",
+     reg:"常年滚动", run:"视赛题",
+     desc:"国际开放赛事，全球高校均可远程参与，看全球在比什么、顶级水平在哪。", fit:"可远程参赛或仅作眼界参考，启发科研与选题，拓展国际视野。", help:"AI 帮读赛题、写 baseline、调参、整理方案；多数对中国个人开放、远程可完成。",
+     url:"https://www.topcoder.com"},
+    {scope:"world", n:"AIcrowd 人工智能挑战赛", type:"AI", st:"open", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"AIcrowd",
+     reg:"常年滚动", run:"视赛题",
+     desc:"国际开放赛事，全球高校均可远程参与，看全球在比什么、顶级水平在哪。", fit:"可远程参赛或仅作眼界参考，启发科研与选题，拓展国际视野。", help:"AI 帮读赛题、写 baseline、调参、整理方案；多数对中国个人开放、远程可完成。",
+     url:"https://www.aicrowd.com"},
+    {scope:"world", n:"CodaLab 机器学习挑战赛", type:"机器学习", st:"open", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"CodaLab",
+     reg:"常年滚动", run:"视赛题",
+     desc:"国际开放赛事，全球高校均可远程参与，看全球在比什么、顶级水平在哪。", fit:"可远程参赛或仅作眼界参考，启发科研与选题，拓展国际视野。", help:"AI 帮读赛题、写 baseline、调参、整理方案；多数对中国个人开放、远程可完成。",
+     url:"https://codalab.lisn.upsaclay.fr"},
+    {scope:"world", n:"NeurIPS 神经信息处理系统大会竞赛", type:"AI", st:"open", ai:5, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"NeurIPS Foundation",
+     reg:"每年7–10月", run:"12 月大会",
+     desc:"国际开放赛事，全球高校均可远程参与，看全球在比什么、顶级水平在哪。", fit:"可远程参赛或仅作眼界参考，启发科研与选题，拓展国际视野。", help:"AI 帮读赛题、写 baseline、调参、整理方案；多数对中国个人开放、远程可完成。",
+     url:"https://neurips.cc"},
+    {scope:"world", n:"XPRIZE 基金会大奖赛", type:"科技公益", st:"open", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"XPRIZE",
+     reg:"常年(多年期)", run:"多年期",
+     desc:"国际开放赛事，全球高校均可远程参与，看全球在比什么、顶级水平在哪。", fit:"可远程参赛或仅作眼界参考，启发科研与选题，拓展国际视野。", help:"AI 帮读赛题、写 baseline、调参、整理方案；多数对中国个人开放、远程可完成。",
+     url:"https://www.xprize.org"},
+    {scope:"world", n:"Google Solution Challenge", type:"AI 应用", st:"closed", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"Google",
+     reg:"每年1–6月", run:"7 月决赛",
+     desc:"国际开放赛事，全球高校均可远程参与，看全球在比什么、顶级水平在哪。", fit:"可远程参赛或仅作眼界参考，启发科研与选题，拓展国际视野。", help:"AI 帮读赛题、写 baseline、调参、整理方案；多数对中国个人开放、远程可完成。",
+     url:"https://developers.google.com/solution-challenge"},
+    {scope:"world", n:"Google Code Jam", type:"算法", st:"closed", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"Google",
+     reg:"每年4–8月", run:"世界总决赛8月",
+     desc:"国际开放赛事，全球高校均可远程参与，看全球在比什么、顶级水平在哪。", fit:"可远程参赛或仅作眼界参考，启发科研与选题，拓展国际视野。", help:"AI 帮读赛题、写 baseline、调参、整理方案；多数对中国个人开放、远程可完成。",
+     url:"https://codingcompetitions.withgoogle.com/codejam"},
+    {scope:"world", n:"Meta Hacker Cup", type:"算法", st:"open", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"Meta",
+     reg:"每年8–11月", run:"12 月",
+     desc:"国际开放赛事，全球高校均可远程参与，看全球在比什么、顶级水平在哪。", fit:"可远程参赛或仅作眼界参考，启发科研与选题，拓展国际视野。", help:"AI 帮读赛题、写 baseline、调参、整理方案；多数对中国个人开放、远程可完成。",
+     url:"https://www.facebook.com/hackercup"},
+    {scope:"world", n:"IBM Quantum Challenge", type:"量子计算", st:"open", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"IBM",
+     reg:"定期举办", run:"视安排",
+     desc:"国际开放赛事，全球高校均可远程参与，看全球在比什么、顶级水平在哪。", fit:"可远程参赛或仅作眼界参考，启发科研与选题，拓展国际视野。", help:"AI 帮读赛题、写 baseline、调参、整理方案；多数对中国个人开放、远程可完成。",
+     url:"https://quantum-computing.ibm.com"},
+    {scope:"world", n:"Hugging Face 社区挑战赛", type:"大模型/AI", st:"open", ai:5, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"Hugging Face",
+     reg:"常年滚动", run:"视赛题",
+     desc:"国际开放赛事，全球高校均可远程参与，看全球在比什么、顶级水平在哪。", fit:"可远程参赛或仅作眼界参考，启发科研与选题，拓展国际视野。", help:"AI 帮读赛题、写 baseline、调参、整理方案；多数对中国个人开放、远程可完成。",
+     url:"https://huggingface.co/challenges"},
+    {scope:"world", n:"iGEM 国际基因工程机器大赛", type:"合成生物", st:"open", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"iGEM Foundation",
+     reg:"每年1–10月", run:"10–11月总决赛(波士顿/线上)",
+     desc:"国际开放赛事，全球高校均可远程参与，看全球在比什么、顶级水平在哪。", fit:"可远程参赛或仅作眼界参考，启发科研与选题，拓展国际视野。", help:"AI 帮读赛题、写 baseline、调参、整理方案；多数对中国个人开放、远程可完成。",
+     url:"https://igem.org"},
+    {scope:"world", n:"BIOMOD 国际生物分子设计大赛", type:"合成生物", st:"open", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"BIOMOD",
+     reg:"每年6–11月", run:"11 月",
+     desc:"国际开放赛事，全球高校均可远程参与，看全球在比什么、顶级水平在哪。", fit:"可远程参赛或仅作眼界参考，启发科研与选题，拓展国际视野。", help:"AI 帮读赛题、写 baseline、调参、整理方案；多数对中国个人开放、远程可完成。",
+     url:"https://biomod.net"},
+    {scope:"world", n:"ASC 世界大学生超级计算机竞赛", type:"高性能计算", st:"closed", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"ASC 组委会",
+     reg:"每年11–次年4月", run:"4–5 月决赛",
+     desc:"国际开放赛事，全球高校均可远程参与，看全球在比什么、顶级水平在哪。", fit:"可远程参赛或仅作眼界参考，启发科研与选题，拓展国际视野。", help:"AI 帮读赛题、写 baseline、调参、整理方案；多数对中国个人开放、远程可完成。",
+     url:"http://www.asc-events.org"},
+    {scope:"world", n:"IEEE CIS 计算智能竞赛", type:"AI", st:"open", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"IEEE Computational Intelligence Society",
+     reg:"常年滚动", run:"视赛题",
+     desc:"国际开放赛事，全球高校均可远程参与，看全球在比什么、顶级水平在哪。", fit:"可远程参赛或仅作眼界参考，启发科研与选题，拓展国际视野。", help:"AI 帮读赛题、写 baseline、调参、整理方案；多数对中国个人开放、远程可完成。",
+     url:"https://cis.ieee.org"},
+    {scope:"world", n:"InnoCentive 开放式创新挑战赛", type:"创新难题", st:"open", ai:3, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"InnoCentive",
+     reg:"常年滚动", run:"视难题",
+     desc:"国际开放赛事，全球高校均可远程参与，看全球在比什么、顶级水平在哪。", fit:"可远程参赛或仅作眼界参考，启发科研与选题，拓展国际视野。", help:"AI 帮读赛题、写 baseline、调参、整理方案；多数对中国个人开放、远程可完成。",
+     url:"https://www.innocentive.com"},
+    {scope:"world", n:"MIT HackMIT 黑客松", type:"黑客松", st:"open", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+     org:"MIT",
+     reg:"每年9–11月", run:"秋季48小时",
+     desc:"国际开放赛事，全球高校均可远程参与，看全球在比什么、顶级水平在哪。", fit:"可远程参赛或仅作眼界参考，启发科研与选题，拓展国际视野。", help:"AI 帮读赛题、写 baseline、调参、整理方案；多数对中国个人开放、远程可完成。",
+     url:"https://hackmit.org"},
+    {scope:"me", n:"数维杯全国大学生数学建模挑战赛（2026 秋季赛）", type:"数学建模", st:"open", ai:4, pri:1, team:"1–3 人队（可跨校）",
+     org:"中国仿真学会 · 辽宁科技大学",
+     reg:"即日起 – 2026/11/20 06:00", run:"竞赛 11/20 9:00 – 11/24 9:00；成绩 2027/1 中旬",
+     desc:"以建模、统计或数据分析解决真实问题，团队在数天内完成英文研究论文/报告，设研究生组单独评奖。", fit:"数学建模是研究生通用硬通货，你的 3 人化工队可直接上场，性价比高。", help:"AI 帮建模思路、代码实现、论文撰写与排版、图表美化；⚠ AIGC 占比超 30% 或总相似比超 50% 取消资格，须以自己为主、AI 仅辅助。",
+     url:"https://www.nmmcm.org.cn/"},
+    {scope:"me", n:"EuroMCM 欧洲数学建模竞赛（2026）", type:"国际数模", st:"open", ai:4, pri:2, team:"≤3 人（可跨校/跨国）",
+     org:"European Mathematical Contest in Modelling（ESAM）",
+     reg:"2026 年夏季开放 – 10/13 17:00(CET) 截止", run:"竞赛 10/15 17:00 – 10/19 20:00(CET)；12 月出结果",
+     desc:"围绕真实科研/工程问题建立数学模型并求解，团队在 4–5 天内完成英文研究论文，设研究生组单独评奖。", fit:"数学建模是研究生通用硬通货，可远程报名、英文论文，适合练国际赛手感。", help:"AI 帮建模思路、代码实现、英文论文撰写与排版、图表美化；€80/队报名费，研究生组单独评奖。",
+     url:"https://www.euromcm.org/"},
+  ];
+</script>
+<script>
+(function(){
+  "use strict";
+
+  /* ============ TAB SWITCHING ============ */
+  function showTab(tab){
+    document.querySelectorAll(".tab").forEach(function(t){ var on=(t.dataset.tab===tab); t.classList.toggle("active", on); t.setAttribute("aria-selected", on?"true":"false"); });
+    ["daily","rank","comp","learn"].forEach(function(v){
+      var el=document.getElementById("view-"+v);
+      if(el){ el.style.display = (v===tab)?"":"none"; el.setAttribute("aria-hidden", v===tab?"false":"true"); }
+    });
+    window.scrollTo(0,0);
+  }
+  document.querySelectorAll(".tab").forEach(function(t){
+    t.addEventListener("click", function(){ showTab(t.dataset.tab); });
+  });
+
+  /* ============ RANK DATA (snapshot 2026-09-22) ============ */
+  var RANK = {
+    models: [
+      {name:"Claude Fable 5.1", vendor:"Anthropic（美国）", price:"Pro $17–20/月；API $10/$50 每百万", iaa:53, tb:91.4,
+       t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"B",性价比:"C",开源:"—"},
+       note:"2026-09-01 发布，AA 智能指数 v4.3 并列第一（53）；TB2.1 第一（91.4%）。⚠ 官方 8/29 已升级 Terminal-Bench v4.0（66 题、难度大幅提升），AA v4.3 起改用 TB4.0：Astra 59.1% > Fable 5.1 52.0% > Opus 5 49.0% > GPT-5.6 Sol 39.9%；本页 TB 列仍为 2.1 旧口径。推理/综合最强，但价格最高、中文偏弱。"},
+      {name:"GPT-6 Astra", vendor:"OpenAI（美国）", price:"API $10/$50 每百万", iaa:53, tb:89.9,
+       t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"A",性价比:"C",开源:"—"},
+       note:"2026-09-03 发布，号称进入 AGI 时代；AA 指数并列第一（53）、代码 Agent 指数 67；TB4.0 59.1%（max）现居第一。但被定为「关键网络安全」级，目前仅 Daybreak 计划批准者可用，投票榜样本极少。"},
+      {name:"Claude Opus 5", vendor:"Anthropic（美国）", price:"Pro $17–20/月；API $5/$25 每百万", iaa:51, tb:89.1,
+       t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"B",性价比:"B",开源:"—"},
+       note:"投票榜 coding 冠军（image-to-WebDev 第一），价格仅 Fable 5.1 一半（$5/$25）；TB2.1 89.1%（TB4.0 49.0%）。英文/代码极强，中文偏弱。"},
+      {name:"Claude Fable 5", vendor:"Anthropic（美国）", price:"Pro $17–20/月；API $10/$50 每百万", iaa:50, tb:83.1,
+       t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"B",性价比:"C",开源:"—"},
+       note:"LMArena 文本盲测长期第一（体感最佳）；AA 50。配 Claude Code 时 SWE-bench Verified 达 95%。综合 S 但价格高。"},
+      {name:"GPT-5.6 Sol", vendor:"OpenAI（美国）", price:"Plus $20/月；API $4/$20 每百万", iaa:47, tb:89.5,
+       t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"A",性价比:"B",开源:"—"},
+       note:"AA 47、TB2.1 89.5%（与 Astra 同档）；⚠ TB4.0 掉到 39.9%，与 Astra 拉开 19.2 分。代码 Agent 指数 67，生态最全。中文与代码均强，性价比优于 Claude。"},
+      {name:"Grok 4.6", vendor:"xAI（美国）", price:"API $2/$6 每百万", iaa:44, tb:88.4,
+       t:{综合:"A",推理:"A",代码:"A",多模态:"A",长上下文:"B",中文:"B",性价比:"B",开源:"—"},
+       note:"8 月后训练刷新，AA 跳至 44；TB2.1 88.4%。价格低、长任务回合少。中文/长上下文略逊。"},
+      {name:"Grok 4.7", vendor:"xAI（美国）", price:"API 价格待公布", iaa:null, tb:null,
+       t:{综合:"A",推理:"A",代码:"A",多模态:"A",长上下文:"B",中文:"B",性价比:"B",开源:"—"},
+       note:"2026-09-12 发布，参数 2.1 万亿（较 Grok 4.6 的 1.5 万亿增约 40%），xAI 称性能与效率全面提升。⚠ 目前尚无 AA 智能指数 / Terminal-Bench 公开分数，评级暂沿用 4.6 档，待核实。"},
+      {name:"Muse Spark 1.3", vendor:"Meta（美国）", price:"闭源（开发者发布）", iaa:48, tb:null,
+       t:{综合:"A",推理:"A",代码:"A",多模态:"B",长上下文:"B",中文:"C",性价比:"B",开源:"—"},
+       note:"2026-09-02 发布，AA 48（8 点跃升）；开发者发布、无消费端入口；agent 行全面落后（Meta 自家图）；TB4.0 约 33.3%（AA 口径）。英文生态为主。"},
+      {name:"GLM-5.3 / GLM-5.3-Flash", vendor:"智谱 Zhipu（中国）", price:"Flash 开源 MIT；API $0.15/$0.50 每百万", iaa:45, tb:84.3,
+       t:{综合:"A",推理:"A",代码:"A",多模态:"B",长上下文:"A",中文:"S",性价比:"A",开源:"A"},
+       note:"国产综合最强之一；Flash 版 8-26 发布即 MIT 开源、AA 42、性价比之王（列表价 $0.15/$0.50）。中文 S。"},
+      {name:"Kimi K3", vendor:"Moonshot AI（中国）", price:"免费商用 / API 低价", iaa:44, tb:85.0,
+       t:{综合:"A",推理:"A",代码:"A",多模态:"B",长上下文:"A",中文:"A",性价比:"A",开源:"A"},
+       note:"AA 44、Terminal-Bench 85.0；长上下文与中文强，部分权重开源可自部署。"},
+      {name:"Gemini 3.8 Flash", vendor:"Google（美国）", price:"API $0.75/$3.75 每百万（2027 起翻倍）", iaa:41, tb:87.6,
+       t:{综合:"A",推理:"A",代码:"A",多模态:"S",长上下文:"S",中文:"A",性价比:"A",开源:"—"},
+       note:"2026-09-02 发布，Google 当前主力 workhorse；多模态/超长上下文（1M）标杆，TB2.1 87.6%。⚠ TB4.0 仅 19.7%（新榜难度陡增，同模型跌幅最大）。价格友好（限时）。"},
+      {name:"Gemini 3.1 Pro", vendor:"Google（美国）", price:"API $2/$12 每百万", iaa:null, tb:null,
+       t:{综合:"A",推理:"S",代码:"A",多模态:"A",长上下文:"S",中文:"A",性价比:"B",开源:"—"},
+       note:"现仍在售的真正旗舰 Pro（3.5 Pro 一再跳票）；GPQA Diamond 94.3%、ARC-AGI-1 98%。最强纯推理与超长上下文，价格高于 Flash。"},
+      {name:"Qwen3.8-Max", vendor:"阿里巴巴（中国）", price:"闭源顶配 / Qwen3.8-Flash-Next 开源", iaa:40, tb:null,
+       t:{综合:"A",推理:"A",代码:"A",多模态:"B",长上下文:"A",中文:"A",性价比:"A",开源:"A"},
+       note:"Qwen3.8-Max-0902 于 9-2 登 Code Arena WebDev 榜首（1691）；开源 Qwen3.8-Flash-Next 首发 Qwen4 架构。生态最大。"},
+      {name:"DeepSeek V4.1-Flash", vendor:"DeepSeek（中国）", price:"限时 API 预览 / 低价", iaa:40, tb:null,
+       t:{综合:"B",推理:"B",代码:"A",多模态:"B",长上下文:"B",中文:"A",性价比:"A",开源:"—"},
+       note:"2026-09-10 发布，552B MoE（每 token 激活 8–16B）、原生多模态，推理效率大幅提升；AA 指数 40（max，2026-09-13 版）。⚠ 限时 API 预览版，是否开放权重待核实；TB4.0 各家 harness 差异极大（约 11.6%–26.8%），暂不填。"},
+      {name:"DeepSeek V4 Pro", vendor:"DeepSeek（中国）", price:"开源免费 / API 低价", iaa:36, tb:78.7,
+       t:{综合:"B",推理:"B",代码:"A",多模态:"B",长上下文:"B",中文:"A",性价比:"S",开源:"S"},
+       note:"DeepSWE 1.1 80.6%（开源权重最高）；性价比/开源双 S，可完全自部署。综合与英文稍弱。"},
+      {name:"Hunyuan 混元", vendor:"腾讯（中国）", price:"Hy4 Preview 开源（Apache 2.0）", iaa:null, tb:null,
+       t:{综合:"B",推理:"B",代码:"B",多模态:"B",长上下文:"B",中文:"A",性价比:"B",开源:"A"},
+       note:"国产主力，中文与性价比均衡；Hy4 Preview 8-28 开源（770B，Apache 2.0），适合国内合规与本地化。"},
+      {name:"Llama 4", vendor:"Meta（美国）", price:"开源权重", iaa:null, tb:null,
+       t:{综合:"B",推理:"B",代码:"B",多模态:"B",长上下文:"B",中文:"C",性价比:"B",开源:"S"},
+       note:"经典开源底座，生态与工具链最成熟；中文弱，是许多自部署方案的首选底模。"},
+      {name:"MiniMax M3", vendor:"MiniMax（中国）", price:"开源权重 / API", iaa:null, tb:null,
+       t:{综合:"B",推理:"B",代码:"B",多模态:"B",长上下文:"B",中文:"A",性价比:"B",开源:"A"},
+       note:"国产新锐，中文与多模态均衡，已开放部分权重；综合处于第二梯队。"}
+    ],
+    tools: [
+      {name:"Claude Code", model:"默认 Claude Opus 5 / Fable 5", price:"Pro $17–20/月（按 token 计）", tb:89.1, sv:95.0,
+       t:{上手:"B",开源:"—"},
+       note:"终端优先、harness 最深：1M 上下文、子代理并行、钩子（hooks）可编程。SWE-bench V 95%（Fable 5）、TB2.1 89.1% 标杆；缺点 token 消耗大（约 Codex 3–4 倍），无 IDE 图形界面。"},
+      {name:"OpenAI Codex", model:"默认 GPT-5.6 Sol", price:"Plus $20/月", tb:89.5, sv:88.7,
+       t:{上手:"B",开源:"—"},
+       note:"并行/异步云虚拟机跑任务、git worktree 排队不冲突、自动提 PR；Terminal-Bench 2.1 89.5% 第一。跨 CLI/IDE/云/GitHub 最全。"},
+      {name:"opencode", model:"任意（BYOK，75+ 供应商）", price:"开源免费，只付模型费", tb:null, sv:null,
+       t:{上手:"C",开源:"S"},
+       note:"星标最多的开源编码 Agent（约 193K，MIT）；自带并行子代理、可换任意模型、可本地/自托管。能力取决于你选的底层模型，灵活度最高。"},
+      {name:"Cursor", model:"前沿模型（可换）", price:"$20/月 + 用量", tb:null, sv:74.1,
+       t:{上手:"A",开源:"—"},
+       note:"VS Code 分支，编辑器内最顺手：Composer 多文件编辑、最高 8 个并行 Agent。适合不想碰命令行的交互式编码。"},
+      {name:"Gemini CLI", model:"Gemini 3.1 Pro / 3.8 Flash", price:"免费额度大（约 1000 请求/天）", tb:70.7, sv:80.6,
+       t:{上手:"B",开源:"—"},
+       note:"免费、零成本入门命令行 AI 编码；SWE-bench V 80.6%、Terminal-Bench 70.7%。轻度任务足够，重度不如前几位。"},
+      {name:"GitHub Copilot", model:"多模型", price:"Pro $10/月起（最便宜付费）", tb:null, sv:null,
+       t:{上手:"A",开源:"—"},
+       note:"IDE 原生、issue→PR 自动化；按 AI Credit 计费，补全免费。适合已在 GitHub 工作的团队，门槛最低。"},
+      {name:"Google Antigravity", model:"Gemini 3.5/3.8 Flash", price:"AI Pro $19.99/月", tb:71.2, sv:79.4,
+       t:{上手:"A",开源:"—"},
+       note:"2026 最技术激进的 IDE：多智能体编排、内置 Chromium 浏览器、约 289 tok/s（Opus 4.8 的 4 倍）。快但深推理不如 Claude Code。"},
+      {name:"Cline / Aider", model:"任意（BYOK）", price:"开源免费，只付模型费", tb:null, sv:null,
+       t:{上手:"B",开源:"S"},
+       note:"开源、Git 原生、按需付费模型。Aider 偏结对编程+自动提交，Cline 偏 VS Code 内自主编辑。零成本试水 Agent 编码的好选择。"}
+    ],
+    combos: [
+      {name:"Claude Code + Claude Fable 5 / Opus 5", score:"S",
+       note:"代码 + Agent 综合最强：SWE-bench Verified 95%（Fable 5），Terminal-Bench 89.1%。要最强质量、不怕烧 token 选它。"},
+      {name:"Codex CLI + GPT-5.6 Sol", score:"S",
+       note:"Terminal-Bench 89.5% 第一，后台并行 PR、跨端体验最好。OpenAI 生态 / 要异步批量任务选它。"},
+      {name:"opencode + 任意模型（如 Claude/GPT/Gemini/本地）", score:"A",
+       note:"灵活度与性价比之王：自由换模型、成本低、开源可自托管。战斗力 ≈ 你选的底层模型 + 它的 harness。"},
+      {name:"Cursor + 前沿模型", score:"A",
+       note:"编辑器内最顺手，多文件编辑强。要在 IDE 里交互式写代码而非整任务外包选它。"},
+      {name:"Google Antigravity + Gemini", score:"A",
+       note:"最快吞吐（约 289 tok/s）、多智能体编排。重速度轻深推理的迭代循环选它。"},
+      {name:"Gemini CLI + Gemini 3.1/3.8", score:"B",
+       note:"免费额度大、零成本。轻度脚本/学习阶段够用，重度工程不推荐。"},
+      {name:"GitHub Copilot + 多模型", score:"B",
+       note:"最便宜付费、IDE 原生、issue→PR。团队已在 GitHub 且要低门槛选它。"}
+    ],
+    tables: {
+      aa: {title:"Artificial Analysis 智能指数 v4.3 Top13（满分≈53，2026-09-22 复核）", unit:"分", rows:[
+        ["Claude Fable 5.1",53],["GPT-6 Astra",53],["Claude Opus 5",51],["Claude Fable 5",50],
+        ["Muse Spark 1.3",48],["GLM-5.3",45],["Grok 4.6",44],["Kimi K3",44],
+        ["GLM-5.3-Flash",42],["Gemini 3.8 Flash",41],["Qwen3.8 (2.4T)",40],["DeepSeek V4.1-Flash",40],
+        ["DeepSeek V4 Pro",36]
+      ]},
+      tb: {title:"Terminal-Bench 2.1 Top10（旧版口径，2026-09；⚠ 官方 8/29 已升级 v4.0，AA v4.3 起改用 TB4.0：Astra 59.1 > Fable 5.1 52.0 > Opus 5 49.0 > GPT-5.6 Sol 39.9）", unit:"%", rows:[
+        ["Claude Fable 5.1",91.4],["GPT-6 Astra",89.9],["GPT-5.6 Sol",89.5],["Claude Opus 5",89.1],
+        ["Grok 4.6",88.4],["GPT-5.6 Terra",88.0],["Gemini 3.8 Flash",87.6],["Kimi K3",85.0],
+        ["GLM-5.3-Flash",84.3],["DeepSeek V4 Pro",78.7]
+      ]},
+      swe: {title:"SWE-bench（真实 GitHub 修 bug，agent 配对，2026-08）", unit:"%", rows:[
+        ["Claude Code + Fable 5 — Verified",95.0],
+        ["Claude Code + Fable 5 — Pro",80.3],
+        ["Codex + GPT-5.5 — Verified",88.7],
+        ["Codex + GPT-5.5 — Pro",58.6],
+        ["Claude Code + Opus 4.8 — Verified",88.6],
+        ["Gemini CLI + Gemini 3.1 Pro — Verified",80.6],
+        ["Gemini CLI + Gemini 3.1 Pro — Pro",54.2],
+        ["Codex + GPT-5.6 Sol — Terminal-Bench 2.1",89.5]
+      ]}
+    }
+  };
+
+  function tierBadge(t){
+    var cls = {"S":"t-S","A":"t-A","B":"t-B","C":"t-C","—":"t-none"}[t] || "t-none";
+    return '<span class="tier '+cls+'">'+t+'</span>';
+  }
+  function numCell(v){
+    if(v==null) return '<span class="tier t-none">—</span>';
+    return '<span class="num">'+v+'</span>';
+  }
+  function renderModels(){
+    var dims = ["综合","推理","代码","多模态","长上下文","中文","性价比","开源"];
+    var head = '<tr><th>#</th><th style="text-align:left">模型 / 厂商 · 价格</th>'
+      + '<th>AA<br>指数</th><th>代码<br>TB2.1</th>'
+      + dims.map(function(d){return '<th>'+d+'</th>';}).join('')
+      + '<th style="text-align:left">一句话点评</th></tr>';
+    var rows = RANK.models.map(function(m,i){
+      var tds = dims.map(function(d){ return '<td>'+tierBadge(m.t[d]||"—")+'</td>'; }).join('');
+      return '<tr>'
+        + '<td class="num-cell">'+(i+1)+'</td>'
+        + '<td class="name"><div class="nv">'+esc(m.name)+'</div><div class="mv">'+esc(m.vendor)+' · '+esc(m.price)+'</div></td>'
+        + '<td>'+numCell(m.iaa)+'</td><td>'+numCell(m.tb)+'</td>'
+        + tds
+        + '<td class="note">'+esc(m.note)+'</td>'
+        + '</tr>';
+    }).join('');
+    document.getElementById("p-models").innerHTML =
+      '<div class="legend">评级：<span class="tier t-S">S</span>顶尖/第一梯队 <span class="tier t-A">A</span>很强/第二梯队 <span class="tier t-B">B</span>够用/第三梯队 <span class="tier t-C">C</span>偏弱 <span class="tier t-none">—</span>不适用。AA = Artificial Analysis 智能指数 v4.3（满分≈53），TB2.1 = Terminal-Bench 2.1（%）。表格可左右滑动查看全部列。</div>'
+      + '<div class="matrix-wrap"><table class="matrix"><thead>'+head+'</thead><tbody>'+rows+'</tbody></table></div>';
+  }
+  function renderTools(){
+    var head = '<tr><th>#</th><th style="text-align:left">编码工具 / 默认模型</th>'
+      + '<th>代码<br>TB2.1</th><th>SWE-bench<br>Verified</th><th>价格/月</th><th>上手</th><th>开源</th><th style="text-align:left">最适合谁</th></tr>';
+    var rows = RANK.tools.map(function(m,i){
+      return '<tr>'
+        + '<td class="num-cell">'+(i+1)+'</td>'
+        + '<td class="name"><div class="nv">'+esc(m.name)+'</div><div class="mv">'+esc(m.model)+'</div></td>'
+        + '<td>'+numCell(m.tb)+'</td><td>'+numCell(m.sv)+'</td>'
+        + '<td style="white-space:nowrap">'+esc(m.price)+'</td>'
+        + '<td>'+tierBadge(m.t.up||"—")+'</td><td>'+tierBadge(m.t.os||"—")+'</td>'
+        + '<td class="note">'+esc(m.note)+'</td>'
+        + '</tr>';
+    }).join('');
+    document.getElementById("p-tools").innerHTML =
+      '<div class="legend">开源工具（opencode/Cline/Aider）能力≈所选底层模型，下表按"默认最佳实践"给。TB2.1 = Terminal-Bench 2.1（%），SWE-bench Verified 为真实 GitHub 修 bug 通过率。上手：<span class="tier t-A">A</span>最易 / <span class="tier t-B">B</span>需一点基础 / <span class="tier t-C">C</span>需会用终端。</div>'
+      + '<div class="matrix-wrap"><table class="matrix"><thead>'+head+'</thead><tbody>'+rows+'</tbody></table></div>';
+  }
+  function renderCombos(){
+    var head = '<tr><th>#</th><th style="text-align:left">工具 × 模型 组合</th><th>评分</th><th style="text-align:left">说明</th></tr>';
+    var rows = RANK.combos.map(function(c,i){
+      var sc = ({"S":"t-S","A":"t-A","B":"t-B"}[c.score]||"t-none");
+      return '<tr>'
+        + '<td class="num-cell">'+(i+1)+'</td>'
+        + '<td class="name"><div class="nv">'+esc(c.name)+'</div></td>'
+        + '<td><span class="tier '+sc+' big">'+c.score+'</span></td>'
+        + '<td class="note">'+esc(c.note)+'</td>'
+        + '</tr>';
+    }).join('');
+    document.getElementById("p-combos").innerHTML =
+      '<div class="legend">"组合战斗力"= 工具 harness × 底层模型。同一工具换不同模型，排名会变；下表按"当前最强默认组合"评级。</div>'
+      + '<div class="matrix-wrap"><table class="matrix"><thead>'+head+'</thead><tbody>'+rows+'</tbody></table></div>';
+  }
+  function renderTables(){
+    function t(obj){
+      var rows = obj.rows.map(function(r,i){
+        return '<tr><td class="num-cell">'+(i+1)+'</td><td>'+esc(r[0])+'</td><td style="font-weight:700">'+r[1]+' '+esc(obj.unit)+'</td></tr>';
+      }).join("");
+      return '<h3 style="margin:18px 0 8px;font-size:16px">'+esc(obj.title)+'</h3>'+
+        '<table class="ranktbl"><thead><tr><th>#</th><th>模型 / 组合</th><th>分数</th></tr></thead><tbody>'+rows+'</tbody></table>';
+    }
+    document.getElementById("p-tables").innerHTML = t(RANK.tables.aa)+t(RANK.tables.tb)+t(RANK.tables.swe)+
+      '<p style="color:var(--ink-soft);font-size:13px;margin-top:8px">分数会随版本快速变化，仅供快照参考；权威实时数据请见各榜单官网（Artificial Analysis、Terminal-Bench、SWE-bench）。</p>';
+  }
+  renderModels(); renderTools(); renderCombos(); renderTables();
+
+  document.querySelectorAll("#rankSubtabs .subtab").forEach(function(b){
+    b.addEventListener("click", function(){
+      document.querySelectorAll("#rankSubtabs .subtab").forEach(function(x){x.classList.toggle("active",x===b);});
+      document.querySelectorAll(".rankpane").forEach(function(p){p.classList.toggle("active",p.id==="p-"+b.dataset.pane);});
+    });
+  });
+
+    /* COMPETITIONS loaded from competitions.js (每日自动更新) */
+  var COMP = window.COMP || [];
+  (function(){ var el=document.getElementById('comp-updated'); if(el){ el.textContent='比赛数据更新于 '+(window.COMP_UPDATED||'未知'); } var cc=document.getElementById('comp-count'); if(cc){ cc.textContent=COMP.length; } })();
+  function compStars(k){ var s=""; for(var i=0;i<5;i++){ s += (i<k?"★":"☆"); } return s; }
+  var COMP_FILTER = "open";
+  var COMP_SCOPE = "me";
+  var COMP_SORT = "pri";
+  var COMP_PER_PAGE = 12;
+  var COMP_PAGE = 1;
+  function renderComp(){
+    var cnt = {open:0, soon:0, closed:0};
+    COMP.forEach(function(c){ if(c.scope!=="world") cnt[c.st] = (cnt[c.st]||0)+1; });
+    var statusChip = {open:'<span class="chip open">🟢 可报名</span>',
+                      soon:'<span class="chip soon">🟠 即将截止</span>',
+                      closed:'<span class="chip closed">⚪ 已截止 / 关注下届</span>'};
+    var list = COMP.filter(function(c){
+      var okScope = (COMP_SCOPE==="all") || (c.scope===COMP_SCOPE);
+      var okStatus = (COMP_SCOPE==="world") ? true : (COMP_FILTER==="all" || c.st===COMP_FILTER);
+      return okScope && okStatus;
+    });
+    if(COMP_SORT==="pri"){
+      var prOrder = {open:0, soon:1, closed:2};
+      list.sort(function(a,b){
+        var pa=(a.pri||2), pb=(b.pri||2);
+        if(pa!==pb) return pa-pb;
+        var sa=prOrder[a.st]!==undefined?prOrder[a.st]:1, sb=prOrder[b.st]!==undefined?prOrder[b.st]:1;
+        if(sa!==sb) return sa-sb;
+        return (b.ai||0)-(a.ai||0);
+      });
+    }
+    var totalPages = Math.max(1, Math.ceil(list.length / COMP_PER_PAGE));
+    if(COMP_PAGE > totalPages) COMP_PAGE = totalPages;
+    if(COMP_PAGE < 1) COMP_PAGE = 1;
+    var start = (COMP_PAGE - 1) * COMP_PER_PAGE;
+    var pageList = list.slice(start, start + COMP_PER_PAGE);
+    document.getElementById("comp-list").innerHTML = pageList.map(function(c){
+      var topChip = (c.scope==="world") ? '<span class="chip world">🌍 全球赛 · 开眼界</span>' : statusChip[c.st];
+      var priMap={1:["#e8553a","🔥 强推"],2:["#2f8f57","👍 可冲"],3:["#9aa0a6","👀 开眼界"]};
+      var pm=priMap[c.pri||2];
+      var priChip='<span class="chip" style="border-color:'+pm[0]+';color:'+pm[0]+';background:rgba(255,255,255,0)">'+pm[1]+'</span>';
+      return '<article class="cmp '+(c.scope==="world"?"world":c.st)+'">'+
+        '<div class="cmp-head" tabindex="0" role="button" aria-expanded="false">'+
+          topChip+priChip+
+          '<span class="cmp-name">'+esc(c.n)+'</span>'+
+          '<span class="chip type">'+esc(c.type)+'</span>'+
+          '<span class="stars">'+compStars(c.ai)+'</span>'+
+          '<span class="chev">▸</span>'+
+        '</div>'+
+        '<div class="cmp-detail">'+
+          '<div class="d-row"><span class="d-k">这是什么</span><span class="d-v">'+esc(c.desc||"")+'</span></div>'+
+          '<div class="d-row"><span class="d-k">'+(c.scope==="world"?"对你意味着":"为什么适合你")+'</span><span class="d-v">'+esc(c.fit||"")+'</span></div>'+
+          '<div class="d-row"><span class="d-k">AI 能帮你</span><span class="d-v">'+esc(c.help||"")+'</span></div>'+
+          '<div class="d-row"><span class="d-k">时间</span><span class="d-v"><b>报名</b> '+esc(c.reg)+' ｜ <b>赛期</b> '+esc(c.run)+'</span></div>'+
+          '<div class="d-row"><span class="d-k">主办</span><span class="d-v">'+esc(c.org)+'</span></div>'+
+          (c.team?'<div class="d-row"><span class="d-k">组队</span><span class="d-v">'+esc(c.team)+'</span></div>':'')+
+          '<div class="d-go"><a class="go" href="'+esc(c.url)+'" target="_blank" rel="noopener noreferrer">官网 / 报名 ↗</a></div>'+
+        '</div>'+
+      '</article>';
+    }).join("");
+    var meN = COMP.filter(function(c){return c.scope==="me";}).length;
+    var worldN = COMP.filter(function(c){return c.scope==="world";}).length;
+    document.getElementById("comp-stat").textContent = "共 "+list.length+" 项（本页 "+pageList.length+" 条） · 我能报的 "+meN+" ｜ 🌍 全球 "+worldN+" ｜ 第 "+COMP_PAGE+"/"+totalPages+" 页";
+    document.getElementById("comp-world-note").style.display = (COMP_SCOPE==="world") ? "" : "none";
+    document.getElementById("compFilters").style.display = (COMP_SCOPE==="world") ? "none" : "flex";
+    var pager = document.getElementById("comp-pager");
+    if(totalPages <= 1){ pager.innerHTML = ""; }
+    else {
+      var btns = [];
+      btns.push('<button class="pg" data-p="prev"'+(COMP_PAGE===1?' disabled':'')+'>‹ 上一页</button>');
+      var win = 5;
+      var s0 = Math.max(1, COMP_PAGE - Math.floor(win/2));
+      var e0 = Math.min(totalPages, s0 + win - 1);
+      s0 = Math.max(1, e0 - win + 1);
+      if(s0 > 1){ btns.push('<button class="pg" data-p="1">1</button>'); if(s0 > 2) btns.push('<span class="pg-ell">…</span>'); }
+      for(var pi=s0; pi<=e0; pi++){ btns.push('<button class="pg'+(pi===COMP_PAGE?' active':'')+'" data-p="'+pi+'">'+pi+'</button>'); }
+      if(e0 < totalPages){ if(e0 < totalPages-1) btns.push('<span class="pg-ell">…</span>'); btns.push('<button class="pg" data-p="'+totalPages+'">'+totalPages+'</button>'); }
+      btns.push('<button class="pg" data-p="next"'+(COMP_PAGE===totalPages?' disabled':'')+'>下一页 ›</button>');
+      pager.innerHTML = btns.join("");
+    }
+  }
+  document.querySelectorAll("#compFilters .filterbtn").forEach(function(b){
+    b.addEventListener("click", function(){
+      document.querySelectorAll("#compFilters .filterbtn").forEach(function(x){x.classList.toggle("active", x===b);});
+      COMP_FILTER = b.dataset.f;
+      COMP_PAGE = 1;
+      renderComp();
+    });
+  });
+  document.querySelectorAll("#compScope .filterbtn").forEach(function(b){
+    b.addEventListener("click", function(){
+      document.querySelectorAll("#compScope .filterbtn").forEach(function(x){x.classList.toggle("active", x===b);});
+      COMP_SCOPE = b.dataset.s;
+      COMP_PAGE = 1;
+      renderComp();
+    });
+  });
+  document.querySelectorAll("#compSort .filterbtn").forEach(function(b){
+    b.addEventListener("click", function(){
+      document.querySelectorAll("#compSort .filterbtn").forEach(function(x){x.classList.toggle("active", x===b);});
+      COMP_SORT = b.dataset.sort;
+      COMP_PAGE = 1;
+      renderComp();
+    });
+  });
+  document.getElementById("comp-pager").addEventListener("click", function(ev){
+    var t = ev.target.closest ? ev.target.closest("button.pg") : null;
+    if(!t || t.disabled) return;
+    var p = t.dataset.p;
+    if(p === "prev") COMP_PAGE = Math.max(1, COMP_PAGE - 1);
+    else if(p === "next") COMP_PAGE = COMP_PAGE + 1;
+    else COMP_PAGE = parseInt(p, 10);
+    renderComp();
+    var vc = document.getElementById("view-comp");
+    if(vc && vc.scrollIntoView) vc.scrollIntoView({behavior:"smooth", block:"start"});
+  });
+  document.getElementById("comp-list").addEventListener("click", function(ev){
+    var head = ev.target.closest ? ev.target.closest(".cmp-head") : null;
+    if(!head) return;
+    var art = head.parentElement;
+    art.classList.toggle("expanded");
+    head.setAttribute("aria-expanded", art.classList.contains("expanded") ? "true" : "false");
+  });
+  document.getElementById("comp-list").addEventListener("keydown", function(ev){
+    if(ev.key!=="Enter" && ev.key!==" ") return;
+    var head = ev.target.closest ? ev.target.closest(".cmp-head") : null;
+    if(!head) return;
+    ev.preventDefault();
+    var art = head.parentElement;
+    art.classList.toggle("expanded");
+    head.setAttribute("aria-expanded", art.classList.contains("expanded") ? "true" : "false");
+  });
+  renderComp();
+
+  /* ============ DAILY REPORT (existing, with fix) ============ */
+  var API = "https://aihot.virxact.com/api/v1";
+  var SECTIONS = [
+    {label:"模型发布/更新", id:"sec-models"},
+    {label:"产品发布/更新", id:"sec-products"},
+    {label:"行业动态",     id:"sec-industry"},
+    {label:"论文研究",     id:"sec-papers"},
+    {label:"技巧与观点",   id:"sec-tips"}
+  ];
+  var WEEK = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+
+  var INDEX = [];
+  var CURRENT = null;
+
+  function esc(s){
+    return (s==null?"":String(s)).replace(/[&<>"']/g, function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+    });
+  }
+  function trunc(s, n){ n = n||59; s = s||""; return s.length>n ? s.slice(0,n)+"…" : s; }
+  function shanghaiDate(d){
+    var f = new Intl.DateTimeFormat("zh-CN",{timeZone:"Asia/Shanghai",year:"numeric",month:"2-digit",day:"2-digit"});
+    var p = f.formatToParts(d);
+    var g = function(t){ for(var i=0;i<p.length;i++){ if(p[i].type===t) return p[i].value; } return ""; };
+    return g("year")+"-"+g("month")+"-"+g("day");
+  }
+  function beijingHuman(iso){
+    var g = new Intl.DateTimeFormat("zh-CN",{timeZone:"Asia/Shanghai",year:"numeric",month:"long",day:"numeric",hour:"2-digit",minute:"2-digit"});
+    return g.format(new Date(iso));
+  }
+  function nowBeijing(){
+    var g = new Intl.DateTimeFormat("zh-CN",{timeZone:"Asia/Shanghai",hour:"2-digit",minute:"2-digit",second:"2-digit"});
+    return g.format(new Date());
+  }
+  function weekdayOf(dateStr){ return WEEK[new Date(dateStr+"T00:00:00+08:00").getDay()]; }
+  function humanDate(dateStr){
+    var d = new Date(dateStr+"T00:00:00+08:00");
+    return d.getFullYear()+"年"+(d.getMonth()+1)+"月"+d.getDate()+"日";
+  }
+
+  function fetchIndex(){
+    var ctrl = new AbortController();
+    var to = setTimeout(function(){ ctrl.abort(); }, 15000);
+    return fetch(API + "/dailies?limit=180", {cache:"no-store", signal: ctrl.signal})
+      .then(function(r){ if(!r.ok) throw new Error("HTTP "+r.status); return r.json(); })
+      .then(function(d){
+        clearTimeout(to);
+        if(!d || !d.items) throw new Error("索引返回异常");
+        INDEX = d.items.map(function(it){
+          return {date:it.date, leadTitle:(it.leadTitle||""), links:(it.links&&it.links.aihot)||""};
+        });
+        return INDEX;
+      });
+  }
+  function indexOfDate(date){
+    for(var i=0;i<INDEX.length;i++){ if(INDEX[i].date===date) return i; }
+    return -1;
+  }
+  function populateSelect(){
+    var sel = document.getElementById("dateSel");
+    sel.innerHTML = "";
+    INDEX.forEach(function(it){
+      var wd = weekdayOf(it.date);
+      var title = it.leadTitle ? " · " + trunc(it.leadTitle, 20) : "";
+      var opt = document.createElement("option");
+      opt.value = it.date;
+      opt.textContent = it.date + " " + wd + title;
+      sel.appendChild(opt);
+    });
+    sel.value = CURRENT || "";
+  }
+  function render(report, meta){
+    var dateStr = report.date;
+    var wd = weekdayOf(dateStr);
+    var dateText = humanDate(dateStr);
+    var genHuman = report.generatedAt ? ("AI HOT 生成于 北京时间 " + beijingHuman(report.generatedAt)) : "";
+    var leadTitle = (meta && meta.leadTitle) || "";
+
+    var byLabel = {};
+    (report.sections||[]).forEach(function(s){ byLabel[s.label] = s.items||[]; });
+
+    var globalN = 0;
+    var secs = SECTIONS.map(function(m){
+      var items = (byLabel[m.label]||[]).map(function(it){
+        globalN++;
+        var aihot = (it.links && it.links.aihot) || "";
+        var original = (it.links && it.links.original) || aihot || "#";
+        return { n: globalN, title: it.title||"", source: (it.source && it.source.name) || "未知来源",
+          summary: trunc(it.summary), full: it.summary||"", aihot: aihot, original: original };
+      });
+      return {label:m.label, id:m.id, items:items};
+    }).filter(function(s){ return s.items.length>0; });
+    var total = globalN;
+
+    var badge = document.getElementById("statusBadge");
+    if(meta && meta.isToday){ badge.textContent = "实时拉取 · 最新一期 · 每 30 分钟自动刷新"; badge.className = "badge"; }
+    else { badge.textContent = "历史日报 · " + dateStr; badge.className = "badge hist"; }
+
+    var statsHtml = secs.map(function(s){
+      return '<div class="stat"><span class="stat-num">'+s.items.length+'</span><span class="stat-label">'+esc(s.label)+'</span></div>';
+    }).join("");
+    var leadHtml = leadTitle ? '<div class="lead">今日头条：'+esc(leadTitle)+'</div>' : '';
+    document.getElementById("hero").innerHTML =
+      '<div class="kicker">AI HOT 每日晨报</div>'+
+      '<h1>'+esc(dateText)+' · '+wd+'</h1>'+
+      '<div class="sub">'+esc(genHuman)+'</div>'+ leadHtml+
+      '<div class="total-pill">共 '+total+' 条 · 五大版块</div>'+
+      '<div class="stats">'+statsHtml+'</div>';
+
+    var navHtml = secs.map(function(s){
+      return '<a class="nav-link" href="#'+s.id+'" data-target="'+s.id+'">'+esc(s.label)+'<span class="nav-count">'+s.items.length+'</span></a>';
+    }).join("") + '<a class="nav-link" href="#footer" data-target="footer">文末</a>';
+    document.getElementById("nav").innerHTML = navHtml;
+
+    var mainHtml = secs.map(function(s){
+      var cards = s.items.map(function(it){
+        var hay = (it.title+" "+it.source+" "+it.full).toLowerCase();
+        return ''+
+        '<article class="card" data-search="'+esc(hay)+'">'+
+          '<div class="card-head">'+
+            '<span class="num">'+("0"+it.n).slice(-2)+'</span>'+
+            '<a class="source-chip" title="'+esc(it.source)+'">'+esc(it.source)+'</a>'+
+          '</div>'+
+          '<h3 class="card-title"><a href="'+esc(it.aihot)+'" target="_blank" rel="noopener noreferrer">'+esc(it.title)+'</a></h3>'+
+          '<p class="summary" title="'+esc(it.full)+'">'+esc(it.summary)+'</p>'+
+          '<a class="orig-link" href="'+esc(it.original)+'" target="_blank" rel="noopener noreferrer">阅读原文 →</a>'+
+        '</article>';
+      }).join("");
+      return ''+
+      '<section class="block" id="'+s.id+'">'+
+        '<div class="block-head"><h2>'+esc(s.label)+'</h2><span class="block-count">'+s.items.length+' 条</span></div>'+
+        '<div class="grid">'+cards+'</div>'+
+      '</section>';
+    }).join("");
+    document.getElementById("main").innerHTML = mainHtml;
+    document.getElementById("main").style.display = "";
+
+    var srcUrl = (report.links && report.links.aihot) || "https://aihot.virxact.com/";
+    document.getElementById("footer").style.display = "";
+    document.getElementById("footer").innerHTML =
+      '<div class="big">本期共 '+total+' 条 AI 动态</div>'+
+      '<div style="margin-top:8px">数据来源：<a href="'+esc(srcUrl)+'" target="_blank" rel="noopener noreferrer">AIHOT · '+esc(srcUrl)+'</a></div>'+
+      '<div style="margin-top:6px">日报日期 '+esc(dateText)+'（'+wd+'）· 本页每次打开实时拉取 AI HOT 公开 API，内容以原文为准</div>'+
+      '<div style="margin-top:4px">更新于 北京时间 '+nowBeijing()+'</div>';
+
+    document.getElementById("dateSel").value = dateStr;
+    setupScrollSpy();
+    applyFilter();
+  }
+  function applyFilter(){
+    var q = (document.getElementById("search").value || "").trim().toLowerCase();
+    var cards = document.querySelectorAll("#main .card");
+    var visibleTotal = 0;
+    cards.forEach(function(card){
+      var hit = !q || card.getAttribute("data-search").indexOf(q) !== -1;
+      card.style.display = hit ? "" : "none";
+      if(hit) visibleTotal++;
+    });
+    document.querySelectorAll("#main .block").forEach(function(block){
+      var any = block.querySelector(".card:not([style*='display: none'])");
+      block.style.display = any ? "" : "none";
+    });
+    document.getElementById("matchInfo").textContent = q ? ("搜索“"+q+"”：命中 "+visibleTotal+" / "+cards.length+" 条") : "";
+  }
+  function setStateLoading(){
+    document.getElementById("main").style.display = "";
+    document.getElementById("main").innerHTML = '<div class="state"><div class="spinner"></div><div>正在从 AI HOT 拉取日报…</div></div>';
+    document.getElementById("hero").innerHTML = "";
+    document.getElementById("nav").innerHTML = "";
+    document.getElementById("footer").style.display = "none";
+    document.getElementById("matchInfo").textContent = "";
+  }
+  function setStateError(msg){
+    document.getElementById("main").style.display = "";
+    document.getElementById("main").innerHTML =
+      '<div class="state error"><div>⚠️ 拉取失败：'+esc(msg)+'</div>'+
+      '<div style="font-size:13px;margin-top:6px">请检查网络后点击刷新重试（AI HOT 接口偶发波动）。</div>'+
+      '<button id="retryBtn">重试</button></div>';
+    var b = document.getElementById("retryBtn");
+    if(b) b.addEventListener("click", function(){ loadDate(CURRENT, {refreshIndex:true}); });
+  }
+  function loadDate(date, opts){
+    opts = opts || {};
+    setStateLoading();
+    var btn = document.getElementById("refreshBtn");
+    if(btn) btn.disabled = true;
+    var meta = {};
+    var idx = indexOfDate(date);
+    if(idx !== -1){
+      meta.leadTitle = INDEX[idx].leadTitle;
+      meta.isToday = (date === shanghaiDate(new Date())) || (idx === 0 && !INDEX.some(function(x){return x.date === shanghaiDate(new Date());}));
+    }
+    var ctrl = new AbortController();
+    var to = setTimeout(function(){ ctrl.abort(); }, 20000);
+    fetch(API + "/dailies/" + date, {cache:"no-store", signal: ctrl.signal})
+      .then(function(r){ if(!r.ok) throw new Error("HTTP "+r.status+(r.status===404?"（该日期暂无日报）":"")); return r.json(); })
+      .then(function(data){
+        clearTimeout(to);
+        if(!data || !data.report) throw new Error("返回数据缺少 report 字段");
+        CURRENT = date;
+        render(data.report, meta);
+      })
+      .catch(function(err){ setStateError(err && err.message ? err.message : String(err)); })
+      .then(function(){ if(btn) btn.disabled = false; });
+  }
+  function goto(date, pushHash){
+    if(indexOfDate(date) === -1) return;
+    if(pushHash !== false) history.pushState(null, "", "#" + date);
+    var older = document.getElementById("olderBtn");
+    var newer = document.getElementById("newerBtn");
+    var i = indexOfDate(date);
+    newer.disabled = (i <= 0);
+    older.disabled = (i >= INDEX.length-1);
+    loadDate(date);
+  }
+  function syncNavButtons(){
+    var i = indexOfDate(CURRENT);
+    document.getElementById("newerBtn").disabled = (i <= 0);
+    document.getElementById("olderBtn").disabled = (i >= INDEX.length-1);
+  }
+  function resolveInitialDate(){
+    var today = shanghaiDate(new Date());
+    var hash = (location.hash || "").replace(/^#/, "");
+    if(hash && /^\d{4}-\d{2}-\d{2}$/.test(hash) && indexOfDate(hash) !== -1) return hash;
+    if(indexOfDate(today) !== -1) return today;
+    return INDEX.length ? INDEX[0].date : today;
+  }
+  function boot(){
+    fetchIndex()
+      .then(function(){
+        populateSelect();
+        var date = resolveInitialDate();
+        if(location.hash !== "#"+date) history.replaceState(null, "", "#"+date);
+        CURRENT = date;
+        syncNavButtons();
+        loadDate(date);
+      })
+      .catch(function(err){ setStateError("无法获取日报列表：" + (err && err.message ? err.message : err)); });
+  }
+  document.getElementById("dateSel").addEventListener("change", function(e){ goto(e.target.value); });
+  document.getElementById("newerBtn").addEventListener("click", function(){ var i=indexOfDate(CURRENT); if(i>0) goto(INDEX[i-1].date); });
+  document.getElementById("olderBtn").addEventListener("click", function(){ var i=indexOfDate(CURRENT); if(i<INDEX.length-1) goto(INDEX[i+1].date); });
+  document.getElementById("todayBtn").addEventListener("click", function(){
+    var today = shanghaiDate(new Date());
+    goto(indexOfDate(today) !== -1 ? today : (INDEX.length?INDEX[0].date:today));
+  });
+  document.getElementById("search").addEventListener("input", applyFilter);
+  document.getElementById("refreshBtn").addEventListener("click", function(){
+    autoLastAt = new Date(); autoNextAt = Date.now() + AUTO_MS;
+    renderAutoBar();
+    fetchIndex().then(function(){ populateSelect(); loadDate(CURRENT); }).catch(function(){}).then(renderAutoBar);
+  });
+  document.getElementById("copyBtn").addEventListener("click", function(){
+    var url = location.href;
+    function done(){ var b=document.getElementById("copyBtn"); b.textContent="已复制 ✓"; setTimeout(function(){b.textContent="复制链接";},1500); }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(done, fallback); }
+    else { fallback(); }
+    function fallback(){
+      var ta=document.createElement("textarea"); ta.value=url; document.body.appendChild(ta); ta.select();
+      try{ document.execCommand("copy"); done(); }catch(e){}
+      document.body.removeChild(ta);
+    }
+  });
+  window.addEventListener("hashchange", function(){
+    var hash = (location.hash||"").replace(/^#/, "");
+    if(/^\d{4}-\d{2}-\d{2}$/.test(hash) && indexOfDate(hash) !== -1 && hash !== CURRENT){
+      CURRENT = hash; syncNavButtons(); loadDate(hash);
+    }
+  });
+  function setupScrollSpy(){
+    var links = Array.prototype.slice.call(document.querySelectorAll(".nav-link[data-target]"));
+    var map = {};
+    links.forEach(function(l){ map[l.getAttribute("data-target")] = l; });
+    var targets = links.map(function(l){ return document.getElementById(l.getAttribute("data-target")); }).filter(Boolean);
+    var toTop = document.getElementById("toTop");
+    function onScroll(){
+      var pos = window.scrollY + 170, current = null;
+      targets.forEach(function(t){ if(t.offsetTop <= pos) current = t.id; });
+      links.forEach(function(l){ l.classList.remove("active"); });
+      if(current && map[current]) map[current].classList.add("active");
+      if(window.scrollY > 400) toTop.classList.add("show"); else toTop.classList.remove("show");
+    }
+    window.addEventListener("scroll", onScroll, {passive:true});
+    toTop.addEventListener("click", function(){ window.scrollTo({top:0, behavior:"smooth"}); });
+    onScroll();
+  }
+  /* ============ 自动刷新：每 30 分钟 ============ */
+  var AUTO_MS = 30 * 60 * 1000;
+  var autoLastAt = new Date();
+  var autoNextAt = Date.now() + AUTO_MS;
+  function pad2n(n){ return (n<10?"0":"")+n; }
+  function fmtMMSS(ms){ var t=Math.max(0,Math.floor(ms/1000)); return pad2n(Math.floor(t/60))+":"+pad2n(t%60); }
+  function bjClock(d){
+    try{ return new Intl.DateTimeFormat("zh-CN",{timeZone:"Asia/Shanghai",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).format(d); }
+    catch(e){ return d.toTimeString().slice(0,8); }
+  }
+  function renderAutoBar(){
+    var el = document.getElementById("autoBar");
+    if(!el) return;
+    el.innerHTML = "🔄 <b>每 30 分钟自动刷新</b> · 日报实时拉取（下次还有 <b>"+fmtMMSS(autoNextAt-Date.now())+"</b>）· 上次刷新 <b>"+bjClock(autoLastAt)+"</b> · 排行榜 / 比赛 / AI 上手 为人工核对快照（2026-09-22）";
+  }
+  function autoRefreshNow(){
+    autoLastAt = new Date();
+    autoNextAt = Date.now() + AUTO_MS;
+    renderAutoBar();
+    fetchIndex().then(function(){
+      populateSelect();
+      var today = shanghaiDate(new Date());
+      if(!CURRENT || indexOfDate(CURRENT) === -1){ var d = resolveInitialDate(); CURRENT = d; syncNavButtons(); loadDate(d); }
+      else if(CURRENT === today){ loadDate(CURRENT); }
+    }).catch(function(){}).then(renderAutoBar);
+  }
+  setInterval(function(){
+    if(Date.now() >= autoNextAt){ autoRefreshNow(); } else { renderAutoBar(); }
+  }, 1000);
+  renderAutoBar();
+
+  boot();
+})();
+
+  /* ============ LEARN VIEW: daily tip + scenario desk ============ */
+  (function(){
+    var TIPS = [
+      "把 AI 当新来的师弟，不当搜索引擎——交代背景越多，它干得越像样。",
+      "任何 AI 给的文献 DOI 和数值，关键处都要你亲自核对原文（防幻觉）。",
+      "一条好指令 = 角色 + 背景 + 任务 + 约束 + 验收，后两条最容易被漏。",
+      "长 PDF 丢给 Gemini 先要“结论+方法+创新+局限”，再决定精读哪篇。",
+      "论文改稿先让 AI 出“批注处理清单”，别让它直接改原文，防改漏。",
+      "翻译让 AI 先给术语表，再给译文——专业词不翻车。",
+      "数据整理让 AI 标“缺”和“⚠”，严禁它编造缺失值。",
+      "一个文件别让多个模型同时改，防版本冲突（你的硬规则）。",
+      "未发表稿件、未公开实验数据，别随手传公有模型（隐私）。",
+      "数模赛先让 AI 讲建模思路再写代码——你零编程也要能看懂流程图。",
+      "排行榜看“比什么”——同一模型聊天第一、写代码未必第一。",
+      "想让 AI 写代码，先用 Cursor/opencode 小任务试水，再决定进阶。"
+    ];
+    var base = Date.UTC(2026,0,1);
+    var idx = Math.floor((Date.now()-base)/86400000) % TIPS.length;
+    if(idx<0) idx += TIPS.length;
+    var dt = document.getElementById("learn-daily-tip");
+    if(dt) dt.innerHTML = "💡 <b>今日一招：</b>" + TIPS[idx];
+
+    var grid = document.getElementById("sc-grid");
+    if(grid){
+      function toggle(card){
+        var open = card.classList.toggle("expanded");
+        var h = card.querySelector(".sc-head");
+        if(h) h.setAttribute("aria-expanded", open?"true":"false");
+      }
+      grid.addEventListener("click", function(ev){
+        var head = ev.target.closest ? ev.target.closest(".sc-head") : null;
+        if(head){ toggle(head.parentElement); return; }
+        var btn = ev.target.closest ? ev.target.closest(".copybtn") : null;
+        if(!btn) return;
+        var id = btn.getAttribute("data-copy");
+        var el = id && document.getElementById(id);
+        if(!el) return;
+        var txt = el.innerText || el.textContent;
+        function done(){ var t=btn.textContent; btn.textContent="已复制✓"; btn.disabled=true; setTimeout(function(){btn.textContent=t;btn.disabled=false;},1400); }
+        function fb(){ try{ var r=document.createRange(); r.selectNode(el); var sel=getSelection(); sel.removeAllRanges(); sel.addRange(r); document.execCommand("copy"); sel.removeAllRanges(); done(); }catch(e){} }
+        if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done, fb); }
+        else { fb(); }
+      });
+      grid.addEventListener("keydown", function(ev){
+        if(ev.key!=="Enter" && ev.key!==" ") return;
+        var head = ev.target.closest ? ev.target.closest(".sc-head") : null;
+        if(!head) return; ev.preventDefault(); toggle(head.parentElement);
+      });
+    }
+  })();
+</script>
+</body>
+</html>
