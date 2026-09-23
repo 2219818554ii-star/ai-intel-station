@@ -250,6 +250,7 @@
         <button class="tab" id="tab-rank" role="tab" aria-selected="false" aria-controls="view-rank" data-tab="rank">🏆 实力排行榜</button>
         <button class="tab" id="tab-comp" role="tab" aria-selected="false" aria-controls="view-comp" data-tab="comp">🏁 可报名比赛</button>
         <button class="tab" id="tab-learn" role="tab" aria-selected="false" aria-controls="view-learn" data-tab="learn">📚 AI 上手</button>
+        <button class="tab" id="tab-ted" role="tab" aria-selected="false" aria-controls="view-ted" data-tab="ted">🎓 TED 英语</button>
       </nav>
     </div>
   </div>
@@ -700,9 +701,27 @@
     </div>
   </div>
 
+  <!-- ================= TED VIEW ================= -->
+  <div id="view-ted" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-ted">
+    <div class="view-head"><h2>🎓 TED 英语演讲：提升认知 + 练听力</h2>
+      <p>精选全网公认、播放量极高的 TED / TEDx 经典演讲，主题集中在<b>学习、心理与幸福、习惯自律、沟通与领导力、认知思维</b>五大块。每张卡片都能看到<b>英文标题、中文译名、演讲者、年份、时长、分类和一段中文简介</b>，直接<b>点“看视频”</b>就能跳到官方原片（英文原声 + 可开官方字幕，最适合练英语听力与地道表达）。共收录 <b id="ted-count">0</b> 场，数据整理于 <b id="ted-updated">-</b>。</p></div>
+    <div class="news">
+      🎧 <b>怎么用最值：</b>① <b>第一遍</b>关字幕纯听，抓大意；② <b>第二遍</b>开英文字幕，把听不懂的地方停下来记词；③ <b>第三遍</b>跟读（shadowing），模仿语调和断句。每天 1 场（10–20 分钟）就够，比刷题更能提升语感和表达。
+    </div>
+    <div class="cmp-toolbar">
+      <span id="ted-stat" style="font-size:13px;color:var(--ink-soft);margin-right:auto"></span>
+      <div id="tedFilters" style="display:flex;gap:8px;flex-wrap:wrap"></div>
+    </div>
+    <div class="cmp-list" id="ted-list"></div>
+    <div class="lk-tip" style="margin-top:18px">
+      💡 <b>看 TED 学英语的心法：</b>不要追求“全听懂”——抓住 <b>1 个核心观点 + 3 个地道表达</b>就算赚到。建议准备一个「TED 生词本」，每场只记 3–5 个真正想用的词/句，下一场前先复习一遍。<b>输入够多，输出自然来。</b>
+    </div>
+  </div>
+
   <button id="toTop" title="回到顶部" aria-label="回到顶部">↑</button>
 
   <script src="competitions.js"></script>
+  <script src="ted.js"></script>
 <script>
 (function(){
   "use strict";
@@ -710,7 +729,7 @@
   /* ============ TAB SWITCHING ============ */
   function showTab(tab){
     document.querySelectorAll(".tab").forEach(function(t){ var on=(t.dataset.tab===tab); t.classList.toggle("active", on); t.setAttribute("aria-selected", on?"true":"false"); });
-    ["daily","rank","comp","learn"].forEach(function(v){
+    ["daily","rank","comp","learn","ted"].forEach(function(v){
       var el=document.getElementById("view-"+v);
       if(el){ el.style.display = (v===tab)?"":"none"; el.setAttribute("aria-hidden", v===tab?"false":"true"); }
     });
@@ -1376,6 +1395,72 @@
   renderAutoBar();
 
   boot();
+})();
+
+  /* ============ TED VIEW ============ */
+  (function(){
+    var TED = window.TED || [];
+    var TED_CAT = "全部";
+    /* 本模块自带转义助手（不依赖外部 IIFE 作用域） */
+    function esc(s){
+      return (s==null?"":String(s)).replace(/[&<>"']/g, function(c){
+        return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+      });
+    }
+    var uel=document.getElementById('ted-updated'); if(uel){ uel.textContent=(window.TED_UPDATED||'未知'); }
+    var cel=document.getElementById('ted-count'); if(cel){ cel.textContent=TED.length; }
+    function tedCatList(){
+    var seen={}, out=[];
+    TED.forEach(function(t){ if(t.cat && !seen[t.cat]){ seen[t.cat]=1; out.push(t.cat); } });
+    return out;
+  }
+  function renderTED(){
+    var cats = tedCatList();
+    var fw = document.getElementById('tedFilters');
+    if(fw){
+      var btns = ['<button class="filterbtn'+(TED_CAT==="全部"?" active":"")+'" data-c="全部">全部</button>'];
+      cats.forEach(function(c){ btns.push('<button class="filterbtn'+(TED_CAT===c?" active":"")+'" data-c="'+esc(c)+'">'+esc(c)+'</button>'); });
+      fw.innerHTML = btns.join("");
+    }
+    var list = TED.filter(function(t){ return TED_CAT==="全部" || t.cat===TED_CAT; });
+    var st = document.getElementById('ted-stat');
+    if(st){ st.textContent = "共 " + list.length + " 场（全部 " + TED.length + " 场）"; }
+    var box = document.getElementById('ted-list');
+    if(!box) return;
+    if(!list.length){ box.innerHTML = '<div class="news">该分类暂无内容。</div>'; return; }
+    box.innerHTML = list.map(function(t, i){
+      var idx = TED.indexOf(t) + 1;
+      var num = (idx<10?"0":"")+idx;
+      return '<article class="cmp">'+
+        '<div class="cmp-head" style="cursor:default">'+
+          '<span class="chip" style="border-color:var(--brand);color:var(--brand);background:var(--brand-soft)">'+esc(t.cat||"")+'</span>'+
+          '<span class="cmp-name">🎬 '+esc(t.en||"")+'</span>'+
+        '</div>'+
+        '<div style="margin:7px 0 9px;font-size:14.5px;font-weight:800;color:var(--ink)">'+esc(t.zh||"")+
+          ' <span style="font-weight:600;color:var(--ink-soft);font-size:13px">· '+esc(t.sp||"")+'</span></div>'+
+        '<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--ink-soft);margin-bottom:9px">'+
+          '<span class="chip" style="border-color:var(--line)">📅 '+esc(String(t.yr||"未知"))+'</span>'+
+          '<span class="chip" style="border-color:var(--line)">⏱ '+esc(String(t.dur||"?"))+' 分钟</span>'+
+          '<span class="chip" style="border-color:var(--line)">#'+num+'</span>'+
+        '</div>'+
+        '<div class="d-row"><span class="d-k">讲什么</span><span class="d-v">'+esc(t.intro||"")+'</span></div>'+
+        '<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:11px">'+
+          '<a class="top-btn" href="'+esc(t.url||"#")+'" target="_blank" rel="noopener noreferrer">▶ 看视频（TED 官方）↗</a>'+
+          '<a class="top-btn" href="'+esc(t.url||"#")+'/transcript" target="_blank" rel="noopener noreferrer" style="color:var(--ink-soft);border-color:var(--line)">📄 英文文稿 ↗</a>'+
+        '</div>'+
+      '</article>';
+    }).join("");
+  }
+  var tf = document.getElementById('tedFilters');
+  if(tf){
+    tf.addEventListener("click", function(ev){
+      var b = ev.target.closest ? ev.target.closest(".filterbtn") : null;
+      if(!b) return;
+      TED_CAT = b.getAttribute("data-c") || "全部";
+      renderTED();
+    });
+  }
+  renderTED();
 })();
 
   /* ============ LEARN VIEW: daily tip + scenario desk ============ */
