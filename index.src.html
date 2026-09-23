@@ -251,6 +251,7 @@
         <button class="tab" id="tab-comp" role="tab" aria-selected="false" aria-controls="view-comp" data-tab="comp">🏁 可报名比赛</button>
         <button class="tab" id="tab-learn" role="tab" aria-selected="false" aria-controls="view-learn" data-tab="learn">📚 AI 上手</button>
         <button class="tab" id="tab-ted" role="tab" aria-selected="false" aria-controls="view-ted" data-tab="ted">🎓 TED 英语</button>
+        <button class="tab" id="tab-forum" role="tab" aria-selected="false" aria-controls="view-forum" data-tab="forum">🌱 成长讲坛</button>
       </nav>
     </div>
   </div>
@@ -530,9 +531,9 @@
           <span class="tag">进阶</span><span class="tag">中文</span><span class="tag">视频</span>
         </div>
         <div class="rsrc-item">
-          <a class="rsrc" href="https://igniva-review.com/chatgpt-and-claude-ai/" target="_blank" rel="noopener noreferrer">ChatGPT + Claude 协同用法（图文）<span class="plat">博客</span></a>
-          <p>心法：ChatGPT 头脑风暴+写初稿，Claude 吃长文档做总结+润色。两个配合比单用一个强。附分步上手教程。</p>
-          <span class="tag">科研向</span><span class="tag">图文</span>
+          <a class="rsrc" href="https://www.anthropic.com/engineering/claude-code-best-practices" target="_blank" rel="noopener noreferrer">Claude Code 最佳实践（Anthropic 官方）<span class="plat">官方文档</span></a>
+          <p>Anthropic 官方给出的 Claude Code 用法与心法：如何让它读代码、跑命令、按你的规范改稿。配合 ChatGPT 头脑风暴 + Claude 吃长文档，比单用一个强。</p>
+          <span class="tag">科研向</span><span class="tag">官方</span><span class="tag">图文</span>
         </div>
       </div>
 
@@ -564,7 +565,7 @@
           <span class="tag">零基础</span><span class="tag">免费</span>
         </div>
         <div class="rsrc-item">
-          <a class="rsrc" href="http://introtodeeplearning.com/" target="_blank" rel="noopener noreferrer">MIT 6.S191 深度学习导论<span class="plat">官网</span></a>
+          <a class="rsrc" href="https://introtodeeplearning.com/" target="_blank" rel="noopener noreferrer">MIT 6.S191 深度学习导论<span class="plat">官网</span></a>
           <p>MIT 每年更新的公开讲座+实验，覆盖 CV / NLP / 生成模型，研究级视角，全部免费。</p>
           <span class="tag">进阶</span><span class="tag">免费</span>
         </div>
@@ -718,10 +719,29 @@
     </div>
   </div>
 
+  <!-- ================= FORUM VIEW (成长讲坛) ================= -->
+  <div id="view-forum" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-forum">
+    <div class="view-head"><h2>🌱 成长讲坛：企业家演讲 · 国学讲坛 · 阳明心学</h2>
+      <p>三类「长脑子、长心气」的内容，都按<b>分类</b>整理好了：<b>💼 名人与企业家</b>（马云、雷军、马斯克、乔布斯等，受鼓舞用）；<b>📖 国学讲坛</b>（百家讲坛：易中天、王立群、蒙曼等，养底蕴用）；<b>🧘 阳明心学</b>（一条从入门到实践的完整路径）。共 <b id="forum-count">0</b> 条，整理于 <b id="forum-updated">-</b>。点「去看」直接跳视频。</p></div>
+    <div class="news">
+      🧭 <b>怎么安排不浪费：</b>企业家演讲当「精神燃料」，<b>每周 1–2 场</b>就够，别当避难所；国学讲坛当「长期滋养」，<b>每天 15–30 分钟</b>当背景音也行；心学不要只听课——按下面的<b>四步</b>来，边学边在科研和生活里用。
+    </div>
+    <div class="cmp-toolbar">
+      <span id="forum-stat" style="font-size:13px;color:var(--ink-soft);margin-right:auto"></span>
+      <div id="forumFilters" style="display:flex;gap:8px;flex-wrap:wrap"></div>
+    </div>
+    <div id="xinxue-guide" style="display:none"></div>
+    <div class="cmp-list" id="forum-list"></div>
+    <div class="lk-tip" style="margin-top:18px">
+      💡 <b>一句提醒：</b>国学与心学最容易「听着爽、啥也没变」。真正的学法只有一条——<b>学一句，用一次</b>。比如这周只练「知行合一」：定下一件该做没做的事，今天先做 10 分钟，做完再回来听下一课。
+    </div>
+  </div>
+
   <button id="toTop" title="回到顶部" aria-label="回到顶部">↑</button>
 
   <script src="competitions.js"></script>
   <script src="ted.js"></script>
+  <script src="forum.js"></script>
 <script>
 (function(){
   "use strict";
@@ -729,7 +749,7 @@
   /* ============ TAB SWITCHING ============ */
   function showTab(tab){
     document.querySelectorAll(".tab").forEach(function(t){ var on=(t.dataset.tab===tab); t.classList.toggle("active", on); t.setAttribute("aria-selected", on?"true":"false"); });
-    ["daily","rank","comp","learn","ted"].forEach(function(v){
+    ["daily","rank","comp","learn","ted","forum"].forEach(function(v){
       var el=document.getElementById("view-"+v);
       if(el){ el.style.display = (v===tab)?"":"none"; el.setAttribute("aria-hidden", v===tab?"false":"true"); }
     });
@@ -1435,6 +1455,7 @@
         '<div class="cmp-head" style="cursor:default">'+
           '<span class="chip" style="border-color:var(--brand);color:var(--brand);background:var(--brand-soft)">'+esc(t.cat||"")+'</span>'+
           '<span class="cmp-name">🎬 '+esc(t.en||"")+'</span>'+
+          '<span class="chip" style="border-color:var(--line)">'+esc(t.sub||"")+'</span>'+
         '</div>'+
         '<div style="margin:7px 0 9px;font-size:14.5px;font-weight:800;color:var(--ink)">'+esc(t.zh||"")+
           ' <span style="font-weight:600;color:var(--ink-soft);font-size:13px">· '+esc(t.sp||"")+'</span></div>'+
@@ -1462,6 +1483,90 @@
   }
   renderTED();
 })();
+
+  /* ============ FORUM VIEW: 成长讲坛 ============ */
+  (function(){
+    var FORUM = window.FORUM || [];
+    var GUIDE = window.XINXUE_GUIDE || null;
+    var CATS = window.FORUM_CATS || [];
+    var FCAT = "全部";
+    function esc(s){
+      return (s==null?"":String(s)).replace(/[&<>"']/g, function(c){
+        return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+      });
+    }
+    var uel=document.getElementById('forum-updated'); if(uel){ uel.textContent=(window.FORUM_UPDATED||'未知'); }
+    var cel=document.getElementById('forum-count'); if(cel){ cel.textContent=FORUM.length; }
+
+    function renderGuide(){
+      var box=document.getElementById('xinxue-guide');
+      if(!box) return;
+      if(FCAT==="阳明心学" && GUIDE){
+        var steps=(GUIDE.steps||[]).map(function(s){
+          return '<div style="margin:6px 0;font-size:13.5px;line-height:1.7"><b style="color:#8b5cf6">'+esc(s.t)+'</b> '+esc(s.d)+'</div>';
+        }).join("");
+        var cons=(GUIDE.concepts||[]).map(function(c){
+          return '<div style="margin:6px 0;font-size:13.5px;line-height:1.7"><b style="color:#8b5cf6">'+esc(c.k)+'</b>：'+esc(c.d)+'</div>';
+        }).join("");
+        box.style.display="";
+        box.innerHTML='<div class="lk-tip" style="margin-bottom:14px;background:#f5f3ff;border-color:#ddd6fe;color:#4c1d95">'+
+          '<div style="font-weight:800;font-size:15px;margin-bottom:7px">🧘 阳明心学 · 四步入门（照着走就行）</div>'+
+          '<div style="font-size:13.5px;line-height:1.75;margin-bottom:11px">'+esc(GUIDE.intro||"")+'</div>'+
+          '<div style="font-weight:800;margin:10px 0 4px;font-size:14px">📚 学习路径</div>'+ steps +
+          '<div style="font-weight:800;margin:12px 0 4px;font-size:14px">🔑 四个核心概念</div>'+ cons +
+        '</div>';
+      } else if(FCAT==="国学讲坛"){
+        box.style.display="";
+        box.innerHTML='<div class="lk-tip" style="margin-bottom:14px">📺 <b>央视《百家讲坛》官网（按节目找全集）：</b>'+
+          '<a href="https://tv.cctv.com/lm/bjjt/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">tv.cctv.com/lm/bjjt/ ↗</a>'+
+          '　—— 下方卡片是按「主讲人 + 代表作」整理的精听清单。</div>';
+      } else {
+        box.style.display="none"; box.innerHTML="";
+      }
+    }
+
+    function renderForum(){
+      var fw=document.getElementById('forumFilters');
+      if(fw){
+        var all=["全部"].concat(CATS);
+        fw.innerHTML=all.map(function(c){
+          return '<button class="filterbtn'+(FCAT===c?" active":"")+'" data-c="'+esc(c)+'">'+esc(c)+'</button>';
+        }).join("");
+      }
+      var list=FORUM.filter(function(x){ return FCAT==="全部" || x.cat===FCAT; });
+      var st=document.getElementById('forum-stat');
+      if(st){ st.textContent="共 "+list.length+" 条（全部 "+FORUM.length+" 条）"; }
+      renderGuide();
+      var box=document.getElementById('forum-list');
+      if(!box) return;
+      if(!list.length){ box.innerHTML='<div class="news">该分类暂无内容。</div>'; return; }
+      box.innerHTML=list.map(function(x){
+        return '<article class="cmp">'+
+          '<div class="cmp-head" style="cursor:default">'+
+            '<span class="chip" style="border-color:var(--brand);color:var(--brand);background:var(--brand-soft)">'+esc(x.cat||"")+'</span>'+
+            '<span class="cmp-name">👤 '+esc(x.who||"")+'</span>'+
+            '<span class="chip" style="border-color:var(--line)">'+esc(x.kind||"")+'</span>'+
+            '<span class="chip" style="border-color:var(--line)">📅 '+esc(String(x.yr||""))+'</span>'+
+          '</div>'+
+          '<div style="margin:7px 0 9px;font-weight:800;font-size:15px">'+esc(x.title||"")+'</div>'+
+          '<div class="d-row"><span class="d-k">简介</span><span class="d-v">'+esc(x.intro||"")+'</span></div>'+
+          '<div style="margin-top:11px">'+
+            '<a class="top-btn" href="'+esc(x.url||"#")+'" target="_blank" rel="noopener noreferrer">▶ 去看 ↗</a>'+
+          '</div>'+
+        '</article>';
+      }).join("");
+    }
+    var ff=document.getElementById('forumFilters');
+    if(ff){
+      ff.addEventListener("click", function(ev){
+        var b=ev.target.closest?ev.target.closest(".filterbtn"):null;
+        if(!b) return;
+        FCAT=b.getAttribute("data-c")||"全部";
+        renderForum();
+      });
+    }
+    renderForum();
+  })();
 
   /* ============ LEARN VIEW: daily tip + scenario desk ============ */
   (function(){

@@ -251,6 +251,7 @@
         <button class="tab" id="tab-comp" role="tab" aria-selected="false" aria-controls="view-comp" data-tab="comp">🏁 可报名比赛</button>
         <button class="tab" id="tab-learn" role="tab" aria-selected="false" aria-controls="view-learn" data-tab="learn">📚 AI 上手</button>
         <button class="tab" id="tab-ted" role="tab" aria-selected="false" aria-controls="view-ted" data-tab="ted">🎓 TED 英语</button>
+        <button class="tab" id="tab-forum" role="tab" aria-selected="false" aria-controls="view-forum" data-tab="forum">🌱 成长讲坛</button>
       </nav>
     </div>
   </div>
@@ -530,9 +531,9 @@
           <span class="tag">进阶</span><span class="tag">中文</span><span class="tag">视频</span>
         </div>
         <div class="rsrc-item">
-          <a class="rsrc" href="https://igniva-review.com/chatgpt-and-claude-ai/" target="_blank" rel="noopener noreferrer">ChatGPT + Claude 协同用法（图文）<span class="plat">博客</span></a>
-          <p>心法：ChatGPT 头脑风暴+写初稿，Claude 吃长文档做总结+润色。两个配合比单用一个强。附分步上手教程。</p>
-          <span class="tag">科研向</span><span class="tag">图文</span>
+          <a class="rsrc" href="https://www.anthropic.com/engineering/claude-code-best-practices" target="_blank" rel="noopener noreferrer">Claude Code 最佳实践（Anthropic 官方）<span class="plat">官方文档</span></a>
+          <p>Anthropic 官方给出的 Claude Code 用法与心法：如何让它读代码、跑命令、按你的规范改稿。配合 ChatGPT 头脑风暴 + Claude 吃长文档，比单用一个强。</p>
+          <span class="tag">科研向</span><span class="tag">官方</span><span class="tag">图文</span>
         </div>
       </div>
 
@@ -564,7 +565,7 @@
           <span class="tag">零基础</span><span class="tag">免费</span>
         </div>
         <div class="rsrc-item">
-          <a class="rsrc" href="http://introtodeeplearning.com/" target="_blank" rel="noopener noreferrer">MIT 6.S191 深度学习导论<span class="plat">官网</span></a>
+          <a class="rsrc" href="https://introtodeeplearning.com/" target="_blank" rel="noopener noreferrer">MIT 6.S191 深度学习导论<span class="plat">官网</span></a>
           <p>MIT 每年更新的公开讲座+实验，覆盖 CV / NLP / 生成模型，研究级视角，全部免费。</p>
           <span class="tag">进阶</span><span class="tag">免费</span>
         </div>
@@ -715,6 +716,24 @@
     <div class="cmp-list" id="ted-list"></div>
     <div class="lk-tip" style="margin-top:18px">
       💡 <b>看 TED 学英语的心法：</b>不要追求“全听懂”——抓住 <b>1 个核心观点 + 3 个地道表达</b>就算赚到。建议准备一个「TED 生词本」，每场只记 3–5 个真正想用的词/句，下一场前先复习一遍。<b>输入够多，输出自然来。</b>
+    </div>
+  </div>
+
+  <!-- ================= FORUM VIEW (成长讲坛) ================= -->
+  <div id="view-forum" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-forum">
+    <div class="view-head"><h2>🌱 成长讲坛：企业家演讲 · 国学讲坛 · 阳明心学</h2>
+      <p>三类「长脑子、长心气」的内容，都按<b>分类</b>整理好了：<b>💼 名人与企业家</b>（马云、雷军、马斯克、乔布斯等，受鼓舞用）；<b>📖 国学讲坛</b>（百家讲坛：易中天、王立群、蒙曼等，养底蕴用）；<b>🧘 阳明心学</b>（一条从入门到实践的完整路径）。共 <b id="forum-count">0</b> 条，整理于 <b id="forum-updated">-</b>。点「去看」直接跳视频。</p></div>
+    <div class="news">
+      🧭 <b>怎么安排不浪费：</b>企业家演讲当「精神燃料」，<b>每周 1–2 场</b>就够，别当避难所；国学讲坛当「长期滋养」，<b>每天 15–30 分钟</b>当背景音也行；心学不要只听课——按下面的<b>四步</b>来，边学边在科研和生活里用。
+    </div>
+    <div class="cmp-toolbar">
+      <span id="forum-stat" style="font-size:13px;color:var(--ink-soft);margin-right:auto"></span>
+      <div id="forumFilters" style="display:flex;gap:8px;flex-wrap:wrap"></div>
+    </div>
+    <div id="xinxue-guide" style="display:none"></div>
+    <div class="cmp-list" id="forum-list"></div>
+    <div class="lk-tip" style="margin-top:18px">
+      💡 <b>一句提醒：</b>国学与心学最容易「听着爽、啥也没变」。真正的学法只有一条——<b>学一句，用一次</b>。比如这周只练「知行合一」：定下一件该做没做的事，今天先做 10 分钟，做完再回来听下一课。
     </div>
   </div>
 
@@ -1584,93 +1603,196 @@ window.TED_UPDATED = "2026-09-23";
             ② 主题能提升认知（学习/心理幸福/习惯/沟通领导/思维）；
             ③ 英文原声 + 官方字幕，适合作英语听力与地道表达素材。
    字段：en 英文标题｜zh 中文译名｜sp 演讲者｜yr 年份｜dur 时长(分)｜
-        cat 分类｜intro 简介+看点｜url 官方视频 */
+        cat 大类(仅 5 种，用于筛选)｜sub 细分主题｜intro 简介+看点｜url 官方视频 */
 window.TED = [
-  /* ===== 学习 · 成长 ===== */
-  {en:"Do schools kill creativity?", zh:"学校如何扼杀创造力", sp:"Ken Robinson", yr:2006, dur:19, cat:"学习/创造力",
+  /* ===== 学习成长 ===== */
+  {en:"Do schools kill creativity?", zh:"学校如何扼杀创造力", sp:"Ken Robinson", yr:2006, dur:19, cat:"学习成长", sub:"创造力",
    intro:"史上播放量最高的 TED 演讲。Robinson 主张创造力与 literacy 同等重要，教育系统却在系统性地削弱它。语速平缓、用词经典，适合练听力，也能反思自己的科研训练。",
    url:"https://www.ted.com/talks/ken_robinson_schools_kill_creativity"},
-  {en:"Grit: The power of passion and perseverance", zh:"坚毅：热情与坚持的力量", sp:"Angela Lee Duckworth", yr:2013, dur:6, cat:"学习/坚毅",
+  {en:"Grit: The power of passion and perseverance", zh:"坚毅：热情与坚持的力量", sp:"Angela Lee Duckworth", yr:2013, dur:6, cat:"学习成长", sub:"坚毅",
    intro:"心理学家 Duckworth 提出：决定长期成就的不是天赋而是『grit（坚毅）』——对长远目标持续的热情与毅力。短小精悍，是积累学术英语高频词的极佳入门。",
    url:"https://www.ted.com/talks/angela_lee_duckworth_grit_the_power_of_passion_and_perseverance"},
-  {en:"The power of believing that you can improve", zh:"相信你能进步的力量（成长型思维）", sp:"Carol Dweck", yr:2014, dur:10, cat:"学习/成长型思维",
+  {en:"The power of believing that you can improve", zh:"相信你能进步的力量（成长型思维）", sp:"Carol Dweck", yr:2014, dur:10, cat:"学习成长", sub:"成长型思维",
    intro:"『Not yet（尚未）』比『做不到』更有力量。Dweck 用 growth mindset（成长型思维）解释为什么把失败当练习能改大脑。可顺带积累 mindset、neuroplasticity 等地道词。",
    url:"https://www.ted.com/talks/carol_dweck_the_power_of_believing_that_you_can_improve"},
-  {en:"How to learn? From mistakes", zh:"如何学习？从错误中学习", sp:"Diana Laufenberg", yr:2010, dur:10, cat:"学习/从错误学习",
+  {en:"How to learn? From mistakes", zh:"如何学习？从错误中学习", sp:"Diana Laufenberg", yr:2010, dur:10, cat:"学习成长", sub:"从错误学习",
    intro:"从教 15 年的老师分享三点教学洞见，核心是从错误里学习比追求正确更重要。口语化强、故事多，适合中级听力与叙事表达积累。",
    url:"https://www.ted.com/talks/diana_laufenberg_how_to_learn_from_mistakes"},
 
-  /* ===== 心理 · 幸福 ===== */
-  {en:"The surprising science of happiness", zh:"关于幸福的惊人科学", sp:"Dan Gilbert", yr:2004, dur:21, cat:"心理/幸福",
+  /* ===== 心理幸福 ===== */
+  {en:"The surprising science of happiness", zh:"关于幸福的惊人科学", sp:"Dan Gilbert", yr:2004, dur:21, cat:"心理幸福", sub:"幸福科学",
    intro:"哈佛心理学者 Gilbert 讲『预知自己未来感受』为何总出错——我们高估得失、低估适应力。逻辑清晰、笑点密，是练学术英语听力的好素材。",
    url:"https://www.ted.com/talks/dan_gilbert_the_surprising_science_of_happiness"},
-  {en:"The psychology of your future self", zh:"你未来自我的心理学", sp:"Dan Gilbert", yr:2014, dur:7, cat:"心理/未来自我",
+  {en:"The psychology of your future self", zh:"你未来自我的心理学", sp:"Dan Gilbert", yr:2014, dur:7, cat:"心理幸福", sub:"未来自我",
    intro:"我们总误以为『现在的自己』就是终点，Gilbert 用『end of history illusion（历史终结错觉）』解释人为何不爱为未来投资。短小深刻，适合精听。",
    url:"https://www.ted.com/talks/dan_gilbert_the_psychology_of_your_future_self"},
-  {en:"What makes a good life? Lessons from the longest study on happiness", zh:"什么造就美好人生？最长幸福研究的启示", sp:"Robert Waldinger", yr:2015, dur:13, cat:"心理/幸福",
+  {en:"What makes a good life? Lessons from the longest study on happiness", zh:"什么造就美好人生？最长幸福研究的启示", sp:"Robert Waldinger", yr:2015, dur:13, cat:"心理幸福", sub:"幸福研究",
    intro:"哈佛 75 年追踪研究结论极简：决定幸福的是『人际关系的质量』而非财富或名望。语速慢、结构清楚，适合做跟读与词汇笔记。",
    url:"https://www.ted.com/talks/robert_waldinger_what_makes_a_good_life_lessons_from_the_longest_study_on_happiness"},
-  {en:"The happy secret to better work", zh:"更快乐的秘密，也是更好的工作", sp:"Shawn Achor", yr:2011, dur:12, cat:"心理/积极心理学",
+  {en:"The happy secret to better work", zh:"更快乐的秘密，也是更好的工作", sp:"Shawn Achor", yr:2011, dur:12, cat:"心理幸福", sub:"积极心理学",
    intro:"Achor 反转因果：不是成功带来快乐，而是快乐提升效能。可积累 positive psychology、rewire 等表达，幽默好懂。",
    url:"https://www.ted.com/talks/shawn_achor_the_happy_secret_to_better_work"},
-  {en:"The habits of happiness", zh:"幸福的习惯", sp:"Matthieu Ricard", yr:2004, dur:23, cat:"心理/幸福",
+  {en:"The habits of happiness", zh:"幸福的习惯", sp:"Matthieu Ricard", yr:2004, dur:23, cat:"心理幸福", sub:"幸福习惯",
    intro:"被称『世界上最幸福的人』的法国分子生物学家、僧人 Ricard，从训练心智谈可持续的幸福。用词偏书面，适合中高阶听力挑战。",
    url:"https://www.ted.com/talks/matthieu_ricard_the_habits_of_happiness"},
-  {en:"How to make stress your friend", zh:"如何让压力成为朋友", sp:"Kelly McGonigal", yr:2013, dur:14, cat:"心理/压力",
+  {en:"How to make stress your friend", zh:"如何让压力成为朋友", sp:"Kelly McGonigal", yr:2013, dur:14, cat:"心理幸福", sub:"压力管理",
    intro:"健康心理学家 McGonigal 翻转『压力有害』叙事：当你视压力为助力，生理反应反而有益。与研究生高压科研极相关，词汇实用。",
    url:"https://www.ted.com/talks/kelly_mcgonigal_how_to_make_stress_your_friend"},
 
-  /* ===== 习惯 · 自律 ===== */
-  {en:"A simple way to break a bad habit", zh:"戒掉坏习惯的一个简单方法", sp:"Judson Brewer", yr:2015, dur:10, cat:"习惯/正念",
+  /* ===== 习惯自律 ===== */
+  {en:"A simple way to break a bad habit", zh:"戒掉坏习惯的一个简单方法", sp:"Judson Brewer", yr:2015, dur:10, cat:"习惯自律", sub:"正念戒瘾",
    intro:"神经科学家 Brewer 用『正念觉察奖励回路』解释戒烟戒拖。医学英语地道，适合积累 craving、habitual loop 等词。",
    url:"https://www.ted.com/talks/judson_brewer_a_simple_way_to_break_a_bad_habit"},
-  {en:"Inside the mind of a master procrastinator", zh:"拖延症晚期患者的内心世界", sp:"Tim Urban", yr:2016, dur:14, cat:"习惯/拖延",
+  {en:"Inside the mind of a master procrastinator", zh:"拖延症晚期患者的内心世界", sp:"Tim Urban", yr:2016, dur:14, cat:"习惯自律", sub:"拖延症",
    intro:"作家 Urban 用『即时满足猴』与『恐慌怪』把拖延讲成段子，却精准戳中每个 DDL 战士。笑点多、口语地道，极适合放松练听。",
    url:"https://www.ted.com/talks/tim_urban_inside_the_mind_of_a_master_procrastinator"},
-  {en:"How to gain control of your free time", zh:"如何掌控你的空闲时间", sp:"Laura Vanderkam", yr:2016, dur:12, cat:"习惯/时间管理",
+  {en:"How to gain control of your free time", zh:"如何掌控你的空闲时间", sp:"Laura Vanderkam", yr:2016, dur:12, cat:"习惯自律", sub:"时间管理",
    intro:"『不是有时间才做要事，而是把要事排进日程才有时间。』时间管理干货，逻辑强、例子具体，适合做笔记跟读。",
    url:"https://www.ted.com/talks/laura_vanderkam_how_to_gain_control_of_your_free_time"},
 
-  /* ===== 沟通 · 领导力 ===== */
-  {en:"Your body language may shape who you are", zh:"肢体语言塑造你", sp:"Amy Cuddy", yr:2012, dur:21, cat:"沟通/自信",
+  /* ===== 沟通领导 ===== */
+  {en:"Your body language may shape who you are", zh:"肢体语言塑造你", sp:"Amy Cuddy", yr:2012, dur:21, cat:"沟通领导", sub:"自信表达",
    intro:"『高能量姿势（power pose）』能在几分钟内改变激素与自信。组会汇报、答辩开场直接能用，表达地道、情绪感染力强。",
    url:"https://www.ted.com/talks/amy_cuddy_your_body_language_may_shape_who_you_are"},
-  {en:"How great leaders inspire action", zh:"伟大领导者如何激励行动", sp:"Simon Sinek", yr:2009, dur:18, cat:"领导/黄金圈",
+  {en:"How great leaders inspire action", zh:"伟大领导者如何激励行动", sp:"Simon Sinek", yr:2009, dur:18, cat:"沟通领导", sub:"黄金圈法则",
    intro:"『Start With Why』与黄金圈法则：人不为你做什么买单，而为相信什么买单。商英经典，积累 inspire、purpose 等高频词。",
    url:"https://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action"},
-  {en:"Why good leaders make you feel safe", zh:"好领导为何让你感到安全", sp:"Simon Sinek", yr:2014, dur:11, cat:"领导/信任",
+  {en:"Why good leaders make you feel safe", zh:"好领导为何让你感到安全", sp:"Simon Sinek", yr:2014, dur:11, cat:"沟通领导", sub:"团队信任",
    intro:"Sinek 谈『圈层安全（circle of safety）』：信任型领导激发团队奉献。与组会带人、实验室协作相通，语速适中。",
    url:"https://www.ted.com/talks/simon_sinek_why_good_leaders_make_you_feel_safe"},
-  {en:"How to speak so that people want to listen", zh:"如何说话让人愿意听", sp:"Julian Treasure", yr:2013, dur:10, cat:"沟通/表达",
+  {en:"How to speak so that people want to listen", zh:"如何说话让人愿意听", sp:"Julian Treasure", yr:2013, dur:10, cat:"沟通领导", sub:"说话之道",
    intro:"声音与沟通专家 Treasure 讲『七年不说（HAIL）』与避开的说话陷阱。对组会汇报、答辩陈述极实用，可逐句跟读练发音。",
    url:"https://www.ted.com/talks/julian_treasure_how_to_speak_so_that_people_want_to_listen"},
-  {en:"The power of vulnerability", zh:"脆弱的力量", sp:"Brené Brown", yr:2010, dur:20, cat:"沟通/勇气",
+  {en:"The power of vulnerability", zh:"脆弱的力量", sp:"Brené Brown", yr:2010, dur:20, cat:"沟通领导", sub:"勇气与连接",
    intro:"研究者 Brown 谈『敢于示弱』才是建立连接与勇气的来源。情感浓度高、用词优美，适合中高阶听力与写作表达积累。",
    url:"https://www.ted.com/talks/brene_brown_the_power_of_vulnerability"},
 
-  /* ===== 认知 · 思维 ===== */
-  {en:"The danger of a single story", zh:"单一故事的危险", sp:"Chimamanda Ngozi Adichie", yr:2009, dur:19, cat:"思维/认知偏见",
+  /* ===== 认知思维 ===== */
+  {en:"The danger of a single story", zh:"单一故事的危险", sp:"Chimamanda Ngozi Adichie", yr:2009, dur:19, cat:"认知思维", sub:"认知偏见",
    intro:"作家 Adichie 警示：只听一个故事，就会形成刻板印象。提升批判性思维、打破认知偏见的必看，叙事强、修辞漂亮。",
    url:"https://www.ted.com/talks/chimamanda_adichie_the_danger_of_a_single_story"},
-  {en:"The puzzle of motivation", zh:"动机的谜题", sp:"Dan Pink", yr:2009, dur:19, cat:"思维/动机",
+  {en:"The puzzle of motivation", zh:"动机的谜题", sp:"Dan Pink", yr:2009, dur:19, cat:"认知思维", sub:"动机机制",
    intro:"Pink 用行为科学推翻『胡萝卜加大棒』：对复杂任务，内在动机（自主/专精/使命）远胜外部奖励。商英+学术英语双修素材。",
    url:"https://www.ted.com/talks/dan_pink_the_puzzle_of_motivation"},
-  {en:"Your elusive creative genius", zh:"你难以捉摸的创意天才", sp:"Elizabeth Gilbert", yr:2009, dur:19, cat:"思维/创意",
+  {en:"Your elusive creative genius", zh:"你难以捉摸的创意天才", sp:"Elizabeth Gilbert", yr:2009, dur:19, cat:"认知思维", sub:"创意焦虑",
    intro:"《美食祈祷恋爱》作者谈如何与『创作焦虑』共处：把灵感看作外来造访。写作、科研卡壳时极治愈，语速舒适好跟读。",
    url:"https://www.ted.com/talks/elizabeth_gilbert_your_elusive_creative_genius"},
-  {en:"How to build your creative confidence", zh:"如何建立创意自信", sp:"David Kelley", yr:2012, dur:11, cat:"思维/创意",
+  {en:"How to build your creative confidence", zh:"如何建立创意自信", sp:"David Kelley", yr:2012, dur:11, cat:"认知思维", sub:"创意自信",
    intro:"IDEO 创始人 Kelley 讲『人人都有创造力，只是被恐惧封印』，用设计思维重建创意自信。适合突破科研与写作的畏难。",
    url:"https://www.ted.com/talks/david_kelley_how_to_build_your_creative_confidence"},
-  {en:"How to spot a liar", zh:"如何识破谎言", sp:"Pamela Meyer", yr:2010, dur:19, cat:"思维/识谎",
+  {en:"How to spot a liar", zh:"如何识破谎言", sp:"Pamela Meyer", yr:2010, dur:19, cat:"认知思维", sub:"识谎",
    intro:"『说谎』研究权威 Meyer 拆解骗子的语言与微表情破绽。逻辑缜密、趣味强，是练听力细节捕捉的优质素材。",
    url:"https://www.ted.com/talks/pamela_meyer_how_to_spot_a_liar"},
-  {en:"The art of choosing", zh:"选择的艺术", sp:"Sheena Iyengar", yr:2010, dur:21, cat:"思维/决策",
+  {en:"The art of choosing", zh:"选择的艺术", sp:"Sheena Iyengar", yr:2010, dur:21, cat:"认知思维", sub:"决策与选择",
    intro:"《选择的艺术》作者谈『选择过载』与东西方决策差异。学术词汇偏多（autonomy、paradox of choice），适合中高阶精听。",
    url:"https://www.ted.com/talks/sheena_iyengar_the_art_of_choosing"},
-  {en:"The power of introverts", zh:"内向者的力量", sp:"Susan Cain", yr:2012, dur:19, cat:"思维/性格",
+  {en:"The power of introverts", zh:"内向者的力量", sp:"Susan Cain", yr:2012, dur:19, cat:"认知思维", sub:"性格与专注",
    intro:"《安静》作者 Cain 为内向者正名：深度思考与沉淀本身就是力量。与科研需要的专注气质高度共鸣，表达温柔有力。",
    url:"https://www.ted.com/talks/susan_cain_the_power_of_introverts"}
 ];
+
+</script>
+  <script>
+/* AI 情报站 - 成长讲坛：名人与企业家演讲 / 国学讲坛 / 阳明心学 */
+window.FORUM_UPDATED = "2026-09-23";
+/* ============ FORUM (curated 2026-09-23) ============
+   三类内容；中文视频统一走 B 站精准关键词搜索（永不 404、免翻墙）；TED/官网用直链。 */
+window.FORUM_CATS = ["名人与企业家","国学讲坛","阳明心学"];
+window.FORUM = [
+  {cat:"名人与企业家", who:"马云", title:"湖畔大学 & 达沃斯演讲合集", kind:"演讲", yr:"2015",
+   intro:"从英语老师到阿里创始人，讲「今天很残酷，明天更残酷，后天很美好」。低谷期、迷茫期最该听的一类，讲的是普通人靠坚持和格局翻身。",
+   url:"https://search.bilibili.com/all?keyword=%E9%A9%AC%E4%BA%91%20%E6%BC%94%E8%AE%B2"},
+  {cat:"名人与企业家", who:"雷军", title:"雷军年度演讲（2020–2025）", kind:"年度演讲", yr:"2025",
+   intro:"小米创始人每年的「年度演讲」，讲「永远相信美好的事情即将发生」和风口上的选择逻辑。既是创业者方法论，也是长期主义的心态课。",
+   url:"https://search.bilibili.com/all?keyword=%E9%9B%B7%E5%86%9B%20%E5%B9%B4%E5%BA%A6%E6%BC%94%E8%AE%B2"},
+  {cat:"名人与企业家", who:"马斯克", title:"The future we're building — and boring（TED 2017）", kind:"TED 演讲", yr:"2017",
+   intro:"马斯克亲自讲：为什么要造电动车、上火星、挖隧道，以及他的「第一性原理」思考法。英文原声，科技英语 + 思维方法双收。",
+   url:"https://www.ted.com/talks/elon_musk_the_future_we_re_building_and_boring"},
+  {cat:"名人与企业家", who:"乔布斯", title:"斯坦福大学 2005 毕业演讲（Stay hungry, stay foolish）", kind:"毕业演讲", yr:"2005",
+   intro:"被引用最多的毕业演讲。三个故事讲「把点连起来」「热爱与失去」「直面死亡」。建议看中英字幕版，反复听。",
+   url:"https://search.bilibili.com/all?keyword=%E4%B9%94%E5%B8%83%E6%96%AF%20%E6%96%AF%E5%9D%A6%E7%A6%8F%20%E6%BC%94%E8%AE%B2%20%E4%B8%AD%E8%8B%B1%E5%AD%97%E5%B9%95"},
+  {cat:"名人与企业家", who:"任正非", title:"访谈与内部讲话精选", kind:"访谈", yr:"2019",
+   intro:"华为创始人的访谈实录，讲危机意识、基础研究与技术自立。对做科研的人特别有启发：为什么必须去啃硬骨头。",
+   url:"https://search.bilibili.com/all?keyword=%E4%BB%BB%E6%AD%A3%E9%9D%9E%20%E8%AE%BF%E8%B0%88"},
+  {cat:"名人与企业家", who:"曹德旺", title:"企业家精神与实业报国", kind:"演讲", yr:"2018",
+   intro:"福耀玻璃创始人，讲制造业的坚守、成本与诚信。做实业的钝感力和长期主义，听着踏实。",
+   url:"https://search.bilibili.com/all?keyword=%E6%9B%B9%E5%BE%B7%E6%97%BA%20%E6%BC%94%E8%AE%B2"},
+  {cat:"名人与企业家", who:"张一鸣", title:"延迟满足感与创业选择", kind:"演讲", yr:"2016",
+   intro:"字节跳动创始人反复强调的「延迟满足感」——为什么把眼光放长的人赢面更大。适合焦虑、想速成的阶段听。",
+   url:"https://search.bilibili.com/all?keyword=%E5%BC%A0%E4%B8%80%E9%B8%A3%20%E6%BC%94%E8%AE%B2%20%E5%BB%B6%E8%BF%9F%E6%BB%A1%E8%B6%B3%E6%84%9F"},
+  {cat:"名人与企业家", who:"俞敏洪", title:"在绝望中寻找希望", kind:"演讲", yr:"2013",
+   intro:"新东方创始人的成名演讲，讲普通人如何用努力对抗出身。学生、研究生共鸣感极强。",
+   url:"https://search.bilibili.com/all?keyword=%E4%BF%9E%E6%95%8F%E6%B4%AA%20%E5%9C%A8%E7%BB%9D%E6%9C%9B%E4%B8%AD%E5%AF%BB%E6%89%BE%E5%B8%8C%E6%9C%9B"},
+  {cat:"名人与企业家", who:"稻盛和夫", title:"敬天爱人与阿米巴经营", kind:"演讲", yr:"2010",
+   intro:"日本「经营之圣」，把哲学落到经营：敬天爱人、付出不亚于任何人的努力。与阳明心学一脉相承，可对照着看。",
+   url:"https://search.bilibili.com/all?keyword=%E7%A8%BB%E7%9B%9B%E5%92%8C%E5%A4%AB%20%E6%BC%94%E8%AE%B2%20%E6%95%AC%E5%A4%A9%E7%88%B1%E4%BA%BA"},
+  {cat:"名人与企业家", who:"曾毓群", title:"宁德时代与动力电池的二十年", kind:"演讲 / 访谈", yr:"2022",
+   intro:"宁德时代创始人，讲动力电池技术路线与产业判断。跟你做的电池方向直接相关，听听产业视角很有用。",
+   url:"https://search.bilibili.com/all?keyword=%E6%9B%BE%E6%AF%93%E7%BE%A4%20%E6%BC%94%E8%AE%B2%20%E5%AE%81%E5%BE%B7%E6%97%B6%E4%BB%A3"},
+  {cat:"国学讲坛", who:"易中天", title:"《品三国》", kind:"百家讲坛", yr:"2006",
+   intro:"百家讲坛最火的一档，用大白话讲三国人物与权谋。想入门历史和练表达，从这档开始最省力。",
+   url:"https://search.bilibili.com/all?keyword=%E6%98%93%E4%B8%AD%E5%A4%A9%20%E5%93%81%E4%B8%89%E5%9B%BD%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"},
+  {cat:"国学讲坛", who:"王立群", title:"《王立群读〈史记〉》", kind:"百家讲坛", yr:"2007",
+   intro:"河南大学教授讲《史记》，人物心理分析极细。喜欢历史与人性观察的必看。",
+   url:"https://search.bilibili.com/all?keyword=%E7%8E%8B%E7%AB%8B%E7%BE%A4%20%E8%AF%BB%E5%8F%B2%E8%AE%B0%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"},
+  {cat:"国学讲坛", who:"于丹", title:"《〈论语〉心得》", kind:"百家讲坛", yr:"2006",
+   intro:"把《论语》讲成现代人的生活智慧，语速慢、金句多。零基础接触国学的好入口。",
+   url:"https://search.bilibili.com/all?keyword=%E4%BA%8E%E4%B8%B9%20%E8%AE%BA%E8%AF%AD%E5%BF%83%E5%BE%97%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"},
+  {cat:"国学讲坛", who:"蒙曼", title:"《武则天》", kind:"百家讲坛", yr:"2007",
+   intro:"中央民大教授讲武则天，史学功底和讲故事能力都好。人物传记类入门佳作。",
+   url:"https://search.bilibili.com/all?keyword=%E8%92%99%E6%9B%BC%20%E6%AD%A6%E5%88%99%E5%A4%A9%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"},
+  {cat:"国学讲坛", who:"鲍鹏山", title:"《鲍鹏山新说〈水浒〉》", kind:"百家讲坛", yr:"2008",
+   intro:"从《水浒》看中国人的处世与人格，观点犀利。喜欢「读出人性」的人会很喜欢。",
+   url:"https://search.bilibili.com/all?keyword=%E9%B2%8D%E9%B9%8F%E5%B1%B1%20%E6%96%B0%E8%AF%B4%E6%B0%B4%E6%B5%92%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"},
+  {cat:"国学讲坛", who:"郦波", title:"《五百年来王阳明》", kind:"百家讲坛", yr:"2017",
+   intro:"王阳明心学最好的入门视频，把一生故事讲透。看完再学心学，事半功倍。",
+   url:"https://search.bilibili.com/all?keyword=%E9%83%A6%E6%B3%A2%20%E4%BA%94%E7%99%BE%E5%B9%B4%E6%9D%A5%E7%8E%8B%E9%98%B3%E6%98%8E%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"},
+  {cat:"国学讲坛", who:"康震", title:"《唐宋八大家》", kind:"百家讲坛", yr:"2011",
+   intro:"北师大教授讲八大家的文章与人生。对提升文字表达和文学素养很有帮助。",
+   url:"https://search.bilibili.com/all?keyword=%E5%BA%B7%E9%9C%87%20%E5%94%90%E5%AE%8B%E5%85%AB%E5%A4%A7%E5%AE%B6%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"},
+  {cat:"国学讲坛", who:"阎崇年", title:"《清十二帝疑案》", kind:"百家讲坛", yr:"2004",
+   intro:"百家讲坛开山级节目，讲清朝十二帝的疑案。历史科普的经典入门。",
+   url:"https://search.bilibili.com/all?keyword=%E9%98%8E%E5%B4%87%E5%B9%B4%20%E6%B8%85%E5%8D%81%E4%BA%8C%E5%B8%9D%E7%96%91%E6%A1%88%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"},
+  {cat:"阳明心学", who:"郦波", title:"《五百年来王阳明》", kind:"① 入门 · 听故事", yr:"2017",
+   intro:"第 1 步首选。把王阳明一生（龙场悟道、平定宁王之乱、讲学）讲成故事，零基础也能听懂心学是怎么来的。",
+   url:"https://search.bilibili.com/all?keyword=%E9%83%A6%E6%B3%A2%20%E4%BA%94%E7%99%BE%E5%B9%B4%E6%9D%A5%E7%8E%8B%E9%98%B3%E6%98%8E"},
+  {cat:"阳明心学", who:"董平", title:"《王阳明心学》", kind:"② 搭框架 · 浙大公开课", yr:"2018",
+   intro:"第 2 步。浙江大学教授系统讲心学的哲学结构（心即理、知行合一、致良知），比故事更完整、更严谨。",
+   url:"https://search.bilibili.com/all?keyword=%E8%91%A3%E5%B9%B3%20%E7%8E%8B%E9%98%B3%E6%98%8E%E5%BF%83%E5%AD%A6%20%E5%85%AC%E5%BC%80%E8%AF%BE"},
+  {cat:"阳明心学", who:"王德峰", title:"《王阳明心学》", kind:"② 搭框架 · 复旦讲座", yr:"2019",
+   intro:"第 2 步进阶。复旦王德峰用哲学讲心学与人生，风格酣畅，适合想知道「为什么」的人。",
+   url:"https://search.bilibili.com/all?keyword=%E7%8E%8B%E5%BE%B7%E5%B3%B0%20%E7%8E%8B%E9%98%B3%E6%98%8E%E5%BF%83%E5%AD%A6"},
+  {cat:"阳明心学", who:"央视", title:"《典籍里的中国 · 传习录》", kind:"情景演绎", yr:"2021",
+   intro:"用戏剧还原王阳明与《传习录》，画面感强、情绪足。适合当入门的调味料，加深印象。",
+   url:"https://search.bilibili.com/all?keyword=%E5%85%B8%E7%B1%8D%E9%87%8C%E7%9A%84%E4%B8%AD%E5%9B%BD%20%E7%8E%8B%E9%98%B3%E6%98%8E%20%E4%BC%A0%E4%B9%A0%E5%BD%95"},
+  {cat:"阳明心学", who:"王阳明 原著", title:"《传习录》原文精读", kind:"③ 读原典", yr:"2022",
+   intro:"第 3 步。心学的「圣经」，记录王阳明与弟子的问答。建议配合讲解版精读，别一上来就啃原文。",
+   url:"https://search.bilibili.com/all?keyword=%E4%BC%A0%E4%B9%A0%E5%BD%95%20%E5%8E%9F%E6%96%87%20%E8%AE%B2%E8%A7%A3"},
+  {cat:"阳明心学", who:"度阴山", title:"《知行合一王阳明》", kind:"通俗读本 · 有声", yr:"2015",
+   intro:"把心学讲成能用在生活里的方法，发行量极高的通俗读本。适合想「马上能用」的人。",
+   url:"https://search.bilibili.com/all?keyword=%E5%BA%A6%E9%98%B4%E5%B1%B1%20%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80%20%E7%8E%8B%E9%98%B3%E6%98%8E"},
+  {cat:"阳明心学", who:"冈田武彦", title:"《王阳明大传》", kind:"权威传记", yr:"2016",
+   intro:"国际上公认最权威的王阳明传记（日本学者著）。想再深入一步、看严谨考据的读它。",
+   url:"https://search.bilibili.com/all?keyword=%E7%8E%8B%E9%98%B3%E6%98%8E%E5%A4%A7%E4%BC%A0%20%E5%86%88%E7%94%B0%E6%AD%A6%E5%BD%A6"},
+  {cat:"阳明心学", who:"实践方法", title:"「事上磨练」：把心学用起来", kind:"④ 落地实践", yr:"2023",
+   intro:"第 4 步。心学不是书斋学问——在科研、组会、人际里练「省察克治」。这组视频讲怎么把心学真正用起来。",
+   url:"https://search.bilibili.com/all?keyword=%E9%98%B3%E6%98%8E%E5%BF%83%E5%AD%A6%20%E4%BA%8B%E4%B8%8A%E7%A3%A8%E7%BB%83%20%E5%AE%9E%E8%B7%B5"},
+];
+window.XINXUE_GUIDE = {
+  intro:"王阳明（1472–1529）：明代思想家、军事家，中国历史上少有的「立德、立功、立言」三不朽。心学核心就一句——力量在你自己心里，不在外面。",
+  steps:[
+    {t:"① 听故事", d:"先看郦波《五百年来王阳明》，把心学的来龙去脉搞明白，别急着读原文。"},
+    {t:"② 搭框架", d:"用董平 / 王德峰的课，掌握「心即理、知行合一、致良知」三大命题的内在逻辑。"},
+    {t:"③ 读原典", d:"翻《传习录》，配合讲解版，一天两三条慢慢品，不必求快。"},
+    {t:"④ 落到事上", d:"在真实场景里练：遇事先向内看（省察克治），想明白就立刻做（知行合一）。"},
+  ],
+  concepts:[
+    {k:"心即理", d:"天理不在外面的事物上，就在你心里。判断是非的标准，内心本来就有。"},
+    {k:"知行合一", d:"真知必然带出行动；知而不行，只是未知。别把「听懂了」当成「做到了」。"},
+    {k:"致良知", d:"把内心本来就有的良知（是非判断）扩充开来，落实到每一件事上。"},
+    {k:"四句教", d:"无善无恶心之体／有善有恶意之动／知善知恶是良知／为善去恶是格物。"},
+  ]
+};
 
 </script>
 <script>
@@ -1680,7 +1802,7 @@ window.TED = [
   /* ============ TAB SWITCHING ============ */
   function showTab(tab){
     document.querySelectorAll(".tab").forEach(function(t){ var on=(t.dataset.tab===tab); t.classList.toggle("active", on); t.setAttribute("aria-selected", on?"true":"false"); });
-    ["daily","rank","comp","learn","ted"].forEach(function(v){
+    ["daily","rank","comp","learn","ted","forum"].forEach(function(v){
       var el=document.getElementById("view-"+v);
       if(el){ el.style.display = (v===tab)?"":"none"; el.setAttribute("aria-hidden", v===tab?"false":"true"); }
     });
@@ -2386,6 +2508,7 @@ window.TED = [
         '<div class="cmp-head" style="cursor:default">'+
           '<span class="chip" style="border-color:var(--brand);color:var(--brand);background:var(--brand-soft)">'+esc(t.cat||"")+'</span>'+
           '<span class="cmp-name">🎬 '+esc(t.en||"")+'</span>'+
+          '<span class="chip" style="border-color:var(--line)">'+esc(t.sub||"")+'</span>'+
         '</div>'+
         '<div style="margin:7px 0 9px;font-size:14.5px;font-weight:800;color:var(--ink)">'+esc(t.zh||"")+
           ' <span style="font-weight:600;color:var(--ink-soft);font-size:13px">· '+esc(t.sp||"")+'</span></div>'+
@@ -2413,6 +2536,90 @@ window.TED = [
   }
   renderTED();
 })();
+
+  /* ============ FORUM VIEW: 成长讲坛 ============ */
+  (function(){
+    var FORUM = window.FORUM || [];
+    var GUIDE = window.XINXUE_GUIDE || null;
+    var CATS = window.FORUM_CATS || [];
+    var FCAT = "全部";
+    function esc(s){
+      return (s==null?"":String(s)).replace(/[&<>"']/g, function(c){
+        return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+      });
+    }
+    var uel=document.getElementById('forum-updated'); if(uel){ uel.textContent=(window.FORUM_UPDATED||'未知'); }
+    var cel=document.getElementById('forum-count'); if(cel){ cel.textContent=FORUM.length; }
+
+    function renderGuide(){
+      var box=document.getElementById('xinxue-guide');
+      if(!box) return;
+      if(FCAT==="阳明心学" && GUIDE){
+        var steps=(GUIDE.steps||[]).map(function(s){
+          return '<div style="margin:6px 0;font-size:13.5px;line-height:1.7"><b style="color:#8b5cf6">'+esc(s.t)+'</b> '+esc(s.d)+'</div>';
+        }).join("");
+        var cons=(GUIDE.concepts||[]).map(function(c){
+          return '<div style="margin:6px 0;font-size:13.5px;line-height:1.7"><b style="color:#8b5cf6">'+esc(c.k)+'</b>：'+esc(c.d)+'</div>';
+        }).join("");
+        box.style.display="";
+        box.innerHTML='<div class="lk-tip" style="margin-bottom:14px;background:#f5f3ff;border-color:#ddd6fe;color:#4c1d95">'+
+          '<div style="font-weight:800;font-size:15px;margin-bottom:7px">🧘 阳明心学 · 四步入门（照着走就行）</div>'+
+          '<div style="font-size:13.5px;line-height:1.75;margin-bottom:11px">'+esc(GUIDE.intro||"")+'</div>'+
+          '<div style="font-weight:800;margin:10px 0 4px;font-size:14px">📚 学习路径</div>'+ steps +
+          '<div style="font-weight:800;margin:12px 0 4px;font-size:14px">🔑 四个核心概念</div>'+ cons +
+        '</div>';
+      } else if(FCAT==="国学讲坛"){
+        box.style.display="";
+        box.innerHTML='<div class="lk-tip" style="margin-bottom:14px">📺 <b>央视《百家讲坛》官网（按节目找全集）：</b>'+
+          '<a href="https://tv.cctv.com/lm/bjjt/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">tv.cctv.com/lm/bjjt/ ↗</a>'+
+          '　—— 下方卡片是按「主讲人 + 代表作」整理的精听清单。</div>';
+      } else {
+        box.style.display="none"; box.innerHTML="";
+      }
+    }
+
+    function renderForum(){
+      var fw=document.getElementById('forumFilters');
+      if(fw){
+        var all=["全部"].concat(CATS);
+        fw.innerHTML=all.map(function(c){
+          return '<button class="filterbtn'+(FCAT===c?" active":"")+'" data-c="'+esc(c)+'">'+esc(c)+'</button>';
+        }).join("");
+      }
+      var list=FORUM.filter(function(x){ return FCAT==="全部" || x.cat===FCAT; });
+      var st=document.getElementById('forum-stat');
+      if(st){ st.textContent="共 "+list.length+" 条（全部 "+FORUM.length+" 条）"; }
+      renderGuide();
+      var box=document.getElementById('forum-list');
+      if(!box) return;
+      if(!list.length){ box.innerHTML='<div class="news">该分类暂无内容。</div>'; return; }
+      box.innerHTML=list.map(function(x){
+        return '<article class="cmp">'+
+          '<div class="cmp-head" style="cursor:default">'+
+            '<span class="chip" style="border-color:var(--brand);color:var(--brand);background:var(--brand-soft)">'+esc(x.cat||"")+'</span>'+
+            '<span class="cmp-name">👤 '+esc(x.who||"")+'</span>'+
+            '<span class="chip" style="border-color:var(--line)">'+esc(x.kind||"")+'</span>'+
+            '<span class="chip" style="border-color:var(--line)">📅 '+esc(String(x.yr||""))+'</span>'+
+          '</div>'+
+          '<div style="margin:7px 0 9px;font-weight:800;font-size:15px">'+esc(x.title||"")+'</div>'+
+          '<div class="d-row"><span class="d-k">简介</span><span class="d-v">'+esc(x.intro||"")+'</span></div>'+
+          '<div style="margin-top:11px">'+
+            '<a class="top-btn" href="'+esc(x.url||"#")+'" target="_blank" rel="noopener noreferrer">▶ 去看 ↗</a>'+
+          '</div>'+
+        '</article>';
+      }).join("");
+    }
+    var ff=document.getElementById('forumFilters');
+    if(ff){
+      ff.addEventListener("click", function(ev){
+        var b=ev.target.closest?ev.target.closest(".filterbtn"):null;
+        if(!b) return;
+        FCAT=b.getAttribute("data-c")||"全部";
+        renderForum();
+      });
+    }
+    renderForum();
+  })();
 
   /* ============ LEARN VIEW: daily tip + scenario desk ============ */
   (function(){
