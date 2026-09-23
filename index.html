@@ -722,7 +722,7 @@
   <!-- ================= FORUM VIEW (成长讲坛) ================= -->
   <div id="view-forum" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-forum">
     <div class="view-head"><h2>🌱 成长讲坛：企业家演讲 · 国学讲坛 · 阳明心学</h2>
-      <p>三类「长脑子、长心气」的内容，都按<b>分类</b>整理好了：<b>💼 名人与企业家</b>（马云、雷军、马斯克、乔布斯等，受鼓舞用）；<b>📖 国学讲坛</b>（百家讲坛：易中天、王立群、蒙曼等，养底蕴用）；<b>🧘 阳明心学</b>（一条从入门到实践的完整路径）。共 <b id="forum-count">0</b> 条，整理于 <b id="forum-updated">-</b>。点「去看」直接跳视频。</p></div>
+      <p>三类「长脑子、长心气」的内容，都按<b>分类</b>整理好了：<b>💼 名人与企业家</b>（马云、雷军、马斯克、乔布斯等，受鼓舞用）；<b>📖 国学讲坛</b>（百家讲坛：易中天、王立群、蒙曼等，养底蕴用）；<b>🧘 阳明心学</b>（一条从入门到实践的完整路径）。共 <b id="forum-count">0</b> 条，整理于 <b id="forum-updated">-</b>。每张卡片给了<b>多个观看入口</b>（央视网 / 腾讯视频 / YouTube / 喜马拉雅 / B站），<b style="color:#16a34a">标「免费」的是官方无会员源，优先点</b>。</p></div>
     <div class="news">
       🧭 <b>怎么安排不浪费：</b>企业家演讲当「精神燃料」，<b>每周 1–2 场</b>就够，别当避难所；国学讲坛当「长期滋养」，<b>每天 15–30 分钟</b>当背景音也行；心学不要只听课——按下面的<b>四步</b>来，边学边在科研和生活里用。
     </div>
@@ -1695,94 +1695,42 @@ window.TED = [
   <script>
 /* AI 情报站 - 成长讲坛：名人与企业家演讲 / 国学讲坛 / 阳明心学 */
 window.FORUM_UPDATED = "2026-09-23";
-/* ============ FORUM (curated 2026-09-23) ============
-   三类内容；中文视频统一走 B 站精准关键词搜索（永不 404、免翻墙）；TED/官网用直链。 */
+/* 每张卡片给多个观看入口：央视网/腾讯视频/YouTube/喜马拉雅/B站。
+   标注「免费」的是官方无会员源（央视网），优先点。中文视频不再只塞 B站。 */
 window.FORUM_CATS = ["名人与企业家","国学讲坛","阳明心学"];
 window.FORUM = [
-  {cat:"名人与企业家", who:"马云", title:"湖畔大学 & 达沃斯演讲合集", kind:"演讲", yr:"2015",
-   intro:"从英语老师到阿里创始人，讲「今天很残酷，明天更残酷，后天很美好」。低谷期、迷茫期最该听的一类，讲的是普通人靠坚持和格局翻身。",
-   url:"https://search.bilibili.com/all?keyword=%E9%A9%AC%E4%BA%91%20%E6%BC%94%E8%AE%B2"},
-  {cat:"名人与企业家", who:"雷军", title:"雷军年度演讲（2020–2025）", kind:"年度演讲", yr:"2025",
-   intro:"小米创始人每年的「年度演讲」，讲「永远相信美好的事情即将发生」和风口上的选择逻辑。既是创业者方法论，也是长期主义的心态课。",
-   url:"https://search.bilibili.com/all?keyword=%E9%9B%B7%E5%86%9B%20%E5%B9%B4%E5%BA%A6%E6%BC%94%E8%AE%B2"},
-  {cat:"名人与企业家", who:"马斯克", title:"The future we're building — and boring（TED 2017）", kind:"TED 演讲", yr:"2017",
-   intro:"马斯克亲自讲：为什么要造电动车、上火星、挖隧道，以及他的「第一性原理」思考法。英文原声，科技英语 + 思维方法双收。",
-   url:"https://www.ted.com/talks/elon_musk_the_future_we_re_building_and_boring"},
-  {cat:"名人与企业家", who:"乔布斯", title:"斯坦福大学 2005 毕业演讲（Stay hungry, stay foolish）", kind:"毕业演讲", yr:"2005",
-   intro:"被引用最多的毕业演讲。三个故事讲「把点连起来」「热爱与失去」「直面死亡」。建议看中英字幕版，反复听。",
-   url:"https://search.bilibili.com/all?keyword=%E4%B9%94%E5%B8%83%E6%96%AF%20%E6%96%AF%E5%9D%A6%E7%A6%8F%20%E6%BC%94%E8%AE%B2%20%E4%B8%AD%E8%8B%B1%E5%AD%97%E5%B9%95"},
-  {cat:"名人与企业家", who:"任正非", title:"访谈与内部讲话精选", kind:"访谈", yr:"2019",
-   intro:"华为创始人的访谈实录，讲危机意识、基础研究与技术自立。对做科研的人特别有启发：为什么必须去啃硬骨头。",
-   url:"https://search.bilibili.com/all?keyword=%E4%BB%BB%E6%AD%A3%E9%9D%9E%20%E8%AE%BF%E8%B0%88"},
-  {cat:"名人与企业家", who:"曹德旺", title:"企业家精神与实业报国", kind:"演讲", yr:"2018",
-   intro:"福耀玻璃创始人，讲制造业的坚守、成本与诚信。做实业的钝感力和长期主义，听着踏实。",
-   url:"https://search.bilibili.com/all?keyword=%E6%9B%B9%E5%BE%B7%E6%97%BA%20%E6%BC%94%E8%AE%B2"},
-  {cat:"名人与企业家", who:"张一鸣", title:"延迟满足感与创业选择", kind:"演讲", yr:"2016",
-   intro:"字节跳动创始人反复强调的「延迟满足感」——为什么把眼光放长的人赢面更大。适合焦虑、想速成的阶段听。",
-   url:"https://search.bilibili.com/all?keyword=%E5%BC%A0%E4%B8%80%E9%B8%A3%20%E6%BC%94%E8%AE%B2%20%E5%BB%B6%E8%BF%9F%E6%BB%A1%E8%B6%B3%E6%84%9F"},
-  {cat:"名人与企业家", who:"俞敏洪", title:"在绝望中寻找希望", kind:"演讲", yr:"2013",
-   intro:"新东方创始人的成名演讲，讲普通人如何用努力对抗出身。学生、研究生共鸣感极强。",
-   url:"https://search.bilibili.com/all?keyword=%E4%BF%9E%E6%95%8F%E6%B4%AA%20%E5%9C%A8%E7%BB%9D%E6%9C%9B%E4%B8%AD%E5%AF%BB%E6%89%BE%E5%B8%8C%E6%9C%9B"},
-  {cat:"名人与企业家", who:"稻盛和夫", title:"敬天爱人与阿米巴经营", kind:"演讲", yr:"2010",
-   intro:"日本「经营之圣」，把哲学落到经营：敬天爱人、付出不亚于任何人的努力。与阳明心学一脉相承，可对照着看。",
-   url:"https://search.bilibili.com/all?keyword=%E7%A8%BB%E7%9B%9B%E5%92%8C%E5%A4%AB%20%E6%BC%94%E8%AE%B2%20%E6%95%AC%E5%A4%A9%E7%88%B1%E4%BA%BA"},
-  {cat:"名人与企业家", who:"曾毓群", title:"宁德时代与动力电池的二十年", kind:"演讲 / 访谈", yr:"2022",
-   intro:"宁德时代创始人，讲动力电池技术路线与产业判断。跟你做的电池方向直接相关，听听产业视角很有用。",
-   url:"https://search.bilibili.com/all?keyword=%E6%9B%BE%E6%AF%93%E7%BE%A4%20%E6%BC%94%E8%AE%B2%20%E5%AE%81%E5%BE%B7%E6%97%B6%E4%BB%A3"},
-  {cat:"国学讲坛", who:"易中天", title:"《品三国》", kind:"百家讲坛", yr:"2006",
-   intro:"百家讲坛最火的一档，用大白话讲三国人物与权谋。想入门历史和练表达，从这档开始最省力。",
-   url:"https://search.bilibili.com/all?keyword=%E6%98%93%E4%B8%AD%E5%A4%A9%20%E5%93%81%E4%B8%89%E5%9B%BD%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"},
-  {cat:"国学讲坛", who:"王立群", title:"《王立群读〈史记〉》", kind:"百家讲坛", yr:"2007",
-   intro:"河南大学教授讲《史记》，人物心理分析极细。喜欢历史与人性观察的必看。",
-   url:"https://search.bilibili.com/all?keyword=%E7%8E%8B%E7%AB%8B%E7%BE%A4%20%E8%AF%BB%E5%8F%B2%E8%AE%B0%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"},
-  {cat:"国学讲坛", who:"于丹", title:"《〈论语〉心得》", kind:"百家讲坛", yr:"2006",
-   intro:"把《论语》讲成现代人的生活智慧，语速慢、金句多。零基础接触国学的好入口。",
-   url:"https://search.bilibili.com/all?keyword=%E4%BA%8E%E4%B8%B9%20%E8%AE%BA%E8%AF%AD%E5%BF%83%E5%BE%97%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"},
-  {cat:"国学讲坛", who:"蒙曼", title:"《武则天》", kind:"百家讲坛", yr:"2007",
-   intro:"中央民大教授讲武则天，史学功底和讲故事能力都好。人物传记类入门佳作。",
-   url:"https://search.bilibili.com/all?keyword=%E8%92%99%E6%9B%BC%20%E6%AD%A6%E5%88%99%E5%A4%A9%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"},
-  {cat:"国学讲坛", who:"鲍鹏山", title:"《鲍鹏山新说〈水浒〉》", kind:"百家讲坛", yr:"2008",
-   intro:"从《水浒》看中国人的处世与人格，观点犀利。喜欢「读出人性」的人会很喜欢。",
-   url:"https://search.bilibili.com/all?keyword=%E9%B2%8D%E9%B9%8F%E5%B1%B1%20%E6%96%B0%E8%AF%B4%E6%B0%B4%E6%B5%92%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"},
-  {cat:"国学讲坛", who:"郦波", title:"《五百年来王阳明》", kind:"百家讲坛", yr:"2017",
-   intro:"王阳明心学最好的入门视频，把一生故事讲透。看完再学心学，事半功倍。",
-   url:"https://search.bilibili.com/all?keyword=%E9%83%A6%E6%B3%A2%20%E4%BA%94%E7%99%BE%E5%B9%B4%E6%9D%A5%E7%8E%8B%E9%98%B3%E6%98%8E%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"},
-  {cat:"国学讲坛", who:"康震", title:"《唐宋八大家》", kind:"百家讲坛", yr:"2011",
-   intro:"北师大教授讲八大家的文章与人生。对提升文字表达和文学素养很有帮助。",
-   url:"https://search.bilibili.com/all?keyword=%E5%BA%B7%E9%9C%87%20%E5%94%90%E5%AE%8B%E5%85%AB%E5%A4%A7%E5%AE%B6%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"},
-  {cat:"国学讲坛", who:"阎崇年", title:"《清十二帝疑案》", kind:"百家讲坛", yr:"2004",
-   intro:"百家讲坛开山级节目，讲清朝十二帝的疑案。历史科普的经典入门。",
-   url:"https://search.bilibili.com/all?keyword=%E9%98%8E%E5%B4%87%E5%B9%B4%20%E6%B8%85%E5%8D%81%E4%BA%8C%E5%B8%9D%E7%96%91%E6%A1%88%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"},
-  {cat:"阳明心学", who:"郦波", title:"《五百年来王阳明》", kind:"① 入门 · 听故事", yr:"2017",
-   intro:"第 1 步首选。把王阳明一生（龙场悟道、平定宁王之乱、讲学）讲成故事，零基础也能听懂心学是怎么来的。",
-   url:"https://search.bilibili.com/all?keyword=%E9%83%A6%E6%B3%A2%20%E4%BA%94%E7%99%BE%E5%B9%B4%E6%9D%A5%E7%8E%8B%E9%98%B3%E6%98%8E"},
-  {cat:"阳明心学", who:"董平", title:"《王阳明心学》", kind:"② 搭框架 · 浙大公开课", yr:"2018",
-   intro:"第 2 步。浙江大学教授系统讲心学的哲学结构（心即理、知行合一、致良知），比故事更完整、更严谨。",
-   url:"https://search.bilibili.com/all?keyword=%E8%91%A3%E5%B9%B3%20%E7%8E%8B%E9%98%B3%E6%98%8E%E5%BF%83%E5%AD%A6%20%E5%85%AC%E5%BC%80%E8%AF%BE"},
-  {cat:"阳明心学", who:"王德峰", title:"《王阳明心学》", kind:"② 搭框架 · 复旦讲座", yr:"2019",
-   intro:"第 2 步进阶。复旦王德峰用哲学讲心学与人生，风格酣畅，适合想知道「为什么」的人。",
-   url:"https://search.bilibili.com/all?keyword=%E7%8E%8B%E5%BE%B7%E5%B3%B0%20%E7%8E%8B%E9%98%B3%E6%98%8E%E5%BF%83%E5%AD%A6"},
-  {cat:"阳明心学", who:"央视", title:"《典籍里的中国 · 传习录》", kind:"情景演绎", yr:"2021",
-   intro:"用戏剧还原王阳明与《传习录》，画面感强、情绪足。适合当入门的调味料，加深印象。",
-   url:"https://search.bilibili.com/all?keyword=%E5%85%B8%E7%B1%8D%E9%87%8C%E7%9A%84%E4%B8%AD%E5%9B%BD%20%E7%8E%8B%E9%98%B3%E6%98%8E%20%E4%BC%A0%E4%B9%A0%E5%BD%95"},
-  {cat:"阳明心学", who:"王阳明 原著", title:"《传习录》原文精读", kind:"③ 读原典", yr:"2022",
-   intro:"第 3 步。心学的「圣经」，记录王阳明与弟子的问答。建议配合讲解版精读，别一上来就啃原文。",
-   url:"https://search.bilibili.com/all?keyword=%E4%BC%A0%E4%B9%A0%E5%BD%95%20%E5%8E%9F%E6%96%87%20%E8%AE%B2%E8%A7%A3"},
-  {cat:"阳明心学", who:"度阴山", title:"《知行合一王阳明》", kind:"通俗读本 · 有声", yr:"2015",
-   intro:"把心学讲成能用在生活里的方法，发行量极高的通俗读本。适合想「马上能用」的人。",
-   url:"https://search.bilibili.com/all?keyword=%E5%BA%A6%E9%98%B4%E5%B1%B1%20%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80%20%E7%8E%8B%E9%98%B3%E6%98%8E"},
-  {cat:"阳明心学", who:"冈田武彦", title:"《王阳明大传》", kind:"权威传记", yr:"2016",
-   intro:"国际上公认最权威的王阳明传记（日本学者著）。想再深入一步、看严谨考据的读它。",
-   url:"https://search.bilibili.com/all?keyword=%E7%8E%8B%E9%98%B3%E6%98%8E%E5%A4%A7%E4%BC%A0%20%E5%86%88%E7%94%B0%E6%AD%A6%E5%BD%A6"},
-  {cat:"阳明心学", who:"实践方法", title:"「事上磨练」：把心学用起来", kind:"④ 落地实践", yr:"2023",
-   intro:"第 4 步。心学不是书斋学问——在科研、组会、人际里练「省察克治」。这组视频讲怎么把心学真正用起来。",
-   url:"https://search.bilibili.com/all?keyword=%E9%98%B3%E6%98%8E%E5%BF%83%E5%AD%A6%20%E4%BA%8B%E4%B8%8A%E7%A3%A8%E7%BB%83%20%E5%AE%9E%E8%B7%B5"},
+  {cat:"名人与企业家", who:"马云", title:"湖畔大学 & 达沃斯演讲合集", kind:"演讲", yr:"2015", intro:"从英语老师到阿里创始人，讲「今天很残酷，明天更残酷，后天很美好」。低谷期、迷茫期最该听的一类，讲的是普通人靠坚持和格局翻身。", links:[{p:"B站", u:"https://search.bilibili.com/all?keyword=%E9%A9%AC%E4%BA%91%20%E6%BC%94%E8%AE%B2"}, {p:"腾讯视频", u:"https://v.qq.com/x/search/?q=%E9%A9%AC%E4%BA%91%20%E6%BC%94%E8%AE%B2"}]},
+  {cat:"名人与企业家", who:"雷军", title:"雷军年度演讲（2020–2025）", kind:"年度演讲", yr:"2025", intro:"小米创始人每年的「年度演讲」，讲「永远相信美好的事情即将发生」和风口上的选择逻辑。既是创业者方法论，也是长期主义的心态课。", links:[{p:"B站", u:"https://search.bilibili.com/all?keyword=%E9%9B%B7%E5%86%9B%20%E5%B9%B4%E5%BA%A6%E6%BC%94%E8%AE%B2"}, {p:"腾讯视频", u:"https://v.qq.com/x/search/?q=%E9%9B%B7%E5%86%9B%20%E5%B9%B4%E5%BA%A6%E6%BC%94%E8%AE%B2"}]},
+  {cat:"名人与企业家", who:"马斯克", title:"The future we're building — and boring（TED 2017）", kind:"TED 演讲", yr:"2017", intro:"马斯克亲自讲：为什么要造电动车、上火星、挖隧道，以及他的「第一性原理」思考法。英文原声，科技英语 + 思维方法双收。", links:[{p:"TED官方", u:"https://www.ted.com/talks/elon_musk_the_future_we_re_building_and_boring"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E9%A9%AC%E6%96%AF%E5%85%8B%20TED%20%E6%BC%94%E8%AE%B2"}]},
+  {cat:"名人与企业家", who:"乔布斯", title:"斯坦福大学 2005 毕业演讲（Stay hungry, stay foolish）", kind:"毕业演讲", yr:"2005", intro:"被引用最多的毕业演讲。三个故事讲「把点连起来」「热爱与失去」「直面死亡」。建议看中英字幕版，反复听。", links:[{p:"YouTube", u:"https://www.youtube.com/results?search_query=Steve%20Jobs%20Stanford%202005%20commencement"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E4%B9%94%E5%B8%83%E6%96%AF%20%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%BC%94%E8%AE%B2%20%E4%B8%AD%E8%8B%B1%E5%AD%97%E5%B9%95"}]},
+  {cat:"名人与企业家", who:"任正非", title:"访谈与内部讲话精选", kind:"访谈", yr:"2019", intro:"华为创始人的访谈实录，讲危机意识、基础研究与技术自立。对做科研的人特别有启发：为什么必须去啃硬骨头。", links:[{p:"B站", u:"https://search.bilibili.com/all?keyword=%E4%BB%BB%E6%AD%A3%E9%9D%9E%20%E8%AE%BF%E8%B0%88"}, {p:"腾讯视频", u:"https://v.qq.com/x/search/?q=%E4%BB%BB%E6%AD%A3%E9%9D%9E%20%E8%AE%BF%E8%B0%88"}]},
+  {cat:"名人与企业家", who:"曹德旺", title:"企业家精神与实业报国", kind:"演讲", yr:"2018", intro:"福耀玻璃创始人，讲制造业的坚守、成本与诚信。做实业的钝感力和长期主义，听着踏实。", links:[{p:"B站", u:"https://search.bilibili.com/all?keyword=%E6%9B%B9%E5%BE%B7%E6%97%BA%20%E6%BC%94%E8%AE%B2"}, {p:"腾讯视频", u:"https://v.qq.com/x/search/?q=%E6%9B%B9%E5%BE%B7%E6%97%BA%20%E6%BC%94%E8%AE%B2"}]},
+  {cat:"名人与企业家", who:"张一鸣", title:"延迟满足感与创业选择", kind:"演讲", yr:"2016", intro:"字节跳动创始人反复强调的「延迟满足感」——为什么把眼光放长的人赢面更大。适合焦虑、想速成的阶段听。", links:[{p:"B站", u:"https://search.bilibili.com/all?keyword=%E5%BC%A0%E4%B8%80%E9%B8%A3%20%E6%BC%94%E8%AE%B2%20%E5%BB%B6%E8%BF%9F%E6%BB%A1%E8%B6%B3%E6%84%9F"}, {p:"腾讯视频", u:"https://v.qq.com/x/search/?q=%E5%BC%A0%E4%B8%80%E9%B8%A3%20%E6%BC%94%E8%AE%B2"}]},
+  {cat:"名人与企业家", who:"俞敏洪", title:"在绝望中寻找希望", kind:"演讲", yr:"2013", intro:"新东方创始人的成名演讲，讲普通人如何用努力对抗出身。学生、研究生共鸣感极强。", links:[{p:"B站", u:"https://search.bilibili.com/all?keyword=%E4%BF%9E%E6%95%8F%E6%B4%AA%20%E5%9C%A8%E7%BB%9D%E6%9C%9B%E4%B8%AD%E5%AF%BB%E6%89%BE%E5%B8%8C%E6%9C%9B"}, {p:"腾讯视频", u:"https://v.qq.com/x/search/?q=%E4%BF%9E%E6%95%8F%E6%B4%AA%20%E6%BC%94%E8%AE%B2"}]},
+  {cat:"名人与企业家", who:"稻盛和夫", title:"敬天爱人与阿米巴经营", kind:"演讲", yr:"2010", intro:"日本「经营之圣」，把哲学落到经营：敬天爱人、付出不亚于任何人的努力。与阳明心学一脉相承，可对照着看。", links:[{p:"YouTube", u:"https://www.youtube.com/results?search_query=%E7%A8%BB%E7%9B%9B%E5%92%8C%E5%A4%AB%20%E6%BC%94%E8%AE%B2%20%E6%95%AC%E5%A4%A9%E7%88%B1%E4%BA%BA"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E7%A8%BB%E7%9B%9B%E5%92%8C%E5%A4%AB%20%E6%BC%94%E8%AE%B2%20%E6%95%AC%E5%A4%A9%E7%88%B1%E4%BA%BA"}]},
+  {cat:"名人与企业家", who:"曾毓群", title:"宁德时代与动力电池的二十年", kind:"演讲 / 访谈", yr:"2022", intro:"宁德时代创始人，讲动力电池技术路线与产业判断。跟你做的电池方向直接相关，听听产业视角很有用。", links:[{p:"B站", u:"https://search.bilibili.com/all?keyword=%E6%9B%BE%E6%AF%93%E7%BE%A4%20%E6%BC%94%E8%AE%B2%20%E5%AE%81%E5%BE%B7%E6%97%B6%E4%BB%A3"}, {p:"腾讯视频", u:"https://v.qq.com/x/search/?q=%E6%9B%BE%E6%AF%93%E7%BE%A4%20%E6%BC%94%E8%AE%B2%20%E5%AE%81%E5%BE%B7%E6%97%B6%E4%BB%A3"}]},
+  {cat:"国学讲坛", who:"易中天", title:"《品三国》", kind:"百家讲坛", yr:"2006", intro:"百家讲坛最火的一档，用大白话讲三国人物与权谋。想入门历史和练表达，从这档开始最省力。", links:[{p:"央视网(免费)", u:"https://tv.cctv.com/lm/bjjt/"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E6%98%93%E4%B8%AD%E5%A4%A9%20%E5%93%81%E4%B8%89%E5%9B%BD%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"}]},
+  {cat:"国学讲坛", who:"王立群", title:"《王立群读〈史记〉》", kind:"百家讲坛", yr:"2007", intro:"河南大学教授讲《史记》，人物心理分析极细。喜欢历史与人性观察的必看。", links:[{p:"央视网(免费)", u:"https://tv.cctv.com/lm/bjjt/"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E7%8E%8B%E7%AB%8B%E7%BE%A4%20%E8%AF%BB%E5%8F%B2%E8%AE%B0%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"}]},
+  {cat:"国学讲坛", who:"于丹", title:"《〈论语〉心得》", kind:"百家讲坛", yr:"2006", intro:"把《论语》讲成现代人的生活智慧，语速慢、金句多。零基础接触国学的好入口。", links:[{p:"央视网(免费)", u:"https://tv.cctv.com/lm/bjjt/"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E4%BA%8E%E4%B8%B9%20%E8%AE%BA%E8%AF%AD%E5%BF%83%E5%BE%97%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"}]},
+  {cat:"国学讲坛", who:"蒙曼", title:"《武则天》", kind:"百家讲坛", yr:"2007", intro:"中央民大教授讲武则天，史学功底和讲故事能力都好。人物传记类入门佳作。", links:[{p:"央视网(免费)", u:"https://tv.cctv.com/lm/bjjt/"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E8%92%99%E6%9B%BC%20%E6%AD%A6%E5%88%99%E5%A4%A9%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"}]},
+  {cat:"国学讲坛", who:"鲍鹏山", title:"《鲍鹏山新说〈水浒〉》", kind:"百家讲坛", yr:"2008", intro:"从《水浒》看中国人的处世与人格，观点犀利。喜欢「读出人性」的人会很喜欢。", links:[{p:"央视网(免费)", u:"https://tv.cctv.com/lm/bjjt/"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E9%B2%8D%E9%B9%8F%E5%B1%B1%20%E6%96%B0%E8%AF%B4%E6%B0%B4%E6%B5%92%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"}]},
+  {cat:"国学讲坛", who:"郦波", title:"《五百年来王阳明》", kind:"百家讲坛", yr:"2017", intro:"王阳明心学最好的入门视频，把一生故事讲透。看完再学心学，事半功倍。", links:[{p:"央视网(免费)", u:"https://tv.cctv.com/lm/bjjt/"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E9%83%A6%E6%B3%A2%20%E4%BA%94%E7%99%BE%E5%B9%B4%E6%9D%A5%E7%8E%8B%E9%98%B3%E6%98%8E%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"}]},
+  {cat:"国学讲坛", who:"康震", title:"《唐宋八大家》", kind:"百家讲坛", yr:"2011", intro:"北师大教授讲八大家的文章与人生。对提升文字表达和文学素养很有帮助。", links:[{p:"央视网(免费)", u:"https://tv.cctv.com/lm/bjjt/"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E5%BA%B7%E9%9C%87%20%E5%94%90%E5%AE%8B%E5%85%AB%E5%A4%A7%E5%AE%B6%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"}]},
+  {cat:"国学讲坛", who:"阎崇年", title:"《清十二帝疑案》", kind:"百家讲坛", yr:"2004", intro:"百家讲坛开山级节目，讲清朝十二帝的疑案。历史科普的经典入门。", links:[{p:"央视网(免费)", u:"https://tv.cctv.com/lm/bjjt/"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E9%98%8E%E5%B4%87%E5%B9%B4%20%E6%B8%85%E5%8D%81%E4%BA%8C%E5%B8%9D%E7%96%91%E6%A1%88%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"}]},
+  {cat:"阳明心学", who:"郦波", title:"《五百年来王阳明》", kind:"① 入门 · 听故事", yr:"2017", intro:"第 1 步首选。把王阳明一生（龙场悟道、平定宁王之乱、讲学）讲成故事，零基础也能听懂心学是怎么来的。", links:[{p:"央视网(免费)", u:"https://tv.cctv.com/lm/bjjt/"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E9%83%A6%E6%B3%A2%20%E4%BA%94%E7%99%BE%E5%B9%B4%E6%9D%A5%E7%8E%8B%E9%98%B3%E6%98%8E"}]},
+  {cat:"阳明心学", who:"董平", title:"《王阳明心学》", kind:"② 搭框架 · 浙大公开课", yr:"2018", intro:"第 2 步。浙江大学教授系统讲心学的哲学结构（心即理、知行合一、致良知），比故事更完整、更严谨。", links:[{p:"YouTube", u:"https://www.youtube.com/results?search_query=%E8%91%A3%E5%B9%B3%20%E7%8E%8B%E9%98%B3%E6%98%8E%E5%BF%83%E5%AD%A6%20%E5%85%AC%E5%BC%80%E8%AF%BE"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E8%91%A3%E5%B9%B3%20%E7%8E%8B%E9%98%B3%E6%98%8E%E5%BF%83%E5%AD%A6%20%E5%85%AC%E5%BC%80%E8%AF%BE"}]},
+  {cat:"阳明心学", who:"王德峰", title:"《王阳明心学》", kind:"② 搭框架 · 复旦讲座", yr:"2019", intro:"第 2 步进阶。复旦王德峰用哲学讲心学与人生，风格酣畅，适合想知道「为什么」的人。", links:[{p:"YouTube", u:"https://www.youtube.com/results?search_query=%E7%8E%8B%E5%BE%B7%E5%B3%B0%20%E7%8E%8B%E9%98%B3%E6%98%8E%E5%BF%83%E5%AD%A6"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E7%8E%8B%E5%BE%B7%E5%B3%B0%20%E7%8E%8B%E9%98%B3%E6%98%8E%E5%BF%83%E5%AD%A6"}]},
+  {cat:"阳明心学", who:"央视", title:"《典籍里的中国 · 传习录》", kind:"情景演绎", yr:"2021", intro:"用戏剧还原王阳明与《传习录》，画面感强、情绪足。适合当入门的调味料，加深印象。央视网搜索可免费看。", links:[{p:"央视网搜索", u:"https://search.cctv.com/search?qtext=%E5%85%B8%E7%B1%8D%E9%87%8C%E7%9A%84%E4%B8%AD%E5%9B%BD%20%E4%BC%A0%E4%B9%A0%E5%BD%95"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E5%85%B8%E7%B1%8D%E9%87%8C%E7%9A%84%E4%B8%AD%E5%9B%BD%20%E7%8E%8B%E9%98%B3%E6%98%8E%20%E4%BC%A0%E4%B9%A0%E5%BD%95"}]},
+  {cat:"阳明心学", who:"王阳明 原著", title:"《传习录》原文精读", kind:"③ 读原典", yr:"2022", intro:"第 3 步。心学的「圣经」，记录王阳明与弟子的问答。建议配合讲解版精读，别一上来就啃原文。", links:[{p:"B站", u:"https://search.bilibili.com/all?keyword=%E4%BC%A0%E4%B9%A0%E5%BD%95%20%E5%8E%9F%E6%96%87%20%E8%AE%B2%E8%A7%A3"}, {p:"喜马拉雅(听)", u:"https://www.ximalaya.com/search?q=%E4%BC%A0%E4%B9%A0%E5%BD%95%20%E5%8E%9F%E6%96%87%20%E8%AE%B2%E8%A7%A3"}]},
+  {cat:"阳明心学", who:"度阴山", title:"《知行合一王阳明》", kind:"通俗读本 · 有声", yr:"2015", intro:"把心学讲成能用在生活里的方法，发行量极高的通俗读本。适合想「马上能用」的人。", links:[{p:"B站", u:"https://search.bilibili.com/all?keyword=%E5%BA%A6%E9%98%B4%E5%B1%B1%20%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80%E7%8E%8B%E9%98%B3%E6%98%8E"}, {p:"喜马拉雅(听)", u:"https://www.ximalaya.com/search?q=%E5%BA%A6%E9%98%B4%E5%B1%B1%20%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80%E7%8E%8B%E9%98%B3%E6%98%8E"}]},
+  {cat:"阳明心学", who:"冈田武彦", title:"《王阳明大传》", kind:"权威传记", yr:"2016", intro:"国际上公认最权威的王阳明传记（日本学者著）。想再深入一步、看严谨考据的读它。", links:[{p:"YouTube", u:"https://www.youtube.com/results?search_query=%E7%8E%8B%E9%98%B3%E6%98%8E%E5%A4%A7%E4%BC%A0%20%E5%86%88%E7%94%B0%E6%AD%A6%E5%BD%A6"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E7%8E%8B%E9%98%B3%E6%98%8E%E5%A4%A7%E4%BC%A0%20%E5%86%88%E7%94%B0%E6%AD%A6%E5%BD%A6"}]},
+  {cat:"阳明心学", who:"实践方法", title:"「事上磨练」：把心学用起来", kind:"④ 落地实践", yr:"2023", intro:"第 4 步。心学不是书斋学问——在科研、组会、人际里练「省察克治」。这组视频讲怎么把心学真正用起来。", links:[{p:"B站", u:"https://search.bilibili.com/all?keyword=%E9%98%B3%E6%98%8E%E5%BF%83%E5%AD%A6%20%E4%BA%8B%E4%B8%8A%E7%A3%A8%E7%BB%83%20%E5%AE%9E%E8%B7%B5"}, {p:"YouTube", u:"https://www.youtube.com/results?search_query=%E9%98%B3%E6%98%8E%E5%BF%83%E5%AD%A6%20%E4%BA%8B%E4%B8%8A%E7%A3%A8%E7%BB%83%20%E5%AE%9E%E8%B7%B5"}]}
 ];
 window.XINXUE_GUIDE = {
   intro:"王阳明（1472–1529）：明代思想家、军事家，中国历史上少有的「立德、立功、立言」三不朽。心学核心就一句——力量在你自己心里，不在外面。",
   steps:[
-    {t:"① 听故事", d:"先看郦波《五百年来王阳明》，把心学的来龙去脉搞明白，别急着读原文。"},
-    {t:"② 搭框架", d:"用董平 / 王德峰的课，掌握「心即理、知行合一、致良知」三大命题的内在逻辑。"},
+    {t:"① 听故事", d:"先看郦波《五百年来王阳明》（央视网百家讲坛免费），把心学的来龙去脉搞明白，别急着读原文。"},
+    {t:"② 搭框架", d:"用董平 / 王德峰的课（YouTube/B站），掌握「心即理、知行合一、致良知」三大命题的内在逻辑。"},
     {t:"③ 读原典", d:"翻《传习录》，配合讲解版，一天两三条慢慢品，不必求快。"},
     {t:"④ 落到事上", d:"在真实场景里练：遇事先向内看（省察克治），想明白就立刻做（知行合一）。"},
   ],
@@ -2565,6 +2513,7 @@ window.XINXUE_GUIDE = {
         box.innerHTML='<div class="lk-tip" style="margin-bottom:14px;background:#f5f3ff;border-color:#ddd6fe;color:#4c1d95">'+
           '<div style="font-weight:800;font-size:15px;margin-bottom:7px">🧘 阳明心学 · 四步入门（照着走就行）</div>'+
           '<div style="font-size:13.5px;line-height:1.75;margin-bottom:11px">'+esc(GUIDE.intro||"")+'</div>'+
+          '<div style="font-size:13px;line-height:1.6;margin-bottom:11px;color:#15803d">📺 <b>免费官方源：</b>郦波《五百年来王阳明》在央视网百家讲坛（tv.cctv.com/lm/bjjt/）免费看；《典籍里的中国·传习录》在央视网搜索免费看。</div>'+
           '<div style="font-weight:800;margin:10px 0 4px;font-size:14px">📚 学习路径</div>'+ steps +
           '<div style="font-weight:800;margin:12px 0 4px;font-size:14px">🔑 四个核心概念</div>'+ cons +
         '</div>';
@@ -2603,8 +2552,13 @@ window.XINXUE_GUIDE = {
           '</div>'+
           '<div style="margin:7px 0 9px;font-weight:800;font-size:15px">'+esc(x.title||"")+'</div>'+
           '<div class="d-row"><span class="d-k">简介</span><span class="d-v">'+esc(x.intro||"")+'</span></div>'+
-          '<div style="margin-top:11px">'+
-            '<a class="top-btn" href="'+esc(x.url||"#")+'" target="_blank" rel="noopener noreferrer">▶ 去看 ↗</a>'+
+          '<div style="margin-top:11px;display:flex;flex-wrap:wrap;gap:8px;align-items:center">'+
+            '<span style="font-size:12px;color:#64748b">观看 ▸</span>'+
+            (x.links||[{p:"链接",u:x.url||"#"}]).map(function(l){
+              var isfree = (l.p.indexOf("免费")>=0);
+              var st = isfree ? ' style="background:#16a34a;border-color:#16a34a;color:#fff"' : '';
+              return '<a class="top-btn"'+st+' href="'+esc(l.u||"#")+'" target="_blank" rel="noopener noreferrer">'+esc(l.p)+' ↗</a>';
+            }).join("")+
           '</div>'+
         '</article>';
       }).join("");

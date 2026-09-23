@@ -722,7 +722,7 @@
   <!-- ================= FORUM VIEW (成长讲坛) ================= -->
   <div id="view-forum" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-forum">
     <div class="view-head"><h2>🌱 成长讲坛：企业家演讲 · 国学讲坛 · 阳明心学</h2>
-      <p>三类「长脑子、长心气」的内容，都按<b>分类</b>整理好了：<b>💼 名人与企业家</b>（马云、雷军、马斯克、乔布斯等，受鼓舞用）；<b>📖 国学讲坛</b>（百家讲坛：易中天、王立群、蒙曼等，养底蕴用）；<b>🧘 阳明心学</b>（一条从入门到实践的完整路径）。共 <b id="forum-count">0</b> 条，整理于 <b id="forum-updated">-</b>。点「去看」直接跳视频。</p></div>
+      <p>三类「长脑子、长心气」的内容，都按<b>分类</b>整理好了：<b>💼 名人与企业家</b>（马云、雷军、马斯克、乔布斯等，受鼓舞用）；<b>📖 国学讲坛</b>（百家讲坛：易中天、王立群、蒙曼等，养底蕴用）；<b>🧘 阳明心学</b>（一条从入门到实践的完整路径）。共 <b id="forum-count">0</b> 条，整理于 <b id="forum-updated">-</b>。每张卡片给了<b>多个观看入口</b>（央视网 / 腾讯视频 / YouTube / 喜马拉雅 / B站），<b style="color:#16a34a">标「免费」的是官方无会员源，优先点</b>。</p></div>
     <div class="news">
       🧭 <b>怎么安排不浪费：</b>企业家演讲当「精神燃料」，<b>每周 1–2 场</b>就够，别当避难所；国学讲坛当「长期滋养」，<b>每天 15–30 分钟</b>当背景音也行；心学不要只听课——按下面的<b>四步</b>来，边学边在科研和生活里用。
     </div>
@@ -1512,6 +1512,7 @@
         box.innerHTML='<div class="lk-tip" style="margin-bottom:14px;background:#f5f3ff;border-color:#ddd6fe;color:#4c1d95">'+
           '<div style="font-weight:800;font-size:15px;margin-bottom:7px">🧘 阳明心学 · 四步入门（照着走就行）</div>'+
           '<div style="font-size:13.5px;line-height:1.75;margin-bottom:11px">'+esc(GUIDE.intro||"")+'</div>'+
+          '<div style="font-size:13px;line-height:1.6;margin-bottom:11px;color:#15803d">📺 <b>免费官方源：</b>郦波《五百年来王阳明》在央视网百家讲坛（tv.cctv.com/lm/bjjt/）免费看；《典籍里的中国·传习录》在央视网搜索免费看。</div>'+
           '<div style="font-weight:800;margin:10px 0 4px;font-size:14px">📚 学习路径</div>'+ steps +
           '<div style="font-weight:800;margin:12px 0 4px;font-size:14px">🔑 四个核心概念</div>'+ cons +
         '</div>';
@@ -1550,8 +1551,13 @@
           '</div>'+
           '<div style="margin:7px 0 9px;font-weight:800;font-size:15px">'+esc(x.title||"")+'</div>'+
           '<div class="d-row"><span class="d-k">简介</span><span class="d-v">'+esc(x.intro||"")+'</span></div>'+
-          '<div style="margin-top:11px">'+
-            '<a class="top-btn" href="'+esc(x.url||"#")+'" target="_blank" rel="noopener noreferrer">▶ 去看 ↗</a>'+
+          '<div style="margin-top:11px;display:flex;flex-wrap:wrap;gap:8px;align-items:center">'+
+            '<span style="font-size:12px;color:#64748b">观看 ▸</span>'+
+            (x.links||[{p:"链接",u:x.url||"#"}]).map(function(l){
+              var isfree = (l.p.indexOf("免费")>=0);
+              var st = isfree ? ' style="background:#16a34a;border-color:#16a34a;color:#fff"' : '';
+              return '<a class="top-btn"'+st+' href="'+esc(l.u||"#")+'" target="_blank" rel="noopener noreferrer">'+esc(l.p)+' ↗</a>';
+            }).join("")+
           '</div>'+
         '</article>';
       }).join("");
