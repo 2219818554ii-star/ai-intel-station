@@ -12,7 +12,7 @@ const tabs = [...html.matchAll(/data-tab="([^"]+)"/g)].map(m => m[1]);
 ok(tabs.length === 6, `tab 数量 = ${tabs.length}（期望 6）: ${tabs.join(', ')}`);
 ok(['daily','rank','comp','learn','ted','forum'].every(v => html.includes(`id="view-${v}"`)), 'view 区块 = 6/6');
 ok(html.includes('["daily","rank","comp","learn","ted","forum"]'), 'showTab 数组含全部 6 个视图');
-ok(!/<script src="(competitions|ted|forum)\.js"/.test(html), '三个数据文件均已内联（无外链脚本）');
+ok(!/<script src="(competitions|ted|forum|rank)\.js"/.test(html), '四个数据文件均已内联（无外链脚本）');
 const httpLeft = count(html, /href="http:\/\//g);
 ok(httpLeft === 0, `无 http:// 明文链接（剩余 ${httpLeft}）`);
 
@@ -56,6 +56,12 @@ ok(btns('forumFilters') === 4, `讲坛筛选按钮 = ${btns('forumFilters')}（�
 ok((store['ted-stat']||{}).textContent === '共 25 场（全部 25 场）', `TED 统计: ${(store['ted-stat']||{}).textContent}`);
 ok((store['forum-stat']||{}).textContent === '共 26 条（全部 26 条）', `讲坛统计: ${(store['forum-stat']||{}).textContent}`);
 ok((store['xinxue-guide']||{}).style.display === 'none', '默认（全部）时心学面板隐藏');
+
+console.log('\n[2b] 排行榜渲染（验证 rank.js 已内联且数据正常）');
+ok(((store['p-models']||{}).innerHTML||'').includes('Claude Fable 5.1'), '排行榜·大模型 已渲染');
+ok(((store['p-tools']||{}).innerHTML||'').includes('Claude Code'), '排行榜·编程工具 已渲染');
+ok(((store['p-combos']||{}).innerHTML||'').includes('Claude Code + Claude Fable'), '排行榜·组合 已渲染');
+ok(((store['p-tables']||{}).innerHTML||'').includes('Artificial Analysis'), '排行榜·真实榜单 已渲染');
 
 console.log('\n[3] 模拟点击分类筛选');
 function fireFilter(elId, cat){
