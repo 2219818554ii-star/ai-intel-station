@@ -1,11 +1,15 @@
 /* AI 情报站 - TED 英语演讲（认知提升 + 英语听力素材） */
-window.TED_UPDATED = "2026-09-23";
+window.TED_UPDATED = "2026-09-22";
 /* ============ TED TALKS (curated 2026-09-23) ============
    选片原则：① 全网公认、播放量极高的经典 TED/TEDx 演讲；
             ② 主题能提升认知（学习/心理幸福/习惯/沟通领导/思维）；
             ③ 英文原声 + 官方字幕，适合作英语听力与地道表达素材。
    字段：en 英文标题｜zh 中文译名｜sp 演讲者｜yr 年份｜dur 时长(分)｜
-        cat 大类(仅 5 种，用于筛选)｜sub 细分主题｜intro 简介+看点｜url 官方视频 */
+        cat 大类(仅 5 种，用于筛选)｜sub 细分主题｜intro 简介+看点｜
+        url 官方直链（仅作数据留底，渲染已改多平台入口，见 renderTED）
+   渲染策略（2026-09-22 修订）：弃用易 404 的 ted.com/talks/<slug> 直链，
+        改为「TED 官方搜索(免费) + YouTube + B站(中英字幕)」三入口，
+        哪个通点哪个，彻底解决视频打不开的问题。 */
 window.TED = [
   /* ===== 学习成长 ===== */
   {en:"Do schools kill creativity?", zh:"学校如何扼杀创造力", sp:"Ken Robinson", yr:2006, dur:19, cat:"学习成长", sub:"创造力",

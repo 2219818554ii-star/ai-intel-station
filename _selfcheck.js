@@ -41,6 +41,7 @@ const sandbox = {
   AbortController: class { constructor(){ this.signal={}; } abort(){} },
   fetch: () => Promise.reject(new Error('stub')),
   Date, Math, JSON, RegExp, Object, Array, String, Number, Boolean, Error, Promise,
+  encodeURIComponent, decodeURIComponent,
 };
 sandbox.window.window = sandbox.window;
 vm.createContext(sandbox);
@@ -50,6 +51,10 @@ catch(e){ ok(false, '脚本执行异常: ' + e.message); }
 const cards = sel => count(((store[sel]||{}).innerHTML||''), /<article class="cmp"/g);
 const btns = sel => count(((store[sel]||{}).innerHTML||''), /class="filterbtn/g);
 ok(cards('ted-list') === 25, `TED 卡片 = ${cards('ted-list')}（期望 25）`);
+const tedHtml = (store['ted-list']||{}).innerHTML || '';
+ok(tedHtml.includes('TED官方搜索') && tedHtml.includes('YouTube') && tedHtml.includes('B站'), 'TED 多平台观看入口已渲染（TED官方搜索/YouTube/B站）');
+ok(tedHtml.includes('background:#16a34a') && tedHtml.includes('TED官方搜索'), 'TED 免费入口（TED官方搜索）染绿色');
+ok(!tedHtml.includes('ted.com/talks/'), 'TED 已弃用易 404 的 ted.com/talks/<slug> 直链');
 ok(cards('forum-list') === 26, `成长讲坛卡片 = ${cards('forum-list')}（期望 26）`);
 ok(btns('tedFilters') === 6, `TED 筛选按钮 = ${btns('tedFilters')}（期望 6 = 全部+5 大类）`);
 ok(btns('forumFilters') === 4, `讲坛筛选按钮 = ${btns('forumFilters')}（期望 4 = 全部+3 类）`);

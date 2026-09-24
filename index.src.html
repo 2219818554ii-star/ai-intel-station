@@ -1330,6 +1330,13 @@
     box.innerHTML = list.map(function(t, i){
       var idx = TED.indexOf(t) + 1;
       var num = (idx<10?"0":"")+idx;
+      var qEn = encodeURIComponent(t.en || "");
+      var qSp = encodeURIComponent(((t.sp||"") + " " + (t.en||"")).trim());
+      var links = [
+        {p:"TED官方搜索(免费)", u:"https://www.ted.com/search?q="+qEn},
+        {p:"YouTube", u:"https://www.youtube.com/results?search_query="+qSp},
+        {p:"B站(中英字幕)", u:"https://search.bilibili.com/all?keyword="+qSp}
+      ];
       return '<article class="cmp">'+
         '<div class="cmp-head" style="cursor:default">'+
           '<span class="chip" style="border-color:var(--brand);color:var(--brand);background:var(--brand-soft)">'+esc(t.cat||"")+'</span>'+
@@ -1344,9 +1351,13 @@
           '<span class="chip" style="border-color:var(--line)">#'+num+'</span>'+
         '</div>'+
         '<div class="d-row"><span class="d-k">讲什么</span><span class="d-v">'+esc(t.intro||"")+'</span></div>'+
-        '<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:11px">'+
-          '<a class="top-btn" href="'+esc(t.url||"#")+'" target="_blank" rel="noopener noreferrer">▶ 看视频（TED 官方）↗</a>'+
-          '<a class="top-btn" href="'+esc(t.url||"#")+'/transcript" target="_blank" rel="noopener noreferrer" style="color:var(--ink-soft);border-color:var(--line)">📄 英文文稿 ↗</a>'+
+        '<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:11px">'+
+          '<span style="font-size:12px;color:#64748b">观看 ▸</span>'+
+          links.map(function(l){
+            var isfree=(l.p.indexOf("免费")>=0);
+            var st=isfree?' style="background:#16a34a;border-color:#16a34a;color:#fff"':'';
+            return '<a class="top-btn"'+st+' href="'+esc(l.u||"#")+'" target="_blank" rel="noopener noreferrer">'+esc(l.p)+' ↗</a>';
+          }).join("")+
         '</div>'+
       '</article>';
     }).join("");
