@@ -291,7 +291,7 @@
   <!-- ================= RANK VIEW ================= -->
   <div id="view-rank" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-rank">
     <div class="view-head"><h2>🏆 AI 实力排行榜</h2>
-      <p>大模型 / 编程工具 / 工具×模型组合 的分维度与综合实力评级。数据截至 <b>2026-09-22</b>。</p></div>
+      <p>大模型 / 编程工具 / 工具×模型组合 的分维度与综合实力评级。数据截至 <b>2026-09-24</b>。<span style="display:inline-block;margin-left:8px;padding:2px 9px;border-radius:999px;background:#ecfdf5;color:#15803d;font-size:12px;font-weight:700;border:1px solid #bbf7d0">🔄 每日自动更新</span></p></div>
     <div class="news">
       🆕 <b>2026 年 9 月新动态：</b>Claude Fable 5.1（9-1，AA 智能指数并列第一）、GPT-6 Astra（9-3，号称 AGI 时代但<b>几乎不可用</b>）、Gemini 3.8 Flash（9-2，多模态标杆）、Muse Spark 1.3（9-2）、Qwen3.8-Max 登 Code Arena WebDev 榜首（9-2）、GLM-5.3-Flash 开源（8-26）、腾讯 Hy4 Preview 开源（8-28）。<b>注意：GPT-6 Astra 被定为「关键网络安全」级，目前仅 Daybreak 计划批准者可用，投票榜样本极少，排名可能随时变化。</b>
     </div>
@@ -741,8 +741,8 @@
 
   <script>
 /* AI 情报站 - 比赛数据（每日自动更新） */
-window.COMP_UPDATED = "2026-09-23";
-/* ============ COMPETITIONS (snapshot 2026-09-23) ============
+window.COMP_UPDATED = "2026-09-24";
+/* ============ COMPETITIONS (snapshot 2026-09-24) ============
    数据规则：走省赛/赛区选拔且官网赛区列表中没有重庆的赛事，一律不放 scope:"me"（挪 world 或不收）。
    已知案例：挑战杯 2026 报备页省赛仅 13 省，无重庆 → 挑战杯两条均为 world。 */
   var CPIPC = "https://cpipc.acge.org.cn/cw/hp/";
@@ -758,9 +758,9 @@ window.COMP_UPDATED = "2026-09-23";
      reg:"8/10 – 9/25 12:00", run:"校赛 8–10 月；总决赛 11 月",
      desc:"中国研究生创新实践系列大赛或同类研究生赛事，由权威学会/部委指导，面向研究生，可凭专业背景参与。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"AI 帮商业计划书、路演稿、PPT、竞品分析、财务测算、答辩提纲。含高教主赛道 + 产业赛道。",
      url:"https://cy.ncss.cn/"},
-    {scope:"me", n:"中国研究生企业管理创新大赛（第四届）", type:"管理/商业分析", st:"soon", ai:4, pri:2, team:"组队（跨专业友好）",
+    {scope:"me", n:"中国研究生企业管理创新大赛（第四届）", type:"管理/商业分析", st:"closed", ai:4, pri:2, team:"组队（跨专业友好）",
      org:"教育部学位管理与研究生教育司指导 · 北京外国语大学承办",
-     reg:"8/10 – 9/22 19:00（报名最后一天，今晚 19:00 截止；审核 9/23 17:00 截止）", run:"初赛作品提交 9/24–10/18；复赛 11/10–15；总决赛 12/5–6（北京外国语大学承办）",
+     reg:"报名 8/10 – 9/22 19:00、审核 9/23 17:00 均截止（报名已结束，进入初赛作品提交阶段）", run:"初赛作品提交 9/24–10/18；复赛 11/10–15；总决赛 12/5–6（北京外国语大学承办）",
      desc:"面向公共治理或企业管理的案例与方案竞赛，重分析与决策。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"含「商业分析与实践」「数字技术应用」赛道：AI 帮数据分析、报告撰写、案例研究、可视化。",
      url:"https://cpipc.acge.org.cn/cw/hp/2c90801786cfa2b60186de4143390279"},
     {scope:"me", n:"2026 科大讯飞 AI 开发者大赛（含星火杯·大模型应用创新赛）", type:"AI 应用/大模型", st:"open", ai:5, pri:1, team:"组队 / 单人可",
@@ -1743,25 +1743,10 @@ window.XINXUE_GUIDE = {
 };
 
 </script>
-<script>
-(function(){
-  "use strict";
-
-  /* ============ TAB SWITCHING ============ */
-  function showTab(tab){
-    document.querySelectorAll(".tab").forEach(function(t){ var on=(t.dataset.tab===tab); t.classList.toggle("active", on); t.setAttribute("aria-selected", on?"true":"false"); });
-    ["daily","rank","comp","learn","ted","forum"].forEach(function(v){
-      var el=document.getElementById("view-"+v);
-      if(el){ el.style.display = (v===tab)?"":"none"; el.setAttribute("aria-hidden", v===tab?"false":"true"); }
-    });
-    window.scrollTo(0,0);
-  }
-  document.querySelectorAll(".tab").forEach(function(t){
-    t.addEventListener("click", function(){ showTab(t.dataset.tab); });
-  });
-
-  /* ============ RANK DATA (snapshot 2026-09-22) ============ */
-  var RANK = {
+  <script>
+/* AI 情报站 - 实力排行榜数据（每日自动更新） */
+window.RANK_UPDATED = "2026-09-24";
+window.RANK = {
     models: [
       {name:"Claude Fable 5.1", vendor:"Anthropic（美国）", price:"Pro $17–20/月；API $10/$50 每百万", iaa:53, tb:91.4,
        t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"B",性价比:"C",开源:"—"},
@@ -1861,7 +1846,7 @@ window.XINXUE_GUIDE = {
        note:"最便宜付费、IDE 原生、issue→PR。团队已在 GitHub 且要低门槛选它。"}
     ],
     tables: {
-      aa: {title:"Artificial Analysis 智能指数 v4.3 Top13（满分≈53，2026-09-22 复核）", unit:"分", rows:[
+      aa: {title:"Artificial Analysis 智能指数 v4.3 Top13（满分≈53，2026-09-24 复核）", unit:"分", rows:[
         ["Claude Fable 5.1",53],["GPT-6 Astra",53],["Claude Opus 5",51],["Claude Fable 5",50],
         ["Muse Spark 1.3",48],["GLM-5.3",45],["Grok 4.6",44],["Kimi K3",44],
         ["GLM-5.3-Flash",42],["Gemini 3.8 Flash",41],["Qwen3.8 (2.4T)",40],["DeepSeek V4.1-Flash",40],
@@ -1884,6 +1869,27 @@ window.XINXUE_GUIDE = {
       ]}
     }
   };
+
+</script>
+<script>
+(function(){
+  "use strict";
+
+  /* ============ TAB SWITCHING ============ */
+  function showTab(tab){
+    document.querySelectorAll(".tab").forEach(function(t){ var on=(t.dataset.tab===tab); t.classList.toggle("active", on); t.setAttribute("aria-selected", on?"true":"false"); });
+    ["daily","rank","comp","learn","ted","forum"].forEach(function(v){
+      var el=document.getElementById("view-"+v);
+      if(el){ el.style.display = (v===tab)?"":"none"; el.setAttribute("aria-hidden", v===tab?"false":"true"); }
+    });
+    window.scrollTo(0,0);
+  }
+  document.querySelectorAll(".tab").forEach(function(t){
+    t.addEventListener("click", function(){ showTab(t.dataset.tab); });
+  });
+
+  /* ============ RANK DATA (snapshot 2026-09-22) ============ */
+  var RANK = window.RANK || {};
 
   function tierBadge(t){
     var cls = {"S":"t-S","A":"t-A","B":"t-B","C":"t-C","—":"t-none"}[t] || "t-none";
@@ -2397,7 +2403,7 @@ window.XINXUE_GUIDE = {
   function renderAutoBar(){
     var el = document.getElementById("autoBar");
     if(!el) return;
-    el.innerHTML = "🔄 <b>每 30 分钟自动刷新</b> · 日报实时拉取（下次还有 <b>"+fmtMMSS(autoNextAt-Date.now())+"</b>）· 上次刷新 <b>"+bjClock(autoLastAt)+"</b> · 排行榜 / 比赛 / AI 上手 为人工核对快照（2026-09-22）";
+    el.innerHTML = "🔄 <b>每 30 分钟自动刷新</b> · 日报实时拉取（下次还有 <b>"+fmtMMSS(autoNextAt-Date.now())+"</b>）· 上次刷新 <b>"+bjClock(autoLastAt)+"</b> · 排行榜 / 比赛 / AI 上手 为每日自动更新快照（2026-09-24）";
   }
   function autoRefreshNow(){
     autoLastAt = new Date();
