@@ -748,6 +748,7 @@
       <button class="filterbtn" data-c="college">🏫 各学院</button>
       <button class="filterbtn" data-c="student">🎒 团委·学生会</button>
     </div>
+    <div class="cmp-toolbar" id="cqutTagFilters" style="margin-top:9px"></div>
     <div class="cmp-list" id="cqut-list"></div>
     <div class="view-head" style="margin-top:30px">
       <h2 style="font-size:20px">🔗 全部信源直达（每个学院、每个部门都能点到）</h2>
@@ -1543,8 +1544,32 @@
   "use strict";
   function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
   var CAT = { school:"🏛 学校各部门", college:"🏫 各学院", student:"🎒 团委·学生会" };
+  var TAGS = window.CQUT_TAGS || [];
+  var TAGNAME = {};
+  TAGS.forEach(function(x){ TAGNAME[x.k] = x.n; });
   var N = window.CQUT_NOTICES || [];
   var CQUT_CAT = "全部";
+  var CQUT_TAG = "全部";
+
+  function inCat(n){ return CQUT_CAT==="全部" || n.cat===CQUT_CAT; }
+  function inTag(n){ return CQUT_TAG==="全部" || n.tag===CQUT_TAG; }
+
+  /* 二级筛选：只列出「当前大类下真实存在」的细分类，避免出现点了没结果的按钮 */
+  function renderTagBar(){
+    var tw = document.getElementById('cqutTagFilters');
+    if(!tw) return;
+    var avail = [];
+    N.filter(inCat).forEach(function(n){
+      if(n.tag && avail.indexOf(n.tag)<0) avail.push(n.tag);
+    });
+    if(CQUT_TAG!=="全部" && avail.indexOf(CQUT_TAG)<0) CQUT_TAG = "全部";
+    if(avail.length<=1 && CQUT_TAG==="全部"){ tw.innerHTML=""; return; }
+    var hs = ['<button class="filterbtn'+(CQUT_TAG==="全部"?" active":"")+'" data-t="全部">全部分类</button>'];
+    avail.forEach(function(k){
+      hs.push('<button class="filterbtn'+(CQUT_TAG===k?" active":"")+'" data-t="'+k+'">'+TAGNAME[k]+'</button>');
+    });
+    tw.innerHTML = hs.join("");
+  }
 
   function render(){
     var up = document.getElementById('cqut-updated');
@@ -1557,12 +1582,14 @@
       });
       fw.innerHTML = hs.join("");
     }
-    var list = N.filter(function(n){ return CQUT_CAT==="全部" || n.cat===CQUT_CAT; });
+    renderTagBar();
+    var list = N.filter(function(n){ return inCat(n) && inTag(n); });
     var box = document.getElementById('cqut-list');
     if(!box) return;
     if(!list.length){ box.innerHTML = '<div class="news">该分类暂无内容。</div>'; return; }
     box.innerHTML = list.map(function(n, i){
       var num = (i+1<10?"0":"")+(i+1);
+      var tagHtml = TAGNAME[n.tag] ? '<span class="chip" style="border-color:var(--line)">'+TAGNAME[n.tag]+'</span>' : "";
       return '<article class="cmp">'+
         '<div class="cmp-head" style="cursor:default">'+
           '<span class="chip" style="border-color:var(--brand);color:var(--brand);background:var(--brand-soft)">'+esc(n.src||"")+'</span>'+
@@ -1570,6 +1597,7 @@
         '</div>'+
         '<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--ink-soft);margin:8px 0">'+
           '<span class="chip" style="border-color:var(--line)">📅 '+esc(n.date||"")+'</span>'+
+          tagHtml+
           '<span class="chip" style="border-color:var(--line)">#'+num+'</span>'+
         '</div>'+
         '<div class="d-row"><span class="d-k">我该关注啥</span><span class="d-v">'+esc(n.sum||"")+'</span></div>'+
@@ -1585,14 +1613,27 @@
       var b = ev.target.closest ? ev.target.closest(".filterbtn") : null;
       if(!b) return;
       CQUT_CAT = b.getAttribute("data-c") || "全部";
+      CQUT_TAG = "全部";
+      render();
+    });
+  }
+  var tf = document.getElementById('cqutTagFilters');
+  if(tf){
+    tf.addEventListener("click", function(ev){
+      var b = ev.target.closest ? ev.target.closest(".filterbtn") : null;
+      if(!b) return;
+      CQUT_TAG = b.getAttribute("data-t") || "全部";
       render();
     });
   }
   render();
 
-  /* 全部信源直达矩阵 */
+  /* 全部信源直达矩阵（按职能再分一层） */
   var S = window.CQUT_SOURCES || {};
-  var GROUPS = [["gov","🏛 学校 · 各部门"],["college","🏫 各学院"],["student","🎒 学生组织"]];
+  var GROUPS = [
+    ["teach","📚 教学 · 研究生"],["sci","🔬 科研 · 学术"],
+    ["stu","🎒 学生 · 服务"],["party","🚩 团委 · 学生组织"],["college","🏫 全部 15 个学院"]
+  ];
   var sbox = document.getElementById('cqut-sources');
   if(sbox){
     sbox.innerHTML = GROUPS.map(function(g){
