@@ -162,13 +162,17 @@ MUST_CONTAIN = [
     ("TED 多平台观看入口", '<span style="font-size:12px;color:#64748b">观看 ▸</span>'),
     ("基金看板 tab 文案", "📈 基金看板"),
     ("基金持仓列表容器", 'id="funds-list"'),
+    ("各学院赛事区块标题", "各学院赛事"),
+    ("各学院赛事列表容器", 'id="cqut-match-list"'),
+    ("各学院赛事筛选容器", 'id="cqutMatchFilters"'),
+    ("赛事我所能栏位", "具体要干啥"),
 ]
 missing = [n for n, s in MUST_CONTAIN if s not in prod]
 if missing:
     bad("产物里找不到：%s" % "、".join(missing),
         "改了 index.src.html 但没构建 / 或改动本身有 bug")
 else:
-    ok(PASS, "%d 项关键结构全部存在（8 栏目 + 理工 4 组件 + 基金 2 组件 + TED 多看入口）"
+    ok(PASS, "%d 项关键结构全部存在（8 栏目 + 理工 4 组件 + 基金 2 组件 + 赛事 3 组件 + TED 多看入口）"
        % len(MUST_CONTAIN))
 
 # 8 个细分类：直接从 cqut.js 读真名，再去产物里找

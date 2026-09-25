@@ -751,6 +751,15 @@
     </div>
     <div class="cmp-toolbar" id="cqutTagFilters" style="margin-top:9px"></div>
     <div class="cmp-list" id="cqut-list"></div>
+    <div class="view-head" style="margin-top:32px">
+      <h2 style="font-size:20px">🏅 各学院赛事 · 谁主办、要干嘛、我能帮你做啥</h2>
+      <p>从各学院官网和学校新闻里实抓的赛事记录，URL 全都真实可点，没编一条。多数是<b>上一届的获奖通报</b>——想上场得盯下一届的报名通知。数据更新于 <span id="cqut-match-updated"></span></p>
+    </div>
+    <div class="cmp-toolbar" id="cqutMatchFilters" style="margin-top:12px"></div>
+    <div class="cmp-list" id="cqut-match-list"></div>
+    <div class="lk-tip" style="margin-top:16px">
+      💡 <b>怎么筛：</b>你学化工材料，只看 <b>🧪 材料·化工（对口）</b> 那组就够了。那两条是实验技能赛，<b>考的正是你天天在实验室做的动手活</b>，含金量最高；机械机器人那组看着热闹，跟你专业主线基本不搭。
+    </div>
     <div class="view-head" style="margin-top:30px">
       <h2 style="font-size:20px">🔗 全部信源直达（每个学院、每个部门都能点到）</h2>
       <p>上方哪些没抓到，直接点这里去官网看最新。</p>
@@ -1653,6 +1662,64 @@
     });
   }
   render();
+
+  /* ===== 各学院赛事（在理工模块内部，直接复用外层 esc） ===== */
+  (function(){
+    var M = window.CQUT_MATCHES || [];
+    var MT = window.CQUT_MATCH_TAGS || [];
+    var MCUR = "all";
+    var upM = document.getElementById('cqut-match-updated');
+    if(upM){ upM.textContent = window.CQUT_MATCH_UPDATED || "未知"; }
+    var fwM = document.getElementById('cqutMatchFilters');
+    if(fwM){
+      var btns = ['<button class="filterbtn active" data-m="all">全部 '+M.length+' 条</button>'];
+      MT.forEach(function(t){
+        var c = 0; M.forEach(function(x){ if(x.tag===t.k) c++; });
+        btns.push('<button class="filterbtn" data-m="'+t.k+'">'+t.n+'（'+c+'）</button>');
+      });
+      fwM.innerHTML = btns.join("");
+    }
+    var boxM = document.getElementById('cqut-match-list');
+    function drawM(){
+      if(!boxM) return;
+      var list = M.filter(function(x){ return MCUR==="all" || x.tag===MCUR; });
+      if(!list.length){ boxM.innerHTML = '<div class="news">该分类暂无内容。</div>'; return; }
+      boxM.innerHTML = list.map(function(x){
+        var fit = x.fit
+          ? '<span class="chip" style="border-color:var(--brand);color:var(--brand);background:var(--brand-soft)">🎯 跟你专业对口</span>'
+          : '';
+        return '<article class="cmp">'+
+          '<div class="cmp-head" style="cursor:default">'+
+            '<span class="chip" style="border-color:var(--line)">🏫 '+esc(x.org||"")+'</span>'+
+            '<span class="cmp-name">🏅 '+esc(x.n||"")+'</span>'+
+          '</div>'+
+          '<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--ink-soft);margin:8px 0">'+
+            '<span class="chip" style="border-color:var(--line)">📊 '+esc(x.lv||"")+'</span>'+
+            '<span class="chip" style="border-color:var(--line)">📅 '+esc(x.date||"")+'</span>'+
+            '<span class="chip" style="border-color:var(--line)">'+esc(x.st||"")+'</span>'+
+            fit+
+          '</div>'+
+          '<div class="d-row"><span class="d-k">简介</span><span class="d-v">'+esc(x.intro||"")+'</span></div>'+
+          '<div class="d-row"><span class="d-k">具体要干啥</span><span class="d-v">'+esc(x.todo||"")+'</span></div>'+
+          '<div class="d-row"><span class="d-k">我能帮你做啥</span><span class="d-v">'+esc(x.help||"")+'</span></div>'+
+          '<div style="margin-top:11px">'+
+            '<a class="top-btn" href="'+esc(x.url||"#")+'" target="_blank" rel="noopener noreferrer">🔗 源地址 ↗</a>'+
+          '</div>'+
+        '</article>';
+      }).join("");
+    }
+    drawM();
+    if(fwM){
+      fwM.addEventListener("click", function(ev){
+        var b = ev.target.closest ? ev.target.closest(".filterbtn") : null;
+        if(!b) return;
+        MCUR = b.getAttribute("data-m") || "all";
+        Array.prototype.forEach.call(fwM.querySelectorAll(".filterbtn"), function(x){ x.classList.remove("active"); });
+        b.classList.add("active");
+        drawM();
+      });
+    }
+  })();
 
   /* 全部信源直达矩阵（按职能再分一层） */
   var S = window.CQUT_SOURCES || {};

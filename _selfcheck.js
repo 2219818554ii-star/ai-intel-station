@@ -129,6 +129,22 @@ ok(!cqNotices.some(n => !n.sum || !n.url || !n.date), '理工每条通知的 sum
 const tagBtns = count(((store['cqutTagFilters']||{}).innerHTML||''), /class="filterbtn/g);
 ok(tagBtns === 9, `理工二级分类按钮 = ${tagBtns}（期望 9 = 全部分类 + 8 个细分类）`);
 ok(cqHtml.includes('💰') && cqHtml.includes('🎓'), '理工卡片显示细分类徽章');
+
+/* [2c-2] 各学院赛事区块 */
+const MATCHES = sandbox.window.CQUT_MATCHES || [];
+const mHtml = (store['cqut-match-list']||{}).innerHTML || '';
+ok(MATCHES.length === 15, `各学院赛事条数 = ${MATCHES.length}（期望 15）`);
+ok(mHtml.includes('具体要干啥') && mHtml.includes('我能帮你做啥') && mHtml.includes('简介'), '赛事卡片含「简介 / 具体要干啥 / 我能帮你做啥」三行');
+ok(cards('cqut-match-list') === MATCHES.length, `赛事卡片数 = ${cards('cqut-match-list')}，与数据条数一致`);
+ok(MATCHES.every(m => m.intro && m.todo && m.help && m.url && m.org && m.date && m.lv && m.st), '每条赛事的 intro/todo/help/url/org/date/lv/st 均完整');
+ok(MATCHES.every(m => /^https:\/\/[a-z0-9.\-]+\.cqut\.edu\.cn\//i.test(m.url)), '每条赛事的源地址都是真实 cqut.edu.cn 页面');
+const needFields = ['https://cl.cqut.edu.cn/info/1034/6103.htm', 'https://cl.cqut.edu.cn/info/1034/6074.htm'];
+ok(needFields.every(u => mHtml.includes(u)), '两条材料学院对口赛事链接已渲染');
+ok(mHtml.includes('🎯 跟你专业对口'), '对口赛事显示了「跟你专业对口」标记');
+ok((store['cqut-match-updated']||{}).textContent === '2026-09-25', `赛事更新日期: ${(store['cqut-match-updated']||{}).textContent}`);
+const mBtns = count(((store['cqutMatchFilters']||{}).innerHTML||''), /class="filterbtn/g);
+ok(mBtns === 5, `赛事筛选按钮 = ${mBtns}（期望 5 = 全部 + 4 个分类）`);
+ok(mHtml.includes('机械工程学院') && mHtml.includes('材料科学与工程学院'), '赛事卡片显示主办学院');
 fireFilter('forumFilters', '国学讲坛');
 ok(cards('forum-list') === 8 && ((store['xinxue-guide']||{}).innerHTML||'').includes('tv.cctv.com/lm/bjjt/'), `讲坛「国学讲坛」→ 8 条 + 央视百家讲坛官网链接`);
 fireFilter('forumFilters', '名人与企业家');
