@@ -291,7 +291,7 @@
   <!-- ================= RANK VIEW ================= -->
   <div id="view-rank" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-rank">
     <div class="view-head"><h2>🏆 AI 实力排行榜</h2>
-      <p>大模型 / 编程工具 / 工具×模型组合 的分维度与综合实力评级。数据截至 <b>2026-09-24</b>。<span style="display:inline-block;margin-left:8px;padding:2px 9px;border-radius:999px;background:#ecfdf5;color:#15803d;font-size:12px;font-weight:700;border:1px solid #bbf7d0">🔄 每日自动更新</span></p></div>
+      <p>大模型 / 编程工具 / 工具×模型组合 的分维度与综合实力评级。数据截至 <b>2026-09-25</b>。<span style="display:inline-block;margin-left:8px;padding:2px 9px;border-radius:999px;background:#ecfdf5;color:#15803d;font-size:12px;font-weight:700;border:1px solid #bbf7d0">🔄 每日自动更新</span></p></div>
     <div class="news">
       🆕 <b>2026 年 9 月新动态：</b>Claude Fable 5.1（9-1，AA 智能指数并列第一）、GPT-6 Astra（9-3，号称 AGI 时代但<b>几乎不可用</b>）、Gemini 3.8 Flash（9-2，多模态标杆）、Muse Spark 1.3（9-2）、Qwen3.8-Max 登 Code Arena WebDev 榜首（9-2）、GLM-5.3-Flash 开源（8-26）、腾讯 Hy4 Preview 开源（8-28）。<b>注意：GPT-6 Astra 被定为「关键网络安全」级，目前仅 Daybreak 计划批准者可用，投票榜样本极少，排名可能随时变化。</b>
     </div>
@@ -1275,7 +1275,7 @@
   function renderAutoBar(){
     var el = document.getElementById("autoBar");
     if(!el) return;
-    el.innerHTML = "🔄 <b>每 30 分钟自动刷新</b> · 日报实时拉取（下次还有 <b>"+fmtMMSS(autoNextAt-Date.now())+"</b>）· 上次刷新 <b>"+bjClock(autoLastAt)+"</b> · 排行榜 / 比赛 / AI 上手 为每日自动更新快照（2026-09-24）";
+    el.innerHTML = "🔄 <b>每 30 分钟自动刷新</b> · 日报实时拉取（下次还有 <b>"+fmtMMSS(autoNextAt-Date.now())+"</b>）· 上次刷新 <b>"+bjClock(autoLastAt)+"</b> · 排行榜 / 比赛 / AI 上手 为每日自动更新快照（2026-09-25）";
   }
   function autoRefreshNow(){
     autoLastAt = new Date();

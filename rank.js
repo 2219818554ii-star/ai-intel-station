@@ -1,7 +1,10 @@
 /* AI 情报站 - 实力排行榜数据（每日自动更新） */
-window.RANK_UPDATED = "2026-09-24";
+window.RANK_UPDATED = "2026-09-25";
 window.RANK = {
     models: [
+      {name:"Claude Opus 5.5", vendor:"Anthropic（美国）", price:"API $4/$20 每百万", iaa:58, tb:null,
+       t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"B",性价比:"B",开源:"—"},
+       note:"2026-09-22 发布，AA 智能指数 v4.3 最高分 58（超越 Fable 5.1 / Astra 的 53）；TB4.0 59.6%（xhigh，与 Astra 并列第一）。价格较 Opus 5 降 20%（$4/$20）。agentic 知识工作领先（AA-Briefcase 1822 Elo）。⚠ 本页 tb 列仍用 TB2.1 旧口径，Opus 5.5 无 TB2.1 公开分，故留空。中文偏弱。"},
       {name:"Claude Fable 5.1", vendor:"Anthropic（美国）", price:"Pro $17–20/月；API $10/$50 每百万", iaa:53, tb:91.4,
        t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"B",性价比:"C",开源:"—"},
        note:"2026-09-01 发布，AA 智能指数 v4.3 并列第一（53）；TB2.1 第一（91.4%）。⚠ 官方 8/29 已升级 Terminal-Bench v4.0（66 题、难度大幅提升），AA v4.3 起改用 TB4.0：Astra 59.1% > Fable 5.1 52.0% > Opus 5 49.0% > GPT-5.6 Sol 39.9%；本页 TB 列仍为 2.1 旧口径。推理/综合最强，但价格最高、中文偏弱。"},
@@ -17,12 +20,15 @@ window.RANK = {
       {name:"GPT-5.6 Sol", vendor:"OpenAI（美国）", price:"Plus $20/月；API $4/$20 每百万", iaa:47, tb:89.5,
        t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"A",性价比:"B",开源:"—"},
        note:"AA 47、TB2.1 89.5%（与 Astra 同档）；⚠ TB4.0 掉到 39.9%，与 Astra 拉开 19.2 分。代码 Agent 指数 67，生态最全。中文与代码均强，性价比优于 Claude。"},
+      {name:"GPT-6 Sol", vendor:"OpenAI（美国）", price:"API $2/$10 每百万", iaa:null, tb:null,
+       t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"A",性价比:"A",开源:"—"},
+       note:"2026-09-22 发布，GPT-5.6 Sol 的继任者（Codex / ChatGPT Work，非 Chat；API gpt-6-sol）；较 GPT-5.6 Sol 降价约 50%（约 $2/$10）。⚠ AA 智能指数官方未公布，theairankings 口径约 48，待核实；TB2.1 暂无，tb 列留空。中文与代码均强，性价比提升明显。"},
       {name:"Grok 4.6", vendor:"xAI（美国）", price:"API $2/$6 每百万", iaa:44, tb:88.4,
        t:{综合:"A",推理:"A",代码:"A",多模态:"A",长上下文:"B",中文:"B",性价比:"B",开源:"—"},
        note:"8 月后训练刷新，AA 跳至 44；TB2.1 88.4%。价格低、长任务回合少。中文/长上下文略逊。"},
-      {name:"Grok 4.7", vendor:"xAI（美国）", price:"API 价格待公布", iaa:null, tb:null,
+      {name:"Grok 4.7", vendor:"xAI（美国）", price:"API $2/$6 每百万", iaa:46, tb:null,
        t:{综合:"A",推理:"A",代码:"A",多模态:"A",长上下文:"B",中文:"B",性价比:"B",开源:"—"},
-       note:"2026-09-12 发布，参数 2.1 万亿（较 Grok 4.6 的 1.5 万亿增约 40%），xAI 称性能与效率全面提升。⚠ 目前尚无 AA 智能指数 / Terminal-Bench 公开分数，评级暂沿用 4.6 档，待核实。"},
+       note:"2026-09-21 正式发布（GA），参数 2.1 万亿；AA 智能指数 v4.3 确认 46.4（xhigh，显示为 46），较 Grok 4.6 的 44 提升约 2 点；TB4.0 24.7%（high）。⚠ 无 TB2.1 公开分，tb 列留空；价格 $2/$6（xAI 定价）。"},
       {name:"Muse Spark 1.3", vendor:"Meta（美国）", price:"闭源（开发者发布）", iaa:48, tb:null,
        t:{综合:"A",推理:"A",代码:"A",多模态:"B",长上下文:"B",中文:"C",性价比:"B",开源:"—"},
        note:"2026-09-02 发布，AA 48（8 点跃升）；开发者发布、无消费端入口；agent 行全面落后（Meta 自家图）；TB4.0 约 33.3%（AA 口径）。英文生态为主。"},
@@ -100,9 +106,9 @@ window.RANK = {
        note:"最便宜付费、IDE 原生、issue→PR。团队已在 GitHub 且要低门槛选它。"}
     ],
     tables: {
-      aa: {title:"Artificial Analysis 智能指数 v4.3 Top13（满分≈53，2026-09-24 复核）", unit:"分", rows:[
-        ["Claude Fable 5.1",53],["GPT-6 Astra",53],["Claude Opus 5",51],["Claude Fable 5",50],
-        ["Muse Spark 1.3",48],["GLM-5.3",45],["Grok 4.6",44],["Kimi K3",44],
+      aa: {title:"Artificial Analysis 智能指数 v4.3 Top15（满分≈53，2026-09-25 复核）", unit:"分", rows:[
+        ["Claude Opus 5.5",58],["Claude Fable 5.1",53],["GPT-6 Astra",53],["Claude Opus 5",51],["Claude Fable 5",50],
+        ["Muse Spark 1.3",48],["Grok 4.7",46],["GLM-5.3",45],["Grok 4.6",44],["Kimi K3",44],
         ["GLM-5.3-Flash",42],["Gemini 3.8 Flash",41],["Qwen3.8 (2.4T)",40],["DeepSeek V4.1-Flash",40],
         ["DeepSeek V4 Pro",36]
       ]},
