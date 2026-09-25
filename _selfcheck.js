@@ -91,6 +91,17 @@ const srcHtml = (store['cqut-sources']||{}).innerHTML || '';
 ok(srcHtml.includes('化学化工学院') && srcHtml.includes('机械工程学院'), '理工信源矩阵含各学院');
 ok(srcHtml.includes('校团委') && srcHtml.includes('研究生会'), '理工信源矩阵含学生组织');
 ok((store['cqut-updated']||{}).textContent === '2026-09-25', `理工更新日期: ${(store['cqut-updated']||{}).textContent}`);
+/* 分类体系是固定 8 个枚举，新通知必须归入其一，不能自创也不能漏填 */
+const cqTags = sandbox.window.CQUT_TAGS || [];
+const cqNotices = sandbox.window.CQUT_NOTICES || [];
+const tagKeys = cqTags.map(x => x.k);
+ok(tagKeys.length === 8, `理工细分类定义 = ${tagKeys.length}（期望 8）: ${tagKeys.join(',')}`);
+const badTag = cqNotices.filter(n => !n.tag || tagKeys.indexOf(n.tag) < 0);
+ok(badTag.length === 0, `理工每条通知都有合法 tag（非法 ${badTag.length} 条）${badTag.length ? ' → ' + badTag.map(n=>n.t).join('; ') : ''}`);
+const usedTags = cqNotices.map(n => n.tag).filter((v, i, a) => a.indexOf(v) === i);
+ok(usedTags.length === tagKeys.length, `8 个细分类都有通知覆盖（实际用到 ${usedTags.length}）`);
+ok(!cqNotices.some(n => !n.sum || !n.url || !n.date), '理工每条通知的 sum/url/date 均完整');
+
 const tagBtns = count(((store['cqutTagFilters']||{}).innerHTML||''), /class="filterbtn/g);
 ok(tagBtns === 9, `理工二级分类按钮 = ${tagBtns}（期望 9 = 全部分类 + 8 个细分类）`);
 ok(cqHtml.includes('💰') && cqHtml.includes('🎓'), '理工卡片显示细分类徽章');
