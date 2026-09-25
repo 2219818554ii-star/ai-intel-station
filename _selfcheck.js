@@ -9,10 +9,10 @@ const count = (s, re) => (s.match(re) || []).length;
 
 console.log('\n[1] 静态结构');
 const tabs = [...html.matchAll(/data-tab="([^"]+)"/g)].map(m => m[1]);
-ok(tabs.length === 6, `tab 数量 = ${tabs.length}（期望 6）: ${tabs.join(', ')}`);
-ok(['daily','rank','comp','learn','ted','forum'].every(v => html.includes(`id="view-${v}"`)), 'view 区块 = 6/6');
-ok(html.includes('["daily","rank","comp","learn","ted","forum"]'), 'showTab 数组含全部 6 个视图');
-ok(!/<script src="(competitions|ted|forum|rank)\.js"/.test(html), '四个数据文件均已内联（无外链脚本）');
+ok(tabs.length === 7, `tab 数量 = ${tabs.length}（期望 7）: ${tabs.join(', ')}`);
+ok(['daily','rank','comp','learn','ted','forum','cqut'].every(v => html.includes(`id="view-${v}"`)), 'view 区块 = 7/7');
+ok(html.includes('["daily","rank","comp","learn","ted","forum","cqut"]'), 'showTab 数组含全部 7 个视图');
+ok(!/<script src="(competitions|ted|forum|rank|cqut)\.js"/.test(html), '五个数据文件均已内联（无外链脚本）');
 const httpLeft = count(html, /href="http:\/\//g);
 ok(httpLeft === 0, `无 http:// 明文链接（剩余 ${httpLeft}）`);
 
@@ -81,6 +81,16 @@ const gh = (store['xinxue-guide']||{}).innerHTML || '';
 ok((store['xinxue-guide']||{}).style.display === '' && gh.includes('四步入门'), '心学面板显示且含「四步入门」');
 ok(['心即理','知行合一','致良知','四句教'].every(k => gh.includes(k)), '面板含四个核心概念');
 ok(gh.includes('① 听故事') && gh.includes('④ 落到事上'), '面板含四步路径');
+
+console.log('\n[2c] 重庆理工通知渲染');
+const cqHtml = (store['cqut-list']||{}).innerHTML || '';
+ok(cards('cqut-list') === 25, `理工通知卡片 = ${cards('cqut-list')}（期望 25）`);
+ok(cqHtml.includes('我该关注啥') && cqHtml.includes('源地址'), '理工通知含「我该关注啥」与「源地址」');
+ok(cqHtml.includes('href="https://') && !cqHtml.includes('href="#"'), '理工通知链接均为真实 https 源地址');
+const srcHtml = (store['cqut-sources']||{}).innerHTML || '';
+ok(srcHtml.includes('化学化工学院') && srcHtml.includes('机械工程学院'), '理工信源矩阵含各学院');
+ok(srcHtml.includes('校团委') && srcHtml.includes('研究生会'), '理工信源矩阵含学生组织');
+ok((store['cqut-updated']||{}).textContent === '2026-09-25', `理工更新日期: ${(store['cqut-updated']||{}).textContent}`);
 fireFilter('forumFilters', '国学讲坛');
 ok(cards('forum-list') === 8 && ((store['xinxue-guide']||{}).innerHTML||'').includes('tv.cctv.com/lm/bjjt/'), `讲坛「国学讲坛」→ 8 条 + 央视百家讲坛官网链接`);
 fireFilter('forumFilters', '名人与企业家');

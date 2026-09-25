@@ -8,6 +8,7 @@ js  = os.path.join(base, "competitions.js")      # 比赛数据
 ted = os.path.join(base, "ted.js")               # TED 演讲数据
 forum = os.path.join(base, "forum.js")           # 成长讲坛数据（企业家/国学/心学）
 rank = os.path.join(base, "rank.js")             # 实力排行榜数据（每日自动更新）
+cqut = os.path.join(base, "cqut.js")              # 重庆理工通知数据（学校/学院/部门/学生会）
 out_deploy = os.path.join(base, "index.html")    # 部署版（GitHub Pages 服务它）
 out_gh     = os.path.join(base, "gh-pages", "index.html")
 out_local  = os.path.join(base, "ai_intel_station_standalone.html")
@@ -34,17 +35,23 @@ assert rank_marker in html, "rank marker not found in index.src.html!"
 rank_data = open(rank, encoding="utf-8").read()
 standalone = standalone.replace(rank_marker, "<script>\n" + rank_data + "\n</script>", 1)
 
+cqut_marker = '<script src="cqut.js"></script>'
+assert cqut_marker in html, "cqut marker not found in index.src.html!"
+cqut_data = open(cqut, encoding="utf-8").read()
+standalone = standalone.replace(cqut_marker, "<script>\n" + cqut_data + "\n</script>", 1)
+
 for p in (out_deploy, out_gh, out_local):
     os.makedirs(os.path.dirname(p), exist_ok=True)
     open(p, "w", encoding="utf-8").write(standalone)
 
-print("OK  bytes=%d  资源库=%s  比赛内联=%s  TED内联=%s(%d)  讲坛内联=%s(%d)  排行内联=%s" % (
+print("OK  bytes=%d  资源库=%s  比赛内联=%s  TED内联=%s(%d)  讲坛内联=%s(%d)  排行内联=%s  理工内联=%s(%d)" % (
     len(standalone),
     "全网优质 AI 教学资源库" in standalone,
     marker not in standalone,
     ted_marker not in standalone, standalone.count('sp:"'),
     forum_marker not in standalone, standalone.count('{cat:"'),
     rank_marker not in standalone,
+    cqut_marker not in standalone, cqut_data.count('{t:"'),
 ))
 print("deploy ->", out_deploy)
 print("gh     ->", out_gh)
