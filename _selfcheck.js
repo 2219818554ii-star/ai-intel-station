@@ -9,10 +9,10 @@ const count = (s, re) => (s.match(re) || []).length;
 
 console.log('\n[1] 静态结构');
 const tabs = [...html.matchAll(/data-tab="([^"]+)"/g)].map(m => m[1]);
-ok(tabs.length === 7, `tab 数量 = ${tabs.length}（期望 7）: ${tabs.join(', ')}`);
-ok(['daily','rank','comp','learn','ted','forum','cqut'].every(v => html.includes(`id="view-${v}"`)), 'view 区块 = 7/7');
-ok(html.includes('["daily","rank","comp","learn","ted","forum","cqut"]'), 'showTab 数组含全部 7 个视图');
-ok(!/<script src="(competitions|ted|forum|rank|cqut)\.js"/.test(html), '五个数据文件均已内联（无外链脚本）');
+ok(tabs.length === 8, `tab 数量 = ${tabs.length}（期望 8）: ${tabs.join(', ')}`);
+ok(['daily','rank','comp','learn','ted','forum','cqut','funds'].every(v => html.includes(`id="view-${v}"`)), 'view 区块 = 8/8');
+ok(html.includes('["daily","rank","comp","learn","ted","forum","cqut","funds"]'), 'showTab 数组含全部 8 个视图');
+ok(!/<script src="(competitions|ted|forum|rank|cqut|funds)\.js"/.test(html), '六个数据文件均已内联（无外链脚本）');
 const httpLeft = count(html, /href="http:\/\//g);
 ok(httpLeft === 0, `无 http:// 明文链接（剩余 ${httpLeft}）`);
 
@@ -67,6 +67,30 @@ ok(((store['p-models']||{}).innerHTML||'').includes('Claude Fable 5.1'), '排行
 ok(((store['p-tools']||{}).innerHTML||'').includes('Claude Code'), '排行榜·编程工具 已渲染');
 ok(((store['p-combos']||{}).innerHTML||'').includes('Claude Code + Claude Fable'), '排行榜·组合 已渲染');
 ok(((store['p-tables']||{}).innerHTML||'').includes('Artificial Analysis'), '排行榜·真实榜单 已渲染');
+
+console.log('\n[2d] 基金看板渲染');
+const fHold = sandbox.window.FUNDS_HOLD || [];
+const fList = (store['funds-list']||{}).innerHTML || '';
+const fStats = (store['funds-stats']||{}).innerHTML || '';
+ok(fHold.length === 4, `持仓条数 = ${fHold.length}（期望 4）`);
+ok(fList.split('<article').length - 1 === 4, `基金看板卡片 = ${fList.split('<article').length - 1}（期望 4）`);
+ok(fHold.every(f => /^\d{6}$/.test(f.code||'')), '每只基金代码均为 6 位数字');
+ok(fHold.every(f => f.n && typeof f.amt === 'number' && typeof f.dayPL === 'number' && typeof f.holdPL === 'number'), '每只基金 amt/dayPL/holdPL 字段齐全');
+const sumAmt = fHold.reduce((a,f) => a + (f.amt||0), 0);
+const sumPL  = fHold.reduce((a,f) => a + (f.holdPL||0), 0);
+ok(Math.abs(sumAmt - 2492.32) < 0.01, `持仓市值合计 = ${sumAmt.toFixed(2)}（期望 2492.32）`);
+ok(Math.abs(sumPL + 315.35) < 0.01, `持有收益合计 = ${sumPL.toFixed(2)}（期望 -315.35）`);
+const fStatsFlat = fStats.replace(/,/g, '');
+ok(fStatsFlat.includes('2492.32') && fStatsFlat.includes('-¥315.35'), '总览卡显示合计金额与持有收益（千分位随运行环境有无 ICU，只去逗号比）');
+ok(fStats.includes('-11.23%'), '总览卡显示总收益率 -11.23%');
+ok(fList.includes('fund.eastmoney.com/016452.html'), '基金卡片带天天基金直达链接');
+ok(fList.includes('#e02424') && fList.includes('#16a34a'), '涨跌配色中国习惯（涨红 #e02424 / 跌绿 #16a34a）');
+ok(fList.includes('color:#e02424') && fHold.some(f => f.holdPL > 0), '正收益的持仓确实染成红色');
+ok(fList.includes('color:#16a34a') && fHold.some(f => f.holdPL < 0), '负收益的持仓确实染成绿色');
+ok(((store['funds-updated']||{}).textContent||'').indexOf('2026-09-25') === 0, `基金更新日期: ${(store['funds-updated']||{}).textContent}`);
+const expoHtml = (store['funds-exposure']||{}).innerHTML || '';
+ok(expoHtml.includes('A股') && expoHtml.includes('海外'), '风格暴露条含 A 股 / 海外');
+ok((store['funds-updated']||{}).textContent && fList.length > 500, '基金看板渲染非空');
 
 console.log('\n[3] 模拟点击分类筛选');
 function fireFilter(elId, cat){

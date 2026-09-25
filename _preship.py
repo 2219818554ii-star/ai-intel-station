@@ -119,7 +119,7 @@ prod = readtxt(PROD)
 # ---------- [1] 产物是否过期 ----------
 print("[1] 产物新鲜度")
 src_files = ["index.src.html", "competitions.js", "ted.js", "forum.js",
-             "rank.js", "cqut.js"]
+             "rank.js", "cqut.js", "funds.js"]
 pm = os.path.getmtime(os.path.join(BASE, PROD))
 fresh = []
 for f in src_files:
@@ -143,7 +143,7 @@ if leftover:
     bad("产物里仍有未内联的外链：%s" % ", ".join(leftover),
         "跑 python _build.py，它会在内联失败时报错退出")
 else:
-    ok(PASS, "5 份数据文件全部内联，产物自包含")
+    ok(PASS, "%d 份数据文件全部内联，产物自包含" % (len(src_files) - 1))
 
 # ---------- [2] 关键内容是否真的落地 ----------
 print("\n[2] 关键内容落地检查（直接读产物全文，emoji 也精确匹配）")
@@ -160,13 +160,15 @@ MUST_CONTAIN = [
     ("理工二级筛选", 'id="cqutTagFilters"'),
     ("理工信源矩阵", 'id="cqut-sources"'),
     ("TED 多平台观看入口", '<span style="font-size:12px;color:#64748b">观看 ▸</span>'),
+    ("基金看板 tab 文案", "📈 基金看板"),
+    ("基金持仓列表容器", 'id="funds-list"'),
 ]
 missing = [n for n, s in MUST_CONTAIN if s not in prod]
 if missing:
     bad("产物里找不到：%s" % "、".join(missing),
         "改了 index.src.html 但没构建 / 或改动本身有 bug")
 else:
-    ok(PASS, "%d 项关键结构全部存在（7 栏目 + 理工 4 组件 + TED 多看入口）"
+    ok(PASS, "%d 项关键结构全部存在（8 栏目 + 理工 4 组件 + 基金 2 组件 + TED 多看入口）"
        % len(MUST_CONTAIN))
 
 # 8 个细分类：直接从 cqut.js 读真名，再去产物里找
@@ -258,6 +260,7 @@ PROBE = [
     ("TED 官方搜索", "https://www.ted.com/search?q=how+to+learn"),
     ("B站", "https://search.bilibili.com/all?keyword=ted"),
     ("重理工·部门通知", "https://www.cqut.edu.cn/tzgg/bmtz.htm"),
+    ("天天基金·南方纳指100", "https://fund.eastmoney.com/016452.html"),
     ("重理工·校团委", "https://qnzx.cqut.edu.cn/index.htm"),
     ("arXiv（如用到）", "https://arxiv.org"),
 ]

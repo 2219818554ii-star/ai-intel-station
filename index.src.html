@@ -253,6 +253,7 @@
         <button class="tab" id="tab-ted" role="tab" aria-selected="false" aria-controls="view-ted" data-tab="ted">🎓 TED 英语</button>
         <button class="tab" id="tab-forum" role="tab" aria-selected="false" aria-controls="view-forum" data-tab="forum">🌱 成长讲坛</button>
     <button class="tab" id="tab-cqut" role="tab" aria-selected="false" aria-controls="view-cqut" data-tab="cqut">🏫 重庆理工</button>
+    <button class="tab" id="tab-funds" role="tab" aria-selected="false" aria-controls="view-funds" data-tab="funds">📈 基金看板</button>
       </nav>
     </div>
   </div>
@@ -760,6 +761,30 @@
     </div>
   </div>
 
+  <div id="view-funds" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-funds">
+    <div class="view-head"><h2>📈 基金看板 · 我的持仓</h2>
+      <p>只记录不荐股。金额与盈亏来自你自己的持仓，配色按国内习惯：<b style="color:#e02424">涨红</b> / <b style="color:#16a34a">跌绿</b>。数据更新于 <span id="funds-updated"></span></p>
+    </div>
+
+    <div class="cmp-list" id="funds-stats" style="margin-bottom:16px"></div>
+
+    <div class="view-head" style="margin-top:8px">
+      <h2 style="font-size:20px">💼 持仓明细</h2>
+      <p>点基金名去天天基金看完整档案。</p>
+    </div>
+    <div class="cmp-list" id="funds-list"></div>
+
+    <div class="view-head" style="margin-top:30px">
+      <h2 style="font-size:20px">🧭 风格暴露</h2>
+      <p>按基金真实投向归的类，看钱压在哪一类上。</p>
+    </div>
+    <div class="cmp-list" id="funds-exposure"></div>
+
+    <div class="lk-tip" style="margin-top:18px">
+      ⚠️ <b>说明：</b>场外基金净值 T+1 公布，QDII（追踪美股的两只）通常更晚，所以页面上的盈亏<b>不是此刻的实时价格</b>，而是最近一个已公布净值日的数据。本站只做记录与呈现，<b>不给任何买卖建议</b>。
+    </div>
+  </div>
+
   <button id="toTop" title="回到顶部" aria-label="回到顶部">↑</button>
 
   <script src="competitions.js"></script>
@@ -767,6 +792,7 @@
   <script src="forum.js"></script>
   <script src="rank.js"></script>
   <script src="cqut.js"></script>
+  <script src="funds.js"></script>
 <script>
 (function(){
   "use strict";
@@ -774,7 +800,7 @@
   /* ============ TAB SWITCHING ============ */
   function showTab(tab){
     document.querySelectorAll(".tab").forEach(function(t){ var on=(t.dataset.tab===tab); t.classList.toggle("active", on); t.setAttribute("aria-selected", on?"true":"false"); });
-    ["daily","rank","comp","learn","ted","forum","cqut"].forEach(function(v){
+    ["daily","rank","comp","learn","ted","forum","cqut","funds"].forEach(function(v){
       var el=document.getElementById("view-"+v);
       if(el){ el.style.display = (v===tab)?"":"none"; el.setAttribute("aria-hidden", v===tab?"false":"true"); }
     });
@@ -1647,6 +1673,108 @@
           }).join("")+
         '</div></div>';
     }).join("");
+  }
+})();
+
+/* ============ 基金看板 ============ */
+(function(){
+  "use strict";
+  function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
+  var H = window.FUNDS_HOLD || [];
+  var META = window.FUNDS_META || {};
+  var EXPO = window.FUNDS_EXPOSURE || [];
+  var UP = document.getElementById('funds-updated');
+  var u = window.FUNDS_UPDATED || "—";
+  if(UP) UP.textContent = u + (META.date ? "（来源：" + META.src + "）" : "");
+
+  /* 纯文本，颜色统一由渲染层根据正负给（涨红跌绿） */
+  function moneyTxt(v){
+    if(v==null || v==="" || isNaN(v)) return null;
+    return (v<0?"-":"") + "¥" + Math.abs(v).toLocaleString("zh-CN",{minimumFractionDigits:2, maximumFractionDigits:2});
+  }
+  function pctTxt(v){
+    if(v==null || v==="" || isNaN(v)) return null;
+    return (v>0?"+":"") + (v*100).toFixed(2) + "%";
+  }
+  function plText(v){ return v==null ? "" : (v>0?"+":"") + v.toFixed(2); }
+  function col(v){ return v>0 ? "#e02424" : (v<0 ? "#16a34a" : "#64748b"); }
+  function costyle(v, txt){
+    if(txt == null) return '<span class="tier t-none">—</span>';
+    return '<span style="color:'+col(v)+';font-weight:700">'+esc(txt)+'</span>';
+  }
+
+  /* ---- 总览卡 ---- */
+  var sumAmt=0, sumDay=0, sumPL=0, sumCost=0, maxAmt=0, maxName="—";
+  H.forEach(function(f){
+    if(typeof f.amt==="number") sumAmt += f.amt;
+    if(typeof f.dayPL==="number") sumDay += f.dayPL;
+    if(typeof f.holdPL==="number"){ sumPL += f.holdPL; sumCost += (f.amt||0) - f.holdPL; }
+    if(typeof f.amt==="number" && f.amt>maxAmt){ maxAmt=f.amt; maxName=f.n; }
+  });
+  var totalPct = (sumCost>0) ? sumPL/sumCost : null;
+  var maxPct = (sumAmt>0) ? maxAmt/sumAmt : 0;
+
+  function card(label, valHtml, sub){
+    return '<div class="cmp-item" style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:0">'+
+      '<div style="font-size:12px;color:#64748b;margin-bottom:6px">'+label+'</div>'+
+      '<div style="font-size:22px;font-weight:800;color:var(--ink);line-height:1.2">'+valHtml+'</div>'+
+      '<div style="font-size:12px;color:#94a3b8;margin-top:5px">'+sub+'</div></div>';
+  }
+  var box = document.getElementById('funds-stats');
+  if(box){
+    box.style.display="grid";
+    box.style.gridTemplateColumns="repeat(auto-fit,minmax(160px,1fr))";
+    box.style.gap="12px";
+    box.innerHTML = [
+      card("持仓市值合计", "¥" + sumAmt.toLocaleString("zh-CN",{minimumFractionDigits:2, maximumFractionDigits:2}), H.length + " 只基金"),
+      card("昨日收益", costyle(sumDay, moneyTxt(sumDay)), ""),
+      card("持有收益合计", costyle(sumPL, moneyTxt(sumPL)), "成本约 ¥" + sumCost.toLocaleString("zh-CN",{minimumFractionDigits:2, maximumFractionDigits:2})),
+      card("总收益率", costyle(totalPct, pctTxt(totalPct)), ""),
+      card("最大单一持仓", (maxPct*100).toFixed(1)+"%", maxName)
+    ].join("");
+  }
+
+  /* ---- 持仓明细 ---- */
+  var list = document.getElementById('funds-list');
+  if(list){
+    list.innerHTML = H.map(function(f, i){
+      return '<article class="cmp-item" style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:0 0 10px">'+
+        '<div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap">'+
+          '<a href="'+esc(f.url||"#")+'" target="_blank" rel="noopener noreferrer" style="font-size:15px;font-weight:800;color:var(--ink);text-decoration:none">'+esc(f.n)+' ↗</a>'+
+          '<span class="tier t-none" style="font-size:11px">'+esc(f.code)+'</span>'+
+          (f.auto ? '<span class="tier t-A" style="font-size:11px">'+esc(f.auto)+'</span>' : '')+
+        '</div>'+
+        '<div style="font-size:12px;color:#64748b;margin:5px 0 10px">'+esc(f.type)+' · '+esc(f.style)+'</div>'+
+        '<div style="display:flex;flex-wrap:wrap;gap:16px;font-size:13px">'+
+          '<span>持有金额：<b>'+costyle(f.amt, moneyTxt(f.amt))+'</b></span>'+
+          '<span>昨日收益：<b>'+costyle(f.dayPL, moneyTxt(f.dayPL))+'</b></span>'+
+          '<span>持有收益：<b>'+costyle(f.holdPL, moneyTxt(f.holdPL))+' ('+plText(f.holdPL)+')</b></span>'+
+          '<span>收益率：<b>'+costyle(f.holdPct, pctTxt(f.holdPct))+'</b></span>'+
+        '</div></article>';
+    }).join("");
+  }
+
+  /* ---- 风格暴露条 ---- */
+  var expo = document.getElementById('funds-exposure');
+  if(expo){
+    var tot = EXPO.reduce(function(a,b){ return a + (b.v||0); }, 0) || 1;
+    expo.innerHTML = '<div style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px">'+
+      '<div style="display:flex;height:14px;border-radius:7px;overflow:hidden;margin-bottom:12px">'+
+        EXPO.map(function(g){
+          var w = Math.max(0, Math.min(100, g.v/tot*100));
+          var col = (g.k.indexOf("海外")>=0) ? "#2563eb" : "#f59e0b";
+          return '<div title="'+esc(g.k)+' '+w.toFixed(1)+'%" style="width:'+w.toFixed(2)+'%;background:'+col+'"></div>';
+        }).join("")+
+      '</div>'+
+      '<div style="display:flex;flex-wrap:wrap;gap:16px;font-size:13px">'+
+        EXPO.map(function(g){
+          var w = g.v/tot*100;
+          var col = (g.k.indexOf("海外")>=0) ? "#2563eb" : "#f59e0b";
+          return '<span><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:'+col+';margin-right:6px"></span>'+
+            esc(g.k)+'：<b>'+esc(moneyTxt(g.v)||"—")+'</b> <span style="color:#94a3b8">('+w.toFixed(1)+'%)</span></span>';
+        }).join("")+
+      '</div></div>';
   }
 })();
 </script>
