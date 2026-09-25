@@ -724,7 +724,7 @@
   <!-- ================= FORUM VIEW (成长讲坛) ================= -->
   <div id="view-forum" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-forum">
     <div class="view-head"><h2>🌱 成长讲坛：企业家演讲 · 国学讲坛 · 阳明心学</h2>
-      <p>三类「长脑子、长心气」的内容，都按<b>分类</b>整理好了：<b>💼 名人与企业家</b>（马云、雷军、马斯克、乔布斯等，受鼓舞用）；<b>📖 国学讲坛</b>（百家讲坛：易中天、王立群、蒙曼等，养底蕴用）；<b>🧘 阳明心学</b>（一条从入门到实践的完整路径）。共 <b id="forum-count">0</b> 条，整理于 <b id="forum-updated">-</b>。每张卡片给了<b>多个观看入口</b>（央视网 / 腾讯视频 / YouTube / 喜马拉雅 / B站），<b style="color:#16a34a">标「免费」的是官方无会员源，优先点</b>。</p></div>
+      <p>三级直达：<b>选系列</b>（马云系列、雷军系列、易中天系列…）→ <b>看这个系列的视频清单</b>（含 UP 主 / 时长 / 播放量）→ <b>点视频直接开播放页</b>，全程不再落在搜索列表页。视频全部来自 B 站实抓的真实链接，整理于 <b id="forum-updated">-</b>。</p></div>
     <div class="news">
       🧭 <b>怎么安排不浪费：</b>企业家演讲当「精神燃料」，<b>每周 1–2 场</b>就够，别当避难所；国学讲坛当「长期滋养」，<b>每天 15–30 分钟</b>当背景音也行；心学不要只听课——按下面的<b>四步</b>来，边学边在科研和生活里用。
     </div>
@@ -1433,24 +1433,33 @@
   renderTED();
 })();
 
-  /* ============ FORUM VIEW: 成长讲坛 ============ */
+  /* ============ FORUM VIEW: 成长讲坛（系列 -> 视频两级直达） ============ */
   (function(){
-    var FORUM = window.FORUM || [];
+    var SERIES = window.FORUM_SERIES || [];
     var GUIDE = window.XINXUE_GUIDE || null;
     var CATS = window.FORUM_CATS || [];
-    var FCAT = "全部";
+    var FCAT = "全部";   // 一级筛选：分类
+    var FCUR = null;     // null=系列列表；数字=当前打开的系列下标（在筛选后的列表里）
     function esc(s){
       return (s==null?"":String(s)).replace(/[&<>"']/g, function(c){
         return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
       });
     }
     var uel=document.getElementById('forum-updated'); if(uel){ uel.textContent=(window.FORUM_UPDATED||'未知'); }
-    var cel=document.getElementById('forum-count'); if(cel){ cel.textContent=FORUM.length; }
+    /* vm 沙箱无 ICU，播放量格式化手写：12500 -> 1.3万 */
+    function fmtPlay(n){
+      if(!n || n<0) return "—";
+      if(n>=10000){ var w=n/10000; return (w>=100? Math.round(w) : Math.round(w*10)/10) + "万"; }
+      return String(n);
+    }
+    function seriesOf(cat){
+      return SERIES.filter(function(s){ return cat==="全部" || s.cat===cat; });
+    }
 
     function renderGuide(){
       var box=document.getElementById('xinxue-guide');
       if(!box) return;
-      if(FCAT==="阳明心学" && GUIDE){
+      if(FCAT==="阳明心学" && GUIDE && FCUR===null){
         var steps=(GUIDE.steps||[]).map(function(s){
           return '<div style="margin:6px 0;font-size:13.5px;line-height:1.7"><b style="color:#8b5cf6">'+esc(s.t)+'</b> '+esc(s.d)+'</div>';
         }).join("");
@@ -1461,66 +1470,111 @@
         box.innerHTML='<div class="lk-tip" style="margin-bottom:14px;background:#f5f3ff;border-color:#ddd6fe;color:#4c1d95">'+
           '<div style="font-weight:800;font-size:15px;margin-bottom:7px">🧘 阳明心学 · 四步入门（照着走就行）</div>'+
           '<div style="font-size:13.5px;line-height:1.75;margin-bottom:11px">'+esc(GUIDE.intro||"")+'</div>'+
-          '<div style="font-size:13px;line-height:1.6;margin-bottom:11px;color:#15803d">📺 <b>免费官方源：</b>郦波《五百年来王阳明》在央视网百家讲坛（tv.cctv.com/lm/bjjt/）免费看；《典籍里的中国·传习录》在央视网搜索免费看。</div>'+
           '<div style="font-weight:800;margin:10px 0 4px;font-size:14px">📚 学习路径</div>'+ steps +
           '<div style="font-weight:800;margin:12px 0 4px;font-size:14px">🔑 四个核心概念</div>'+ cons +
         '</div>';
-      } else if(FCAT==="国学讲坛"){
-        box.style.display="";
-        box.innerHTML='<div class="lk-tip" style="margin-bottom:14px">📺 <b>央视《百家讲坛》官网（按节目找全集）：</b>'+
-          '<a href="https://tv.cctv.com/lm/bjjt/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">tv.cctv.com/lm/bjjt/ ↗</a>'+
-          '　—— 下方卡片是按「主讲人 + 代表作」整理的精听清单。</div>';
       } else {
         box.style.display="none"; box.innerHTML="";
       }
     }
 
-    function renderForum(){
+    function renderFilters(){
       var fw=document.getElementById('forumFilters');
-      if(fw){
-        var all=["全部"].concat(CATS);
-        fw.innerHTML=all.map(function(c){
-          return '<button class="filterbtn'+(FCAT===c?" active":"")+'" data-c="'+esc(c)+'">'+esc(c)+'</button>';
-        }).join("");
-      }
-      var list=FORUM.filter(function(x){ return FCAT==="全部" || x.cat===FCAT; });
+      if(!fw) return;
+      var all=["全部"].concat(CATS);
+      fw.innerHTML=all.map(function(c){
+        return '<button class="filterbtn'+(FCAT===c?" active":"")+'" data-c="'+esc(c)+'">'+esc(c)+'</button>';
+      }).join("");
+    }
+
+    /* 第一级：系列卡片 */
+    function renderSeries(){
+      var list=seriesOf(FCAT);
       var st=document.getElementById('forum-stat');
-      if(st){ st.textContent="共 "+list.length+" 条（全部 "+FORUM.length+" 条）"; }
+      var total=0; list.forEach(function(s){ total+=s.vids.length; });
+      if(st){ st.textContent="共 "+list.length+" 个系列 / "+total+" 个视频，点系列进入视频清单"; }
       renderGuide();
       var box=document.getElementById('forum-list');
       if(!box) return;
       if(!list.length){ box.innerHTML='<div class="news">该分类暂无内容。</div>'; return; }
-      box.innerHTML=list.map(function(x){
-        return '<article class="cmp">'+
+      box.innerHTML=list.map(function(s){
+        var top=fmtPlay(Math.max.apply(null, s.vids.map(function(v){ return v.play||0; })));
+        return '<article class="cmp" data-open="'+esc(s.who)+'" style="cursor:pointer">'+
           '<div class="cmp-head" style="cursor:default">'+
-            '<span class="chip" style="border-color:var(--brand);color:var(--brand);background:var(--brand-soft)">'+esc(x.cat||"")+'</span>'+
-            '<span class="cmp-name">👤 '+esc(x.who||"")+'</span>'+
-            '<span class="chip" style="border-color:var(--line)">'+esc(x.kind||"")+'</span>'+
-            '<span class="chip" style="border-color:var(--line)">📅 '+esc(String(x.yr||""))+'</span>'+
+            '<span class="chip" style="border-color:var(--brand);color:var(--brand);background:var(--brand-soft)">'+esc(s.cat||"")+'</span>'+
+            '<span class="cmp-name">👤 '+esc(s.who||"")+' 系列</span>'+
+            '<span class="chip" style="border-color:var(--line)">🎬 '+s.vids.length+' 个视频</span>'+
           '</div>'+
-          '<div style="margin:7px 0 9px;font-weight:800;font-size:15px">'+esc(x.title||"")+'</div>'+
-          '<div class="d-row"><span class="d-k">简介</span><span class="d-v">'+esc(x.intro||"")+'</span></div>'+
-          '<div style="margin-top:11px;display:flex;flex-wrap:wrap;gap:8px;align-items:center">'+
-            '<span style="font-size:12px;color:#64748b">观看 ▸</span>'+
-            (x.links||[{p:"链接",u:x.url||"#"}]).map(function(l){
-              var isfree = (l.p.indexOf("免费")>=0);
-              var st = isfree ? ' style="background:#16a34a;border-color:#16a34a;color:#fff"' : '';
-              return '<a class="top-btn"'+st+' href="'+esc(l.u||"#")+'" target="_blank" rel="noopener noreferrer">'+esc(l.p)+' ↗</a>';
-            }).join("")+
+          '<div class="d-row" style="margin-top:8px"><span class="d-k">这个系列讲啥</span><span class="d-v">'+esc(s.desc||"")+'</span></div>'+
+          '<div style="margin-top:10px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">'+
+            '<button class="top-btn" data-open="'+esc(s.who)+'">▶ 进入视频清单（'+s.vids.length+'）</button>'+
+            '<span style="font-size:12px;color:var(--ink-soft)">最高播放 '+top+'</span>'+
           '</div>'+
         '</article>';
       }).join("");
     }
+
+    /* 第二级：系列内的视频清单（点视频直达播放页） */
+    function renderVids(){
+      var list=seriesOf(FCAT);
+      var s=list[FCUR];
+      if(!s){ FCUR=null; renderSeries(); return; }
+      var st=document.getElementById('forum-stat');
+      if(st){ st.textContent="「"+s.who+"」系列 · "+s.vids.length+" 个视频 · 点卡片直接看"; }
+      renderGuide();
+      var box=document.getElementById('forum-list');
+      if(!box) return;
+      var cards=s.vids.map(function(v){
+        return '<article class="cmp" data-vid="'+esc(v.bvid)+'" style="cursor:pointer">'+
+          '<div class="cmp-head" style="cursor:default">'+
+            '<span class="chip" style="border-color:#fb7185;color:#fb7185;background:#fff1f2">▶ 点击直接看</span>'+
+            '<span class="cmp-name">'+esc(v.t||"")+'</span>'+
+          '</div>'+
+          '<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--ink-soft);margin:8px 0">'+
+            '<span class="chip" style="border-color:var(--line)">👤 '+esc(v.up||"")+'</span>'+
+            '<span class="chip" style="border-color:var(--line)">⏱ '+esc(v.dur||"")+'</span>'+
+            '<span class="chip" style="border-color:var(--line)">▶ '+fmtPlay(v.play)+' 播放</span>'+
+          '</div>'+
+          '<div style="margin-top:10px">'+
+            '<a class="top-btn" style="background:#fb7185;border-color:#fb7185;color:#fff" href="https://www.bilibili.com/video/'+esc(v.bvid)+'" target="_blank" rel="noopener noreferrer">▶ 在B站播放 ↗</a>'+
+          '</div>'+
+        '</article>';
+      }).join("");
+      box.innerHTML='<button class="filterbtn" id="forum-back" style="margin-bottom:12px">← 返回系列列表</button>'+cards;
+    }
+
+    function render(){
+      renderFilters();
+      if(FCUR===null) renderSeries(); else renderVids();
+    }
+    render();
+
+    /* 分类筛选 */
     var ff=document.getElementById('forumFilters');
     if(ff){
       ff.addEventListener("click", function(ev){
         var b=ev.target.closest?ev.target.closest(".filterbtn"):null;
         if(!b) return;
         FCAT=b.getAttribute("data-c")||"全部";
-        renderForum();
+        FCUR=null;               // 切分类回系列列表
+        render();
       });
     }
-    renderForum();
+    /* 列表点击：系列卡片进清单 / 返回按钮回列表 / 视频卡片直达播放页（由链接与点卡片共同承担） */
+    var box=document.getElementById('forum-list');
+    if(box){
+      box.addEventListener("click", function(ev){
+        var back=ev.target.closest?ev.target.closest("#forum-back"):null;
+        if(back){ FCUR=null; render(); return; }
+        if(FCUR!==null) return;  // 视频层不拦链接（a 标签自己跳）
+        var open=ev.target.closest?ev.target.closest("[data-open]"):null;
+        if(!open) return;
+        var who=open.getAttribute("data-open");
+        var idx=-1;
+        seriesOf(FCAT).forEach(function(s,i){ if(s.who===who) idx=i; });
+        if(idx>=0){ FCUR=idx; render(); window.scrollTo(0,0); }
+      });
+    }
   })();
 
   /* ============ LEARN VIEW: daily tip + scenario desk ============ */

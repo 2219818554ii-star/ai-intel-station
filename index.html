@@ -724,7 +724,7 @@
   <!-- ================= FORUM VIEW (成长讲坛) ================= -->
   <div id="view-forum" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-forum">
     <div class="view-head"><h2>🌱 成长讲坛：企业家演讲 · 国学讲坛 · 阳明心学</h2>
-      <p>三类「长脑子、长心气」的内容，都按<b>分类</b>整理好了：<b>💼 名人与企业家</b>（马云、雷军、马斯克、乔布斯等，受鼓舞用）；<b>📖 国学讲坛</b>（百家讲坛：易中天、王立群、蒙曼等，养底蕴用）；<b>🧘 阳明心学</b>（一条从入门到实践的完整路径）。共 <b id="forum-count">0</b> 条，整理于 <b id="forum-updated">-</b>。每张卡片给了<b>多个观看入口</b>（央视网 / 腾讯视频 / YouTube / 喜马拉雅 / B站），<b style="color:#16a34a">标「免费」的是官方无会员源，优先点</b>。</p></div>
+      <p>三级直达：<b>选系列</b>（马云系列、雷军系列、易中天系列…）→ <b>看这个系列的视频清单</b>（含 UP 主 / 时长 / 播放量）→ <b>点视频直接开播放页</b>，全程不再落在搜索列表页。视频全部来自 B 站实抓的真实链接，整理于 <b id="forum-updated">-</b>。</p></div>
     <div class="news">
       🧭 <b>怎么安排不浪费：</b>企业家演讲当「精神燃料」，<b>每周 1–2 场</b>就够，别当避难所；国学讲坛当「长期滋养」，<b>每天 15–30 分钟</b>当背景音也行；心学不要只听课——按下面的<b>四步</b>来，边学边在科研和生活里用。
     </div>
@@ -1761,53 +1761,252 @@ window.TED = [
 
 </script>
   <script>
-/* AI 情报站 - 成长讲坛：名人与企业家演讲 / 国学讲坛 / 阳明心学 */
-window.FORUM_UPDATED = "2026-09-23";
-/* 每张卡片给多个观看入口：央视网/腾讯视频/YouTube/喜马拉雅/B站。
-   标注「免费」的是官方无会员源（央视网），优先点。中文视频不再只塞 B站。 */
+/* AI 情报站 - 成长讲坛 v2：系列 -> 具体视频（B站真实 BV 号，逐条验证过）
+   2026-09-25 按用户反馈重构：点系列 -> 看视频清单 -> 点视频直达播放页，
+   不再落在 B 站搜索列表页。数据来自 B站官方搜索 API 实抓，_mkforum2.py 抓取、
+   _verify_forum.py 逐条过 view API 校验，死链已剔除。 */
+window.FORUM_UPDATED = "2026-09-25";
 window.FORUM_CATS = ["名人与企业家","国学讲坛","阳明心学"];
-window.FORUM = [
-  {cat:"名人与企业家", who:"马云", title:"湖畔大学 & 达沃斯演讲合集", kind:"演讲", yr:"2015", intro:"从英语老师到阿里创始人，讲「今天很残酷，明天更残酷，后天很美好」。低谷期、迷茫期最该听的一类，讲的是普通人靠坚持和格局翻身。", links:[{p:"B站", u:"https://search.bilibili.com/all?keyword=%E9%A9%AC%E4%BA%91%20%E6%BC%94%E8%AE%B2"}, {p:"腾讯视频", u:"https://v.qq.com/x/search/?q=%E9%A9%AC%E4%BA%91%20%E6%BC%94%E8%AE%B2"}]},
-  {cat:"名人与企业家", who:"雷军", title:"雷军年度演讲（2020–2025）", kind:"年度演讲", yr:"2025", intro:"小米创始人每年的「年度演讲」，讲「永远相信美好的事情即将发生」和风口上的选择逻辑。既是创业者方法论，也是长期主义的心态课。", links:[{p:"B站", u:"https://search.bilibili.com/all?keyword=%E9%9B%B7%E5%86%9B%20%E5%B9%B4%E5%BA%A6%E6%BC%94%E8%AE%B2"}, {p:"腾讯视频", u:"https://v.qq.com/x/search/?q=%E9%9B%B7%E5%86%9B%20%E5%B9%B4%E5%BA%A6%E6%BC%94%E8%AE%B2"}]},
-  {cat:"名人与企业家", who:"马斯克", title:"The future we're building — and boring（TED 2017）", kind:"TED 演讲", yr:"2017", intro:"马斯克亲自讲：为什么要造电动车、上火星、挖隧道，以及他的「第一性原理」思考法。英文原声，科技英语 + 思维方法双收。", links:[{p:"TED官方", u:"https://www.ted.com/talks/elon_musk_the_future_we_re_building_and_boring"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E9%A9%AC%E6%96%AF%E5%85%8B%20TED%20%E6%BC%94%E8%AE%B2"}]},
-  {cat:"名人与企业家", who:"乔布斯", title:"斯坦福大学 2005 毕业演讲（Stay hungry, stay foolish）", kind:"毕业演讲", yr:"2005", intro:"被引用最多的毕业演讲。三个故事讲「把点连起来」「热爱与失去」「直面死亡」。建议看中英字幕版，反复听。", links:[{p:"YouTube", u:"https://www.youtube.com/results?search_query=Steve%20Jobs%20Stanford%202005%20commencement"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E4%B9%94%E5%B8%83%E6%96%AF%20%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%BC%94%E8%AE%B2%20%E4%B8%AD%E8%8B%B1%E5%AD%97%E5%B9%95"}]},
-  {cat:"名人与企业家", who:"任正非", title:"访谈与内部讲话精选", kind:"访谈", yr:"2019", intro:"华为创始人的访谈实录，讲危机意识、基础研究与技术自立。对做科研的人特别有启发：为什么必须去啃硬骨头。", links:[{p:"B站", u:"https://search.bilibili.com/all?keyword=%E4%BB%BB%E6%AD%A3%E9%9D%9E%20%E8%AE%BF%E8%B0%88"}, {p:"腾讯视频", u:"https://v.qq.com/x/search/?q=%E4%BB%BB%E6%AD%A3%E9%9D%9E%20%E8%AE%BF%E8%B0%88"}]},
-  {cat:"名人与企业家", who:"曹德旺", title:"企业家精神与实业报国", kind:"演讲", yr:"2018", intro:"福耀玻璃创始人，讲制造业的坚守、成本与诚信。做实业的钝感力和长期主义，听着踏实。", links:[{p:"B站", u:"https://search.bilibili.com/all?keyword=%E6%9B%B9%E5%BE%B7%E6%97%BA%20%E6%BC%94%E8%AE%B2"}, {p:"腾讯视频", u:"https://v.qq.com/x/search/?q=%E6%9B%B9%E5%BE%B7%E6%97%BA%20%E6%BC%94%E8%AE%B2"}]},
-  {cat:"名人与企业家", who:"张一鸣", title:"延迟满足感与创业选择", kind:"演讲", yr:"2016", intro:"字节跳动创始人反复强调的「延迟满足感」——为什么把眼光放长的人赢面更大。适合焦虑、想速成的阶段听。", links:[{p:"B站", u:"https://search.bilibili.com/all?keyword=%E5%BC%A0%E4%B8%80%E9%B8%A3%20%E6%BC%94%E8%AE%B2%20%E5%BB%B6%E8%BF%9F%E6%BB%A1%E8%B6%B3%E6%84%9F"}, {p:"腾讯视频", u:"https://v.qq.com/x/search/?q=%E5%BC%A0%E4%B8%80%E9%B8%A3%20%E6%BC%94%E8%AE%B2"}]},
-  {cat:"名人与企业家", who:"俞敏洪", title:"在绝望中寻找希望", kind:"演讲", yr:"2013", intro:"新东方创始人的成名演讲，讲普通人如何用努力对抗出身。学生、研究生共鸣感极强。", links:[{p:"B站", u:"https://search.bilibili.com/all?keyword=%E4%BF%9E%E6%95%8F%E6%B4%AA%20%E5%9C%A8%E7%BB%9D%E6%9C%9B%E4%B8%AD%E5%AF%BB%E6%89%BE%E5%B8%8C%E6%9C%9B"}, {p:"腾讯视频", u:"https://v.qq.com/x/search/?q=%E4%BF%9E%E6%95%8F%E6%B4%AA%20%E6%BC%94%E8%AE%B2"}]},
-  {cat:"名人与企业家", who:"稻盛和夫", title:"敬天爱人与阿米巴经营", kind:"演讲", yr:"2010", intro:"日本「经营之圣」，把哲学落到经营：敬天爱人、付出不亚于任何人的努力。与阳明心学一脉相承，可对照着看。", links:[{p:"YouTube", u:"https://www.youtube.com/results?search_query=%E7%A8%BB%E7%9B%9B%E5%92%8C%E5%A4%AB%20%E6%BC%94%E8%AE%B2%20%E6%95%AC%E5%A4%A9%E7%88%B1%E4%BA%BA"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E7%A8%BB%E7%9B%9B%E5%92%8C%E5%A4%AB%20%E6%BC%94%E8%AE%B2%20%E6%95%AC%E5%A4%A9%E7%88%B1%E4%BA%BA"}]},
-  {cat:"名人与企业家", who:"曾毓群", title:"宁德时代与动力电池的二十年", kind:"演讲 / 访谈", yr:"2022", intro:"宁德时代创始人，讲动力电池技术路线与产业判断。跟你做的电池方向直接相关，听听产业视角很有用。", links:[{p:"B站", u:"https://search.bilibili.com/all?keyword=%E6%9B%BE%E6%AF%93%E7%BE%A4%20%E6%BC%94%E8%AE%B2%20%E5%AE%81%E5%BE%B7%E6%97%B6%E4%BB%A3"}, {p:"腾讯视频", u:"https://v.qq.com/x/search/?q=%E6%9B%BE%E6%AF%93%E7%BE%A4%20%E6%BC%94%E8%AE%B2%20%E5%AE%81%E5%BE%B7%E6%97%B6%E4%BB%A3"}]},
-  {cat:"国学讲坛", who:"易中天", title:"《品三国》", kind:"百家讲坛", yr:"2006", intro:"百家讲坛最火的一档，用大白话讲三国人物与权谋。想入门历史和练表达，从这档开始最省力。", links:[{p:"央视网(免费)", u:"https://tv.cctv.com/lm/bjjt/"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E6%98%93%E4%B8%AD%E5%A4%A9%20%E5%93%81%E4%B8%89%E5%9B%BD%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"}]},
-  {cat:"国学讲坛", who:"王立群", title:"《王立群读〈史记〉》", kind:"百家讲坛", yr:"2007", intro:"河南大学教授讲《史记》，人物心理分析极细。喜欢历史与人性观察的必看。", links:[{p:"央视网(免费)", u:"https://tv.cctv.com/lm/bjjt/"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E7%8E%8B%E7%AB%8B%E7%BE%A4%20%E8%AF%BB%E5%8F%B2%E8%AE%B0%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"}]},
-  {cat:"国学讲坛", who:"于丹", title:"《〈论语〉心得》", kind:"百家讲坛", yr:"2006", intro:"把《论语》讲成现代人的生活智慧，语速慢、金句多。零基础接触国学的好入口。", links:[{p:"央视网(免费)", u:"https://tv.cctv.com/lm/bjjt/"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E4%BA%8E%E4%B8%B9%20%E8%AE%BA%E8%AF%AD%E5%BF%83%E5%BE%97%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"}]},
-  {cat:"国学讲坛", who:"蒙曼", title:"《武则天》", kind:"百家讲坛", yr:"2007", intro:"中央民大教授讲武则天，史学功底和讲故事能力都好。人物传记类入门佳作。", links:[{p:"央视网(免费)", u:"https://tv.cctv.com/lm/bjjt/"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E8%92%99%E6%9B%BC%20%E6%AD%A6%E5%88%99%E5%A4%A9%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"}]},
-  {cat:"国学讲坛", who:"鲍鹏山", title:"《鲍鹏山新说〈水浒〉》", kind:"百家讲坛", yr:"2008", intro:"从《水浒》看中国人的处世与人格，观点犀利。喜欢「读出人性」的人会很喜欢。", links:[{p:"央视网(免费)", u:"https://tv.cctv.com/lm/bjjt/"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E9%B2%8D%E9%B9%8F%E5%B1%B1%20%E6%96%B0%E8%AF%B4%E6%B0%B4%E6%B5%92%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"}]},
-  {cat:"国学讲坛", who:"郦波", title:"《五百年来王阳明》", kind:"百家讲坛", yr:"2017", intro:"王阳明心学最好的入门视频，把一生故事讲透。看完再学心学，事半功倍。", links:[{p:"央视网(免费)", u:"https://tv.cctv.com/lm/bjjt/"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E9%83%A6%E6%B3%A2%20%E4%BA%94%E7%99%BE%E5%B9%B4%E6%9D%A5%E7%8E%8B%E9%98%B3%E6%98%8E%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"}]},
-  {cat:"国学讲坛", who:"康震", title:"《唐宋八大家》", kind:"百家讲坛", yr:"2011", intro:"北师大教授讲八大家的文章与人生。对提升文字表达和文学素养很有帮助。", links:[{p:"央视网(免费)", u:"https://tv.cctv.com/lm/bjjt/"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E5%BA%B7%E9%9C%87%20%E5%94%90%E5%AE%8B%E5%85%AB%E5%A4%A7%E5%AE%B6%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"}]},
-  {cat:"国学讲坛", who:"阎崇年", title:"《清十二帝疑案》", kind:"百家讲坛", yr:"2004", intro:"百家讲坛开山级节目，讲清朝十二帝的疑案。历史科普的经典入门。", links:[{p:"央视网(免费)", u:"https://tv.cctv.com/lm/bjjt/"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E9%98%8E%E5%B4%87%E5%B9%B4%20%E6%B8%85%E5%8D%81%E4%BA%8C%E5%B8%9D%E7%96%91%E6%A1%88%20%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B"}]},
-  {cat:"阳明心学", who:"郦波", title:"《五百年来王阳明》", kind:"① 入门 · 听故事", yr:"2017", intro:"第 1 步首选。把王阳明一生（龙场悟道、平定宁王之乱、讲学）讲成故事，零基础也能听懂心学是怎么来的。", links:[{p:"央视网(免费)", u:"https://tv.cctv.com/lm/bjjt/"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E9%83%A6%E6%B3%A2%20%E4%BA%94%E7%99%BE%E5%B9%B4%E6%9D%A5%E7%8E%8B%E9%98%B3%E6%98%8E"}]},
-  {cat:"阳明心学", who:"董平", title:"《王阳明心学》", kind:"② 搭框架 · 浙大公开课", yr:"2018", intro:"第 2 步。浙江大学教授系统讲心学的哲学结构（心即理、知行合一、致良知），比故事更完整、更严谨。", links:[{p:"YouTube", u:"https://www.youtube.com/results?search_query=%E8%91%A3%E5%B9%B3%20%E7%8E%8B%E9%98%B3%E6%98%8E%E5%BF%83%E5%AD%A6%20%E5%85%AC%E5%BC%80%E8%AF%BE"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E8%91%A3%E5%B9%B3%20%E7%8E%8B%E9%98%B3%E6%98%8E%E5%BF%83%E5%AD%A6%20%E5%85%AC%E5%BC%80%E8%AF%BE"}]},
-  {cat:"阳明心学", who:"王德峰", title:"《王阳明心学》", kind:"② 搭框架 · 复旦讲座", yr:"2019", intro:"第 2 步进阶。复旦王德峰用哲学讲心学与人生，风格酣畅，适合想知道「为什么」的人。", links:[{p:"YouTube", u:"https://www.youtube.com/results?search_query=%E7%8E%8B%E5%BE%B7%E5%B3%B0%20%E7%8E%8B%E9%98%B3%E6%98%8E%E5%BF%83%E5%AD%A6"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E7%8E%8B%E5%BE%B7%E5%B3%B0%20%E7%8E%8B%E9%98%B3%E6%98%8E%E5%BF%83%E5%AD%A6"}]},
-  {cat:"阳明心学", who:"央视", title:"《典籍里的中国 · 传习录》", kind:"情景演绎", yr:"2021", intro:"用戏剧还原王阳明与《传习录》，画面感强、情绪足。适合当入门的调味料，加深印象。央视网搜索可免费看。", links:[{p:"央视网搜索", u:"https://search.cctv.com/search?qtext=%E5%85%B8%E7%B1%8D%E9%87%8C%E7%9A%84%E4%B8%AD%E5%9B%BD%20%E4%BC%A0%E4%B9%A0%E5%BD%95"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E5%85%B8%E7%B1%8D%E9%87%8C%E7%9A%84%E4%B8%AD%E5%9B%BD%20%E7%8E%8B%E9%98%B3%E6%98%8E%20%E4%BC%A0%E4%B9%A0%E5%BD%95"}]},
-  {cat:"阳明心学", who:"王阳明 原著", title:"《传习录》原文精读", kind:"③ 读原典", yr:"2022", intro:"第 3 步。心学的「圣经」，记录王阳明与弟子的问答。建议配合讲解版精读，别一上来就啃原文。", links:[{p:"B站", u:"https://search.bilibili.com/all?keyword=%E4%BC%A0%E4%B9%A0%E5%BD%95%20%E5%8E%9F%E6%96%87%20%E8%AE%B2%E8%A7%A3"}, {p:"喜马拉雅(听)", u:"https://www.ximalaya.com/search?q=%E4%BC%A0%E4%B9%A0%E5%BD%95%20%E5%8E%9F%E6%96%87%20%E8%AE%B2%E8%A7%A3"}]},
-  {cat:"阳明心学", who:"度阴山", title:"《知行合一王阳明》", kind:"通俗读本 · 有声", yr:"2015", intro:"把心学讲成能用在生活里的方法，发行量极高的通俗读本。适合想「马上能用」的人。", links:[{p:"B站", u:"https://search.bilibili.com/all?keyword=%E5%BA%A6%E9%98%B4%E5%B1%B1%20%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80%E7%8E%8B%E9%98%B3%E6%98%8E"}, {p:"喜马拉雅(听)", u:"https://www.ximalaya.com/search?q=%E5%BA%A6%E9%98%B4%E5%B1%B1%20%E7%9F%A5%E8%A1%8C%E5%90%88%E4%B8%80%E7%8E%8B%E9%98%B3%E6%98%8E"}]},
-  {cat:"阳明心学", who:"冈田武彦", title:"《王阳明大传》", kind:"权威传记", yr:"2016", intro:"国际上公认最权威的王阳明传记（日本学者著）。想再深入一步、看严谨考据的读它。", links:[{p:"YouTube", u:"https://www.youtube.com/results?search_query=%E7%8E%8B%E9%98%B3%E6%98%8E%E5%A4%A7%E4%BC%A0%20%E5%86%88%E7%94%B0%E6%AD%A6%E5%BD%A6"}, {p:"B站", u:"https://search.bilibili.com/all?keyword=%E7%8E%8B%E9%98%B3%E6%98%8E%E5%A4%A7%E4%BC%A0%20%E5%86%88%E7%94%B0%E6%AD%A6%E5%BD%A6"}]},
-  {cat:"阳明心学", who:"实践方法", title:"「事上磨练」：把心学用起来", kind:"④ 落地实践", yr:"2023", intro:"第 4 步。心学不是书斋学问——在科研、组会、人际里练「省察克治」。这组视频讲怎么把心学真正用起来。", links:[{p:"B站", u:"https://search.bilibili.com/all?keyword=%E9%98%B3%E6%98%8E%E5%BF%83%E5%AD%A6%20%E4%BA%8B%E4%B8%8A%E7%A3%A8%E7%BB%83%20%E5%AE%9E%E8%B7%B5"}, {p:"YouTube", u:"https://www.youtube.com/results?search_query=%E9%98%B3%E6%98%8E%E5%BF%83%E5%AD%A6%20%E4%BA%8B%E4%B8%8A%E7%A3%A8%E7%BB%83%20%E5%AE%9E%E8%B7%B5"}]}
+window.FORUM_SERIES = [
+  {cat:"名人与企业家", who:"马云", desc:"从英语老师到阿里创始人。低谷期、迷茫期最该听的一类：今天很残酷，明天更残酷，后天很美好。", vids:[
+    {"t":"马云在上海外滩金融峰会上的演讲，内容劲爆，火力全开。","bvid":"BV1va4y1s7k8","up":"小娃放牛","dur":"21:30","play":3659397},
+    {"t":"2020年！马云，首次直播谈论 当代年轻人压力。","bvid":"BV17z4y1R7Wm","up":"云中方知雾","dur":"5:30","play":294464},
+    {"t":"马云斯坦福演讲：世界在改变 你要采取行动","bvid":"BV1Az4y1v7Z8","up":"识君SHIJUN","dur":"34:39","play":211045},
+    {"t":"震惊！马云模仿迈克尔杰克逊舞姿现场气氛燃爆了","bvid":"BV1zW411b753","up":"先生魯迅","dur":"6:44","play":175922},
+    {"t":"【马云】想看十年前马云的演讲吗？极其经典并有预见性的演讲","bvid":"BV1Fx411t758","up":"從吾遊","dur":"72:35","play":148058},
+    {"t":"马云演讲全集","bvid":"BV1PM411i7F3","up":"超越思考","dur":"575:38","play":108318}
+  ]},
+  {cat:"名人与企业家", who:"雷军", desc:"小米创始人每年一场的「年度演讲」，讲风口上的选择逻辑与长期主义心态。", vids:[
+    {"t":"【一往无前】小米十周年 雷军公开演讲全程录播","bvid":"BV14Z4y1M7En","up":"小米公司","dur":"174:59","play":831744},
+    {"t":"【演讲回顾】2023雷军年度演讲纯净版","bvid":"BV1pu4y1q7GG","up":"小米公司","dur":"73:30","play":712682},
+    {"t":"【演讲回顾】2024雷军年度演讲纯净版","bvid":"BV1n2421Z7Uu","up":"小米公司","dur":"74:2","play":545697},
+    {"t":"雷军史上最励志，最振奋人心的演讲没有之一！","bvid":"BV13izCY1EA4","up":"账号已注销","dur":"53:38","play":375635},
+    {"t":"【高能混剪】雷军年度演讲2024（金句版）","bvid":"BV1jE421w7By","up":"AndyTalk","dur":"6:6","play":368796},
+    {"t":"【全程回放】2023雷军年度演讲","bvid":"BV12u4y1q7ns","up":"UplusTech","dur":"197:35","play":292955}
+  ]},
+  {cat:"名人与企业家", who:"马斯克", desc:"第一性原理思考法：为什么造电动车、上火星、挖隧道。英文原声配中文字幕。", vids:[
+    {"t":"【附文稿】（完整版）埃隆·马斯克2026首次访谈：探讨人工智能、机器人技术、能源、教育、寿命和太空探索对近未来的影响。","bvid":"BV1Jq6SBkEdU","up":"YouTube访谈实录","dur":"172:10","play":801296},
+    {"t":"【马斯克演讲】一场会让你哭泣的励志演讲！","bvid":"BV1az421z7ei","up":"TED演讲汇","dur":"11:23","play":412977},
+    {"t":"【完整字幕版】2019年世界人工智能大会。马云对话马斯克马斯克（Elon Musk），他们聊了AI、移民火星、拯救地球等等","bvid":"BV1q4411q7QL","up":"微言微聊","dur":"47:28","play":121740},
+    {"t":"【美音】（无删减）埃隆·马斯克传 Elon Musk 《乔布斯传》作者新作 英文原版书","bvid":"BV1iz421h7Sh","up":"翻倒巷小书房","dur":"1227:32","play":95570},
+    {"t":"埃隆马斯克-历年视频合集","bvid":"BV1734y1z7pP","up":"三石超越百岁","dur":"860:49","play":37401},
+    {"t":"川普在共和党中期大会上的演讲完整版(上) | 2026.9.10 | 美剧级别字幕","bvid":"BV1EeYN6cEKW","up":"听懂英语快讯","dur":"50:42","play":18373}
+  ]},
+  {cat:"名人与企业家", who:"乔布斯", desc:"2005 斯坦福毕业演讲「Stay hungry, stay foolish」，三个故事讲热爱、失去与死亡。", vids:[
+    {"t":"乔布斯在斯坦福大学毕业典礼上的演讲（中英字幕）","bvid":"BV1oW411h7Ea","up":"风上面的天","dur":"14:25","play":1570362},
+    {"t":"【油管5000w播放】乔布斯在斯坦福大学毕业典礼上的演讲！","bvid":"BV1T2YLeYE3g","up":"TED口语官方","dur":"14:25","play":150888},
+    {"t":"每当深处低谷，听听这段讲话 | 重温经典 | 乔布斯在斯坦福大学毕业典礼上的演讲","bvid":"BV1BBuBzVENh","up":"青云英语每日更新","dur":"14:38","play":62142},
+    {"t":"斯坦福大学《深度学习自然语言处理|Stanford CS224N NLP with Deep Learning 2024》中英字幕（deepseek-R1","bvid":"BV1U5RNYgEfp","up":"GPT中英字幕课程资源","dur":"1652:39","play":49521},
+    {"t":"乔布斯 1983 年的这场演讲，提前看穿了 50 年，这场演讲里，一共有 10 个关键预言，后来几乎全部应验这是一场被严重低估的演讲。【完整版】","bvid":"BV1ahB1BVExB","up":"spanking_","dur":"54:51","play":41203},
+    {"t":"乔布斯 史上最著名的演讲：求知若饥，虚心若愚","bvid":"BV12N411G7QQ","up":"名言语录QUOTES","dur":"15:38","play":21427}
+  ]},
+  {cat:"名人与企业家", who:"任正非", desc:"华为创始人访谈实录：危机意识、基础研究与技术自立。做科研的人听最有共鸣。", vids:[
+    {"t":"暴君、傀儡、赌徒、硬汉、商业思想家，任正非的多重面孔【奔流·任正非】","bvid":"BV1oTrsYzEb2","up":"大象放映室","dur":"25:6","play":872491},
+    {"t":"完整版中文字幕来了！任正非对话美国科技大咖并巧妙回应尖锐问题","bvid":"BV1Wx411o7BF","up":"中国日报","dur":"103:23","play":416677},
+    {"t":"任正非 · 人物","bvid":"BV1bZ4y1Q7bJ","up":"枕头软睡得香","dur":"59:37","play":172640},
+    {"t":"华为任正非接受采访，谈当下的华为与担当。骨子里的自信！","bvid":"BV1Z4411j7Gb","up":"可爱的小潇潇","dur":"14:48","play":139628},
+    {"t":"任正非首次接受央视专访（2019）","bvid":"BV1ea411R7Uc","up":"o_o_o_o","dur":"25:9","play":103492},
+    {"t":"任正非采访演讲合集","bvid":"BV1J64y117fC","up":"青山客呀","dur":"911:3","play":101824}
+  ]},
+  {cat:"名人与企业家", who:"曹德旺", desc:"福耀玻璃创始人讲制造业的坚守、成本与诚信，实业家的钝感力。", vids:[
+    {"t":"神魔曹德旺：捐160亿，挨20年骂，曹德旺究竟做错了什么？","bvid":"BV1a8BoBrE84","up":"饭统戴老板","dur":"20:28","play":388627},
+    {"t":"美国工厂（2019）| “周六都给我滚进来加班！”资本家们如是说。","bvid":"BV1FaB1YPEEb","up":"moka1992","dur":"148:56","play":174148},
+    {"t":"曹德旺专访完整版","bvid":"BV1uV411q7Yf","up":"商业视界短视频","dur":"21:53","play":150551},
+    {"t":"曹德旺采访视频-破口大骂","bvid":"BV1xT411n7oZ","up":"叶落c-c","dur":"13:51","play":54193},
+    {"t":"【完整版】14岁辍学到身价165亿，曹德旺笑谈致富路","bvid":"BV1oU4y1h7J4","up":"东南卫视","dur":"36:45","play":30911},
+    {"t":"程邀｜对话曹德旺：创业这50年，我的初心没有变","bvid":"BV1au6iBWEj4","up":"程里哥","dur":"23:49","play":19188}
+  ]},
+  {cat:"名人与企业家", who:"张一鸣", desc:"字节跳动创始人反复强调「延迟满足感」：把眼光放长的人赢面更大。", vids:[
+    {"t":"【张一鸣】₂₀₁₇｜趁年轻完成知识和信息的原始积累","bvid":"BV1qa4y1V7a7","up":"励志演说君","dur":"15:17","play":273915},
+    {"t":"张一鸣的创业之路（合集）更新至2020","bvid":"BV1gp4y1B7wu","up":"羊驼FF","dur":"271:38","play":136076},
+    {"t":"张一鸣早期最精彩的采访没有之一","bvid":"BV19m411q7Jp","up":"B站金融学院","dur":"24:1","play":123175},
+    {"t":"【中国超经典名人演讲视频集】两弹元勋，科学家，企业家，大学教授，校长，艺人，经济学家-口才，励志，人生，挑战，落泪，勇气，智慧，野心，搞笑，牛人","bvid":"BV1ut411n7Yv","up":"向往诗和远方qq","dur":"263:0","play":119535},
+    {"t":"每个创业者至少看五遍以上的访谈，不是三遍！ （张一鸣）","bvid":"BV1z7T7zJE9c","up":"B站金融大学","dur":"11:45","play":105259},
+    {"t":"【值得观看】张一鸣：字节跳动CEO深度专访 趁年轻完成知识的原始积累！！！","bvid":"BV16x4y1V7KJ","up":"万众创薪","dur":"60:23","play":96839}
+  ]},
+  {cat:"名人与企业家", who:"俞敏洪", desc:"新东方创始人成名演讲：在绝望中寻找希望，普通人靠努力对抗出身。", vids:[
+    {"t":"【个人演讲】俞敏洪励志演讲集（共12p）","bvid":"BV1Mx411M77R","up":"不羁智士","dur":"505:59","play":376980},
+    {"t":"俞敏洪励志演讲【当你意志消沉的时候可以多看几遍】","bvid":"BV1Zs411X7cj","up":"快读慢画","dur":"33:47","play":306854},
+    {"t":"俞敏洪：不要与别人比较，否则会进入死胡同…","bvid":"BV1Gr4y1z7fs","up":"敢为天下后_","dur":"5:13","play":244955},
+    {"t":"俞敏洪谈人和人的差距，字字诛心一针见血，杨澜听得心服口服！","bvid":"BV19V4y197iP","up":"PC-262","dur":"24:30","play":228216},
+    {"t":"【俞敏洪】星空演讲·中年男人的成长（完整版）","bvid":"BV1fM4y1w7V5","up":"牛牛复利","dur":"22:20","play":169933},
+    {"t":"俞敏洪最精彩演讲之一：永远不要放弃你自己","bvid":"BV1ZzhJzjEor","up":"B站名人演讲","dur":"21:48","play":70541}
+  ]},
+  {cat:"名人与企业家", who:"稻盛和夫", desc:"日本「经营之圣」：敬天爱人、付出不亚于任何人的努力，与阳明心学一脉相承。", vids:[
+    {"t":"【TED演讲】什么是美好生活、怎么活最幸福——哈佛75年研究成果","bvid":"BV1aF411Q7Je","up":"ABC英语乐园","dur":"12:31","play":125558},
+    {"t":"稻盛和夫 最经典的演讲：人为什么活着？","bvid":"BV1Yz421X7ad","up":"名言语录QUOTES","dur":"43:22","play":76785},
+    {"t":"稻盛和夫--经营十二条","bvid":"BV11K4y1j7Dv","up":"志恩先生","dur":"159:21","play":62537},
+    {"t":"稻盛和夫给年轻人的忠告丨工作秘籍活法心法","bvid":"BV1RzZyYTEPK","up":"以沐小芳有声","dur":"371:37","play":43526},
+    {"t":"稻盛和夫的经营哲学-六项精进(全集)","bvid":"BV1uy4y1j7G9","up":"静笃书院","dur":"83:9","play":41122},
+    {"t":"心灵管理-稻盛和夫","bvid":"BV1e64y1u7Es","up":"志恩先生","dur":"65:49","play":40150}
+  ]},
+  {cat:"名人与企业家", who:"曾毓群", desc:"宁德时代创始人讲动力电池技术路线与产业判断，电池方向必听。", vids:[
+    {"t":"30万公里威马EX5宁德时代电池衰减测试","bvid":"BV1oG4y1D7DW","up":"电车狂人方哥","dur":"11:41","play":15719},
+    {"t":"【宁德时代】曾毓群 对话 【红杉资本】沈南鹏","bvid":"BV13M4y1V7Vw","up":"B站迷你股东","dur":"65:1","play":7497},
+    {"t":"【面相分析电池大王:曾毓群】额头丰隆真的一定为佳吗？","bvid":"BV1NG4y1i7Cb","up":"相学文化","dur":"7:21","play":3358},
+    {"t":"【价投148】宁德时代中报，市值＝2迪的电池龙头，还能高速增长吗？","bvid":"BV1sgbM6zEEd","up":"努力学习的阿乐","dur":"20:32","play":2375},
+    {"t":"宁德时代任雨婷出轨事件2","bvid":"BV1FweJ6VEJB","up":"侵略攻击","dur":"37:17","play":2121},
+    {"t":"不用宁德时代的电池能否降车价？孙少军直播20260904","bvid":"BV1dYaK6oE88","up":"小幸运0_0","dur":"14:13","play":2095}
+  ]},
+  {cat:"国学讲坛", who:"易中天", desc:"百家讲坛最火的一档，用大白话讲三国人物与权谋，历史入门首选。", vids:[
+    {"t":"易中天《易中天品三国》52集全","bvid":"BV1ATPQz5EVd","up":"歌曲有声书分享","dur":"2000:1","play":791276},
+    {"t":"我为什么从易中天的粉丝到后来脱粉","bvid":"BV1KvmcBNEoX","up":"文远儿分析","dur":"14:51","play":211106},
+    {"t":"《AI易中天品新三国》第15集_曹操举兵","bvid":"BV12j416VEvM","up":"南阳野人ZLB","dur":"19:33","play":182269},
+    {"t":"有声文学《易中天品三国》全52集","bvid":"BV1SBoMBmEJz","up":"小仙爱听书","dur":"2001:17","play":146949},
+    {"t":"易中天品三国（完结）易中天 精品有声剧","bvid":"BV1LwKS6mEqK","up":"柚子听书","dur":"2113:11","play":53413},
+    {"t":"易中天品三国（全52集）","bvid":"BV1MLojBiEDa","up":"朱家小仙","dur":"2001:6","play":50323}
+  ]},
+  {cat:"国学讲坛", who:"王立群", desc:"河南大学教授讲《史记》，人物心理分析极细，历史与人性观察必看。", vids:[
+    {"t":"【视频】王立群读史记（全集）","bvid":"BV1tpjQ6TEsX","up":"小仙听国学","dur":"10171:41","play":209520},
+    {"t":"【王立群】读史记-秦始皇（47集全）","bvid":"BV1J9jU6EEgw","up":"书中漫步者","dur":"1728:17","play":179480},
+    {"t":"王立群读史记之《大风歌》","bvid":"BV1pRfFBQE8b","up":"白龙烈烈","dur":"1663:40","play":150634},
+    {"t":"《史记》原文朗读（配文字）","bvid":"BV1Z8411c7t7","up":"加油好读书","dur":"4016:16","play":111876},
+    {"t":"B站最全版【震撼视频】王立群读史记 (全集)，带你领略经典魅力！","bvid":"BV1D4oPBzEyY","up":"B站明德至善书院","dur":"8705:9","play":67280},
+    {"t":"王立群读史记：通古今之变，识人性之常","bvid":"BV1mgLj6eEW1","up":"小仙听国学","dur":"9884:44","play":60921}
+  ]},
+  {cat:"国学讲坛", who:"于丹", desc:"把《论语》讲成现代人的生活智慧，语速慢、金句多，零基础国学入口。", vids:[
+    {"t":"被学生轰下台的于丹，现状如何？跌落神坛的日子里，丈夫这样做！【解说人物】","bvid":"BV1e64y1Q7D5","up":"有耳工作室","dur":"13:12","play":409155},
+    {"t":"于丹品读《论语》《庄子》系列","bvid":"BV1g9H6e1ED4","up":"史海守望","dur":"929:30","play":84536},
+    {"t":"《论语》心得","bvid":"BV1jb411h7q2","up":"龙马乾坤","dur":"187:7","play":29836},
+    {"t":"2024.4.15 于丹 2——中国女主播年鉴","bvid":"BV1Dw4m1m7pm","up":"文言文练习生李军宝","dur":"5:25","play":8362},
+    {"t":"于丹《论语心得 | 庄子心得》系列合集","bvid":"BV1YwkZBxEZh","up":"朱家小仙的跟班","dur":"672:45","play":8245},
+    {"t":"2024.5.19 于丹——中国女主播年鉴","bvid":"BV1Ui421D7Dq","up":"文言文练习生李军宝","dur":"63:48","play":7474}
+  ]},
+  {cat:"国学讲坛", who:"蒙曼", desc:"中央民大教授讲武则天，史学功底与讲故事能力俱佳。", vids:[
+    {"t":"蒙曼·【至尊红颜】合集","bvid":"BV1jW411L7pP","up":"文史阁","dur":"192:37","play":1157549},
+    {"t":"蒙曼《武则天》","bvid":"BV1JWeCzxEDR","up":"优视部落","dur":"1723:22","play":885237},
+    {"t":"《武则天》蒙曼 全32讲 合集","bvid":"BV1sqP4z2ErS","up":"西方白莲花","dur":"1047:26","play":174630},
+    {"t":"蒙曼隋唐史之武则天","bvid":"BV1yh4y1E7gz","up":"瓦尔登散人","dur":"1198:35","play":164222},
+    {"t":"武则天女帝八字，三甲天上贵，千古罕见！（三连关注简评，评论区抽下期素材）","bvid":"BV1Typ4eME4g","up":"闻人子坤","dur":"6:29","play":101273},
+    {"t":"B站最细！黑马武则天精讲教学，一期视频教会你！！","bvid":"BV1dMyhBWEA4","up":"余77ovo","dur":"8:52","play":88965}
+  ]},
+  {cat:"国学讲坛", who:"鲍鹏山", desc:"从《水浒》看中国人的处世与人格，观点犀利。", vids:[
+    {"t":"【听书】鲍鹏shan《新说水浒》63集全+1期特别节目","bvid":"BV11JDdYNEgW","up":"闲鱼听书","dur":"2489:13","play":379651},
+    {"t":"鲍鹏山说水浒: 鲁智深","bvid":"BV1mJ411A7ZS","up":"NameReset","dur":"509:38","play":195148},
+    {"t":"鲍鹏山精解论语（讲透为人处世）","bvid":"BV1ECJJzWE98","up":"朵辣AA梦","dur":"663:12","play":137752},
+    {"t":"鲍鹏山《百家讲坛》全集（音频）","bvid":"BV1FvbDzYEjN","up":"朱家小仙","dur":"4047:45","play":128793},
+    {"t":"【听书·鲍鹏山《新说水浒》】一口气看完系列63集全","bvid":"BV1i1421k7Vp","up":"始皇迷弟","dur":"2503:14","play":92551},
+    {"t":"鲍鹏山新说《水浒》","bvid":"BV1VaeaznEDK","up":"史海守望","dur":"2344:46","play":88591}
+  ]},
+  {cat:"国学讲坛", who:"郦波", desc:"南京师大教授讲王阳明一生，心学最好的视频入门。", vids:[
+    {"t":"一口气看完王阳明，500年来第一完人，人生迷茫就读王阳明吧","bvid":"BV1E94y1E7mx","up":"知识放映室","dur":"17:24","play":2241044},
+    {"t":"【五百年来王阳明】传奇开始的地方，知行合一（郦波）","bvid":"BV1h44y1D7mU","up":"始皇迷弟","dur":"917:28","play":420795},
+    {"t":"4K高清全集！郦波讲《五百年来王阳明》全 26 集，他会揭秘哪些王阳明不为人知的故事？","bvid":"BV1V4oKBEEx4","up":"B站明德至善书院","dur":"1545:58","play":101152},
+    {"t":"【百家讲坛】郦波：五百年来王阳明","bvid":"BV1CihGzNEAy","up":"B站人文社科学院","dur":"812:40","play":65919},
+    {"t":"知行合一：郦波精讲五百年来王阳明","bvid":"BV15pdRBHEox","up":"朱家小仙的跟班","dur":"883:22","play":25199},
+    {"t":"精彩讲阳明文化，波解读王阳明26 集完整呈现，讲坛重磅提升文化底蕴","bvid":"BV1iJdCB9ErG","up":"闻道致远学院","dur":"2117:30","play":24806}
+  ]},
+  {cat:"国学讲坛", who:"康震", desc:"北师大教授讲八大家的文章与人生，提文字表达与文学素养。", vids:[
+    {"t":"康震-唐宋八大家","bvid":"BV1mt41167J4","up":"一点零一的N次方","dur":"283:0","play":291667},
+    {"t":"【唐宋八大家】人见人爱苏东坡","bvid":"BV13F411K7Df","up":"始皇迷弟","dur":"660:43","play":223464},
+    {"t":"康震《唐宋八大家》视频全集","bvid":"BV1Ryp1zbEUM","up":"优视部落","dur":"3856:9","play":128970},
+    {"t":"唐宋八大家【王安石】（康震）","bvid":"BV1Nr4y1t7Gx","up":"始皇迷弟","dur":"752:51","play":123805},
+    {"t":"【北师大-康震】中国古代文学史-第4讲隋唐五代部分（隋与初唐文学、盛唐诗歌、李白、杜甫、中唐诗歌、晚唐诗歌、唐代散文的发展、唐五代词、唐传奇与唐代通俗文学）","bvid":"BV1G7411j7m4","up":"学习资源搬运工","dur":"1773:36","play":103104},
+    {"t":"【宗师列传·唐宋八大家】柳宗元","bvid":"BV1ZvpCzoELp","up":"央博","dur":"97:6","play":91083}
+  ]},
+  {cat:"国学讲坛", who:"阎崇年", desc:"百家讲坛开山级节目，讲清朝十二帝疑案，历史科普经典。", vids:[
+    {"t":"【清十二帝·疑案】顺治·康熙·雍正·乾隆（阎崇年）","bvid":"BV1Ac411s7rM","up":"始皇迷弟","dur":"320:26","play":160057},
+    {"t":"阎崇年老师《明亡清兴60年》 全46集","bvid":"BV1LXeyzsEqt","up":"朱家小仙的跟班","dur":"2107:59","play":94101},
+    {"t":"阎崇年《清十二帝疑案》","bvid":"BV1Tpe7zcEDU","up":"优视部落","dur":"1781:11","play":86270},
+    {"t":"【清十二帝·疑案】努尔哈赤·皇太极（阎崇年）","bvid":"BV17M4y1m7NV","up":"始皇迷弟","dur":"156:28","play":59084},
+    {"t":"【清十二帝·疑案】嘉庆·道光·咸丰（阎崇年）","bvid":"BV1RL41127cX","up":"始皇迷弟","dur":"237:33","play":54021},
+    {"t":"【清十二帝·疑案】光绪皇帝·上中下（阎崇年）","bvid":"BV1ZT411s7uL","up":"始皇迷弟","dur":"119:58","play":21261}
+  ]},
+  {cat:"阳明心学", who:"郦波 · 心学入门", desc:"第 1 步首选：把王阳明一生讲成故事，零基础听懂心学从哪来。", vids:[
+    {"t":"一口气看完王阳明，500年来第一完人，人生迷茫就读王阳明吧","bvid":"BV1E94y1E7mx","up":"知识放映室","dur":"17:24","play":2241044},
+    {"t":"【五百年来王阳明】传奇开始的地方，知行合一（郦波）","bvid":"BV1h44y1D7mU","up":"始皇迷弟","dur":"917:28","play":420795},
+    {"t":"4K高清全集！郦波讲《五百年来王阳明》全 26 集，他会揭秘哪些王阳明不为人知的故事？","bvid":"BV1V4oKBEEx4","up":"B站明德至善书院","dur":"1545:58","play":101152},
+    {"t":"【百家讲坛】郦波：五百年来王阳明","bvid":"BV1CihGzNEAy","up":"B站人文社科学院","dur":"812:40","play":65919},
+    {"t":"知行合一：郦波精讲五百年来王阳明","bvid":"BV15pdRBHEox","up":"朱家小仙的跟班","dur":"883:22","play":25199},
+    {"t":"精彩讲阳明文化，波解读王阳明26 集完整呈现，讲坛重磅提升文化底蕴","bvid":"BV1iJdCB9ErG","up":"闻道致远学院","dur":"2117:30","play":24806}
+  ]},
+  {cat:"阳明心学", who:"董平 · 浙大公开课", desc:"第 2 步：浙大教授系统讲心学哲学结构（心即理、知行合一、致良知）。", vids:[
+    {"t":"【王德峰教授讲座】王阳明心学 （全8讲）","bvid":"BV15Z4y1R76Z","up":"账号已注销","dur":"279:9","play":4505752},
+    {"t":"【公开课】浙江大学：王阳明心学 董平（全9讲）","bvid":"BV1wX4y1L7Rw","up":"农夫CC","dur":"335:15","play":307773},
+    {"t":"“吾性自足,不假外求”，王阳明龙场悟道。","bvid":"BV1GA411m7A6","up":"一蓑玉羽","dur":"7:30","play":116981},
+    {"t":"【文化】王阳明心学（董平教授·浙江大学）·九讲全","bvid":"BV1e4411D7nv","up":"美友影音","dur":"335:16","play":73194},
+    {"t":"王阳明：教你如何静坐，诚意与慎独","bvid":"BV1sY411o7uM","up":"邂逅经典文化","dur":"6:41","play":4782},
+    {"t":"王阳明心学~董平","bvid":"BV1ZuJyzXEJx","up":"米道转化者","dur":"330:11","play":2240}
+  ]},
+  {cat:"阳明心学", who:"王德峰 · 复旦讲座", desc:"第 2 步进阶：复旦王德峰用哲学讲心学与人生，适合想知道「为什么」的人。", vids:[
+    {"t":"【王德峰教授讲座】王阳明心学 （全8讲）","bvid":"BV15Z4y1R76Z","up":"账号已注销","dur":"279:9","play":4505752},
+    {"t":"【王德峰】重温阳明心学，寻觅人生意义","bvid":"BV1gN4y1J7to","up":"王德峰","dur":"18:37","play":776107},
+    {"t":"【已完结】如图","bvid":"BV11Z3NzMEk8","up":"鹿的秘密花园","dur":"1273:26","play":193436},
+    {"t":"王德峰wonderful讲读《传习录》——《阳明心学的当代意义》深度课程全12天","bvid":"BV15X4y1v7pi","up":"星际图腾飞飞","dur":"3510:47","play":111181},
+    {"t":"王阳明心学《传习录》•王德峰教授讲座，自己逐字逐句俢的字幕","bvid":"BV1ts4y1U7jb","up":"迪斯马斯克DS","dur":"202:3","play":109840},
+    {"t":"（8节全）王德峰/1-2王阳明心学及其现代意义/3-8今天为什么学国学","bvid":"BV1QxgRzJENd","up":"松林斋","dur":"372:35","play":94070}
+  ]},
+  {cat:"阳明心学", who:"典籍里的中国", desc:"央视用戏剧还原王阳明与《传习录》，画面感强，当入门的调味料。", vids:[
+    {"t":"【中国文学史】欧丽娟老师 #35集.完","bvid":"BV1oU4y1a7dc","up":"卞歆","dur":"4647:27","play":3266748},
+    {"t":"纪录片《典籍里的中国》央视（全22集）","bvid":"BV1B121BGEAf","up":"小仙爱听书","dur":"2125:15","play":712364},
+    {"t":"【原版视频】一开口就是高分作文！央视节目里的宝藏文案（一）","bvid":"BV1UY41187oe","up":"央视网快看","dur":"5:13","play":590555},
+    {"t":"【央视纪录片】《典籍里的中国 第一季》全11期 4K高码（2021）","bvid":"BV15xJzzqE2d","up":"YouTube全球速递","dur":"810:11","play":279368},
+    {"t":"【公开课】《传习录》（全7讲）王德峰","bvid":"BV151JLziEeJ","up":"YouTube全球速递","dur":"250:54","play":138810},
+    {"t":"[典籍里的中国]第一季全1080P-更至第11期[传习录] 20211010","bvid":"BV1Mr4y1P7ua","up":"千古風流","dur":"1104:33","play":123325}
+  ]},
+  {cat:"阳明心学", who:"传习录精读", desc:"第 3 步：心学「圣经」原文，配讲解版一天两三条慢慢品。", vids:[
+    {"t":"王阳明&传习录","bvid":"BV1G4411L7w8","up":"WithEric","dur":"1205:30","play":2694688},
+    {"t":"国学-《传习录》讲读by王德峰(字幕➕ppt版）全7天22课150节","bvid":"BV16Z4y147Ja","up":"芮颖酱","dur":"1778:18","play":2061451},
+    {"t":"【北京大学】中国哲学史（全41讲）杨立华","bvid":"BV1QY411J7jv","up":"iMuseums","dur":"2463:49","play":1325231},
+    {"t":"王德峰教授讲《传习录》（全7讲）","bvid":"BV1ZL4y137UF","up":"账号已注销","dur":"250:54","play":778857},
+    {"t":"【西南大学】孟凡君教授逐句讲透《传习录》（完结）","bvid":"BV1qp4y187SY","up":"琴剑书馆孟凡君","dur":"2217:40","play":359262},
+    {"t":"30 分钟重塑你的《传习录》世界观！它是一本教你在红尘俗世中，修炼出强大内核的武林秘籍！一口气看懂【传习录：心学修炼指南】","bvid":"BV1qK5T6pEoa","up":"一麟读书","dur":"34:27","play":154985}
+  ]},
+  {cat:"阳明心学", who:"度阴山 · 通俗解读", desc:"把心学讲成能用在生活里的方法，适合想「马上能用」的人。", vids:[
+    {"t":"【有声书】知行合一王阳明 [欲成大事着 必读王阳明] 致良知 何为良知？","bvid":"BV13yNyeJE4j","up":"闲鱼听书","dur":"1118:59","play":250381},
+    {"t":"有声书《王阳明：知行合一》心即理、知行合一、致良知","bvid":"BV1cm411C7mx","up":"朱家小仙的跟班","dur":"1118:59","play":93804},
+    {"t":"度阴山讲王阳明（合集）","bvid":"BV1494y1f7TX","up":"账号已注销","dur":"323:54","play":27734},
+    {"t":"【有声书】知行合一王阳明1+2合集完结 [欲成大事着,必读王阳明] 致良知 何为良知？","bvid":"BV1cwEizYEqK","up":"勤者读书听书","dur":"1607:48","play":22107},
+    {"t":"【知行合一五千年】度阴山讲中国史 两部全","bvid":"BV1RdopBaE2m","up":"听书音乐喵","dur":"1457:53","play":6332},
+    {"t":"人物-熊逸[王阳明：一切心法1+2]全72集,普通读者罕有知道，王阳明原是一个被翻案的奸佞。《明实录》里的王阳明不但奸邪，还很有几分色厉内荏的丑态，是一个墙头草","bvid":"BV1xo4y1T7cU","up":"听书时间","dur":"1116:45","play":4982}
+  ]},
+  {cat:"阳明心学", who:"心学实践", desc:"第 4 步：在科研、组会、人际里练「省察克治」，把心学真正用起来。", vids:[
+    {"t":"【王德峰教授讲座】王阳明心学 （全8讲）","bvid":"BV15Z4y1R76Z","up":"账号已注销","dur":"279:9","play":4505752},
+    {"t":"王阳明&传习录","bvid":"BV1G4411L7w8","up":"WithEric","dur":"1205:30","play":2694688},
+    {"t":"王阳明《传习录·徐爱录》诵读：此心光明，亦复何言【由“春风不可负”点播】","bvid":"BV11u4y1h7Ry","up":"诵读客","dur":"38:0","play":99009},
+    {"t":"五百年来王阳明~郦波","bvid":"BV1w7WVzQE3Z","up":"米道转化者","dur":"617:34","play":21500},
+    {"t":"弱者靠意志力硬撑，强者用“事上练”碾压。——王阳明","bvid":"BV1C1AuzWEwN","up":"砺心社TheSoulforge","dur":"31:26","play":13882},
+    {"t":"人物-熊逸[王阳明：一切心法1+2]全72集,普通读者罕有知道，王阳明原是一个被翻案的奸佞。《明实录》里的王阳明不但奸邪，还很有几分色厉内荏的丑态，是一个墙头草","bvid":"BV1xo4y1T7cU","up":"听书时间","dur":"1116:45","play":4982}
+  ]},
 ];
 window.XINXUE_GUIDE = {
-  intro:"王阳明（1472–1529）：明代思想家、军事家，中国历史上少有的「立德、立功、立言」三不朽。心学核心就一句——力量在你自己心里，不在外面。",
-  steps:[
-    {t:"① 听故事", d:"先看郦波《五百年来王阳明》（央视网百家讲坛免费），把心学的来龙去脉搞明白，别急着读原文。"},
-    {t:"② 搭框架", d:"用董平 / 王德峰的课（YouTube/B站），掌握「心即理、知行合一、致良知」三大命题的内在逻辑。"},
-    {t:"③ 读原典", d:"翻《传习录》，配合讲解版，一天两三条慢慢品，不必求快。"},
-    {t:"④ 落到事上", d:"在真实场景里练：遇事先向内看（省察克治），想明白就立刻做（知行合一）。"},
-  ],
-  concepts:[
-    {k:"心即理", d:"天理不在外面的事物上，就在你心里。判断是非的标准，内心本来就有。"},
-    {k:"知行合一", d:"真知必然带出行动；知而不行，只是未知。别把「听懂了」当成「做到了」。"},
-    {k:"致良知", d:"把内心本来就有的良知（是非判断）扩充开来，落实到每一件事上。"},
-    {k:"四句教", d:"无善无恶心之体／有善有恶意之动／知善知恶是良知／为善去恶是格物。"},
-  ]
+ "intro": "王阳明（1472–1529）：明代思想家、军事家，中国历史上少有的「立德、立功、立言」三不朽。心学核心就一句——力量在你自己心里，不在外面。",
+ "steps": [
+  {
+   "t": "① 听故事",
+   "d": "先看郦波《五百年来王阳明》（央视网百家讲坛免费），把心学的来龙去脉搞明白，别急着读原文。"
+  },
+  {
+   "t": "② 搭框架",
+   "d": "用董平 / 王德峰的课（YouTube/B站），掌握「心即理、知行合一、致良知」三大命题的内在逻辑。"
+  },
+  {
+   "t": "③ 读原典",
+   "d": "翻《传习录》，配合讲解版，一天两三条慢慢品，不必求快。"
+  },
+  {
+   "t": "④ 落到事上",
+   "d": "在真实场景里练：遇事先向内看（省察克治），想明白就立刻做（知行合一）。"
+  }
+ ],
+ "concepts": [
+  {
+   "k": "心即理",
+   "d": "天理不在外面的事物上，就在你心里。判断是非的标准，内心本来就有。"
+  },
+  {
+   "k": "知行合一",
+   "d": "真知必然带出行动；知而不行，只是未知。别把「听懂了」当成「做到了」。"
+  },
+  {
+   "k": "致良知",
+   "d": "把内心本来就有的良知（是非判断）扩充开来，落实到每一件事上。"
+  },
+  {
+   "k": "四句教",
+   "d": "无善无恶心之体／有善有恶意之动／知善知恶是良知／为善去恶是格物。"
+  }
+ ]
 };
 
 </script>
@@ -2898,24 +3097,33 @@ window.FUNDS_EXPOSURE = [
   renderTED();
 })();
 
-  /* ============ FORUM VIEW: 成长讲坛 ============ */
+  /* ============ FORUM VIEW: 成长讲坛（系列 -> 视频两级直达） ============ */
   (function(){
-    var FORUM = window.FORUM || [];
+    var SERIES = window.FORUM_SERIES || [];
     var GUIDE = window.XINXUE_GUIDE || null;
     var CATS = window.FORUM_CATS || [];
-    var FCAT = "全部";
+    var FCAT = "全部";   // 一级筛选：分类
+    var FCUR = null;     // null=系列列表；数字=当前打开的系列下标（在筛选后的列表里）
     function esc(s){
       return (s==null?"":String(s)).replace(/[&<>"']/g, function(c){
         return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
       });
     }
     var uel=document.getElementById('forum-updated'); if(uel){ uel.textContent=(window.FORUM_UPDATED||'未知'); }
-    var cel=document.getElementById('forum-count'); if(cel){ cel.textContent=FORUM.length; }
+    /* vm 沙箱无 ICU，播放量格式化手写：12500 -> 1.3万 */
+    function fmtPlay(n){
+      if(!n || n<0) return "—";
+      if(n>=10000){ var w=n/10000; return (w>=100? Math.round(w) : Math.round(w*10)/10) + "万"; }
+      return String(n);
+    }
+    function seriesOf(cat){
+      return SERIES.filter(function(s){ return cat==="全部" || s.cat===cat; });
+    }
 
     function renderGuide(){
       var box=document.getElementById('xinxue-guide');
       if(!box) return;
-      if(FCAT==="阳明心学" && GUIDE){
+      if(FCAT==="阳明心学" && GUIDE && FCUR===null){
         var steps=(GUIDE.steps||[]).map(function(s){
           return '<div style="margin:6px 0;font-size:13.5px;line-height:1.7"><b style="color:#8b5cf6">'+esc(s.t)+'</b> '+esc(s.d)+'</div>';
         }).join("");
@@ -2926,66 +3134,111 @@ window.FUNDS_EXPOSURE = [
         box.innerHTML='<div class="lk-tip" style="margin-bottom:14px;background:#f5f3ff;border-color:#ddd6fe;color:#4c1d95">'+
           '<div style="font-weight:800;font-size:15px;margin-bottom:7px">🧘 阳明心学 · 四步入门（照着走就行）</div>'+
           '<div style="font-size:13.5px;line-height:1.75;margin-bottom:11px">'+esc(GUIDE.intro||"")+'</div>'+
-          '<div style="font-size:13px;line-height:1.6;margin-bottom:11px;color:#15803d">📺 <b>免费官方源：</b>郦波《五百年来王阳明》在央视网百家讲坛（tv.cctv.com/lm/bjjt/）免费看；《典籍里的中国·传习录》在央视网搜索免费看。</div>'+
           '<div style="font-weight:800;margin:10px 0 4px;font-size:14px">📚 学习路径</div>'+ steps +
           '<div style="font-weight:800;margin:12px 0 4px;font-size:14px">🔑 四个核心概念</div>'+ cons +
         '</div>';
-      } else if(FCAT==="国学讲坛"){
-        box.style.display="";
-        box.innerHTML='<div class="lk-tip" style="margin-bottom:14px">📺 <b>央视《百家讲坛》官网（按节目找全集）：</b>'+
-          '<a href="https://tv.cctv.com/lm/bjjt/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">tv.cctv.com/lm/bjjt/ ↗</a>'+
-          '　—— 下方卡片是按「主讲人 + 代表作」整理的精听清单。</div>';
       } else {
         box.style.display="none"; box.innerHTML="";
       }
     }
 
-    function renderForum(){
+    function renderFilters(){
       var fw=document.getElementById('forumFilters');
-      if(fw){
-        var all=["全部"].concat(CATS);
-        fw.innerHTML=all.map(function(c){
-          return '<button class="filterbtn'+(FCAT===c?" active":"")+'" data-c="'+esc(c)+'">'+esc(c)+'</button>';
-        }).join("");
-      }
-      var list=FORUM.filter(function(x){ return FCAT==="全部" || x.cat===FCAT; });
+      if(!fw) return;
+      var all=["全部"].concat(CATS);
+      fw.innerHTML=all.map(function(c){
+        return '<button class="filterbtn'+(FCAT===c?" active":"")+'" data-c="'+esc(c)+'">'+esc(c)+'</button>';
+      }).join("");
+    }
+
+    /* 第一级：系列卡片 */
+    function renderSeries(){
+      var list=seriesOf(FCAT);
       var st=document.getElementById('forum-stat');
-      if(st){ st.textContent="共 "+list.length+" 条（全部 "+FORUM.length+" 条）"; }
+      var total=0; list.forEach(function(s){ total+=s.vids.length; });
+      if(st){ st.textContent="共 "+list.length+" 个系列 / "+total+" 个视频，点系列进入视频清单"; }
       renderGuide();
       var box=document.getElementById('forum-list');
       if(!box) return;
       if(!list.length){ box.innerHTML='<div class="news">该分类暂无内容。</div>'; return; }
-      box.innerHTML=list.map(function(x){
-        return '<article class="cmp">'+
+      box.innerHTML=list.map(function(s){
+        var top=fmtPlay(Math.max.apply(null, s.vids.map(function(v){ return v.play||0; })));
+        return '<article class="cmp" data-open="'+esc(s.who)+'" style="cursor:pointer">'+
           '<div class="cmp-head" style="cursor:default">'+
-            '<span class="chip" style="border-color:var(--brand);color:var(--brand);background:var(--brand-soft)">'+esc(x.cat||"")+'</span>'+
-            '<span class="cmp-name">👤 '+esc(x.who||"")+'</span>'+
-            '<span class="chip" style="border-color:var(--line)">'+esc(x.kind||"")+'</span>'+
-            '<span class="chip" style="border-color:var(--line)">📅 '+esc(String(x.yr||""))+'</span>'+
+            '<span class="chip" style="border-color:var(--brand);color:var(--brand);background:var(--brand-soft)">'+esc(s.cat||"")+'</span>'+
+            '<span class="cmp-name">👤 '+esc(s.who||"")+' 系列</span>'+
+            '<span class="chip" style="border-color:var(--line)">🎬 '+s.vids.length+' 个视频</span>'+
           '</div>'+
-          '<div style="margin:7px 0 9px;font-weight:800;font-size:15px">'+esc(x.title||"")+'</div>'+
-          '<div class="d-row"><span class="d-k">简介</span><span class="d-v">'+esc(x.intro||"")+'</span></div>'+
-          '<div style="margin-top:11px;display:flex;flex-wrap:wrap;gap:8px;align-items:center">'+
-            '<span style="font-size:12px;color:#64748b">观看 ▸</span>'+
-            (x.links||[{p:"链接",u:x.url||"#"}]).map(function(l){
-              var isfree = (l.p.indexOf("免费")>=0);
-              var st = isfree ? ' style="background:#16a34a;border-color:#16a34a;color:#fff"' : '';
-              return '<a class="top-btn"'+st+' href="'+esc(l.u||"#")+'" target="_blank" rel="noopener noreferrer">'+esc(l.p)+' ↗</a>';
-            }).join("")+
+          '<div class="d-row" style="margin-top:8px"><span class="d-k">这个系列讲啥</span><span class="d-v">'+esc(s.desc||"")+'</span></div>'+
+          '<div style="margin-top:10px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">'+
+            '<button class="top-btn" data-open="'+esc(s.who)+'">▶ 进入视频清单（'+s.vids.length+'）</button>'+
+            '<span style="font-size:12px;color:var(--ink-soft)">最高播放 '+top+'</span>'+
           '</div>'+
         '</article>';
       }).join("");
     }
+
+    /* 第二级：系列内的视频清单（点视频直达播放页） */
+    function renderVids(){
+      var list=seriesOf(FCAT);
+      var s=list[FCUR];
+      if(!s){ FCUR=null; renderSeries(); return; }
+      var st=document.getElementById('forum-stat');
+      if(st){ st.textContent="「"+s.who+"」系列 · "+s.vids.length+" 个视频 · 点卡片直接看"; }
+      renderGuide();
+      var box=document.getElementById('forum-list');
+      if(!box) return;
+      var cards=s.vids.map(function(v){
+        return '<article class="cmp" data-vid="'+esc(v.bvid)+'" style="cursor:pointer">'+
+          '<div class="cmp-head" style="cursor:default">'+
+            '<span class="chip" style="border-color:#fb7185;color:#fb7185;background:#fff1f2">▶ 点击直接看</span>'+
+            '<span class="cmp-name">'+esc(v.t||"")+'</span>'+
+          '</div>'+
+          '<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--ink-soft);margin:8px 0">'+
+            '<span class="chip" style="border-color:var(--line)">👤 '+esc(v.up||"")+'</span>'+
+            '<span class="chip" style="border-color:var(--line)">⏱ '+esc(v.dur||"")+'</span>'+
+            '<span class="chip" style="border-color:var(--line)">▶ '+fmtPlay(v.play)+' 播放</span>'+
+          '</div>'+
+          '<div style="margin-top:10px">'+
+            '<a class="top-btn" style="background:#fb7185;border-color:#fb7185;color:#fff" href="https://www.bilibili.com/video/'+esc(v.bvid)+'" target="_blank" rel="noopener noreferrer">▶ 在B站播放 ↗</a>'+
+          '</div>'+
+        '</article>';
+      }).join("");
+      box.innerHTML='<button class="filterbtn" id="forum-back" style="margin-bottom:12px">← 返回系列列表</button>'+cards;
+    }
+
+    function render(){
+      renderFilters();
+      if(FCUR===null) renderSeries(); else renderVids();
+    }
+    render();
+
+    /* 分类筛选 */
     var ff=document.getElementById('forumFilters');
     if(ff){
       ff.addEventListener("click", function(ev){
         var b=ev.target.closest?ev.target.closest(".filterbtn"):null;
         if(!b) return;
         FCAT=b.getAttribute("data-c")||"全部";
-        renderForum();
+        FCUR=null;               // 切分类回系列列表
+        render();
       });
     }
-    renderForum();
+    /* 列表点击：系列卡片进清单 / 返回按钮回列表 / 视频卡片直达播放页（由链接与点卡片共同承担） */
+    var box=document.getElementById('forum-list');
+    if(box){
+      box.addEventListener("click", function(ev){
+        var back=ev.target.closest?ev.target.closest("#forum-back"):null;
+        if(back){ FCUR=null; render(); return; }
+        if(FCUR!==null) return;  // 视频层不拦链接（a 标签自己跳）
+        var open=ev.target.closest?ev.target.closest("[data-open]"):null;
+        if(!open) return;
+        var who=open.getAttribute("data-open");
+        var idx=-1;
+        seriesOf(FCAT).forEach(function(s,i){ if(s.who===who) idx=i; });
+        if(idx>=0){ FCUR=idx; render(); window.scrollTo(0,0); }
+      });
+    }
   })();
 
   /* ============ LEARN VIEW: daily tip + scenario desk ============ */

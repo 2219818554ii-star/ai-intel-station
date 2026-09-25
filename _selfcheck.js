@@ -55,11 +55,22 @@ const tedHtml = (store['ted-list']||{}).innerHTML || '';
 ok(tedHtml.includes('TED官方搜索') && tedHtml.includes('YouTube') && tedHtml.includes('B站'), 'TED 多平台观看入口已渲染（TED官方搜索/YouTube/B站）');
 ok(tedHtml.includes('background:#16a34a') && tedHtml.includes('TED官方搜索'), 'TED 免费入口（TED官方搜索）染绿色');
 ok(!tedHtml.includes('ted.com/talks/'), 'TED 已弃用易 404 的 ted.com/talks/<slug> 直链');
-ok(cards('forum-list') === 26, `成长讲坛卡片 = ${cards('forum-list')}（期望 26）`);
+/* [2a-2] 成长讲坛 v2：系列 -> 视频两级直达（2026-09-25 按用户反馈重构） */
+const FS = sandbox.window.FORUM_SERIES || [];
+const FV = FS.reduce((a,s)=>a+s.vids.length, 0);
+ok(FS.length === 25, `讲坛系列数 = ${FS.length}（期望 25）`);
+ok(FV >= 100, `讲坛视频总数 = ${FV}（期望 >=100，实抓 B站真实视频）`);
+ok(FS.every(s => s.cat && s.who && s.desc && Array.isArray(s.vids) && s.vids.length >= 3), '每个系列含 cat/who/desc/vids 且视频数>=3');
+ok(FS.every(s => s.vids.every(v => /^BV[1-9A-HJ-NP-Za-km-z]{10}$/.test(v.bvid||'') && v.t && v.up && v.dur && typeof v.play==='number')), '每条视频 bvid 格式正确且 t/up/dur/play 齐全');
+ok(cards('forum-list') === FS.length, `系列卡片 = ${cards('forum-list')}（期望 = 系列数 ${FS.length}）`);
+const forumHtml0 = (store['forum-list']||{}).innerHTML || '';
+ok(!forumHtml0.includes('search.bilibili.com'), '讲坛已不再落 B站搜索列表页（用户核心吐槽）');
+ok(!forumHtml0.includes('bilibili.com/video/'), '系列层不放视频直链（先进系列再看视频）');
+ok(forumHtml0.includes('进入视频清单') && forumHtml0.includes('系列'), '系列卡片含「进入视频清单」入口');
 ok(btns('tedFilters') === 6, `TED 筛选按钮 = ${btns('tedFilters')}（期望 6 = 全部+5 大类）`);
 ok(btns('forumFilters') === 4, `讲坛筛选按钮 = ${btns('forumFilters')}（期望 4 = 全部+3 类）`);
 ok((store['ted-stat']||{}).textContent === '共 25 场（全部 25 场）', `TED 统计: ${(store['ted-stat']||{}).textContent}`);
-ok((store['forum-stat']||{}).textContent === '共 26 条（全部 26 条）', `讲坛统计: ${(store['forum-stat']||{}).textContent}`);
+ok((store['forum-stat']||{}).textContent === `共 ${FS.length} 个系列 / ${FV} 个视频，点系列进入视频清单`, `讲坛统计: ${(store['forum-stat']||{}).textContent}`);
 ok((store['xinxue-guide']||{}).style.display === 'none', '默认（全部）时心学面板隐藏');
 
 console.log('\n[2b] 排行榜渲染（验证 rank.js 已内联且数据正常）');
@@ -99,12 +110,38 @@ function fireFilter(elId, cat){
   const b = { getAttribute:(k)=> k==='data-c' ? cat : null };
   fn({ target: { closest:(sel)=> sel==='.filterbtn' ? b : null } });
 }
+/* 讲坛两级导航模拟：点系列卡片 / 点返回按钮 */
+function openForumSeries(who){
+  const fn = (listeners['forum-list']||{}).click;
+  if(!fn){ ok(false, 'forum-list 无 click 监听'); return; }
+  const c = { getAttribute:(k)=> k==='data-open' ? who : null };
+  fn({ target:{ closest:(sel)=> sel==='[data-open]' ? c : null } });
+}
+function forumBack(){
+  const fn = (listeners['forum-list']||{}).click;
+  if(fn) fn({ target:{ closest:(sel)=> sel==='#forum-back' ? {} : null } });
+}
 fireFilter('forumFilters', '阳明心学');
-ok(cards('forum-list') === 8, `讲坛「阳明心学」→ ${cards('forum-list')} 条（期望 8）`);
+const xxCnt = FS.filter(s=>s.cat==='阳明心学').length;
+ok(cards('forum-list') === xxCnt, `讲坛「阳明心学」→ ${cards('forum-list')} 个系列（期望 ${xxCnt}）`);
 const gh = (store['xinxue-guide']||{}).innerHTML || '';
 ok((store['xinxue-guide']||{}).style.display === '' && gh.includes('四步入门'), '心学面板显示且含「四步入门」');
 ok(['心即理','知行合一','致良知','四句教'].every(k => gh.includes(k)), '面板含四个核心概念');
 ok(gh.includes('① 听故事') && gh.includes('④ 落到事上'), '面板含四步路径');
+/* 两级导航实测：马云系列 -> 视频清单 -> 返回
+   ⚠ 必须先切回「全部」筛选，否则当前列表里根本没有马云这个系列（真实浏览器里也同理） */
+fireFilter('forumFilters', '全部');
+openForumSeries('马云');
+const mSeries = FS.find(s=>s.who==='马云');
+const mvHtml = (store['forum-list']||{}).innerHTML || '';
+ok(mSeries && cards('forum-list') === mSeries.vids.length, `点「马云」系列 → ${cards('forum-list')} 张视频卡（期望 ${mSeries?mSeries.vids.length:'?'}）`);
+ok(mvHtml.includes('← 返回系列列表'), '视频清单含「← 返回系列列表」按钮');
+ok(mvHtml.split('bilibili.com/video/').length - 1 === (mSeries?mSeries.vids.length:0), '每条视频都是 bilibili.com/video/<BV> 直达播放页链接');
+ok(mvHtml.includes('在B站播放'), '视频卡片含「在B站播放」按钮');
+ok(mvHtml.includes('👤') && mvHtml.includes('播放'), '视频卡片显示 UP主（👤）与播放量');
+forumBack();
+ok(cards('forum-list') === FS.length, '点返回 → 回到全量系列列表');
+fireFilter('forumFilters', '全部');
 
 console.log('\n[2c] 重庆理工通知渲染');
 const cqHtml = (store['cqut-list']||{}).innerHTML || '';
@@ -146,9 +183,17 @@ const mBtns = count(((store['cqutMatchFilters']||{}).innerHTML||''), /class="fil
 ok(mBtns === 5, `赛事筛选按钮 = ${mBtns}（期望 5 = 全部 + 4 个分类）`);
 ok(mHtml.includes('机械工程学院') && mHtml.includes('材料科学与工程学院'), '赛事卡片显示主办学院');
 fireFilter('forumFilters', '国学讲坛');
-ok(cards('forum-list') === 8 && ((store['xinxue-guide']||{}).innerHTML||'').includes('tv.cctv.com/lm/bjjt/'), `讲坛「国学讲坛」→ 8 条 + 央视百家讲坛官网链接`);
+const gxCnt = FS.filter(s=>s.cat==='国学讲坛').length;
+ok(cards('forum-list') === gxCnt, `讲坛「国学讲坛」→ ${cards('forum-list')} 个系列（期望 ${gxCnt}）`);
 fireFilter('forumFilters', '名人与企业家');
-ok(cards('forum-list') === 10, `讲坛「名人与企业家」→ ${cards('forum-list')} 条（期望 10）`);
+const mrCnt = FS.filter(s=>s.cat==='名人与企业家').length;
+ok(cards('forum-list') === mrCnt, `讲坛「名人与企业家」→ ${cards('forum-list')} 个系列（期望 ${mrCnt}）`);
+openForumSeries('雷军');
+const lj = FS.find(s=>s.who==='雷军');
+ok(lj && cards('forum-list') === lj.vids.length, `名人分类下点「雷军」系列 → ${cards('forum-list')} 张视频卡`);
+ok(((store['forum-list']||{}).innerHTML||'').includes('年度演讲'), '雷军系列视频与年度演讲相关');
+forumBack();
+fireFilter('forumFilters', '全部');
 fireFilter('tedFilters', '学习成长');
 ok(cards('ted-list') === 4, `TED「学习成长」→ ${cards('ted-list')} 条（期望 4）`);
 fireFilter('tedFilters', '认知思维');
