@@ -23,6 +23,14 @@ import subprocess
 import urllib.request
 import urllib.error
 
+# 命令行默认码页是 cp936，输出 emoji 会直接 UnicodeEncodeError 崩溃，
+# 所以统一改成「cp936 + 不能编码就替换成 ?」，保证脚本在任何环境都不崩。
+try:
+    sys.stdout.reconfigure(encoding="cp936", errors="replace")
+    sys.stderr.reconfigure(encoding="cp936", errors="replace")
+except Exception:
+    pass
+
 BASE = os.path.dirname(os.path.abspath(__file__))
 REPO = "2219818554ii-star/ai-intel-station"
 REMOTE_URL = "https://github.com/%s" % REPO
