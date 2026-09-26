@@ -104,6 +104,23 @@ const expoHtml = (store['funds-exposure']||{}).innerHTML || '';
 ok(expoHtml.includes('A股') && expoHtml.includes('海外'), '风格暴露条含 A 股 / 海外');
 ok((store['funds-updated']||{}).textContent && fList.length > 500, '基金看板渲染非空');
 
+console.log('\n[2e] 基金深度档案（2026-09-26 实抓，防回退断言）');
+const fDeep = sandbox.window.FUNDS_DEEP || {};
+const fDeepBox = (store['funds-deep']||{}).innerHTML || '';
+const fInsBox = (store['funds-insight']||{}).innerHTML || '';
+ok(fDeep.date === '2026-09-26', `深度档案日期 = ${fDeep.date}（期望 2026-09-26）`);
+const dCodes = Object.keys(fDeep.byCode || {});
+ok(dCodes.length === 4, `深度档案覆盖 ${dCodes.length} 只（期望 4）`);
+ok(fHold.every(f => (fDeep.byCode||{})[f.code]), '每只持仓都有对应深度档案');
+const topTotal = dCodes.reduce((a,c) => a + ((fDeep.byCode[c].top10||[]).length), 0);
+ok(topTotal === 40, `重仓条目合计 = ${topTotal}（期望 40，4 只 × Top10）`);
+ok(dCodes.every(c => (fDeep.byCode[c].top10||[]).every(t => typeof t.p === 'number' && t.p > 0 && t.p < 15)), '重仓占比均为合理数值（0–15%）');
+ok(['郑希','金梓才','宋巍巍','张其思'].every(m => dCodes.some(c => (fDeep.byCode[c].mgr||'').includes(m))), '四位经理姓名全部落地');
+ok(fDeepBox.split('<details').length - 1 === 4, `深度档案折叠卡 = ${fDeepBox.split('<details').length - 1}（期望 4）`);
+ok(fDeepBox.includes('前十大重仓'), '深度档案含重仓区块');
+ok(fInsBox.split('border-radius:50%').length - 1 === 3, `组合透视条数 = ${fInsBox.split('border-radius:50%').length - 1}（期望 3）`);
+ok((fDeep.insight||[])[0] && (fDeep.insight[0].includes('新易盛') || fDeep.insight[0].includes('AI')), '透视第 1 条涉及持仓重叠/AI 算力');
+
 console.log('\n[3] 模拟点击分类筛选');
 function fireFilter(elId, cat){
   const fn = (listeners[elId]||{}).click;

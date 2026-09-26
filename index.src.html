@@ -725,6 +725,18 @@
     </div>
     <div class="cmp-list" id="funds-exposure"></div>
 
+    <div class="view-head" style="margin-top:30px">
+      <h2 style="font-size:20px">🔎 深度档案</h2>
+      <p>经理 / 业绩 / 重仓 Top10 / 申购状态，实抓自天天基金 F10 与经理档案页（点开每只看详情）。</p>
+    </div>
+    <div class="cmp-list" id="funds-deep"></div>
+
+    <div class="view-head" style="margin-top:30px">
+      <h2 style="font-size:20px">🧠 组合透视</h2>
+      <p>基于上面实抓数据的三条大实话，只陈述事实，不构成建议。</p>
+    </div>
+    <div class="cmp-list" id="funds-insight" style="margin-bottom:16px"></div>
+
     <div class="lk-tip" style="margin-top:18px">
       ⚠️ <b>说明：</b>场外基金净值 T+1 公布，QDII（追踪美股的两只）通常更晚，所以页面上的盈亏<b>不是此刻的实时价格</b>，而是最近一个已公布净值日的数据。本站只做记录与呈现，<b>不给任何买卖建议</b>。
     </div>
@@ -1900,6 +1912,55 @@
             esc(g.k)+'：<b>'+esc(moneyTxt(g.v)||"—")+'</b> <span style="color:#94a3b8">('+w.toFixed(1)+'%)</span></span>';
         }).join("")+
       '</div></div>';
+  }
+
+  /* ---- 深度档案 + 组合透视 ---- */
+  var DEEP = window.FUNDS_DEEP || {};
+  var dbox = document.getElementById('funds-deep');
+  if(dbox){
+    var db = DEEP.byCode || {};
+    dbox.innerHTML = H.map(function(f){
+      var d = db[f.code];
+      if(!d) return '';
+      var rows = [
+        ['基金经理', '<b>'+esc(d.mgr)+'</b>（'+esc(d.mgrYears)+'，'+esc(d.mgrScale)+'）<br><span style="color:#475569">'+esc(d.mgrNote)+'</span>'],
+        ['最新净值', d.nav ? '<b>'+d.nav.toFixed(4)+'</b>（'+esc(d.navDate)+'，日'+(d.dayPct>0?'+':'')+(d.dayPct*100).toFixed(2)+'%）' : '—'],
+        ['阶段业绩', esc(d.perf||'—')],
+        ['规模', esc(d.scale||'—')],
+        ['申购状态', '<b>'+esc(d.status||'—')+'</b>'],
+        ['投向主题', esc(d.theme||'—')]
+      ].map(function(r){
+        return '<div class="d-row"><span class="d-k">'+r[0]+'</span><span class="d-v">'+r[1]+'</span></div>';
+      }).join("");
+      var bars = (d.top10||[]).map(function(t){
+        var w = Math.max(2, Math.min(100, t.p/10*100));
+        return '<div style="display:flex;align-items:center;gap:8px;margin:4px 0">'+
+          '<span style="width:130px;font-size:12px;color:var(--ink);text-align:right;flex:none">'+esc(t.s)+'</span>'+
+          '<span style="flex:1;height:10px;background:#f1f5f9;border-radius:5px;overflow:hidden">'+
+            '<span style="display:block;height:100%;width:'+w.toFixed(1)+'%;background:linear-gradient(90deg,#3b82f6,#2563eb);border-radius:5px"></span></span>'+
+          '<span style="width:52px;font-size:12px;color:#64748b;flex:none">'+t.p.toFixed(2)+'%</span></div>';
+      }).join("");
+      return '<article class="cmp-item" style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:0 0 10px">'+
+        '<details><summary style="cursor:pointer;font-weight:800;color:var(--ink);font-size:15px">'+
+          esc(f.n)+'（'+esc(f.code)+'）· 深度档案</summary>'+
+        '<div style="margin-top:10px">'+rows+
+        '<div style="margin-top:12px"><div style="font-size:12px;color:#64748b;margin-bottom:6px">前十大重仓（'+esc(d.topDate||'—')+'）</div>'+bars+'</div>'+
+        '</div></details></article>';
+    }).join("");
+    var src = document.createElement('div');
+    src.style.cssText = 'font-size:12px;color:#94a3b8;margin-top:4px';
+    src.textContent = '档案日期：' + (DEEP.date||'—') + ' ｜ 来源：' + (DEEP.src||'天天基金');
+    dbox.appendChild(src);
+  }
+  var ibox = document.getElementById('funds-insight');
+  if(ibox){
+    var ins = DEEP.insight || [];
+    ibox.innerHTML = ins.length ? '<div style="background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:14px 18px">'+
+      ins.map(function(t,i){
+        return '<div style="display:flex;gap:10px;margin:'+(i?'12px':'0')+' 0">'+
+          '<span style="flex:none;width:22px;height:22px;border-radius:50%;background:#f59e0b;color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center">'+(i+1)+'</span>'+
+          '<span style="font-size:14px;color:var(--ink);line-height:1.7">'+esc(t)+'</span></div>';
+      }).join("")+'</div>' : '';
   }
 })();
 </script>
