@@ -683,32 +683,32 @@
     </div>
 <details id="cqutMatchFold" style="margin-top:32px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden">
       <summary id="cqutMatchSummary" style="cursor:pointer;list-style:none;padding:14px 18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;user-select:none">
-        <span style="font-size:19px">🏅 比赛动态 · 正在举办的排最前</span>
+        <span style="font-size:19px">🏅 比赛 · 只收还能参加的</span>
         <span class="tier t-none" id="cqutMatchCount">—</span>
-        <span class="tier t-none" id="nationMatchCount" style="background:#eef2ff;color:#4f46e5">全国已扩</span>
+        <span class="tier t-none" id="matchOpenCount" style="background:#fef2f2;color:#e02424">—</span>
         <span style="font-size:12px;color:#94a3b8;margin-left:auto;flex:none" id="cqutFoldHint">展开 ▾</span>
       </summary>
       <div style="padding:2px 18px 16px;border-top:1px dashed var(--line)">
-        <p style="font-size:13px;color:#64748b;margin:12px 0 0">你想报名而不是看别人获奖——所以这块置顶了。范围已经从<b>只看重理工</b>扩到<b>全国高校</b>，重点捞重庆市内各校的通知，每所学校都写清「我该关注啥」，URL 全部真实可点。<b>获奖喜报也一并留着</b>——那是我们学校的战绩，不是垃圾。数据更新于 <span id="cqut-match-updated"></span>；全国高校赛事部分更新于 <span id="nation-updated"></span></p>
+        <p style="font-size:13px;color:#64748b;margin:12px 0 0">这一版<b>只剩今天还报得上的比赛</b>：已经截止的、以及那些「我校获全国一等奖」的获奖通稿，全部删光了。范围从只看重理工扩到了<b> 10 个学校/单位分类</b>，每条只写三件事——<b>这是什么 / 你能帮我做啥 / 我需要做啥</b>。数据更新于 <span id="cqut-match-updated"></span></p>
 
-        <div style="font-size:15px;font-weight:800;color:var(--ink);margin:18px 0 9px;padding-left:10px;border-left:3px solid var(--brand)">🏫 重庆理工本校（含获奖喜报）</div>
-        <div class="cmp-toolbar" id="cqutMatchFilters" style="margin-top:4px"></div>
-        <div class="cmp-list" id="cqut-match-list"></div>
+        <div style="font-size:14px;font-weight:800;color:var(--ink);margin:16px 0 7px;padding-left:10px;border-left:3px solid var(--brand)">🏫 按学校 / 单位分类 · <span style="font-weight:600;color:#64748b">点一下只看这一类</span></div>
+        <div class="cmp-toolbar" id="matchSchoolFilters" style="margin-top:0"></div>
 
-        <div style="font-size:15px;font-weight:800;color:var(--ink);margin:22px 0 9px;padding-left:10px;border-left:3px solid #4f46e5">🌏 全国高校赛事 · 重庆优先</div>
-        <p style="font-size:12.5px;color:#64748b;margin:0 0 10px" id="nation-note"></p>
-        <div class="cmp-toolbar" id="nationMatchFilters" style="margin-top:0"></div>
-        <div class="cmp-list" id="nation-list"></div>
+        <div style="font-size:14px;font-weight:800;color:var(--ink);margin:15px 0 7px;padding-left:10px;border-left:3px solid #4f46e5">🔥 按报名状态筛 · <span style="font-weight:600;color:#64748b">先看还能报的</span></div>
+        <div class="cmp-toolbar" id="matchFilters"></div>
+
+        <p style="font-size:12.5px;color:#64748b;margin:12px 0 9px" id="match-note"></p>
+        <div class="cmp-list" id="match-list"></div>
 
         <div class="lk-tip" style="margin-top:18px">
-          💡 <b>怎么筛：</b>你学化工材料，重点看打了 <b>🎯</b> 的那几条——<b>哈工大电化学竞赛</b>（研究生组，考的正是你天天做的电化学测量）和<b>云南大学化学实验创新设计大赛</b>（报名窗口到 11/30，正好是你现在的空档）是两条最实际的路。<b>重庆市内的市赛</b>门槛低、名额多，适合当保底。机械机器人那组看着热闹，跟你专业主线基本不搭。
+          💡 <b>从哪下手：</b>三条最该看的——<b>第五届大学生标准创新大赛</b>（重理工自己承办、专业不限、线上答题，10/10 截止，门槛最低）；<b>巴渝工匠杯化工行业职业技能竞赛</b>（四个赛项直接对化工，走单位组织报名）；<b>能源电子·新型储能智能传感专题赛</b>（9/30 就截止，测电池阻抗谱，跟你硅基负极那条线最贴）。<b>研创系列那三条</b>是研究生专属、全国性，10 月中旬集体截止，现在动手正好。
         </div>
 
         <div class="view-head" style="margin-top:22px">
-          <h2 style="font-size:18px">🔗 全国高校信源直达（各校教务处 / 竞赛官网）</h2>
-          <p>上面哪所学校没抓到，直接点这里去它官网看最新通知。</p>
+          <h2 style="font-size:18px">🔗 出通知的官网 / 部门直达</h2>
+          <p>上面哪个学校没抓到，直接点这里去它官网看最新通知。</p>
         </div>
-        <div id="nation-sources"></div>
+        <div id="match-sources"></div>
       </div>
     </details>
         <div class="cmp-toolbar" id="cqutFilters" style="margin-top:26px">
@@ -772,7 +772,7 @@
   <script src="forum.js"></script>
   <script src="rank.js"></script>
   <script src="cqut.js"></script>
-  <script src="nation.js"></script>
+  <script src="matches.js"></script>
   <script src="funds.js"></script>
 <script>
 (function(){
@@ -1757,176 +1757,160 @@
   }
   render();
 
-  /* ===== 各学院赛事（在理工模块内部，直接复用外层 esc） ===== */
+  /* ===== 比赛板块（统一数据源 matches.js，按学校分类） ===== */
   (function(){
-    var M = window.CQUT_MATCHES || [];
-    var MT = window.CQUT_MATCH_TAGS || [];
-    var MCUR = "all";
-    var upM = document.getElementById('cqut-match-updated');
-    if(upM){ upM.textContent = window.CQUT_MATCH_UPDATED || "未知"; }
-    var fwM = document.getElementById('cqutMatchFilters');
-    if(fwM){
-      var btns = ['<button class="filterbtn active" data-m="all">全部 '+M.length+' 条</button>'];
-      MT.forEach(function(t){
-        var c = 0; M.forEach(function(x){ if(x.tag===t.k) c++; });
-        btns.push('<button class="filterbtn" data-m="'+t.k+'">'+t.n+'（'+c+'）</button>');
+    var M = window.MATCHES || [];
+    var SC = window.MATCH_SCHOOLS || [];
+    var MAP = {};
+    SC.forEach(function(sc){ MAP[sc.k] = sc; });
+    var SCUR = "all";    /* 学校筛选 */
+    var FCUR = "open";   /* 状态筛选，默认只看还能报的 */
+
+    var up = document.getElementById('cqut-match-updated');
+    if(up) up.textContent = window.MATCH_UPDATED || "未知";
+    var nt = document.getElementById('match-note');
+    if(nt) nt.textContent = window.MATCH_NOTE || "";
+
+    var isOpen = function(x){ return x.st === "报名中"; };
+    var nOpen = M.filter(isOpen).length;
+    function dlDay(x){
+      var m = /(\d{4})-(\d{2})-(\d{2})/.exec(String(x.dl || ""));
+      if(!m) return null;
+      return Date.parse(m[1] + "-" + m[2] + "-" + m[3] + "T23:59:59");
+    }
+    function isSoon(x){
+      var t = dlDay(x);
+      if(t === null) return false;
+      var d = (t - Date.now()) / 86400000;
+      return d >= -1 && d <= 12;
+    }
+
+    var cb = document.getElementById('cqutMatchCount');
+    if(cb) cb.textContent = '共 ' + M.length + ' 条';
+    var ob = document.getElementById('matchOpenCount');
+    if(ob) ob.textContent = '🔥 ' + nOpen + ' 条正在报名';
+
+    /* --- 学校分类按钮 --- */
+    var fwS = document.getElementById('matchSchoolFilters');
+    if(fwS){
+      var bs = ['<button class="filterbtn active" data-s="all">🏫 全部学校（' + M.length + '）</button>'];
+      SC.forEach(function(sc){
+        var n = M.filter(function(x){ return x.school === sc.k; }).length;
+        if(!n) return;
+        bs.push('<button class="filterbtn" data-s="' + sc.k + '" title="' + esc(sc.note || "") + '">' +
+                esc(sc.n) + '（' + n + '）</button>');
       });
-      fwM.innerHTML = btns.join("");
-      var mcBadge = document.getElementById('cqutMatchCount');
-      if(mcBadge) mcBadge.textContent = '共 ' + M.length + ' 条';
+      fwS.innerHTML = bs.join("");
     }
-    var boxM = document.getElementById('cqut-match-list');
-    function drawM(){
-      if(!boxM) return;
-      var list = M.filter(function(x){ return MCUR==="all" || x.tag===MCUR; });
-      if(!list.length){ boxM.innerHTML = '<div class="news">该分类暂无内容。</div>'; return; }
-      boxM.innerHTML = list.map(function(x){
-        var fit = x.fit
-          ? '<span class="chip" style="border-color:var(--brand);color:var(--brand);background:var(--brand-soft)">🎯 跟你专业对口</span>'
-          : '';
-        return '<article class="cmp">'+
-          '<div class="cmp-head" style="cursor:default">'+
-            '<span class="chip" style="border-color:var(--line)">🏫 '+esc(x.org||"")+'</span>'+
-            '<span class="cmp-name">🏅 '+esc(x.n||"")+'</span>'+
-          '</div>'+
-          '<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--ink-soft);margin:8px 0">'+
-            '<span class="chip" style="border-color:var(--line)">📊 '+esc(x.lv||"")+'</span>'+
-            '<span class="chip" style="border-color:var(--line)">📅 '+esc(x.date||"")+'</span>'+
-            '<span class="chip" style="border-color:var(--line)">'+esc(x.st||"")+'</span>'+
-            fit+
-          '</div>'+
-          '<div class="d-row"><span class="d-k">简介</span><span class="d-v">'+esc(x.intro||"")+'</span></div>'+
-          '<div class="d-row"><span class="d-k">具体要干啥</span><span class="d-v">'+esc(x.todo||"")+'</span></div>'+
-          '<div class="d-row"><span class="d-k">我能帮你做啥</span><span class="d-v">'+esc(x.help||"")+'</span></div>'+
-          '<div style="margin-top:11px">'+
-            '<a class="top-btn" href="'+esc(x.url||"#")+'" target="_blank" rel="noopener noreferrer">🔗 源地址 ↗</a>'+
-          '</div>'+
-        '</article>';
-      }).join("");
-    }
-    drawM();
-    if(fwM){
-      fwM.addEventListener("click", function(ev){
-        var b = ev.target.closest ? ev.target.closest(".filterbtn") : null;
-        if(!b) return;
-        MCUR = b.getAttribute("data-m") || "all";
-        Array.prototype.forEach.call(fwM.querySelectorAll(".filterbtn"), function(x){ x.classList.remove("active"); });
-        b.classList.add("active");
-        drawM();
-      });
-    }
-  })();
 
-  /* ===== 全国高校赛事（重点重庆），挂在本校赛事下面 ===== */
-  (function(){
-    var NET = window.NATION_MATCHES || [];
-    var NOTE = window.NATION_NOTE || "";
-    var note = document.getElementById('nation-note');
-    var UP = document.getElementById('nation-updated');
-    var cnt = document.getElementById('nationMatchCount');
-    var NCUR = "all";
-
-    /* 判定是否重庆市内：发布方里带「重庆 / 长江师范 / 西南大学 / 西南政法」即算 */
-    function isCQ(x){
-      return /重庆|长江师范|西南大学|西南政法/.test(x.org || "");
+    /* --- 状态按钮 --- */
+    var fwF = document.getElementById('matchFilters');
+    if(fwF){
+      var nFit = M.filter(function(x){ return !!x.fit; }).length;
+      var nSoon = M.filter(isSoon).length;
+      fwF.innerHTML = [
+        '<button class="filterbtn' + (FCUR === "open" ? " active" : "") + '" data-f="open">🔥 正在报名（' + nOpen + '）</button>',
+        '<button class="filterbtn' + (FCUR === "soon" ? " active" : "") + '" data-f="soon">⏰ 快截止（' + nSoon + '）</button>',
+        '<button class="filterbtn' + (FCUR === "fit" ? " active" : "") + '" data-f="fit">🎯 专业对口（' + nFit + '）</button>',
+        '<button class="filterbtn' + (FCUR === "all" ? " active" : "") + '" data-f="all">📋 全部（' + M.length + '）</button>'
+      ].join("");
     }
-    if(note) note.textContent = NOTE;
-    if(UP) UP.textContent = window.NATION_UPDATED || "未知";
-    if(cnt) cnt.textContent = '全国 ' + NET.length + ' 条';
 
-    /* 筛选按钮 */
-    var fwN = document.getElementById('nationMatchFilters');
-    if(fwN){
-      var nCQ = NET.filter(isCQ).length;
-      var btns = [
-        '<button class="filterbtn active" data-n="all">全部 '+NET.length+'</button>',
-        '<button class="filterbtn" data-n="cq">🌏 重庆市内（'+nCQ+'）</button>',
-        '<button class="filterbtn" data-n="out">🌐 全国其他（'+(NET.length-nCQ)+'）</button>'
-      ];
-      var nOpen = NET.filter(function(x){ return x.st === "报名中"; }).length;
-      btns.push('<button class="filterbtn" data-n="open">🔥 正在报名（'+nOpen+'）</button>');
-      fwN.innerHTML = btns.join("");
-    }
-    var boxN = document.getElementById('nation-list');
-    function drawN(){
-      if(!boxN) return;
-      var list = NET.filter(function(x){
-        if(NCUR==="all") return true;
-        if(NCUR==="cq")  return isCQ(x);
-        if(NCUR==="out") return !isCQ(x);
-        if(NCUR==="open") return x.st === "报名中";
+    var box = document.getElementById('match-list');
+    function draw(){
+      if(!box) return;
+      var list = M.filter(function(x){
+        if(SCUR !== "all" && x.school !== SCUR) return false;
+        if(FCUR === "open") return isOpen(x);
+        if(FCUR === "soon") return isSoon(x);
+        if(FCUR === "fit")  return !!x.fit;
         return true;
       });
-      if(!list.length){ boxN.innerHTML = '<div class="news">该分类暂无内容。</div>'; return; }
-      boxN.innerHTML = list.map(function(x){
+      if(!list.length){
+        box.innerHTML = '<div class="news">这个分类下暂时没有「还能参加」的比赛。</div>';
+        return;
+      }
+      /* 报名中的排最前，其次按截止日从近到远 */
+      list.sort(function(a, b){
+        var ao = isOpen(a) ? 0 : 1, bo = isOpen(b) ? 0 : 1;
+        if(ao !== bo) return ao - bo;
+        var ta = dlDay(a), tb = dlDay(b);
+        if(ta === null) return 1;
+        if(tb === null) return -1;
+        return ta - tb;
+      });
+      box.innerHTML = list.map(function(x){
+        var sc = MAP[x.school] || {n:"其他"};
         var fit = x.fit
           ? '<span class="chip" style="border-color:var(--brand);color:var(--brand);background:var(--brand-soft)">🎯 跟你专业对口</span>'
           : '';
-        var hot = x.st === "报名中"
+        var hot = isOpen(x)
           ? '<span class="chip" style="border-color:#e02424;color:#e02424;background:#fef2f2">🔥 正在报名</span>'
           : '';
-        var dl = x.dl && x.dl !== "—"
-          ? '<span class="chip" style="border-color:#f59e0b;color:#b45309;background:#fffbeb">⏰ 截止 '+esc(x.dl)+'</span>'
+        var dl = x.dl && String(x.dl) !== "—"
+          ? '<span class="chip" style="border-color:#f59e0b;color:#b45309;background:#fffbeb">⏰ 截止 ' + esc(x.dl) + '</span>'
+          : '';
+        var soon = isSoon(x) && !isOpen(x)
+          ? '<span class="chip" style="border-color:#f59e0b;color:#b45309;background:#fffbeb">⚠️ 即将截止</span>'
           : '';
         var rego = x.rego
-          ? '<span class="chip" style="border-color:var(--line)">👥 '+esc(x.rego)+'</span>'
+          ? '<span class="chip" style="border-color:var(--line)">👥 ' + esc(x.rego) + '</span>'
           : '';
-        return '<article class="cmp">'+
-          '<div class="cmp-head" style="cursor:default">'+
-            '<span class="chip" style="border-color:var(--line)">🏫 '+esc(x.org||"")+'</span>'+
-            '<span class="cmp-name">🏅 '+esc(x.n||"")+'</span>'+
-          '</div>'+
-          '<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--ink-soft);margin:8px 0">'+
-            '<span class="chip" style="border-color:var(--line)">📊 '+esc(x.lv||"")+'</span>'+
-            '<span class="chip" style="border-color:var(--line)">📅 '+esc(x.date||"")+'</span>'+
-            '<span class="chip" style="border-color:var(--line)">'+esc(x.st||"")+'</span>'+
-            dl + hot + rego + fit +
-          '</div>'+
-          '<div class="d-row"><span class="d-k">简介</span><span class="d-v">'+esc(x.intro||"")+'</span></div>'+
-          '<div class="d-row"><span class="d-k">具体要干啥</span><span class="d-v">'+esc(x.todo||"")+'</span></div>'+
-          '<div class="d-row"><span class="d-k">我能帮你做啥</span><span class="d-v">'+esc(x.help||"")+'</span></div>'+
-          '<div style="margin-top:11px">'+
-            '<a class="top-btn" href="'+esc(x.url||"#")+'" target="_blank" rel="noopener noreferrer">🔗 源地址 ↗</a>'+
-          '</div>'+
+        return '<article class="cmp">' +
+          '<div class="cmp-head" style="cursor:default">' +
+            '<span class="chip" style="border-color:var(--line)">🏫 ' + esc(sc.n) + '</span>' +
+            '<span class="cmp-name">🏅 ' + esc(x.n || "") + '</span>' +
+          '</div>' +
+          '<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--ink-soft);margin:8px 0">' +
+            '<span class="chip" style="border-color:var(--line)">📊 ' + esc(x.lv || "") + '</span>' +
+            '<span class="chip" style="border-color:var(--line)">🏛 ' + esc(x.org || "") + '</span>' +
+            hot + soon + dl + rego + fit +
+          '</div>' +
+          '<div class="d-row"><span class="d-k">简介</span><span class="d-v">' + esc(x.intro || "") + '</span></div>' +
+          '<div class="d-row"><span class="d-k">我能帮你做啥</span><span class="d-v">' + esc(x.help || "") + '</span></div>' +
+          '<div class="d-row"><span class="d-k">我需要做啥</span><span class="d-v">' + esc(x.need || "") + '</span></div>' +
+          '<div style="margin-top:11px">' +
+            '<a class="top-btn" href="' + esc(x.url || "#") + '" target="_blank" rel="noopener noreferrer">🔗 源地址 ↗</a>' +
+          '</div>' +
         '</article>';
       }).join("");
     }
-    drawN();
-    if(fwN){
-      fwN.addEventListener("click", function(ev){
+    draw();
+
+    if(fwS){
+      fwS.addEventListener("click", function(ev){
         var b = ev.target.closest ? ev.target.closest(".filterbtn") : null;
         if(!b) return;
-        NCUR = b.getAttribute("data-n") || "all";
-        Array.prototype.forEach.call(fwN.querySelectorAll(".filterbtn"), function(x){ x.classList.remove("active"); });
+        SCUR = b.getAttribute("data-s") || "all";
+        Array.prototype.forEach.call(fwS.querySelectorAll(".filterbtn"), function(x){ x.classList.remove("active"); });
         b.classList.add("active");
-        drawN();
+        draw();
+      });
+    }
+    if(fwF){
+      fwF.addEventListener("click", function(ev){
+        var b = ev.target.closest ? ev.target.closest(".filterbtn") : null;
+        if(!b) return;
+        FCUR = b.getAttribute("data-f") || "all";
+        Array.prototype.forEach.call(fwF.querySelectorAll(".filterbtn"), function(x){ x.classList.remove("active"); });
+        b.classList.add("active");
+        draw();
       });
     }
   })();
 
-  /* 全国高校信源直达 */
+  /* 各学校信源直达（跟着上面的学校分类走） */
   (function(){
-    var NS = window.NATION_SOURCES || {};
-    var NG = [
-      ["cq","📍 重庆市内高校（教务处 / 竞赛栏目）",true],
-      ["nation","🌐 全国性竞赛官网",false],
-      ["gov","🏛 主管部门（市教委 · 市经信委 · 市科协）",false]
-    ];
-    var box = document.getElementById('nation-sources');
+    var MS = window.MATCH_SOURCES || [];
+    var box = document.getElementById('match-sources');
     if(!box) return;
-    var total = 0;
-    box.innerHTML = NG.map(function(g){
-      var items = NS[g[0]] || [];
-      if(!items.length) return "";
-      total += items.length;
-      return '<div style="margin:0 0 16px">'+
-        '<div style="font-size:14px;font-weight:800;color:var(--ink);margin-bottom:9px">'+g[1]+'（'+items.length+'）</div>'+
-        '<div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">'+
-          items.map(function(s){
-            return '<a class="top-btn" href="'+esc(s.u)+'" target="_blank" rel="noopener noreferrer">'+esc(s.n)+' ↗</a>';
-          }).join("")+
-        '</div></div>';
-    }).join("");
+    box.innerHTML =
+      '<div style="font-size:14px;font-weight:800;color:var(--ink);margin-bottom:9px">🔗 出这些通知的官网 / 部门（'+MS.length+' 个）</div>'+
+      '<div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">'+
+        MS.map(function(s){
+          return '<a class="top-btn" href="'+esc(s.u)+'" target="_blank" rel="noopener noreferrer">'+esc(s.n)+' ↗</a>';
+        }).join("")+
+      '</div>';
   })();
 
   /* 全部信源直达矩阵（按职能再分一层） */

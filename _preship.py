@@ -164,18 +164,37 @@ MUST_CONTAIN = [
     ("讲坛返回系列按钮", "← 返回系列列表"),
     ("基金看板 tab 文案", "📈 基金看板"),
     ("基金持仓列表容器", 'id="funds-list"'),
-    ("各学院赛事区块标题", "各学院赛事"),
-    ("各学院赛事列表容器", 'id="cqut-match-list"'),
-    ("各学院赛事筛选容器", 'id="cqutMatchFilters"'),
-    ("赛事我所能栏位", "具体要干啥"),
+    ("比赛列表容器", 'id="match-list"'),
+    ("学校分类筛选容器", 'id="matchSchoolFilters"'),
+    ("状态筛选容器", 'id="matchFilters"'),
+    ("比赛信源容器", 'id="match-sources"'),
+    ("我需要做啥栏位", "我需要做啥"),
+    ("我能帮你做啥栏位", "我能帮你做啥"),
+    ("只收还能参加", "只收还能参加的"),
 ]
 missing = [n for n, s in MUST_CONTAIN if s not in prod]
 if missing:
     bad("产物里找不到：%s" % "、".join(missing),
         "改了 index.src.html 但没构建 / 或改动本身有 bug")
 else:
-    ok(PASS, "%d 项关键结构全部存在（8 栏目 + 理工 4 组件 + 基金 2 组件 + 赛事 3 组件 + TED 多看入口）"
+    ok(PASS, "%d 项关键结构全部存在（8 栏目 + 理工 4 组件 + 基金 2 组件 + 比赛 6 组件 + TED 多看入口）"
        % len(MUST_CONTAIN))
+
+# 反向：这些必须一条不剩（获奖喜报、已结束条目、旧字段）
+MUST_ABSENT = [
+    ("获奖喜报通稿", "[喜讯]"),
+    ("旧字段「具体要干啥」", "具体要干啥"),
+    ("旧全国赛事区块容器", 'id="nation-list"'),
+    ("旧全国赛事筛选容器", 'id="nationMatchFilters"'),
+    ("旧的全国高校信源容器", 'id="nation-sources"'),
+]
+still = [n for n, s in MUST_ABSENT if s in prod]
+if still:
+    bad("这些必须清掉的东西还在产物里：%s" % "、".join(still),
+        "删了又冒出来？先在 _selfcheck.js 里把它钉住再重新构建")
+else:
+    ok(PASS, "%d 项「不该出现的东西」确认已清零（喜报 / 旧字段 / 旧全国区块）"
+       % len(MUST_ABSENT))
 
 # 8 个细分类：直接从 cqut.js 读真名，再去产物里找
 try:
@@ -257,8 +276,9 @@ else:
                % (len(online) / 1024.0))
         else:
             # md5 会受 Pages 注入 / 缓存头影响而虚惊，关键标记才说明「到底是不是新版」
-            probes = [k for k in ("window.NATION_MATCHES", "id=\"nation-list\"",
-                                  "id=\"nation-sources\"", "全国高校赛事 · 重庆优先")
+            probes = [k for k in ("window.MATCHES", "id=\"match-list\"",
+                                  "id=\"matchSchoolFilters\"", "id=\"match-sources\"",
+                                  "获奖喜报类的通稿一条不留")
                       if k in local_txt]
             hits = [k for k in probes if k in online_txt]
             if probes and len(hits) == len(probes):

@@ -9,7 +9,7 @@ ted = os.path.join(base, "ted.js")               # TED 演讲数据
 forum = os.path.join(base, "forum.js")           # 成长讲坛数据（企业家/国学/心学）
 rank = os.path.join(base, "rank.js")             # 实力排行榜数据（每日自动更新）
 cqut = os.path.join(base, "cqut.js")              # 重庆理工通知数据（学校/学院/部门/学生会）
-nation = os.path.join(base, "nation.js")          # 全国高校赛事（重点重庆）
+nation = os.path.join(base, "matches.js")         # 比赛板块（按学校分类，只收还能参加的）
 funds = os.path.join(base, "funds.js")            # 基金看板数据（持仓）
 out_deploy = os.path.join(base, "index.html")    # 部署版（GitHub Pages 服务它）
 out_gh     = os.path.join(base, "gh-pages", "index.html")
@@ -42,7 +42,7 @@ assert cqut_marker in html, "cqut marker not found in index.src.html!"
 cqut_data = open(cqut, encoding="utf-8").read()
 standalone = standalone.replace(cqut_marker, "<script>\n" + cqut_data + "\n</script>", 1)
 
-nation_marker = '<script src="nation.js"></script>'
+nation_marker = '<script src="matches.js"></script>'
 assert nation_marker in html, "nation marker not found in index.src.html!"
 nation_data = open(nation, encoding="utf-8").read()
 standalone = standalone.replace(nation_marker, "<script>\n" + nation_data + "\n</script>", 1)
@@ -64,7 +64,7 @@ print("OK  bytes=%d  资源库=%s  比赛内联=%s  TED内联=%s(%d)  讲坛内�
     forum_marker not in standalone, standalone.count('{cat:"'),
     rank_marker not in standalone,
     cqut_marker not in standalone, cqut_data.count('{t:"'),
-    nation_marker not in standalone, nation_data.count('{ n:"'),
+    nation_marker not in standalone, nation_data.count('n:"'),
     funds_marker not in standalone, funds_data.count('{ n: "'),
 ))
 print("deploy ->", out_deploy)

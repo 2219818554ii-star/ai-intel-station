@@ -12,7 +12,7 @@ const tabs = [...html.matchAll(/data-tab="([^"]+)"/g)].map(m => m[1]);
 ok(tabs.length === 8, `tab 数量 = ${tabs.length}（期望 8）: ${tabs.join(', ')}`);
 ok(['daily','rank','comp','learn','ted','forum','cqut','funds'].every(v => html.includes(`id="view-${v}"`)), 'view 区块 = 8/8');
 ok(html.includes('["daily","rank","comp","learn","ted","forum","cqut","funds"]'), 'showTab 数组含全部 8 个视图');
-ok(!/<script src="(competitions|ted|forum|rank|cqut|nation|funds)\.js"/.test(html), '七个数据文件均已内联（无外链脚本）');
+ok(!/<script src="(competitions|ted|forum|rank|cqut|matches|funds)\.js"/.test(html), '七个数据文件均已内联（无外链脚本）');
 const httpLeft = count(html, /href="http:\/\//g);
 ok(httpLeft === 0, `无 http:// 明文链接（剩余 ${httpLeft}）`);
 
@@ -185,92 +185,119 @@ const tagBtns = count(((store['cqutTagFilters']||{}).innerHTML||''), /class="fil
 ok(tagBtns === 9, `理工二级分类按钮 = ${tagBtns}（期望 9 = 全部分类 + 8 个细分类）`);
 ok(cqHtml.includes('💰') && cqHtml.includes('🎓'), '理工卡片显示细分类徽章');
 
-/* [2c-2] 各学院赛事区块 */
-const MATCHES = sandbox.window.CQUT_MATCHES || [];
-const mHtml = (store['cqut-match-list']||{}).innerHTML || '';
-ok(MATCHES.length === 17, `比赛动态条数 = ${MATCHES.length}（期望 17）`);
-/* 内容准确性（内容级核对脚本 _audit_content.py 发现的问题回补断言）：
-   原来 15 条全是「获奖结果报道」，标题还是我按赛事名自己写的、状态一律写「已出成绩」，
-   读者会以为还能报名。现在要求：状态必须写明开局/奖项，获奖类必须显式声明不是报名入口，
-   且必须至少有一条「正在举办」的真在办赛事。 */
-ok(MATCHES.every(m => /^(已结束|正在举办)/.test(m.st)),
-   `每条赛事状态都写明了开局（实际 ${MATCHES.filter(m=>/^(已结束|正在举办)/.test(m.st)).length}/${MATCHES.length} 条）`);
-ok(MATCHES.filter(m => m.st.indexOf('正在举办') === 0).length >= 2,
-   `至少 1 条「正在举办」的赛事（实际 ${MATCHES.filter(m => m.st.indexOf('正在举办') === 0).length} 条）`);
-ok(MATCHES.filter(m => m.st.indexOf('已结束') === 0)
-          .every(m => m.intro.indexOf('不是报名入口') >= 0),
-   '每条已结束的赛事都在正文里写明「不是报名入口」，不误导');
-ok(mHtml.includes('具体要干啥') && mHtml.includes('我能帮你做啥') && mHtml.includes('简介'), '赛事卡片含「简介 / 具体要干啥 / 我能帮你做啥」三行');
-ok(cards('cqut-match-list') === MATCHES.length, `赛事卡片数 = ${cards('cqut-match-list')}，与数据条数一致`);
-ok(MATCHES.every(m => m.intro && m.todo && m.help && m.url && m.org && m.date && m.lv && m.st), '每条赛事的 intro/todo/help/url/org/date/lv/st 均完整');
-ok(MATCHES.every(m => /^https:\/\/[a-z0-9.\-]+\.cqut\.edu\.cn\//i.test(m.url)), '每条赛事的源地址都是真实 cqut.edu.cn 页面');
-const needFields = ['https://cl.cqut.edu.cn/info/1034/6103.htm', 'https://cl.cqut.edu.cn/info/1034/6074.htm'];
-ok(needFields.every(u => mHtml.includes(u)), '两条材料学院对口赛事链接已渲染');
-ok(mHtml.includes('🎯 跟你专业对口'), '对口赛事显示了「跟你专业对口」标记');
-ok((store['cqut-match-updated']||{}).textContent === '2026-09-26', `赛事更新日期: ${(store['cqut-match-updated']||{}).textContent}`);
-const mBtns = count(((store['cqutMatchFilters']||{}).innerHTML||''), /class="filterbtn/g);
-ok(mBtns === 5, `赛事筛选按钮 = ${mBtns}（期望 5 = 全部 + 4 个分类）`);
-ok(mHtml.includes('机械工程学院') && mHtml.includes('材料科学与工程学院'), '赛事卡片显示主办学院');
+/* [2c-2] 比赛板块（罗浩 2026-09-26 重做：只留还能参加的 / 删喜报 / 按学校分类）
+   —— 旧的 CQUT_MATCHES（13 条获奖通稿 + 已结束条目）与 NATION_MATCHES（约 15 条已过期）
+      已全部并入 matches.js 的 window.MATCHES，按学校分类，每条三段式文案。 */
+const MATCHES = sandbox.window.MATCHES || [];
+const MSCHOOLS = sandbox.window.MATCH_SOURCES || [];
+const SCHOOLS = sandbox.window.MATCH_SCHOOLS || [];
+const mHtml = (store['match-list']||{}).innerHTML || '';
 
-/* 比赛动态折叠块（罗浩 2026-09-26 要求：可收起可展开，默认收起让通知顶前） */
-ok(/<details id="cqutMatchFold"/.test(html), '「比赛动态」折叠块 #cqutMatchFold 存在（details 结构）');
-ok(!/<details id="cqutMatchFold"[^>]*\bopen\b/.test(html), '折叠块默认收起（标签无 open 属性）');
-ok((store['cqutMatchCount']||{}).textContent && String((store['cqutMatchCount']||{}).textContent).includes('共'), `折叠标题计数徽章: ${(store['cqutMatchCount']||{}).textContent}`);
-ok(String(((store['cqutFoldHint']||{}).textContent)||'').includes('展开'), '折叠提示初始为「展开 ▾」');
-ok(html.includes('cqutMatchFoldOpen'), '折叠状态写入 localStorage（记住用户选择）');
+ok(MATCHES.length >= 15, `比赛条目 = ${MATCHES.length}（要求 >=15）`);
 
-/* [2b] 全国高校赛事扩展（罗浩 2026-09-26：不只看重理工，扩到全国，重点重庆；喜报保留） */
-function fireNFilter(cat){
-  const fn = (listeners['nationMatchFilters']||{}).click;
-  if(!fn){ ok(false, 'nationMatchFilters 无 click 监听'); return; }
-  const b = { getAttribute:(k)=> k==='data-n' ? cat : null,
+/* ① 喜报必须一条不剩 */
+const xibaoN = count(mHtml, /\[喜讯\]/g) + count(html, /\[喜讯\]/g);
+const cqutOld = (sandbox.window.CQUT_MATCHES || []).length;
+ok(cqutOld === 0, `旧 CQUT_MATCHES 已清空（当前 ${cqutOld} 条，必须为 0）`);
+ok(xibaoN === 0, `获奖喜报已清零（渲染区 ${count(mHtml,/\[喜讯\]/g)} 处 + 全页 ${count(html,/\[喜讯\]/g)} 处）`);
+
+/* ② 已结束的必须一条不剩 */
+const dead = MATCHES.filter(m => /已结束|已过期|不再接受|报名已截止/.test(m.st || ''));
+ok(dead.length === 0, `无「已结束」条目（残留 ${dead.length} 条）`);
+const deadIntro = MATCHES.filter(m => /不是报名入口/.test(m.intro || ''));
+ok(deadIntro.length === 0, `无「已结束但仍说能报名」的误导条目（${deadIntro.length} 条）`);
+
+/* ③ st 必须是纯字符串，否则「正在报名」筛选失效（上一轮踩过的坑） */
+const badSt = MATCHES.filter(m => typeof m.st !== 'string' || /[（）()\]）]/.test(m.st));
+ok(badSt.length === 0, `状态字段均为纯字符串（异常 ${badSt.length} 条：${badSt.map(m=>m.n).join(' | ')}）`);
+
+/* ④ 每条字段齐全 + 三段式文案 */
+const missF = MATCHES.filter(x => !x.n || !x.school || !x.org || !x.lv || !x.st || !x.dl
+                                || !x.intro || !x.help || !x.need || !x.url);
+ok(missF.length === 0, `每条比赛 intro/help/need/url/school/org/lv/st/dl 均完整（缺失 ${missF.length} 处）`);
+ok(mHtml.includes('简介') && mHtml.includes('我能帮你做啥') && mHtml.includes('我需要做啥'),
+   '卡片三栏：简介 / 我能帮你做啥 / 我需要做啥');
+ok(!mHtml.includes('具体要干啥'), '旧的「具体要干啥」已彻底移除');
+
+/* ⑤ url 合法 */
+const mtBadUrl = MATCHES.filter(x => !/^https?:\/\//.test(x.url || ''));
+ok(mtBadUrl.length === 0, `比赛 url 均合法 http(s)（异常 ${mtBadUrl.length} 条）`);
+
+/* ⑥ 学校分类：每个分类至少 1 条，且 school 值都能对上 */
+const scKeys = SCHOOLS.map(x => x.k);
+const orphan = MATCHES.filter(x => scKeys.indexOf(x.school) < 0);
+ok(orphan.length === 0, `每条比赛的 school 都在 MATCH_SCHOOLS 里（游离 ${orphan.length} 条）`);
+const usedSc = {};
+MATCHES.forEach(m => { usedSc[m.school] = (usedSc[m.school]||0) + 1; });
+const emptySc = scKeys.filter(k => !usedSc[k]);
+ok(emptySc.length === 0, `每个学校分类都至少有 1 条（空分类 ${emptySc.length} 个：${emptySc.join(',')}）`);
+ok(scKeys.length >= 8, `学校分类数 = ${scKeys.length}（要求 >=8）`);
+
+/* ⑦ 还能参加的数量 */
+const openCnt = MATCHES.filter(x => x.st === '报名中').length;
+ok(openCnt >= 10, `「正在报名」条目 = ${openCnt}（要求 >=10）`);
+
+/* ⑧ 渲染 + 计数 */
+ok(cards('match-list') === MATCHES.length, `比赛卡片数 = ${cards('match-list')}，与数据一致`);
+ok((store['cqutMatchCount']||{}).textContent && String((store['cqutMatchCount']||{}).textContent).includes('共'),
+   `折叠标题计数徽章: ${(store['cqutMatchCount']||{}).textContent}`);
+ok(String(((store['matchOpenCount']||{}).textContent)||'').includes('正在报名'),
+   `「正在报名」徽章: ${(store['matchOpenCount']||{}).textContent}`);
+ok((store['cqut-match-updated']||{}).textContent === '2026-09-26',
+   `比赛更新日期: ${(store['cqut-match-updated']||{}).textContent}`);
+ok(mHtml.includes('🎯 跟你专业对口') && mHtml.includes('正在报名'), '对口 / 正在报名 标记已渲染');
+ok(mHtml.includes('重庆理工') && mHtml.includes('重庆交通大学'), '卡片按学校分类已渲染');
+
+/* ⑨ 筛选按钮 */
+const sBtn = count(((store['matchSchoolFilters']||{}).innerHTML||''), /class="filterbtn/g);
+ok(sBtn === scKeys.length + 1, `学校分类按钮 = ${sBtn}（期望 ${scKeys.length + 1} = 全部 + ${scKeys.length} 个分类）`);
+const fBtn = count(((store['matchFilters']||{}).innerHTML||''), /class="filterbtn/g);
+ok(fBtn === 4, `状态筛选按钮 = ${fBtn}（期望 4 = 正在报名/快截止/对口/全部）`);
+
+/* ⑩ 真实点击筛选 */
+function fireSel(btn, kind, val){
+  const fn = (listeners[btn]||{}).click;
+  if(!fn){ ok(false, btn + ' 无 click 监听'); return; }
+  const b = { getAttribute:(k)=> k === kind ? val : null,
     classList:{add(){},remove(){},contains(){return false;}} };
   fn({ target: { closest:(sel)=> sel==='.filterbtn' ? b : null } });
 }
-/* 顺序锁定：比赛块仍在通知滤波器之前（罗浩明确「就这样」，不许再动顺序） */
+fireSel('matchFilters', 'data-f', 'open');
+ok(cards('match-list') === openCnt, `筛「正在报名」→ ${cards('match-list')} 张（期望 ${openCnt}）`);
+fireSel('matchFilters', 'data-f', 'fit');
+const fitCnt = MATCHES.filter(m=>m.fit).length;
+ok(cards('match-list') === fitCnt, `筛「专业对口」→ ${cards('match-list')} 张（期望 ${fitCnt}）`);
+fireSel('matchFilters', 'data-f', 'all');
+ok(cards('match-list') === MATCHES.length, '筛「全部」恢复完整列表');
+const oneSc = scKeys[1];
+fireSel('matchSchoolFilters', 'data-s', oneSc);
+ok(cards('match-list') === usedSc[oneSc],
+   `筛「${oneSc}」→ ${cards('match-list')} 张（期望 ${usedSc[oneSc]}）`);
+fireSel('matchSchoolFilters', 'data-s', 'cqut');
+ok(cards('match-list') === usedSc['cqut'],
+   `筛「重庆理工」→ ${cards('match-list')} 张（期望 ${usedSc['cqut']}）`);
+fireSel('matchSchoolFilters', 'data-s', 'all');
+fireSel('matchFilters', 'data-f', 'all');
+
+/* ⑪ 信源直达（跟着学校分类走） */
+ok(html.includes('id="match-sources"'), '比赛信源直达容器存在');
+const mSrcHtml = (store['match-sources']||{}).innerHTML || '';
+const mSrcN = count(mSrcHtml, /class="top-btn"/g);
+ok(mSrcN >= 15, `比赛信源直达链接 = ${mSrcN} 个（要求 >=15）`);
+ok(mSrcHtml.includes('重庆理工') && mSrcHtml.includes('云南大学') && mSrcHtml.includes('青岛科技大学'),
+   '信源覆盖多所高校（重理工 / 云大 / 青科大）');
+
+/* ⑫ 顺序锁定：比赛块在通知滤波器之前（罗浩明确「就这样」，不许再动） */
 const iFold = html.indexOf('<details id="cqutMatchFold"');
 const iNotiF = html.indexOf('id="cqutFilters"');
 ok(iFold > 0 && iNotiF > 0 && iFold < iNotiF, '顺序未回退：比赛折叠块仍在通知滤波器之前');
-const iMatchList = html.indexOf('id="cqut-match-list"');
-const iNationList = html.indexOf('id="nation-list"');
-ok(iMatchList > 0 && iNationList > 0 && iMatchList < iNationList, '顺序未回退：本校赛事排在「全国高校赛事」之前');
+ok(!html.includes('id="nation-list"') && !html.includes('id="nationMatchFilters"'),
+   '旧的「全国高校赛事」独立区块已移除，统一为按学校分类');
 
-const NM = sandbox.window.NATION_MATCHES || [];
-ok(NM.length >= 20, `全国高校赛事条目 = ${NM.length}（要求 >=20）`);
-const missF = NM.filter(x => !x.n || !x.org || !x.lv || !x.st || !x.intro || !x.todo || !x.help || !x.url);
-ok(missF.length === 0, `每条赛事字段齐全（缺失 ${missF.length} 处）`);
-const nmBadUrl = NM.filter(x => !/^https?:\/\//.test(x.url || ''));
-ok(nmBadUrl.length === 0, `全国赛事 url 均为合法 http(s)（异常 ${nmBadUrl.length} 条）`);
-const isCQx = x => /重庆|长江师范|西南大学|西南政法/.test(x.org || '');
-const cqCnt = NM.filter(isCQx).length;
-ok(cqCnt >= 15, `重庆市内条目 = ${cqCnt}（要求 >=15，重点重庆）`);
-const openCnt = NM.filter(x => x.st === '报名中').length;
-ok(openCnt >= 5, `「正在报名」条目 = ${openCnt}（要求 >=5）`);
-ok((store['nationMatchCount']||{}).textContent && String((store['nationMatchCount']||{}).textContent).includes('全国'),
-   `全国计数徽章: ${(store['nationMatchCount']||{}).textContent}`);
-ok(cards('nation-list') === NM.length, `全国赛事卡片 = ${cards('nation-list')}（=数据 ${NM.length} 条）`);
-const nHtml = (store['nation-list']||{}).innerHTML || '';
-ok(nHtml.includes('电化学综合技能竞赛') && nHtml.includes('化学实验创新设计大赛'), '重点对口的全国赛事已落地渲染');
-ok(nHtml.includes('跟你专业对口') && nHtml.includes('正在报名'), '对口 / 正在报名 标记已渲染');
-fireNFilter('cq');
-const cqCards = cards('nation-list');
-ok(cqCards === cqCnt, `筛「重庆市内」→ ${cqCards} 张（期望 ${cqCnt}）`);
-fireNFilter('out');
-ok(cards('nation-list') === NM.length - cqCnt, `筛「全国其他」→ ${cards('nation-list')} 张（期望 ${NM.length - cqCnt}）`);
-fireNFilter('open');
-ok(cards('nation-list') === openCnt, `筛「正在报名」→ ${cards('nation-list')} 张（期望 ${openCnt}）`);
-fireNFilter('all');
-ok(cards('nation-list') === NM.length, `筛「全部」恢复 ${cards('nation-list')} 张`);
-/* 信源直达 */
-ok(html.includes('id="nation-sources"'), '全国高校信源直达容器存在');
-const nSrcHtml = (store['nation-sources']||{}).innerHTML || '';
-const nSrcN = count(nSrcHtml, /class="top-btn"/g);
-ok(nSrcN >= 20, `全国高校信源直达链接 = ${nSrcN} 个（要求 >=20）`);
-ok(nSrcHtml.includes('重庆大学') && nSrcHtml.includes('西南大学') && nSrcHtml.includes('重庆邮电'), '渝校信源已落地（重大/西大/重邮）');
-/* 喜报保留：本校赛事区仍应含 [喜讯] 获奖通报 */
-const mHtml2 = (store['cqut-match-list']||{}).innerHTML || '';
-const xibao = count(mHtml2, /\[喜讯\]/g);
-ok(xibao >= 3, `获奖喜报保留：本校赛事区仍含 ${xibao} 条 [喜讯]`);
+/* ⑬ 折叠块（罗浩 2026-09-26 要求：可收起可展开，默认收起让通知顶前） */
+ok(!/<details id="cqutMatchFold"[^>]*\bopen\b/.test(html), '折叠块默认收起（标签无 open 属性）');
+ok(String(((store['cqutFoldHint']||{}).textContent)||'').includes('展开'), '折叠提示初始为「展开 ▾」');
+ok(html.includes('cqutMatchFoldOpen'), '折叠状态写入 localStorage（记住用户选择）');
 
 fireFilter('forumFilters', '国学讲坛');
 const gxCnt = FS.filter(s=>s.cat==='国学讲坛').length;
