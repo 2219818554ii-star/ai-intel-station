@@ -211,6 +211,13 @@ ok((store['cqut-match-updated']||{}).textContent === '2026-09-26', `赛事更新
 const mBtns = count(((store['cqutMatchFilters']||{}).innerHTML||''), /class="filterbtn/g);
 ok(mBtns === 5, `赛事筛选按钮 = ${mBtns}（期望 5 = 全部 + 4 个分类）`);
 ok(mHtml.includes('机械工程学院') && mHtml.includes('材料科学与工程学院'), '赛事卡片显示主办学院');
+
+/* 比赛动态折叠块（罗浩 2026-09-26 要求：可收起可展开，默认收起让通知顶前） */
+ok(/<details id="cqutMatchFold"/.test(html), '「比赛动态」折叠块 #cqutMatchFold 存在（details 结构）');
+ok(!/<details id="cqutMatchFold"[^>]*\bopen\b/.test(html), '折叠块默认收起（标签无 open 属性）');
+ok((store['cqutMatchCount']||{}).textContent && String((store['cqutMatchCount']||{}).textContent).includes('共'), `折叠标题计数徽章: ${(store['cqutMatchCount']||{}).textContent}`);
+ok(String(((store['cqutFoldHint']||{}).textContent)||'').includes('展开'), '折叠提示初始为「展开 ▾」');
+ok(html.includes('cqutMatchFoldOpen'), '折叠状态写入 localStorage（记住用户选择）');
 fireFilter('forumFilters', '国学讲坛');
 const gxCnt = FS.filter(s=>s.cat==='国学讲坛').length;
 ok(cards('forum-list') === gxCnt, `讲坛「国学讲坛」→ ${cards('forum-list')} 个系列（期望 ${gxCnt}）`);

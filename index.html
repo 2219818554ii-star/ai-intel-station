@@ -170,6 +170,8 @@
   /* ---- competition view ---- */
   .cmp-toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 14px;}
   .filterbtn{font-size:13px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;cursor:pointer;color:var(--ink-soft);transition:all .15s ease;}
+  #cqutMatchFold summary::-webkit-details-marker{display:none}
+  #cqutMatchFold summary:hover{background:#f8fafc}
   .filterbtn:hover{border-color:var(--brand);color:var(--brand);}
   .filterbtn.active{background:var(--brand);color:#fff;border-color:var(--brand);}
   .cmp-list{display:flex;flex-direction:column;gap:10px;}
@@ -679,15 +681,21 @@
     <div class="view-head"><h2>🏫 重庆理工：学校 / 学院 / 部门 / 学生会通知</h2>
       <p>每天自动更新。每条都写清「我该关注啥」，末尾附全部信源直达入口。数据更新于 <span id="cqut-updated"></span></p>
     </div>
-<div class="view-head" style="margin-top:32px">
-      <h2 style="font-size:20px">🏅 比赛动态 · 正在举办的排最前</h2>
-      <p>你想报名而不是看别人获奖——所以这块置顶了。实抓自学校/学院官网，URL 全部真实可点。实话：学院通知栏平时基本只发<b>获奖通报</b>，真·报名赛事很少，要打全国赛请配合 <b>🏁 可报名比赛</b> 那个 tab 一起看。数据更新于 <span id="cqut-match-updated"></span></p>
-    </div>
-    <div class="cmp-toolbar" id="cqutMatchFilters" style="margin-top:12px"></div>
-    <div class="cmp-list" id="cqut-match-list"></div>
-    <div class="lk-tip" style="margin-top:16px">
-      💡 <b>怎么筛：</b>你学化工材料，只看 <b>🧪 材料·化工（对口）</b> 那组就够了。那两条是实验技能赛，<b>考的正是你天天在实验室做的动手活</b>，含金量最高；机械机器人那组看着热闹，跟你专业主线基本不搭。
-    </div>
+<details id="cqutMatchFold" style="margin-top:32px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden">
+      <summary id="cqutMatchSummary" style="cursor:pointer;list-style:none;padding:14px 18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;user-select:none">
+        <span style="font-size:19px">🏅 比赛动态 · 正在举办的排最前</span>
+        <span class="tier t-none" id="cqutMatchCount">—</span>
+        <span style="font-size:12px;color:#94a3b8;margin-left:auto;flex:none" id="cqutFoldHint">展开 ▾</span>
+      </summary>
+      <div style="padding:2px 18px 16px;border-top:1px dashed var(--line)">
+        <p style="font-size:13px;color:#64748b;margin:12px 0 0">你想报名而不是看别人获奖——所以这块置顶了。实抓自学校/学院官网，URL 全部真实可点。实话：学院通知栏平时基本只发<b>获奖通报</b>，真·报名赛事很少，要打全国赛请配合 <b>🏁 可报名比赛</b> 那个 tab 一起看。数据更新于 <span id="cqut-match-updated"></span></p>
+        <div class="cmp-toolbar" id="cqutMatchFilters" style="margin-top:12px"></div>
+        <div class="cmp-list" id="cqut-match-list"></div>
+        <div class="lk-tip" style="margin-top:16px">
+          💡 <b>怎么筛：</b>你学化工材料，只看 <b>🧪 材料·化工（对口）</b> 那组就够了。那两条是实验技能赛，<b>考的正是你天天在实验室做的动手活</b>，含金量最高；机械机器人那组看着热闹，跟你专业主线基本不搭。
+        </div>
+      </div>
+    </details>
         <div class="cmp-toolbar" id="cqutFilters" style="margin-top:26px">
       <button class="filterbtn active" data-c="全部">全部</button>
       <button class="filterbtn" data-c="school">🏛 学校各部门</button>
@@ -3701,6 +3709,8 @@ window.FUNDS_DEEP = {
         btns.push('<button class="filterbtn" data-m="'+t.k+'">'+t.n+'（'+c+'）</button>');
       });
       fwM.innerHTML = btns.join("");
+      var mcBadge = document.getElementById('cqutMatchCount');
+      if(mcBadge) mcBadge.textContent = '共 ' + M.length + ' 条';
     }
     var boxM = document.getElementById('cqut-match-list');
     function drawM(){
@@ -3764,6 +3774,22 @@ window.FUNDS_DEEP = {
         '</div></div>';
     }).join("");
   }
+})();
+
+/* ============ 重庆理工·比赛动态折叠（默认收起，记住用户选择） ============ */
+(function(){
+  "use strict";
+  var fold = document.getElementById('cqutMatchFold');
+  if(!fold) return;
+  var KEY = 'cqutMatchFoldOpen';
+  var hint = document.getElementById('cqutFoldHint');
+  function paint(){ if(hint) hint.textContent = fold.open ? '收起 ▴' : '展开 ▾'; }
+  try { if(localStorage.getItem(KEY) === '1') fold.open = true; } catch(e){}
+  paint();
+  fold.addEventListener('toggle', function(){
+    paint();
+    try { localStorage.setItem(KEY, fold.open ? '1' : '0'); } catch(e){}
+  });
 })();
 
 /* ============ 基金看板 ============ */
