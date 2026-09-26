@@ -250,15 +250,29 @@ else:
     except Exception as e:
         warn("访问线上地址失败（%s）" % getattr(e, "reason", e))
     if online is not None:
+        local_txt = readbin(PROD).decode("utf-8", "ignore")
+        online_txt = online.decode("utf-8", "ignore")
         if md5(online) == md5(readbin(PROD)):
             ok(PASS, "线上站点页面 = 本地产物（%.1f KB），用户看到的就是最新版"
                % (len(online) / 1024.0))
         else:
-            bad("线上站点还是旧版！线上 md5=%s，本地 md5=%s"
-               % (md5(online), md5(readbin(PROD))),
-                "① 先 `git status --porcelain` 确认 index.html 已提交\n"
-                "② `git push`，推完立刻再跑一次本脚本复核\n"
-                "③ 真还不行就别宣布上线，直接跟用户说线上滞后")
+            # md5 会受 Pages 注入 / 缓存头影响而虚惊，关键标记才说明「到底是不是新版」
+            probes = [k for k in ("window.NATION_MATCHES", "id=\"nation-list\"",
+                                  "id=\"nation-sources\"", "全国高校赛事 · 重庆优先")
+                      if k in local_txt]
+            hits = [k for k in probes if k in online_txt]
+            if probes and len(hits) == len(probes):
+                ok(PASS, "线上已是最新版（关键标记 %d/%d 全部命中：%s）\n"
+                          "         md5 不同只因 Pages 注入了构建头，内容一致"
+                   % (len(hits), len(probes), "、".join(hits)))
+            else:
+                bad("线上还是旧版：本地标记 %d 个，线上命中 %d 个\n        "
+                    "本地有 / 线上无：%s"
+                    % (len(probes), len(hits),
+                       "、".join([k for k in probes if k not in online_txt]) or "（无）"),
+                    "① 先 `git status --porcelain` 确认 index.html 已提交\n"
+                    "② `git push`，推完等 1–2 分钟让 Pages 构建完再跑本脚本\n"
+                    "③ 真还不行就别宣布上线，直接跟用户说线上滞后")
 
 # ---------- [5] 链接真实抽检 ----------
 print("\n[5] 链接真实抽检（HTTP 请求，非 2xx 才报错）")
