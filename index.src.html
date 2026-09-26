@@ -317,159 +317,8 @@
 
   <!-- ================= LEARN VIEW ================= -->
   <div id="view-learn" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-learn">
-    <div class="view-head"><h2>📚 AI 上手实战</h2>
-      <p>不是教科书——这是你的<b>随用随取指令台</b>。挑一个你正在做的场景，点开就有能直接复制去用的指令；下面还有下指令公式、工具分工和避坑。</p></div>
-
-    <div class="daily-tip" id="learn-daily-tip">💡 <b>今日一招：</b>把 AI 当新来的师弟，不当搜索引擎——交代背景越多，它干得越像样。</div>
-
-    <div class="lk-tip">💡 <b>大实话：</b>你用 WorkBuddy 当总入口就已经在"用 AI"了。这一页帮你把<b>"怎么下指令"</b>练熟——这是提效最大杠杆，省得被名词吓到。</div>
-
-    <h3 class="lk-h">🎯 按场景挑一个练（点开卡片，一键复制指令）</h3>
-    <div class="sc-grid" id="sc-grid">
-
-      <div class="sc-card">
-        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
-          <span class="sc-ico">📝</span><span class="sc-name">论文改稿 · 导师批注清零</span><span class="chev">▸</span>
-        </div>
-        <div class="sc-detail">
-          <p class="sc-why">把导师在 Word 里留的批注系统化清零：先出清单再动手，避免改漏、防 AI 擅自改。</p>
-          <div class="lk-code" id="sc-p1">你是我同课题组的师弟，严谨细心。附件是导师在 Word 里留的 N 条批注（已导出为列表）。
-请逐条：①判断批注类型（事实错误／表达／数据／格式／待定）；②给出修改建议与可直接替换的中文；
-③标出需要我人工确认的（数值、专业术语、可能的事实问题），不要擅自改。
-先输出"批注处理清单"（表格：序号｜类型｜建议｜是否需我确认），不要直接改原文。</div>
-          <div class="sc-foot"><span class="sc-tool">🛠 用：WorkBuddy</span><button class="copybtn" data-copy="sc-p1">复制指令</button></div>
-        </div>
-      </div>
-
-      <div class="sc-card">
-        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
-          <span class="sc-ico">📚</span><span class="sc-name">文献速读（3 分钟判断值不值得精读）</span><span class="chev">▸</span>
-        </div>
-        <div class="sc-detail">
-          <p class="sc-why">长 PDF 丢进去，先要"结论＋方法＋创新＋局限"，再决定精读哪篇，省时间。</p>
-          <div class="lk-code" id="sc-p2">你是文献助手。下面这篇 PDF／文字是 [文献标题或方向]。
-请用 3 分钟能读完的篇幅给我：①一句话结论；②方法核心；③相对已有工作的创新点；
-④局限与可借鉴处；⑤3 个值得引用的关键句（附原文页码或位置）。
-不确定处一律注明"待核"，不要编造 DOI。</div>
-          <div class="sc-foot"><span class="sc-tool">🛠 用：Gemini（长文通读）</span><button class="copybtn" data-copy="sc-p2">复制指令</button></div>
-        </div>
-      </div>
-
-      <div class="sc-card">
-        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
-          <span class="sc-ico">🌐</span><span class="sc-name">中英翻译润色（学术英文）</span><span class="chev">▸</span>
-        </div>
-        <div class="sc-detail">
-          <p class="sc-why">对齐你已有的"论文改稿格式规范.md"：ACS／Elsevier 风格，数值化学式零改动。</p>
-          <div class="lk-code" id="sc-p3">你是材料科学方向、母语为英的 co-author。把下面中文译成学术英文，风格贴近 ACS／Elsevier（Applied Surface Science 基调）；
-保留所有化学式、数值与单位；难译术语附原文并在首次出现给缩写。
-先给术语表，再给译文；译后数值须与原文逐项一致，不一致请标出。</div>
-          <div class="sc-foot"><span class="sc-tool">🛠 用：GPT / WorkBuddy</span><button class="copybtn" data-copy="sc-p3">复制指令</button></div>
-        </div>
-      </div>
-
-      <div class="sc-card">
-        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
-          <span class="sc-ico">📊</span><span class="sc-name">数据处理 · 实验记录整理</span><span class="chev">▸</span>
-        </div>
-        <div class="sc-detail">
-          <p class="sc-why">散落笔记／截图，让 AI 整理成规范表格，标出异常值——你只复核。</p>
-          <div class="lk-code" id="sc-p4">你是我实验室的助手。下面是 [实验记录／一堆数据]（可贴文本或表格）。请：
-①整理成 Markdown 表格（列：样品｜条件｜表征结果｜备注）；
-②标出缺失或异常值；③用一句话总结趋势。
-严禁编造任何缺失数据——缺失就写"缺"，异常就标"⚠"。</div>
-          <div class="sc-foot"><span class="sc-tool">🛠 用：WorkBuddy</span><button class="copybtn" data-copy="sc-p4">复制指令</button></div>
-        </div>
-      </div>
-
-      <div class="sc-card">
-        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
-          <span class="sc-ico">🧮</span><span class="sc-name">数学建模 · 华为杯（你已有 3 人队）</span><span class="chev">▸</span>
-        </div>
-        <div class="sc-detail">
-          <p class="sc-why">你零编程也要能看懂流程图——先讲思路再给可跑代码，不炫技。</p>
-          <div class="lk-code" id="sc-p5">你是我数模队的队友（我化工背景、零编程）。题目：[粘贴题面]。请：
-①用大白话讲清建模思路与可采用的模型；②给出可运行的 Python 代码框架（带注释，数据用占位）；
-③列出论文该写哪几节、每节要点；④给出可用 matplotlib 画的 2–3 张图建议。
-代码要能跑、要注释，别堆术语。</div>
-          <div class="sc-foot"><span class="sc-tool">🛠 用：WorkBuddy</span><button class="copybtn" data-copy="sc-p5">复制指令</button></div>
-        </div>
-      </div>
-
-      <div class="sc-card">
-        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
-          <span class="sc-ico">🧠</span><span class="sc-name">信息素养大赛 · 答题双轨</span><span class="chev">▸</span>
-        </div>
-        <div class="sc-detail">
-          <p class="sc-why">按你定的规则：有把握的题直接答并给依据；没把握的题改成教你自己查。</p>
-          <div class="lk-code" id="sc-p6">我在参加 AI＋信息素养大赛。规则：有把握的题你直接给答案并说明依据让我复核；
-没把握的题你改为教我操作步骤（打开哪个网站、点哪里、填什么、看哪个数），让我自己查。
-现在这题：[题目]。先判断你是否有把握，再按对应方式回答，不要猜了就选。</div>
-          <div class="sc-foot"><span class="sc-tool">🛠 用：WorkBuddy</span><button class="copybtn" data-copy="sc-p6">复制指令</button></div>
-        </div>
-      </div>
-
-      <div class="sc-card">
-        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
-          <span class="sc-ico">✍️</span><span class="sc-name">中文写作 · 小说／材料文案</span><span class="chev">▸</span>
-        </div>
-        <div class="sc-detail">
-          <p class="sc-why">保持已有的人设与节奏，不擅自加设定——尤其《灾变炉心》这种反复改的。</p>
-          <div class="lk-code" id="sc-p7">你是我写作的搭档，熟悉《灾变炉心》的设定与人设。任务：[续写／润色／出大纲]。
-要求：保持已有的人设、语气与节奏；不擅自加设定；若续写请给 2 个走向让我选。
-先确认你对当前情节的理解，再动手。</div>
-          <div class="sc-foot"><span class="sc-tool">🛠 用：WorkBuddy / GPT</span><button class="copybtn" data-copy="sc-p7">复制指令</button></div>
-        </div>
-      </div>
-
-      <div class="sc-card">
-        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
-          <span class="sc-ico">🔍</span><span class="sc-name">图表解读（给假设，不装结论）</span><span class="chev">▸</span>
-        </div>
-        <div class="sc-detail">
-          <p class="sc-why">贴数据或描述图，让它讲趋势、给可能原因——原因只是假设，要你验证。</p>
-          <div class="lk-code" id="sc-p8">你帮我解读数据。下面是 [数据／图的描述]：_____。请：
-①说明整体趋势；②给出 2–3 条可能的原因（明确标注"这是假设，需实验验证"）；
-③指出有没有异常点。不要假装这是已证实结论。</div>
-          <div class="sc-foot"><span class="sc-tool">🛠 用：WorkBuddy</span><button class="copybtn" data-copy="sc-p8">复制指令</button></div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="lk-section">
-      <h3>✍️ 下指令公式（你最该练的）</h3>
-      <p>好指令 = <b>角色 + 背景 + 任务 + 约束 + 验收</b>。后两条（约束、验收）最容易被漏，偏偏是你最需要的。</p>
-      <div class="lk-grid">
-        <div class="lk-card"><h4>角色</h4><p>你让我当谁（"你是我同课题组的师弟"）。</p></div>
-        <div class="lk-card"><h4>背景</h4><p>相关上下文（"在改 Cu(II) 配位聚合物 SCI 论文"）。</p></div>
-        <div class="lk-card"><h4>任务</h4><p>具体要我做啥（"把这段中文译成学术英文"）。</p></div>
-        <div class="lk-card"><h4>约束</h4><p>格式／风格／边界（"保留数值，不改单位"）。</p></div>
-        <div class="lk-card"><h4>验收</h4><p>怎么算对（"译后数值须与表 5.1 一致"）。</p></div>
-      </div>
-    </div>
-
-    <div class="lk-section">
-      <h3>🧰 工具分工速查</h3>
-      <ul>
-        <li><b>WorkBuddy</b>＝总入口与执行（读写本机文件、跑脚本、跨文件核对）。最该用熟。</li>
-        <li><b>Gemini</b>＝长文献通读 + 第二意见（网页端用）。</li>
-        <li><b>GPT</b>＝英文润色 / 脑暴。</li>
-        <li><b>opencode / Cursor</b>＝想"让 AI 直接写改代码"时再上（免费／低门槛）。</li>
-        <li><b>Claude Code / Codex</b>＝命令行 Agent，进阶后再碰，现在别花时间。</li>
-      </ul>
-    </div>
-
-    <div class="lk-section">
-      <h3>⚠️ 避坑</h3>
-      <ul>
-        <li><b>幻觉</b>：AI 会编引用 / DOI / 数据，关键处务必你亲自核对原文。</li>
-        <li><b>别当搜索引擎</b>：给背景＋约束它才像同事；只丢一句"查一下"它会编。</li>
-        <li><b>隐私</b>：未发表稿件、未公开实验数据、个人信息，别随手传公有模型。</li>
-        <li><b>一个文件别让多个模型同时改</b>：防版本冲突（你的硬规则）。</li>
-        <li><b>模型会过时</b>：本站排行榜是静态快照，实时排名看各榜单官网。</li>
-      </ul>
-    </div>
+    <div class="view-head"><h2>📚 AI 上手 · 教学视频与课程库</h2>
+      <p>这页只放 <b>AI 教学</b>：8 大类 46+ 条，中文优先、B站直链优先（点得开、不用翻墙）。别囤课——<b>看完一个再看下一个</b>，今天挑一条看 15 分钟就赢。</p></div>
 
     <style>
       .rlib-intro{font-size:14px;color:#374151;line-height:1.75;margin:6px 0 14px}
@@ -483,187 +332,273 @@
       .rsrc-item>p{font-size:13px;color:#374151;line-height:1.6;margin:7px 0 9px}
       .tag{display:inline-block;font-size:11px;color:#0f766e;background:#e6f7f3;border:1px solid #b8e6dd;border-radius:999px;padding:1px 8px;margin:2px 5px 0 0}
       .rlib-note{font-size:13px;color:#374151;line-height:1.7;margin-top:14px;padding:10px 12px;background:#fff7ed;border:1px solid #fed7aa;border-radius:10px}
-      .rlib-mini{font-size:13px;color:#374151;line-height:1.7;margin-top:12px}
-      .rlib-mini a{color:var(--brand);text-decoration:none}
-      .rlib-mini a:hover{text-decoration:underline}
     </style>
 
-    <div class="lk-section">
-      <h3>📚 全网优质 AI 教学资源库（别人怎么教，照着学）</h3>
-      <p class="rlib-intro">下面是从全网筛出来的<b>火或权威</b>的 AI 教学——视频 / 课程 / 图文都有，按"你想要什么"分类。链接都点得开，<b>中文优先、零基础友好</b>排在前面。挑一个今天就看 15 分钟，比收藏 100 个更有用。⚠️ 别囤课：看完一个再看下一个。</p>
-
-      <h4 class="cat-h">🎬 一、大佬白话科普（搞懂 AI/LLM 是什么，零基础）</h4>
+    <h4 class="cat-h">🎬 一、零基础看懂 AI（科普视频，中文优先）</h4>
       <div class="rsrc-grid">
         <div class="rsrc-item">
-          <a class="rsrc" href="https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi" target="_blank" rel="noopener noreferrer">3Blue1Brown《神经网络》系列<span class="plat">YouTube</span></a>
-          <p>用动画把神经网络、梯度下降、Transformer、扩散模型一层层讲透，公认最直观的入门。不用写代码，看就懂。</p>
-          <span class="tag">零基础</span><span class="tag">视频</span>
-        </div>
-        <div class="rsrc-item">
-          <a class="rsrc" href="https://www.youtube.com/@AndrejKarpathy" target="_blank" rel="noopener noreferrer">Karpathy：Intro to LLMs / How I use LLMs<span class="plat">YouTube</span></a>
-          <p>前 OpenAI、Tesla AI 总监。频道里这两场通俗演讲必看：一场讲清 LLM 原理，一场讲日常怎么用。想深究可看《Zero to Hero》从零写 GPT 系列。</p>
-          <span class="tag">零基础</span><span class="tag">视频</span><span class="tag">进阶可挖</span>
-        </div>
-        <div class="rsrc-item">
           <a class="rsrc" href="https://www.bilibili.com/video/BV1KUNjzpEpM/" target="_blank" rel="noopener noreferrer">李宏毅《生成式AI导论 2025》<span class="plat">B站</span></a>
-          <p>台大教授，中文授课，明确写"不需任何先验知识"。从 Transformer 一路讲到 DeepSeek、RLHF，是最顺的中文入门。</p>
+          <p>台大教授，中文授课，明确写“不需任何先验知识”。从 Transformer 一路讲到 DeepSeek、RLHF，是最顺的中文入门。</p>
           <span class="tag">零基础</span><span class="tag">中文</span><span class="tag">视频</span>
         </div>
         <div class="rsrc-item">
           <a class="rsrc" href="https://www.bilibili.com/video/BV1aiADewEBC/" target="_blank" rel="noopener noreferrer">李宏毅《机器学习 2025》<span class="plat">B站</span></a>
-          <p>已授权完整版，今年内容偏实际应用、紧跟大模型趋势。想系统打底就看这一套（经典机器学习认准此版）。</p>
+          <p>已授权完整版，今年内容偏实际应用、紧跟大模型趋势。想系统打底就看这一套。</p>
           <span class="tag">进阶</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://space.bilibili.com/88461692" target="_blank" rel="noopener noreferrer">3Blue1Brown 官方账号（中文字幕）<span class="plat">B站</span></a>
+          <p>用动画把神经网络、梯度下降、Transformer、扩散模型讲透，公认最直观。B站官方号带中文字幕，不用翻墙。</p>
+          <span class="tag">零基础</span><span class="tag">视频</span><span class="tag">动画</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.youtube.com/@AndrejKarpathy" target="_blank" rel="noopener noreferrer">Karpathy：How I use LLMs / Intro to LLMs<span class="plat">YouTube（需梯子）</span></a>
+          <p>前 OpenAI/Tesla AI 总监。一场讲清 LLM 原理，一场讲日常怎么用。B站搜“Karpathy”有大量带字幕搬运。</p>
+          <span class="tag">零基础</span><span class="tag">视频</span><span class="tag">英文</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=%E5%A4%A7%E6%A8%A1%E5%9E%8B%20%E5%8E%9F%E7%90%86%20%E5%85%A5%E9%97%A8" target="_blank" rel="noopener noreferrer">B站搜：大模型 原理 入门<span class="plat">B站</span></a>
+          <p>中文圈讲 Transformer/大模型原理的精选合集，挑播放量高、时间近的看。</p>
+          <span class="tag">零基础</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=AI%20%E7%A7%91%E6%99%AE%20%E9%80%9A%E4%BF%97" target="_blank" rel="noopener noreferrer">B站搜：AI 科普 通俗<span class="plat">B站</span></a>
+          <p>10 分钟级短视频，通勤/吃饭时刷两条，攒常识比刷段子划算。</p>
+          <span class="tag">零基础</span><span class="tag">中文</span><span class="tag">短视频</span>
         </div>
       </div>
 
-      <h4 class="cat-h">🛠 二、工具实操（科研人怎么用 AI 真干活）</h4>
+    <h4 class="cat-h">🛠 二、科研人用 AI 干活（实操视频，对你最实用）</h4>
       <div class="rsrc-grid">
         <div class="rsrc-item">
           <a class="rsrc" href="https://search.bilibili.com/all?keyword=%E5%81%9A%E7%A7%91%E7%A0%94%E7%9A%84%E5%A4%A7%E5%B8%88%E5%85%84" target="_blank" rel="noopener noreferrer">做科研的大师兄<span class="plat">B站</span></a>
-          <p>中山医博后，讲 ChatGPT / DeepSeek 辅助论文写作、文献带读、GraphPad 作图，全是科研人能直接抄的实战，35 万+粉。</p>
-          <span class="tag">科研向</span><span class="tag">中文</span><span class="tag">视频</span>
-        </div>
-        <div class="rsrc-item">
-          <a class="rsrc" href="https://search.bilibili.com/all?keyword=%E5%A4%A9JIANG" target="_blank" rel="noopener noreferrer">天JIANG<span class="plat">B站</span></a>
-          <p>AI 工具使用实战派，ChatGPT / DeepSeek 新手技巧系列很接地气，适合刚上手的人。</p>
-          <span class="tag">新手</span><span class="tag">中文</span><span class="tag">视频</span>
+          <p>博士博主，专讲 AI 辅助科研的完整工作流：查文献、读文献、写论文、画图，贴合研究生日常。</p>
+          <span class="tag">科研</span><span class="tag">中文</span><span class="tag">视频</span>
         </div>
         <div class="rsrc-item">
           <a class="rsrc" href="https://search.bilibili.com/all?keyword=%E5%90%8C%E6%B5%8E%E5%AD%90%E8%B1%AA%E5%85%84" target="_blank" rel="noopener noreferrer">同济子豪兄<span class="plat">B站</span></a>
-          <p>计算机视觉实战专家，从项目出发讲 AI 应用，教程详细可复现。想做图像/检测类方向可跟。</p>
-          <span class="tag">进阶</span><span class="tag">中文</span><span class="tag">视频</span>
+          <p>同济大学讲师，精讲论文系列（LeNet/AlexNet/Transformer…）和 AI 工具实操，讲得细、不跳步。</p>
+          <span class="tag">科研</span><span class="tag">中文</span><span class="tag">视频</span>
         </div>
         <div class="rsrc-item">
-          <a class="rsrc" href="https://www.anthropic.com/engineering/claude-code-best-practices" target="_blank" rel="noopener noreferrer">Claude Code 最佳实践（Anthropic 官方）<span class="plat">官方文档</span></a>
-          <p>Anthropic 官方给出的 Claude Code 用法与心法：如何让它读代码、跑命令、按你的规范改稿。配合 ChatGPT 头脑风暴 + Claude 吃长文档，比单用一个强。</p>
-          <span class="tag">科研向</span><span class="tag">官方</span><span class="tag">图文</span>
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=%E5%A4%A9JIANG" target="_blank" rel="noopener noreferrer">天Jiang 学长<span class="plat">B站</span></a>
+          <p>研究生视角的 AI 工具教程：文献管理、论文写作、数据分析实操，节奏适合跟练。</p>
+          <span class="tag">科研</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=AI%20%E5%86%99%E8%AE%BA%E6%96%87%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：AI 写论文 教程<span class="plat">B站</span></a>
+          <p>从选题、文献综述到初稿润色的 AI 实操合集。⚠️ 看完记住底线：AI 出初稿，数值和引用你必须亲自核对。</p>
+          <span class="tag">科研</span><span class="tag">中文</span><span class="tag">实操</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=ChatGPT%20%E7%A7%91%E7%A0%94%20%E4%BD%BF%E7%94%A8" target="_blank" rel="noopener noreferrer">B站搜：ChatGPT 科研 使用<span class="plat">B站</span></a>
+          <p>科研场景下怎么问出好答案：喂文献、定格式、要表格。核心是“给背景+给约束”。</p>
+          <span class="tag">科研</span><span class="tag">中文</span><span class="tag">实操</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=AI%20%E6%96%87%E7%8C%AE%E7%BB%BC%E8%BF%B0" target="_blank" rel="noopener noreferrer">B站搜：AI 文献综述<span class="plat">B站</span></a>
+          <p>用 AI 快速过 50 篇文献的方法：先摘要后精读、建对比表。配合你改第三章 SCI 正好用得上。</p>
+          <span class="tag">科研</span><span class="tag">中文</span><span class="tag">实操</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=AI%20%E6%B6%A6%E8%89%B2%20%E8%AE%BA%E6%96%87" target="_blank" rel="noopener noreferrer">B站搜：AI 润色 论文<span class="plat">B站</span></a>
+          <p>英译/润色的指令写法与演示，重点看“保留数值、不改术语”的约束怎么下。</p>
+          <span class="tag">科研</span><span class="tag">中文</span><span class="tag">实操</span>
         </div>
       </div>
 
-      <h4 class="cat-h">📚 三、系统权威课（想系统学就上，多数免费）</h4>
+    <h4 class="cat-h">🤖 三、AI 工具上手（一个一个学会用）</h4>
+      <div class="rsrc-grid">
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=ChatGPT%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：ChatGPT 教程<span class="plat">B站</span></a>
+          <p>从注册到高级用法（自定义指令、数据分析、联网）的中文合集，你有 GPT 会员，直接能跟练。</p>
+          <span class="tag">工具</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=DeepSeek%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：DeepSeek 教程<span class="plat">B站</span></a>
+          <p>国产模型代表，中文理解好、免费额度足。推理模式（R1）做数学/逻辑题很强，数模比赛能派上用场。</p>
+          <span class="tag">工具</span><span class="tag">中文</span><span class="tag">免费</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=Kimi%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：Kimi 教程<span class="plat">B站</span></a>
+          <p>长文本之王：整本论文、几十篇 PDF 一次丢进去总结。改第三章时“整篇通读”就靠这类。</p>
+          <span class="tag">工具</span><span class="tag">中文</span><span class="tag">长文本</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=AI%20%E5%81%9A%20PPT%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：AI 做 PPT 教程<span class="plat">B站</span></a>
+          <p>组会汇报、竞赛答辩的 PPT 提效流：大纲→内容→排版一键生成，再手动调细节。</p>
+          <span class="tag">工具</span><span class="tag">中文</span><span class="tag">实操</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=AI%20%E7%BB%98%E5%9B%BE%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：AI 绘图 教程<span class="plat">B站</span></a>
+          <p>Midjourney / Stable Diffusion 入门，做海报、示意图、竞赛展板用得上。</p>
+          <span class="tag">工具</span><span class="tag">中文</span><span class="tag">实操</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=NotebookLM%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：NotebookLM 教程<span class="plat">B站</span></a>
+          <p>Google 出品：把你的文献喂进去，它只基于你给的材料回答，幻觉少，还能生成播客式讲解。</p>
+          <span class="tag">工具</span><span class="tag">视频</span><span class="tag">英文</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=%E8%B1%86%E5%8C%85%20AI%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：豆包 AI 教程<span class="plat">B站</span></a>
+          <p>字节全家桶，手机端好用，语音对话+图片识别适合随手问。</p>
+          <span class="tag">工具</span><span class="tag">中文</span><span class="tag">免费</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=Claude%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：Claude 教程<span class="plat">B站</span></a>
+          <p>长文写作与代码质量口碑最好的一家，你的 Claude Code 就是它——先看别人怎么用。</p>
+          <span class="tag">工具</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+      </div>
+
+    <h4 class="cat-h">📊 四、数据处理与编程（零基础能跟，比赛直接用）</h4>
+      <div class="rsrc-grid">
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.bilibili.com/video/BV1daQAYuEYm/" target="_blank" rel="noopener noreferrer">李沐《动手学深度学习》<span class="plat">B站</span></a>
+          <p>亚马逊首席科学家带读经典教材，代码+理论并行。数模要用神经网络时再啃，平时收藏。</p>
+          <span class="tag">进阶</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=Python%20%E9%9B%B6%E5%9F%BA%E7%A1%80%20%E5%85%A5%E9%97%A8" target="_blank" rel="noopener noreferrer">B站搜：Python 零基础 入门<span class="plat">B站</span></a>
+          <p>数模/数据处理的地基。挑一套播放量最高的跟完前 20 集，能跑通脚本就够用。</p>
+          <span class="tag">零基础</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=Origin%20%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：Origin 数据处理 教程<span class="plat">B站</span></a>
+          <p>你画谱图/拟合就用它：峰形处理、拟合报告、批量出图，直接对着自己的数据跟练。</p>
+          <span class="tag">科研</span><span class="tag">中文</span><span class="tag">实操</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=Excel%20%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：Excel 数据分析 教程<span class="plat">B站</span></a>
+          <p>透视表+基础函数+图表，处理实验记录、值班表足够用，性价比最高的一门“手艺”。</p>
+          <span class="tag">零基础</span><span class="tag">中文</span><span class="tag">实操</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=SPSS%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：SPSS 教程<span class="plat">B站</span></a>
+          <p>统计建模大赛（市场调查/统计建模）的常用工具，点鼠标就能跑回归、方差分析，不用写代码。</p>
+          <span class="tag">比赛</span><span class="tag">中文</span><span class="tag">实操</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=MATLAB%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：MATLAB 教程<span class="plat">B站</span></a>
+          <p>数模三大件之一，数值计算/绘图现成模板多。比赛前过一遍基础语法即可。</p>
+          <span class="tag">比赛</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+      </div>
+
+    <h4 class="cat-h">📚 五、系统权威课（想系统学就上，多数免费）</h4>
       <div class="rsrc-grid">
         <div class="rsrc-item">
           <a class="rsrc" href="https://www.deeplearning.ai/" target="_blank" rel="noopener noreferrer">DeepLearning.AI（Andrew Ng）<span class="plat">官网</span></a>
-          <p>吴恩达出品。《AI for Everyone》非技术向、《ChatGPT Prompt Engineering for Developers》等，免费，质量天花板。</p>
-          <span class="tag">系统</span><span class="tag">免费</span>
+          <p>吴恩达出品，短课制，ChatGPT Prompt Engineering for Developers 等课免费且质量极高。</p>
+          <span class="tag">系统课</span><span class="tag">免费</span><span class="tag">英文</span>
         </div>
         <div class="rsrc-item">
           <a class="rsrc" href="https://developers.google.com/machine-learning/crash-course" target="_blank" rel="noopener noreferrer">Google 机器学习速成课 MLCC<span class="plat">官网</span></a>
-          <p>30+ 互动练习、真实案例，支持中文，约 15 小时。想搞懂机器学习基本功就刷这个。</p>
-          <span class="tag">零基础</span><span class="tag">免费</span><span class="tag">中文可选</span>
+          <p>谷歌官方免费课，交互式练习+视频，经典 ML 概念一网打尽（国内访问偶慢，可等或挂梯子）。</p>
+          <span class="tag">系统课</span><span class="tag">免费</span><span class="tag">英文</span>
         </div>
         <div class="rsrc-item">
-          <a class="rsrc" href="https://cs50.harvard.edu/ai/" target="_blank" rel="noopener noreferrer">Harvard CS50 AI with Python<span class="plat">edX</span></a>
-          <p>哈佛传奇 CS50 系列的 AI 版，搜索/知识表示/机器学习/LLM 都用 Python 实战，免费旁听。</p>
-          <span class="tag">系统</span><span class="tag">免费旁听</span>
+          <a class="rsrc" href="https://cs50.harvard.edu/ai/" target="_blank" rel="noopener noreferrer">Harvard CS50 AI with Python<span class="plat">官网</span></a>
+          <p>哈佛名课的 AI 分支，免费公开全部作业与讲义，英文配字幕。</p>
+          <span class="tag">系统课</span><span class="tag">免费</span><span class="tag">英文</span>
         </div>
         <div class="rsrc-item">
           <a class="rsrc" href="https://www.fast.ai/" target="_blank" rel="noopener noreferrer">fast.ai《Practical Deep Learning》<span class="plat">官网</span></a>
-          <p>"自顶向下"：第一天就跑通 SOTA 模型，再回头讲理论。全程免费 Colab，社区活跃。</p>
-          <span class="tag">进阶</span><span class="tag">免费</span>
+          <p>自上而下教学法：第一课就训练出能用的模型，适合“先跑通再理解”。</p>
+          <span class="tag">系统课</span><span class="tag">免费</span><span class="tag">英文</span>
         </div>
         <div class="rsrc-item">
           <a class="rsrc" href="https://www.elementsofai.com/" target="_blank" rel="noopener noreferrer">Elements of AI（赫尔辛基大学）<span class="plat">官网</span></a>
-          <p>零数学、零代码，面向所有人讲清 AI 基础，超百万人学过，多语言。</p>
-          <span class="tag">零基础</span><span class="tag">免费</span>
+          <p>面向全人类的 AI 入门课，几乎不涉数学，有中文版，适合完全零基础建立框架。</p>
+          <span class="tag">零基础</span><span class="tag">免费</span><span class="tag">中文</span>
         </div>
         <div class="rsrc-item">
           <a class="rsrc" href="https://introtodeeplearning.com/" target="_blank" rel="noopener noreferrer">MIT 6.S191 深度学习导论<span class="plat">官网</span></a>
-          <p>MIT 每年更新的公开讲座+实验，覆盖 CV / NLP / 生成模型，研究级视角，全部免费。</p>
-          <span class="tag">进阶</span><span class="tag">免费</span>
+          <p>MIT 一年一更新的公开课， slides 和视频全公开，讲前沿讲得清楚。</p>
+          <span class="tag">系统课</span><span class="tag">免费</span><span class="tag">英文</span>
         </div>
-        <div class="rsrc-item">
-          <a class="rsrc" href="https://www.bilibili.com/video/BV1daQAYuEYm/" target="_blank" rel="noopener noreferrer">李沐《动手学深度学习》<span class="plat">B站</span></a>
-          <p>亚马逊首席科学家，逐行敲代码讲深度学习，配套开源书 d2l.ai。想真动手实现就看这个。</p>
-          <span class="tag">进阶</span><span class="tag">中文</span><span class="tag">视频</span>
-        </div>
-      </div>
-
-      <h4 class="cat-h">✍️ 四、提示词 / 指令工程（专练"下指令"，你最该练的）</h4>
-      <div class="rsrc-grid">
-        <div class="rsrc-item">
-          <a class="rsrc" href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" rel="noopener noreferrer">OpenAI 官方提示工程指南<span class="plat">文档</span></a>
-          <p>最权威基线：清晰指令、角色设定、示例、输出约束、评估。短小精悍，每个用 AI 的人都该过一遍。</p>
-          <span class="tag">必看</span><span class="tag">文档</span>
-        </div>
-        <div class="rsrc-item">
-          <a class="rsrc" href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank" rel="noopener noreferrer">Anthropic 提示工程概览 + Prompt Library<span class="plat">文档</span></a>
-          <p>Claude 官方：什么时候该调提示词、什么时候该换模型/微调的决策框架，外加 50+ 现成模板直接改。</p>
-          <span class="tag">必看</span><span class="tag">文档</span>
-        </div>
-        <div class="rsrc-item">
-          <a class="rsrc" href="https://learnprompting.org/" target="_blank" rel="noopener noreferrer">Learn Prompting<span class="plat">课程</span></a>
-          <p>免费互动课，从零基础到进阶技术，结构清晰，边学边练。</p>
-          <span class="tag">免费</span><span class="tag">课程</span>
-        </div>
-        <div class="rsrc-item">
-          <a class="rsrc" href="https://www.promptingguide.ai/" target="_blank" rel="noopener noreferrer">DAIR.AI Prompt Engineering Guide<span class="plat">文档</span></a>
-          <p>最全开源指南，18+ 技术、各模型专项建议，常作为权威参考。</p>
-          <span class="tag">进阶</span><span class="tag">文档</span>
-        </div>
-        <div class="rsrc-item">
-          <a class="rsrc" href="https://cookbook.openai.com/" target="_blank" rel="noopener noreferrer">OpenAI Cookbook<span class="plat">GitHub</span></a>
-          <p>官方范例代码集：RAG、函数调用、评估、复杂工作流，想让 AI 干复杂活就翻这里。</p>
-          <span class="tag">进阶</span><span class="tag">代码</span>
-        </div>
-        <div class="rsrc-item">
-          <a class="rsrc" href="https://ai.google.dev/gemini-api/docs/prompting-strategies" target="_blank" rel="noopener noreferrer">Google Gemini 提示策略<span class="plat">文档</span></a>
-          <p>多模态提示（文字+图+视频）怎么写，Gemini 特化技巧。</p>
-          <span class="tag">文档</span><span class="tag">多模态</span>
-        </div>
-      </div>
-
-      <h4 class="cat-h">📝 五、图文 / 博客（随时翻的权威参考）</h4>
-      <div class="rsrc-grid">
         <div class="rsrc-item">
           <a class="rsrc" href="https://huggingface.co/learn" target="_blank" rel="noopener noreferrer">Hugging Face Learn<span class="plat">官网</span></a>
-          <p>开源模型与 AIGC 工具链教程，从 Transformer 到微调部署，工程师向。</p>
-          <span class="tag">进阶</span><span class="tag">文档</span>
+          <p>NLP/LLM 实战课（免费），想跑通第一个大模型任务从这进。</p>
+          <span class="tag">进阶</span><span class="tag">免费</span><span class="tag">英文</span>
         </div>
         <div class="rsrc-item">
           <a class="rsrc" href="https://www.kaggle.com/learn" target="_blank" rel="noopener noreferrer">Kaggle Learn<span class="plat">官网</span></a>
-          <p>浏览器内边做边学，免费数据集+实战微课程，想练手直接上。</p>
-          <span class="tag">免费</span><span class="tag">实战</span>
-        </div>
-        <div class="rsrc-item">
-          <a class="rsrc" href="https://www.deeplearning.ai/the-batch/" target="_blank" rel="noopener noreferrer">The Batch（DeepLearning.AI 周报）<span class="plat">资讯</span></a>
-          <p>吴恩达团队每周 AI 资讯，紧跟产业与研究动态。</p>
-          <span class="tag">资讯</span>
-        </div>
-        <div class="rsrc-item">
-          <a class="rsrc" href="https://lilianweng.github.io/" target="_blank" rel="noopener noreferrer">Lilian Weng Blog<span class="plat">博客</span></a>
-          <p>OpenAI 研究员的技术博客，提示工程、Agent 等主题写得很深，进阶必读。</p>
-          <span class="tag">进阶</span><span class="tag">博客</span>
+          <p>边做边学的微课程，Python/ML/数据可视化，每门几小时，配比赛数据练手最合适。</p>
+          <span class="tag">免费</span><span class="tag">实操</span><span class="tag">英文</span>
         </div>
       </div>
 
-      <div class="rlib-note">💡 <b>科研 workflow 心法：</b>把 AI 当"新来的师弟"。①<b>文献/长文</b>丢给 Claude 或 Gemini 做总结带读（它们吃长文本强）；②<b>头脑风暴/写初稿/画图</b>用 ChatGPT 或 WorkBuddy；③<b>数值/化学式/DOI</b> 务必你亲自核对原文，AI 会编。核心创新点和实验数据必须是你自己的。</div>
-
-      <div class="rlib-mini">📊 <b>顺手看排名/日报：</b>
-        <a href="https://aihot.virxact.com/" target="_blank" rel="noopener noreferrer">AIHOT 每日日报</a>（本站数据源）·
-        <a href="https://lmarena.ai/leaderboard/text" target="_blank" rel="noopener noreferrer">LMArena 文本榜</a>（用起来谁最强）·
-        <a href="https://artificialanalysis.ai/" target="_blank" rel="noopener noreferrer">Artificial Analysis</a>（智能指数+价格）·
-        <a href="https://www.swebench.com/" target="_blank" rel="noopener noreferrer">SWE-bench</a>（代码能力）。
-        本机还有你的 <code>AI指令手册.html</code>（20 条可复制模板，电脑里双击打开）。
+    <h4 class="cat-h">✍️ 六、提示词 / 指令工程（专练“下指令”）</h4>
+      <div class="rsrc-grid">
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" rel="noopener noreferrer">OpenAI 官方提示工程指南<span class="plat">官网</span></a>
+          <p>六大策略（写清楚指令、给参考文本、拆任务、给思考时间、外部工具、系统测试），官方出品最权威。</p>
+          <span class="tag">提示词</span><span class="tag">英文</span><span class="tag">官方</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank" rel="noopener noreferrer">Anthropic 提示工程文档<span class="plat">官网</span></a>
+          <p>Claude 视角的提示工程，章节化、示例多，配套 Prompt Library 可直接抄模板。</p>
+          <span class="tag">提示词</span><span class="tag">英文</span><span class="tag">官方</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://learnprompting.org/" target="_blank" rel="noopener noreferrer">Learn Prompting（开源教程）<span class="plat">官网</span></a>
+          <p>最流行的开源提示词课程，从零到高级，有中文翻译版本。</p>
+          <span class="tag">提示词</span><span class="tag">免费</span><span class="tag">中文</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.promptingguide.ai/" target="_blank" rel="noopener noreferrer">Prompt Engineering Guide（DAIR.AI）<span class="plat">官网</span></a>
+          <p>社区维护的提示工程大全，技术多、论文链接全，进阶查阅首选（有中文版）。</p>
+          <span class="tag">提示词</span><span class="tag">免费</span><span class="tag">中文</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=%E6%8F%90%E7%A4%BA%E8%AF%8D%20%E6%8A%80%E5%B7%A7" target="_blank" rel="noopener noreferrer">B站搜：提示词 技巧<span class="plat">B站</span></a>
+          <p>中文视频版的提示词课，看着别人怎么写、怎么迭代，比自己啃文档快。</p>
+          <span class="tag">提示词</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
       </div>
-    </div>
 
-    <div class="lk-section">
-      <h3>📖 还想深究？名词 / 排行榜速查</h3>
-      <p>
-        <span class="lk-pill">LLM 大语言模型</span><span class="lk-pill">Token 计费/长度单位</span>
-        <span class="lk-pill">Prompt 指令</span><span class="lk-pill">Agent 智能体</span>
-        <span class="lk-pill">RAG 读你的资料再答</span><span class="lk-pill">推理模型 会"想一下"</span>
-        <span class="lk-pill">上下文窗口 一次看多少</span><span class="lk-pill">多模态 图文音视频</span>
-        <span class="lk-pill">幻觉 编假内容</span><span class="lk-pill">Benchmark 基准测试</span>
-      </p>
-      <p style="margin-top:10px"><b>排行榜在比什么：</b>LMArena（真人盲测体感）、AA 智能指数（客观总分）、SWE-bench（写代码）、GPQA / MMLU（硬核学科）、Terminal-Bench（命令行 Agent）。同一模型聊天第一、写代码未必第一——看"比什么"。</p>
-    </div>
+    <h4 class="cat-h">📝 七、图文 / 博客（随时翻的参考）</h4>
+      <div class="rsrc-grid">
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.deeplearning.ai/the-batch/" target="_blank" rel="noopener noreferrer">The Batch（DeepLearning.AI 周报）<span class="plat">官网</span></a>
+          <p>吴恩达每周一封的 AI 时事信，英文简单、观点克制，适合练阅读顺便跟进展。</p>
+          <span class="tag">资讯</span><span class="tag">英文</span><span class="tag">免费</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://lilianweng.github.io/" target="_blank" rel="noopener noreferrer">Lilian Weng Blog<span class="plat">官网</span></a>
+          <p>前 OpenAI 安全研究副总裁的长文博客，每篇都是某方向（Agent/扩散模型/RLHF）的综述级整理。</p>
+          <span class="tag">进阶</span><span class="tag">英文</span><span class="tag">深度</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://ai.google.dev/gemini-api/docs/prompting-strategies" target="_blank" rel="noopener noreferrer">Google Gemini 提示策略<span class="plat">官网</span></a>
+          <p>你有 Gemini 会员：这份官方策略讲清系统指令、few-shot、输出格式怎么定。</p>
+          <span class="tag">提示词</span><span class="tag">英文</span><span class="tag">官方</span>
+        </div>
+      </div>
 
-  </div>
+    <h4 class="cat-h">📰 八、AI 资讯跟进（中文，天天能看）</h4>
+      <div class="rsrc-grid">
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.jiqizhixin.com/" target="_blank" rel="noopener noreferrer">机器之心<span class="plat">官网</span></a>
+          <p>国内最专业的 AI 媒体，论文解读和产业动态都全，网页直接看不用装 App。</p>
+          <span class="tag">资讯</span><span class="tag">中文</span><span class="tag">免费</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.qbitai.com/" target="_blank" rel="noopener noreferrer">量子位<span class="plat">官网</span></a>
+          <p>更新快、话题面广，新模型新工具第一时间报道，适合每天扫一眼标题。</p>
+          <span class="tag">资讯</span><span class="tag">中文</span><span class="tag">免费</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=AI%20%E6%97%A5%E6%8A%A5" target="_blank" rel="noopener noreferrer">B站搜：AI 日报<span class="plat">B站</span></a>
+          <p>每天几分钟的 AI 新闻合集视频，通勤时听，不掉队。</p>
+          <span class="tag">资讯</span><span class="tag">中文</span><span class="tag">短视频</span>
+        </div>
+      </div>
+    <div class="rlib-note">💡 <b>怎么用这页：</b>① 零基础先看「一」里李宏毅 2 集；② 要干活直接跳「二/三/四」挑对口的一条跟练；③ 海外标注「需梯子」的，挂着快橙再点，或优先用同条的 B站 备选。</div>
+</div>
 
-  <!-- ================= COMPETITION VIEW ================= -->
-  <div id="view-comp" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-comp">
+<div id="view-comp" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-comp">
     <div class="view-head"><h2>🏁 比赛地图：我能报 + 全球一览</h2>
       <p>两块内容：① <b>我能报的</b>——搜罗全网现在和接下来能报名、且能靠 AI 大幅提效的比赛（数据核对于 <b>2026-09-26</b>，状态灯按当天判定；共收录 <b id="comp-count">0</b> 项，分页浏览、每页 12 条），点卡片直达官网；② <b>🌍 全球一览</b>——世界级赛事（AI/机器人/航天/科创），多数你报不了，但能开眼界看全球在比什么、顶尖水平在哪。用上方按钮切换，结果可翻页。</p></div>
     <div class="news">
@@ -744,7 +679,16 @@
     <div class="view-head"><h2>🏫 重庆理工：学校 / 学院 / 部门 / 学生会通知</h2>
       <p>每天自动更新。每条都写清「我该关注啥」，末尾附全部信源直达入口。数据更新于 <span id="cqut-updated"></span></p>
     </div>
-    <div class="cmp-toolbar" id="cqutFilters">
+<div class="view-head" style="margin-top:32px">
+      <h2 style="font-size:20px">🏅 比赛动态 · 正在举办的排最前</h2>
+      <p>你想报名而不是看别人获奖——所以这块置顶了。实抓自学校/学院官网，URL 全部真实可点。实话：学院通知栏平时基本只发<b>获奖通报</b>，真·报名赛事很少，要打全国赛请配合 <b>🏁 可报名比赛</b> 那个 tab 一起看。数据更新于 <span id="cqut-match-updated"></span></p>
+    </div>
+    <div class="cmp-toolbar" id="cqutMatchFilters" style="margin-top:12px"></div>
+    <div class="cmp-list" id="cqut-match-list"></div>
+    <div class="lk-tip" style="margin-top:16px">
+      💡 <b>怎么筛：</b>你学化工材料，只看 <b>🧪 材料·化工（对口）</b> 那组就够了。那两条是实验技能赛，<b>考的正是你天天在实验室做的动手活</b>，含金量最高；机械机器人那组看着热闹，跟你专业主线基本不搭。
+    </div>
+        <div class="cmp-toolbar" id="cqutFilters" style="margin-top:26px">
       <button class="filterbtn active" data-c="全部">全部</button>
       <button class="filterbtn" data-c="school">🏛 学校各部门</button>
       <button class="filterbtn" data-c="college">🏫 各学院</button>
@@ -752,15 +696,6 @@
     </div>
     <div class="cmp-toolbar" id="cqutTagFilters" style="margin-top:9px"></div>
     <div class="cmp-list" id="cqut-list"></div>
-    <div class="view-head" style="margin-top:32px">
-      <h2 style="font-size:20px">🏅 各学院赛事 · 谁主办、要干嘛、我能帮你做啥</h2>
-      <p>从各学院官网和学校新闻里实抓的赛事记录，URL 全都真实可点，没编一条。多数是<b>上一届的获奖通报</b>——想上场得盯下一届的报名通知。数据更新于 <span id="cqut-match-updated"></span></p>
-    </div>
-    <div class="cmp-toolbar" id="cqutMatchFilters" style="margin-top:12px"></div>
-    <div class="cmp-list" id="cqut-match-list"></div>
-    <div class="lk-tip" style="margin-top:16px">
-      💡 <b>怎么筛：</b>你学化工材料，只看 <b>🧪 材料·化工（对口）</b> 那组就够了。那两条是实验技能赛，<b>考的正是你天天在实验室做的动手活</b>，含金量最高；机械机器人那组看着热闹，跟你专业主线基本不搭。
-    </div>
     <div class="view-head" style="margin-top:30px">
       <h2 style="font-size:20px">🔗 全部信源直达（每个学院、每个部门都能点到）</h2>
       <p>上方哪些没抓到，直接点这里去官网看最新。</p>
@@ -918,6 +853,15 @@
     var statusChip = {open:'<span class="chip open">🟢 可报名</span>',
                       soon:'<span class="chip soon">🟠 即将截止</span>',
                       closed:'<span class="chip closed">⚪ 已截止 / 关注下届</span>'};
+    /* st 允许带后缀说明（如「open · 第十七届报名中」），按词首归类，别渲染出 undefined */
+    function chipOf(st){
+      var k = String(st||'').trim().split(/[\s·]/)[0];
+      return statusChip[k] || '<span class="chip closed">⚪ 状态待确认</span>';
+    }
+    function isOpen(st){
+      var k = String(st||'').trim().split(/[\s·]/)[0];
+      return k === 'open' || k === 'soon';
+    }
     var list = COMP.filter(function(c){
       var okScope = (COMP_SCOPE==="all") || (c.scope===COMP_SCOPE);
       var okStatus = (COMP_SCOPE==="world") ? true : (COMP_FILTER==="all" || c.st===COMP_FILTER);
@@ -938,8 +882,19 @@
     if(COMP_PAGE < 1) COMP_PAGE = 1;
     var start = (COMP_PAGE - 1) * COMP_PER_PAGE;
     var pageList = list.slice(start, start + COMP_PER_PAGE);
-    document.getElementById("comp-list").innerHTML = pageList.map(function(c){
-      var topChip = (c.scope==="world") ? '<span class="chip world">🌍 全球赛 · 开眼界</span>' : statusChip[c.st];
+    document.getElementById("comp-list").innerHTML = pageList.map(function(c, ci){
+      function cpPrompt(c){
+        return '我想参加【' + c.n + '】（主办：' + c.org + '）。\n' +
+          '我的情况：重庆理工大学化工专业研究生，3 人队（都是化工背景，编程/数模基础接近零），AI 工具齐全（WorkBuddy/GPT/Gemini/Claude），比赛期间可全脱产、平时每天能投 4 小时以上。\n' +
+          '报名/赛期：报名 ' + c.reg + '；赛期 ' + c.run + '。官网：' + c.url + '\n' +
+          '请给我做一份参赛规划，直接给结论、别客套：\n' +
+          '1) 这个比赛适不适合我冲？如果不适合直接说不适合、为什么；\n' +
+          '2) 从今天起的关键时间线倒排（精确到周，标注每个节点的交付物）；\n' +
+          '3) 3 人分工建议：我干啥、AI 代做啥、怎么验收 AI 的产出；\n' +
+          '4) 赛道/选题建议：结合我的化工/材料/双碳/水凝胶吸附剂背景，给出 2-3 个可落地的方向；\n' +
+          '5) 今天就能动手的前三步。';
+      }
+      var topChip = (c.scope==="world") ? '<span class="chip world">🌍 全球赛 · 开眼界</span>' : chipOf(c.st);
       var priMap={1:["#e8553a","🔥 强推"],2:["#2f8f57","👍 可冲"],3:["#9aa0a6","👀 开眼界"]};
       var pm=priMap[c.pri||2];
       var priChip='<span class="chip" style="border-color:'+pm[0]+';color:'+pm[0]+';background:rgba(255,255,255,0)">'+pm[1]+'</span>';
@@ -959,7 +914,12 @@
           '<div class="d-row"><span class="d-k">主办</span><span class="d-v">'+esc(c.org)+'</span></div>'+
           (c.team?'<div class="d-row"><span class="d-k">组队</span><span class="d-v">'+esc(c.team)+'</span></div>':'')+
           (c.warn?'<div class="d-row warn-row"><span class="d-k">官网状态</span><span class="d-v">'+esc(c.warn)+'</span></div>':'')+
-          '<div class="d-go"><a class="go" href="'+esc(c.url)+'" target="_blank" rel="noopener noreferrer">官网 / 报名 ↗</a></div>'+
+          (c.sub?'<div class="d-row"><span class="d-k">内含赛怎么挑</span><span class="d-v">'+esc(c.sub)+'</span></div>':'')+
+          '<div class="d-go" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">'+
+            '<a class="go" href="'+esc(c.url)+'" target="_blank" rel="noopener noreferrer">官网 / 报名 ↗</a>'+
+            '<button class="copybtn" data-copy="cp-'+ci+'">📋 复制参赛指令</button>'+
+          '</div>'+
+          '<textarea id="cp-'+ci+'" style="display:none" aria-hidden="true">'+esc(cpPrompt(c))+'</textarea>'+
         '</div>'+
       '</article>';
     }).join("");
@@ -1020,6 +980,17 @@
     if(vc && vc.scrollIntoView) vc.scrollIntoView({behavior:"smooth", block:"start"});
   });
   document.getElementById("comp-list").addEventListener("click", function(ev){
+    var btn = ev.target.closest ? ev.target.closest(".copybtn") : null;
+    if(btn){
+      var id = btn.getAttribute("data-copy");
+      var el = id && document.getElementById(id);
+      if(!el) return;
+      var txt = el.innerText || el.textContent;
+      function done(){ var t=btn.textContent; btn.textContent="已复制✓"; setTimeout(function(){btn.textContent=t;},1400); }
+      function fb(){ try{ var r=document.createRange(); r.selectNode(el); var sel=getSelection(); sel.removeAllRanges(); sel.addRange(r); document.execCommand("copy"); sel.removeAllRanges(); done(); }catch(e){} }
+      if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done, fb); } else { fb(); }
+      return;
+    }
     var head = ev.target.closest ? ev.target.closest(".cmp-head") : null;
     if(!head) return;
     var art = head.parentElement;
@@ -1171,7 +1142,27 @@
         '<div class="grid">'+cards+'</div>'+
       '</section>';
     }).join("");
-    document.getElementById("main").innerHTML = mainHtml;
+    /* —— 今日总结（版块头条 + 一键让 AI 深度解读）—— */
+    var sumHeads = secs.map(function(s){ return '【'+s.label+'】'+(s.items[0]? s.items[0].title : '（本版块今日无内容）'); }).join('\n');
+    var dsumPrompt = '以下是 AI HOT 今日日报（'+dateText+'）各版块头条：\n'+sumHeads+'\n\n'+
+      '我的身份：重庆理工大学化工专业研究生，主线是改 SCI 论文、备赛数学建模、推进硅负极/水凝胶实验，零编程、靠 AI 代做。\n'+
+      '请用中文回答，直接给结论：\n'+
+      '1) 用 3 句话总结今天 AI 圈最重要的事；\n'+
+      '2) 挑出跟「论文改稿 / 竞赛 / 实验效率」直接相关的 1-3 条，说明我能怎么用上；\n'+
+      '3) 有没有值得我今天就去试的工具或技巧（给最小上手步骤）；\n'+
+      '4) 其余大事件一句话带过。';
+    var sumHtml = ''+
+      '<section class="block" id="daily-summary">'+
+        '<div class="block-head"><h2>📌 今日总结</h2><span class="block-count">'+secs.length+' 版块头条</span></div>'+
+        '<div class="grid"><article class="card" style="max-width:none">'+
+          secs.map(function(s){
+            return '<div style="margin:7px 0"><b>'+esc(s.label)+'：</b>'+esc(s.items[0]?s.items[0].title:'（无）')+'</div>';
+          }).join('')+
+          '<div style="margin-top:12px"><button class="copybtn" id="dsumCopy">📋 复制「让 AI 深度解读今日日报」指令</button></div>'+
+          '<textarea id="dsum-prompt" style="display:none" aria-hidden="true">'+esc(dsumPrompt)+'</textarea>'+
+        '</article></div>'+
+      '</section>';
+    document.getElementById("main").innerHTML = mainHtml + sumHtml;
     document.getElementById("main").style.display = "";
 
     var srcUrl = (report.links && report.links.aihot) || "https://aihot.virxact.com/";
@@ -1277,6 +1268,17 @@
       .catch(function(err){ setStateError("无法获取日报列表：" + (err && err.message ? err.message : err)); });
   }
   document.getElementById("dateSel").addEventListener("change", function(e){ goto(e.target.value); });
+  /* 今日总结：复制「AI 深度解读」指令（事件委托，日报每次重渲染都生效） */
+  document.getElementById("main").addEventListener("click", function(ev){
+    var btn = ev.target.closest ? ev.target.closest("#dsumCopy") : null;
+    if(!btn) return;
+    var el = document.getElementById("dsum-prompt");
+    if(!el) return;
+    var txt = el.value || el.innerText || el.textContent;
+    function done(){ var t=btn.textContent; btn.textContent="已复制✓ 去新窗口粘贴给 AI"; setTimeout(function(){btn.textContent=t;},1800); }
+    function fb(){ try{ el.style.display=""; el.select(); document.execCommand("copy"); el.style.display="none"; done(); }catch(e){} }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done, fb); } else { fb(); }
+  });
   document.getElementById("newerBtn").addEventListener("click", function(){ var i=indexOfDate(CURRENT); if(i>0) goto(INDEX[i-1].date); });
   document.getElementById("olderBtn").addEventListener("click", function(){ var i=indexOfDate(CURRENT); if(i<INDEX.length-1) goto(INDEX[i+1].date); });
   document.getElementById("todayBtn").addEventListener("click", function(){

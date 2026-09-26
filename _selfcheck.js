@@ -50,7 +50,8 @@ catch(e){ ok(false, '脚本执行异常: ' + e.message); }
 
 const cards = sel => count(((store[sel]||{}).innerHTML||''), /<article class="cmp"/g);
 const btns = sel => count(((store[sel]||{}).innerHTML||''), /class="filterbtn/g);
-ok(cards('ted-list') === 25, `TED 卡片 = ${cards('ted-list')}（期望 25）`);
+const TD = sandbox.window.TED || [];
+ok(cards('ted-list') === TD.length && TD.length >= 40, `TED 卡片 = ${cards('ted-list')}（=数据 ${TD.length} 条，要求 >=40）`);
 const tedHtml = (store['ted-list']||{}).innerHTML || '';
 ok(tedHtml.includes('TED官方搜索') && tedHtml.includes('YouTube') && tedHtml.includes('B站'), 'TED 多平台观看入口已渲染（TED官方搜索/YouTube/B站）');
 ok(tedHtml.includes('background:#16a34a') && tedHtml.includes('TED官方搜索'), 'TED 免费入口（TED官方搜索）染绿色');
@@ -69,7 +70,7 @@ ok(!forumHtml0.includes('bilibili.com/video/'), '系列层不放视频直链（�
 ok(forumHtml0.includes('进入视频清单') && forumHtml0.includes('系列'), '系列卡片含「进入视频清单」入口');
 ok(btns('tedFilters') === 6, `TED 筛选按钮 = ${btns('tedFilters')}（期望 6 = 全部+5 大类）`);
 ok(btns('forumFilters') === 4, `讲坛筛选按钮 = ${btns('forumFilters')}（期望 4 = 全部+3 类）`);
-ok((store['ted-stat']||{}).textContent === '共 25 场（全部 25 场）', `TED 统计: ${(store['ted-stat']||{}).textContent}`);
+ok((store['ted-stat']||{}).textContent === `共 ${TD.length} 场（全部 ${TD.length} 场）`, `TED 统计: ${(store['ted-stat']||{}).textContent}`);
 ok((store['forum-stat']||{}).textContent === `共 ${FS.length} 个系列 / ${FV} 个视频，点系列进入视频清单`, `讲坛统计: ${(store['forum-stat']||{}).textContent}`);
 ok((store['xinxue-guide']||{}).style.display === 'none', '默认（全部）时心学面板隐藏');
 
@@ -170,14 +171,14 @@ ok(cqHtml.includes('💰') && cqHtml.includes('🎓'), '理工卡片显示细分
 /* [2c-2] 各学院赛事区块 */
 const MATCHES = sandbox.window.CQUT_MATCHES || [];
 const mHtml = (store['cqut-match-list']||{}).innerHTML || '';
-ok(MATCHES.length === 16, `各学院赛事条数 = ${MATCHES.length}（期望 16）`);
+ok(MATCHES.length === 17, `比赛动态条数 = ${MATCHES.length}（期望 17）`);
 /* 内容准确性（内容级核对脚本 _audit_content.py 发现的问题回补断言）：
    原来 15 条全是「获奖结果报道」，标题还是我按赛事名自己写的、状态一律写「已出成绩」，
    读者会以为还能报名。现在要求：状态必须写明开局/奖项，获奖类必须显式声明不是报名入口，
    且必须至少有一条「正在举办」的真在办赛事。 */
 ok(MATCHES.every(m => /^(已结束|正在举办)/.test(m.st)),
    `每条赛事状态都写明了开局（实际 ${MATCHES.filter(m=>/^(已结束|正在举办)/.test(m.st)).length}/${MATCHES.length} 条）`);
-ok(MATCHES.filter(m => m.st.indexOf('正在举办') === 0).length >= 1,
+ok(MATCHES.filter(m => m.st.indexOf('正在举办') === 0).length >= 2,
    `至少 1 条「正在举办」的赛事（实际 ${MATCHES.filter(m => m.st.indexOf('正在举办') === 0).length} 条）`);
 ok(MATCHES.filter(m => m.st.indexOf('已结束') === 0)
           .every(m => m.intro.indexOf('不是报名入口') >= 0),
@@ -189,7 +190,7 @@ ok(MATCHES.every(m => /^https:\/\/[a-z0-9.\-]+\.cqut\.edu\.cn\//i.test(m.url)), 
 const needFields = ['https://cl.cqut.edu.cn/info/1034/6103.htm', 'https://cl.cqut.edu.cn/info/1034/6074.htm'];
 ok(needFields.every(u => mHtml.includes(u)), '两条材料学院对口赛事链接已渲染');
 ok(mHtml.includes('🎯 跟你专业对口'), '对口赛事显示了「跟你专业对口」标记');
-ok((store['cqut-match-updated']||{}).textContent === '2026-09-25', `赛事更新日期: ${(store['cqut-match-updated']||{}).textContent}`);
+ok((store['cqut-match-updated']||{}).textContent === '2026-09-26', `赛事更新日期: ${(store['cqut-match-updated']||{}).textContent}`);
 const mBtns = count(((store['cqutMatchFilters']||{}).innerHTML||''), /class="filterbtn/g);
 ok(mBtns === 5, `赛事筛选按钮 = ${mBtns}（期望 5 = 全部 + 4 个分类）`);
 ok(mHtml.includes('机械工程学院') && mHtml.includes('材料科学与工程学院'), '赛事卡片显示主办学院');
@@ -206,9 +207,11 @@ ok(((store['forum-list']||{}).innerHTML||'').includes('年度演讲'), '雷军�
 forumBack();
 fireFilter('forumFilters', '全部');
 fireFilter('tedFilters', '学习成长');
-ok(cards('ted-list') === 4, `TED「学习成长」→ ${cards('ted-list')} 条（期望 4）`);
+const expLearn = TD.filter(x => x.cat === '学习成长').length;
+ok(cards('ted-list') === expLearn, `TED「学习成长」→ ${cards('ted-list')} 条（期望 ${expLearn}）`);
 fireFilter('tedFilters', '认知思维');
-ok(cards('ted-list') === 7, `TED「认知思维」→ ${cards('ted-list')} 条（期望 7）`);
+const expCog = TD.filter(x => x.cat === '认知思维').length;
+ok(cards('ted-list') === expCog, `TED「认知思维」→ ${cards('ted-list')} 条（期望 ${expCog}）`);
 
 console.log('\n[4] 链接体检（静态 + 运行时渲染）');
 const runtime = ['ted-list','forum-list','comp-list']
@@ -288,6 +291,14 @@ ok(rolled.length === 0, `${guard.length} 条已核实官网均未回退` + (roll
 const stop1 = CP.filter(c => (c.st || '').includes('停办'));
 ok(stop1.every(c => (c.reg || '').includes('停办') || (c.reg||'').includes('不办') || (c.warn||'')), `停办类赛事均写明原因（${stop1.length} 条）`);
 ok(CP.filter(c => (c.warn||'').length).length >= 25, `官网状态标注 >= 25 条（当前 ${CP.filter(c => (c.warn||'').length).length}）`);
+
+/* 参赛指令 + 平台赛分析（2026-09-26 需求） */
+const subN = CP.filter(c => (c.sub || '').length).length;
+ok(subN >= 4, `平台型赛事「内含赛怎么挑」分析 >= 4 条（当前 ${subN}）`);
+ok(html.includes('cpPrompt'), '参赛指令生成函数 cpPrompt 已内联');
+const compHtml = (store['comp-list'] || {}).innerHTML || '';
+ok(compHtml.includes('复制参赛指令'), '比赛卡片渲染出「复制参赛指令」按钮');
+ok(html.includes('内含赛怎么挑'), '卡片模板支持渲染平台赛分析行');
 
 /* 页面必须能把 warn 渲染出来 */
 ok(html.includes("c.warn?") || html.includes("c.warn'"), '卡片模板支持渲染「官网状态」标注行');

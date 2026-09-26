@@ -317,159 +317,8 @@
 
   <!-- ================= LEARN VIEW ================= -->
   <div id="view-learn" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-learn">
-    <div class="view-head"><h2>📚 AI 上手实战</h2>
-      <p>不是教科书——这是你的<b>随用随取指令台</b>。挑一个你正在做的场景，点开就有能直接复制去用的指令；下面还有下指令公式、工具分工和避坑。</p></div>
-
-    <div class="daily-tip" id="learn-daily-tip">💡 <b>今日一招：</b>把 AI 当新来的师弟，不当搜索引擎——交代背景越多，它干得越像样。</div>
-
-    <div class="lk-tip">💡 <b>大实话：</b>你用 WorkBuddy 当总入口就已经在"用 AI"了。这一页帮你把<b>"怎么下指令"</b>练熟——这是提效最大杠杆，省得被名词吓到。</div>
-
-    <h3 class="lk-h">🎯 按场景挑一个练（点开卡片，一键复制指令）</h3>
-    <div class="sc-grid" id="sc-grid">
-
-      <div class="sc-card">
-        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
-          <span class="sc-ico">📝</span><span class="sc-name">论文改稿 · 导师批注清零</span><span class="chev">▸</span>
-        </div>
-        <div class="sc-detail">
-          <p class="sc-why">把导师在 Word 里留的批注系统化清零：先出清单再动手，避免改漏、防 AI 擅自改。</p>
-          <div class="lk-code" id="sc-p1">你是我同课题组的师弟，严谨细心。附件是导师在 Word 里留的 N 条批注（已导出为列表）。
-请逐条：①判断批注类型（事实错误／表达／数据／格式／待定）；②给出修改建议与可直接替换的中文；
-③标出需要我人工确认的（数值、专业术语、可能的事实问题），不要擅自改。
-先输出"批注处理清单"（表格：序号｜类型｜建议｜是否需我确认），不要直接改原文。</div>
-          <div class="sc-foot"><span class="sc-tool">🛠 用：WorkBuddy</span><button class="copybtn" data-copy="sc-p1">复制指令</button></div>
-        </div>
-      </div>
-
-      <div class="sc-card">
-        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
-          <span class="sc-ico">📚</span><span class="sc-name">文献速读（3 分钟判断值不值得精读）</span><span class="chev">▸</span>
-        </div>
-        <div class="sc-detail">
-          <p class="sc-why">长 PDF 丢进去，先要"结论＋方法＋创新＋局限"，再决定精读哪篇，省时间。</p>
-          <div class="lk-code" id="sc-p2">你是文献助手。下面这篇 PDF／文字是 [文献标题或方向]。
-请用 3 分钟能读完的篇幅给我：①一句话结论；②方法核心；③相对已有工作的创新点；
-④局限与可借鉴处；⑤3 个值得引用的关键句（附原文页码或位置）。
-不确定处一律注明"待核"，不要编造 DOI。</div>
-          <div class="sc-foot"><span class="sc-tool">🛠 用：Gemini（长文通读）</span><button class="copybtn" data-copy="sc-p2">复制指令</button></div>
-        </div>
-      </div>
-
-      <div class="sc-card">
-        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
-          <span class="sc-ico">🌐</span><span class="sc-name">中英翻译润色（学术英文）</span><span class="chev">▸</span>
-        </div>
-        <div class="sc-detail">
-          <p class="sc-why">对齐你已有的"论文改稿格式规范.md"：ACS／Elsevier 风格，数值化学式零改动。</p>
-          <div class="lk-code" id="sc-p3">你是材料科学方向、母语为英的 co-author。把下面中文译成学术英文，风格贴近 ACS／Elsevier（Applied Surface Science 基调）；
-保留所有化学式、数值与单位；难译术语附原文并在首次出现给缩写。
-先给术语表，再给译文；译后数值须与原文逐项一致，不一致请标出。</div>
-          <div class="sc-foot"><span class="sc-tool">🛠 用：GPT / WorkBuddy</span><button class="copybtn" data-copy="sc-p3">复制指令</button></div>
-        </div>
-      </div>
-
-      <div class="sc-card">
-        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
-          <span class="sc-ico">📊</span><span class="sc-name">数据处理 · 实验记录整理</span><span class="chev">▸</span>
-        </div>
-        <div class="sc-detail">
-          <p class="sc-why">散落笔记／截图，让 AI 整理成规范表格，标出异常值——你只复核。</p>
-          <div class="lk-code" id="sc-p4">你是我实验室的助手。下面是 [实验记录／一堆数据]（可贴文本或表格）。请：
-①整理成 Markdown 表格（列：样品｜条件｜表征结果｜备注）；
-②标出缺失或异常值；③用一句话总结趋势。
-严禁编造任何缺失数据——缺失就写"缺"，异常就标"⚠"。</div>
-          <div class="sc-foot"><span class="sc-tool">🛠 用：WorkBuddy</span><button class="copybtn" data-copy="sc-p4">复制指令</button></div>
-        </div>
-      </div>
-
-      <div class="sc-card">
-        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
-          <span class="sc-ico">🧮</span><span class="sc-name">数学建模 · 华为杯（你已有 3 人队）</span><span class="chev">▸</span>
-        </div>
-        <div class="sc-detail">
-          <p class="sc-why">你零编程也要能看懂流程图——先讲思路再给可跑代码，不炫技。</p>
-          <div class="lk-code" id="sc-p5">你是我数模队的队友（我化工背景、零编程）。题目：[粘贴题面]。请：
-①用大白话讲清建模思路与可采用的模型；②给出可运行的 Python 代码框架（带注释，数据用占位）；
-③列出论文该写哪几节、每节要点；④给出可用 matplotlib 画的 2–3 张图建议。
-代码要能跑、要注释，别堆术语。</div>
-          <div class="sc-foot"><span class="sc-tool">🛠 用：WorkBuddy</span><button class="copybtn" data-copy="sc-p5">复制指令</button></div>
-        </div>
-      </div>
-
-      <div class="sc-card">
-        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
-          <span class="sc-ico">🧠</span><span class="sc-name">信息素养大赛 · 答题双轨</span><span class="chev">▸</span>
-        </div>
-        <div class="sc-detail">
-          <p class="sc-why">按你定的规则：有把握的题直接答并给依据；没把握的题改成教你自己查。</p>
-          <div class="lk-code" id="sc-p6">我在参加 AI＋信息素养大赛。规则：有把握的题你直接给答案并说明依据让我复核；
-没把握的题你改为教我操作步骤（打开哪个网站、点哪里、填什么、看哪个数），让我自己查。
-现在这题：[题目]。先判断你是否有把握，再按对应方式回答，不要猜了就选。</div>
-          <div class="sc-foot"><span class="sc-tool">🛠 用：WorkBuddy</span><button class="copybtn" data-copy="sc-p6">复制指令</button></div>
-        </div>
-      </div>
-
-      <div class="sc-card">
-        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
-          <span class="sc-ico">✍️</span><span class="sc-name">中文写作 · 小说／材料文案</span><span class="chev">▸</span>
-        </div>
-        <div class="sc-detail">
-          <p class="sc-why">保持已有的人设与节奏，不擅自加设定——尤其《灾变炉心》这种反复改的。</p>
-          <div class="lk-code" id="sc-p7">你是我写作的搭档，熟悉《灾变炉心》的设定与人设。任务：[续写／润色／出大纲]。
-要求：保持已有的人设、语气与节奏；不擅自加设定；若续写请给 2 个走向让我选。
-先确认你对当前情节的理解，再动手。</div>
-          <div class="sc-foot"><span class="sc-tool">🛠 用：WorkBuddy / GPT</span><button class="copybtn" data-copy="sc-p7">复制指令</button></div>
-        </div>
-      </div>
-
-      <div class="sc-card">
-        <div class="sc-head" tabindex="0" role="button" aria-expanded="false">
-          <span class="sc-ico">🔍</span><span class="sc-name">图表解读（给假设，不装结论）</span><span class="chev">▸</span>
-        </div>
-        <div class="sc-detail">
-          <p class="sc-why">贴数据或描述图，让它讲趋势、给可能原因——原因只是假设，要你验证。</p>
-          <div class="lk-code" id="sc-p8">你帮我解读数据。下面是 [数据／图的描述]：_____。请：
-①说明整体趋势；②给出 2–3 条可能的原因（明确标注"这是假设，需实验验证"）；
-③指出有没有异常点。不要假装这是已证实结论。</div>
-          <div class="sc-foot"><span class="sc-tool">🛠 用：WorkBuddy</span><button class="copybtn" data-copy="sc-p8">复制指令</button></div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="lk-section">
-      <h3>✍️ 下指令公式（你最该练的）</h3>
-      <p>好指令 = <b>角色 + 背景 + 任务 + 约束 + 验收</b>。后两条（约束、验收）最容易被漏，偏偏是你最需要的。</p>
-      <div class="lk-grid">
-        <div class="lk-card"><h4>角色</h4><p>你让我当谁（"你是我同课题组的师弟"）。</p></div>
-        <div class="lk-card"><h4>背景</h4><p>相关上下文（"在改 Cu(II) 配位聚合物 SCI 论文"）。</p></div>
-        <div class="lk-card"><h4>任务</h4><p>具体要我做啥（"把这段中文译成学术英文"）。</p></div>
-        <div class="lk-card"><h4>约束</h4><p>格式／风格／边界（"保留数值，不改单位"）。</p></div>
-        <div class="lk-card"><h4>验收</h4><p>怎么算对（"译后数值须与表 5.1 一致"）。</p></div>
-      </div>
-    </div>
-
-    <div class="lk-section">
-      <h3>🧰 工具分工速查</h3>
-      <ul>
-        <li><b>WorkBuddy</b>＝总入口与执行（读写本机文件、跑脚本、跨文件核对）。最该用熟。</li>
-        <li><b>Gemini</b>＝长文献通读 + 第二意见（网页端用）。</li>
-        <li><b>GPT</b>＝英文润色 / 脑暴。</li>
-        <li><b>opencode / Cursor</b>＝想"让 AI 直接写改代码"时再上（免费／低门槛）。</li>
-        <li><b>Claude Code / Codex</b>＝命令行 Agent，进阶后再碰，现在别花时间。</li>
-      </ul>
-    </div>
-
-    <div class="lk-section">
-      <h3>⚠️ 避坑</h3>
-      <ul>
-        <li><b>幻觉</b>：AI 会编引用 / DOI / 数据，关键处务必你亲自核对原文。</li>
-        <li><b>别当搜索引擎</b>：给背景＋约束它才像同事；只丢一句"查一下"它会编。</li>
-        <li><b>隐私</b>：未发表稿件、未公开实验数据、个人信息，别随手传公有模型。</li>
-        <li><b>一个文件别让多个模型同时改</b>：防版本冲突（你的硬规则）。</li>
-        <li><b>模型会过时</b>：本站排行榜是静态快照，实时排名看各榜单官网。</li>
-      </ul>
-    </div>
+    <div class="view-head"><h2>📚 AI 上手 · 教学视频与课程库</h2>
+      <p>这页只放 <b>AI 教学</b>：8 大类 46+ 条，中文优先、B站直链优先（点得开、不用翻墙）。别囤课——<b>看完一个再看下一个</b>，今天挑一条看 15 分钟就赢。</p></div>
 
     <style>
       .rlib-intro{font-size:14px;color:#374151;line-height:1.75;margin:6px 0 14px}
@@ -483,187 +332,273 @@
       .rsrc-item>p{font-size:13px;color:#374151;line-height:1.6;margin:7px 0 9px}
       .tag{display:inline-block;font-size:11px;color:#0f766e;background:#e6f7f3;border:1px solid #b8e6dd;border-radius:999px;padding:1px 8px;margin:2px 5px 0 0}
       .rlib-note{font-size:13px;color:#374151;line-height:1.7;margin-top:14px;padding:10px 12px;background:#fff7ed;border:1px solid #fed7aa;border-radius:10px}
-      .rlib-mini{font-size:13px;color:#374151;line-height:1.7;margin-top:12px}
-      .rlib-mini a{color:var(--brand);text-decoration:none}
-      .rlib-mini a:hover{text-decoration:underline}
     </style>
 
-    <div class="lk-section">
-      <h3>📚 全网优质 AI 教学资源库（别人怎么教，照着学）</h3>
-      <p class="rlib-intro">下面是从全网筛出来的<b>火或权威</b>的 AI 教学——视频 / 课程 / 图文都有，按"你想要什么"分类。链接都点得开，<b>中文优先、零基础友好</b>排在前面。挑一个今天就看 15 分钟，比收藏 100 个更有用。⚠️ 别囤课：看完一个再看下一个。</p>
-
-      <h4 class="cat-h">🎬 一、大佬白话科普（搞懂 AI/LLM 是什么，零基础）</h4>
+    <h4 class="cat-h">🎬 一、零基础看懂 AI（科普视频，中文优先）</h4>
       <div class="rsrc-grid">
         <div class="rsrc-item">
-          <a class="rsrc" href="https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi" target="_blank" rel="noopener noreferrer">3Blue1Brown《神经网络》系列<span class="plat">YouTube</span></a>
-          <p>用动画把神经网络、梯度下降、Transformer、扩散模型一层层讲透，公认最直观的入门。不用写代码，看就懂。</p>
-          <span class="tag">零基础</span><span class="tag">视频</span>
-        </div>
-        <div class="rsrc-item">
-          <a class="rsrc" href="https://www.youtube.com/@AndrejKarpathy" target="_blank" rel="noopener noreferrer">Karpathy：Intro to LLMs / How I use LLMs<span class="plat">YouTube</span></a>
-          <p>前 OpenAI、Tesla AI 总监。频道里这两场通俗演讲必看：一场讲清 LLM 原理，一场讲日常怎么用。想深究可看《Zero to Hero》从零写 GPT 系列。</p>
-          <span class="tag">零基础</span><span class="tag">视频</span><span class="tag">进阶可挖</span>
-        </div>
-        <div class="rsrc-item">
           <a class="rsrc" href="https://www.bilibili.com/video/BV1KUNjzpEpM/" target="_blank" rel="noopener noreferrer">李宏毅《生成式AI导论 2025》<span class="plat">B站</span></a>
-          <p>台大教授，中文授课，明确写"不需任何先验知识"。从 Transformer 一路讲到 DeepSeek、RLHF，是最顺的中文入门。</p>
+          <p>台大教授，中文授课，明确写“不需任何先验知识”。从 Transformer 一路讲到 DeepSeek、RLHF，是最顺的中文入门。</p>
           <span class="tag">零基础</span><span class="tag">中文</span><span class="tag">视频</span>
         </div>
         <div class="rsrc-item">
           <a class="rsrc" href="https://www.bilibili.com/video/BV1aiADewEBC/" target="_blank" rel="noopener noreferrer">李宏毅《机器学习 2025》<span class="plat">B站</span></a>
-          <p>已授权完整版，今年内容偏实际应用、紧跟大模型趋势。想系统打底就看这一套（经典机器学习认准此版）。</p>
+          <p>已授权完整版，今年内容偏实际应用、紧跟大模型趋势。想系统打底就看这一套。</p>
           <span class="tag">进阶</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://space.bilibili.com/88461692" target="_blank" rel="noopener noreferrer">3Blue1Brown 官方账号（中文字幕）<span class="plat">B站</span></a>
+          <p>用动画把神经网络、梯度下降、Transformer、扩散模型讲透，公认最直观。B站官方号带中文字幕，不用翻墙。</p>
+          <span class="tag">零基础</span><span class="tag">视频</span><span class="tag">动画</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.youtube.com/@AndrejKarpathy" target="_blank" rel="noopener noreferrer">Karpathy：How I use LLMs / Intro to LLMs<span class="plat">YouTube（需梯子）</span></a>
+          <p>前 OpenAI/Tesla AI 总监。一场讲清 LLM 原理，一场讲日常怎么用。B站搜“Karpathy”有大量带字幕搬运。</p>
+          <span class="tag">零基础</span><span class="tag">视频</span><span class="tag">英文</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=%E5%A4%A7%E6%A8%A1%E5%9E%8B%20%E5%8E%9F%E7%90%86%20%E5%85%A5%E9%97%A8" target="_blank" rel="noopener noreferrer">B站搜：大模型 原理 入门<span class="plat">B站</span></a>
+          <p>中文圈讲 Transformer/大模型原理的精选合集，挑播放量高、时间近的看。</p>
+          <span class="tag">零基础</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=AI%20%E7%A7%91%E6%99%AE%20%E9%80%9A%E4%BF%97" target="_blank" rel="noopener noreferrer">B站搜：AI 科普 通俗<span class="plat">B站</span></a>
+          <p>10 分钟级短视频，通勤/吃饭时刷两条，攒常识比刷段子划算。</p>
+          <span class="tag">零基础</span><span class="tag">中文</span><span class="tag">短视频</span>
         </div>
       </div>
 
-      <h4 class="cat-h">🛠 二、工具实操（科研人怎么用 AI 真干活）</h4>
+    <h4 class="cat-h">🛠 二、科研人用 AI 干活（实操视频，对你最实用）</h4>
       <div class="rsrc-grid">
         <div class="rsrc-item">
           <a class="rsrc" href="https://search.bilibili.com/all?keyword=%E5%81%9A%E7%A7%91%E7%A0%94%E7%9A%84%E5%A4%A7%E5%B8%88%E5%85%84" target="_blank" rel="noopener noreferrer">做科研的大师兄<span class="plat">B站</span></a>
-          <p>中山医博后，讲 ChatGPT / DeepSeek 辅助论文写作、文献带读、GraphPad 作图，全是科研人能直接抄的实战，35 万+粉。</p>
-          <span class="tag">科研向</span><span class="tag">中文</span><span class="tag">视频</span>
-        </div>
-        <div class="rsrc-item">
-          <a class="rsrc" href="https://search.bilibili.com/all?keyword=%E5%A4%A9JIANG" target="_blank" rel="noopener noreferrer">天JIANG<span class="plat">B站</span></a>
-          <p>AI 工具使用实战派，ChatGPT / DeepSeek 新手技巧系列很接地气，适合刚上手的人。</p>
-          <span class="tag">新手</span><span class="tag">中文</span><span class="tag">视频</span>
+          <p>博士博主，专讲 AI 辅助科研的完整工作流：查文献、读文献、写论文、画图，贴合研究生日常。</p>
+          <span class="tag">科研</span><span class="tag">中文</span><span class="tag">视频</span>
         </div>
         <div class="rsrc-item">
           <a class="rsrc" href="https://search.bilibili.com/all?keyword=%E5%90%8C%E6%B5%8E%E5%AD%90%E8%B1%AA%E5%85%84" target="_blank" rel="noopener noreferrer">同济子豪兄<span class="plat">B站</span></a>
-          <p>计算机视觉实战专家，从项目出发讲 AI 应用，教程详细可复现。想做图像/检测类方向可跟。</p>
-          <span class="tag">进阶</span><span class="tag">中文</span><span class="tag">视频</span>
+          <p>同济大学讲师，精讲论文系列（LeNet/AlexNet/Transformer…）和 AI 工具实操，讲得细、不跳步。</p>
+          <span class="tag">科研</span><span class="tag">中文</span><span class="tag">视频</span>
         </div>
         <div class="rsrc-item">
-          <a class="rsrc" href="https://www.anthropic.com/engineering/claude-code-best-practices" target="_blank" rel="noopener noreferrer">Claude Code 最佳实践（Anthropic 官方）<span class="plat">官方文档</span></a>
-          <p>Anthropic 官方给出的 Claude Code 用法与心法：如何让它读代码、跑命令、按你的规范改稿。配合 ChatGPT 头脑风暴 + Claude 吃长文档，比单用一个强。</p>
-          <span class="tag">科研向</span><span class="tag">官方</span><span class="tag">图文</span>
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=%E5%A4%A9JIANG" target="_blank" rel="noopener noreferrer">天Jiang 学长<span class="plat">B站</span></a>
+          <p>研究生视角的 AI 工具教程：文献管理、论文写作、数据分析实操，节奏适合跟练。</p>
+          <span class="tag">科研</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=AI%20%E5%86%99%E8%AE%BA%E6%96%87%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：AI 写论文 教程<span class="plat">B站</span></a>
+          <p>从选题、文献综述到初稿润色的 AI 实操合集。⚠️ 看完记住底线：AI 出初稿，数值和引用你必须亲自核对。</p>
+          <span class="tag">科研</span><span class="tag">中文</span><span class="tag">实操</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=ChatGPT%20%E7%A7%91%E7%A0%94%20%E4%BD%BF%E7%94%A8" target="_blank" rel="noopener noreferrer">B站搜：ChatGPT 科研 使用<span class="plat">B站</span></a>
+          <p>科研场景下怎么问出好答案：喂文献、定格式、要表格。核心是“给背景+给约束”。</p>
+          <span class="tag">科研</span><span class="tag">中文</span><span class="tag">实操</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=AI%20%E6%96%87%E7%8C%AE%E7%BB%BC%E8%BF%B0" target="_blank" rel="noopener noreferrer">B站搜：AI 文献综述<span class="plat">B站</span></a>
+          <p>用 AI 快速过 50 篇文献的方法：先摘要后精读、建对比表。配合你改第三章 SCI 正好用得上。</p>
+          <span class="tag">科研</span><span class="tag">中文</span><span class="tag">实操</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=AI%20%E6%B6%A6%E8%89%B2%20%E8%AE%BA%E6%96%87" target="_blank" rel="noopener noreferrer">B站搜：AI 润色 论文<span class="plat">B站</span></a>
+          <p>英译/润色的指令写法与演示，重点看“保留数值、不改术语”的约束怎么下。</p>
+          <span class="tag">科研</span><span class="tag">中文</span><span class="tag">实操</span>
         </div>
       </div>
 
-      <h4 class="cat-h">📚 三、系统权威课（想系统学就上，多数免费）</h4>
+    <h4 class="cat-h">🤖 三、AI 工具上手（一个一个学会用）</h4>
+      <div class="rsrc-grid">
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=ChatGPT%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：ChatGPT 教程<span class="plat">B站</span></a>
+          <p>从注册到高级用法（自定义指令、数据分析、联网）的中文合集，你有 GPT 会员，直接能跟练。</p>
+          <span class="tag">工具</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=DeepSeek%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：DeepSeek 教程<span class="plat">B站</span></a>
+          <p>国产模型代表，中文理解好、免费额度足。推理模式（R1）做数学/逻辑题很强，数模比赛能派上用场。</p>
+          <span class="tag">工具</span><span class="tag">中文</span><span class="tag">免费</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=Kimi%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：Kimi 教程<span class="plat">B站</span></a>
+          <p>长文本之王：整本论文、几十篇 PDF 一次丢进去总结。改第三章时“整篇通读”就靠这类。</p>
+          <span class="tag">工具</span><span class="tag">中文</span><span class="tag">长文本</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=AI%20%E5%81%9A%20PPT%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：AI 做 PPT 教程<span class="plat">B站</span></a>
+          <p>组会汇报、竞赛答辩的 PPT 提效流：大纲→内容→排版一键生成，再手动调细节。</p>
+          <span class="tag">工具</span><span class="tag">中文</span><span class="tag">实操</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=AI%20%E7%BB%98%E5%9B%BE%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：AI 绘图 教程<span class="plat">B站</span></a>
+          <p>Midjourney / Stable Diffusion 入门，做海报、示意图、竞赛展板用得上。</p>
+          <span class="tag">工具</span><span class="tag">中文</span><span class="tag">实操</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=NotebookLM%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：NotebookLM 教程<span class="plat">B站</span></a>
+          <p>Google 出品：把你的文献喂进去，它只基于你给的材料回答，幻觉少，还能生成播客式讲解。</p>
+          <span class="tag">工具</span><span class="tag">视频</span><span class="tag">英文</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=%E8%B1%86%E5%8C%85%20AI%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：豆包 AI 教程<span class="plat">B站</span></a>
+          <p>字节全家桶，手机端好用，语音对话+图片识别适合随手问。</p>
+          <span class="tag">工具</span><span class="tag">中文</span><span class="tag">免费</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=Claude%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：Claude 教程<span class="plat">B站</span></a>
+          <p>长文写作与代码质量口碑最好的一家，你的 Claude Code 就是它——先看别人怎么用。</p>
+          <span class="tag">工具</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+      </div>
+
+    <h4 class="cat-h">📊 四、数据处理与编程（零基础能跟，比赛直接用）</h4>
+      <div class="rsrc-grid">
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.bilibili.com/video/BV1daQAYuEYm/" target="_blank" rel="noopener noreferrer">李沐《动手学深度学习》<span class="plat">B站</span></a>
+          <p>亚马逊首席科学家带读经典教材，代码+理论并行。数模要用神经网络时再啃，平时收藏。</p>
+          <span class="tag">进阶</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=Python%20%E9%9B%B6%E5%9F%BA%E7%A1%80%20%E5%85%A5%E9%97%A8" target="_blank" rel="noopener noreferrer">B站搜：Python 零基础 入门<span class="plat">B站</span></a>
+          <p>数模/数据处理的地基。挑一套播放量最高的跟完前 20 集，能跑通脚本就够用。</p>
+          <span class="tag">零基础</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=Origin%20%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：Origin 数据处理 教程<span class="plat">B站</span></a>
+          <p>你画谱图/拟合就用它：峰形处理、拟合报告、批量出图，直接对着自己的数据跟练。</p>
+          <span class="tag">科研</span><span class="tag">中文</span><span class="tag">实操</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=Excel%20%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：Excel 数据分析 教程<span class="plat">B站</span></a>
+          <p>透视表+基础函数+图表，处理实验记录、值班表足够用，性价比最高的一门“手艺”。</p>
+          <span class="tag">零基础</span><span class="tag">中文</span><span class="tag">实操</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=SPSS%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：SPSS 教程<span class="plat">B站</span></a>
+          <p>统计建模大赛（市场调查/统计建模）的常用工具，点鼠标就能跑回归、方差分析，不用写代码。</p>
+          <span class="tag">比赛</span><span class="tag">中文</span><span class="tag">实操</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=MATLAB%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：MATLAB 教程<span class="plat">B站</span></a>
+          <p>数模三大件之一，数值计算/绘图现成模板多。比赛前过一遍基础语法即可。</p>
+          <span class="tag">比赛</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
+      </div>
+
+    <h4 class="cat-h">📚 五、系统权威课（想系统学就上，多数免费）</h4>
       <div class="rsrc-grid">
         <div class="rsrc-item">
           <a class="rsrc" href="https://www.deeplearning.ai/" target="_blank" rel="noopener noreferrer">DeepLearning.AI（Andrew Ng）<span class="plat">官网</span></a>
-          <p>吴恩达出品。《AI for Everyone》非技术向、《ChatGPT Prompt Engineering for Developers》等，免费，质量天花板。</p>
-          <span class="tag">系统</span><span class="tag">免费</span>
+          <p>吴恩达出品，短课制，ChatGPT Prompt Engineering for Developers 等课免费且质量极高。</p>
+          <span class="tag">系统课</span><span class="tag">免费</span><span class="tag">英文</span>
         </div>
         <div class="rsrc-item">
           <a class="rsrc" href="https://developers.google.com/machine-learning/crash-course" target="_blank" rel="noopener noreferrer">Google 机器学习速成课 MLCC<span class="plat">官网</span></a>
-          <p>30+ 互动练习、真实案例，支持中文，约 15 小时。想搞懂机器学习基本功就刷这个。</p>
-          <span class="tag">零基础</span><span class="tag">免费</span><span class="tag">中文可选</span>
+          <p>谷歌官方免费课，交互式练习+视频，经典 ML 概念一网打尽（国内访问偶慢，可等或挂梯子）。</p>
+          <span class="tag">系统课</span><span class="tag">免费</span><span class="tag">英文</span>
         </div>
         <div class="rsrc-item">
-          <a class="rsrc" href="https://cs50.harvard.edu/ai/" target="_blank" rel="noopener noreferrer">Harvard CS50 AI with Python<span class="plat">edX</span></a>
-          <p>哈佛传奇 CS50 系列的 AI 版，搜索/知识表示/机器学习/LLM 都用 Python 实战，免费旁听。</p>
-          <span class="tag">系统</span><span class="tag">免费旁听</span>
+          <a class="rsrc" href="https://cs50.harvard.edu/ai/" target="_blank" rel="noopener noreferrer">Harvard CS50 AI with Python<span class="plat">官网</span></a>
+          <p>哈佛名课的 AI 分支，免费公开全部作业与讲义，英文配字幕。</p>
+          <span class="tag">系统课</span><span class="tag">免费</span><span class="tag">英文</span>
         </div>
         <div class="rsrc-item">
           <a class="rsrc" href="https://www.fast.ai/" target="_blank" rel="noopener noreferrer">fast.ai《Practical Deep Learning》<span class="plat">官网</span></a>
-          <p>"自顶向下"：第一天就跑通 SOTA 模型，再回头讲理论。全程免费 Colab，社区活跃。</p>
-          <span class="tag">进阶</span><span class="tag">免费</span>
+          <p>自上而下教学法：第一课就训练出能用的模型，适合“先跑通再理解”。</p>
+          <span class="tag">系统课</span><span class="tag">免费</span><span class="tag">英文</span>
         </div>
         <div class="rsrc-item">
           <a class="rsrc" href="https://www.elementsofai.com/" target="_blank" rel="noopener noreferrer">Elements of AI（赫尔辛基大学）<span class="plat">官网</span></a>
-          <p>零数学、零代码，面向所有人讲清 AI 基础，超百万人学过，多语言。</p>
-          <span class="tag">零基础</span><span class="tag">免费</span>
+          <p>面向全人类的 AI 入门课，几乎不涉数学，有中文版，适合完全零基础建立框架。</p>
+          <span class="tag">零基础</span><span class="tag">免费</span><span class="tag">中文</span>
         </div>
         <div class="rsrc-item">
           <a class="rsrc" href="https://introtodeeplearning.com/" target="_blank" rel="noopener noreferrer">MIT 6.S191 深度学习导论<span class="plat">官网</span></a>
-          <p>MIT 每年更新的公开讲座+实验，覆盖 CV / NLP / 生成模型，研究级视角，全部免费。</p>
-          <span class="tag">进阶</span><span class="tag">免费</span>
+          <p>MIT 一年一更新的公开课， slides 和视频全公开，讲前沿讲得清楚。</p>
+          <span class="tag">系统课</span><span class="tag">免费</span><span class="tag">英文</span>
         </div>
-        <div class="rsrc-item">
-          <a class="rsrc" href="https://www.bilibili.com/video/BV1daQAYuEYm/" target="_blank" rel="noopener noreferrer">李沐《动手学深度学习》<span class="plat">B站</span></a>
-          <p>亚马逊首席科学家，逐行敲代码讲深度学习，配套开源书 d2l.ai。想真动手实现就看这个。</p>
-          <span class="tag">进阶</span><span class="tag">中文</span><span class="tag">视频</span>
-        </div>
-      </div>
-
-      <h4 class="cat-h">✍️ 四、提示词 / 指令工程（专练"下指令"，你最该练的）</h4>
-      <div class="rsrc-grid">
-        <div class="rsrc-item">
-          <a class="rsrc" href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" rel="noopener noreferrer">OpenAI 官方提示工程指南<span class="plat">文档</span></a>
-          <p>最权威基线：清晰指令、角色设定、示例、输出约束、评估。短小精悍，每个用 AI 的人都该过一遍。</p>
-          <span class="tag">必看</span><span class="tag">文档</span>
-        </div>
-        <div class="rsrc-item">
-          <a class="rsrc" href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank" rel="noopener noreferrer">Anthropic 提示工程概览 + Prompt Library<span class="plat">文档</span></a>
-          <p>Claude 官方：什么时候该调提示词、什么时候该换模型/微调的决策框架，外加 50+ 现成模板直接改。</p>
-          <span class="tag">必看</span><span class="tag">文档</span>
-        </div>
-        <div class="rsrc-item">
-          <a class="rsrc" href="https://learnprompting.org/" target="_blank" rel="noopener noreferrer">Learn Prompting<span class="plat">课程</span></a>
-          <p>免费互动课，从零基础到进阶技术，结构清晰，边学边练。</p>
-          <span class="tag">免费</span><span class="tag">课程</span>
-        </div>
-        <div class="rsrc-item">
-          <a class="rsrc" href="https://www.promptingguide.ai/" target="_blank" rel="noopener noreferrer">DAIR.AI Prompt Engineering Guide<span class="plat">文档</span></a>
-          <p>最全开源指南，18+ 技术、各模型专项建议，常作为权威参考。</p>
-          <span class="tag">进阶</span><span class="tag">文档</span>
-        </div>
-        <div class="rsrc-item">
-          <a class="rsrc" href="https://cookbook.openai.com/" target="_blank" rel="noopener noreferrer">OpenAI Cookbook<span class="plat">GitHub</span></a>
-          <p>官方范例代码集：RAG、函数调用、评估、复杂工作流，想让 AI 干复杂活就翻这里。</p>
-          <span class="tag">进阶</span><span class="tag">代码</span>
-        </div>
-        <div class="rsrc-item">
-          <a class="rsrc" href="https://ai.google.dev/gemini-api/docs/prompting-strategies" target="_blank" rel="noopener noreferrer">Google Gemini 提示策略<span class="plat">文档</span></a>
-          <p>多模态提示（文字+图+视频）怎么写，Gemini 特化技巧。</p>
-          <span class="tag">文档</span><span class="tag">多模态</span>
-        </div>
-      </div>
-
-      <h4 class="cat-h">📝 五、图文 / 博客（随时翻的权威参考）</h4>
-      <div class="rsrc-grid">
         <div class="rsrc-item">
           <a class="rsrc" href="https://huggingface.co/learn" target="_blank" rel="noopener noreferrer">Hugging Face Learn<span class="plat">官网</span></a>
-          <p>开源模型与 AIGC 工具链教程，从 Transformer 到微调部署，工程师向。</p>
-          <span class="tag">进阶</span><span class="tag">文档</span>
+          <p>NLP/LLM 实战课（免费），想跑通第一个大模型任务从这进。</p>
+          <span class="tag">进阶</span><span class="tag">免费</span><span class="tag">英文</span>
         </div>
         <div class="rsrc-item">
           <a class="rsrc" href="https://www.kaggle.com/learn" target="_blank" rel="noopener noreferrer">Kaggle Learn<span class="plat">官网</span></a>
-          <p>浏览器内边做边学，免费数据集+实战微课程，想练手直接上。</p>
-          <span class="tag">免费</span><span class="tag">实战</span>
-        </div>
-        <div class="rsrc-item">
-          <a class="rsrc" href="https://www.deeplearning.ai/the-batch/" target="_blank" rel="noopener noreferrer">The Batch（DeepLearning.AI 周报）<span class="plat">资讯</span></a>
-          <p>吴恩达团队每周 AI 资讯，紧跟产业与研究动态。</p>
-          <span class="tag">资讯</span>
-        </div>
-        <div class="rsrc-item">
-          <a class="rsrc" href="https://lilianweng.github.io/" target="_blank" rel="noopener noreferrer">Lilian Weng Blog<span class="plat">博客</span></a>
-          <p>OpenAI 研究员的技术博客，提示工程、Agent 等主题写得很深，进阶必读。</p>
-          <span class="tag">进阶</span><span class="tag">博客</span>
+          <p>边做边学的微课程，Python/ML/数据可视化，每门几小时，配比赛数据练手最合适。</p>
+          <span class="tag">免费</span><span class="tag">实操</span><span class="tag">英文</span>
         </div>
       </div>
 
-      <div class="rlib-note">💡 <b>科研 workflow 心法：</b>把 AI 当"新来的师弟"。①<b>文献/长文</b>丢给 Claude 或 Gemini 做总结带读（它们吃长文本强）；②<b>头脑风暴/写初稿/画图</b>用 ChatGPT 或 WorkBuddy；③<b>数值/化学式/DOI</b> 务必你亲自核对原文，AI 会编。核心创新点和实验数据必须是你自己的。</div>
-
-      <div class="rlib-mini">📊 <b>顺手看排名/日报：</b>
-        <a href="https://aihot.virxact.com/" target="_blank" rel="noopener noreferrer">AIHOT 每日日报</a>（本站数据源）·
-        <a href="https://lmarena.ai/leaderboard/text" target="_blank" rel="noopener noreferrer">LMArena 文本榜</a>（用起来谁最强）·
-        <a href="https://artificialanalysis.ai/" target="_blank" rel="noopener noreferrer">Artificial Analysis</a>（智能指数+价格）·
-        <a href="https://www.swebench.com/" target="_blank" rel="noopener noreferrer">SWE-bench</a>（代码能力）。
-        本机还有你的 <code>AI指令手册.html</code>（20 条可复制模板，电脑里双击打开）。
+    <h4 class="cat-h">✍️ 六、提示词 / 指令工程（专练“下指令”）</h4>
+      <div class="rsrc-grid">
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" rel="noopener noreferrer">OpenAI 官方提示工程指南<span class="plat">官网</span></a>
+          <p>六大策略（写清楚指令、给参考文本、拆任务、给思考时间、外部工具、系统测试），官方出品最权威。</p>
+          <span class="tag">提示词</span><span class="tag">英文</span><span class="tag">官方</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank" rel="noopener noreferrer">Anthropic 提示工程文档<span class="plat">官网</span></a>
+          <p>Claude 视角的提示工程，章节化、示例多，配套 Prompt Library 可直接抄模板。</p>
+          <span class="tag">提示词</span><span class="tag">英文</span><span class="tag">官方</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://learnprompting.org/" target="_blank" rel="noopener noreferrer">Learn Prompting（开源教程）<span class="plat">官网</span></a>
+          <p>最流行的开源提示词课程，从零到高级，有中文翻译版本。</p>
+          <span class="tag">提示词</span><span class="tag">免费</span><span class="tag">中文</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.promptingguide.ai/" target="_blank" rel="noopener noreferrer">Prompt Engineering Guide（DAIR.AI）<span class="plat">官网</span></a>
+          <p>社区维护的提示工程大全，技术多、论文链接全，进阶查阅首选（有中文版）。</p>
+          <span class="tag">提示词</span><span class="tag">免费</span><span class="tag">中文</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=%E6%8F%90%E7%A4%BA%E8%AF%8D%20%E6%8A%80%E5%B7%A7" target="_blank" rel="noopener noreferrer">B站搜：提示词 技巧<span class="plat">B站</span></a>
+          <p>中文视频版的提示词课，看着别人怎么写、怎么迭代，比自己啃文档快。</p>
+          <span class="tag">提示词</span><span class="tag">中文</span><span class="tag">视频</span>
+        </div>
       </div>
-    </div>
 
-    <div class="lk-section">
-      <h3>📖 还想深究？名词 / 排行榜速查</h3>
-      <p>
-        <span class="lk-pill">LLM 大语言模型</span><span class="lk-pill">Token 计费/长度单位</span>
-        <span class="lk-pill">Prompt 指令</span><span class="lk-pill">Agent 智能体</span>
-        <span class="lk-pill">RAG 读你的资料再答</span><span class="lk-pill">推理模型 会"想一下"</span>
-        <span class="lk-pill">上下文窗口 一次看多少</span><span class="lk-pill">多模态 图文音视频</span>
-        <span class="lk-pill">幻觉 编假内容</span><span class="lk-pill">Benchmark 基准测试</span>
-      </p>
-      <p style="margin-top:10px"><b>排行榜在比什么：</b>LMArena（真人盲测体感）、AA 智能指数（客观总分）、SWE-bench（写代码）、GPQA / MMLU（硬核学科）、Terminal-Bench（命令行 Agent）。同一模型聊天第一、写代码未必第一——看"比什么"。</p>
-    </div>
+    <h4 class="cat-h">📝 七、图文 / 博客（随时翻的参考）</h4>
+      <div class="rsrc-grid">
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.deeplearning.ai/the-batch/" target="_blank" rel="noopener noreferrer">The Batch（DeepLearning.AI 周报）<span class="plat">官网</span></a>
+          <p>吴恩达每周一封的 AI 时事信，英文简单、观点克制，适合练阅读顺便跟进展。</p>
+          <span class="tag">资讯</span><span class="tag">英文</span><span class="tag">免费</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://lilianweng.github.io/" target="_blank" rel="noopener noreferrer">Lilian Weng Blog<span class="plat">官网</span></a>
+          <p>前 OpenAI 安全研究副总裁的长文博客，每篇都是某方向（Agent/扩散模型/RLHF）的综述级整理。</p>
+          <span class="tag">进阶</span><span class="tag">英文</span><span class="tag">深度</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://ai.google.dev/gemini-api/docs/prompting-strategies" target="_blank" rel="noopener noreferrer">Google Gemini 提示策略<span class="plat">官网</span></a>
+          <p>你有 Gemini 会员：这份官方策略讲清系统指令、few-shot、输出格式怎么定。</p>
+          <span class="tag">提示词</span><span class="tag">英文</span><span class="tag">官方</span>
+        </div>
+      </div>
 
-  </div>
+    <h4 class="cat-h">📰 八、AI 资讯跟进（中文，天天能看）</h4>
+      <div class="rsrc-grid">
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.jiqizhixin.com/" target="_blank" rel="noopener noreferrer">机器之心<span class="plat">官网</span></a>
+          <p>国内最专业的 AI 媒体，论文解读和产业动态都全，网页直接看不用装 App。</p>
+          <span class="tag">资讯</span><span class="tag">中文</span><span class="tag">免费</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://www.qbitai.com/" target="_blank" rel="noopener noreferrer">量子位<span class="plat">官网</span></a>
+          <p>更新快、话题面广，新模型新工具第一时间报道，适合每天扫一眼标题。</p>
+          <span class="tag">资讯</span><span class="tag">中文</span><span class="tag">免费</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://search.bilibili.com/all?keyword=AI%20%E6%97%A5%E6%8A%A5" target="_blank" rel="noopener noreferrer">B站搜：AI 日报<span class="plat">B站</span></a>
+          <p>每天几分钟的 AI 新闻合集视频，通勤时听，不掉队。</p>
+          <span class="tag">资讯</span><span class="tag">中文</span><span class="tag">短视频</span>
+        </div>
+      </div>
+    <div class="rlib-note">💡 <b>怎么用这页：</b>① 零基础先看「一」里李宏毅 2 集；② 要干活直接跳「二/三/四」挑对口的一条跟练；③ 海外标注「需梯子」的，挂着快橙再点，或优先用同条的 B站 备选。</div>
+</div>
 
-  <!-- ================= COMPETITION VIEW ================= -->
-  <div id="view-comp" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-comp">
+<div id="view-comp" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-comp">
     <div class="view-head"><h2>🏁 比赛地图：我能报 + 全球一览</h2>
       <p>两块内容：① <b>我能报的</b>——搜罗全网现在和接下来能报名、且能靠 AI 大幅提效的比赛（数据核对于 <b>2026-09-26</b>，状态灯按当天判定；共收录 <b id="comp-count">0</b> 项，分页浏览、每页 12 条），点卡片直达官网；② <b>🌍 全球一览</b>——世界级赛事（AI/机器人/航天/科创），多数你报不了，但能开眼界看全球在比什么、顶尖水平在哪。用上方按钮切换，结果可翻页。</p></div>
     <div class="news">
@@ -744,7 +679,16 @@
     <div class="view-head"><h2>🏫 重庆理工：学校 / 学院 / 部门 / 学生会通知</h2>
       <p>每天自动更新。每条都写清「我该关注啥」，末尾附全部信源直达入口。数据更新于 <span id="cqut-updated"></span></p>
     </div>
-    <div class="cmp-toolbar" id="cqutFilters">
+<div class="view-head" style="margin-top:32px">
+      <h2 style="font-size:20px">🏅 比赛动态 · 正在举办的排最前</h2>
+      <p>你想报名而不是看别人获奖——所以这块置顶了。实抓自学校/学院官网，URL 全部真实可点。实话：学院通知栏平时基本只发<b>获奖通报</b>，真·报名赛事很少，要打全国赛请配合 <b>🏁 可报名比赛</b> 那个 tab 一起看。数据更新于 <span id="cqut-match-updated"></span></p>
+    </div>
+    <div class="cmp-toolbar" id="cqutMatchFilters" style="margin-top:12px"></div>
+    <div class="cmp-list" id="cqut-match-list"></div>
+    <div class="lk-tip" style="margin-top:16px">
+      💡 <b>怎么筛：</b>你学化工材料，只看 <b>🧪 材料·化工（对口）</b> 那组就够了。那两条是实验技能赛，<b>考的正是你天天在实验室做的动手活</b>，含金量最高；机械机器人那组看着热闹，跟你专业主线基本不搭。
+    </div>
+        <div class="cmp-toolbar" id="cqutFilters" style="margin-top:26px">
       <button class="filterbtn active" data-c="全部">全部</button>
       <button class="filterbtn" data-c="school">🏛 学校各部门</button>
       <button class="filterbtn" data-c="college">🏫 各学院</button>
@@ -752,15 +696,6 @@
     </div>
     <div class="cmp-toolbar" id="cqutTagFilters" style="margin-top:9px"></div>
     <div class="cmp-list" id="cqut-list"></div>
-    <div class="view-head" style="margin-top:32px">
-      <h2 style="font-size:20px">🏅 各学院赛事 · 谁主办、要干嘛、我能帮你做啥</h2>
-      <p>从各学院官网和学校新闻里实抓的赛事记录，URL 全都真实可点，没编一条。多数是<b>上一届的获奖通报</b>——想上场得盯下一届的报名通知。数据更新于 <span id="cqut-match-updated"></span></p>
-    </div>
-    <div class="cmp-toolbar" id="cqutMatchFilters" style="margin-top:12px"></div>
-    <div class="cmp-list" id="cqut-match-list"></div>
-    <div class="lk-tip" style="margin-top:16px">
-      💡 <b>怎么筛：</b>你学化工材料，只看 <b>🧪 材料·化工（对口）</b> 那组就够了。那两条是实验技能赛，<b>考的正是你天天在实验室做的动手活</b>，含金量最高；机械机器人那组看着热闹，跟你专业主线基本不搭。
-    </div>
     <div class="view-head" style="margin-top:30px">
       <h2 style="font-size:20px">🔗 全部信源直达（每个学院、每个部门都能点到）</h2>
       <p>上方哪些没抓到，直接点这里去官网看最新。</p>
@@ -822,21 +757,25 @@ window.COMP_UPDATED = "2026-09-26";
      desc:"面向公共治理或企业管理的案例与方案竞赛，重分析与决策。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"含「商业分析与实践」「数字技术应用」赛道：AI 帮数据分析、报告撰写、案例研究、可视化。",
      url:"https://cpipc.acge.org.cn/cw/hp/2c90801786cfa2b60186de4143390279"},
     {scope:"me", n:"2026 科大讯飞 AI 开发者大赛（含星火杯·大模型应用创新赛）", type:"AI 应用/大模型", st:"open", ai:5, pri:1, team:"组队 / 单人可",
+     sub:"2026-09-26 实查当前可报：① Spark-X2.5 端侧模型创新挑战赛（奖金 10 万，报名截止 11/10）——模型优化方向，适合肯啃文档的队；② 复杂背景结果枝实例分割挑战赛（1 万，截止 9/28，只剩 2 天，慎冲）；③ 星火杯·大模型应用创新赛——基于讯飞星辰 Agent 平台做智能体，零代码拖拽式，最推荐你从这进，有就业绿色通道；另有 72+ 算法赛题常年滚动（CV/NLP/语音/多模态）。挑法：别碰要从头训模型的赛题，优先「Agent 应用赛」和「方案应用类」。",
      org:"科大讯飞 · 联合挑战杯（共青团中央+教育部双认证）",
      reg:"滚动报名中（部分赛题 8–9 月截止）", run:"视赛题而定，多赛道全年",
      desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"★ 最推荐给非算法背景：'AI 应用赛'与'Skill 开发挑战赛'用星辰 Agent 平台搭智能体，AI 全程帮你写方案、做 Demo、写文档、录演示。有奖金 + 就业绿色通道。",
      url:"https://challenge.xfyun.cn/"},
     {scope:"me", n:"阿里云天池（Tianchi）算法大赛", type:"数据/AI", st:"open", ai:5, pri:1, team:"单人可 / 可组队",
+     sub:"2026-09 快照当前在办（你截图里那三个）：① SMP2026 社会媒体处理大会赛（5.5 万，8/30–10/23，501 队）——NLP，有 baseline；② CHIP2026 生物医学全文概念识别（8/20–10/01，380 队）——医疗 NLP，跟你的生物/材料背景沾边，推荐首选；③ 知乎知学堂大模型挑战赛（3 万，963 队）。挑法：先打一场「新人赛（playground）」熟悉提交流程，再上 CHIP2026 这种带行业数据的正式赛。",
      org:"阿里巴巴 · 天池平台",
      reg:"长期滚动，随时报名", run:"视赛题而定",
      desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"★ AI 能直接帮你写 baseline 代码、调参、写方案解析、做可视化；入门赛多，适合练手兼拿奖。",
      url:"https://tianchi.aliyun.com/"},
     {scope:"me", n:"DataFountain · CCF BDCI 大数据与计算智能大赛", type:"数据挖掘", st:"open", ai:4, pri:1, team:"单人可 / 可组队",
+     sub:"重点：CCF BDCI 主赛事每年 9–12 月打，2026 届即将/刚刚启动，10 月去官网看新赛季题目最划算（历年都有不强制训模型的「方案应用类」赛道）。平台现标「可报名」的睿创微纳系大奖赛（雷达目标/多模态客服/红外分割，单题 9–14.5 万）日期多已过期或临近尾声，报名前务必点进详情页核实本期是否还收人。",
      org:"中国计算机学会（CCF）等",
      reg:"年度滚动", run:"视赛题而定",
      desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"AI 帮数据清洗、特征工程、建模、实验报告。获奖有奖金、证书与面试绿色通道，单赛题 1–5 人组队。",
      url:"https://www.datafountain.cn/"},
     {scope:"me", n:"Kaggle 竞赛（国际·全球开放）", type:"数据科学", st:"open", ai:4, pri:1, team:"单人可 / 可组队",
+     sub:"挑法（零基础友好度排序）：① 只打 Getting Started / Playground 系列——泰坦尼克、房价预测、每月 Playground 赛，无门槛、有排行榜、社区 notebook 可直接抄改；② Featured 正式赛全是职业选手和博士队，看 top 方案 write-up 比参赛收获更大；③ 英语界面配 AI 边读边打完全可行。",
      org:"Kaggle（Google 旗下）",
      reg:"全年滚动", run:"视赛题而定",
      desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"AI 帮读赛题、写 baseline、调参、整理 notebook、写方案说明。国际排名 + 奖金，简历加分；对中国个人完全开放。",
@@ -1228,7 +1167,7 @@ window.COMP_UPDATED = "2026-09-26";
      reg:"2027 届预计 2026 年 11 月开启报名", run:"比赛 2027 年 1 月末（美东）",
      desc:"围绕真实科研/工程问题建立数学模型并求解，通常 3 人团队在 3–4 天赛期内完成研究论文，比拼建模思路、算法实现与论文表达。", fit:"数学建模是研究生通用硬通货，3 人化工队即可上场，是你性价比最高的一站。", help:"国际数模，AI 辅助建模与英文写作。",
      warn:"2026-09-26 实测：这台机器打不开该站（返回 404）。域名本身还在、可能是境外网络或站点临时故障，但没法替你确认它现在是活的。报名前请在校内网或问同学再核一次，别直接点这条链接。",
-     url:"https://comap.org/undergraduate/contests/"},
+     url:"https://comap.org/contests"},
     {scope:"me", n:"ACM-ICPC 国际大学生程序设计竞赛（2026–2027 赛季）", type:"算法", st:"open", ai:2, pri:2, team:"单人可 / 可组队",
      org:"ICPC 基金会",
      reg:"区域赛赛季 9 月起（2026–2027）", run:"区域赛-总决赛跨年",
@@ -1414,7 +1353,7 @@ window.COMP_UPDATED = "2026-09-26";
      reg:"3–5 月", run:"6–8 月",
      desc:"面向研究生/大学生的创新实践与科技赛事，重方案、作品与路演，可凭专业背景参与。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐短板。", help:"AI 帮商业/项目计划书、路演稿、PPT、数据分析、答辩提纲。",
      url:"http://www.3chuang.net"},
-    {scope:"me", n:"全国大学生市场调查与分析大赛", type:"管理/统计", st:"closed", ai:4, pri:2, team:"组队 / 单人可",
+    {scope:"me", n:"全国大学生市场调查与分析大赛", type:"管理/统计", st:"open · 第十七届报名中（10/31 截止）", ai:4, pri:2, team:"组队 / 单人可",
      org:"中国商业统计学会",
      reg:"第十七届 2026 年 9 月启动：院校报名 10/31 截止，研究生组可延到 11/15（研究生组报名费 20 元/人）", run:"知识赛 11 月；实践赛至次年 5 月国赛",
      desc:"面向研究生/大学生的创新实践与科技赛事，重方案、作品与路演，可凭专业背景参与。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐短板。", help:"AI 帮商业/项目计划书、路演稿、PPT、数据分析、答辩提纲。",
@@ -1700,7 +1639,7 @@ window.COMP_UPDATED = "2026-09-26";
 </script>
   <script>
 /* AI 情报站 - TED 英语演讲（认知提升 + 英语听力素材） */
-window.TED_UPDATED = "2026-09-22";
+window.TED_UPDATED = "2026-09-26";
 /* ============ TED TALKS (curated 2026-09-23) ============
    选片原则：① 全网公认、播放量极高的经典 TED/TEDx 演讲；
             ② 主题能提升认知（学习/心理幸福/习惯/沟通领导/思维）；
@@ -1795,8 +1734,63 @@ window.TED = [
    url:"https://www.ted.com/talks/sheena_iyengar_the_art_of_choosing"},
   {en:"The power of introverts", zh:"内向者的力量", sp:"Susan Cain", yr:2012, dur:19, cat:"认知思维", sub:"性格与专注",
    intro:"《安静》作者 Cain 为内向者正名：深度思考与沉淀本身就是力量。与科研需要的专注气质高度共鸣，表达温柔有力。",
-   url:"https://www.ted.com/talks/susan_cain_the_power_of_introverts"}
-];
+   url:"https://www.ted.com/talks/susan_cain_the_power_of_introverts"},
+  /* ===== 2026-09-26 扩容 +15 条 ===== */
+  /* ===== 学习成长 ===== */
+  {en:"Try something new for 30 days", zh:"用 30 天尝试新事物", sp:"Matt Cutts", yr:2011, dur:3, cat:"学习成长", sub:"习惯养成",
+   intro:"Google 工程师的 3 分钟小实验：把想做的事拆成 30 天挑战。时间短到没借口，最适合当『开始行动』的第一支 TED。",
+   url:"https://www.ted.com/talks/matt_cutts_try_something_new_for_30_days"},
+  {en:"Every kid needs a champion", zh:"每个孩子都需要一个坚定支持者", sp:"Rita Pierson", yr:2013, dur:7, cat:"学习成长", sub:"师生关系",
+   intro:"从教 40 年的名师金句：『孩子不跟讨厌的人学』。讲师生关系如何决定学习效果——读研跟导师相处同样适用。",
+   url:"https://www.ted.com/talks/rita_pierson_every_kid_needs_a_champion"},
+  {en:"Inside the mind of a master procrastinator", zh:"拖延症大师的脑子里在想什么", sp:"Tim Urban", yr:2016, dur:14, cat:"学习成长", sub:"拖延症",
+   intro:"instant gratification monkey（及时行乐猴）梗的出处，写论文的人都懂。幽默+自嘲，听力友好，看完你会立刻去改稿。",
+   url:"https://www.ted.com/talks/tim_urban_inside_the_mind_of_a_master_procrastinator"},
+
+  /* ===== 心理幸福 ===== */
+  {en:"The power of vulnerability", zh:"脆弱的力量", sp:"Brené Brown", yr:2010, dur:20, cat:"心理幸福", sub:"自我接纳",
+   intro:"TED 史上播放量第二。Brown 用十年研究讲『允许自己脆弱』才是连接感和勇气的来源。科研受挫时看，比鸡汤管用。",
+   url:"https://www.ted.com/talks/brene_brown_the_power_of_vulnerability"},
+  {en:"How to make stress your friend", zh:"如何让压力成为你的朋友", sp:"Kelly McGonigal", yr:2013, dur:14, cat:"心理幸福", sub:"压力管理",
+   intro:"健康心理学家反转结论：杀人的不是压力本身，而是『压力有害』这个信念。实验设计讲得清楚，顺便学健康心理学词汇。",
+   url:"https://www.ted.com/talks/kelly_mcgonigal_how_to_make_stress_your_friend"},
+  {en:"Sleep is your superpower", zh:"睡眠是你的超能力", sp:"Matt Walker", yr:2019, dur:19, cat:"心理幸福", sub:"睡眠",
+   intro:"睡眠科学家讲睡眠如何影响记忆、免疫与寿命——对做实验、赶 deadline 的研究生是刚需。数据多但语速稳。",
+   url:"https://www.ted.com/talks/matt_walker_sleep_is_your_superpower"},
+  {en:"My philosophy for a happy life", zh:"我的幸福人生哲学", sp:"Sam Berns", yr:2013, dur:12, cat:"心理幸福", sub:"生活态度",
+   intro:"患早衰症的 17 岁少年讲他的三条幸福哲学。听完你对自己的『实验失败』『论文被拒』会有新的容忍度。",
+   url:"https://www.ted.com/talks/sam_berns_my_philosophy_for_a_happy_life"},
+
+  /* ===== 习惯自律 ===== */
+  {en:"The puzzle of motivation", zh:"动机之谜", sp:"Dan Pink", yr:2009, dur:18, cat:"习惯自律", sub:"内在动机",
+   intro:"用 40 年行为科学证明：胡萝卜加大棒只对机械活有效，创造性工作靠 autonomy/mastery/purpose。管理自己读研进度同样适用。",
+   url:"https://www.ted.com/talks/dan_pink_the_puzzle_of_motivation"},
+  {en:"How to gain control of your free time", zh:"如何掌控你的自由时间", sp:"Laura Vanderkam", yr:2016, dur:12, cat:"习惯自律", sub:"时间管理",
+   intro:"时间管理专家拆穿『没时间』：不是没时间，是没优先级。168 小时拆给你看，论文+竞赛双线并行必看。",
+   url:"https://www.ted.com/talks/laura_vanderkam_how_to_gain_control_of_your_free_time"},
+  {en:"Why you should define your fears instead of your goals", zh:"为什么该定义恐惧而不是目标", sp:"Tim Ferriss", yr:2017, dur:13, cat:"习惯自律", sub:"决策",
+   intro:"fear-setting：把最坏情况写下来的三栏法。纠结要不要换课题/要不要参赛时，用它做决定比列 pros/cons 更狠。",
+   url:"https://www.ted.com/talks/tim_ferriss_why_you_should_define_your_fears_instead_of_your_goals"},
+
+  /* ===== 沟通领导 ===== */
+  {en:"How to speak so that people want to listen", zh:"怎样说话别人才愿意听", sp:"Julian Treasure", yr:2013, dur:10, cat:"沟通领导", sub:"表达",
+   intro:"声音专家讲七宗『说罪』和 HAIL 四要素。组会汇报、答辩陈述前看一遍，立刻能用。",
+   url:"https://www.ted.com/talks/julian_treasure_how_to_speak_so_that_people_want_to_listen"},
+  {en:"The skill of self confidence", zh:"自信是一门技能", sp:"Ivan Joseph", yr:2012, dur:13, cat:"沟通领导", sub:"自信",
+   intro:"体育心理教练讲自信如何像肌肉一样练：自我对话、想象力训练、赞美清单。答辩怯场的解药。",
+   url:"https://www.ted.com/talks/ivan_joseph_the_skill_of_self_confidence"},
+  {en:"10 ways to have a better conversation", zh:"好好交谈的 10 条建议", sp:"Celeste Headlee", yr:2015, dur:12, cat:"沟通领导", sub:"倾听",
+   intro:"职业主持人给 10 条反直觉建议（别重复问题、别抢话『我也是』…）。和导师、师兄沟通质量直接受益。",
+   url:"https://www.ted.com/talks/celeste_headlee_10_ways_to_have_a_better_conversation"},
+
+  /* ===== 认知思维 ===== */
+  {en:"How great leaders inspire action", zh:"伟大的领导者如何激发行动", sp:"Simon Sinek", yr:2009, dur:18, cat:"认知思维", sub:"黄金圈法则",
+   intro:"Start with why（黄金圈法则）出处。写本子/做答辩先讲 why 再讲 what，说服逻辑直接升一级。",
+   url:"https://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action"},
+  {en:"Where good ideas come from", zh:"好想法从哪里来", sp:"Steven Johnson", yr:2010, dur:18, cat:"认知思维", sub:"创新",
+   intro:"好点子来自『慢 hunch 的碰撞』而不是灵光一闪。讲 coffeehouse 与创新史，顺便理解为什么组会讨论这么重要。",
+   url:"https://www.ted.com/talks/steven_johnson_where_good_ideas_come_from"},
+]
 
 </script>
   <script>
@@ -1804,7 +1798,7 @@ window.TED = [
    2026-09-25 按用户反馈重构：点系列 -> 看视频清单 -> 点视频直达播放页，
    不再落在 B 站搜索列表页。数据来自 B站官方搜索 API 实抓，_mkforum2.py 抓取、
    _verify_forum.py 逐条过 view API 校验，死链已剔除。 */
-window.FORUM_UPDATED = "2026-09-25";
+window.FORUM_UPDATED = "2026-09-26";
 window.FORUM_CATS = ["名人与企业家","国学讲坛","阳明心学"];
 window.FORUM_SERIES = [
   {cat:"名人与企业家", who:"马云", desc:"从英语老师到阿里创始人。低谷期、迷茫期最该听的一类：今天很残酷，明天更残酷，后天很美好。", vids:[
@@ -1814,7 +1808,11 @@ window.FORUM_SERIES = [
     {"t":"震惊！马云模仿迈克尔杰克逊舞姿现场气氛燃爆了","bvid":"BV1zW411b753","up":"先生魯迅","dur":"6:44","play":175922},
     {"t":"【马云】想看十年前马云的演讲吗？极其经典并有预见性的演讲","bvid":"BV1Fx411t758","up":"從吾遊","dur":"72:35","play":148058},
     {"t":"马云演讲全集","bvid":"BV1PM411i7F3","up":"超越思考","dur":"575:38","play":108318}
-  ]},
+  ,
+    {"t":"马云在台湾的霸气演讲：你们应该去大陆看看，你们知道的太少！不愧是中国的首富，硬气","bvid":"BV19b411z7oP","up":"谋者言生白","dur":"18:41","play":3544910},
+    {"t":"香港顶级富豪在马云面前“炫富”，看看马云怎么怼他的！","bvid":"BV1Fs411e7Sb","up":"AI科技匠","dur":"5:43","play":2616958},
+    {"t":"【全弹幕装填】官号删前原片实况！马云“商业本身就是最大的公益”演讲","bvid":"BV1aA411t7c5","up":"一砚墨红","dur":"3:35","play":1409126},
+    {"t":"早年刘强东和马云饭桌吹牛视频曝光，刘强东稚嫩马云像传销头子","bvid":"BV1yb411k7KG","up":"账号已注销","dur":"4:27","play":1324085}]},
   {cat:"名人与企业家", who:"雷军", desc:"小米创始人每年一场的「年度演讲」，讲风口上的选择逻辑与长期主义心态。", vids:[
     {"t":"【一往无前】小米十周年 雷军公开演讲全程录播","bvid":"BV14Z4y1M7En","up":"小米公司","dur":"174:59","play":831744},
     {"t":"【演讲回顾】2023雷军年度演讲纯净版","bvid":"BV1pu4y1q7GG","up":"小米公司","dur":"73:30","play":712682},
@@ -1822,7 +1820,11 @@ window.FORUM_SERIES = [
     {"t":"雷军史上最励志，最振奋人心的演讲没有之一！","bvid":"BV13izCY1EA4","up":"账号已注销","dur":"53:38","play":375635},
     {"t":"【高能混剪】雷军年度演讲2024（金句版）","bvid":"BV1jE421w7By","up":"AndyTalk","dur":"6:6","play":368796},
     {"t":"【全程回放】2023雷军年度演讲","bvid":"BV12u4y1q7ns","up":"UplusTech","dur":"197:35","play":292955}
-  ]},
+  ,
+    {"t":"雷军：成功并不取决于你多努力、多聪明 听完后醍醐灌顶","bvid":"BV1sk4y1R7Tj","up":"-1该用户已成仙1-","dur":"11:38","play":1610671},
+    {"t":"【短的发布会】雷军社恐求学回忆录？小米MIX Fold3怒怼友商你叠徕了！","bvid":"BV1zx4y1f7Zc","up":"短的发布会","dur":"3:57","play":1193455},
+    {"t":"雷军：相信自己，一往无前","bvid":"BV18f4y197P1","up":"雷军","dur":"95:28","play":1044363},
+    {"t":"雷军还是那个雷军，但是小米它变了【雪鸡观察局200】","bvid":"BV11r4y197qs","up":"动动枪DongDongGun","dur":"9:57","play":1026014}]},
   {cat:"名人与企业家", who:"马斯克", desc:"第一性原理思考法：为什么造电动车、上火星、挖隧道。英文原声配中文字幕。", vids:[
     {"t":"【附文稿】（完整版）埃隆·马斯克2026首次访谈：探讨人工智能、机器人技术、能源、教育、寿命和太空探索对近未来的影响。","bvid":"BV1Jq6SBkEdU","up":"YouTube访谈实录","dur":"172:10","play":801296},
     {"t":"【马斯克演讲】一场会让你哭泣的励志演讲！","bvid":"BV1az421z7ei","up":"TED演讲汇","dur":"11:23","play":412977},
@@ -1830,7 +1832,11 @@ window.FORUM_SERIES = [
     {"t":"【美音】（无删减）埃隆·马斯克传 Elon Musk 《乔布斯传》作者新作 英文原版书","bvid":"BV1iz421h7Sh","up":"翻倒巷小书房","dur":"1227:32","play":95570},
     {"t":"埃隆马斯克-历年视频合集","bvid":"BV1734y1z7pP","up":"三石超越百岁","dur":"860:49","play":37401},
     {"t":"川普在共和党中期大会上的演讲完整版(上) | 2026.9.10 | 美剧级别字幕","bvid":"BV1EeYN6cEKW","up":"听懂英语快讯","dur":"50:42","play":18373}
-  ]},
+  ,
+    {"t":"硅谷新右翼买断特朗普，马斯克背后的老爷们图什么？","bvid":"BV1uAwheFEFj","up":"小王Albert","dur":"6:32","play":1578397},
+    {"t":"马斯克：如何学习任何东西 - 第一性原理","bvid":"BV133411r7zx","up":"captain_落七北","dur":"4:48","play":883151},
+    {"t":"【学习大佬的说话艺术】马斯克教你，如何吊打BBC记者！","bvid":"BV18F411y7ac","up":"鹏城杰森","dur":"16:56","play":799013},
+    {"t":"马斯克纽约助选五分钟演讲：政府效率部将节省2万亿预算，美国将达历史新高度","bvid":"BV1ng1GY9EBY","up":"瓦砾村夫","dur":"5:11","play":543003}]},
   {cat:"名人与企业家", who:"乔布斯", desc:"2005 斯坦福毕业演讲「Stay hungry, stay foolish」，三个故事讲热爱、失去与死亡。", vids:[
     {"t":"乔布斯在斯坦福大学毕业典礼上的演讲（中英字幕）","bvid":"BV1oW411h7Ea","up":"风上面的天","dur":"14:25","play":1570362},
     {"t":"【油管5000w播放】乔布斯在斯坦福大学毕业典礼上的演讲！","bvid":"BV1T2YLeYE3g","up":"TED口语官方","dur":"14:25","play":150888},
@@ -1838,7 +1844,11 @@ window.FORUM_SERIES = [
     {"t":"斯坦福大学《深度学习自然语言处理|Stanford CS224N NLP with Deep Learning 2024》中英字幕（deepseek-R1","bvid":"BV1U5RNYgEfp","up":"GPT中英字幕课程资源","dur":"1652:39","play":49521},
     {"t":"乔布斯 1983 年的这场演讲，提前看穿了 50 年，这场演讲里，一共有 10 个关键预言，后来几乎全部应验这是一场被严重低估的演讲。【完整版】","bvid":"BV1ahB1BVExB","up":"spanking_","dur":"54:51","play":41203},
     {"t":"乔布斯 史上最著名的演讲：求知若饥，虚心若愚","bvid":"BV12N411G7QQ","up":"名言语录QUOTES","dur":"15:38","play":21427}
-  ]},
+  ,
+    {"t":"中文·高清 乔布斯 2007年iPhone发布会完整版","bvid":"BV1C441187qa","up":"LeowangWorld-王川","dur":"79:20","play":1309474},
+    {"t":"乔布斯1995年谈微软，巨人的思想真的太可怕了！强烈建议大家收藏","bvid":"BV1fh411r7nd","up":"外星人点看","dur":"4:5","play":402159},
+    {"t":"乔布斯斯坦福大学演讲（高清 中英文字幕）","bvid":"BV1Us411i7Ym","up":"風見ヽ隼人","dur":"14:24","play":303791},
+    {"t":"现场被技术男羞辱不懂技术？乔布斯的回应也太秀了吧！","bvid":"BV18A411n7CQ","up":"油兔英语笔记","dur":"13:15","play":289971}]},
   {cat:"名人与企业家", who:"任正非", desc:"华为创始人访谈实录：危机意识、基础研究与技术自立。做科研的人听最有共鸣。", vids:[
     {"t":"暴君、傀儡、赌徒、硬汉、商业思想家，任正非的多重面孔【奔流·任正非】","bvid":"BV1oTrsYzEb2","up":"大象放映室","dur":"25:6","play":872491},
     {"t":"完整版中文字幕来了！任正非对话美国科技大咖并巧妙回应尖锐问题","bvid":"BV1Wx411o7BF","up":"中国日报","dur":"103:23","play":416677},
@@ -1846,7 +1856,11 @@ window.FORUM_SERIES = [
     {"t":"华为任正非接受采访，谈当下的华为与担当。骨子里的自信！","bvid":"BV1Z4411j7Gb","up":"可爱的小潇潇","dur":"14:48","play":139628},
     {"t":"任正非首次接受央视专访（2019）","bvid":"BV1ea411R7Uc","up":"o_o_o_o","dur":"25:9","play":103492},
     {"t":"任正非采访演讲合集","bvid":"BV1J64y117fC","up":"青山客呀","dur":"911:3","play":101824}
-  ]},
+  ,
+    {"t":"原形毕露！人民日报三次揭露马云真正野心，和任正非根本不能比","bvid":"BV1kP4y1Y7tV","up":"此娱非鱼","dur":"4:37","play":1002150},
+    {"t":"华为为何组建军团？原来是学谷歌！任正非、余承东来站台，绕过美国制裁？【小丹尼】","bvid":"BV14341187eH","up":"DannyData小丹尼","dur":"13:35","play":440553},
+    {"t":"【任正非最新霸气专访】我每天洗澡，清清白白，无需跟美国证明什么","bvid":"BV1Nt411g7nx","up":"油兔英语笔记","dur":"12:24","play":171556},
+    {"t":"【人物志】广东百强民企：任正非、正威王文银、恒大许家印、万科王石、美的方洪波、比亚迪王传福、TCL李东生、顺丰王卫、怡亚通周国辉、立白陈凯旋（全28集）","bvid":"BV1Pi4y1372S","up":"农夫CC","dur":"756:34","play":155534}]},
   {cat:"名人与企业家", who:"曹德旺", desc:"福耀玻璃创始人讲制造业的坚守、成本与诚信，实业家的钝感力。", vids:[
     {"t":"神魔曹德旺：捐160亿，挨20年骂，曹德旺究竟做错了什么？","bvid":"BV1a8BoBrE84","up":"饭统戴老板","dur":"20:28","play":388627},
     {"t":"美国工厂（2019）| “周六都给我滚进来加班！”资本家们如是说。","bvid":"BV1FaB1YPEEb","up":"moka1992","dur":"148:56","play":174148},
@@ -1854,7 +1868,11 @@ window.FORUM_SERIES = [
     {"t":"曹德旺采访视频-破口大骂","bvid":"BV1xT411n7oZ","up":"叶落c-c","dur":"13:51","play":54193},
     {"t":"【完整版】14岁辍学到身价165亿，曹德旺笑谈致富路","bvid":"BV1oU4y1h7J4","up":"东南卫视","dur":"36:45","play":30911},
     {"t":"程邀｜对话曹德旺：创业这50年，我的初心没有变","bvid":"BV1au6iBWEj4","up":"程里哥","dur":"23:49","play":19188}
-  ]},
+  ,
+    {"t":"硬刚美国！备受制裁，却反手告赢了商务部，狠人曹德旺有多猛？","bvid":"BV1Mt4y1k7wm","up":"年轻人评评理","dur":"11:31","play":359303},
+    {"t":"曹德旺清华演讲被嘲“学历低”，他几句话说得“清华才子”哑口无言","bvid":"BV1Ky4y1V7Zt","up":"东七说","dur":"5:8","play":85601},
+    {"t":"馆长12.18直播⑴：我那天在福耀科技大学啊，听曹德旺那些大佬演讲，我在台下就想着完了，毕竟小时不读书，长大当馆长嘛，这种场合太不符合我的风格了","bvid":"BV187qQBpECc","up":"AI播报员","dur":"18:26","play":78651},
+    {"t":"【人物志】行业龙头：曹德旺、万隆、张近东、王石、王健林、王卫、郑俊怀、王旭宁、孙飘扬、陈邦、刘庆峰、赵文权、吴光明、黄巧灵、王中军（全24集）","bvid":"BV1da4y1572G","up":"农夫CC","dur":"726:35","play":44914}]},
   {cat:"名人与企业家", who:"张一鸣", desc:"字节跳动创始人反复强调「延迟满足感」：把眼光放长的人赢面更大。", vids:[
     {"t":"【张一鸣】₂₀₁₇｜趁年轻完成知识和信息的原始积累","bvid":"BV1qa4y1V7a7","up":"励志演说君","dur":"15:17","play":273915},
     {"t":"张一鸣的创业之路（合集）更新至2020","bvid":"BV1gp4y1B7wu","up":"羊驼FF","dur":"271:38","play":136076},
@@ -1862,7 +1880,11 @@ window.FORUM_SERIES = [
     {"t":"【中国超经典名人演讲视频集】两弹元勋，科学家，企业家，大学教授，校长，艺人，经济学家-口才，励志，人生，挑战，落泪，勇气，智慧，野心，搞笑，牛人","bvid":"BV1ut411n7Yv","up":"向往诗和远方qq","dur":"263:0","play":119535},
     {"t":"每个创业者至少看五遍以上的访谈，不是三遍！ （张一鸣）","bvid":"BV1z7T7zJE9c","up":"B站金融大学","dur":"11:45","play":105259},
     {"t":"【值得观看】张一鸣：字节跳动CEO深度专访 趁年轻完成知识的原始积累！！！","bvid":"BV16x4y1V7KJ","up":"万众创薪","dur":"60:23","play":96839}
-  ]},
+  ,
+    {"t":"张一鸣批判的“互联网黑话”到底有多坑？【差评君】","bvid":"BV1Mv411h76n","up":"差评君","dur":"6:37","play":384151},
+    {"t":"字节跳动 创始人张一鸣谈竞争对手模仿抖音为何不成功","bvid":"BV1cE41137Bj","up":"呆头小韭菜","dur":"3:0","play":180143},
+    {"t":"抖音创始人张一鸣：给青年人的建议，每一位年轻人值得收藏！","bvid":"BV1Rz4y1n7Ev","up":"ForbesTalk","dur":"17:58","play":43483},
+    {"t":"【字节跳动】 张一鸣 演讲访谈合集","bvid":"BV1dY4y1u7nP","up":"滚雪球之路","dur":"117:45","play":39511}]},
   {cat:"名人与企业家", who:"俞敏洪", desc:"新东方创始人成名演讲：在绝望中寻找希望，普通人靠努力对抗出身。", vids:[
     {"t":"【个人演讲】俞敏洪励志演讲集（共12p）","bvid":"BV1Mx411M77R","up":"不羁智士","dur":"505:59","play":376980},
     {"t":"俞敏洪励志演讲【当你意志消沉的时候可以多看几遍】","bvid":"BV1Zs411X7cj","up":"快读慢画","dur":"33:47","play":306854},
@@ -1870,7 +1892,11 @@ window.FORUM_SERIES = [
     {"t":"俞敏洪谈人和人的差距，字字诛心一针见血，杨澜听得心服口服！","bvid":"BV19V4y197iP","up":"PC-262","dur":"24:30","play":228216},
     {"t":"【俞敏洪】星空演讲·中年男人的成长（完整版）","bvid":"BV1fM4y1w7V5","up":"牛牛复利","dur":"22:20","play":169933},
     {"t":"俞敏洪最精彩演讲之一：永远不要放弃你自己","bvid":"BV1ZzhJzjEor","up":"B站名人演讲","dur":"21:48","play":70541}
-  ]},
+  ,
+    {"t":"新东方现状：60岁的俞敏洪，也忍不住泪流满面！","bvid":"BV1xY411j7mX","up":"摸金正能量","dur":"4:22","play":2278299},
+    {"t":"【搬运】俞敏洪：献给那些自卑又渴望成功的人","bvid":"BV1Vb411v7yS","up":"阿凡提923","dur":"5:35","play":504127},
+    {"t":"亲情告急、公司内斗、版权危机，俞敏洪的九死一生【奔流·俞敏洪】P2","bvid":"BV1v8411q7PJ","up":"大象放映室","dur":"28:54","play":415157},
+    {"t":"【俞敏洪 Talk丨“永远不要放弃你自己”","bvid":"BV1jk4y1s7qr","up":"VoyarSchindenn","dur":"21:48","play":275728}]},
   {cat:"名人与企业家", who:"稻盛和夫", desc:"日本「经营之圣」：敬天爱人、付出不亚于任何人的努力，与阳明心学一脉相承。", vids:[
     {"t":"【TED演讲】什么是美好生活、怎么活最幸福——哈佛75年研究成果","bvid":"BV1aF411Q7Je","up":"ABC英语乐园","dur":"12:31","play":125558},
     {"t":"稻盛和夫 最经典的演讲：人为什么活着？","bvid":"BV1Yz421X7ad","up":"名言语录QUOTES","dur":"43:22","play":76785},
@@ -1878,7 +1904,11 @@ window.FORUM_SERIES = [
     {"t":"稻盛和夫给年轻人的忠告丨工作秘籍活法心法","bvid":"BV1RzZyYTEPK","up":"以沐小芳有声","dur":"371:37","play":43526},
     {"t":"稻盛和夫的经营哲学-六项精进(全集)","bvid":"BV1uy4y1j7G9","up":"静笃书院","dur":"83:9","play":41122},
     {"t":"心灵管理-稻盛和夫","bvid":"BV1e64y1u7Es","up":"志恩先生","dur":"65:49","play":40150}
-  ]},
+  ,
+    {"t":"【京瓷】稻盛和夫哲学：京瓷能成为世界500强企业，创始人功不可没","bvid":"BV1tJ411B7BL","up":"十万个品牌故事","dur":"10:7","play":45054},
+    {"t":"稻盛和夫最经典的演讲：一秒顿顿悟的人生哲学","bvid":"BV1C45NzgEJa","up":"财经大观园","dur":"43:22","play":39943},
+    {"t":"稻盛和夫 六项精进：普通人也可以掌握的人生逆袭之法","bvid":"BV1L1421d71D","up":"名言语录QUOTES","dur":"20:33","play":12896},
+    {"t":"【人物志】工业科技：任正非、韦尔奇、松下幸之助、稻盛和夫（全9集）","bvid":"BV1kg4y1z734","up":"农夫CC","dur":"323:2","play":11090}]},
   {cat:"名人与企业家", who:"曾毓群", desc:"宁德时代创始人讲动力电池技术路线与产业判断，电池方向必听。", vids:[
     {"t":"30万公里威马EX5宁德时代电池衰减测试","bvid":"BV1oG4y1D7DW","up":"电车狂人方哥","dur":"11:41","play":15719},
     {"t":"【宁德时代】曾毓群 对话 【红杉资本】沈南鹏","bvid":"BV13M4y1V7Vw","up":"B站迷你股东","dur":"65:1","play":7497},
@@ -1886,7 +1916,11 @@ window.FORUM_SERIES = [
     {"t":"【价投148】宁德时代中报，市值＝2迪的电池龙头，还能高速增长吗？","bvid":"BV1sgbM6zEEd","up":"努力学习的阿乐","dur":"20:32","play":2375},
     {"t":"宁德时代任雨婷出轨事件2","bvid":"BV1FweJ6VEJB","up":"侵略攻击","dur":"37:17","play":2121},
     {"t":"不用宁德时代的电池能否降车价？孙少军直播20260904","bvid":"BV1dYaK6oE88","up":"小幸运0_0","dur":"14:13","play":2095}
-  ]},
+  ,
+    {"t":"宁德时代 曾毓群 的主旨演讲 【2023世界动力电池大会 】 6月9日","bvid":"BV1fh4y1B7cU","up":"土豆丝彭talk","dur":"10:3","play":1666},
+    {"t":"曾毓群全英文专访，一口流利口语畅谈宁德时代的未来…","bvid":"BV19Ptpe2EaF","up":"精彩英语演讲","dur":"27:2","play":1376},
+    {"t":"下一任中国首富 可能是曾毓群  中国首富，可能要换人了。这次不是搞房地产、不是搞互联网的，也不是卖水的，是一个造电池的福建人。  曾毓群，宁德时代创始人，听听他","bvid":"BV1ncopBgEBL","up":"奇偶兄弟","dur":"12:2","play":1090},
+    {"t":"宁德时代创始人曾毓群最新全英文访谈@尼古拉唐根播客","bvid":"BV12UsremEVm","up":"闹海商业知识库","dur":"27:2","play":864}]},
   {cat:"国学讲坛", who:"易中天", desc:"百家讲坛最火的一档，用大白话讲三国人物与权谋，历史入门首选。", vids:[
     {"t":"易中天《易中天品三国》52集全","bvid":"BV1ATPQz5EVd","up":"歌曲有声书分享","dur":"2000:1","play":791276},
     {"t":"我为什么从易中天的粉丝到后来脱粉","bvid":"BV1KvmcBNEoX","up":"文远儿分析","dur":"14:51","play":211106},
@@ -1894,7 +1928,11 @@ window.FORUM_SERIES = [
     {"t":"有声文学《易中天品三国》全52集","bvid":"BV1SBoMBmEJz","up":"小仙爱听书","dur":"2001:17","play":146949},
     {"t":"易中天品三国（完结）易中天 精品有声剧","bvid":"BV1LwKS6mEqK","up":"柚子听书","dur":"2113:11","play":53413},
     {"t":"易中天品三国（全52集）","bvid":"BV1MLojBiEDa","up":"朱家小仙","dur":"2001:6","play":50323}
-  ]},
+  ,
+    {"t":"“回头再看易中天的访谈‘拼爹当然是传统’，才发现他的言辞真是犀利”","bvid":"BV1GzXXYkEaZ","up":"名家讲堂","dur":"3:3","play":911245},
+    {"t":"易中天老师怎么还在坚持这种读者意林小故事呢？","bvid":"BV1PMDvBYE2U","up":"胡律师看法","dur":"8:0","play":711436},
+    {"t":"“中国人为什么没有信仰？易中天一阵见血的指出问题所在”","bvid":"BV1HhP7enEjR","up":"名家讲堂","dur":"7:46","play":618465},
+    {"t":"（全程高（污）能！）易中天中科大演讲2","bvid":"BV1Ss411q7Fi","up":"赫尔莫斯之鸟","dur":"34:28","play":612528}]},
   {cat:"国学讲坛", who:"王立群", desc:"河南大学教授讲《史记》，人物心理分析极细，历史与人性观察必看。", vids:[
     {"t":"【视频】王立群读史记（全集）","bvid":"BV1tpjQ6TEsX","up":"小仙听国学","dur":"10171:41","play":209520},
     {"t":"【王立群】读史记-秦始皇（47集全）","bvid":"BV1J9jU6EEgw","up":"书中漫步者","dur":"1728:17","play":179480},
@@ -1902,7 +1940,11 @@ window.FORUM_SERIES = [
     {"t":"《史记》原文朗读（配文字）","bvid":"BV1Z8411c7t7","up":"加油好读书","dur":"4016:16","play":111876},
     {"t":"B站最全版【震撼视频】王立群读史记 (全集)，带你领略经典魅力！","bvid":"BV1D4oPBzEyY","up":"B站明德至善书院","dur":"8705:9","play":67280},
     {"t":"王立群读史记：通古今之变，识人性之常","bvid":"BV1mgLj6eEW1","up":"小仙听国学","dur":"9884:44","play":60921}
-  ]},
+  ,
+    {"t":"【国史演义】汉高祖刘邦（王立群）","bvid":"BV1Qt411T79J","up":"老叟八十还犁田","dur":"192:48","play":698690},
+    {"t":"王立群教授：什么特质的人容易成功？","bvid":"BV12rcpeTEta","up":"名人开悟语录","dur":"6:34","play":216584},
+    {"t":"易中天对话王立群：两位大家的思想碰撞，发人深思","bvid":"BV1EqkUB6EmW","up":"名家讲堂","dur":"32:46","play":141612},
+    {"t":"王立群：从刘邦对他的父亲，可以看出刘邦的人品","bvid":"BV18DqxYsEtz","up":"高伯文化","dur":"8:7","play":137253}]},
   {cat:"国学讲坛", who:"于丹", desc:"把《论语》讲成现代人的生活智慧，语速慢、金句多，零基础国学入口。", vids:[
     {"t":"被学生轰下台的于丹，现状如何？跌落神坛的日子里，丈夫这样做！【解说人物】","bvid":"BV1e64y1Q7D5","up":"有耳工作室","dur":"13:12","play":409155},
     {"t":"于丹品读《论语》《庄子》系列","bvid":"BV1g9H6e1ED4","up":"史海守望","dur":"929:30","play":84536},
@@ -1910,7 +1952,11 @@ window.FORUM_SERIES = [
     {"t":"2024.4.15 于丹 2——中国女主播年鉴","bvid":"BV1Dw4m1m7pm","up":"文言文练习生李军宝","dur":"5:25","play":8362},
     {"t":"于丹《论语心得 | 庄子心得》系列合集","bvid":"BV1YwkZBxEZh","up":"朱家小仙的跟班","dur":"672:45","play":8245},
     {"t":"2024.5.19 于丹——中国女主播年鉴","bvid":"BV1Ui421D7Dq","up":"文言文练习生李军宝","dur":"63:48","play":7474}
-  ]},
+  ,
+    {"t":"于丹趣品人生第1集","bvid":"BV1zb41167SX","up":"赛斯Seth资料学习","dur":"39:17","play":4641},
+    {"t":"于丹讲座1","bvid":"BV16s41127ss","up":"嘻嘻哈哈打怪兽_","dur":"35:38","play":4345},
+    {"t":"【人生规划】于丹：从情绪中发现真自我","bvid":"BV1dW411t7QC","up":"筱思云呓","dur":"23:31","play":2778},
+    {"t":"于丹感悟人生第7集","bvid":"BV1zb41167Ru","up":"赛斯Seth资料学习","dur":"40:4","play":2497}]},
   {cat:"国学讲坛", who:"蒙曼", desc:"中央民大教授讲武则天，史学功底与讲故事能力俱佳。", vids:[
     {"t":"蒙曼·【至尊红颜】合集","bvid":"BV1jW411L7pP","up":"文史阁","dur":"192:37","play":1157549},
     {"t":"蒙曼《武则天》","bvid":"BV1JWeCzxEDR","up":"优视部落","dur":"1723:22","play":885237},
@@ -1918,7 +1964,11 @@ window.FORUM_SERIES = [
     {"t":"蒙曼隋唐史之武则天","bvid":"BV1yh4y1E7gz","up":"瓦尔登散人","dur":"1198:35","play":164222},
     {"t":"武则天女帝八字，三甲天上贵，千古罕见！（三连关注简评，评论区抽下期素材）","bvid":"BV1Typ4eME4g","up":"闻人子坤","dur":"6:29","play":101273},
     {"t":"B站最细！黑马武则天精讲教学，一期视频教会你！！","bvid":"BV1dMyhBWEA4","up":"余77ovo","dur":"8:52","play":88965}
-  ]},
+  ,
+    {"t":"蒙曼·【新杏坛】合集","bvid":"BV1Jx411Y7Pb","up":"文史阁","dur":"861:50","play":36200},
+    {"t":"蒙曼·【演讲】合集","bvid":"BV1nx411a7Lg","up":"文史阁","dur":"204:49","play":19379},
+    {"t":"蒙曼讲座：红妆时代——大唐宫廷女性风貌","bvid":"BV1ca4y1e7go","up":"文采飘逸","dur":"114:36","play":8103},
+    {"t":"蒙曼说清明--清明节能不能祝福节日快乐?","bvid":"BV1wY4y1H7Q3","up":"文采飘逸","dur":"6:10","play":5442}]},
   {cat:"国学讲坛", who:"鲍鹏山", desc:"从《水浒》看中国人的处世与人格，观点犀利。", vids:[
     {"t":"【听书】鲍鹏shan《新说水浒》63集全+1期特别节目","bvid":"BV11JDdYNEgW","up":"闲鱼听书","dur":"2489:13","play":379651},
     {"t":"鲍鹏山说水浒: 鲁智深","bvid":"BV1mJ411A7ZS","up":"NameReset","dur":"509:38","play":195148},
@@ -1926,7 +1976,11 @@ window.FORUM_SERIES = [
     {"t":"鲍鹏山《百家讲坛》全集（音频）","bvid":"BV1FvbDzYEjN","up":"朱家小仙","dur":"4047:45","play":128793},
     {"t":"【听书·鲍鹏山《新说水浒》】一口气看完系列63集全","bvid":"BV1i1421k7Vp","up":"始皇迷弟","dur":"2503:14","play":92551},
     {"t":"鲍鹏山新说《水浒》","bvid":"BV1VaeaznEDK","up":"史海守望","dur":"2344:46","play":88591}
-  ]},
+  ,
+    {"t":"君王的驭民宝典《商君书》--鲍鹏山","bvid":"BV1ps411d7xJ","up":"立夏的夏栎","dur":"94:0","play":269864},
+    {"t":"鲍鹏山：“中国是唯一一个把本民族文化经典排除在教育资源之外的。”","bvid":"BV1LbFQzsEXG","up":"慢一点呢_","dur":"3:7","play":245647},
+    {"t":"鲍鹏山教授演讲：中国的教育，是一个打工仔的教育！","bvid":"BV1q54Az9Ew9","up":"账号已注销","dur":"3:28","play":61454},
+    {"t":"鲍鹏山演讲：道德就是一个大骗局，堪比演唱会还精彩！","bvid":"BV1CYpfz5Ebc","up":"放开他让wo来","dur":"3:4","play":58571}]},
   {cat:"国学讲坛", who:"郦波", desc:"南京师大教授讲王阳明一生，心学最好的视频入门。", vids:[
     {"t":"一口气看完王阳明，500年来第一完人，人生迷茫就读王阳明吧","bvid":"BV1E94y1E7mx","up":"知识放映室","dur":"17:24","play":2241044},
     {"t":"【五百年来王阳明】传奇开始的地方，知行合一（郦波）","bvid":"BV1h44y1D7mU","up":"始皇迷弟","dur":"917:28","play":420795},
@@ -1934,7 +1988,11 @@ window.FORUM_SERIES = [
     {"t":"【百家讲坛】郦波：五百年来王阳明","bvid":"BV1CihGzNEAy","up":"B站人文社科学院","dur":"812:40","play":65919},
     {"t":"知行合一：郦波精讲五百年来王阳明","bvid":"BV15pdRBHEox","up":"朱家小仙的跟班","dur":"883:22","play":25199},
     {"t":"精彩讲阳明文化，波解读王阳明26 集完整呈现，讲坛重磅提升文化底蕴","bvid":"BV1iJdCB9ErG","up":"闻道致远学院","dur":"2117:30","play":24806}
-  ]},
+  ,
+    {"t":"【转载】看苏轼走出别样的人生地图  主讲人：郦波","bvid":"BV1tx411Q7zN","up":"ClownArgo","dur":"40:19","play":31248},
+    {"t":"百家讲坛最感人的一段，郦波哽咽：人生最孤独最痛苦的时刻，无人理解，独自面对。#百家讲坛","bvid":"BV12XEZ6oE3m","up":"百家讲师","dur":"3:30","play":30905},
+    {"t":"百家讲坛进中南之郦波老师讲楚辞（P28-P46是杨雨老师和郦波老师的问答彩蛋哦）","bvid":"BV13E411B7sb","up":"肥猫一筐","dur":"165:10","play":15177},
+    {"t":"百家讲坛的最感动的片段 郦波教授真情流露！#百家讲坛","bvid":"BV171bE6xEru","up":"百家大讲堂","dur":"3:20","play":11996}]},
   {cat:"国学讲坛", who:"康震", desc:"北师大教授讲八大家的文章与人生，提文字表达与文学素养。", vids:[
     {"t":"康震-唐宋八大家","bvid":"BV1mt41167J4","up":"一点零一的N次方","dur":"283:0","play":291667},
     {"t":"【唐宋八大家】人见人爱苏东坡","bvid":"BV13F411K7Df","up":"始皇迷弟","dur":"660:43","play":223464},
@@ -1942,7 +2000,11 @@ window.FORUM_SERIES = [
     {"t":"唐宋八大家【王安石】（康震）","bvid":"BV1Nr4y1t7Gx","up":"始皇迷弟","dur":"752:51","play":123805},
     {"t":"【北师大-康震】中国古代文学史-第4讲隋唐五代部分（隋与初唐文学、盛唐诗歌、李白、杜甫、中唐诗歌、晚唐诗歌、唐代散文的发展、唐五代词、唐传奇与唐代通俗文学）","bvid":"BV1G7411j7m4","up":"学习资源搬运工","dur":"1773:36","play":103104},
     {"t":"【宗师列传·唐宋八大家】柳宗元","bvid":"BV1ZvpCzoELp","up":"央博","dur":"97:6","play":91083}
-  ]},
+  ,
+    {"t":"【康震】演讲：怎样做一名好老师","bvid":"BV1rx411k7Ds","up":"青春风采lucy","dur":"8:0","play":72804},
+    {"t":"【康震】苏东坡的夜晚，藏着每个成年人的情绪解药","bvid":"BV1TiPKzoEjG","up":"人民文学出版社166","dur":"16:55","play":38896},
+    {"t":"康震老师2026跨年演讲：人人都爱苏东坡！","bvid":"BV1WUvfBtEGL","up":"有典有故","dur":"15:53","play":35794},
+    {"t":"【个人演讲】康震《诗词、境界、人生》专题讲座（上、下）","bvid":"BV1HW411B7DH","up":"不羁智士","dur":"77:39","play":15179}]},
   {cat:"国学讲坛", who:"阎崇年", desc:"百家讲坛开山级节目，讲清朝十二帝疑案，历史科普经典。", vids:[
     {"t":"【清十二帝·疑案】顺治·康熙·雍正·乾隆（阎崇年）","bvid":"BV1Ac411s7rM","up":"始皇迷弟","dur":"320:26","play":160057},
     {"t":"阎崇年老师《明亡清兴60年》 全46集","bvid":"BV1LXeyzsEqt","up":"朱家小仙的跟班","dur":"2107:59","play":94101},
@@ -1950,7 +2012,11 @@ window.FORUM_SERIES = [
     {"t":"【清十二帝·疑案】努尔哈赤·皇太极（阎崇年）","bvid":"BV17M4y1m7NV","up":"始皇迷弟","dur":"156:28","play":59084},
     {"t":"【清十二帝·疑案】嘉庆·道光·咸丰（阎崇年）","bvid":"BV1RL41127cX","up":"始皇迷弟","dur":"237:33","play":54021},
     {"t":"【清十二帝·疑案】光绪皇帝·上中下（阎崇年）","bvid":"BV1ZT411s7uL","up":"始皇迷弟","dur":"119:58","play":21261}
-  ]},
+  ,
+    {"t":"清史专家阎崇年2008年被掌帼事件","bvid":"BV15W4y1d7Jk","up":"文采飘逸","dur":"21:44","play":119452},
+    {"t":"黄海清：我为什么掌掴阎崇年？","bvid":"BV1M5Et6GEWe","up":"b站精彩名人演讲","dur":"3:40","play":99803},
+    {"t":"清史专家阎崇年回应掌掴风波  2008","bvid":"BV12b411S7FW","up":"账号已注销","dur":"169:27","play":52439},
+    {"t":"黄海清：我为什么掌掴阎崇年？","bvid":"BV1ciKQ6wEuo","up":"B站名人演讲堂","dur":"3:39","play":19582}]},
   {cat:"阳明心学", who:"郦波 · 心学入门", desc:"第 1 步首选：把王阳明一生讲成故事，零基础听懂心学从哪来。", vids:[
     {"t":"一口气看完王阳明，500年来第一完人，人生迷茫就读王阳明吧","bvid":"BV1E94y1E7mx","up":"知识放映室","dur":"17:24","play":2241044},
     {"t":"【五百年来王阳明】传奇开始的地方，知行合一（郦波）","bvid":"BV1h44y1D7mU","up":"始皇迷弟","dur":"917:28","play":420795},
@@ -1958,7 +2024,11 @@ window.FORUM_SERIES = [
     {"t":"【百家讲坛】郦波：五百年来王阳明","bvid":"BV1CihGzNEAy","up":"B站人文社科学院","dur":"812:40","play":65919},
     {"t":"知行合一：郦波精讲五百年来王阳明","bvid":"BV15pdRBHEox","up":"朱家小仙的跟班","dur":"883:22","play":25199},
     {"t":"精彩讲阳明文化，波解读王阳明26 集完整呈现，讲坛重磅提升文化底蕴","bvid":"BV1iJdCB9ErG","up":"闻道致远学院","dur":"2117:30","play":24806}
-  ]},
+  ,
+    {"t":"【转载】看苏轼走出别样的人生地图  主讲人：郦波","bvid":"BV1tx411Q7zN","up":"ClownArgo","dur":"40:19","play":31248},
+    {"t":"百家讲坛最感人的一段，郦波哽咽：人生最孤独最痛苦的时刻，无人理解，独自面对。#百家讲坛","bvid":"BV12XEZ6oE3m","up":"百家讲师","dur":"3:30","play":30905},
+    {"t":"百家讲坛进中南之郦波老师讲楚辞（P28-P46是杨雨老师和郦波老师的问答彩蛋哦）","bvid":"BV13E411B7sb","up":"肥猫一筐","dur":"165:10","play":15177},
+    {"t":"百家讲坛的最感动的片段 郦波教授真情流露！#百家讲坛","bvid":"BV171bE6xEru","up":"百家大讲堂","dur":"3:20","play":11996}]},
   {cat:"阳明心学", who:"董平 · 浙大公开课", desc:"第 2 步：浙大教授系统讲心学哲学结构（心即理、知行合一、致良知）。", vids:[
     {"t":"【王德峰教授讲座】王阳明心学 （全8讲）","bvid":"BV15Z4y1R76Z","up":"账号已注销","dur":"279:9","play":4505752},
     {"t":"【公开课】浙江大学：王阳明心学 董平（全9讲）","bvid":"BV1wX4y1L7Rw","up":"农夫CC","dur":"335:15","play":307773},
@@ -1966,7 +2036,11 @@ window.FORUM_SERIES = [
     {"t":"【文化】王阳明心学（董平教授·浙江大学）·九讲全","bvid":"BV1e4411D7nv","up":"美友影音","dur":"335:16","play":73194},
     {"t":"王阳明：教你如何静坐，诚意与慎独","bvid":"BV1sY411o7uM","up":"邂逅经典文化","dur":"6:41","play":4782},
     {"t":"王阳明心学~董平","bvid":"BV1ZuJyzXEJx","up":"米道转化者","dur":"330:11","play":2240}
-  ]},
+  ,
+    {"t":"【董平】阳明心学（全）","bvid":"BV1Jt4y127P4","up":"将仓","dur":"335:16","play":15665},
+    {"t":"《堂主小酌话阳明》浙大董平酒后畅谈王阳明心学（上）","bvid":"BV1Dt411o7tf","up":"即鹿无虞入于林中","dur":"25:44","play":8959},
+    {"t":"【王阳明心学】浙江大学董平公开课","bvid":"BV1L64y117Jx","up":"荟呀荟学习","dur":"335:15","play":7190},
+    {"t":"浙江大学董平（稽山王阳明研究院院长）王阳明诞辰550周年阳明故里开放仪式上的演讲","bvid":"BV1ne4y147ys","up":"青年阳明学苑","dur":"4:57","play":506}]},
   {cat:"阳明心学", who:"王德峰 · 复旦讲座", desc:"第 2 步进阶：复旦王德峰用哲学讲心学与人生，适合想知道「为什么」的人。", vids:[
     {"t":"【王德峰教授讲座】王阳明心学 （全8讲）","bvid":"BV15Z4y1R76Z","up":"账号已注销","dur":"279:9","play":4505752},
     {"t":"【王德峰】重温阳明心学，寻觅人生意义","bvid":"BV1gN4y1J7to","up":"王德峰","dur":"18:37","play":776107},
@@ -1974,7 +2048,11 @@ window.FORUM_SERIES = [
     {"t":"王德峰wonderful讲读《传习录》——《阳明心学的当代意义》深度课程全12天","bvid":"BV15X4y1v7pi","up":"星际图腾飞飞","dur":"3510:47","play":111181},
     {"t":"王阳明心学《传习录》•王德峰教授讲座，自己逐字逐句俢的字幕","bvid":"BV1ts4y1U7jb","up":"迪斯马斯克DS","dur":"202:3","play":109840},
     {"t":"（8节全）王德峰/1-2王阳明心学及其现代意义/3-8今天为什么学国学","bvid":"BV1QxgRzJENd","up":"松林斋","dur":"372:35","play":94070}
-  ]},
+  ,
+    {"t":"复旦哲学课堂-王德峰讲心学","bvid":"BV1pK4y1g7VW","up":"yunvoo","dur":"171:12","play":1367560},
+    {"t":"【王德峰】复旦大学 王德峰-谈资本论【全3集】[高清版]","bvid":"BV1Rv411G756","up":"韭菜牛顿","dur":"363:28","play":799457},
+    {"t":"王德峰合集【足量！】感受哲学王子的魅力吧","bvid":"BV1Eq4y1B7B4","up":"贰马当先","dur":"3415:38","play":659161},
+    {"t":"【王德峰】心不安定，这是最好的解决办法","bvid":"BV1uD4y1C7LG","up":"王德峰教授的小学生","dur":"3:13","play":519162}]},
   {cat:"阳明心学", who:"典籍里的中国", desc:"央视用戏剧还原王阳明与《传习录》，画面感强，当入门的调味料。", vids:[
     {"t":"【中国文学史】欧丽娟老师 #35集.完","bvid":"BV1oU4y1a7dc","up":"卞歆","dur":"4647:27","play":3266748},
     {"t":"纪录片《典籍里的中国》央视（全22集）","bvid":"BV1B121BGEAf","up":"小仙爱听书","dur":"2125:15","play":712364},
@@ -1982,7 +2060,11 @@ window.FORUM_SERIES = [
     {"t":"【央视纪录片】《典籍里的中国 第一季》全11期 4K高码（2021）","bvid":"BV15xJzzqE2d","up":"YouTube全球速递","dur":"810:11","play":279368},
     {"t":"【公开课】《传习录》（全7讲）王德峰","bvid":"BV151JLziEeJ","up":"YouTube全球速递","dur":"250:54","play":138810},
     {"t":"[典籍里的中国]第一季全1080P-更至第11期[传习录] 20211010","bvid":"BV1Mr4y1P7ua","up":"千古風流","dur":"1104:33","play":123325}
-  ]},
+  ,
+    {"t":"典籍里的中国（下架），完整版央视频APP上见，辛苦了","bvid":"BV1if4y1s7sk","up":"油炸黄金","dur":"5:55","play":3716343},
+    {"t":"【典籍里的中国】泪目！央视又一金句爆出的文学综艺  从典籍中感受先人的治国理念与经世之道","bvid":"BV1mb4y197c9","up":"麦田格写作与阅读","dur":"269:59","play":9384},
+    {"t":"当撒贝宁带着先辈们看到这个盛世时 #典籍里的中国","bvid":"BV1cT411271F","up":"小毅很优秀","dur":"4:17","play":1677},
+    {"t":"撒贝宁道：泪点低莫入，备好纸巾，管理情绪！#典籍里的中国 #典籍里的中国 1 #一代人的回忆 #神级现场 #历史","bvid":"BV1MGtaeAE75","up":"b明月清风ili","dur":"4:9","play":1485}]},
   {cat:"阳明心学", who:"传习录精读", desc:"第 3 步：心学「圣经」原文，配讲解版一天两三条慢慢品。", vids:[
     {"t":"王阳明&传习录","bvid":"BV1G4411L7w8","up":"WithEric","dur":"1205:30","play":2694688},
     {"t":"国学-《传习录》讲读by王德峰(字幕➕ppt版）全7天22课150节","bvid":"BV16Z4y147Ja","up":"芮颖酱","dur":"1778:18","play":2061451},
@@ -1998,7 +2080,10 @@ window.FORUM_SERIES = [
     {"t":"【有声书】知行合一王阳明1+2合集完结 [欲成大事着,必读王阳明] 致良知 何为良知？","bvid":"BV1cwEizYEqK","up":"勤者读书听书","dur":"1607:48","play":22107},
     {"t":"【知行合一五千年】度阴山讲中国史 两部全","bvid":"BV1RdopBaE2m","up":"听书音乐喵","dur":"1457:53","play":6332},
     {"t":"人物-熊逸[王阳明：一切心法1+2]全72集,普通读者罕有知道，王阳明原是一个被翻案的奸佞。《明实录》里的王阳明不但奸邪，还很有几分色厉内荏的丑态，是一个墙头草","bvid":"BV1xo4y1T7cU","up":"听书时间","dur":"1116:45","play":4982}
-  ]},
+  ,
+    {"t":"【战争雷霆】“但使龙城飞将在，不教胡马度阴山！”ZBD-04A 历史&amp;简评&amp;实战","bvid":"BV1pj421o7UX","up":"克拉拉_伊万诺维奇","dur":"20:0","play":154825},
+    {"t":"【MC动画短片】但使龙城飞将在，不教胡马度阴山","bvid":"BV1SA4m1F7PS","up":"初墨撩MC","dur":"3:6","play":142134},
+    {"t":"【狼肉】但使色狱裸仙在,不教流氓度阴山！--《魅魔/SUCCUBUS》第一期","bvid":"BV1oL411N763","up":"狼肉好吃","dur":"14:32","play":137718}]},
   {cat:"阳明心学", who:"心学实践", desc:"第 4 步：在科研、组会、人际里练「省察克治」，把心学真正用起来。", vids:[
     {"t":"【王德峰教授讲座】王阳明心学 （全8讲）","bvid":"BV15Z4y1R76Z","up":"账号已注销","dur":"279:9","play":4505752},
     {"t":"王阳明&传习录","bvid":"BV1G4411L7w8","up":"WithEric","dur":"1205:30","play":2694688},
@@ -2349,7 +2434,7 @@ window.CQUT_SOURCES = {
    想参赛要盯下一届的报名通知，届时本栏目会同步跟进。
    tag: mat=材料化工（对口 Pipeline）| mech=机械车辆 | info=电子信息计算机 | oth=其他
    fit: 是否与本校使用者（化工专业研究生）的专业主线相关 */
-window.CQUT_MATCH_UPDATED = "2026-09-25";
+window.CQUT_MATCH_UPDATED = "2026-09-26";
 window.CQUT_MATCH_TAGS = [
   {k:"mat",  n:"🧪 材料·化工（对口）"},
   {k:"mech", n:"⚙️ 机械·车辆·机器人"},
@@ -2469,10 +2554,16 @@ window.CQUT_MATCHES = [
   /* ===== 正在举办的赛事（真实在办，不是获奖报道） ===== */
   {n:"关于举办 2026 年“天翼 AI”杯重庆高校人工智能大赛（重庆理工大学赛区）的通知", org:"学校（教务处 · 网络信息中心）", lv:"省部级 / 市级",
    st:"正在举办 · 学校赛区", date:"2026-09-24", tag:"oth", fit:0,
-   intro:"【注意：这条是正在举办的赛事，不是获奖报道】学校联合中国电信股份有限公司重庆分公司，依托“智小理”智能体平台举办，面向全校师生，主题是把 AI 落到校园管理、教育教学、科研攻关等场景。这是本栏目里目前唯一一条真正在办的比赛。",
+   intro:"【注意：这条是正在举办的赛事，不是获奖报道】学校联合中国电信股份有限公司重庆分公司，依托“智小理”智能体平台举办，面向全校师生，主题是把 AI 落到校园管理、教育教学、科研攻关等场景。学校通知栏 9 月共两条真·报名赛事，这是其中之一（另一条是逐梦杯足球赛）。",
    todo:"由学校教务处与网络信息中心牵头组织，各学院推荐选手参加。具体报名口径、赛道设置、提交材料与时间节点以源通知正文为准，务必点开源地址把通知读完。",
    help:"这条偏应用型（AI + 业务场景），跟你化工科研主线不是一条道，但攒一次正式参赛经历、拿一个市级奖项是现成机会。我能帮你：① 把通知正文拆成「报名对象 / 赛道 / 时间节点 / 要交什么」四张表；② 帮你把材料改成符合评审口径的申报稿。",
-   url:"https://www.cqut.edu.cn/2025clnr.jsp?urltype=news.NewsContentUrl&wbtreeid=1101&wbnewsid=72172"}
+   url:"https://www.cqut.edu.cn/2025clnr.jsp?urltype=news.NewsContentUrl&wbtreeid=1101&wbnewsid=72172"},
+  {n:"关于举办2026年重庆理工大学第十届“逐梦杯”学生男子五人制足球比赛的通知", org:"学校体育运动委员会（体育部指导 · 学生体育联盟承办）", lv:"校级",
+   st:"正在举办 · 报名进行中", date:"2026-09-21", tag:"oth", fit:0,
+   intro:"【正在举办的赛事，不是获奖报道】第十届“逐梦杯”学生男子五人制足球赛，面向各学院组队。这是学校通知栏里 9 月新发的另一条真·报名赛事——别看是足球，学院组队走的是辅导员/体育委员渠道。",
+   todo:"以学院为单位组队报名。主办：校体育运动委员会；指导：体育部；承办：学生体育联盟。报名口径、赛程、人数限制以源通知正文为准，点开读完再找你们学院体育委员。",
+   help:"跟你科研主线无关，纯属校园生活项。要参加我能帮你：① 把通知拆成「报名条件/人数/时间/联系人」速览；② 给你一份五人制战术速成小抄。",
+   url:"https://www.cqut.edu.cn/info/1101/72107.htm"}
 ];
 
 </script>
@@ -2631,6 +2722,15 @@ window.FUNDS_EXPOSURE = [
     var statusChip = {open:'<span class="chip open">🟢 可报名</span>',
                       soon:'<span class="chip soon">🟠 即将截止</span>',
                       closed:'<span class="chip closed">⚪ 已截止 / 关注下届</span>'};
+    /* st 允许带后缀说明（如「open · 第十七届报名中」），按词首归类，别渲染出 undefined */
+    function chipOf(st){
+      var k = String(st||'').trim().split(/[\s·]/)[0];
+      return statusChip[k] || '<span class="chip closed">⚪ 状态待确认</span>';
+    }
+    function isOpen(st){
+      var k = String(st||'').trim().split(/[\s·]/)[0];
+      return k === 'open' || k === 'soon';
+    }
     var list = COMP.filter(function(c){
       var okScope = (COMP_SCOPE==="all") || (c.scope===COMP_SCOPE);
       var okStatus = (COMP_SCOPE==="world") ? true : (COMP_FILTER==="all" || c.st===COMP_FILTER);
@@ -2651,8 +2751,19 @@ window.FUNDS_EXPOSURE = [
     if(COMP_PAGE < 1) COMP_PAGE = 1;
     var start = (COMP_PAGE - 1) * COMP_PER_PAGE;
     var pageList = list.slice(start, start + COMP_PER_PAGE);
-    document.getElementById("comp-list").innerHTML = pageList.map(function(c){
-      var topChip = (c.scope==="world") ? '<span class="chip world">🌍 全球赛 · 开眼界</span>' : statusChip[c.st];
+    document.getElementById("comp-list").innerHTML = pageList.map(function(c, ci){
+      function cpPrompt(c){
+        return '我想参加【' + c.n + '】（主办：' + c.org + '）。\n' +
+          '我的情况：重庆理工大学化工专业研究生，3 人队（都是化工背景，编程/数模基础接近零），AI 工具齐全（WorkBuddy/GPT/Gemini/Claude），比赛期间可全脱产、平时每天能投 4 小时以上。\n' +
+          '报名/赛期：报名 ' + c.reg + '；赛期 ' + c.run + '。官网：' + c.url + '\n' +
+          '请给我做一份参赛规划，直接给结论、别客套：\n' +
+          '1) 这个比赛适不适合我冲？如果不适合直接说不适合、为什么；\n' +
+          '2) 从今天起的关键时间线倒排（精确到周，标注每个节点的交付物）；\n' +
+          '3) 3 人分工建议：我干啥、AI 代做啥、怎么验收 AI 的产出；\n' +
+          '4) 赛道/选题建议：结合我的化工/材料/双碳/水凝胶吸附剂背景，给出 2-3 个可落地的方向；\n' +
+          '5) 今天就能动手的前三步。';
+      }
+      var topChip = (c.scope==="world") ? '<span class="chip world">🌍 全球赛 · 开眼界</span>' : chipOf(c.st);
       var priMap={1:["#e8553a","🔥 强推"],2:["#2f8f57","👍 可冲"],3:["#9aa0a6","👀 开眼界"]};
       var pm=priMap[c.pri||2];
       var priChip='<span class="chip" style="border-color:'+pm[0]+';color:'+pm[0]+';background:rgba(255,255,255,0)">'+pm[1]+'</span>';
@@ -2672,7 +2783,12 @@ window.FUNDS_EXPOSURE = [
           '<div class="d-row"><span class="d-k">主办</span><span class="d-v">'+esc(c.org)+'</span></div>'+
           (c.team?'<div class="d-row"><span class="d-k">组队</span><span class="d-v">'+esc(c.team)+'</span></div>':'')+
           (c.warn?'<div class="d-row warn-row"><span class="d-k">官网状态</span><span class="d-v">'+esc(c.warn)+'</span></div>':'')+
-          '<div class="d-go"><a class="go" href="'+esc(c.url)+'" target="_blank" rel="noopener noreferrer">官网 / 报名 ↗</a></div>'+
+          (c.sub?'<div class="d-row"><span class="d-k">内含赛怎么挑</span><span class="d-v">'+esc(c.sub)+'</span></div>':'')+
+          '<div class="d-go" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">'+
+            '<a class="go" href="'+esc(c.url)+'" target="_blank" rel="noopener noreferrer">官网 / 报名 ↗</a>'+
+            '<button class="copybtn" data-copy="cp-'+ci+'">📋 复制参赛指令</button>'+
+          '</div>'+
+          '<textarea id="cp-'+ci+'" style="display:none" aria-hidden="true">'+esc(cpPrompt(c))+'</textarea>'+
         '</div>'+
       '</article>';
     }).join("");
@@ -2733,6 +2849,17 @@ window.FUNDS_EXPOSURE = [
     if(vc && vc.scrollIntoView) vc.scrollIntoView({behavior:"smooth", block:"start"});
   });
   document.getElementById("comp-list").addEventListener("click", function(ev){
+    var btn = ev.target.closest ? ev.target.closest(".copybtn") : null;
+    if(btn){
+      var id = btn.getAttribute("data-copy");
+      var el = id && document.getElementById(id);
+      if(!el) return;
+      var txt = el.innerText || el.textContent;
+      function done(){ var t=btn.textContent; btn.textContent="已复制✓"; setTimeout(function(){btn.textContent=t;},1400); }
+      function fb(){ try{ var r=document.createRange(); r.selectNode(el); var sel=getSelection(); sel.removeAllRanges(); sel.addRange(r); document.execCommand("copy"); sel.removeAllRanges(); done(); }catch(e){} }
+      if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done, fb); } else { fb(); }
+      return;
+    }
     var head = ev.target.closest ? ev.target.closest(".cmp-head") : null;
     if(!head) return;
     var art = head.parentElement;
@@ -2884,7 +3011,27 @@ window.FUNDS_EXPOSURE = [
         '<div class="grid">'+cards+'</div>'+
       '</section>';
     }).join("");
-    document.getElementById("main").innerHTML = mainHtml;
+    /* —— 今日总结（版块头条 + 一键让 AI 深度解读）—— */
+    var sumHeads = secs.map(function(s){ return '【'+s.label+'】'+(s.items[0]? s.items[0].title : '（本版块今日无内容）'); }).join('\n');
+    var dsumPrompt = '以下是 AI HOT 今日日报（'+dateText+'）各版块头条：\n'+sumHeads+'\n\n'+
+      '我的身份：重庆理工大学化工专业研究生，主线是改 SCI 论文、备赛数学建模、推进硅负极/水凝胶实验，零编程、靠 AI 代做。\n'+
+      '请用中文回答，直接给结论：\n'+
+      '1) 用 3 句话总结今天 AI 圈最重要的事；\n'+
+      '2) 挑出跟「论文改稿 / 竞赛 / 实验效率」直接相关的 1-3 条，说明我能怎么用上；\n'+
+      '3) 有没有值得我今天就去试的工具或技巧（给最小上手步骤）；\n'+
+      '4) 其余大事件一句话带过。';
+    var sumHtml = ''+
+      '<section class="block" id="daily-summary">'+
+        '<div class="block-head"><h2>📌 今日总结</h2><span class="block-count">'+secs.length+' 版块头条</span></div>'+
+        '<div class="grid"><article class="card" style="max-width:none">'+
+          secs.map(function(s){
+            return '<div style="margin:7px 0"><b>'+esc(s.label)+'：</b>'+esc(s.items[0]?s.items[0].title:'（无）')+'</div>';
+          }).join('')+
+          '<div style="margin-top:12px"><button class="copybtn" id="dsumCopy">📋 复制「让 AI 深度解读今日日报」指令</button></div>'+
+          '<textarea id="dsum-prompt" style="display:none" aria-hidden="true">'+esc(dsumPrompt)+'</textarea>'+
+        '</article></div>'+
+      '</section>';
+    document.getElementById("main").innerHTML = mainHtml + sumHtml;
     document.getElementById("main").style.display = "";
 
     var srcUrl = (report.links && report.links.aihot) || "https://aihot.virxact.com/";
@@ -2990,6 +3137,17 @@ window.FUNDS_EXPOSURE = [
       .catch(function(err){ setStateError("无法获取日报列表：" + (err && err.message ? err.message : err)); });
   }
   document.getElementById("dateSel").addEventListener("change", function(e){ goto(e.target.value); });
+  /* 今日总结：复制「AI 深度解读」指令（事件委托，日报每次重渲染都生效） */
+  document.getElementById("main").addEventListener("click", function(ev){
+    var btn = ev.target.closest ? ev.target.closest("#dsumCopy") : null;
+    if(!btn) return;
+    var el = document.getElementById("dsum-prompt");
+    if(!el) return;
+    var txt = el.value || el.innerText || el.textContent;
+    function done(){ var t=btn.textContent; btn.textContent="已复制✓ 去新窗口粘贴给 AI"; setTimeout(function(){btn.textContent=t;},1800); }
+    function fb(){ try{ el.style.display=""; el.select(); document.execCommand("copy"); el.style.display="none"; done(); }catch(e){} }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done, fb); } else { fb(); }
+  });
   document.getElementById("newerBtn").addEventListener("click", function(){ var i=indexOfDate(CURRENT); if(i>0) goto(INDEX[i-1].date); });
   document.getElementById("olderBtn").addEventListener("click", function(){ var i=indexOfDate(CURRENT); if(i<INDEX.length-1) goto(INDEX[i+1].date); });
   document.getElementById("todayBtn").addEventListener("click", function(){
