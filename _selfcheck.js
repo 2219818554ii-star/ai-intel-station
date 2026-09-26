@@ -170,7 +170,18 @@ ok(cqHtml.includes('💰') && cqHtml.includes('🎓'), '理工卡片显示细分
 /* [2c-2] 各学院赛事区块 */
 const MATCHES = sandbox.window.CQUT_MATCHES || [];
 const mHtml = (store['cqut-match-list']||{}).innerHTML || '';
-ok(MATCHES.length === 15, `各学院赛事条数 = ${MATCHES.length}（期望 15）`);
+ok(MATCHES.length === 16, `各学院赛事条数 = ${MATCHES.length}（期望 16）`);
+/* 内容准确性（内容级核对脚本 _audit_content.py 发现的问题回补断言）：
+   原来 15 条全是「获奖结果报道」，标题还是我按赛事名自己写的、状态一律写「已出成绩」，
+   读者会以为还能报名。现在要求：状态必须写明开局/奖项，获奖类必须显式声明不是报名入口，
+   且必须至少有一条「正在举办」的真在办赛事。 */
+ok(MATCHES.every(m => /^(已结束|正在举办)/.test(m.st)),
+   `每条赛事状态都写明了开局（实际 ${MATCHES.filter(m=>/^(已结束|正在举办)/.test(m.st)).length}/${MATCHES.length} 条）`);
+ok(MATCHES.filter(m => m.st.indexOf('正在举办') === 0).length >= 1,
+   `至少 1 条「正在举办」的赛事（实际 ${MATCHES.filter(m => m.st.indexOf('正在举办') === 0).length} 条）`);
+ok(MATCHES.filter(m => m.st.indexOf('已结束') === 0)
+          .every(m => m.intro.indexOf('不是报名入口') >= 0),
+   '每条已结束的赛事都在正文里写明「不是报名入口」，不误导');
 ok(mHtml.includes('具体要干啥') && mHtml.includes('我能帮你做啥') && mHtml.includes('简介'), '赛事卡片含「简介 / 具体要干啥 / 我能帮你做啥」三行');
 ok(cards('cqut-match-list') === MATCHES.length, `赛事卡片数 = ${cards('cqut-match-list')}，与数据条数一致`);
 ok(MATCHES.every(m => m.intro && m.todo && m.help && m.url && m.org && m.date && m.lv && m.st), '每条赛事的 intro/todo/help/url/org/date/lv/st 均完整');
