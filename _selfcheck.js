@@ -12,7 +12,7 @@ const tabs = [...html.matchAll(/data-tab="([^"]+)"/g)].map(m => m[1]);
 ok(tabs.length === 8, `tab 数量 = ${tabs.length}（期望 8）: ${tabs.join(', ')}`);
 ok(['daily','rank','comp','learn','ted','forum','cqut','funds'].every(v => html.includes(`id="view-${v}"`)), 'view 区块 = 8/8');
 ok(html.includes('["daily","rank","comp","learn","ted","forum","cqut","funds"]'), 'showTab 数组含全部 8 个视图');
-ok(!/<script src="(competitions|ted|forum|rank|cqut|funds)\.js"/.test(html), '六个数据文件均已内联（无外链脚本）');
+ok(!/<script src="(competitions|ted|forum|rank|cqut|nation|funds)\.js"/.test(html), '七个数据文件均已内联（无外链脚本）');
 const httpLeft = count(html, /href="http:\/\//g);
 ok(httpLeft === 0, `无 http:// 明文链接（剩余 ${httpLeft}）`);
 
@@ -218,6 +218,60 @@ ok(!/<details id="cqutMatchFold"[^>]*\bopen\b/.test(html), '折叠块默认收�
 ok((store['cqutMatchCount']||{}).textContent && String((store['cqutMatchCount']||{}).textContent).includes('共'), `折叠标题计数徽章: ${(store['cqutMatchCount']||{}).textContent}`);
 ok(String(((store['cqutFoldHint']||{}).textContent)||'').includes('展开'), '折叠提示初始为「展开 ▾」');
 ok(html.includes('cqutMatchFoldOpen'), '折叠状态写入 localStorage（记住用户选择）');
+
+/* [2b] 全国高校赛事扩展（罗浩 2026-09-26：不只看重理工，扩到全国，重点重庆；喜报保留） */
+function fireNFilter(cat){
+  const fn = (listeners['nationMatchFilters']||{}).click;
+  if(!fn){ ok(false, 'nationMatchFilters 无 click 监听'); return; }
+  const b = { getAttribute:(k)=> k==='data-n' ? cat : null,
+    classList:{add(){},remove(){},contains(){return false;}} };
+  fn({ target: { closest:(sel)=> sel==='.filterbtn' ? b : null } });
+}
+/* 顺序锁定：比赛块仍在通知滤波器之前（罗浩明确「就这样」，不许再动顺序） */
+const iFold = html.indexOf('<details id="cqutMatchFold"');
+const iNotiF = html.indexOf('id="cqutFilters"');
+ok(iFold > 0 && iNotiF > 0 && iFold < iNotiF, '顺序未回退：比赛折叠块仍在通知滤波器之前');
+const iMatchList = html.indexOf('id="cqut-match-list"');
+const iNationList = html.indexOf('id="nation-list"');
+ok(iMatchList > 0 && iNationList > 0 && iMatchList < iNationList, '顺序未回退：本校赛事排在「全国高校赛事」之前');
+
+const NM = sandbox.window.NATION_MATCHES || [];
+ok(NM.length >= 20, `全国高校赛事条目 = ${NM.length}（要求 >=20）`);
+const missF = NM.filter(x => !x.n || !x.org || !x.lv || !x.st || !x.intro || !x.todo || !x.help || !x.url);
+ok(missF.length === 0, `每条赛事字段齐全（缺失 ${missF.length} 处）`);
+const nmBadUrl = NM.filter(x => !/^https?:\/\//.test(x.url || ''));
+ok(nmBadUrl.length === 0, `全国赛事 url 均为合法 http(s)（异常 ${nmBadUrl.length} 条）`);
+const isCQx = x => /重庆|长江师范|西南大学|西南政法/.test(x.org || '');
+const cqCnt = NM.filter(isCQx).length;
+ok(cqCnt >= 15, `重庆市内条目 = ${cqCnt}（要求 >=15，重点重庆）`);
+const openCnt = NM.filter(x => x.st === '报名中').length;
+ok(openCnt >= 5, `「正在报名」条目 = ${openCnt}（要求 >=5）`);
+ok((store['nationMatchCount']||{}).textContent && String((store['nationMatchCount']||{}).textContent).includes('全国'),
+   `全国计数徽章: ${(store['nationMatchCount']||{}).textContent}`);
+ok(cards('nation-list') === NM.length, `全国赛事卡片 = ${cards('nation-list')}（=数据 ${NM.length} 条）`);
+const nHtml = (store['nation-list']||{}).innerHTML || '';
+ok(nHtml.includes('电化学综合技能竞赛') && nHtml.includes('化学实验创新设计大赛'), '重点对口的全国赛事已落地渲染');
+ok(nHtml.includes('跟你专业对口') && nHtml.includes('正在报名'), '对口 / 正在报名 标记已渲染');
+fireNFilter('cq');
+const cqCards = cards('nation-list');
+ok(cqCards === cqCnt, `筛「重庆市内」→ ${cqCards} 张（期望 ${cqCnt}）`);
+fireNFilter('out');
+ok(cards('nation-list') === NM.length - cqCnt, `筛「全国其他」→ ${cards('nation-list')} 张（期望 ${NM.length - cqCnt}）`);
+fireNFilter('open');
+ok(cards('nation-list') === openCnt, `筛「正在报名」→ ${cards('nation-list')} 张（期望 ${openCnt}）`);
+fireNFilter('all');
+ok(cards('nation-list') === NM.length, `筛「全部」恢复 ${cards('nation-list')} 张`);
+/* 信源直达 */
+ok(html.includes('id="nation-sources"'), '全国高校信源直达容器存在');
+const nSrcHtml = (store['nation-sources']||{}).innerHTML || '';
+const nSrcN = count(nSrcHtml, /class="top-btn"/g);
+ok(nSrcN >= 20, `全国高校信源直达链接 = ${nSrcN} 个（要求 >=20）`);
+ok(nSrcHtml.includes('重庆大学') && nSrcHtml.includes('西南大学') && nSrcHtml.includes('重庆邮电'), '渝校信源已落地（重大/西大/重邮）');
+/* 喜报保留：本校赛事区仍应含 [喜讯] 获奖通报 */
+const mHtml2 = (store['cqut-match-list']||{}).innerHTML || '';
+const xibao = count(mHtml2, /\[喜讯\]/g);
+ok(xibao >= 3, `获奖喜报保留：本校赛事区仍含 ${xibao} 条 [喜讯]`);
+
 fireFilter('forumFilters', '国学讲坛');
 const gxCnt = FS.filter(s=>s.cat==='国学讲坛').length;
 ok(cards('forum-list') === gxCnt, `讲坛「国学讲坛」→ ${cards('forum-list')} 个系列（期望 ${gxCnt}）`);

@@ -9,6 +9,7 @@ ted = os.path.join(base, "ted.js")               # TED 演讲数据
 forum = os.path.join(base, "forum.js")           # 成长讲坛数据（企业家/国学/心学）
 rank = os.path.join(base, "rank.js")             # 实力排行榜数据（每日自动更新）
 cqut = os.path.join(base, "cqut.js")              # 重庆理工通知数据（学校/学院/部门/学生会）
+nation = os.path.join(base, "nation.js")          # 全国高校赛事（重点重庆）
 funds = os.path.join(base, "funds.js")            # 基金看板数据（持仓）
 out_deploy = os.path.join(base, "index.html")    # 部署版（GitHub Pages 服务它）
 out_gh     = os.path.join(base, "gh-pages", "index.html")
@@ -41,6 +42,11 @@ assert cqut_marker in html, "cqut marker not found in index.src.html!"
 cqut_data = open(cqut, encoding="utf-8").read()
 standalone = standalone.replace(cqut_marker, "<script>\n" + cqut_data + "\n</script>", 1)
 
+nation_marker = '<script src="nation.js"></script>'
+assert nation_marker in html, "nation marker not found in index.src.html!"
+nation_data = open(nation, encoding="utf-8").read()
+standalone = standalone.replace(nation_marker, "<script>\n" + nation_data + "\n</script>", 1)
+
 funds_marker = '<script src="funds.js"></script>'
 assert funds_marker in html, "funds marker not found in index.src.html!"
 funds_data = open(funds, encoding="utf-8").read()
@@ -50,7 +56,7 @@ for p in (out_deploy, out_gh, out_local):
     os.makedirs(os.path.dirname(p), exist_ok=True)
     open(p, "w", encoding="utf-8").write(standalone)
 
-print("OK  bytes=%d  资源库=%s  比赛内联=%s  TED内联=%s(%d)  讲坛内联=%s(%d)  排行内联=%s  理工内联=%s(%d)  基金内联=%s(%d)" % (
+print("OK  bytes=%d  资源库=%s  比赛内联=%s  TED内联=%s(%d)  讲坛内联=%s(%d)  排行内联=%s  理工内联=%s(%d)  全国内联=%s(%d)  基金内联=%s(%d)" % (
     len(standalone),
     "全网优质 AI 教学资源库" in standalone,
     marker not in standalone,
@@ -58,6 +64,7 @@ print("OK  bytes=%d  资源库=%s  比赛内联=%s  TED内联=%s(%d)  讲坛内�
     forum_marker not in standalone, standalone.count('{cat:"'),
     rank_marker not in standalone,
     cqut_marker not in standalone, cqut_data.count('{t:"'),
+    nation_marker not in standalone, nation_data.count('{ n:"'),
     funds_marker not in standalone, funds_data.count('{ n: "'),
 ))
 print("deploy ->", out_deploy)

@@ -271,7 +271,7 @@ PROBE = [
     ("arXiv（如用到）", "https://arxiv.org"),
 ]
 WAF = (412, 403, 503)  # 学校站 WAF/反爬，不代表链接失效
-hard_bad, waf_list, ok_list = [], [], []
+hard_bad, waf_list, ok_list, soft_note = [], [], [], []
 for name, url in PROBE:
     try:
         req = urllib.request.Request(url, headers={"User-Agent": UA})
@@ -287,8 +287,15 @@ for name, url in PROBE:
         else:
             hard_bad.append("%s → %d" % (name, e.code))
     except Exception as e:
-        hard_bad.append("%s → 连不上（%s）" % (name, getattr(e, "reason", e)))
-for line in ok_list + waf_list:
+        # 「如用到」类探针：站点里压根没这个链接，网络不通只算提示，不能判死
+        if "（如用到）" in name:
+            if '"%s"' % url.split("//")[-1] in html or url in html:
+                hard_bad.append("%s → 页面在引用它但连不上（%s）" % (name, getattr(e, "reason", e)))
+            else:
+                soft_note.append("%s → 未使用，跳过（%s）" % (name, getattr(e, "reason", e)))
+        else:
+            hard_bad.append("%s → 连不上（%s）" % (name, getattr(e, "reason", e)))
+for line in ok_list + waf_list + soft_note:
     print("      %s" % line)
 if hard_bad:
     bad("抽检到 %d 个打不开的链接：%s" % (len(hard_bad), "、".join(hard_bad)))

@@ -685,15 +685,30 @@
       <summary id="cqutMatchSummary" style="cursor:pointer;list-style:none;padding:14px 18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;user-select:none">
         <span style="font-size:19px">🏅 比赛动态 · 正在举办的排最前</span>
         <span class="tier t-none" id="cqutMatchCount">—</span>
+        <span class="tier t-none" id="nationMatchCount" style="background:#eef2ff;color:#4f46e5">全国已扩</span>
         <span style="font-size:12px;color:#94a3b8;margin-left:auto;flex:none" id="cqutFoldHint">展开 ▾</span>
       </summary>
       <div style="padding:2px 18px 16px;border-top:1px dashed var(--line)">
-        <p style="font-size:13px;color:#64748b;margin:12px 0 0">你想报名而不是看别人获奖——所以这块置顶了。实抓自学校/学院官网，URL 全部真实可点。实话：学院通知栏平时基本只发<b>获奖通报</b>，真·报名赛事很少，要打全国赛请配合 <b>🏁 可报名比赛</b> 那个 tab 一起看。数据更新于 <span id="cqut-match-updated"></span></p>
-        <div class="cmp-toolbar" id="cqutMatchFilters" style="margin-top:12px"></div>
+        <p style="font-size:13px;color:#64748b;margin:12px 0 0">你想报名而不是看别人获奖——所以这块置顶了。范围已经从<b>只看重理工</b>扩到<b>全国高校</b>，重点捞重庆市内各校的通知，每所学校都写清「我该关注啥」，URL 全部真实可点。<b>获奖喜报也一并留着</b>——那是我们学校的战绩，不是垃圾。数据更新于 <span id="cqut-match-updated"></span>；全国高校赛事部分更新于 <span id="nation-updated"></span></p>
+
+        <div style="font-size:15px;font-weight:800;color:var(--ink);margin:18px 0 9px;padding-left:10px;border-left:3px solid var(--brand)">🏫 重庆理工本校（含获奖喜报）</div>
+        <div class="cmp-toolbar" id="cqutMatchFilters" style="margin-top:4px"></div>
         <div class="cmp-list" id="cqut-match-list"></div>
-        <div class="lk-tip" style="margin-top:16px">
-          💡 <b>怎么筛：</b>你学化工材料，只看 <b>🧪 材料·化工（对口）</b> 那组就够了。那两条是实验技能赛，<b>考的正是你天天在实验室做的动手活</b>，含金量最高；机械机器人那组看着热闹，跟你专业主线基本不搭。
+
+        <div style="font-size:15px;font-weight:800;color:var(--ink);margin:22px 0 9px;padding-left:10px;border-left:3px solid #4f46e5">🌏 全国高校赛事 · 重庆优先</div>
+        <p style="font-size:12.5px;color:#64748b;margin:0 0 10px" id="nation-note"></p>
+        <div class="cmp-toolbar" id="nationMatchFilters" style="margin-top:0"></div>
+        <div class="cmp-list" id="nation-list"></div>
+
+        <div class="lk-tip" style="margin-top:18px">
+          💡 <b>怎么筛：</b>你学化工材料，重点看打了 <b>🎯</b> 的那几条——<b>哈工大电化学竞赛</b>（研究生组，考的正是你天天做的电化学测量）和<b>云南大学化学实验创新设计大赛</b>（报名窗口到 11/30，正好是你现在的空档）是两条最实际的路。<b>重庆市内的市赛</b>门槛低、名额多，适合当保底。机械机器人那组看着热闹，跟你专业主线基本不搭。
         </div>
+
+        <div class="view-head" style="margin-top:22px">
+          <h2 style="font-size:18px">🔗 全国高校信源直达（各校教务处 / 竞赛官网）</h2>
+          <p>上面哪所学校没抓到，直接点这里去它官网看最新通知。</p>
+        </div>
+        <div id="nation-sources"></div>
       </div>
     </details>
         <div class="cmp-toolbar" id="cqutFilters" style="margin-top:26px">
@@ -2588,6 +2603,294 @@ window.CQUT_MATCHES = [
 
 </script>
   <script>
+/* ==========================================================================
+ * nation.js —— 全国高校赛事（重点重庆）
+ * --------------------------------------------------------------------------
+ * 数据抓自各高校官网 / 主管部门官网，URL 全部为真实可点地址。
+ * 抓取日期：2026-09-26
+ * 字段说明：
+ *   n  赛事名   org 发布/牵头学校   lv 级别   reg 主办方
+ *   date 发布日  st 状态   dl 报名截止   intro 简介
+ *   todo 具体要干啥   help 我能帮你做啥   url 源地址
+ *   fit 是否跟罗浩专业对口   rego 是否研究生可报（研 1 / 本 2 …）
+ * ========================================================================== */
+window.NATION_UPDATED = "2026-09-26";
+window.NATION_NOTE =
+  "范围已从「只盯重庆理工」扩到全国高校，抓的是各校官网 / 市教委 / 全国赛官网的原文，" +
+  "每条都带真实可点链接。重庆的排在前面，跟你的专业对口的打了 🎯 标。";
+
+/* ---------------- 一、全国高校赛事条目（重庆在前） ---------------- */
+window.NATION_MATCHES = [
+  /* ===== 重庆市内（重点） ===== */
+  {
+    n:"第四届重庆市大学生力学竞赛", org:"重庆交通大学土木工程学院", lv:"市级",
+    rego:"研 1 · 本 2", date:"2026-09-21", st:"报名中", dl:"2026-10-15",
+    fit:true,
+    intro:"重庆市教委系统办的市级竞赛，每两年一届。竞赛覆盖《理论力学》和《材料力学》两门课的理论与实验，闭卷笔试、一套卷。重点是<b>灵活用基础知识去分析和解决问题</b>，不是背公式。",
+    todo:"闭卷笔试，理力+材力合成一张卷。报名要实名进竞赛 QQ 群（1103672282），在群里填报名表，入群备注「姓名-学院-年级专业」。全体在校本科生和研究生都能报，不限专业。",
+    help:"我能帮你：① 按你说的「接触角≥3 个数据点」那套严谨标准，帮你整理一份理力+材力的<b>公式速查与易错点清单</b>，考前一周过一遍；② 拿往届真题帮你逐题拆解建模思路（比如约束受力分析那类），做成一张能直接用的解题模板；③ 帮你起草一份报名信息表，避免填错被刷。",
+    url:"https://civil.cqjtu.edu.cn/info/1004/13299.htm"
+  },
+  {
+    n:"第十八届全国大学生数学竞赛 · 重庆赛区", org:"长江师范学院（考点）", lv:"国家级（市赛区）",
+    rego:"本 2 · 研 1", date:"2026-09-08", st:"报名中", dl:"以本校教务通知为准",
+    fit:false,
+    intro:"中国数学会主办，是我校（重大/西大/重邮/重交/重科/长师等）各校都在组织的一项老牌国家级竞赛。分数学专业组、非数学专业组（A 类理工、B 类经管文史）。初赛 2026 年 11 月 14 日上午 9:00–11:30，决赛 2027 年 4 月在大连理工。",
+    todo:"非数学专业组按现行高等数学教学内容命题。报名费 100 元/人。重庆赛区按数学类/非数学类分别评奖，市赛一等奖再推优参加全国决赛。关键限制：<b>专业代码 07（理科）、08（工科）的非数学类考生只能报非数学 A 类（理工类）</b>，报错一律成绩无效。",
+    help:"我能帮你：① 帮你把报名类别核对清楚（你是化工，专业代码 08，只能报非数学 A 类）；② 按高数范围整理一份<b>竞赛难度版</b>题单——比期末题灵活，重点在综合题和证明题；③ 如果你要冲市赛一等奖，我帮你列一套三周刷题计划。",
+    url:"https://jwc.yznu.edu.cn/2026/0908/c1802a285545/page.htm"
+  },
+  {
+    n:"2026 年重庆市大学生电子设计竞赛", org:"长江师范学院教务处", lv:"市级",
+    rego:"本 2 · 研 1", date:"2026-04-20", st:"已结束（市级）", dl:"—",
+    fit:false,
+    intro:"重庆市教委公布的 2026 年市级普通本科高校学科竞赛项目之一，面向全市高校。市赛形式通常为竞赛制，重点考工程实践素养与创新思维。",
+    todo:"各校自行组织校赛再报市赛。电子设计类偏电路、嵌入式、信号处理，跟你的化工主线不搭，但<b>如果队里缺个会搭电路的人</b>，可以考虑组队蹭市级奖。",
+    help:"我能帮你：① 找往届市赛的题型和评奖规则；② 如果你想换赛道试试，我帮你评估投入产出（这类赛要耗 hardware 时间，赛期跟实验室排期容易撞）。",
+    url:"https://jwc.yznu.edu.cn/4141/list2.htm"
+  },
+  {
+    n:"2026 年重庆市大学生物理创新竞赛（校内选拔）", org:"重庆科技大学", lv:"市级（校内选拔）",
+    rego:"本 2", date:"2026-07-30", st:"已结束", dl:"—",
+    fit:false,
+    intro:"2026 年市级学科竞赛项目。各承办校（重大、西大、重邮、重交、重科、长师等）都走「校赛选拔 → 市赛」这条路。西南大学那边挂的兄弟赛是「第七届大学生物理实验竞赛暨第十二届全国大学生物理实验竞赛（创新）选拔赛」，个人参赛、每人只能进一个赛道。",
+    todo:"报名走微信公众号或校内 QQ 群，预赛交实验作品，占总成绩 30%，进决赛后现场答辩。参赛资格通常卡「2026 年秋季在籍二年级以上本科生」。",
+    help:"我能帮你：① 查清重庆赛区这类的<b>报名通道和校赛承办学院</b>，别错过下一届；② 如果你要做实验装置类作品，我帮你把方案拆成可打的分点（器件选型 → 现象观测 → 误差分析 → 讲清楚为什么）。",
+    url:"https://jw.cqust.edu.cn/index.htm"
+  },
+  {
+    n:"重庆市首届大学生 AIGC 视频大赛", org:"重庆市经信委 + 市教委", lv:"市级",
+    rego:"研 1 · 本 2", date:"2026-04-13", st:"已结束", dl:"2026-05-06",
+    fit:false,
+    intro:"渝经信发〔2026〕20 号，重庆市经信委与市教委联合主办。设乡村三农、文旅景点、未来产业、商贸交流、重庆故事五个赛道。全程要用 AIGC 技术制作，严禁抄袭代做。",
+    todo:"团队参赛（≤5 人），<b>可跨专业跨学院组队，但不能跨校</b>。交 MP4（5–5分30秒，16:9，1080P 以上，配中文字幕）+《AIGC 创作说明》+《参赛报名表》。",
+    help:"这条对你的另一条线有直接价值：如果你手上同时在做<b>《灾变炉心》</b>或要交 AI 主题的作品，AIGC 视频是同一套工具。我能帮你：① 把分镜脚本直接写成 AIGC 可执行的提示词序列；② 帮你搭「创作说明」的规范写法，这块最容易被评委挑毛病。",
+    url:"https://jjxxw.cq.gov.cn/zwgk_213/zcwj/qtwj/202604/t20260416_15616927.html"
+  },
+  {
+    n:"第五届重庆市大学生「大数据+」应用创新大赛", org:"重庆市教育委员会主办", lv:"市级",
+    rego:"研 1 · 本 2", date:"2026-04", st:"报名通道已开（市级项目）", dl:"见大赛官网",
+    fit:false,
+    intro:"渝教高函〔2026〕44 号公布的市级竞赛项目。赛道一「数据智能体应用」是团队赛（3 人 1 队，可跨年级跨专业、<b>不得跨校</b>，每校最多 12 支）；赛道二「金融安全知识比拼」是个人赛，用「东方财富」APP 线上答题。",
+    todo:"赛道一初赛线上上机实操，前 35% 进市赛决赛（现场汇报答辩）。赛道二个人报名，走「校内比拼 → 市赛评奖 → 推荐国赛」。",
+    help:"我能帮你：① 找赛道一往届的实操题类型和评分细则；② 你说自己数模和编程基础接近零——这类赛<b>不写代码也能打</b>，赛道二纯答题、赛道一重在讲清楚思路，我可以帮你把「讲清楚」的部分写成汇报框架。",
+    url:"https://es.swupl.edu.cn/tzgg/a7c36bff32be4fb0b718276ec0cd40a4.htm"
+  },
+  {
+    n:"2026 年重庆市大学生创新方法大赛（TRIZ）", org:"重庆市科协 + 市教委 + 市科技局", lv:"市级",
+    rego:"研 1 · 本 2", date:"2026-06-12", st:"市级项目（上一届周期）", dl:"各校推荐 8-15 日前",
+    fit:true,
+    intro:"面向全日制高校在读大专生、本科生、研究生，以及毕业 5 年内的创业者。分发明制作、工艺改进、创新设计、生活创意、创业、高职高专六类。重点考技术方案的<b>新颖性、原创性和实用性</b>。",
+    todo:"每校推荐优秀作品报名市赛初赛，评委会线上初评选出进决赛的作品，决赛线下举行。特等奖和一、二、三等奖，优秀作品可推荐参加「中国 TRIZ 杯」全国赛。",
+    help:"这条跟你手上<b>硅基负极涂布麻点</b>那条课题是天然对接的——「工艺改进」这一类就是要解决生产线上真实存在的缺陷。我能帮你：① 把麻点问题的成因链条用 TRIZ 的矛盾矩阵重新梳理一遍，给你几个候选解法；② 帮你写一份能打的「工艺改进类」申报材料。",
+    url:"https://www.cqrb.cn/PCruiping/2026-06-12/2697012_pc.html"
+  },
+  {
+    n:"2026 年全国大学生人力资源管理知识技能竞赛 · 重庆市赛", org:"重庆交通大学经管学院", lv:"市级",
+    rego:"本 2", date:"2026-09-11", st:"报名中", dl:"2026-09-18",
+    fit:false,
+    intro:"渝教高函〔2026〕44 号市级竞赛项目，市教委主办、重庆科技大学承办。只接受高校主体报名，<b>不接受个人报名，不得跨校跨层次组队</b>。",
+    todo:"3 名选手 1 队 + 不超过 2 名指导老师。赛场三段：人力资源理论基础（30 分钟，20%）、技能实操（100 分钟，40%）、大数据分析与经营决策（270 分钟，40%）。校赛 9/19–21，市赛 10/31–11/1。全程免费。",
+    help:"这条跟你的专业主线完全不搭，我直说。除非你想刷一个市级奖用于评优，否则不建议。真要打，我能帮你把三段赛制拆成可备的复习清单。",
+    url:"http://jgxy.cqjtu.edu.cn/info/1226/6920.htm"
+  },
+  {
+    n:"重庆交通大学首届低空经济创新大赛", org:"重庆交通大学", lv:"市级（新赛）",
+    rego:"研 1 · 本 2", date:"2026-08-29", st:"报名中", dl:"见校通知",
+    fit:false,
+    intro:"重庆交大牵头的新设赛事，跟着低空经济这个热点走。属于重庆市级新赛，竞争基数目前还不大，冲奖的性价比可能不错。",
+    todo:"以校内通知为准，通常走学院转发 + 官网列表发布的方式。建议直接盯教务处「学科竞赛」栏目。",
+    help:"我能帮你：① 持续帮你盯这个栏目，有新通知第一时间给你；② 如果低空经济方向想做出一个能打的方案，我帮你把「技术可行性 → 场景落地 → 商业模式」三段论搭出来。",
+    url:"https://jw.cqjtu.edu.cn/jxxx/tzgg1/xkjs.htm"
+  },
+  {
+    n:"2026 年重庆大学大学生创新大赛（高教主赛道 + 青年红色筑梦之旅）", org:"重庆大学本科生院", lv:"校级（选国赛）",
+    rego:"研 1 · 本 2", date:"2026-04-21", st:"已结束（报名 5/20 截止）", dl:"2026-05-20",
+    fit:true,
+    intro:"中国国际大学生创新大赛（原互联网+）的校赛层。往届金奖银奖项目<b>不能重复报今年的同一赛道</b>。参赛人员（不含产业赛道教师）年龄不超过 35 岁。团队 3–15 人。",
+    todo:"报名走「学生交叉创新中心」网站的活动报名通道 https://sxic.cqu.edu.cn ，报名开放 4/20–5/20 12:00。流程：组队报名 → 网评初赛（5 月）→ 校赛决赛（5 月）→ 市赛国赛（7–9 月，按上级通知遴选）。金奖 50、银奖 50、铜奖 100。",
+    help:"这条对你有两条实际用处：① <b>时间上是你 9/23–9/27 数模国赛的天然练兵</b>——立项书、路演答辩这套流程，提前走一遍能让你赛期心态稳很多；② 你的<b>硅基负极 + 柚子皮氮掺杂碳</b>双缓冲层项目本身就是个能立项的题，我可以帮你把实验室数据整理成立项书的一页「 innovative point」。",
+    url:"https://ugs.cqu.edu.cn/info/1003/2882.htm"
+  },
+  {
+    n:"重庆大学 2026 年春季数学建模竞赛暨全国大学生数学建模竞赛选拔赛", org:"重庆大学数学与统计学院", lv:"校级（选国赛）",
+    rego:"本 2 · 研 1", date:"2026-03", st:"已结束", dl:"2026-05-03",
+    fit:true,
+    intro:"「高教社杯」全国大学生数学建模竞赛的校内选拔，也是全球规模最大的学科竞赛（2025 年 68311 支队伍报名）。原则上二、三年级本科生，优先修过《数学实验》《数学模型》的同学。",
+    todo:"3 人 1 队，可跨院系组队。报名 3/20–5/3，走校内报名网站。获优胜奖及以上须参加暑期数模集训，通过后可拿 9 月国赛资格。参加国赛获奖在推免时会按规定加分。",
+    help:"这条跟你 9/23–9/27 要打的<b>「华为杯」研究生数模</b>是同一套能力，只是赛道不同（本科组 vs 研究生组）。我能帮你：① 拿这套赛题的历年优秀论文给你拆建模思路；② 帮你判断你现在的组队（3 人化工、零数模基础）该把重心放在哪类题上——<b>别碰开方类，选数据清晰、结论可解释的题</b>。",
+    url:"https://sci.cqu.edu.cn/info/1176/8782.htm"
+  },
+  {
+    n:"第二十届 iCAN 大学生创新创业大赛 · 重庆大学选拔赛", org:"共青团重庆大学委员会", lv:"校级（选国赛）",
+    rego:"研 1 · 本 2", date:"2026-04-23", st:"已结束", dl:"2026-05-31",
+    fit:true,
+    intro:"iCAN 要求参赛作品是<b>可以演示和操作的产品或系统</b>，必须是学生原创、不收导师课题。创业赛道要求团队已用自主完成的创新项目注册公司、持股≥10%。",
+    todo:"报名走大赛官网 www.g-ican.com。流程：参赛报名（4–5 月）→ 校赛路演（6–7 月）→ 市赛（8–10 月）→ 全国总决赛（11–12 月）。",
+    help:"关键情报：<b>「谢绝任何形式的导师课题参赛」</b>——所以不能拿实验室的课题去报。但你可以把「柚子皮衍生氮掺杂碳」做成<b>材料端的应用演示装置</b>（比如一个自制的小型 Si 负极克容量测试台），算学生原创产品。我能帮你画这个装置的功能框图。",
+    url:"https://youth.cqu.edu.cn/info/1013/24813.htm"
+  },
+  {
+    n:"重庆大学第十五届「挑战杯」电工电子技能竞赛", org:"共青团重庆大学委员会", lv:"校级",
+    rego:"本 2", date:"2026-03", st:"已结束", dl:"2026-04-16",
+    fit:false,
+    intro:"挑战杯系列的传统赛项，共青团 + 电气工程学院 + 电工电子国家级实验教学示范中心联合办。分基础组（大一）、高级组（大二），2–3 人team，可跨年级选题。",
+    todo:"报名 3/26–4/16（填腾讯文档表单），培训 4/16–4/30，初赛 5/1–5/24（含作品制作，作品分占 70%），决赛 10–12 月现场限时装配调试焊接。",
+    help:"这条跟你专业不搭，但<b>考的是动手 soldering</b>——如果你以后要做电化学器件装装试试，手速和焊接工艺是有用的。投入产出比不高，看你自己。",
+    url:"https://youth.cqu.edu.cn/info/1013/24665.htm"
+  },
+  {
+    n:"关于组织参加 2026 年全国大学生英语竞赛（NECCS）", org:"重庆大学语言语音实验教学中心", lv:"国家级",
+    rego:"研 1 · 本 2", date:"2026-03", st:"已结束", dl:"2026-03-06",
+    fit:false,
+    intro:"分初赛、决赛两阶段。A 类适用研究生、B 类英语专业、C 类非英语专业本科、D 类体育艺术类。报名费 50 元/人。二等奖三等奖由初赛产生，特等奖一等奖由决赛产生。",
+    todo:"3 月 6 日前登录学生交叉创新中心网站（https://sxic.cqu.edu.cn）报名缴费。初赛 4/12 上午 9:00–11:00（笔试+听力，满分 150）。",
+    help:"AL 提醒一句：<b>这条对你现在没什么用</b>，但如果你要冲研究生阶段的评优加分，NECCS 的 A 类是少数明确面向研究生的国家级英语赛。我能帮你查重庆理工本校的对应通知。",
+    url:"https://www.cfllab.cqu.edu.cn/info/1012/1882.htm"
+  },
+  {
+    n:"西南大学第二十届数学建模竞赛", org:"西南大学创新创业学院 + 数学与统计学院", lv:"校级（选国赛）",
+    rego:"本 2", date:"2026-04-29", st:"已结束", dl:"2026-05-17",
+    fit:true,
+    intro:"西南大学校赛，同时是国赛选拔的前哨。报名 4/15–5/17，比赛 4/30 18:00 开始、5/24 20:00 结束。1–3 人 1 队，可跨学院年级专业组队。所有在校本科生。",
+    todo:"先加交流群 710768200，在群内填报名表，再把表发到数模协会官方邮箱，邮件名「成员1+成员2+成员3-校赛报名」。设一二三等奖，对应创新实践学分。",
+    help:"这是你打 9 月研究生数模的免费热身——<b>时间上刚好在赛前三个月</b>。我能帮你：① 拿这份赛制给你排一套模拟赛（模拟一次完整 72 小时流程，练分工）；② 帮你把 3 人分工固定下来：谁查文献谁建模谁写论文，赛期别临时换。",
+    url:"https://cxcy.swu.edu.cn/info/1016/2635.htm"
+  },
+  {
+    n:"西南大学第七届大学生物理实验竞赛暨第十二届全国大学生物理实验竞赛（创新）选拔赛", org:"西南大学物理实验教学中心", lv:"国家级（选拔）",
+    rego:"本 2", date:"2026-02", st:"已结束", dl:"2026-03-08",
+    fit:false,
+    intro:"全国大学生物理实验竞赛（创新）是国家级赛事。三个赛道：命题类创新作品、自选课题类创新作品、大学生物理实验讲课比赛。<b>个人参赛，每人只能进一个赛道</b>。",
+    todo:"资格卡「2026 年秋季在籍二年级以上本科生」。个人赛。预赛交实验作品（占总成绩 30%），3/31 17:00 前发到指定邮箱。",
+    help:"这条跟你专业不搭。<b>但「自选课题类创新作品」这个赛道考的是从零设计一个实验</b>——如果能蹭上，对你做任何课题都是通用能力。你自己掂量。",
+    url:"https://wlxf.swu.edu.cn/info/1108/1740.htm"
+  },
+  {
+    n:"2026 Light 博士生学术联赛（西南赛区）+ 研究生学术海报大赛", org:"西南大学物理科学与技术学院（承办）", lv:"国家级（西南赛区）",
+    rego:"研 1 · 研 2", date:"2026-03", st:"已结束", dl:"2026-03-30",
+    fit:true,
+    intro:"全国光学与光学工程博士生学术联赛，2021 年创立。西南赛区（川渝黔滇藏）由西南大学承办，重大、川大、电子科大、西南交大协办。<b>同时面向西南赛区全体硕博研究生开放「研究生学术海报大赛」</b>。",
+    todo:"报名走 https://lightconference.publish.founderss.cn/sblogin.php 。联赛交 10 分钟 PPT + 5 分钟问答；海报大赛交 90cm×120cm 海报。获奖可直接用模板。",
+    help:"⚠️ 这条<b>跟你专业主线基本无关</b>，但「研究生学术海报大赛」是个低门槛练兵：一张海报要讲清楚「我做了什么、为什么重要、证据是什么」——<b>这正是你组会汇报和论文改稿要用到的同一套叙事</b>。我能帮你把你的柚子皮碳材料压成一张标准海报，一鱼两吃。",
+    url:"https://physics.swu.edu.cn/info/1063/6017.htm"
+  },
+  {
+    n:"重庆邮电大学 2026 年数学建模竞赛（校内选拔）", org:"重庆邮电大学教务处", lv:"校级（选国赛）",
+    rego:"本 2", date:"2026-04", st:"已结束", dl:"2026-05-09",
+    fit:true,
+    intro:"重邮校赛， purpose 是给全国大学生数学建模竞赛提前选拔。参赛无学院专业限制、不收费，3 人 1 队，可跨年级跨专业组队，<b>校内选拔赛不配指导老师</b>。",
+    todo:"报名走腾讯文档表单，5/10 18:00 公布试题，5/10–5/16 完成答卷交论文。<b>注意：竞赛期间队员不能与队外任何人（包括指导教师）讨论赛题</b>。",
+    help:"这是<b>零成本练兵</b>（不收费、不限专业）。你的 3 人队可以拿这场当正式彩排。我能帮你：① 把「不许问老师」这条纪律提前讲给队友，避免违规；② 帮你起草一份赛前分工与提交检查表。",
+    url:"https://jw.cqupt.edu.cn/info/1012/67131.htm"
+  },
+  {
+    n:"2026 年第七届全国高等院校数学能力挑战赛（重庆邮电大学协办）", org:"重庆邮电大学数学与统计学院", lv:"国家级",
+    rego:"研 1 · 本 2", date:"2026", st:"已结束", dl:"2026-06-26",
+    fit:false,
+    intro:"中国国际科技促进会综合素质与职业发展教育专业委员会主办，重邮数统学院协办。设初赛（26 题：13 单选 + 10 判断 + 3 多选，60 分钟）和决赛（22 题，90 分钟）。分专业组/非专业组/专科生组。",
+    todo:"在校本科生、硕士生，不限专业。报名费 50 元/人，统一组织线下考试。获奖计入「学科竞赛获奖登记」，作为学分认定和评奖评优依据。",
+    help:"报名门槛低、不限专业，是少数<b>研究生也能单独上场</b>的国家级数学赛。如果你只是要一个国家级奖项用于评优，这条比数模省事得多。我能帮你过一遍初赛题型。",
+    url:"http://jw.cqupt.edu.cn/info/1012/66051.htm"
+  },
+  {
+    n:"重庆交通大学第六届信息素养大赛暨 2026 年大学生「AI+信息素养」大赛校级选拔赛", org:"重庆交通大学", lv:"国家级（校赛）",
+    rego:"研 1 · 本 2", date:"2026-09", st:"已结束（报名 9/17 截止）", dl:"2026-09-17",
+    fit:false,
+    fitNote:"这条罗浩已经在打，这里保留完整赛制备查",
+    intro:"由教育部高等学校图书情报工作指导委员会、四川省教育厅、重庆市教委指导，重庆市高教学会图工委 + 川渝两地图工委 + 重庆大学、四川大学承办。<b>2025 年重大「AI淘金队」作为重庆市本科组 3 支代表队之一闯入全国联赛并获二等奖。</b>",
+    todo:"参赛对象：竞赛期间全日制在籍在校本科生、研究生（含硕博）。报名走 https://csc.xxsuyang.com/ ——<b>注册成功 ≠ 报名成功</b>，还要点「立即报名」才显示绿色「已报名」。另外还须在「赛链」平台 https://pro.racelink.cn/ 再报一次。校赛培训 9/15，重交 QQ 群 530305683。",
+    help:"AL 备注：这条<b>罗浩本人已经在打</b>，列表放在这里是为了让你能随时查到完整赛制（平台、双报名入口、培训时间点），不用再翻聊天记录。注意那个「注册≠报名」的坑，我上回就帮你盯过。",
+    url:"https://news.cqjtu.edu.cn/info/1024/67366.htm"
+  },
+
+  /* ===== 全国其他地区 ===== */
+  {
+    n:"第二十届「天正设计杯」全国大学生化工设计竞赛", org:"中国化工学会 + 中国化工教育协会", lv:"国家级",
+    rego:"本 2 · 研 1", date:"2026", st:"已被各校转发（周期进行中）", dl:"见任务书",
+    fit:true,
+    intro:"国内<b>级别最高、参赛队伍最多</b>的化工类大学生专业性比赛，2018 年起进入全国高校学科竞赛排行榜。2025 年全国 479 所高校 4337 支队伍报名，参赛人数首破 2 万。2026 年设计题目为「某大型化工企业设计一座苯乙烯清洁生产的分厂，要求技术符合中国绿色低碳循环发展要求」。",
+    todo:"竞赛以「创新驱动、绿色发展」为导向。各校走校赛选拔 → 西南赛区决赛 → 全国总决赛。初赛提交设计作品电子文档 + 网络答辩；赛区赛和国赛为现场演示、书面文档 + 口头报告 + 现场答辩。2026 年<b>评分实施细则有修订</b>，务必在官网「下载中心」下最新版。",
+    help:"⚠️ <b>这条对你其实是「看看就好」</b>：竞赛要求 5 人一队且以本科生为主，还要求完整的工程设计流程（带流程模拟、经济评价、图纸）。你现在的时间被 9/23–9/27 数模国赛占死。我的建议：<b>先当知晓型情报存着</b>，等明年赛前再动。要提前动我也能帮你——① 拆一份苯乙烯清洁生产的工艺路线清单（这题正好能复用你 lab 里的绿色化学认知）；② 帮你列 Aspen Plus 从零到能跑的最小上手路径。",
+    url:"http://iche.zju.edu.cn/"
+  },
+  {
+    n:"2026 年哈尔滨工业大学电化学综合技能竞赛（ECSC）", org:"哈尔滨工业大学化工与化学学院", lv:"校级（国家级竞赛后备）",
+    rego:"研 1 · 研 2", date:"2026-08-25", st:"报名中", dl:"2026-09-20",
+    fit:true,
+    intro:"面向学习和使用电化学相关技术的学生。目的是锻炼<b>电化学材料制备技术、装置搭建技术、测量技术</b>——这三条字字都戳你的硅基负极实验。为全国大学生电化学测量技术竞赛培养后备力量。",
+    todo:"⚠️ <b>这是本列表里跟你专业最对口的赛</b>。组队：本科生组 2 人；<b>研究生组 2 名研究生，或 1 名研究生 + 1 名本科生</b>（研究生限全日制在读硕博）。报名截止 9/20 23:00，扫码填表。流程：初赛 10/10–11 笔试（开卷、30 分钟，电化学原理 + 测量基础）→ 复赛 10/20 起约 5 周（交样品测试视频 + 测试报告）→ 决赛 12/14–27 答辩。",
+    help:"我能帮你：① 复赛那 5 周正是<b>做一组克容量/首效测试</b>的窗口，我可以帮你把测试方案（装置搭建、视频拍摄脚本、报告结构）一次性排好；② 初赛 30 分钟开卷，我帮你把电化学原理的考点边界划出来，30 分钟能拿高分；③ 帮你判断你现有的炭黑/PAA 体系能不能直接复用成参赛制备方案。",
+    url:"https://chemeng.hit.edu.cn/2026/0825/c4283a400079/page.htm"
+  },
+  {
+    n:"辽宁省第九届研究生材料先进连接技术竞赛（东北大学校赛）", org:"东北大学创新创业学院 + 冶金学院", lv:"省级（研究生）",
+    rego:"研 1 · 研 2", date:"2026-09-16", st:"报名中", dl:"2026-09-22",
+    fit:true,
+    intro:"辽宁省教育厅主办，面向全省在学研究生（B8 联盟及江苏部分高校研究生）。<b>明确是研究生赛</b>，由辽宁省焊接学会、沈阳市焊接学会协办。本赛事是少数<b>直接以「研究生」为参赛主体</b>的材料类竞赛。",
+    todo:"每队指导教师 1–2 名、队员不超过 3 人，每名队员只能参加一支队伍。自主选题，交项目说明书参加初赛，<b>线下答辩</b>。命题三类：熔化焊接 / 压力焊接钎焊搅拌摩擦焊 / 堆焊·3D打印·粘接·先进复合材料连接·增材制造。作品须未公开发表且具备独立知识产权。校赛 9/28，设一二三等奖。",
+    help:"⚠️ <b>时间已经来不及了</b>——报名 9/22 截止，作品 9/27 中午前交，校赛 9/28。你 9/23–9/27 在打数模国赛，撞死了。存一条信息：这是<b>明年你最该盯的研究生材料赛</b>。我能帮你现在就把「先进复合材料连接 / 增材制造」这个方向的项目说明书框架搭好，明年 3 月启动刚好。",
+    url:"http://cxzx.neu.edu.cn/2026/0916/c1509a463969/pagem.htm"
+  },
+  {
+    n:"第六届全国大学生化学实验创新设计大赛 · 云南大学预选赛", org:"云南大学化学化工国家级实验教学示范中心", lv:"国家级（西南赛区）",
+    rego:"本 2 · 研 1", date:"2026-09-17", st:"报名中", dl:"2026-11-30",
+    fit:true,
+    intro:"全国大学生化学实验创新设计大赛，设「新创实验」「改进实验」「科普实验」「数智化实验」等赛道。<b>校赛一等奖可获西南赛区竞赛资格</b>，西南赛区获奖再进全国总决赛。",
+    todo:"⚠️ 时间窗口很宽（报名 <b>2026 年 9–11 月</b>，作品 2026 年 12 月–2027 年 3 月提交，2027 年 4 月评审，2027 年 6–8 月西南赛区 + 国赛）。<b>这是目前列表里唯一一条能让你「慢慢做完再交」的赛</b>，而且正好是你的时间空档——9 月底到 11 月底之间你有整块时间。交参赛回执 + 论文。设新创实验、改进实验、科普实验、数智化实验四个赛道，要求提交论文。",
+    help:"这条我要重点标一下。理由：① 你的<b>柚子皮粉碳化实验</b>本身就是一条完整的新创实验线（原料 → 碳化 → 表征），改造成参赛作品天然成立；② 你的<b>Cu(II) 配位聚合物水热合成</b>是「新创实验」的现成模板；③ 「改进实验」赛道可以把你<b>涂布麻点的工艺改进</b>直接搬进去。我能帮你：① 把你的实验数据按赛道要求的论文模板重新组织；② 帮你判断哪个赛道给你的分最高（我倾向改进实验，因为你的数据最扎实）。",
+    url:"http://www.eccce.ynu.edu.cn/info/1018/1346.htm"
+  },
+  {
+    n:"第十五届山东省大学生化工过程创新设计竞赛", org:"青岛科技大学化工过程实验教学中心", lv:"省级",
+    rego:"本 2 · 研 1", date:"2026", st:"周期进行中", dl:"见通知",
+    fit:true,
+    intro:"山东化学化工学会指导，青岛科技大学主办。内容围绕流体流动、换热、精馏、吸收等化工原理单元操作，重点考「针对某一化工分离问题提出方案、设计流程、做技术经济评价」。",
+    todo:"2026 年 10–11 月办。初赛报名和作品提交均截至 <b>10 月 22 日</b>（报名扫码，作品 PDF 发组委会邮箱）。入门槛：鼓励用 Aspen Plus / HYSYS / PROII + AutoCAD / PDSOFT 设计。今年增设「OPEN 专项赛道」，<b>由石化盈科提供国产流程模拟软件支持，自愿参赛</b>。",
+    help:"⚠️ 同化工设计竞赛：<b>适合明年准备，不适合今年</b>。但有个具体好处——「OPEN 专项赛道」是<b>免商用软件授权</b>的，这对零基础入手流程模拟是条捷径。我能帮你：① 拿 OPEN 软件出第一个能跑通的流程；② 把精馏/吸收这两块的基础操作参数帮你梳理成可填的表。",
+    url:"https://hgsy.qust.edu.cn/info/1102/2829.htm"
+  }
+];
+
+/* ---------------- 二、全国高校信源直达（可点进官网） ---------------- */
+window.NATION_SOURCES = {
+  cq: [
+    { n:"重庆大学 · 本科生院（创新大赛）", u:"https://ugs.cqu.edu.cn/" },
+    { n:"重庆大学 · 数学与统计学院", u:"https://sci.cqu.edu.cn/" },
+    { n:"重庆大学 · 团委（双创赛）", u:"https://youth.cqu.edu.cn/" },
+    { n:"西南大学 · 创新创业学院", u:"https://cxcy.swu.edu.cn/" },
+    { n:"西南大学 · 本科生院", u:"https://ugs.swu.edu.cn/" },
+    { n:"西南大学 · 物理科学与技术学院", u:"https://wlxf.swu.edu.cn/" },
+    { n:"重庆邮电大学 · 教务处", u:"https://jw.cqupt.edu.cn/" },
+    { n:"重庆交通大学 · 教务处（学科竞赛）", u:"https://jw.cqjtu.edu.cn/jxxx/tzgg1/xkjs.htm" },
+    { n:"重庆交通大学 · 研究生教育", u:"https://adge.cqjtu.edu.cn/" },
+    { n:"重庆交通大学 · 新闻网（校赛通知）", u:"https://news.cqjtu.edu.cn/" },
+    { n:"重庆科技大学 · 教务处", u:"https://jw.cqust.edu.cn/" },
+    { n:"长江师范学院 · 教务处（学科竞赛）", u:"https://jwc.yznu.edu.cn/4141/list2.htm" },
+    { n:"长江师范学院 · 研究生处", u:"https://sszt.yznu.edu.cn/" },
+    { n:"西南政法大学 · 经院（市赛转发）", u:"https://es.swupl.edu.cn/tzgg/" }
+  ],
+  nation: [
+    { n:"全国大学生化工设计竞赛官网", u:"http://iche.zju.edu.cn/" },
+    { n:"中国化工学会", u:"https://www.ciesc.cn/" },
+    { n:"全国大学生数学竞赛", u:"http://www.cmathc.cn/" },
+    { n:"中国国际大学生创新大赛（原互联网+）", u:"https://cy.ncss.cn/" },
+    { n:"「挑战杯」中国大学生创业计划竞赛", u:"https://www.tiaozhanbei.net/" },
+    { n:"中国研究生创新实践系列大赛", u:"https://www.yjsxy.edu.cn/" },
+    { n:"全国大学生电化学测量技术竞赛（哈工大）", u:"https://chemeng.hit.edu.cn/" },
+    { n:"青岛科技大学 · 化工过程实验教学中心", u:"https://hgsy.qust.edu.cn/" },
+    { n:"东北大学 · 创新创业学院", u:"http://cxzx.neu.edu.cn/" },
+    { n:"云南大学 · 化学化工国家级实验教学示范中心", u:"http://www.eccce.ynu.edu.cn/" }
+  ],
+  gov: [
+    { n:"重庆市教育委员会", u:"https://jw.cq.gov.cn/" },
+    { n:"重庆市经济和信息化委员会", u:"https://jjxxw.cq.gov.cn/" },
+    { n:"重庆市科协（创新方法大赛）", u:"https://www.cqkx.org.cn/" }
+  ]
+};
+
+</script>
+  <script>
 /* 基金看板数据（持仓 4 只 · 支付宝） */
 window.FUNDS_UPDATED = "2026-09-25";
 
@@ -3752,6 +4055,118 @@ window.FUNDS_DEEP = {
         drawM();
       });
     }
+  })();
+
+  /* ===== 全国高校赛事（重点重庆），挂在本校赛事下面 ===== */
+  (function(){
+    var NET = window.NATION_MATCHES || [];
+    var NOTE = window.NATION_NOTE || "";
+    var note = document.getElementById('nation-note');
+    var UP = document.getElementById('nation-updated');
+    var cnt = document.getElementById('nationMatchCount');
+    var NCUR = "all";
+
+    /* 判定是否重庆市内：发布方里带「重庆 / 长江师范 / 西南大学 / 西南政法」即算 */
+    function isCQ(x){
+      return /重庆|长江师范|西南大学|西南政法/.test(x.org || "");
+    }
+    if(note) note.textContent = NOTE;
+    if(UP) UP.textContent = window.NATION_UPDATED || "未知";
+    if(cnt) cnt.textContent = '全国 ' + NET.length + ' 条';
+
+    /* 筛选按钮 */
+    var fwN = document.getElementById('nationMatchFilters');
+    if(fwN){
+      var nCQ = NET.filter(isCQ).length;
+      var btns = [
+        '<button class="filterbtn active" data-n="all">全部 '+NET.length+'</button>',
+        '<button class="filterbtn" data-n="cq">🌏 重庆市内（'+nCQ+'）</button>',
+        '<button class="filterbtn" data-n="out">🌐 全国其他（'+(NET.length-nCQ)+'）</button>'
+      ];
+      var nOpen = NET.filter(function(x){ return x.st === "报名中"; }).length;
+      btns.push('<button class="filterbtn" data-n="open">🔥 正在报名（'+nOpen+'）</button>');
+      fwN.innerHTML = btns.join("");
+    }
+    var boxN = document.getElementById('nation-list');
+    function drawN(){
+      if(!boxN) return;
+      var list = NET.filter(function(x){
+        if(NCUR==="all") return true;
+        if(NCUR==="cq")  return isCQ(x);
+        if(NCUR==="out") return !isCQ(x);
+        if(NCUR==="open") return x.st === "报名中";
+        return true;
+      });
+      if(!list.length){ boxN.innerHTML = '<div class="news">该分类暂无内容。</div>'; return; }
+      boxN.innerHTML = list.map(function(x){
+        var fit = x.fit
+          ? '<span class="chip" style="border-color:var(--brand);color:var(--brand);background:var(--brand-soft)">🎯 跟你专业对口</span>'
+          : '';
+        var hot = x.st === "报名中"
+          ? '<span class="chip" style="border-color:#e02424;color:#e02424;background:#fef2f2">🔥 正在报名</span>'
+          : '';
+        var dl = x.dl && x.dl !== "—"
+          ? '<span class="chip" style="border-color:#f59e0b;color:#b45309;background:#fffbeb">⏰ 截止 '+esc(x.dl)+'</span>'
+          : '';
+        var rego = x.rego
+          ? '<span class="chip" style="border-color:var(--line)">👥 '+esc(x.rego)+'</span>'
+          : '';
+        return '<article class="cmp">'+
+          '<div class="cmp-head" style="cursor:default">'+
+            '<span class="chip" style="border-color:var(--line)">🏫 '+esc(x.org||"")+'</span>'+
+            '<span class="cmp-name">🏅 '+esc(x.n||"")+'</span>'+
+          '</div>'+
+          '<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--ink-soft);margin:8px 0">'+
+            '<span class="chip" style="border-color:var(--line)">📊 '+esc(x.lv||"")+'</span>'+
+            '<span class="chip" style="border-color:var(--line)">📅 '+esc(x.date||"")+'</span>'+
+            '<span class="chip" style="border-color:var(--line)">'+esc(x.st||"")+'</span>'+
+            dl + hot + rego + fit +
+          '</div>'+
+          '<div class="d-row"><span class="d-k">简介</span><span class="d-v">'+esc(x.intro||"")+'</span></div>'+
+          '<div class="d-row"><span class="d-k">具体要干啥</span><span class="d-v">'+esc(x.todo||"")+'</span></div>'+
+          '<div class="d-row"><span class="d-k">我能帮你做啥</span><span class="d-v">'+esc(x.help||"")+'</span></div>'+
+          '<div style="margin-top:11px">'+
+            '<a class="top-btn" href="'+esc(x.url||"#")+'" target="_blank" rel="noopener noreferrer">🔗 源地址 ↗</a>'+
+          '</div>'+
+        '</article>';
+      }).join("");
+    }
+    drawN();
+    if(fwN){
+      fwN.addEventListener("click", function(ev){
+        var b = ev.target.closest ? ev.target.closest(".filterbtn") : null;
+        if(!b) return;
+        NCUR = b.getAttribute("data-n") || "all";
+        Array.prototype.forEach.call(fwN.querySelectorAll(".filterbtn"), function(x){ x.classList.remove("active"); });
+        b.classList.add("active");
+        drawN();
+      });
+    }
+  })();
+
+  /* 全国高校信源直达 */
+  (function(){
+    var NS = window.NATION_SOURCES || {};
+    var NG = [
+      ["cq","📍 重庆市内高校（教务处 / 竞赛栏目）",true],
+      ["nation","🌐 全国性竞赛官网",false],
+      ["gov","🏛 主管部门（市教委 · 市经信委 · 市科协）",false]
+    ];
+    var box = document.getElementById('nation-sources');
+    if(!box) return;
+    var total = 0;
+    box.innerHTML = NG.map(function(g){
+      var items = NS[g[0]] || [];
+      if(!items.length) return "";
+      total += items.length;
+      return '<div style="margin:0 0 16px">'+
+        '<div style="font-size:14px;font-weight:800;color:var(--ink);margin-bottom:9px">'+g[1]+'（'+items.length+'）</div>'+
+        '<div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">'+
+          items.map(function(s){
+            return '<a class="top-btn" href="'+esc(s.u)+'" target="_blank" rel="noopener noreferrer">'+esc(s.n)+' ↗</a>';
+          }).join("")+
+        '</div></div>';
+    }).join("");
   })();
 
   /* 全部信源直达矩阵（按职能再分一层） */
