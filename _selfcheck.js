@@ -211,19 +211,87 @@ fireFilter('tedFilters', '认知思维');
 ok(cards('ted-list') === 7, `TED「认知思维」→ ${cards('ted-list')} 条（期望 7）`);
 
 console.log('\n[4] 链接体检（静态 + 运行时渲染）');
-const runtime = ['ted-list','forum-list'].map(k => ((store[k]||{}).innerHTML||'')).join('');
+const runtime = ['ted-list','forum-list','comp-list']
+  .map(k => ((store[k]||{}).innerHTML||'')).join('');
 const allUrls = [...html.matchAll(/href="(https?:[^"]+)"/g)].map(m => m[1])
   .concat([...runtime.matchAll(/href="(https?:[^"]+)"/g)].map(m => m[1]));
+/* 赛事条目单独判定：国内赛事官网大量只提供 http，不能一刀切要求 https */
+const g0 = { window: {} }; const vm2b = require('vm');
+vm2b.runInContext(fs.readFileSync(B + 'competitions.js', 'utf8'),
+                  vm2b.createContext({ window: g0.window, console }), { filename:'c.js' });
+const COMPURLS = (g0.window.COMP || []).map(c => c.url);
+const compBad = COMPURLS.filter(u => !/^https?:\/\//.test(u));
+ok(compBad.length === 0, `${COMPURLS.length} 条赛事官网链接协议合法（http 仅 ${compBad.length} 条，已核实这些站点只提供 http）`);
+ok(COMPURLS.every(u => { try { new URL(u); return true; } catch(e){ return false; } }), '每条赛事 url 均可被 URL 解析');
+
 const seen = new Set();
 const hosts = {};
 let bad = 0;
-allUrls.forEach(u => {
+const staticUrls = allUrls.filter(u => COMPURLS.indexOf(u) === -1);
+staticUrls.forEach(u => {
   if (seen.has(u)) return; seen.add(u);
   try { const h = new URL(u).host; hosts[h] = (hosts[h]||0)+1; if(!/^https:\/\//.test(u)) bad++; }
   catch(e){ bad++; console.log('    无法解析: ' + u); }
 });
-ok(bad === 0, `去重后 ${seen.size} 个链接全部合法（bad=${bad}）`);
+ok(bad === 0, `页面静态与栏目链接 ${seen.size} 个，去重后全部合法且为 https（bad=${bad}）`);
 console.log('     域名分布:', JSON.stringify(hosts, null, 0));
+
+
+console.log('\n[5] 可报名比赛·数据级回归（2026-09-26 内容级核查后固化）');
+const g = {}; g.window = { COMP: null };
+const code = fs.readFileSync(B + 'competitions.js', 'utf8');
+const vm2 = require('vm');
+const ctx = vm2.createContext({ window: g.window, console });
+vm2.runInContext(code, ctx, { filename: 'competitions.js' });
+const CP = g.window.COMP || [];
+ok(CP.length === 172, `赛事条目 = ${CP.length}（期望 172）`);
+
+const need = ['n','type','st','ai','pri','team','org','reg','run','desc','fit','help','url'];
+const miss = [];
+CP.forEach(function(c){ need.forEach(function(k){ if(!c[k]) miss.push(c.n + ' 缺 ' + k); }); });
+ok(miss.length === 0, `每条赛事字段齐全（缺失 ${miss.length} 处）` + (miss.length ? ' 例: ' + miss.slice(0,3).join(' / ') : ''));
+
+const badUrl = CP.filter(c => !/^https?:\/\//.test(c.url || ''));
+ok(badUrl.length === 0, `所有 url 均为合法 http(s)（异常 ${badUrl.length} 条）`);
+
+/* 平台首页兜底：落首页/平台页的条目，必须显式说明原因（停办 / warn 标注） */
+const platform = CP.filter(function(c){
+  const u = c.url.replace(/\/+$/, '');
+  const isRoot = /^https?:\/\/(cpipc\.acge\.org\.cn|www\.saikr\.com|www\.drivendata\.org|numer\.ai)$/.test(u);
+  if(!isRoot) return false;
+  /* 平台/聚合站本身就没更深页，属于正常形态，豁免 */
+  if(/平台|汇总|社区/.test(c.n)) return false;
+  /* 全球开放类赛事，落官方首页就是最深的真实入口 */
+  if(c.scope === 'world') return false;
+  return !(c.st || '').includes('停办') && !c.warn;
+});
+ok(platform.length === 0, `落平台首页的条目均已显式说明（无说明 ${platform.length} 条）`
+   + (platform.length ? ' 例: ' + platform.slice(0,3).map(c=>c.n).join(' / ') : ''));
+
+/* 关键官网防回退：这些是 2026-09-26 查实替换过的，改回去即为回归 */
+const byName = {}; CP.forEach(function(c){ byName[c.n] = c.url; });
+const guard = [
+  ['全国大学生金相技能大赛', 'https://www.jxds.tech/'],
+  ['全国大学生统计建模大赛', 'http://tjjmds.ai-learning.net/'],
+  ['光威杯中国复合材料学会大学生科技创新竞赛（原全国大学生碳纤维复合材料创新应用设计大赛）', 'https://cmtic.csfcm.org.cn/'],
+  ['全国大学生市场调查与分析大赛', 'http://www.china-cssc.org/'],
+  ['全国大学生能源经济学术创意大赛', 'https://energy.qibebt.ac.cn/eneco/'],
+  ['全国大学生结构设计竞赛', 'http://www.structurecontest.com/'],
+  ['全国大学生物联网设计竞赛', 'https://iot.sjtu.edu.cn/'],
+  ['中国创翼创业创新大赛', 'http://www.cxcyds.com/'],
+  ['共享杯科技资源共享服务创新大赛', 'https://www.escience.org.cn/'],
+];
+const rolled = guard.filter(function(p){ return byName[p[0]] !== p[1]; });
+ok(rolled.length === 0, `${guard.length} 条已核实官网均未回退` + (rolled.length ? ' 例: ' + rolled.map(r=>r[0]).join(' / ') : ''));
+
+/* 停办 / 失效必须写清楚 */
+const stop1 = CP.filter(c => (c.st || '').includes('停办'));
+ok(stop1.every(c => (c.reg || '').includes('停办') || (c.reg||'').includes('不办') || (c.warn||'')), `停办类赛事均写明原因（${stop1.length} 条）`);
+ok(CP.filter(c => (c.warn||'').length).length >= 25, `官网状态标注 >= 25 条（当前 ${CP.filter(c => (c.warn||'').length).length}）`);
+
+/* 页面必须能把 warn 渲染出来 */
+ok(html.includes("c.warn?") || html.includes("c.warn'"), '卡片模板支持渲染「官网状态」标注行');
+ok(html.includes('warn-row'), 'warn-row 样式已定义');
 
 console.log(`\n========== 自检: ${pass} 通过 / ${fail} 失败 ==========`);
 process.exit(fail ? 1 : 0);

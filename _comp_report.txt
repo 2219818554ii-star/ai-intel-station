@@ -1,0 +1,460 @@
+状态码分布: {'200': 132, '000': 17, '502': 14, '403': 4, '503': 1, '404': 3, '202': 1}
+
+===== 【1】不可达/异常 =====
+25 [000] NeurIPS Competition Track（神经信息处理系统大会竞赛单元）
+      https://neurips.cc/
+28 [000] WMT（机器翻译国际评测）
+      https://wmt-conf.net/
+30 [502] ChaLearn AutoML Challenges（自动机器学习系列赛）
+      http://www.chalearn.org/
+36 [000] Solar Decathlon（太阳能十项全能）
+      https://solardecathlon.net/
+37 [000] DARPA Challenges（美国防高级研究计划局挑战赛）
+      https://www.darpa.mil/
+38 [000] IChO（国际化学奥林匹克）
+      https://www.icho.science/
+39 [403] NASA Space Apps Challenge（NASA 太空应用黑客松）
+      https://www.spaceappschallenge.org/
+64 [503] 两岸新锐设计竞赛·华灿奖（2026）
+      http://www.huacanjiang.com/
+71 [000] 全国大学生数字媒体科技作品及创意竞赛（2026）
+      https://www.cmatd.cn/
+72 [000] 码蹄杯全国大学生程序设计大赛（2026）
+      https://www.matibei.com/
+73 [000] 中国高校计算机大赛-人工智能创意赛（2026）
+      https://www.c4best.cn/
+82 [404] 美国大学生数学建模竞赛 MCM/ICM（2027 届）
+      https://www.comap.com/undergraduate/contests
+92 [202] FlyAI 算法竞赛
+      https://www.flyai.com/
+97 [403] AutoDrive Challenge（自动驾驶挑战赛）
+      https://www.autodrive.ai/
+98 [000] Waymo Open Dataset Challenge（Waymo 开放数据集挑战）
+      https://waymo.com/open/
+100 [000] SpaceNet 卫星影像 AI 挑战赛
+      https://spacenet.ai/
+104 [404] 全国大学生环境生态科技创新大赛
+      http://www.csec.org.cn
+105 [502] 全国大学生金相技能大赛
+      http://www.jxskills.cn
+108 [502] 光威杯全国大学生碳纤维复合材料创新应用设计大赛
+      http://www.gw-cup.com
+111 [502] 全国大学生生物制药创新大赛
+      http://www.biopharm.org.cn
+114 [502] 全国大学生水利创新设计大赛
+      http://www.ches.org.cn
+116 [502] 全国大学生能源经济学术创意大赛
+      http://www.ceeea.org
+119 [502] 全国大学生市场调查与分析大赛
+      http://www.china-cma.org
+123 [502] 西门子杯中国智能制造挑战赛
+      http://www.siemenscup.com
+124 [502] 全国大学生智能汽车竞赛
+      http://www.smartcar.au.tsinghua.edu.cn
+126 [000] 全国大学生机器人大赛RoboCon
+      https://www.robocon.net
+129 [403] 普译赛全国大学生英语翻译比赛
+      http://www.putiyi.com
+134 [502] 全国大学生物理实验竞赛
+      http://www.physlab.cn
+135 [502] 全国大学生结构设计竞赛
+      http://www.structure.org.cn
+141 [502] 中国创翼创业创新大赛
+      http://www.cxcyds.cn
+143 [502] 全国大学生物联网设计竞赛
+      http://www.iotcontest.net
+144 [404] 共享杯科技资源共享服务创新大赛
+      http://share.escience.net.cn
+148 [502] 全国大学生统计建模大赛
+      http://tjjmds.aii.edu.cn
+154 [000] CodaLab 机器学习挑战赛
+      https://codalab.lisn.upsaclay.fr
+155 [000] NeurIPS 神经信息处理系统大会竞赛
+      https://neurips.cc
+157 [000] Google Solution Challenge
+      https://developers.google.com/solution-challenge
+158 [000] Google Code Jam
+      https://codingcompetitions.withgoogle.com/codejam
+159 [000] Meta Hacker Cup
+      https://www.facebook.com/hackercup
+160 [403] IBM Quantum Challenge
+      https://quantum-computing.ibm.com
+161 [000] Hugging Face 社区挑战赛
+      https://huggingface.co/challenges
+
+===== 【2】落点与原地址不同 =====
+10 “挑战杯”中国大学生创业计划竞赛（第十五届）
+      原: http://www.tiaozhanbei.net/
+      落: https://www.tiaozhanbei.net/
+11 “挑战杯”全国大学生课外学术科技作品竞赛（第十九届）
+      原: http://www.tiaozhanbei.net/
+      落: https://www.tiaozhanbei.net/
+16 全国大学生化工设计竞赛
+      原: http://iche.zju.edu.cn/
+      落: https://iche.zju.edu.cn/
+21 2026 高校大学生“工创杯”人工智能知识大赛
+      原: https://www.saikr.com/vse/2026RGZN
+      落: https://new.saikr.com/vse/2026RGZN
+79 全国大学生化工安全设计竞赛（2026）
+      原: http://www.ciedu.com.cn/
+      落: https://www.ciedu.com.cn/home/org/PUBLIC
+80 中国大学生服务外包创新创业大赛（2026）
+      原: http://www.fwwb.org.cn/
+      落: https://www.fwwb.org.cn/
+81 全国大学生数学建模竞赛·高教社杯（2026）
+      原: http://www.mcm.edu.cn
+      落: https://www.mcm.edu.cn/
+82 美国大学生数学建模竞赛 MCM/ICM（2027 届）
+      原: https://www.comap.com/undergraduate/contests
+      落: https://comap.org/undergraduate/contests
+91 Biendata 算法竞赛
+      原: https://biendata.xyz/
+      落: https://www.biendata.xyz/
+95 IJCAI 竞赛
+      原: https://ijcai.org/
+      落: https://www.ijcai.org/
+97 AutoDrive Challenge（自动驾驶挑战赛）
+      原: https://www.autodrive.ai/
+      落: https://domains.atom.com/lpd/name/autodrive.ai
+101 AI Driving Olympics (AIDO)
+      原: https://www.duckietown.org/
+      落: https://duckietown.com/
+106 中国大学生材料热处理创新创业大赛
+      原: http://www.cmes.org
+      落: https://www.cmes.org/cmes
+107 全国大学生复合材料设计与制作大赛
+      原: http://www.frp.cn
+      落: http://frp.cn/
+113 全国大学生冶金科技竞赛
+      原: http://www.csm.org.cn
+      落: https://www.csm.org.cn/
+114 全国大学生水利创新设计大赛
+      原: http://www.ches.org.cn
+      落: http://ches.mwr.cn/
+115 能源·智慧·未来全国大学生油气储运工程设计大赛
+      原: http://www.cup.edu.cn
+      落: https://www.cup.edu.cn:443/
+117 中国软件杯大学生软件设计大赛
+      原: http://www.cnsoftbei.com
+      落: https://www.cnsoftbei.com/
+118 全国大学生电子商务创新创意及创业挑战赛(三创赛)
+      原: http://www.3chuang.net
+      落: https://www.3chuang.net/
+121 全国大学生广告艺术大赛(大广赛)
+      原: http://www.sun-ada.net
+      落: https://www.sun-ada.net/
+125 全国大学生机器人大赛RoboMaster
+      原: https://www.robomaster.com
+      落: https://www.robomaster.com/zh-CN
+129 普译赛全国大学生英语翻译比赛
+      原: http://www.putiyi.com
+      落: https://www.putiyi.com/
+130 华数杯国际大学生数学建模竞赛
+      原: http://www.huashubei.com
+      落: https://www.huashubei.com/
+137 华为ICT大赛
+      原: https://e.huawei.com
+      落: https://e.huawei.com/en/
+140 全国大学生服务外包创新创业大赛
+      原: http://www.fwwb.org.cn
+      落: https://www.fwwb.org.cn/
+145 全国大学生测绘技能竞赛
+      原: http://www.csgpc.org
+      落: https://www.csgpc.org/
+146 全国大学生GIS应用技能大赛
+      原: http://www.csgpc.org
+      落: https://www.csgpc.org/
+147 东方杯全国大学生勘探地球物理竞赛
+      原: http://www.cup.edu.cn
+      落: https://www.cup.edu.cn:443/
+149 Zindi 非洲人工智能挑战赛
+      原: https://zindi.africa
+      落: https://zindi.world/
+
+===== 【3】首页/平台页（非具体赛事页） =====
+02 [st=closed] 中国国际大学生创新大赛(2026)（原“互联网+”）
+       https://cy.ncss.cn/
+04 [st=open] 2026 科大讯飞 AI 开发者大赛（含星火杯·大模型应用创新赛）
+       https://challenge.xfyun.cn/
+05 [st=open] 阿里云天池（Tianchi）算法大赛
+       https://tianchi.aliyun.com/
+06 [st=open] DataFountain · CCF BDCI 大数据与计算智能大赛
+       https://www.datafountain.cn/
+07 [st=open] Kaggle 竞赛（国际·全球开放）
+       https://www.kaggle.com/competitions
+08 [st=open] 全国大学生英语翻译大赛（NETCCS，大英赛同主办）
+       https://netccs.saikr.com/
+09 [st=open] 中国研究生智慧城市技术与创意设计大赛（第十二届）
+       https://cpipc.acge.org.cn
+10 [st=open] “挑战杯”中国大学生创业计划竞赛（第十五届）
+       http://www.tiaozhanbei.net/
+11 [st=open] “挑战杯”全国大学生课外学术科技作品竞赛（第十九届）
+       http://www.tiaozhanbei.net/
+14 [st=open] 赛氪（Saikr）竞赛平台 · 在线学科赛汇总
+       https://www.saikr.com/
+16 [st=closed] 全国大学生化工设计竞赛
+       http://iche.zju.edu.cn/
+17 [st=closed] 全国大学生化学实验创新设计大赛
+       https://cid.nju.edu.cn/
+18 [st=closed] 全国大学生低碳循环科技创新大赛
+       https://www.cnlcr.com/
+19 [st=closed] 2026 年大学生“AI+信息素养”大赛（含重理工校赛）
+       https://csc.xxsuyang.com/
+24 [st=open] 第八届全球校园人工智能算法精英大赛
+       https://www.aicomp.cn/
+25 [st=open] NeurIPS Competition Track（神经信息处理系统大会竞赛单元）
+       https://neurips.cc/
+26 [st=open] XPRIZE 大奖赛（碳移除 / 雨林 / 海洋等）
+       https://www.xprize.org/
+28 [st=open] WMT（机器翻译国际评测）
+       https://wmt-conf.net/
+29 [st=open] BioASQ（生物医学语义问答挑战）
+       https://bioasq.org/
+30 [st=open] ChaLearn AutoML Challenges（自动机器学习系列赛）
+       http://www.chalearn.org/
+31 [st=open] iGEM（国际基因工程机器大赛）
+       https://igem.org/
+34 [st=open] RoboCup（机器人世界杯）
+       https://www.robocup.org/
+35 [st=open] Formula Student / Formula SAE（大学生方程式）
+       https://www.formulastudent.de/
+36 [st=open] Solar Decathlon（太阳能十项全能）
+       https://solardecathlon.net/
+37 [st=closed] DARPA Challenges（美国防高级研究计划局挑战赛）
+       https://www.darpa.mil/
+38 [st=open] IChO（国际化学奥林匹克）
+       https://www.icho.science/
+39 [st=open] NASA Space Apps Challenge（NASA 太空应用黑客松）
+       https://www.spaceappschallenge.org/
+40 [st=closed] 中国研究生未来飞行器创新大赛（2026）
+       https://cpipc.acge.org.cn
+41 [st=closed] 中国研究生电子设计竞赛（2026）
+       https://cpipc.acge.org.cn
+42 [st=closed] 中国研究生创“芯”大赛（2026）
+       https://cpipc.acge.org.cn
+43 [st=closed] 中国研究生机器人创新设计大赛（2026）
+       https://cpipc.acge.org.cn
+44 [st=closed] 中国研究生能源装备创新设计大赛（2026）
+       https://cpipc.acge.org.cn
+45 [st=closed] 中国研究生公共管理案例大赛（2026）
+       https://cpipc.acge.org.cn
+46 [st=closed] 中国研究生乡村振兴科技强农+创新大赛（2026）
+       https://cpipc.acge.org.cn
+47 [st=closed] 中国研究生金融科技创新大赛（2026）
+       https://cpipc.acge.org.cn
+48 [st=closed] 中国研究生“美丽中国”创新设计大赛（2026）
+       https://cpipc.acge.org.cn
+49 [st=closed] 中国研究生工程管理案例大赛（2026）
+       https://cpipc.acge.org.cn
+50 [st=closed] 中国研究生操作系统开源创新大赛（2026）
+       https://cpipc.acge.org.cn
+51 [st=closed] 中国研究生“文化中国”两创大赛（2026）
+       https://cpipc.acge.org.cn
+52 [st=closed] 中国研究生国际中文教育案例大赛（2026）
+       https://cpipc.acge.org.cn
+53 [st=closed] 中国研究生智能建造创新大赛（2026）
+       https://cpipc.acge.org.cn
+54 [st=open] 中国研究生“美丽中国”生物多样性保护与利用大赛（专项，2026）
+       https://cpipc.acge.org.cn
+55 [st=closed] 中国大学生计算机设计大赛（2026）
+       https://jsjds.blcu.edu.cn/index.htm
+56 [st=closed] “中国软件杯”大学生软件设计大赛（第十五届，2026）
+       https://www.cnsoftbei.com/
+57 [st=closed] 全国大学生信息安全竞赛（2026）
+       http://www.ciscn.cn/
+58 [st=closed] 全国大学生节能减排社会实践与科技竞赛（2026）
+       https://www.jienengjianpai.org/
+59 [st=closed] iCAN 大学生创新创业大赛（2026）
+       http://g-ican.com/
+60 [st=closed] 百度之星·程序设计大赛（2026）
+       https://star.baidu.com/
+62 [st=closed] 全国大学生水利创新设计竞赛（2026）
+       http://www.cahee.org.cn/
+63 [st=closed] 全国大学生先进成图技术与产品信息建模创新大赛（2026）
+       http://www.chengtudasai.com/
+64 [st=closed] 两岸新锐设计竞赛·华灿奖（2026）
+       http://www.huacanjiang.com/
+65 [st=closed] 中华经典诵写讲大赛（2026）
+       https://jdsxj.eduyun.cn/
+66 [st=closed] 蓝桥杯全国软件和信息技术专业人才大赛（2026）
+       https://www.lanqiao.cn/
+67 [st=closed] 全国大学生计算机系统能力大赛（2026）
+       https://os.educg.net/
+69 [st=open] 一带一路暨金砖国家技能发展与技术创新大赛（2026）
+       http://www.brskills.com/
+70 [st=open] 未来设计师·全国高校数字艺术设计大赛 NCDA（2026）
+       https://www.ncda.org.cn/
+71 [st=open] 全国大学生数字媒体科技作品及创意竞赛（2026）
+       https://www.cmatd.cn/
+72 [st=closed] 码蹄杯全国大学生程序设计大赛（2026）
+       https://www.matibei.com/
+73 [st=open] 中国高校计算机大赛-人工智能创意赛（2026）
+       https://www.c4best.cn/
+74 [st=open] 中国青年“揭榜挂帅”·华为赛道（2026）
+       https://developer.huaweicloud.com/
+75 [st=closed] 华为软件精英挑战赛（2026）
+       https://developer.huaweicloud.com/
+76 [st=open] 华为算法挑战赛
+       https://developer.huaweicloud.com/
+77 [st=open] 昇腾 AI 原生创新算子挑战赛（S2 赛季）
+       https://www.hiascend.com/
+79 [st=closed] 全国大学生化工安全设计竞赛（2026）
+       http://www.ciedu.com.cn/
+80 [st=closed] 中国大学生服务外包创新创业大赛（2026）
+       http://www.fwwb.org.cn/
+81 [st=closed] 全国大学生数学建模竞赛·高教社杯（2026）
+       http://www.mcm.edu.cn
+83 [st=open] ACM-ICPC 国际大学生程序设计竞赛（2026–2027 赛季）
+       https://icpc.global/
+88 [st=closed] 科大讯飞 AI 开发者大赛·星火杯大模型应用创新赛（2026）
+       https://challenge.xfyun.cn/
+90 [st=open] 极市 Extreme Mart 计算机视觉竞赛
+       https://www.cvmart.net/
+91 [st=open] Biendata 算法竞赛
+       https://biendata.xyz/
+92 [st=open] FlyAI 算法竞赛
+       https://www.flyai.com/
+94 [st=open] CVPR Workshops 挑战赛
+       https://cvpr.thecvf.com/
+95 [st=open] IJCAI 竞赛
+       https://ijcai.org/
+96 [st=open] SemEval（语义评测）
+       https://semeval.github.io/
+97 [st=open] AutoDrive Challenge（自动驾驶挑战赛）
+       https://www.autodrive.ai/
+99 [st=closed] ImageNet / ILSVRC（深度学习里程碑，已停办）
+       https://image-net.org/
+100 [st=open] SpaceNet 卫星影像 AI 挑战赛
+       https://spacenet.ai/
+101 [st=open] AI Driving Olympics (AIDO)
+       https://www.duckietown.org/
+102 [st=closed] Google AI Challenge（经典 AI 编程赛，历史）
+       https://www.kaggle.com/competitions
+103 [st=closed] 中国大学生Chem-E-Car竞赛
+       http://www.chemecar.cn
+104 [st=closed] 全国大学生环境生态科技创新大赛
+       http://www.csec.org.cn
+105 [st=closed] 全国大学生金相技能大赛
+       http://www.jxskills.cn
+106 [st=closed] 中国大学生材料热处理创新创业大赛
+       http://www.cmes.org
+107 [st=closed] 全国大学生复合材料设计与制作大赛
+       http://www.frp.cn
+108 [st=closed] 光威杯全国大学生碳纤维复合材料创新应用设计大赛
+       http://www.gw-cup.com
+109 [st=closed] 全国大学生资源循环利用创新设计大赛
+       http://www.nfsoc.org.cn
+110 [st=closed] 国药工程杯全国大学生制药工程设计竞赛
+       http://www.cpia.org.cn
+111 [st=closed] 全国大学生生物制药创新大赛
+       http://www.biopharm.org.cn
+112 [st=closed] 全国大学生可再生能源竞赛
+       http://www.cres.org.cn
+113 [st=closed] 全国大学生冶金科技竞赛
+       http://www.csm.org.cn
+114 [st=closed] 全国大学生水利创新设计大赛
+       http://www.ches.org.cn
+115 [st=closed] 能源·智慧·未来全国大学生油气储运工程设计大赛
+       http://www.cup.edu.cn
+116 [st=closed] 全国大学生能源经济学术创意大赛
+       http://www.ceeea.org
+117 [st=closed] 中国软件杯大学生软件设计大赛
+       http://www.cnsoftbei.com
+118 [st=closed] 全国大学生电子商务创新创意及创业挑战赛(三创赛)
+       http://www.3chuang.net
+119 [st=closed] 全国大学生市场调查与分析大赛
+       http://www.china-cma.org
+120 [st=closed] 学创杯全国大学生创业综合模拟大赛
+       http://www.xcbds.com
+121 [st=closed] 全国大学生广告艺术大赛(大广赛)
+       http://www.sun-ada.net
+122 [st=closed] 全国大学生工业设计大赛
+       http://www.cuidc.net
+123 [st=closed] 西门子杯中国智能制造挑战赛
+       http://www.siemenscup.com
+124 [st=closed] 全国大学生智能汽车竞赛
+       http://www.smartcar.au.tsinghua.edu.cn
+125 [st=closed] 全国大学生机器人大赛RoboMaster
+       https://www.robomaster.com
+126 [st=closed] 全国大学生机器人大赛RoboCon
+       https://www.robocon.net
+127 [st=open] 外研社·国才杯全国英语演讲写作阅读大赛
+       https://uchallenge.unipus.cn
+128 [st=closed] 全国大学生英语竞赛NECCS
+       http://www.chinaneccs.cn
+129 [st=closed] 普译赛全国大学生英语翻译比赛
+       http://www.putiyi.com
+130 [st=closed] 华数杯国际大学生数学建模竞赛
+       http://www.huashubei.com
+131 [st=open] 亚太杯国际大学生数学建模竞赛
+       http://www.apmcm.org
+132 [st=open] 认证杯数学中国数学建模网络挑战赛
+       http://www.madio.net
+133 [st=open] 全国大学生数学竞赛
+       http://www.cmathc.cn
+134 [st=closed] 全国大学生物理实验竞赛
+       http://www.physlab.cn
+135 [st=closed] 全国大学生结构设计竞赛
+       http://www.structure.org.cn
+136 [st=open] 全国大学生FPGA创新设计竞赛
+       http://www.socchina.net
+137 [st=open] 华为ICT大赛
+       https://e.huawei.com
+138 [st=closed] 百度之星程序设计大赛
+       https://star.baidu.com
+139 [st=closed] 中国高校计算机大赛(大数据/AI/微信小程序)
+       http://www.c4best.cn
+140 [st=closed] 全国大学生服务外包创新创业大赛
+       http://www.fwwb.org.cn
+141 [st=closed] 中国创翼创业创新大赛
+       http://www.cxcyds.cn
+142 [st=closed] 全国大学生集成电路创新创业大赛
+       http://www.ciciec.com
+143 [st=closed] 全国大学生物联网设计竞赛
+       http://www.iotcontest.net
+144 [st=open] 共享杯科技资源共享服务创新大赛
+       http://share.escience.net.cn
+145 [st=closed] 全国大学生测绘技能竞赛
+       http://www.csgpc.org
+146 [st=open] 全国大学生GIS应用技能大赛
+       http://www.csgpc.org
+147 [st=closed] 东方杯全国大学生勘探地球物理竞赛
+       http://www.cup.edu.cn
+148 [st=closed] 全国大学生统计建模大赛
+       http://tjjmds.aii.edu.cn
+149 [st=open] Zindi 非洲人工智能挑战赛
+       https://zindi.africa
+150 [st=open] DrivenData 数据科学公益赛
+       https://www.drivendata.org
+151 [st=open] Numerai 加密量化预测赛
+       https://numer.ai
+152 [st=open] Topcoder 算法与开发赛
+       https://www.topcoder.com
+153 [st=open] AIcrowd 人工智能挑战赛
+       https://www.aicrowd.com
+154 [st=open] CodaLab 机器学习挑战赛
+       https://codalab.lisn.upsaclay.fr
+155 [st=open] NeurIPS 神经信息处理系统大会竞赛
+       https://neurips.cc
+156 [st=open] XPRIZE 基金会大奖赛
+       https://www.xprize.org
+160 [st=open] IBM Quantum Challenge
+       https://quantum-computing.ibm.com
+162 [st=open] iGEM 国际基因工程机器大赛
+       https://igem.org
+163 [st=open] BIOMOD 国际生物分子设计大赛
+       https://biomod.net
+164 [st=closed] ASC 世界大学生超级计算机竞赛
+       http://www.asc-events.org
+165 [st=open] IEEE CIS 计算智能竞赛
+       https://cis.ieee.org
+166 [st=open] InnoCentive 开放式创新挑战赛
+       https://www.innocentive.com
+167 [st=open] MIT HackMIT 黑客松
+       https://hackmit.org
+168 [st=open] 数维杯全国大学生数学建模挑战赛（2026 秋季赛）
+       https://www.nmmcm.org.cn/
+169 [st=open] EuroMCM 欧洲数学建模竞赛（2026）
+       https://www.euromcm.org/
+171 [st=open] 全国高校计算机能力挑战赛（2026 第八届）
+       https://www.ncccu.org.cn/

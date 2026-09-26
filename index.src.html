@@ -188,6 +188,7 @@
   .cmp.expanded .cmp-detail{display:block;}
   .d-row{display:flex;gap:12px;font-size:13.5px;line-height:1.7;margin:9px 0;}
   .d-k{flex:0 0 84px;color:var(--ink-soft);font-weight:700;}
+  .warn-row .d-v{color:#9a5b00;}
   .d-v{flex:1;color:var(--ink);}
   .d-v b{color:#111;}
   .d-go{margin-top:11px;}
@@ -957,6 +958,7 @@
           '<div class="d-row"><span class="d-k">时间</span><span class="d-v"><b>报名</b> '+esc(c.reg)+' ｜ <b>赛期</b> '+esc(c.run)+'</span></div>'+
           '<div class="d-row"><span class="d-k">主办</span><span class="d-v">'+esc(c.org)+'</span></div>'+
           (c.team?'<div class="d-row"><span class="d-k">组队</span><span class="d-v">'+esc(c.team)+'</span></div>':'')+
+          (c.warn?'<div class="d-row warn-row"><span class="d-k">官网状态</span><span class="d-v">'+esc(c.warn)+'</span></div>':'')+
           '<div class="d-go"><a class="go" href="'+esc(c.url)+'" target="_blank" rel="noopener noreferrer">官网 / 报名 ↗</a></div>'+
         '</div>'+
       '</article>';
