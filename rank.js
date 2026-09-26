@@ -1,5 +1,5 @@
 /* AI 情报站 - 实力排行榜数据（每日自动更新） */
-window.RANK_UPDATED = "2026-09-25";
+window.RANK_UPDATED = "2026-09-26";
 window.RANK = {
     models: [
       {name:"Claude Opus 5.5", vendor:"Anthropic（美国）", price:"API $4/$20 每百万", iaa:58, tb:null,
@@ -20,9 +20,12 @@ window.RANK = {
       {name:"GPT-5.6 Sol", vendor:"OpenAI（美国）", price:"Plus $20/月；API $4/$20 每百万", iaa:47, tb:89.5,
        t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"A",性价比:"B",开源:"—"},
        note:"AA 47、TB2.1 89.5%（与 Astra 同档）；⚠ TB4.0 掉到 39.9%，与 Astra 拉开 19.2 分。代码 Agent 指数 67，生态最全。中文与代码均强，性价比优于 Claude。"},
-      {name:"GPT-6 Sol", vendor:"OpenAI（美国）", price:"API $2/$10 每百万", iaa:null, tb:null,
+      {name:"GPT-6 Sol", vendor:"OpenAI（美国）", price:"API $2/$10 每百万", iaa:48, tb:null,
        t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"A",性价比:"A",开源:"—"},
-       note:"2026-09-22 发布，GPT-5.6 Sol 的继任者（Codex / ChatGPT Work，非 Chat；API gpt-6-sol）；较 GPT-5.6 Sol 降价约 50%（约 $2/$10）。⚠ AA 智能指数官方未公布，theairankings 口径约 48，待核实；TB2.1 暂无，tb 列留空。中文与代码均强，性价比提升明显。"},
+       note:"2026-09-22 发布，GPT-5.6 Sol 的继任者（Codex / ChatGPT Work，非 Chat；API gpt-6-sol）；较 GPT-5.6 Sol 降价约 50%（约 $2/$10）。⚠ AA 智能指数 v4.3.2 官方确认 48（theairankings 9/22 复核，原「待核实」已核实）；TB2.1 暂无，tb 列留空。中文与代码均强，性价比提升明显."},
+      {name:"GPT-5.6 Luna", vendor:"OpenAI（美国）", price:"API $0.10/$0.50 每百万", iaa:37, tb:null,
+       t:{综合:"A",推理:"A",代码:"B",多模态:"B",长上下文:"B",中文:"A",性价比:"S",开源:"—"},
+       note:"2026-09-22 与 GPT-6 Sol 同期发布，GPT-5.6 Sol 同门极致低价版（API $0.10/$0.50，约为 GPT-5.6 Sol 五折）；AA 智能指数 v4.3.2 = 37（同档 DeepSeek V4 Pro 36）。⚠ 定位轻量高-volume 场景，TB2.1 暂无，tb 列留空。性价比 S。"},
       {name:"Grok 4.6", vendor:"xAI（美国）", price:"API $2/$6 每百万", iaa:44, tb:88.4,
        t:{综合:"A",推理:"A",代码:"A",多模态:"A",长上下文:"B",中文:"B",性价比:"B",开源:"—"},
        note:"8 月后训练刷新，AA 跳至 44；TB2.1 88.4%。价格低、长任务回合少。中文/长上下文略逊。"},
@@ -106,11 +109,11 @@ window.RANK = {
        note:"最便宜付费、IDE 原生、issue→PR。团队已在 GitHub 且要低门槛选它。"}
     ],
     tables: {
-      aa: {title:"Artificial Analysis 智能指数 v4.3 Top15（满分≈53，2026-09-25 复核）", unit:"分", rows:[
+      aa: {title:"Artificial Analysis 智能指数 v4.3 Top15（满分≈53，2026-09-26 复核）", unit:"分", rows:[
         ["Claude Opus 5.5",58],["Claude Fable 5.1",53],["GPT-6 Astra",53],["Claude Opus 5",51],["Claude Fable 5",50],
         ["Muse Spark 1.3",48],["Grok 4.7",46],["GLM-5.3",45],["Grok 4.6",44],["Kimi K3",44],
         ["GLM-5.3-Flash",42],["Gemini 3.8 Flash",41],["Qwen3.8 (2.4T)",40],["DeepSeek V4.1-Flash",40],
-        ["DeepSeek V4 Pro",36]
+        ["GPT-5.6 Luna",37]
       ]},
       tb: {title:"Terminal-Bench 2.1 Top10（旧版口径，2026-09；⚠ 官方 8/29 已升级 v4.0，AA v4.3 起改用 TB4.0：Astra 59.1 > Fable 5.1 52.0 > Opus 5 49.0 > GPT-5.6 Sol 39.9）", unit:"%", rows:[
         ["Claude Fable 5.1",91.4],["GPT-6 Astra",89.9],["GPT-5.6 Sol",89.5],["Claude Opus 5",89.1],
