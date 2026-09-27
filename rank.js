@@ -1,5 +1,5 @@
 /* AI 情报站 - 实力排行榜数据（每日自动更新） */
-window.RANK_UPDATED = "2026-09-26";
+window.RANK_UPDATED = "2026-09-27";
 window.RANK = {
     models: [
       {name:"Claude Opus 5.5", vendor:"Anthropic（美国）", price:"API $4/$20 每百万", iaa:58, tb:null,
@@ -64,7 +64,10 @@ window.RANK = {
        note:"经典开源底座，生态与工具链最成熟；中文弱，是许多自部署方案的首选底模。"},
       {name:"MiniMax M3", vendor:"MiniMax（中国）", price:"开源权重 / API", iaa:null, tb:null,
        t:{综合:"B",推理:"B",代码:"B",多模态:"B",长上下文:"B",中文:"A",性价比:"B",开源:"A"},
-       note:"国产新锐，中文与多模态均衡，已开放部分权重；综合处于第二梯队。"}
+       note:"国产新锐，中文与多模态均衡，已开放部分权重；综合处于第二梯队。"},
+      {name:"MiMo V2.6 Pro", vendor:"小米 Xiaomi（中国）", price:"开放权重（可自部署）", iaa:46, tb:null,
+       t:{综合:"A",推理:"A",代码:"A",多模态:"B",长上下文:"B",中文:"B",性价比:"A",开源:"S"},
+       note:"2026-09-24 小米开源 MiMo V2.6 Pro（开放权重），AA 智能指数 46，登顶开源权重模型（来源 ThursdAI 引 Artificial Analysis）。⚠ 评分为单一报道，建议复核；TB2.1 暂无，tb 列留空。🇨🇳 国产开源新锐，t 评级为基于排名的初步估计。"}
     ],
     tools: [
       {name:"Claude Code", model:"默认 Claude Opus 5 / Fable 5", price:"Pro $17–20/月（按 token 计）", tb:89.1, sv:95.0,
@@ -109,11 +112,10 @@ window.RANK = {
        note:"最便宜付费、IDE 原生、issue→PR。团队已在 GitHub 且要低门槛选它。"}
     ],
     tables: {
-      aa: {title:"Artificial Analysis 智能指数 v4.3 Top15（满分≈53，2026-09-26 复核）", unit:"分", rows:[
+      aa: {title:"Artificial Analysis 智能指数 v4.3 Top15（满分≈53，2026-09-27 复核）", unit:"分", rows:[
         ["Claude Opus 5.5",58],["Claude Fable 5.1",53],["GPT-6 Astra",53],["Claude Opus 5",51],["Claude Fable 5",50],
-        ["Muse Spark 1.3",48],["Grok 4.7",46],["GLM-5.3",45],["Grok 4.6",44],["Kimi K3",44],
-        ["GLM-5.3-Flash",42],["Gemini 3.8 Flash",41],["Qwen3.8 (2.4T)",40],["DeepSeek V4.1-Flash",40],
-        ["GPT-5.6 Luna",37]
+        ["Muse Spark 1.3",48],["Grok 4.7",46],["MiMo V2.6 Pro",46],["GLM-5.3",45],["Grok 4.6",44],["Kimi K3",44],
+        ["GLM-5.3-Flash",42],["Gemini 3.8 Flash",41],["Qwen3.8 (2.4T)",40],["DeepSeek V4.1-Flash",40]
       ]},
       tb: {title:"Terminal-Bench 2.1 Top10（旧版口径，2026-09；⚠ 官方 8/29 已升级 v4.0，AA v4.3 起改用 TB4.0：Astra 59.1 > Fable 5.1 52.0 > Opus 5 49.0 > GPT-5.6 Sol 39.9）", unit:"%", rows:[
         ["Claude Fable 5.1",91.4],["GPT-6 Astra",89.9],["GPT-5.6 Sol",89.5],["Claude Opus 5",89.1],
