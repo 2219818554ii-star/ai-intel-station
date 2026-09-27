@@ -1,9 +1,9 @@
 /* AI 情报站 - 重庆理工大学通知（学校 / 各学院 / 各部门 / 学生会）
-   数据抓取于 2026-09-25，来源均为官网真实页面，URL 未编造。
+   数据抓取于 2026-09-27，来源均为官网真实页面，URL 未编造。
    cat: school=学校各部门 | college=各学院 | student=团委·学生会
    tag: 二级细分类，按「对研究生实际有影响的事」分，比 cat 更贴合筛选需求
-   每日 08:45 自动化任务会重建本文件（抓取各源最新通知后）。 */
-window.CQUT_UPDATED = "2026-09-25";
+   刷新后必须同步更新下面的 window.CQUT_UPDATED；_selfcheck.js 会卡住「超过 2 天未更新」的回退。 */
+window.CQUT_UPDATED = "2026-09-27";
 
 /* 二级细分类（筛选按钮直接用它） */
 window.CQUT_TAGS = [
@@ -49,14 +49,20 @@ window.CQUT_NOTICES = [
   {t:"关于开展全市教育强市建设典型案例征集工作的通知【科研通知】", src:"科学技术研究院", date:"2026-09-23", cat:"school", tag:"rs",
    sum:"重庆市教科院向高校征集典型案例，主题围绕教育现代化八项行动，重在经验总结。",
    url:"https://www.cqut.edu.cn/info/1104/72141.htm"},
+  {t:"关于召开重庆理工大学2026年高等教育事业统计工作布置会的通知", src:"发展规划处", date:"2026-09-26", cat:"school", tag:"svc",
+   sum:"全校高教事业统计布置会，9/27（今天）15:00 明德楼500，科研院等线上配合填报。跟你关系不大，但导师若被抽去配合数据填报，心里有数就行。",
+   url:"https://www.cqut.edu.cn/info/1101/72206.htm"},
 
   /* ===== 研究生院（对研究生最相关） ===== */
-  {t:"关于开展2026年研究生国家奖学金评选工作的通知", src:"研究生院", date:"2026-09-02", cat:"school", tag:"money",
+  {t:"关于开展2026年研究生国家奖学金评选工作的通知", src:"研究生院", date:"2026-09-17", cat:"school", tag:"money",
    sum:"国奖评定启动，涉及学业成绩与科研成果，是研二研三最该盯的一条。",
-   url:"https://yjsy.cqut.edu.cn/index/tzgg.htm"},
-  {t:"关于开展2026年研究生学业奖学金评定工作的通知", src:"研究生院", date:"2026-09-02", cat:"school", tag:"money",
+   url:"https://yjsy.cqut.edu.cn/info/1021/5235.htm"},
+  {t:"关于开展2026年研究生学业奖学金评定工作的通知", src:"研究生院", date:"2026-09-17", cat:"school", tag:"money",
    sum:"学业奖学金评定办法启动，额度与评选细则看附件，早点准备材料。",
-   url:"https://yjsy.cqut.edu.cn/index/tzgg.htm"},
+   url:"https://yjsy.cqut.edu.cn/info/1021/5234.htm"},
+  {t:"关于开展2026-2027学年第一学期（秋季学期）研究生“三助一辅”岗位选聘的通知", src:"研究生院", date:"2026-09-21", cat:"school", tag:"grad",
+   sum:"秋季学期研究生三助一辅（助研/助教/助管/辅导员）进入选聘阶段，申请已截止。想拿岗位津贴的盯紧学院后续通知，错过等下学期。",
+   url:"https://yjsy.cqut.edu.cn/info/1021/5254.htm"},
   {t:"关于2026级研究生学籍档案归档工作的通知", src:"研究生院", date:"2026-09-11", cat:"school", tag:"grad",
    sum:"全日制研究生档案必须归档，到研究生院（至善楼111）领空档案袋与密封条，别漏。",
    url:"https://www.cqut.edu.cn/tzgg/bmtz/664.htm"},
@@ -91,6 +97,12 @@ window.CQUT_NOTICES = [
   {t:"化学化工学院关于特种能源材料教改班报名学生资格审查结果公示通知", src:"化学化工学院", date:"2026-08-26", cat:"college", tag:"pub",
    sum:"教改班资格审查结果，没通过的看原因是哪一条。",
    url:"https://chem.cqut.edu.cn/info/1116/5276.htm"},
+  {t:"关于举办第二届超星杯・重庆理工大学师生AI共创课程思政案例大赛-院赛通知", src:"化学化工学院", date:"2026-09-27", cat:"college", tag:"act",
+   sum:"师生 AI 共创课程思政案例大赛，院内选拔。你做化工方向，正好拿自己的课题练手做案例，还能蹭一波 AI 实操；具体院赛时间看化工学院后续通知。",
+   url:"https://chem.cqut.edu.cn/info/1116/5342.htm"},
+  {t:"关于化学化工学院2025-2026学年本科生国家奖学金拟推荐名单的公示", src:"化学化工学院", date:"2026-09-26", cat:"college", tag:"pub",
+   sum:"化工学院本科生国奖拟推荐名单公示。虽是本科，但能看清本院国奖评选的硬门槛和排序逻辑，想冲国奖的对照着看自己还差哪块。",
+   url:"https://chem.cqut.edu.cn/info/1116/5321.htm"},
 
   /* ===== 机械工程学院 ===== */
   {t:"机械工程学院2023级研究生毕业答辩安排", src:"机械工程学院", date:"2026-05-09", cat:"college", tag:"grad",

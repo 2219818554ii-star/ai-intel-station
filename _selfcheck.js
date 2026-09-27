@@ -163,13 +163,32 @@ fireFilter('forumFilters', '全部');
 
 console.log('\n[2c] 重庆理工通知渲染');
 const cqHtml = (store['cqut-list']||{}).innerHTML || '';
-ok(cards('cqut-list') === 25, `理工通知卡片 = ${cards('cqut-list')}（期望 25）`);
+ok(cards('cqut-list') >= 25, `理工通知卡片 = ${cards('cqut-list')}（要求 >=25）`);
 ok(cqHtml.includes('我该关注啥') && cqHtml.includes('源地址'), '理工通知含「我该关注啥」与「源地址」');
 ok(cqHtml.includes('href="https://') && !cqHtml.includes('href="#"'), '理工通知链接均为真实 https 源地址');
 const srcHtml = (store['cqut-sources']||{}).innerHTML || '';
 ok(srcHtml.includes('化学化工学院') && srcHtml.includes('机械工程学院'), '理工信源矩阵含各学院');
 ok(srcHtml.includes('校团委') && srcHtml.includes('研究生会'), '理工信源矩阵含学生组织');
-ok((store['cqut-updated']||{}).textContent === '2026-09-25', `理工更新日期: ${(store['cqut-updated']||{}).textContent}`);
+/* 更新日期必须与数据里的 CQUT_UPDATED 一致，且不能比「今天」陈旧（罗浩 2026-09-27 加的硬约束：
+   之前这里硬编码 '2026-09-25'，结果数据停更一周都自检全绿——这是让陈旧静默腐烂的根因） */
+const cqUpdatedShown = (store['cqut-updated']||{}).textContent || '';
+const cqUpdatedData = sandbox.window.CQUT_UPDATED || '';
+ok(cqUpdatedShown === cqUpdatedData, `理工更新日期与数据一致（页面渲染 ${cqUpdatedShown} / 数据 ${cqUpdatedData}）`);
+(function(){
+  const ud = String(cqUpdatedData);
+  const m = /(\d{4})-(\d{2})-(\d{2})/.exec(ud);
+  const today = new Date();
+  if(!m){
+    ok(false, `理工更新日期格式异常：${ud}`);
+    return;
+  }
+  /* 用「日期(去时分秒)」相减，避免同日内晚些时刻导致 floor 成 -1 的误判 */
+  const today0 = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  const d0 = new Date(+m[1], +m[2] - 1, +m[3]);
+  const days = Math.round((today0 - d0) / 86400000);
+  ok(days >= 0, `理工更新日期不是未来日期（差 ${days} 天）`);
+  ok(days <= 2, `理工数据未过期：抓取于 ${ud}，距今天 ${days} 天（> 2 天即判定停更，须重新抓取后再 commit）`);
+})();
 /* 分类体系是固定 8 个枚举，新通知必须归入其一，不能自创也不能漏填 */
 const cqTags = sandbox.window.CQUT_TAGS || [];
 const cqNotices = sandbox.window.CQUT_NOTICES || [];
