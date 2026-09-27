@@ -219,9 +219,19 @@ ok(mHtml.includes('简介') && mHtml.includes('我能帮你做啥') && mHtml.inc
    '卡片三栏：简介 / 我能帮你做啥 / 我需要做啥');
 ok(!mHtml.includes('具体要干啥'), '旧的「具体要干啥」已彻底移除');
 
-/* ⑤ url 合法 */
+/* ⑤ url 合法 + 信源必须可验证（罗浩：拒收不可验证来源） */
 const mtBadUrl = MATCHES.filter(x => !/^https?:\/\//.test(x.url || ''));
 ok(mtBadUrl.length === 0, `比赛 url 均合法 http(s)（异常 ${mtBadUrl.length} 条）`);
+
+/* ⑤-2 百科 / 门户转载这类「不可验证来源」不许当源地址（2026-09-27 新增） */
+const mtWiki = MATCHES.filter(x => /baike\.|zhidao\.|wikipedia|baidu\.com\/s\?|www\.itiger\.com/.test(x.url || ''));
+ok(mtWiki.length === 0,
+   `源地址无百科/转载类不可验证链接（异常 ${mtWiki.length} 条：${mtWiki.map(x=>x.n).join('、')}）`);
+/* ⑤-3 第二信源 alt 字段：要么没有，有就必须是合法 http(s) */
+const mtBadAlt = MATCHES.filter(x => x.alt && !/^https?:\/\//.test(x.alt));
+ok(mtBadAlt.length === 0, `第二信源 alt 均合法 http(s)（异常 ${mtBadAlt.length} 条）`);
+ok(mHtml.includes('第二信源') || MATCHES.every(x => !x.alt),
+   '有 alt 条目的「第二信源」按钮已渲染');
 
 /* ⑥ 学校分类：每个分类至少 1 条，且 school 值都能对上 */
 const scKeys = SCHOOLS.map(x => x.k);
@@ -286,6 +296,13 @@ const mSrcN = count(mSrcHtml, /class="top-btn"/g);
 ok(mSrcN >= 15, `比赛信源直达链接 = ${mSrcN} 个（要求 >=15）`);
 ok(mSrcHtml.includes('重庆理工') && mSrcHtml.includes('云南大学') && mSrcHtml.includes('青岛科技大学'),
    '信源覆盖多所高校（重理工 / 云大 / 青科大）');
+/* 信源本身也得可验证：不允许百科/转载站冒充主办方官网（2026-09-27 修正 itiger 误挂后固化） */
+const mBadSrc = MSCHOOLS.filter(x => !/^https?:\/\//.test(x.u || '')
+                                || /baike\.|www\.itiger\.com|so\.html5\.qq\.com/.test(x.u || ''));
+ok(mBadSrc.length === 0,
+   `信源直达无百科/转载类冒充链接（异常 ${mBadSrc.length} 个：${mBadSrc.map(x=>x.n).join('、')}）`);
+ok(MSCHOOLS.some(x => /idpc\.org\.cn/.test(x.u || '')),
+   '工信部产业发展促进中心已指向官方站 idpc.org.cn（原来误挂老虎证券）');
 
 /* ⑫ 顺序锁定：比赛块在通知滤波器之前（罗浩明确「就这样」，不许再动） */
 const iFold = html.indexOf('<details id="cqutMatchFold"');
