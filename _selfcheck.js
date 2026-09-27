@@ -192,6 +192,16 @@ ok(cqUpdatedShown === cqUpdatedData, `理工更新日期与数据一致（页面
 /* 分类体系是固定 8 个枚举，新通知必须归入其一，不能自创也不能漏填 */
 const cqTags = sandbox.window.CQUT_TAGS || [];
 const cqNotices = sandbox.window.CQUT_NOTICES || [];
+/* 反空洞更新：CQUT_UPDATED 说今天刷新了，但数据里最新一条还停在好几天前 → 说明只改了日期没加真东西 */
+(function(){
+  const ud = String(sandbox.window.CQUT_UPDATED || '');
+  const m = /(\d{4})-(\d{2})-(\d{2})/.exec(ud);
+  if(!m) return;
+  const d0 = new Date(+m[1], +m[2] - 1, +m[3]);
+  const maxD = cqNotices.map(n => { const mm = /(\d{4})-(\d{2})-(\d{2})/.exec(n.date||''); return mm ? Date.parse(mm[1]+'-'+mm[2]+'-'+mm[3]) : 0; }).reduce((a,b)=>Math.max(a,b),0);
+  const dataGap = Math.round((d0 - new Date(maxD)) / 86400000);
+  ok(dataGap <= 3, `数据非空更新：CQUT_UPDATED=${ud} 时最新通知日期差 ${dataGap} 天（> 3 天 = 只改了日期没加内容，属空洞更新，禁止）`);
+})();
 const tagKeys = cqTags.map(x => x.k);
 ok(tagKeys.length === 8, `理工细分类定义 = ${tagKeys.length}（期望 8）: ${tagKeys.join(',')}`);
 const badTag = cqNotices.filter(n => !n.tag || tagKeys.indexOf(n.tag) < 0);
