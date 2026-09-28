@@ -398,7 +398,7 @@ const vm2 = require('vm');
 const ctx = vm2.createContext({ window: g.window, console });
 vm2.runInContext(code, ctx, { filename: 'competitions.js' });
 const CP = g.window.COMP || [];
-ok(CP.length === 172, `赛事条目 = ${CP.length}（期望 172）`);
+ok(CP.length === 173, `赛事条目 = ${CP.length}（期望 173）`);
 
 const need = ['n','type','st','ai','pri','team','org','reg','run','desc','fit','help','url'];
 const miss = [];
