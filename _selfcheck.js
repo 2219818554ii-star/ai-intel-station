@@ -202,6 +202,35 @@ const cqNotices = sandbox.window.CQUT_NOTICES || [];
   const dataGap = Math.round((d0 - new Date(maxD)) / 86400000);
   ok(dataGap <= 3, `数据非空更新：CQUT_UPDATED=${ud} 时最新通知日期差 ${dataGap} 天（> 3 天 = 只改了日期没加内容，属空洞更新，禁止）`);
 })();
+
+/* [全局新鲜度门] 罗浩 2026-09-28 加：自检之前只卡了重理工一个栏目的新鲜度，
+   结果基金/比赛/TED/讲坛陈旧时自检仍全绿 —— 用户原话“感觉内容都不全、很多漏的”。
+   现在对所有 window.*_UPDATED 统一卡新鲜度，任何栏目停更超阈值一律 FAIL，
+   陈旧内容再也无法静默通过。
+   阈值按栏目更新频率分级（日历天）：基金是每日行情→2；重理工/比赛/排行→2；TED/讲坛/全国→3。 */
+(function(){
+  const today = new Date();
+  const today0 = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  const policy = {
+    FUNDS_UPDATED: 2, CQUT_UPDATED: 2, CQUT_MATCH_UPDATED: 2, MATCH_UPDATED: 2, RANK_UPDATED: 2,
+    TED_UPDATED: 3, FORUM_UPDATED: 3, COMP_UPDATED: 3
+  };
+  const w = sandbox.window;
+  let checked = 0;
+  for (const key in w) {
+    if (!/_UPDATED$/.test(key)) continue;
+    const ud = String(w[key] || '');
+    const m = /(\d{4})-(\d{2})-(\d{2})/.exec(ud);
+    if (!m) { ok(false, `栏目 ${key} 的更新日期格式异常：${ud}`); continue; }
+    const d0 = new Date(+m[1], +m[2] - 1, +m[3]);
+    const days = Math.round((today0 - d0) / 86400000);
+    const max = policy[key] !== undefined ? policy[key] : 2;
+    checked++;
+    ok(days >= 0, `栏目 ${key} 更新日期非未来（${ud}，差 ${days} 天）`);
+    ok(days <= max, `栏目 ${key} 未过期：更新于 ${ud}，距今 ${days} 天（阈值 ${max} 天，超期=停更须重抓后再 commit）`);
+  }
+  ok(checked >= 6, `全局新鲜度门已覆盖 ${checked} 个栏目（期望 >=6）`);
+})();
 const tagKeys = cqTags.map(x => x.k);
 ok(tagKeys.length === 8, `理工细分类定义 = ${tagKeys.length}（期望 8）: ${tagKeys.join(',')}`);
 const badTag = cqNotices.filter(n => !n.tag || tagKeys.indexOf(n.tag) < 0);
