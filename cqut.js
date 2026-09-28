@@ -126,7 +126,7 @@ window.CQUT_SOURCES = {
  * 罗浩明确要求：只留还能参加的，获奖喜报一条不留。
  * 现在比赛板块统一由 matches.js 的 window.MATCHES 驱动，按学校分类。
  * ---------------------------------------------------------------------- */
-window.CQUT_MATCH_UPDATED = "2026-09-26";
+window.CQUT_MATCH_UPDATED = "2026-09-28";
 window.CQUT_MATCH_TAGS = [];
 window.CQUT_MATCHES = [];
 

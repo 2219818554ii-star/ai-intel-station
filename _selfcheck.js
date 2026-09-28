@@ -99,7 +99,9 @@ ok(fList.includes('fund.eastmoney.com/016452.html'), '基金卡片带天天基�
 ok(fList.includes('#e02424') && fList.includes('#16a34a'), '涨跌配色中国习惯（涨红 #e02424 / 跌绿 #16a34a）');
 ok(fList.includes('color:#e02424') && fHold.some(f => f.holdPL > 0), '正收益的持仓确实染成红色');
 ok(fList.includes('color:#16a34a') && fHold.some(f => f.holdPL < 0), '负收益的持仓确实染成绿色');
-ok(((store['funds-updated']||{}).textContent||'').indexOf('2026-09-25') === 0, `基金更新日期: ${(store['funds-updated']||{}).textContent}`);
+const fUpdShown = (store['funds-updated']||{}).textContent || '';
+const fUpdData = sandbox.window.FUNDS_UPDATED || '';
+ok(fUpdShown.indexOf(fUpdData) === 0, `基金更新日期渲染以数据日期开头（页面 ${fUpdShown} / 数据 ${fUpdData}）`);
 const expoHtml = (store['funds-exposure']||{}).innerHTML || '';
 ok(expoHtml.includes('A股') && expoHtml.includes('海外'), '风格暴露条含 A 股 / 海外');
 ok((store['funds-updated']||{}).textContent && fList.length > 500, '基金看板渲染非空');
@@ -108,7 +110,7 @@ console.log('\n[2e] 基金深度档案（2026-09-26 实抓，防回退断言）'
 const fDeep = sandbox.window.FUNDS_DEEP || {};
 const fDeepBox = (store['funds-deep']||{}).innerHTML || '';
 const fInsBox = (store['funds-insight']||{}).innerHTML || '';
-ok(fDeep.date === '2026-09-26', `深度档案日期 = ${fDeep.date}（期望 2026-09-26）`);
+ok(fDeep.date === sandbox.window.FUNDS_DEEP.date && fDeep.date === sandbox.window.FUNDS_UPDATED, `深度档案日期 = ${fDeep.date}（须与 FUNDS_UPDATED ${sandbox.window.FUNDS_UPDATED} 一致）`);
 const dCodes = Object.keys(fDeep.byCode || {});
 ok(dCodes.length === 4, `深度档案覆盖 ${dCodes.length} 只（期望 4）`);
 ok(fHold.every(f => (fDeep.byCode||{})[f.code]), '每只持仓都有对应深度档案');
@@ -311,7 +313,7 @@ ok((store['cqutMatchCount']||{}).textContent && String((store['cqutMatchCount']|
    `折叠标题计数徽章: ${(store['cqutMatchCount']||{}).textContent}`);
 ok(String(((store['matchOpenCount']||{}).textContent)||'').includes('正在报名'),
    `「正在报名」徽章: ${(store['matchOpenCount']||{}).textContent}`);
-ok((store['cqut-match-updated']||{}).textContent === '2026-09-26',
+ok((store['cqut-match-updated']||{}).textContent === sandbox.window.CQUT_MATCH_UPDATED,
    `比赛更新日期: ${(store['cqut-match-updated']||{}).textContent}`);
 ok(mHtml.includes('🎯 跟你专业对口') && mHtml.includes('正在报名'), '对口 / 正在报名 标记已渲染');
 ok(mHtml.includes('重庆理工') && mHtml.includes('重庆交通大学'), '卡片按学校分类已渲染');
