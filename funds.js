@@ -1,28 +1,36 @@
 /* 基金看板数据（持仓 4 只 · 支付宝） */
-window.FUNDS_UPDATED = "2026-09-28";
+window.FUNDS_UPDATED = "2026-09-29";
 
 /* 首次填充数据来源：罗浩本人支付宝 App 持仓截图，时点 2026-09-25。
    深度档案(净值/业绩/规模/状态)于 2026-09-28 通过天天基金 F10 实抓刷新（QDII 净值有 T+2 滞后，见各条 navDate）。
+   2026-09-29 每日净值例行更新（天天基金 F10 历史净值接口实抓）：016452 出到 09-24（2.3525，+0.06%），
+   其余 3 只当日无新公布净值，保留上一个净值日原值，navDate 不写成当天。
    抓不到的字段一律留 null，页面显示「—」，绝不编造。 */
 window.FUNDS_META = {
-  src: "支付宝 App 持仓截图（持仓金额）+ 天天基金 F10（净值/业绩/规模/状态，2026-09-28 实抓）",
-  date: "2026-09-28",
+  src: "支付宝 App 持仓截图（持仓金额）+ 天天基金 F10 历史净值（净值/日增长率，2026-09-28 建库 / 2026-09-29 例行刷新）",
+  date: "2026-09-29",
   note: "场外基金净值为 T+1，QDII 更晚，页面显示的是最近一个已公布净值日的数据，不是实时价。"
 };
 
-/* 持仓：amt=持有金额(元)｜dayPL=昨日收益｜holdPL=持有收益｜holdPct=持有收益率(小数) */
+/* 持仓：amt=持有金额(元)｜dayPL=昨日收益｜holdPL=持有收益｜holdPct=持有收益率(小数)
+   unit/dayPct/navDate = 该只基金最新已公布净值（单位净值 / 日增长率小数 / 净值日期），每日例行刷新。
+   amt 等账户数据只有罗浩本人同步时才改，自动化不动。 */
 window.FUNDS_HOLD = [
   { n: "易方达全球成长精选混合(QDII)A", code: "012920", type: "QDII-混合", style: "海外",
     amt: 216.31, dayPL: -1.33, holdPL: -53.69, holdPct: -0.1989, auto: "定投",
+    unit: 3.8463, dayPct: -0.0096, navDate: "2026-09-24",
     url: "https://fund.eastmoney.com/012920.html" },
   { n: "财通品质甄选混合A", code: "024480", type: "混合型-偏股", style: "A股",
     amt: 1411.79, dayPL: -55.83, holdPL: -284.24, holdPct: -0.1676, auto: "",
+    unit: 1.8296, dayPct: -0.0628, navDate: "2026-09-28",
     url: "https://fund.eastmoney.com/024480.html" },
   { n: "中欧中证A500指数发起A", code: "022432", type: "指数型-股票", style: "A股",
     amt: 1.57, dayPL: -0.03, holdPL: -0.07, holdPct: -0.0428, auto: "",
+    unit: 1.1971, dayPct: -0.0239, navDate: "2026-09-28",
     url: "https://fund.eastmoney.com/022432.html" },
   { n: "南方纳斯达克100指数发起(QDII)A", code: "016452", type: "QDII-股票", style: "海外",
     amt: 862.65, dayPL: -6.87, holdPL: 22.65, holdPct: 0.0276, auto: "定投",
+    unit: 2.3525, dayPct: 0.0006, navDate: "2026-09-24",
     url: "https://fund.eastmoney.com/016452.html" }
 ];
 
@@ -41,7 +49,7 @@ window.FUNDS_EXPOSURE = [
    top10 = 最新报告期前十大重仓（p=占净值比%），topDate=报告期（06-30 二季报仍为最新，待三季报）；
    净值/业绩/规模/申购状态均来自天天基金页面原文（2026-09-28 抓取），抓不到就不写，绝不编造。 */
 window.FUNDS_DEEP = {
-  date: "2026-09-28",
+  date: "2026-09-29",
   src: "天天基金 fundf10.eastmoney.com（持仓/经理档案页，2026-09-28 实抓）",
   byCode: {
     "012920": {
@@ -98,7 +106,7 @@ window.FUNDS_DEEP = {
     "016452": {
       mgr: "张其思", mgrYears: "任职近4年", mgrScale: "本基金62.10亿元",
       mgrNote: "波士顿大学数理金融硕士，CFA/FRM；南方基金国际指数团队，同时管理纳指100/恒生科技/标普500等多只QDII指数产品。",
-      nav: 2.3512, navDate: "2026-09-23", dayPct: -0.0081,
+      nav: 2.3525, navDate: "2026-09-24", dayPct: 0.0006,
       perf: "近1月 +3.27%｜近3月 +2.61%｜近6月 +21.70%｜近1年 +16.20%｜近3年 +81.03%｜成立来 +135.12%（2022-11-29成立）",
       scale: "62.10亿元（2026-06-30）",
       status: "限大额 · 单日限10元（QDII外汇额度紧张），开放赎回",
