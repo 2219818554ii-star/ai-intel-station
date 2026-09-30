@@ -1,10 +1,13 @@
 /* AI 情报站 - 实力排行榜数据（每日自动更新） */
-window.RANK_UPDATED = "2026-09-28";
+window.RANK_UPDATED = "2026-09-30";
 window.RANK = {
     models: [
       {name:"Claude Opus 5.5", vendor:"Anthropic（美国）", price:"API $4/$20 每百万", iaa:58, tb:null,
        t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"B",性价比:"B",开源:"—"},
        note:"2026-09-22 发布，AA 智能指数 v4.3 最高分 58（超越 Fable 5.1 / Astra 的 53）；TB4.0 59.6%（xhigh，与 Astra 并列第一）。价格较 Opus 5 降 20%（$4/$20）。agentic 知识工作领先（AA-Briefcase 1822 Elo）。⚠ 本页 tb 列仍用 TB2.1 旧口径，Opus 5.5 无 TB2.1 公开分，故留空。中文偏弱。"},
+      {name:"Claude Sonnet 5.5", vendor:"Anthropic（美国）", price:"API $2/$10 每百万", iaa:56, tb:null,
+       t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"B",性价比:"A",开源:"—"},
+       note:"2026-09-28 发布，Opus 5.5 同门中杯（5 档 effort：low/medium/high/xhigh/max）；AA 智能指数 v4.3 = 56（max，仅次于 Opus 5.5 的 58，居 AA 榜第 2，较 Sonnet 5 +18 点）。定价 $2/$10，与 Sonnet 5 持平、比 Opus 5.5 便宜一半；1M 上下文、多模态（图/PDF），编码与 agent 强（TB4.0 64%）。⚠ 仅 TB4.0 公开分，无 TB2.1，tb 列留空；中文偏弱，且 max 档 token 消耗极大（约 193K/任务，AA 称史上最高）。"},
       {name:"Claude Fable 5.1", vendor:"Anthropic（美国）", price:"Pro $17–20/月；API $10/$50 每百万", iaa:53, tb:91.4,
        t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"B",性价比:"C",开源:"—"},
        note:"2026-09-01 发布，AA 智能指数 v4.3 并列第一（53）；TB2.1 第一（91.4%）。⚠ 官方 8/29 已升级 Terminal-Bench v4.0（66 题、难度大幅提升），AA v4.3 起改用 TB4.0：Astra 59.1% > Fable 5.1 52.0% > Opus 5 49.0% > GPT-5.6 Sol 39.9%；本页 TB 列仍为 2.1 旧口径。推理/综合最强，但价格最高、中文偏弱。"},
@@ -112,10 +115,10 @@ window.RANK = {
        note:"最便宜付费、IDE 原生、issue→PR。团队已在 GitHub 且要低门槛选它。"}
     ],
     tables: {
-      aa: {title:"Artificial Analysis 智能指数 v4.3 Top15（满分≈58，2026-09-28 复核）", unit:"分", rows:[
-        ["Claude Opus 5.5",58],["Claude Fable 5.1",53],["GPT-6 Astra",53],["Claude Opus 5",51],["Claude Fable 5",50],
+      aa: {title:"Artificial Analysis 智能指数 v4.3 Top15（满分≈58，2026-09-30 复核）", unit:"分", rows:[
+        ["Claude Opus 5.5",58],["Claude Sonnet 5.5",56],["Claude Fable 5.1",53],["GPT-6 Astra",53],["Claude Opus 5",51],["Claude Fable 5",50],
         ["Muse Spark 1.3",48],["Grok 4.7",46],["MiMo V2.6 Pro",46],["GLM-5.3",45],["Grok 4.6",44],["Kimi K3",44],
-        ["GLM-5.3-Flash",42],["Gemini 3.8 Flash",41],["Qwen3.8 (2.4T)",40],["DeepSeek V4.1-Flash",40]
+        ["GLM-5.3-Flash",42],["Gemini 3.8 Flash",41],["Qwen3.8 (2.4T)",40]
       ]},
       tb: {title:"Terminal-Bench 2.1 Top10（旧版口径，2026-09；⚠ 官方 8/29 已升级 v4.0，AA v4.3 起改用 TB4.0：Astra 59.1 > Fable 5.1 52.0 > Opus 5 49.0 > GPT-5.6 Sol 39.9）", unit:"%", rows:[
         ["Claude Fable 5.1",91.4],["GPT-6 Astra",89.9],["GPT-5.6 Sol",89.5],["Claude Opus 5",89.1],
