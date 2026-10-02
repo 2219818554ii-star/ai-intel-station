@@ -2,7 +2,7 @@
    2026-09-28 复核：点系列 -> 看视频清单 -> 点视频直达播放页（BV 号逐条验证仍有效），
    不再落在 B 站搜索列表页。数据来自 B站官方搜索 API 实抓，_mkforum2.py 抓取、
    _verify_forum.py 逐条过 view API 校验，死链已剔除。 */
-window.FORUM_UPDATED = "2026-09-28";
+window.FORUM_UPDATED = "2026-10-02";
 window.FORUM_CATS = ["名人与企业家","国学讲坛","阳明心学"];
 window.FORUM_SERIES = [
   {cat:"名人与企业家", who:"马云", desc:"从英语老师到阿里创始人。低谷期、迷茫期最该听的一类：今天很残酷，明天更残酷，后天很美好。", vids:[

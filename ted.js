@@ -1,5 +1,5 @@
 /* AI 情报站 - TED 英语演讲（认知提升 + 英语听力素材） */
-window.TED_UPDATED = "2026-09-28";
+window.TED_UPDATED = "2026-10-02";
 /* ============ TED TALKS (curated 2026-09-23，2026-09-28 re-verified 内容仍有效) ============
    选片原则：① 全网公认、播放量极高的经典 TED/TEDx 演讲；
             ② 主题能提升认知（学习/心理幸福/习惯/沟通领导/思维）；
@@ -12,9 +12,9 @@ window.TED_UPDATED = "2026-09-28";
         哪个通点哪个，彻底解决视频打不开的问题。 */
 window.TED = [
   /* ===== 学习成长 ===== */
-  {en:"Do schools kill creativity?", zh:"学校如何扼杀创造力", sp:"Ken Robinson", yr:2006, dur:19, cat:"学习成长", sub:"创造力",
-   intro:"史上播放量最高的 TED 演讲。Robinson 主张创造力与 literacy 同等重要，教育系统却在系统性地削弱它。语速平缓、用词经典，适合练听力，也能反思自己的科研训练。",
-   url:"https://www.ted.com/talks/ken_robinson_schools_kill_creativity"},
+  {en:"Why you thought school was a waste of time", zh:"为什么你觉得上学是浪费时间", sp:"Charlie Robinson", yr:2020, dur:15, cat:"学习成长", sub:"教育反思",
+   intro:"TEDxWoking 现场。讲者从自己逃课、被劝退的经历讲起，反驳「 school = 无用」这种极端结论——真正的问题是教育把人塞进统一模具，而研究生的创造力恰恰需要跳出这套模具。语速平、故事多，练听力顺带反思自己被训练成什么样。",
+   url:"https://www.ted.com/talks/charlie_robinson_why_you_thought_school_was_a_waste_of_time"},
   {en:"Grit: The power of passion and perseverance", zh:"坚毅：热情与坚持的力量", sp:"Angela Lee Duckworth", yr:2013, dur:6, cat:"学习成长", sub:"坚毅",
    intro:"心理学家 Duckworth 提出：决定长期成就的不是天赋而是『grit（坚毅）』——对长远目标持续的热情与毅力。短小精悍，是积累学术英语高频词的极佳入门。",
    url:"https://www.ted.com/talks/angela_lee_duckworth_grit_the_power_of_passion_and_perseverance"},
@@ -136,9 +136,9 @@ window.TED = [
   {en:"How to speak so that people want to listen", zh:"怎样说话别人才愿意听", sp:"Julian Treasure", yr:2013, dur:10, cat:"沟通领导", sub:"表达",
    intro:"声音专家讲七宗『说罪』和 HAIL 四要素。组会汇报、答辩陈述前看一遍，立刻能用。",
    url:"https://www.ted.com/talks/julian_treasure_how_to_speak_so_that_people_want_to_listen"},
-  {en:"The skill of self confidence", zh:"自信是一门技能", sp:"Ivan Joseph", yr:2012, dur:13, cat:"沟通领导", sub:"自信",
-   intro:"体育心理教练讲自信如何像肌肉一样练：自我对话、想象力训练、赞美清单。答辩怯场的解药。",
-   url:"https://www.ted.com/talks/ivan_joseph_the_skill_of_self_confidence"},
+  {en:"Finding Confidence through Failure", zh:"在失败里长出自信", sp:"Adam Velasquez", yr:2019, dur:13, cat:"沟通领导", sub:"自信",
+   intro:"TEDxIdahoStateUniversity。讲者坦白自己因为自卑放弃过机会，后来发现自信是「事后被证据堆出来的」，不是等来的。搞科研的人最熟的场景就是投稿被拒、实验失败——这条正好讲怎么把失败当成自信的来源，而不是否定自己的证据。答辩怯场的也顺手看看。",
+   url:"https://www.ted.com/talks/adam_velasquez_finding_confidence_through_failure"},
   {en:"10 ways to have a better conversation", zh:"好好交谈的 10 条建议", sp:"Celeste Headlee", yr:2015, dur:12, cat:"沟通领导", sub:"倾听",
    intro:"职业主持人给 10 条反直觉建议（别重复问题、别抢话『我也是』…）。和导师、师兄沟通质量直接受益。",
    url:"https://www.ted.com/talks/celeste_headlee_10_ways_to_have_a_better_conversation"},
