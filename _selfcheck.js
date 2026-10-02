@@ -123,6 +123,21 @@ ok(fDeepBox.includes('前十大重仓'), '深度档案含重仓区块');
 ok(fInsBox.split('border-radius:50%').length - 1 === 3, `组合透视条数 = ${fInsBox.split('border-radius:50%').length - 1}（期望 3）`);
 ok((fDeep.insight||[])[0] && (fDeep.insight[0].includes('新易盛') || fDeep.insight[0].includes('AI')), '透视第 1 条涉及持仓重叠/AI 算力');
 
+console.log('\n[2f] 持仓股穿透 + 行业研判（2026-10-02 新增）');
+const fStocks = sandbox.window.FUNDS_STOCKS || {};
+ok(fStocks && fStocks.holdings && fStocks.holdings.length >= 20, `持仓全景条目 = ${(fStocks.holdings||[]).length}（期望 >=20）`);
+ok(fStocks.focus && fStocks.focus.length >= 5, `重点个股 = ${(fStocks.focus||[]).length}（期望 >=5）`);
+ok(fStocks.sectors && fStocks.sectors.length >= 4, `赛道研判 = ${(fStocks.sectors||[]).length}（期望 >=4）`);
+ok(fStocks.portfolio && fStocks.portfolio.length >= 3, `组合结论 = ${(fStocks.portfolio||[]).length}（期望 >=3）`);
+const panoBox = (store['funds-stocks-pano']||{}).innerHTML || '';
+const stBox = (store['funds-stocks-focus']||{}).innerHTML || '';
+const secBox = (store['funds-stocks-sectors']||{}).innerHTML || '';
+const portBox = (store['funds-stocks-portfolio']||{}).innerHTML || '';
+ok(panoBox.includes('新易盛'), '持仓全景含交叉重仓股新易盛');
+ok(stBox.length > 300, `重点个股渲染非空（${stBox.length} 字符）`);
+ok(secBox.includes('AI算力'), '赛道研判含 AI 算力链');
+ok(portBox.includes('同质'), '组合结论点出高度同质');
+
 console.log('\n[3] 模拟点击分类筛选');
 function fireFilter(elId, cat){
   const fn = (listeners[elId]||{}).click;
