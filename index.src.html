@@ -758,10 +758,35 @@
       <h2 style="font-size:20px">🧠 组合透视</h2>
       <p>基于上面实抓数据的三条大实话，只陈述事实，不构成建议。</p>
     </div>
-    <div class="cmp-list" id="funds-insight" style="margin-bottom:16px"></div>
+  <div class="cmp-list" id="funds-insight" style="margin-bottom:16px"></div>
 
-    <div class="lk-tip" style="margin-top:18px">
-      ⚠️ <b>说明：</b>场外基金净值 T+1 公布，QDII（追踪美股的两只）通常更晚，所以页面上的盈亏<b>不是此刻的实时价格</b>，而是最近一个已公布净值日的数据。本站只做记录与呈现，<b>不给任何买卖建议</b>。
+  <div class="view-head" style="margin-top:30px">
+    <h2 style="font-size:20px">🔬 持仓股穿透 + 行业研判</h2>
+    <p>四只基金 top10 合并去重，穿透到具体公司与赛道；个股行情 + 赛道预判。研判为客观分析，不构成建议。</p>
+  </div>
+  <div class="view-head" style="margin-top:18px">
+    <h2 style="font-size:17px">📇 持仓全景（合并去重）</h2>
+    <p>同一公司被几只基金共同持有，相关性一目了然。</p>
+  </div>
+  <div class="cmp-list" id="funds-stocks-pano"></div>
+  <div class="view-head" style="margin-top:30px">
+    <h2 style="font-size:17px">🔎 重点个股追踪</h2>
+    <p>核心持仓股的行情、业务、催化、风险与研判（行情 09-30 收盘 / 美股 10-01）。</p>
+  </div>
+  <div class="cmp-list" id="funds-stocks-focus"></div>
+  <div class="view-head" style="margin-top:30px">
+    <h2 style="font-size:17px">🧭 赛道 / 行业预期</h2>
+    <p>AI 算力链、半导体、纳指、A500 四大块的周期位置与未来 6–12 月研判。</p>
+  </div>
+  <div class="cmp-list" id="funds-stocks-sectors"></div>
+  <div class="view-head" style="margin-top:30px">
+    <h2 style="font-size:17px">🧠 组合层面结论</h2>
+    <p>四只基金到底押了什么、风险在哪。</p>
+  </div>
+  <div class="cmp-list" id="funds-stocks-portfolio" style="margin-bottom:16px"></div>
+
+  <div class="lk-tip" style="margin-top:18px">
+    ⚠️ <b>说明：</b>场外基金净值 T+1 公布，QDII（追踪美股的两只）通常更晚，所以页面上的盈亏<b>不是此刻的实时价格</b>，而是最近一个已公布净值日的数据。本站只做记录与呈现，<b>不给任何买卖建议</b>。
     </div>
   </div>
 
@@ -2102,6 +2127,84 @@
           '<span style="flex:none;width:22px;height:22px;border-radius:50%;background:#f59e0b;color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center">'+(i+1)+'</span>'+
           '<span style="font-size:14px;color:var(--ink);line-height:1.7">'+esc(t)+'</span></div>';
       }).join("")+'</div>' : '';
+  }
+})();
+
+/* ============ 持仓股穿透 + 行业研判 ============ */
+(function(){
+  "use strict";
+  function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+  var S = window.FUNDS_STOCKS || {};
+  if(!S.holdings) return;
+  function col(v){ return v>0 ? "#e02424" : (v<0 ? "#16a34a" : "#64748b"); }
+  function chgTxt(v){ if(v==null) return ""; return (v>0?"+":"") + (v*100).toFixed(2) + "%"; }
+  var fundName = { "012920":"易方达全球成长","024480":"财通品质甄选","022432":"中欧A500","016452":"南方纳指100" };
+
+  /* 持仓全景 */
+  var pano = document.getElementById('funds-stocks-pano');
+  if(pano){
+    var rows = (S.holdings||[]).map(function(h){
+      var badges = (h.by||[]).map(function(c){ return '<span class="tier t-A" style="font-size:11px;margin-right:4px">'+esc(fundName[c]||c)+'</span>'; }).join("");
+      var mc = h.mkt==="美股" ? "#2563eb" : "#f59e0b";
+      return '<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:8px 10px;border-bottom:1px solid var(--line);font-size:13px">'+
+        '<b style="color:var(--ink);min-width:84px">'+esc(h.n)+'</b>'+
+        '<span class="tier t-none" style="font-size:11px">'+esc(h.code||"")+'</span>'+
+        '<span style="color:'+mc+';font-size:11px">'+esc(h.mkt)+'</span>'+
+        '<span style="color:#64748b">'+esc(h.sector||"")+'</span>'+
+        '<span style="margin-left:auto">'+badges+'</span></div>';
+    }).join("");
+    pano.innerHTML = '<div style="background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden">'+rows+'</div>';
+  }
+
+  /* 重点个股 */
+  var foc = document.getElementById('funds-stocks-focus');
+  if(foc){
+    foc.innerHTML = (S.focus||[]).map(function(f){
+      var price = (f.cur||"") + (f.price||"—");
+      var chgHtml = f.chg!=null ? '<span style="color:'+col(f.chg)+';font-weight:700">'+chgTxt(f.chg)+'</span>' : '';
+      var url = f.mkt==="美股"
+        ? "https://stock.finance.sina.com.cn/usstock/quotes/"+esc(f.code||"")+".html"
+        : "https://quote.eastmoney.com/"+esc(f.code||"")+".html";
+      return '<article class="cmp-item" style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:0 0 10px">'+
+        '<div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap">'+
+          '<a href="'+url+'" target="_blank" rel="noopener noreferrer" style="font-size:15px;font-weight:800;color:var(--ink);text-decoration:none">'+esc(f.n)+' ↗</a>'+
+          '<span class="tier t-none" style="font-size:11px">'+esc(f.code||"")+'</span>'+
+          '<span class="tier t-A" style="font-size:11px">'+esc(f.mkt||"")+'</span>'+
+          '<span style="margin-left:auto;font-size:15px;font-weight:800;color:var(--ink)">'+esc(price)+'</span> '+chgHtml+
+        '</div>'+
+        '<div style="font-size:11px;color:#94a3b8;margin:4px 0 8px">行情日 '+(f.date||"—")+'</div>'+
+        '<div style="font-size:13px;color:var(--ink);margin-bottom:6px"><b>业务：</b>'+esc(f.biz||"")+'</div>'+
+        '<div style="font-size:13px;color:#334155;margin-bottom:6px"><b>走势：</b>'+esc(f.trend||"")+'</div>'+
+        '<div style="font-size:13px;color:#334155;margin-bottom:6px"><b>催化：</b>'+esc(f.catalyst||"")+'</div>'+
+        '<div style="font-size:13px;color:#334155;margin-bottom:6px"><b style="color:#b91c1c">风险：</b>'+esc(f.risk||"")+'</div>'+
+        '<div style="font-size:13px;color:#1d4ed8;background:#eff6ff;border-radius:8px;padding:8px 10px"><b>研判：</b>'+esc(f.view||"")+'</div>'+
+      '</article>';
+    }).join("");
+  }
+
+  /* 赛道 */
+  var sec = document.getElementById('funds-stocks-sectors');
+  if(sec){
+    sec.innerHTML = (S.sectors||[]).map(function(s){
+      return '<article class="cmp-item" style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:0 0 10px">'+
+        '<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">'+
+          '<b style="font-size:15px;color:var(--ink)">'+esc(s.name)+'</b>'+
+          '<span class="tier t-A" style="font-size:11px">'+esc(s.tag||"")+'</span>'+
+        '</div>'+
+        '<div style="font-size:13px;color:#334155;margin:8px 0"><b>产业链位置：</b>'+esc(s.pos||"")+'</div>'+
+        '<div style="font-size:13px;color:#334155;margin:8px 0"><b>周期位置：</b>'+esc(s.cycle||"")+'</div>'+
+        '<div style="font-size:13px;color:#1d4ed8;background:#eff6ff;border-radius:8px;padding:8px 10px;margin:8px 0"><b>未来研判：</b>'+esc(s.view||"")+'</div>'+
+        '<div style="font-size:13px;color:#b91c1c"><b>关键风险：</b>'+esc(s.risk||"")+'</div>'+
+      '</article>';
+    }).join("");
+  }
+
+  /* 组合结论 */
+  var port = document.getElementById('funds-stocks-portfolio');
+  if(port){
+    port.innerHTML = (S.portfolio||[]).map(function(t){
+      return '<div style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:0 0 10px;font-size:14px;color:var(--ink);line-height:1.7">'+esc(t)+'</div>';
+    }).join("");
   }
 })();
 </script>
