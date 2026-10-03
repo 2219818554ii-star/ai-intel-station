@@ -761,8 +761,8 @@
   <div class="cmp-list" id="funds-insight" style="margin-bottom:16px"></div>
 
   <div class="view-head" style="margin-top:30px">
-    <h2 style="font-size:20px">🔬 持仓股穿透 + 行业研判</h2>
-    <p>四只基金 top10 合并去重，穿透到具体公司与赛道；个股行情 + 赛道预判。研判为客观分析，不构成建议。</p>
+    <h2 style="font-size:20px">🔬 持仓穿透 + 行业研究笔记<span style="font-size:12px;color:#94a3b8;font-weight:400">（季度复核 · 非每日更新）</span></h2>
+    <p>四只基金 top10 合并去重，穿透到具体公司与赛道；个股行情 + 赛道预判。以下为<b>静态研究笔记</b>，每季度随基金报告期复核一次，不逐日变动，研判为客观分析、不构成建议。</p>
   </div>
   <div class="view-head" style="margin-top:18px">
     <h2 style="font-size:17px">📇 持仓全景（合并去重）</h2>
@@ -786,7 +786,7 @@
   <div class="cmp-list" id="funds-stocks-portfolio" style="margin-bottom:16px"></div>
 
   <div class="lk-tip" style="margin-top:18px">
-    ⚠️ <b>说明：</b>场外基金净值 T+1 公布，QDII（追踪美股的两只）通常更晚，所以页面上的盈亏<b>不是此刻的实时价格</b>，而是最近一个已公布净值日的数据。本站只做记录与呈现，<b>不给任何买卖建议</b>。
+    ⚠️ <b>说明：</b>场外基金净值 T+1 公布，QDII（追踪美股的两只）通常更晚，所以页面上的盈亏<b>不是此刻的实时价格</b>，而是最近一个已公布净值日的数据。「持仓市值 / 持有收益」为 2026-09-25 支付宝快照、需你本人同步才改；「估算市值 / 估算盈亏」按份额 × 最新净值自动反推，<b>仅供参考，以你支付宝实际为准</b>。本站只做记录与呈现，<b>不给任何买卖建议</b>。
     </div>
   </div>
 
@@ -3448,27 +3448,34 @@ window.FUNDS_UPDATED = "2026-10-02";
 window.FUNDS_META = {
   src: "支付宝 App 持仓截图（持仓金额，快照 2026-09-25）+ 天天基金 F10 历史净值（净值/日增长率/阶段业绩，2026-09-28 建库，2026-10-02 刷新业绩）",
   date: "2026-10-02",
-  note: "国庆休市（10/1–10/7）A股不开盘，最新净值为 09-29/09-30、阶段业绩已滚至 10-02。场外基金净值 T+1、QDII 更晚，页面显示的是最近一个已公布净值日的数据，不是实时价。金额/收益为 2026-09-25 支付宝快照，净值每日自动刷新但账户金额需你本人同步才改。"
+  note: "国庆休市（10/1–10/7）A股不开盘，最新净值为 09-29/09-30、阶段业绩已滚至 10-02。场外基金净值 T+1、QDII 更晚，页面显示的是最近一个已公布净值日的数据，不是实时价。金额/收益为 2026-09-25 支付宝快照，净值每日自动刷新但账户金额需你本人同步才改。为让栏目在交易日真正动起来，新增「估算市值 / 估算盈亏」（按份额×最新净值反推，仅供参考，以你支付宝实际为准）。"
 };
 
 /* 持仓：amt=持有金额(元)｜dayPL=昨日收益｜holdPL=持有收益｜holdPct=持有收益率(小数)
    unit/dayPct/navDate = 该只基金最新已公布净值（单位净值 / 日增长率小数 / 净值日期），每日例行刷新。
+   navAt = 份额反推基准净值（支付宝 09-25 快照对应的 09-24 T+1 净值，来自天天基金实抓）。
+   估算市值 = amt × (unit / navAt)；估算持有盈亏 = 估算市值 − amt/(1+holdPct)；均与最新净值联动、交易日会动。
+   估算值仅供参考，最终以罗浩本人支付宝实际为准；份额默认不变（无买卖），大额加/减仓后需重算。
    amt 等账户数据只有罗浩本人同步时才改，自动化不动。 */
 window.FUNDS_HOLD = [
   { n: "易方达全球成长精选混合(QDII)A", code: "012920", type: "QDII-混合", style: "海外",
     amt: 216.31, dayPL: -1.33, holdPL: -53.69, holdPct: -0.1989, auto: "定投", amtDate: "2026-09-25",
+    navAt: "3.8463",
     unit: 3.7594, dayPct: 0.0101, navDate: "2026-09-29",
     url: "https://fund.eastmoney.com/012920.html" },
   { n: "财通品质甄选混合A", code: "024480", type: "混合型-偏股", style: "A股",
     amt: 1411.79, dayPL: -55.83, holdPL: -284.24, holdPct: -0.1676, auto: "", amtDate: "2026-09-25",
+    navAt: "1.9523",
     unit: 1.8284, dayPct: -0.0157, navDate: "2026-09-30",
     url: "https://fund.eastmoney.com/024480.html" },
   { n: "中欧中证A500指数发起A", code: "022432", type: "指数型-股票", style: "A股",
     amt: 1.57, dayPL: -0.03, holdPL: -0.07, holdPct: -0.0428, auto: "", amtDate: "2026-09-25",
+    navAt: "1.2264",
     unit: 1.2025, dayPct: 0.0020, navDate: "2026-09-30",
     url: "https://fund.eastmoney.com/022432.html" },
   { n: "南方纳斯达克100指数发起(QDII)A", code: "016452", type: "QDII-股票", style: "海外",
     amt: 862.65, dayPL: -6.87, holdPL: 22.65, holdPct: 0.0276, auto: "定投", amtDate: "2026-09-25",
+    navAt: "2.3525",
     unit: 2.3393, dayPct: 0.0021, navDate: "2026-09-29",
     url: "https://fund.eastmoney.com/016452.html" }
 ];
@@ -4920,14 +4927,26 @@ window.FUNDS_STOCKS = {
     if(txt == null) return '<span class="tier t-none">—</span>';
     return '<span style="color:'+col(v)+';font-weight:700">'+esc(txt)+'</span>';
   }
+  /* 估算：份额 = 快照金额 / 基准净值(navAt)；估算市值 = 份额 × 最新净值(unit)；
+     估算持有盈亏 = 估算市值 − 成本(amt/(1+holdPct))。与最新净值联动，交易日会动。 */
+  function estOf(f){
+    var navAt = parseFloat(f.navAt);
+    if(!(navAt>0) || typeof f.amt!=="number" || typeof f.unit!=="number") return null;
+    var shares = f.amt / navAt;
+    var estVal = shares * f.unit;
+    var cost = (typeof f.holdPct==="number") ? f.amt/(1+f.holdPct) : null;
+    var estPL = (cost!=null) ? estVal - cost : null;
+    return { shares:shares, estVal:estVal, estPL:estPL, flt:estVal - f.amt };
+  }
 
   /* ---- 总览卡 ---- */
-  var sumAmt=0, sumDay=0, sumPL=0, sumCost=0, maxAmt=0, maxName="—";
+  var sumAmt=0, sumDay=0, sumPL=0, sumCost=0, sumEst=0, maxAmt=0, maxName="—";
   H.forEach(function(f){
     if(typeof f.amt==="number") sumAmt += f.amt;
     if(typeof f.dayPL==="number") sumDay += f.dayPL;
     if(typeof f.holdPL==="number"){ sumPL += f.holdPL; sumCost += (f.amt||0) - f.holdPL; }
     if(typeof f.amt==="number" && f.amt>maxAmt){ maxAmt=f.amt; maxName=f.n; }
+    var e = estOf(f); if(e) sumEst += e.estVal;
   });
   var totalPct = (sumCost>0) ? sumPL/sumCost : null;
   var maxPct = (sumAmt>0) ? maxAmt/sumAmt : 0;
@@ -4944,9 +4963,11 @@ window.FUNDS_STOCKS = {
     box.style.gridTemplateColumns="repeat(auto-fit,minmax(160px,1fr))";
     box.style.gap="12px";
     box.innerHTML = [
-      card("持仓市值合计", "¥" + sumAmt.toLocaleString("zh-CN",{minimumFractionDigits:2, maximumFractionDigits:2}), H.length + " 只基金"),
+      card("持仓市值合计", "¥" + sumAmt.toLocaleString("zh-CN",{minimumFractionDigits:2, maximumFractionDigits:2}), H.length + " 只基金（支付宝快照）"),
+      card("估算市值（最新净值）", "¥" + sumEst.toLocaleString("zh-CN",{minimumFractionDigits:2, maximumFractionDigits:2}), "份额×最新净值·仅供参考"),
       card("昨日收益", costyle(sumDay, moneyTxt(sumDay)), ""),
       card("持有收益合计", costyle(sumPL, moneyTxt(sumPL)), "成本约 ¥" + sumCost.toLocaleString("zh-CN",{minimumFractionDigits:2, maximumFractionDigits:2})),
+      card("估算持有盈亏", costyle(sumEst - sumCost, moneyTxt(sumEst - sumCost)), "较成本·以支付宝为准"),
       card("总收益率", costyle(totalPct, pctTxt(totalPct)), ""),
       card("最大单一持仓", (maxPct*100).toFixed(1)+"%", maxName)
     ].join("");
@@ -4956,6 +4977,7 @@ window.FUNDS_STOCKS = {
   var list = document.getElementById('funds-list');
   if(list){
     list.innerHTML = H.map(function(f, i){
+      var e = estOf(f);
       return '<article class="cmp-item" style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:0 0 10px">'+
         '<div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap">'+
           '<a href="'+esc(f.url||"#")+'" target="_blank" rel="noopener noreferrer" style="font-size:15px;font-weight:800;color:var(--ink);text-decoration:none">'+esc(f.n)+' ↗</a>'+
@@ -4965,6 +4987,8 @@ window.FUNDS_STOCKS = {
         '<div style="font-size:12px;color:#64748b;margin:5px 0 10px">'+esc(f.type)+' · '+esc(f.style)+'</div>'+
         '<div style="display:flex;flex-wrap:wrap;gap:16px;font-size:13px">'+
           '<span>持有金额：<b>'+costyle(f.amt, moneyTxt(f.amt))+'</b> <span style="color:#94a3b8;font-size:11px">（支付宝 '+esc(f.amtDate||'—')+' 快照）</span></span>'+
+          '<span>估算市值：<b>'+ (e ? costyle(e.estVal - f.amt, moneyTxt(e.estVal)) : '—') +'</b> <span style="color:#94a3b8;font-size:11px">（份额×最新净值）</span></span>'+
+          '<span>估算盈亏：<b>'+ (e && e.estPL!=null ? costyle(e.estPL, moneyTxt(e.estPL)) : '—') +'</b> <span style="color:#94a3b8;font-size:11px">（较成本）</span></span>'+
           '<span>昨日收益：<b>'+costyle(f.dayPL, moneyTxt(f.dayPL))+'</b></span>'+
           '<span>持有收益：<b>'+costyle(f.holdPL, moneyTxt(f.holdPL))+' ('+plText(f.holdPL)+')</b></span>'+
           '<span>收益率：<b>'+costyle(f.holdPct, pctTxt(f.holdPct))+'</b></span>'+
