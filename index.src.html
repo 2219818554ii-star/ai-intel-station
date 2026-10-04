@@ -296,7 +296,7 @@
   <!-- ================= RANK VIEW ================= -->
   <div id="view-rank" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-rank">
     <div class="view-head"><h2>🏆 AI 实力排行榜</h2>
-      <p>大模型 / 编程工具 / 工具×模型组合 的分维度与综合实力评级。数据截至 <b>2026-10-03</b>。<span style="display:inline-block;margin-left:8px;padding:2px 9px;border-radius:999px;background:#ecfdf5;color:#15803d;font-size:12px;font-weight:700;border:1px solid #bbf7d0">🔄 每日自动更新</span></p></div>
+      <p>大模型 / 编程工具 / 工具×模型组合 的分维度与综合实力评级。数据截至 <b>2026-10-04</b>。<span style="display:inline-block;margin-left:8px;padding:2px 9px;border-radius:999px;background:#ecfdf5;color:#15803d;font-size:12px;font-weight:700;border:1px solid #bbf7d0">🔄 每日自动更新</span></p></div>
     <div class="news">
       🆕 <b>2026 年 9 月新动态：</b>Claude Fable 5.1（9-1，AA 智能指数并列第一）、GPT-6 Astra（9-3，号称 AGI 时代但<b>几乎不可用</b>）、Gemini 3.8 Flash（9-2，多模态标杆）、Muse Spark 1.3（9-2）、Qwen3.8-Max 登 Code Arena WebDev 榜首（9-2）、GLM-5.3-Flash 开源（8-26）、腾讯 Hy4 Preview 开源（8-28）。<b>注意：GPT-6 Astra 被定为「关键网络安全」级，目前仅 Daybreak 计划批准者可用，投票榜样本极少，排名可能随时变化。</b>
     </div>
@@ -761,8 +761,8 @@
   <div class="cmp-list" id="funds-insight" style="margin-bottom:16px"></div>
 
   <div class="view-head" style="margin-top:30px">
-    <h2 style="font-size:20px">🔬 持仓股穿透 + 行业研判</h2>
-    <p>四只基金 top10 合并去重，穿透到具体公司与赛道；个股行情 + 赛道预判。研判为客观分析，不构成建议。</p>
+    <h2 style="font-size:20px">🔬 持仓穿透 + 行业研究笔记<span style="font-size:12px;color:#94a3b8;font-weight:400">（季度复核 · 非每日更新）</span></h2>
+    <p>四只基金 top10 合并去重，穿透到具体公司与赛道；个股行情 + 赛道预判。以下为<b>静态研究笔记</b>，每季度随基金报告期复核一次，不逐日变动，研判为客观分析、不构成建议。</p>
   </div>
   <div class="view-head" style="margin-top:18px">
     <h2 style="font-size:17px">📇 持仓全景（合并去重）</h2>
@@ -786,7 +786,7 @@
   <div class="cmp-list" id="funds-stocks-portfolio" style="margin-bottom:16px"></div>
 
   <div class="lk-tip" style="margin-top:18px">
-    ⚠️ <b>说明：</b>场外基金净值 T+1 公布，QDII（追踪美股的两只）通常更晚，所以页面上的盈亏<b>不是此刻的实时价格</b>，而是最近一个已公布净值日的数据。本站只做记录与呈现，<b>不给任何买卖建议</b>。
+    ⚠️ <b>说明：</b>场外基金净值 T+1 公布，QDII（追踪美股的两只）通常更晚，所以页面上的盈亏<b>不是此刻的实时价格</b>，而是最近一个已公布净值日的数据。「持仓市值 / 持有收益」为 2026-09-25 支付宝快照、需你本人同步才改；「估算市值 / 估算盈亏」按份额 × 最新净值自动反推，<b>仅供参考，以你支付宝实际为准</b>。本站只做记录与呈现，<b>不给任何买卖建议</b>。
     </div>
   </div>
 
@@ -816,7 +816,7 @@
     t.addEventListener("click", function(){ showTab(t.dataset.tab); });
   });
 
-  /* ============ RANK DATA (snapshot 2026-10-03) ============ */
+  /* ============ RANK DATA (snapshot 2026-10-04) ============ */
   var RANK = window.RANK || {};
 
   function tierBadge(t){
@@ -1399,7 +1399,7 @@
   function renderAutoBar(){
     var el = document.getElementById("autoBar");
     if(!el) return;
-    el.innerHTML = "🔄 <b>每 30 分钟自动刷新</b> · 日报实时拉取（下次还有 <b>"+fmtMMSS(autoNextAt-Date.now())+"</b>）· 上次刷新 <b>"+bjClock(autoLastAt)+"</b> · 排行榜 / 比赛 / AI 上手 为每日自动更新快照（2026-10-03）";
+    el.innerHTML = "🔄 <b>每 30 分钟自动刷新</b> · 日报实时拉取（下次还有 <b>"+fmtMMSS(autoNextAt-Date.now())+"</b>）· 上次刷新 <b>"+bjClock(autoLastAt)+"</b> · 排行榜 / 比赛 / AI 上手 为每日自动更新快照（2026-10-04）";
   }
   function autoRefreshNow(){
     autoLastAt = new Date();
@@ -2006,14 +2006,26 @@
     if(txt == null) return '<span class="tier t-none">—</span>';
     return '<span style="color:'+col(v)+';font-weight:700">'+esc(txt)+'</span>';
   }
+  /* 估算：份额 = 快照金额 / 基准净值(navAt)；估算市值 = 份额 × 最新净值(unit)；
+     估算持有盈亏 = 估算市值 − 成本(amt/(1+holdPct))。与最新净值联动，交易日会动。 */
+  function estOf(f){
+    var navAt = parseFloat(f.navAt);
+    if(!(navAt>0) || typeof f.amt!=="number" || typeof f.unit!=="number") return null;
+    var shares = f.amt / navAt;
+    var estVal = shares * f.unit;
+    var cost = (typeof f.holdPct==="number") ? f.amt/(1+f.holdPct) : null;
+    var estPL = (cost!=null) ? estVal - cost : null;
+    return { shares:shares, estVal:estVal, estPL:estPL, flt:estVal - f.amt };
+  }
 
   /* ---- 总览卡 ---- */
-  var sumAmt=0, sumDay=0, sumPL=0, sumCost=0, maxAmt=0, maxName="—";
+  var sumAmt=0, sumDay=0, sumPL=0, sumCost=0, sumEst=0, maxAmt=0, maxName="—";
   H.forEach(function(f){
     if(typeof f.amt==="number") sumAmt += f.amt;
     if(typeof f.dayPL==="number") sumDay += f.dayPL;
     if(typeof f.holdPL==="number"){ sumPL += f.holdPL; sumCost += (f.amt||0) - f.holdPL; }
     if(typeof f.amt==="number" && f.amt>maxAmt){ maxAmt=f.amt; maxName=f.n; }
+    var e = estOf(f); if(e) sumEst += e.estVal;
   });
   var totalPct = (sumCost>0) ? sumPL/sumCost : null;
   var maxPct = (sumAmt>0) ? maxAmt/sumAmt : 0;
@@ -2030,9 +2042,11 @@
     box.style.gridTemplateColumns="repeat(auto-fit,minmax(160px,1fr))";
     box.style.gap="12px";
     box.innerHTML = [
-      card("持仓市值合计", "¥" + sumAmt.toLocaleString("zh-CN",{minimumFractionDigits:2, maximumFractionDigits:2}), H.length + " 只基金"),
+      card("持仓市值合计", "¥" + sumAmt.toLocaleString("zh-CN",{minimumFractionDigits:2, maximumFractionDigits:2}), H.length + " 只基金（支付宝快照）"),
+      card("估算市值（最新净值）", "¥" + sumEst.toLocaleString("zh-CN",{minimumFractionDigits:2, maximumFractionDigits:2}), "份额×最新净值·仅供参考"),
       card("昨日收益", costyle(sumDay, moneyTxt(sumDay)), ""),
       card("持有收益合计", costyle(sumPL, moneyTxt(sumPL)), "成本约 ¥" + sumCost.toLocaleString("zh-CN",{minimumFractionDigits:2, maximumFractionDigits:2})),
+      card("估算持有盈亏", costyle(sumEst - sumCost, moneyTxt(sumEst - sumCost)), "较成本·以支付宝为准"),
       card("总收益率", costyle(totalPct, pctTxt(totalPct)), ""),
       card("最大单一持仓", (maxPct*100).toFixed(1)+"%", maxName)
     ].join("");
@@ -2042,6 +2056,7 @@
   var list = document.getElementById('funds-list');
   if(list){
     list.innerHTML = H.map(function(f, i){
+      var e = estOf(f);
       return '<article class="cmp-item" style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:0 0 10px">'+
         '<div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap">'+
           '<a href="'+esc(f.url||"#")+'" target="_blank" rel="noopener noreferrer" style="font-size:15px;font-weight:800;color:var(--ink);text-decoration:none">'+esc(f.n)+' ↗</a>'+
@@ -2051,6 +2066,8 @@
         '<div style="font-size:12px;color:#64748b;margin:5px 0 10px">'+esc(f.type)+' · '+esc(f.style)+'</div>'+
         '<div style="display:flex;flex-wrap:wrap;gap:16px;font-size:13px">'+
           '<span>持有金额：<b>'+costyle(f.amt, moneyTxt(f.amt))+'</b> <span style="color:#94a3b8;font-size:11px">（支付宝 '+esc(f.amtDate||'—')+' 快照）</span></span>'+
+          '<span>估算市值：<b>'+ (e ? costyle(e.estVal - f.amt, moneyTxt(e.estVal)) : '—') +'</b> <span style="color:#94a3b8;font-size:11px">（份额×最新净值）</span></span>'+
+          '<span>估算盈亏：<b>'+ (e && e.estPL!=null ? costyle(e.estPL, moneyTxt(e.estPL)) : '—') +'</b> <span style="color:#94a3b8;font-size:11px">（较成本）</span></span>'+
           '<span>昨日收益：<b>'+costyle(f.dayPL, moneyTxt(f.dayPL))+'</b></span>'+
           '<span>持有收益：<b>'+costyle(f.holdPL, moneyTxt(f.holdPL))+' ('+plText(f.holdPL)+')</b></span>'+
           '<span>收益率：<b>'+costyle(f.holdPct, pctTxt(f.holdPct))+'</b></span>'+
