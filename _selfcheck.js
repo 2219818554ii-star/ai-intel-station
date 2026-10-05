@@ -209,7 +209,11 @@ ok(cqUpdatedShown === cqUpdatedData, `理工更新日期与数据一致（页面
 /* 分类体系是固定 8 个枚举，新通知必须归入其一，不能自创也不能漏填 */
 const cqTags = sandbox.window.CQUT_TAGS || [];
 const cqNotices = sandbox.window.CQUT_NOTICES || [];
-/* 反空洞更新：CQUT_UPDATED 说今天刷新了，但数据里最新一条还停在好几天前 → 说明只改了日期没加真东西 */
+/* 反空洞更新：CQUT_UPDATED 说今天刷新了，但数据里最新一条还停在好几天前 → 说明只改了日期没加真东西。
+   2026-10-05 修订：日期差只是「代理指标」。学校/学院在国庆这类空档期会连着好几天一条不发，
+   此时「最新通知日期」必然停在假期前，但这一轮可能真的补了一批漏抓的旧通知 —— 那是实打实的内容增量，
+   不该被误判成空洞更新。所以判据改成：日期差 <= 3 天，或者本轮相对上一次提交确实新增了通知条目
+   （基线取 git 里上一次提交的 cqut.js；读不到 git 时退回严格的日期判据，不给放水）。*/
 (function(){
   const ud = String(sandbox.window.CQUT_UPDATED || '');
   const m = /(\d{4})-(\d{2})-(\d{2})/.exec(ud);
@@ -217,7 +221,27 @@ const cqNotices = sandbox.window.CQUT_NOTICES || [];
   const d0 = new Date(+m[1], +m[2] - 1, +m[3]);
   const maxD = cqNotices.map(n => { const mm = /(\d{4})-(\d{2})-(\d{2})/.exec(n.date||''); return mm ? Date.parse(mm[1]+'-'+mm[2]+'-'+mm[3]) : 0; }).reduce((a,b)=>Math.max(a,b),0);
   const dataGap = Math.round((d0 - new Date(maxD)) / 86400000);
-  ok(dataGap <= 3, `数据非空更新：CQUT_UPDATED=${ud} 时最新通知日期差 ${dataGap} 天（> 3 天 = 只改了日期没加内容，属空洞更新，禁止）`);
+  if(dataGap <= 3){
+    ok(true, `数据非空更新：CQUT_UPDATED=${ud} 时最新通知日期差 ${dataGap} 天（<= 3 天）`);
+    return;
+  }
+  /* 日期超期了，再验一次「本轮是否真加了内容」：拿当前 url 集合跟 git 上一次提交的 cqut.js 比 */
+  let addedFromGit = -1;                       // -1 = 取不到基线
+  try{
+    const cp = require('child_process');
+    const gits = process.env.GIT_EXE ? [process.env.GIT_EXE] : ['git', 'D:/Git/cmd/git.EXE'];
+    let prev = '';
+    for(const g of gits){
+      try { prev = cp.execFileSync(g, ['show', 'HEAD:cqut.js'], {encoding:'utf8', maxBuffer: 64*1024*1024}); break; } catch(e){}
+    }
+    if(prev){
+      const oldUrls = new Set((prev.match(/"url":\s*"[^"]+"/g) || []).map(s => s.slice(8, -1)));
+      addedFromGit = cqNotices.filter(n => n.url && !oldUrls.has(n.url)).length;
+    }
+  }catch(e){}
+  ok(dataGap <= 3 || addedFromGit > 0,
+    `数据非空更新：CQUT_UPDATED=${ud} 时最新通知日期差 ${dataGap} 天；` +
+    `本轮相对上一次提交新增 ${addedFromGit} 条真实通知${addedFromGit > 0 ? ' → 属补漏抓，非空洞更新' : '（取不到 git 基线时按严格日期判据处理）'}`);
 })();
 
 /* [全局新鲜度门] 罗浩 2026-09-28 加：自检之前只卡了重理工一个栏目的新鲜度，
