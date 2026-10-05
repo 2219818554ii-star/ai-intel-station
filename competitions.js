@@ -1,6 +1,6 @@
 /* AI 情报站 - 比赛数据（每日自动更新） */
-window.COMP_UPDATED = "2026-10-04";
-/* ============ COMPETITIONS (snapshot 2026-10-04) ============
+window.COMP_UPDATED = "2026-10-05";
+/* ============ COMPETITIONS (snapshot 2026-10-05) ============
    数据规则：走省赛/赛区选拔且官网赛区列表中没有重庆的赛事，一律不放 scope:"me"（挪 world 或不收）。
    已知案例：挑战杯 2026 报备页省赛仅 13 省，无重庆 → 挑战杯两条均为 world。 */
   var CPIPC = "https://cpipc.acge.org.cn/cw/hp/";
