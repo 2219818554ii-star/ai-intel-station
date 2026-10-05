@@ -1,5 +1,5 @@
 /* AI 情报站 - 实力排行榜数据（每日自动更新） */
-window.RANK_UPDATED = "2026-10-04";
+window.RANK_UPDATED = "2026-10-05";
 window.RANK = {
     models: [
       {name:"Claude Opus 5.5", vendor:"Anthropic（美国）", price:"API $4/$20 每百万", iaa:58, tb:null,
@@ -121,7 +121,7 @@ window.RANK = {
        note:"最便宜付费、IDE 原生、issue→PR。团队已在 GitHub 且要低门槛选它。"}
     ],
     tables: {
-      aa: {title:"Artificial Analysis 智能指数 v4.3 Top16（满分≈58，2026-10-04 复核）", unit:"分", rows:[
+      aa: {title:"Artificial Analysis 智能指数 v4.3 Top16（满分≈58，2026-10-05 复核）", unit:"分", rows:[
         ["Claude Opus 5.5",58],["Claude Sonnet 5.5",56],["Claude Fable 5.1",53],["GPT-6 Astra",53],["Gemini 4 Argon",53],["GPT-6.1 Sol",52],["Claude Opus 5",51],["Claude Fable 5",50],
         ["Muse Spark 1.3",48],["Grok 4.7",46],["MiMo V2.6 Pro",46],["GLM-5.3",45],["Grok 4.6",44],["Kimi K3",44],
         ["GLM-5.3-Flash",42],["Gemini 3.8 Flash",41]
