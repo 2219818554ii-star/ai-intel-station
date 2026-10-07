@@ -1,5 +1,5 @@
 /* AI 情报站 - 实力排行榜数据（每日自动更新） */
-window.RANK_UPDATED = "2026-10-06";
+window.RANK_UPDATED = "2026-10-07";
 window.RANK = {
     models: [
       {name:"Claude Opus 5.5", vendor:"Anthropic（美国）", price:"API $4/$20 每百万", iaa:58, tb:null,
@@ -65,6 +65,9 @@ window.RANK = {
       {name:"DeepSeek V4 Pro", vendor:"DeepSeek（中国）", price:"开源免费 / API 低价", iaa:36, tb:78.7,
        t:{综合:"B",推理:"B",代码:"A",多模态:"B",长上下文:"B",中文:"A",性价比:"S",开源:"S"},
        note:"DeepSWE 1.1 80.6%（开源权重最高）；性价比/开源双 S，可完全自部署。综合与英文稍弱。"},
+      {name:"Mistral Large 4 (预览)", vendor:"Mistral（法国）", price:"API $1.36/$4.18 每百万（预览价）", iaa:38, tb:null,
+       t:{综合:"B",推理:"B",代码:"B",多模态:"A",长上下文:"B",中文:"C",性价比:"B",开源:"A"},
+       note:"2026-10-06 Mistral 发布公开预览版（代号 le Chonk）：1T 总参数 / 49B 激活、原生多模态（文本+图像），权重拟 10 月底开放（Apache 2.0 路线，待官方确认）。⚠ AA 智能指数 v4.3 = 38（Artificial Analysis 实测，称其为「美国与中国之外最聪明模型」），Cyber Index 50；官方自报 Harvey Legal Agent 15%、金融建模对标 Kimi K3。tb 列暂无可靠 TB2.1 分，留空。法语/欧洲合规强、中文弱，开放权重路线值得关注（本页以 AA 整数收录，t 评级为基于定位的初步估计）。"},
       {name:"Hunyuan 混元", vendor:"腾讯（中国）", price:"Hy4 Preview 开源（Apache 2.0）", iaa:null, tb:null,
        t:{综合:"B",推理:"B",代码:"B",多模态:"B",长上下文:"B",中文:"A",性价比:"B",开源:"A"},
        note:"国产主力，中文与性价比均衡；Hy4 Preview 8-28 开源（770B，Apache 2.0），适合国内合规与本地化。"},
@@ -121,7 +124,7 @@ window.RANK = {
        note:"最便宜付费、IDE 原生、issue→PR。团队已在 GitHub 且要低门槛选它。"}
     ],
     tables: {
-      aa: {title:"Artificial Analysis 智能指数 v4.3 Top16（满分≈58，2026-10-06 复核）", unit:"分", rows:[
+      aa: {title:"Artificial Analysis 智能指数 v4.3 Top16（满分≈58，2026-10-07 复核）", unit:"分", rows:[
         ["Claude Opus 5.5",58],["Claude Sonnet 5.5",56],["Claude Fable 5.1",53],["GPT-6 Astra",53],["Gemini 4 Argon",53],["GPT-6.1 Sol",52],["Claude Opus 5",51],["Claude Fable 5",50],
         ["Muse Spark 1.3",48],["Grok 4.7",46],["MiMo V2.6 Pro",46],["GLM-5.3",45],["Grok 4.6",44],["Kimi K3",44],
         ["GLM-5.3-Flash",42],["Gemini 3.8 Flash",41]
