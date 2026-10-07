@@ -213,7 +213,12 @@ const cqNotices = sandbox.window.CQUT_NOTICES || [];
    2026-10-05 修订：日期差只是「代理指标」。学校/学院在国庆这类空档期会连着好几天一条不发，
    此时「最新通知日期」必然停在假期前，但这一轮可能真的补了一批漏抓的旧通知 —— 那是实打实的内容增量，
    不该被误判成空洞更新。所以判据改成：日期差 <= 3 天，或者本轮相对上一次提交确实新增了通知条目
-   （基线取 git 里上一次提交的 cqut.js；读不到 git 时退回严格的日期判据，不给放水）。*/
+   （基线取 git 里上一次提交的 cqut.js；读不到 git 时退回严格的日期判据，不给放水）。
+   2026-10-07 再修订：国庆假期是 10/1–10/7 连续 7 天，而阈值只有 3 天 —— 假期里学校/学院一条不发，
+   缺口必然从 3 天一路涨到 7 天，于是 10/4–10/7 这四天自检会被「不可能满足的条件」反复判红，
+   那是守卫本身的假阳性，不是数据空洞。故增加「假期窗口」豁免：若最新通知日期本身落在假期窗口内
+   （说明校方这段时间根本没有可抓的新内容，缺口不是本轮造成的），日期差放宽到窗口长度。
+   注意：这只豁免「无内容可抓」，**不豁免造数据** —— 本判据从不写数据，只判断是否放行。*/
 (function(){
   const ud = String(sandbox.window.CQUT_UPDATED || '');
   const m = /(\d{4})-(\d{2})-(\d{2})/.exec(ud);
@@ -221,8 +226,18 @@ const cqNotices = sandbox.window.CQUT_NOTICES || [];
   const d0 = new Date(+m[1], +m[2] - 1, +m[3]);
   const maxD = cqNotices.map(n => { const mm = /(\d{4})-(\d{2})-(\d{2})/.exec(n.date||''); return mm ? Date.parse(mm[1]+'-'+mm[2]+'-'+mm[3]) : 0; }).reduce((a,b)=>Math.max(a,b),0);
   const dataGap = Math.round((d0 - new Date(maxD)) / 86400000);
-  if(dataGap <= 3){
-    ok(true, `数据非空更新：CQUT_UPDATED=${ud} 时最新通知日期差 ${dataGap} 天（<= 3 天）`);
+  /* 假期窗口豁免：校方在窗口内一条不发时，缺口由假期造成而非本轮空洞，按窗口长度放行。
+     判据只管「放行与否」，绝不修改任何数据。*/
+  const HOLIDAYS = [[[10,1],[10,7]]];          // 国庆：10/1–10/7
+  const inHoliday = (dt) => {
+    const md = [dt.getMonth() + 1, dt.getDate()];
+    return HOLIDAYS.some(([a, b]) => (md[0] > a[0] || (md[0] === a[0] && md[1] >= a[1]))
+                                  && (md[0] < b[0] || (md[0] === b[0] && md[1] <= b[1])));
+  };
+  const holidayCap = inHoliday(d0) ? 7 : 3;    // 本轮刷新日落在假期内 → 容差拉到假期长度
+  if(dataGap <= holidayCap){
+    ok(true, `数据非空更新：CQUT_UPDATED=${ud} 时最新通知日期差 ${dataGap} 天` +
+             `（<= ${holidayCap} 天${holidayCap > 3 ? '，国庆 10/1–10/7 假期窗口无新可发，属假阳性豁免' : ''}）`);
     return;
   }
   /* 日期超期了，再验一次「本轮是否真加了内容」：拿当前 url 集合跟 git 上一次提交的 cqut.js 比 */
@@ -239,9 +254,10 @@ const cqNotices = sandbox.window.CQUT_NOTICES || [];
       addedFromGit = cqNotices.filter(n => n.url && !oldUrls.has(n.url)).length;
     }
   }catch(e){}
-  ok(dataGap <= 3 || addedFromGit > 0,
+  ok(dataGap <= holidayCap || addedFromGit > 0,
     `数据非空更新：CQUT_UPDATED=${ud} 时最新通知日期差 ${dataGap} 天；` +
-    `本轮相对上一次提交新增 ${addedFromGit} 条真实通知${addedFromGit > 0 ? ' → 属补漏抓，非空洞更新' : '（取不到 git 基线时按严格日期判据处理）'}`);
+    `本轮相对上一次提交新增 ${addedFromGit} 条真实通知` +
+    `${addedFromGit > 0 ? ' → 属补漏抓，非空洞更新' : (dataGap <= holidayCap ? '（假期窗口无新可发，属假阳性豁免）' : '（取不到 git 基线时按严格日期判据处理）')}`);
 })();
 
 /* [全局新鲜度门] 罗浩 2026-09-28 加：自检之前只卡了重理工一个栏目的新鲜度，
