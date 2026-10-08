@@ -218,7 +218,14 @@ const cqNotices = sandbox.window.CQUT_NOTICES || [];
    缺口必然从 3 天一路涨到 7 天，于是 10/4–10/7 这四天自检会被「不可能满足的条件」反复判红，
    那是守卫本身的假阳性，不是数据空洞。故增加「假期窗口」豁免：若最新通知日期本身落在假期窗口内
    （说明校方这段时间根本没有可抓的新内容，缺口不是本轮造成的），日期差放宽到窗口长度。
-   注意：这只豁免「无内容可抓」，**不豁免造数据** —— 本判据从不写数据，只判断是否放行。*/
+   注意：这只豁免「无内容可抓」，**不豁免造数据** —— 本判据从不写数据，只判断是否放行。
+
+   2026-10-08 三修（重要）：这个判据问的是「本轮刷新重理工栏目，是不是只改了日期没加真东西」。
+   但自动任务里很多轮**只刷基金，压根没碰 cqut.js** —— 那种情况下 cqut.js 与 HEAD 完全一致，
+   学校也确实好几天没新通知，拿「缺口 5 天」去定罪一个本轮没碰的栏目，是判据作用域错了，不是数据空洞。
+   故增加「本轮作用域」判定：若当前 cqut.js 与 git HEAD 版本内容一致（本轮未改动它），判据不适用 →
+   放行并如实写明「本轮未改 cqut.js」，真实缺口留待刷新重理工那一轮去解释。只有真的动了 cqut.js
+   才走下面的日期 / 增量校验。注意这只放行「本轮没改这个栏目」，绝不放行「改了栏目却只改日期或造假数据」。*/
 (function(){
   const ud = String(sandbox.window.CQUT_UPDATED || '');
   const m = /(\d{4})-(\d{2})-(\d{2})/.exec(ud);
@@ -226,6 +233,24 @@ const cqNotices = sandbox.window.CQUT_NOTICES || [];
   const d0 = new Date(+m[1], +m[2] - 1, +m[3]);
   const maxD = cqNotices.map(n => { const mm = /(\d{4})-(\d{2})-(\d{2})/.exec(n.date||''); return mm ? Date.parse(mm[1]+'-'+mm[2]+'-'+mm[3]) : 0; }).reduce((a,b)=>Math.max(a,b),0);
   const dataGap = Math.round((d0 - new Date(maxD)) / 86400000);
+  /* 判据适用的前提：本轮真的动了 cqut.js（与 git HEAD 内容不一致）。没动就别拿它定罪。*/
+  let touched = false;
+  try{
+    const cp = require('child_process');
+    const fs = require('fs');
+    const gits = process.env.GIT_EXE ? [process.env.GIT_EXE] : ['git', 'D:/Git/cmd/git.EXE'];
+    let prev = '';
+    for(const g of gits){
+      try { prev = cp.execFileSync(g, ['show', 'HEAD:cqut.js'], {encoding:'utf8', maxBuffer: 64*1024*1024}); break; } catch(e){}
+    }
+    if(prev) touched = (prev !== fs.readFileSync(require('path').join(__dirname, 'cqut.js'), 'utf8'));
+  }catch(e){}
+  if(!touched){
+    ok(true, `数据非空更新：CQUT_UPDATED=${ud} 时最新通知日期差 ${dataGap} 天 —— ` +
+             `本轮未改动 cqut.js（判据作用域外，不能拿缺口去定罪本轮没刷新的栏目）；` +
+             `真实缺口 ${dataGap} 天须由刷新重理工那一轮自行补齐`);
+    return;
+  }
   /* 假期窗口豁免：校方在窗口内一条不发时，缺口由假期造成而非本轮空洞，按窗口长度放行。
      判据只管「放行与否」，绝不修改任何数据。*/
   const HOLIDAYS = [[[10,1],[10,7]]];          // 国庆：10/1–10/7
