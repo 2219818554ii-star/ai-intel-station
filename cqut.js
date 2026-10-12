@@ -1,9 +1,9 @@
 /* AI 情报站 - 重庆理工大学通知（学校 / 各学院 / 各部门 / 学生会）
-   数据抓取于 2026-10-10，来源均为官网真实页面，URL 未编造。
+   数据抓取于 2026-10-12，来源均为官网真实页面，URL 未编造。
    cat: school=学校各部门 | college=各学院 | student=团委·学生会
    tag: 二级细分类，按「对研究生实际有影响的事」分，比 cat 更贴合筛选需求
    刷新后必须同步更新下面的 window.CQUT_UPDATED；_selfcheck.js 会卡住「超过 2 天未更新」的回退。 */
-window.CQUT_UPDATED = "2026-10-10";
+window.CQUT_UPDATED = "2026-10-12";
 
 /* 二级细分类（筛选按钮直接用它） */
 window.CQUT_TAGS = [
@@ -17,8 +17,79 @@ window.CQUT_TAGS = [
   {k:"svc",    n:"🔧 服务通知"}
 ];
 
-window.CQUT_NOTICES = window.CQUT_NOTICES = 
-[
+window.CQUT_NOTICES = [
+  {
+    "t": "周末影院之“心随影动”经典电影赏析：《长安的荔枝》",
+    "src": "党委学生工作部",
+    "date": "2026-10-12",
+    "cat": "school",
+    "tag": "act",
+    "sum": "周末影院放映《长安的荔枝》：花溪10/16 19:00（学生活动中心C108），两江10/17 19:00（汇文楼学术报告厅）。纯放松活动，有空可以去。",
+    "url": "https://www.cqut.edu.cn/info/1106/72351.htm"
+  },
+  {
+    "t": "关于做好2026年下半年推荐优秀团员作为入党积极分子工作的通知",
+    "src": "校团委·青春重理工",
+    "date": "2026-10-11",
+    "cat": "student",
+    "tag": "party",
+    "sum": "校团委启动2026年下半年推荐优秀团员作入党积极分子工作。有入党意愿的团员（含研究生）按通知向团支部申请，关系到入党流程第一步，注意学院/支部截止时间。",
+    "url": "https://qnzx.cqut.edu.cn/info/1016/2243.htm"
+  },
+  {
+    "t": "重庆理工大学2026年10月团组织生活指引",
+    "src": "校团委·青春重理工",
+    "date": "2026-10-11",
+    "cat": "student",
+    "tag": "party",
+    "sum": "校团委发布2026年10月团组织生活指引，各支部按指引开展团日活动。团干部/支书重点关注，普通团员按支部安排参加即可。",
+    "url": "https://qnzx.cqut.edu.cn/info/1016/2242.htm"
+  },
+  {
+    "t": "关于组织参加“津创津彩”—— 江津区创新创业大赛的通知",
+    "src": "教务处",
+    "date": "2026-10-10",
+    "cat": "school",
+    "tag": "act",
+    "sum": "江津区创新创业大赛10-11月举办，面向在校大学生/毕业生/青年科研人员组队，报名阶段未注册企业。有创业或竞赛想法的同学可组队参加，奖项含奖金+证书+投融资对接；报名事宜与截止见附件。",
+    "url": "https://www.cqut.edu.cn/info/1103/72345.htm"
+  },
+  {
+    "t": "关于开展十月心理团体辅导的通知",
+    "src": "党委学生工作部",
+    "date": "2026-10-10",
+    "cat": "school",
+    "tag": "act",
+    "sum": "十月主题团辅“宿舍不内耗，边界共守护”，帮助化解宿舍相处问题。各学院组织参加，有宿舍关系/人际沟通困扰的同学可关注学院报名安排。",
+    "url": "https://www.cqut.edu.cn/info/1106/72343.htm"
+  },
+  {
+    "t": "关于开展2026年博士研究生导师信息采集的通知",
+    "src": "研究生院",
+    "date": "2026-10-10",
+    "cat": "school",
+    "tag": "grad",
+    "sum": "教育部要求采集2026年博导信息，范围截止2026/8/31已聘任的全部博士生导师（含校外/外籍导师）。你的导师若带博士，学院会通知填报；你本人无需操作，可提醒导师留意截止。",
+    "url": "https://www.cqut.edu.cn/info/1105/72340.htm"
+  },
+  {
+    "t": "经济金融学院关于2025-2026学年研究生学业奖学金名单",
+    "src": "经济金融学院",
+    "date": "2026-10-10",
+    "cat": "college",
+    "tag": "money",
+    "sum": "经金学院2025-2026学年研究生学业奖学金名单公示（10/10）。研究生学业奖学金，同校样本；你（化工院）对照看各院评审规模。",
+    "url": "https://jj.cqut.edu.cn/info/1086/10247.htm"
+  },
+  {
+    "t": "经济金融学院关于2026年研究生国家奖学金推荐名单公示",
+    "src": "经济金融学院",
+    "date": "2026-10-10",
+    "cat": "college",
+    "tag": "money",
+    "sum": "经金学院2026年研究生国奖推荐名单公示（10/10）。研究生国奖，同校样本。",
+    "url": "https://jj.cqut.edu.cn/info/1086/10244.htm"
+  },
   {
     "t": "关于征集2026年度学校统战工作实践创新成果的通知",
     "src": "党政办公室",
@@ -126,6 +197,24 @@ window.CQUT_NOTICES = window.CQUT_NOTICES =
     "tag": "act",
     "sum": "组织参加2026年和美乡村创意设计大赛（9月–12月），校内作品11/9前发指定邮箱。有兴趣做乡村设计/文创的同学可组队参赛， deadline 11/9。",
     "url": "https://www.cqut.edu.cn/info/1103/72315.htm"
+  },
+  {
+    "t": "关于2022年度重庆理工大学科研创新团队结题评审结果的公示",
+    "src": "科研院",
+    "date": "2026-10-09",
+    "cat": "school",
+    "tag": "rs",
+    "sum": "2022年度校级科研创新团队结题评审结果公示（详见附件），公示期10/9起。跟研究生个人关系不大，是导师团队的结题结果；列在这里不漏掉学校科研动态。",
+    "url": "https://www.cqut.edu.cn/2025clnr.jsp?urltype=news.NewsContentUrl&wbnewsid=72335&wbtreeid=1104"
+  },
+  {
+    "t": "关于举行2027年考研宣讲咨询会的通知",
+    "src": "研究生院",
+    "date": "2026-10-09",
+    "cat": "school",
+    "tag": "grad",
+    "sum": "研究生院办2027年考研宣讲咨询会：10/12（周一）16:30-18:00 花溪校区，面向考研同学解读政策、答疑。你自己是研究生不用考，但可转告考研的师弟师妹。",
+    "url": "https://yjsy.cqut.edu.cn/info/1021/5294.htm"
   },
   {
     "t": "关于化学化工学院2025-2026学年本科生国家励志奖学金拟推荐名单的公示",
@@ -315,6 +404,24 @@ window.CQUT_NOTICES = window.CQUT_NOTICES =
     "tag": "money",
     "sum": "材料学院2026-2027学年家庭经济困难学生认定结果公示。研究生不参评；同批认定之一，对照看各院口径。",
     "url": "https://cl.cqut.edu.cn/info/1104/6221.htm"
+  },
+  {
+    "t": "关于转发“关于发布2026年度国家自然科学基金指南引导类原创探索计划项目‘江门中微子实验MeV能区天体中微子与新物理前沿探索’项目指南的通告”等11个项目指南的通告",
+    "src": "科研院",
+    "date": "2026-10-08",
+    "cat": "school",
+    "tag": "rs",
+    "sum": "转发NSFC 11个项目指南（含江门中微子实验MeV能区天体中微子与新物理等），面向老师申报。可转告导师或关注本方向申报机会；截止与要求见附件，走国管系统。",
+    "url": "https://www.cqut.edu.cn/info/1104/72311.htm"
+  },
+  {
+    "t": "关于转发科技部国家重点研发计划“创新药品与医疗器械监管科学”等2个重点专项2026年度项目申报指南征求意见的通知",
+    "src": "科研院",
+    "date": "2026-10-08",
+    "cat": "school",
+    "tag": "rs",
+    "sum": "转发科技部2个重点专项（创新药品与医疗器械监管科学等）2026年度指南征求意见，依托国管系统。导师如有相关方向可组织申报；研究生帮导师盯指南、整理材料即可。",
+    "url": "https://www.cqut.edu.cn/info/1104/72306.htm"
   },
   {
     "t": "2027届毕业生秋季双选会邀请函",
@@ -1154,6 +1261,15 @@ window.CQUT_NOTICES = window.CQUT_NOTICES =
     "url": "https://ipschool.cqut.edu.cn/info/1052/12470.htm"
   },
   {
+    "t": "2026年重庆知识产权学院研究生奖助学金评审委员会成员名单",
+    "src": "重庆知识产权学院",
+    "date": "2026-09-21",
+    "cat": "college",
+    "tag": "pub",
+    "sum": "知产学院2026年研究生奖助学金评审委员会成员名单公示。评审组织信息，关系到该院奖学金评审公正性；列在这里不漏掉。",
+    "url": "https://ipschool.cqut.edu.cn/info/1052/12570.htm"
+  },
+  {
     "t": "关于开展2026年国家奖学金、国家励志奖学金评定工作的通知【学生工作通知】",
     "src": "党委学生工作部",
     "date": "2026-09-20",
@@ -1622,6 +1738,15 @@ window.CQUT_NOTICES = window.CQUT_NOTICES =
     "url": "https://ys.cqut.edu.cn/info/1055/7301.htm"
   },
   {
+    "t": "重庆理工大学经济金融学院 2026年AI Plus金融教改班报名学生资格审查结果公示",
+    "src": "经济金融学院",
+    "date": "2026-08-26",
+    "cat": "college",
+    "tag": "exam",
+    "sum": "经金学院AI+金融教改班报名资格审查结果公示（8/26）。本科教改班，研究生不参评；列在这里不漏掉学院动态。",
+    "url": "https://jj.cqut.edu.cn/info/1086/10091.htm"
+  },
+  {
     "t": "重庆知识产权学院关于举行第二届重庆市研究生知识产权调研大赛的通知",
     "src": "重庆知识产权学院",
     "date": "2026-07-29",
@@ -2026,72 +2151,125 @@ window.CQUT_NOTICES = window.CQUT_NOTICES =
     "sum": "机械学院 2026 年推免招生细则（申请资格、材料清单、复试形式与录取口径）。你现在用不上，但想留本校或往外校申推免的，这份是本院口径的现成参照；下一届细则一般还是 9 月同期发。",
     "url": "https://jxgc.cqut.edu.cn/info/1073/6991.htm"
   }
-]
-
-/* ===== 全部信源直达（学校各部门 / 15 个学院 / 学生组织）=====
-   用户点一下就能去官网对应栏目看最新，不依赖天天抓取。 */
+];
+/* 信源直达矩阵（按职能分组，供「全部信源」面板渲染；数据抓取于 2026-10-12） */
 window.CQUT_SOURCES = {
-  teach: [
-    {n:"教务处·教务通知", u:"https://www.cqut.edu.cn/info/1103/"},
-    {n:"研究生院", u:"https://yjsy.cqut.edu.cn/"},
-    {n:"研究生招生网", u:"https://zs.yjs.cqut.edu.cn/"},
-    {n:"化学化工学院", u:"https://chem.cqut.edu.cn/"},
-    {n:"机械工程学院", u:"https://jxgc.cqut.edu.cn/"},
-    {n:"材料科学与工程学院", u:"https://cl.cqut.edu.cn/"},
-    {n:"车辆工程学院", u:"https://clgc.cqut.edu.cn/"},
-    {n:"电气与电子工程学院", u:"https://dz.cqut.edu.cn/"},
-    {n:"计算机科学与工程学院", u:"https://cs.cqut.edu.cn/"},
-    {n:"研究生会", u:"https://yjsy.cqut.edu.cn/yjsgl/yjsh.htm"}
+  "teach": [
+    {
+      "n": "教务处",
+      "u": "https://www.cqut.edu.cn/tzgg/jwtz.htm"
+    },
+    {
+      "n": "研究生院",
+      "u": "https://www.cqut.edu.cn/tzgg/yjsytz.htm"
+    },
+    {
+      "n": "研究生院/党委研工部",
+      "u": "https://www.cqut.edu.cn/tzgg/yjsytz.htm"
+    },
+    {
+      "n": "研究生院/科研院",
+      "u": "https://www.cqut.edu.cn/tzgg/yjsytz.htm"
+    },
+    {
+      "n": "招生就业处",
+      "u": "https://www.cqut.edu.cn/tzgg.htm"
+    }
   ],
-  sci: [
-    {n:"科学技术研究院", u:"https://www.cqut.edu.cn/info/1104/"},
-    {n:"学术讲座", u:"https://www.cqut.edu.cn/tzgg/xsjz.htm"},
-    {n:"科研成果奖培育公示", u:"https://www.cqut.edu.cn/2025clnr.jsp?urltype=news.NewsContentUrl&wbtreeid=1104&wbnewsid=72171"}
+  "sci": [
+    {
+      "n": "科学技术研究院",
+      "u": "https://www.cqut.edu.cn/tzgg/kytz.htm"
+    },
+    {
+      "n": "科研院",
+      "u": "https://www.cqut.edu.cn/tzgg/kytz.htm"
+    }
   ],
-  stu: [
-    {n:"党委学生工作部", u:"https://www.cqut.edu.cn/info/1106/"},
-    {n:"学生处·学生工作通知", u:"https://www.cqut.edu.cn/tzgg/bmtz.htm"},
-    {n:"图书馆", u:"https://www.cqut.edu.cn/info/1111/"},
-    {n:"两江校区管委会", u:"https://ljxq.cqut.edu.cn/"}
+  "stu": [
+    {
+      "n": "党委学生工作部",
+      "u": "https://www.cqut.edu.cn/tzgg/xsgztz.htm"
+    },
+    {
+      "n": "图书馆",
+      "u": "https://www.cqut.edu.cn/tzgg/tsgtz.htm"
+    },
+    {
+      "n": "保卫处",
+      "u": "https://www.cqut.edu.cn/tzgg.htm"
+    }
   ],
-  party: [
-    {n:"校团委·学生会", u:"https://qnzx.cqut.edu.cn/"},
-    {n:"团委通知公告", u:"https://qnzx.cqut.edu.cn/tzgg.htm"},
-    {n:"两江校区学生会", u:"https://ljxq.cqut.edu.cn/"}
+  "party": [
+    {
+      "n": "校团委·学生会",
+      "u": "https://qnzx.cqut.edu.cn/tzgg.htm"
+    },
+    {
+      "n": "校团委·青春重理工",
+      "u": "https://qnzx.cqut.edu.cn/index.htm"
+    },
+    {
+      "n": "研究生会",
+      "u": "https://yjsy.cqut.edu.cn/yjsgl/yjsh.htm"
+    }
   ],
-  college: [
-    {n:"语言与传播学院", u:"https://sfl.cqut.edu.cn/"},
-
-    {n:"机械工程学院", u:"https://jxgc.cqut.edu.cn/"},
-    {n:"化学化工学院", u:"https://chem.cqut.edu.cn/"},
-    {n:"材料科学与工程学院", u:"https://cl.cqut.edu.cn/"},
-    {n:"车辆工程学院", u:"https://clgc.cqut.edu.cn/"},
-    {n:"电气与电子工程学院", u:"https://dz.cqut.edu.cn/"},
-    {n:"计算机科学与工程学院", u:"https://cs.cqut.edu.cn/"},
-    {n:"管理学院", u:"https://glxy.cqut.edu.cn/"},
-    {n:"会计学院", u:"https://kj.cqut.edu.cn/"},
-    {n:"经济金融学院", u:"https://jj.cqut.edu.cn/"},
-    {n:"理学院", u:"https://lxy.cqut.edu.cn/"},
-    {n:"药学与生物工程学院", u:"https://ys.cqut.edu.cn/"},
-    {n:"外国语学院", u:"https://sfl.cqut.edu.cn/"},
-    {n:"重庆知识产权学院", u:"https://ipschool.cqut.edu.cn/"},
-    {n:"两江国际学院", u:"https://lic.cqut.edu.cn/"},
-    {n:"两江人工智能学院", u:"https://ai.cqut.edu.cn/"}
+  "college": [
+    {
+      "n": "化学化工学院",
+      "u": "https://chem.cqut.edu.cn/"
+    },
+    {
+      "n": "机械工程学院",
+      "u": "https://jxgc.cqut.edu.cn/"
+    },
+    {
+      "n": "材料科学与工程学院",
+      "u": "https://cl.cqut.edu.cn/"
+    },
+    {
+      "n": "电气与电子工程学院",
+      "u": "https://dz.cqut.edu.cn/"
+    },
+    {
+      "n": "计算机科学与工程学院",
+      "u": "https://cs.cqut.edu.cn/"
+    },
+    {
+      "n": "药学与生物工程学院",
+      "u": "https://ys.cqut.edu.cn/"
+    },
+    {
+      "n": "语言与传播学院",
+      "u": "https://sfl.cqut.edu.cn/"
+    },
+    {
+      "n": "车辆工程学院",
+      "u": "https://clgc.cqut.edu.cn/"
+    },
+    {
+      "n": "经济金融学院",
+      "u": "https://jj.cqut.edu.cn/"
+    },
+    {
+      "n": "重庆知识产权学院",
+      "u": "https://ipschool.cqut.edu.cn/"
+    },
+    {
+      "n": "两江人工智能学院",
+      "u": "https://ai.cqut.edu.cn/"
+    },
+    {
+      "n": "两江国际学院",
+      "u": "https://lic.cqut.edu.cn/"
+    },
+    {
+      "n": "会计学院",
+      "u": "https://kj.cqut.edu.cn/"
+    },
+    {
+      "n": "管理学院",
+      "u": "https://glxy.cqut.edu.cn/"
+    }
   ]
 };
-
-/* ===== 各学院赛事 =====
-   全部为实抓结果：来源为各学院官网新闻/通知列表页与学校新闻页，URL 真实可点，未编造。
-   重要说明：多数条目是「获奖通报」而非「报名通知」——即上一届已经打完并出成绩。
-   想参赛要盯下一届的报名通知，届时本栏目会同步跟进。
-   tag: mat=材料化工（对口 Pipeline）| mech=机械车辆 | info=电子信息计算机 | oth=其他
-   fit: 是否与本校使用者（化工专业研究生）的专业主线相关 */
-/* -------------------------------------------------------------------------
- * 【已并入 matches.js】原 CQUT_MATCHES 里放的是获奖通稿和已结束的赛事。
- * 罗浩明确要求：只留还能参加的，获奖喜报一条不留。
- * 现在比赛板块统一由 matches.js 的 window.MATCHES 驱动，按学校分类。
- * ---------------------------------------------------------------------- */
-window.CQUT_MATCH_UPDATED = "2026-10-07";
-window.CQUT_MATCH_TAGS = [];
-window.CQUT_MATCHES = [];
-
