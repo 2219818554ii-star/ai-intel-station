@@ -1,5 +1,5 @@
 /* AI 情报站 - 实力排行榜数据（每日自动更新） */
-window.RANK_UPDATED = "2026-10-10";
+window.RANK_UPDATED = "2026-10-14";
 window.RANK = {
     models: [
       {name:"Claude Opus 5.5", vendor:"Anthropic（美国）", price:"API $4/$20 每百万", iaa:58, tb:null,
@@ -44,6 +44,12 @@ window.RANK = {
       {name:"Muse Spark 1.3", vendor:"Meta（美国）", price:"闭源（开发者发布）", iaa:48, tb:null,
        t:{综合:"A",推理:"A",代码:"A",多模态:"B",长上下文:"B",中文:"C",性价比:"B",开源:"—"},
        note:"2026-09-02 发布，AA 48（8 点跃升）；开发者发布、无消费端入口；agent 行全面落后（Meta 自家图）；TB4.0 约 33.3%（AA 口径）。英文生态为主。"},
+      {name:"MuseWonder (Full)", vendor:"Meta（美国）", price:"仅 MuseCode 订阅（Power $50/月、Maximum $200/月）", iaa:56, tb:null,
+       t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"B",性价比:"C",开源:"—"},
+       note:"2026-10-13 Meta 发布（北京时间凌晨），Muse 系列满血旗舰；不按 token 售卖、仅 MuseCode 订阅（Power $50/月 / Maximum $200/月），面向最重编码 / 长程 agent / computer use。AA 智能指数 = 56（Artificial Analysis 实测，最高 effort；VentureBeat / The Signal / capitalandcompute 多源佐证，仅次于 Opus 5.5 的 58，超过 GPT-6 Astra / Gemini 4 Argon / Fable 5.1 的 53）。tb 列无可靠 TB2.1 分，留空。t 评级为基于定位的初步估计."},
+      {name:"MuseWonder", vendor:"Meta（美国）", price:"API $4/$20 每百万（MetaModel API / MuseCode 开放）", iaa:52, tb:null,
+       t:{综合:"A",推理:"A",代码:"A",多模态:"A",长上下文:"A",中文:"B",性价比:"B",开源:"—"},
+       note:"2026-10-13 Meta 发布，Muse 系列标准前沿版（MuseWonderFull 的同门可调用档），通过 MetaModel API 与 MuseCode 开放。AA 智能指数 = 52（Artificial Analysis 实测，最高 effort；多源佐证，与 GPT-6.1 Sol 持平，仅低于 GPT-6 Astra / Gemini 4 Argon / Fable 5.1 的 53 与 Opus 5.5 58 / Sonnet 5.5 56）。tb 列无可靠 TB2.1 分，留空。t 评级为基于定位的初步估计."},
       {name:"GLM-5.3 / GLM-5.3-Flash", vendor:"智谱 Zhipu（中国）", price:"Flash 开源 MIT；API $0.15/$0.50 每百万", iaa:45, tb:84.3,
        t:{综合:"A",推理:"A",代码:"A",多模态:"B",长上下文:"A",中文:"S",性价比:"A",开源:"A"},
        note:"国产综合最强之一；Flash 版 8-26 发布即 MIT 开源、AA 42、性价比之王（列表价 $0.15/$0.50）。中文 S。"},
@@ -130,10 +136,9 @@ window.RANK = {
        note:"最便宜付费、IDE 原生、issue→PR。团队已在 GitHub 且要低门槛选它。"}
     ],
     tables: {
-      aa: {title:"Artificial Analysis 智能指数 v4.3 Top16（满分≈58，2026-10-10 复核）", unit:"分", rows:[
-        ["Claude Opus 5.5",58],["Claude Sonnet 5.5",56],["Claude Fable 5.1",53],["GPT-6 Astra",53],["Gemini 4 Argon",53],["GPT-6.1 Sol",52],["Claude Opus 5",51],["Claude Fable 5",50],
-        ["Muse Spark 1.3",48],["Grok 4.7",46],["MiMo V2.6 Pro",46],["GLM-5.3",45],        ["Grok 4.6",44],["Kimi K3",44],["StepFun Step 5 Preview",44],
-        ["Claude Haiku 5.5",43]
+      aa: {title:"Artificial Analysis 智能指数 v4.3 Top16（满分≈58，2026-10-14 复核）", unit:"分", rows:[
+        ["Claude Opus 5.5",58],["Claude Sonnet 5.5",56],["MuseWonder (Full)",56],["Claude Fable 5.1",53],["GPT-6 Astra",53],["Gemini 4 Argon",53],["GPT-6.1 Sol",52],["MuseWonder",52],["Claude Opus 5",51],["Claude Fable 5",50],
+        ["Muse Spark 1.3",48],["Grok 4.7",46],["MiMo V2.6 Pro",46],["GLM-5.3",45],["Grok 4.6",44],["Kimi K3",44]
       ]},
       tb: {title:"Terminal-Bench 2.1 Top10（旧版口径，2026-09；⚠ 官方 8/29 已升级 v4.0，AA v4.3 起改用 TB4.0：Astra 59.1 > Fable 5.1 52.0 > Opus 5 49.0 > GPT-5.6 Sol 39.9）", unit:"%", rows:[
         ["Claude Fable 5.1",91.4],["GPT-6 Astra",89.9],["GPT-5.6 Sol",89.5],["Claude Opus 5",89.1],

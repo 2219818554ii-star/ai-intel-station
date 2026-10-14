@@ -296,12 +296,12 @@
   <!-- ================= RANK VIEW ================= -->
   <div id="view-rank" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-rank">
     <div class="view-head"><h2>🏆 AI 实力排行榜</h2>
-      <p>大模型 / 编程工具 / 工具×模型组合 的分维度与综合实力评级。数据截至 <b>2026-10-10</b>。<span style="display:inline-block;margin-left:8px;padding:2px 9px;border-radius:999px;background:#ecfdf5;color:#15803d;font-size:12px;font-weight:700;border:1px solid #bbf7d0">🔄 每日自动更新</span></p></div>
+      <p>大模型 / 编程工具 / 工具×模型组合 的分维度与综合实力评级。数据截至 <b>2026-10-14</b>。<span style="display:inline-block;margin-left:8px;padding:2px 9px;border-radius:999px;background:#ecfdf5;color:#15803d;font-size:12px;font-weight:700;border:1px solid #bbf7d0">🔄 每日自动更新</span></p></div>
     <div class="news">
       🆕 <b>2026 年 9 月新动态：</b>Claude Fable 5.1（9-1，AA 智能指数并列第一）、GPT-6 Astra（9-3，号称 AGI 时代但<b>几乎不可用</b>）、Gemini 3.8 Flash（9-2，多模态标杆）、Muse Spark 1.3（9-2）、Qwen3.8-Max 登 Code Arena WebDev 榜首（9-2）、GLM-5.3-Flash 开源（8-26）、腾讯 Hy4 Preview 开源（8-28）。<b>注意：GPT-6 Astra 被定为「关键网络安全」级，目前仅 Daybreak 计划批准者可用，投票榜样本极少，排名可能随时变化。</b>
     </div>
     <div class="disclaim">
-      <b>数据说明：</b>本页为<b>观点整理快照</b>，非官方实时排名。评级依据 2026-09 公开基准：Artificial Analysis 智能指数 <b>v4.3</b>（10 项标准化评测合成，满分≈53，<b>不同版本分数不可直接比较</b>）、Terminal-Bench 2.1（终端/编码 Agent 实跑）、SWE-bench Verified / Pro（真实 GitHub 任务）。<b>提示：SWE-bench Verified 已被指出存在测试集污染，前沿评测更看 SWE-bench Pro 与 Terminal-Bench 2.1。</b>模型迭代极快，具体分数请以来源链接的实时数据为准。
+      <b>数据说明：</b>本页为<b>观点整理快照</b>，非官方实时排名。评级依据 2026-09 公开基准：Artificial Analysis 智能指数 <b>v4.3</b>（10 项标准化评测合成，满分≈58，<b>不同版本分数不可直接比较</b>）、Terminal-Bench 2.1（终端/编码 Agent 实跑）、SWE-bench Verified / Pro（真实 GitHub 任务）。<b>提示：SWE-bench Verified 已被指出存在测试集污染，前沿评测更看 SWE-bench Pro 与 Terminal-Bench 2.1。</b>模型迭代极快，具体分数请以来源链接的实时数据为准。
     </div>
 
     <div class="subtabs" id="rankSubtabs">
@@ -794,8 +794,8 @@
 
   <script>
 /* AI 情报站 - 比赛数据（每日自动更新） */
-window.COMP_UPDATED = "2026-10-13";
-/* ============ COMPETITIONS (snapshot 2026-10-13) ============
+window.COMP_UPDATED = "2026-10-14";
+/* ============ COMPETITIONS (snapshot 2026-10-14) ============
    数据规则：走省赛/赛区选拔且官网赛区列表中没有重庆的赛事，一律不放 scope:"me"（挪 world 或不收）。
    已知案例：挑战杯 2026 报备页省赛仅 13 省，无重庆 → 挑战杯两条均为 world。 */
   var CPIPC = "https://cpipc.acge.org.cn/cw/hp/";
@@ -860,14 +860,14 @@ window.COMP_UPDATED = "2026-10-13";
      reg:"全年滚动（1 – 11 月）；注：2026 报备页省赛仅 13 省、无重庆赛区，故不列入可报名", run:"逐级选拔",
      desc:"面向广泛专业学生的科技/技能综合赛事，门槛低、易于上手。", fit:"2026 省赛阶段官网无重庆赛区，你在重庆无法走省赛通道；若学校单独组织校赛可关注校团委通知。", help:"AI 帮学术论文/报告撰写、数据分析与可视化、答辩稿打磨。",
      url:"http://www.tiaozhanbei.net/"},
-    {scope:"me", n:"中国研究生网络安全创新大赛（第五届）", type:"网络安全", st:"open", ai:2, pri:2, team:"组队（技术向）",
+    {scope:"me", n:"中国研究生网络安全创新大赛（第五届）", type:"网络安全", st:"soon", ai:2, pri:2, team:"组队（技术向）",
      org:"教育部学位管理与研究生教育司指导 · 哈尔滨工业大学承办",
-     reg:"6/18 – 10/18 23:59", run:"作品提交至 10/22；决赛 12/26–27",
+     reg:"6/18 – 10/18 23:59（距今 4 天，尽快组队）", run:"作品提交至 10/22；决赛 12/26–27",
      desc:"网络安全攻防与技术竞赛，含 CTF、漏洞挖掘与防护方案。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"需网安基础，AI 主要帮资料整理与文档撰写；契合度较低，化工背景慎选。",
      url:"https://cpipc.acge.org.cn/cw/hp/2c90800c8093eef401809d33b36f0652"},
     {scope:"me", n:"中国研究生 EDA 精英挑战赛", type:"集成电路/EDA", st:"soon", ai:2, pri:2, team:"组队（技术向）",
      org:"教育部学位管理与研究生教育司指导 · 国防科技大学承办",
-     reg:"8/4 – 10/16", run:"作品提交 8/10 – 11/7；决赛 11/27–29",
+     reg:"8/4 – 10/16（距今 2 天，尽快组队）", run:"作品提交 8/10 – 11/7；决赛 11/27–29",
      desc:"硬件、嵌入式或芯片相关竞赛，含电路设计、EDA、验证与光电技术。", fit:"偏硬件/工程，与化工交叉少，但可作跨方向练手，或在队里当 AI/数据担当。", help:"需微电子/集成电路背景，AI 帮算法与文档；契合度较低。",
      url:"https://cpipc.acge.org.cn/cw/hp/2c9080158ee9c272018f229208b610a6"},
     {scope:"me", n:"赛氪（Saikr）竞赛平台 · 在线学科赛汇总", type:"综合（低门槛）", st:"open", ai:3, pri:2, team:"组队 / 单人可",
@@ -922,7 +922,7 @@ window.COMP_UPDATED = "2026-10-13";
      url:"https://www.stdaily.com/web/gdxw/2026-09/13/content_580127.html"},
     {scope:"me", n:"第八届全球校园人工智能算法精英大赛", type:"AI 算法/创新", st:"soon", ai:5, pri:2, team:"单人可 / 可组队",
      org:"全国普通高校大学生学科竞赛目录赛事 · 大赛组委会",
-     reg:"算法挑战赛道报名/初赛提交 9/20 18:00–20:00 截止；算法创新/主题/产业等赛道官网报名 10/15 20:00 截止（距今 2 天，尽快组队）", run:"作品提交 9/15 – 10/8；校赛答辩 10 月中",
+     reg:"算法挑战赛道报名/初赛提交 9/20 18:00–20:00 截止；算法创新/主题/产业等赛道官网报名 10/15 20:00 截止（距今 1 天，今晚 20:00 截止，尽快组队）", run:"作品提交 9/15 – 10/8；校赛答辩 10 月中",
      desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"在校研究生可报，可单人建队（不可跨校，每队最多 2 名指导教师）。设算法挑战赛、算法创新赛、算法主题赛（AI+学科交叉）、产业命题赛等赛道——「AI+学科交叉」正好放你的材料/化工场景。AI 帮写 baseline、技术报告与答辩 PPT。",
      url:"https://www.aicomp.cn/"},
     {scope:"world", n:"NeurIPS Competition Track（神经信息处理系统大会竞赛单元）", type:"AI / 机器学习", st:"open", ai:5, pri:3, team:"远程可参赛 / 多数可单人",
@@ -1243,9 +1243,9 @@ window.COMP_UPDATED = "2026-10-13";
      reg:"初赛 2/3–4/18（2026，已截止）", run:"复赛 4/28–5/28",
      desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"大模型推理优化，硬核 AI。",
      url:"https://tianchi.aliyun.com/competition/entrance/532450"},
-    {scope:"me", n:"天池·Agent / 数据共情者算法大赛", type:"AI Agent", st:"open", ai:5, pri:1, team:"单人可 / 可组队",
+    {scope:"me", n:"天池·Agent / 数据共情者算法大赛", type:"AI Agent", st:"soon", ai:5, pri:1, team:"单人可 / 可组队",
      org:"阿里云天池",
-     reg:"报名 7/19–10/20（2026）", run:"黑客松决赛 11 月",
+     reg:"报名 7/19–10/20（2026，距今 6 天）", run:"黑客松决赛 11 月",
      desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"Agent/客服 AI，可练手拿奖。",
      url:"https://tianchi.aliyun.com/competition/entrance/532503"},
     {scope:"me", n:"科大讯飞 AI 开发者大赛·算法赛（2026）", type:"AI 算法", st:"closed", ai:5, pri:1, team:"单人可 / 可组队",
@@ -1673,14 +1673,14 @@ window.COMP_UPDATED = "2026-10-13";
      reg:"即日起 – 2026/11/20 06:00", run:"竞赛 11/20 9:00 – 11/24 9:00；成绩 2027/1 中旬",
      desc:"以建模、统计或数据分析解决真实问题，团队在数天内完成英文研究论文/报告，设研究生组单独评奖。", fit:"数学建模是研究生通用硬通货，你的 3 人化工队可直接上场，性价比高。", help:"AI 帮建模思路、代码实现、论文撰写与排版、图表美化；⚠ AIGC 占比超 30% 或总相似比超 50% 取消资格，须以自己为主、AI 仅辅助。",
      url:"https://www.nmmcm.org.cn/"},
-    {scope:"me", n:"EuroMCM 欧洲数学建模竞赛（2026）", type:"国际数模", st:"soon", ai:4, pri:2, team:"≤3 人（可跨校/跨国）",
+    {scope:"me", n:"EuroMCM 欧洲数学建模竞赛（2026）", type:"国际数模", st:"closed", ai:4, pri:2, team:"≤3 人（可跨校/跨国）",
      org:"European Mathematical Contest in Modelling（ESAM）",
-     reg:"2026 年夏季开放 – 10/13 17:00(CET) 截止（今天最后一天！17:00 CET 注册截止，尽快注册/组队）", run:"竞赛 10/15 17:00 – 10/19 20:00(CET)；12 月出结果",
+     reg:"2026 年夏季开放 – 10/13 17:00(CET) 截止（注册已结束，无法再报名）", run:"竞赛 10/15 17:00 – 10/19 20:00(CET)；12 月出结果（未报名无法参赛）",
      desc:"围绕真实科研/工程问题建立数学模型并求解，团队在 4–5 天内完成英文研究论文，设研究生组单独评奖。", fit:"数学建模是研究生通用硬通货，可远程报名、英文论文，适合练国际赛手感。", help:"AI 帮建模思路、代码实现、英文论文撰写与排版、图表美化；€80/队报名费，研究生组单独评奖。",
      url:"https://www.euromcm.org/"},
     {scope:"me", n:"全国大学生仿真建模应用挑战赛（2026）", type:"数学建模/仿真", st:"soon", ai:4, pri:2, team:"组队 / 单人可",
      org:"仿真建模赛事组委会 · mojinghub 平台",
-     reg:"即日起 – 2026/10/16 18:00（距今 3 天，尽快组队）", run:"竞赛 10/16 20:00 – 10/20 20:00（96 小时）；成绩 12 月中旬",
+     reg:"即日起 – 2026/10/16 18:00（距今 2 天，尽快组队）", run:"竞赛 10/16 20:00 – 10/20 20:00（96 小时）；成绩 12 月中旬",
      desc:"以建模、统计或数据分析解决真实问题，团队在数天内完成研究论文/报告，含仿真技术方向，契合工程与科研背景。",
      fit:"数学建模是研究生通用硬通货，你的 3 人化工队可直接上场，性价比高；仿真方向贴合实验/工程课题。",
      help:"AI 帮建模思路、代码实现、论文撰写与排版、图表美化。96 小时赛制、年底出成绩，可用于学年评优；门槛低、易上手。",
@@ -1717,9 +1717,9 @@ window.COMP_UPDATED = "2026-10-13";
      desc:"以人工智能应用与创新创业为核心的线上赛事，分『AI 素养线上测试初赛』与『创新创业计划书决赛』两阶段，不限专业、不限院校层次，硕博在校生均可参与。",
      fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"★ 零基础友好：初赛免费线上答题、≥60 分即拿电子证书（综测/简历可用），决赛提交 AI 创新创业计划书冲击金/银/铜奖；全程线上、专业不限、研究生可报。适合作为 AI 入门『练手+镀金』一站，AI 帮你过知识点 + 写计划书。",
      url:"http://rgzn.52jingsai.com/"},
-    {scope:"me", n:"第二届全国人工智能应用创新大赛", type:"AI 应用/创新", st:"open", ai:5, pri:2, team:"组队（可跨专业）",
+    {scope:"me", n:"第二届全国人工智能应用创新大赛", type:"AI 应用/创新", st:"soon", ai:5, pri:2, team:"组队（可跨专业）",
      org:"全国人工智能应用创新大赛组委会（官网 ai-race.com.cn，多所高校承办校赛）",
-     reg:"报名/缴费/作品提交 2026/9/18 – 10/20 24:00（研究生可报，80 元/人）", run:"通用赛道校赛 9/18–10/31；区域赛 11/1–11/22；全国总决赛 12/18–20",
+     reg:"报名/缴费/作品提交 2026/9/18 – 10/20 24:00（研究生可报，80 元/人，距今 6 天）", run:"通用赛道校赛 9/18–10/31；区域赛 11/1–11/22；全国总决赛 12/18–20",
      desc:"以人工智能应用创新为核心的全国赛事，设『通用赛道（让 AI Agent 赋能千行百业）』与『专项赛道（真实产业需求攻关）』，研究生可组队参加，作品形式为 AI 应用方案/系统。",
      fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/作品/文档。", help:"★ 低门槛：官网在线报名、80 元/人，研究生可报、专业不限；通用赛道做 AI Agent 应用方案、专项赛道攻真实产业题，AI 帮你写方案、做 Demo、写文档。多校已发校赛通知、有校赛直通区域赛/国赛通道，适合作为 AI 应用『练手+镀金』一站。",
      url:"https://www.ai-race.com.cn/"},
@@ -1735,6 +1735,12 @@ window.COMP_UPDATED = "2026-10-13";
      desc:"以建模、统计或数据分析解决真实问题，团队在数天内完成研究论文/报告，设研究生组(A组)/本科组/专科组分别评奖。",
      fit:"数学建模是研究生通用硬通货，你的 3 人化工队可直接上场，性价比高。", help:"AI 帮建模思路、代码实现、论文撰写与排版、图表美化；研究生组单独评奖，一等奖前 10%、二等奖 11–25%、三等奖 26–50%、优秀奖若干（认真提交即拿证），低门槛易上手；专业不限、允许跨校组队、师生同奖。适合作为数维杯/美赛之外的练手+镀金一站。",
      url:"https://m.saikr.com/MW26MM"},
+    {scope:"me", n:"“科创杯”大学生数学建模竞赛（2026 非企业命题赛道）", type:"数学建模", st:"soon", ai:4, pri:2, team:"1–3 人队（可跨校，可设 1 名指导教师）",
+     org:"创赛网 · 科创杯组委会（十三届历史，国内具广泛影响力）",
+     reg:"非企业命题赛道 10/15 官网开放报名（省赛 10/15 公布赛题、5 天答题、11/10 公示；国赛 11/25 公布赛题、12/21 颁奖）；企业命题赛道已结束；免报名费", run:"省赛 10/15–11/10；国赛 11/25–12/21；按最高学历分研究生/本科/专科组评奖",
+     desc:"以建模、统计或数据分析解决真实问题，团队在数天内完成研究论文/报告，题目注重数学方法与计算机技术综合应用，设企业命题与非企业命题两赛道。",
+     fit:"数学建模是研究生通用硬通货，你的 3 人化工队可直接上场，性价比高；免报名费、低门槛。", help:"AI 帮建模思路、代码实现、论文撰写与排版、图表美化；面向国内外专科/本科/研究生开放，按最高学历分研究生组单独评奖，成功参赛即得电子证书；官网 www.simcm.org.cn。适合作为数维杯/亚太杯之外的练手+镀金一站。",
+     url:"https://www.simcm.org.cn/"},
   ];
 </script>
   <script>
@@ -2236,7 +2242,7 @@ window.XINXUE_GUIDE = {
 </script>
   <script>
 /* AI 情报站 - 实力排行榜数据（每日自动更新） */
-window.RANK_UPDATED = "2026-10-10";
+window.RANK_UPDATED = "2026-10-14";
 window.RANK = {
     models: [
       {name:"Claude Opus 5.5", vendor:"Anthropic（美国）", price:"API $4/$20 每百万", iaa:58, tb:null,
@@ -2281,6 +2287,12 @@ window.RANK = {
       {name:"Muse Spark 1.3", vendor:"Meta（美国）", price:"闭源（开发者发布）", iaa:48, tb:null,
        t:{综合:"A",推理:"A",代码:"A",多模态:"B",长上下文:"B",中文:"C",性价比:"B",开源:"—"},
        note:"2026-09-02 发布，AA 48（8 点跃升）；开发者发布、无消费端入口；agent 行全面落后（Meta 自家图）；TB4.0 约 33.3%（AA 口径）。英文生态为主。"},
+      {name:"MuseWonder (Full)", vendor:"Meta（美国）", price:"仅 MuseCode 订阅（Power $50/月、Maximum $200/月）", iaa:56, tb:null,
+       t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"B",性价比:"C",开源:"—"},
+       note:"2026-10-13 Meta 发布（北京时间凌晨），Muse 系列满血旗舰；不按 token 售卖、仅 MuseCode 订阅（Power $50/月 / Maximum $200/月），面向最重编码 / 长程 agent / computer use。AA 智能指数 = 56（Artificial Analysis 实测，最高 effort；VentureBeat / The Signal / capitalandcompute 多源佐证，仅次于 Opus 5.5 的 58，超过 GPT-6 Astra / Gemini 4 Argon / Fable 5.1 的 53）。tb 列无可靠 TB2.1 分，留空。t 评级为基于定位的初步估计."},
+      {name:"MuseWonder", vendor:"Meta（美国）", price:"API $4/$20 每百万（MetaModel API / MuseCode 开放）", iaa:52, tb:null,
+       t:{综合:"A",推理:"A",代码:"A",多模态:"A",长上下文:"A",中文:"B",性价比:"B",开源:"—"},
+       note:"2026-10-13 Meta 发布，Muse 系列标准前沿版（MuseWonderFull 的同门可调用档），通过 MetaModel API 与 MuseCode 开放。AA 智能指数 = 52（Artificial Analysis 实测，最高 effort；多源佐证，与 GPT-6.1 Sol 持平，仅低于 GPT-6 Astra / Gemini 4 Argon / Fable 5.1 的 53 与 Opus 5.5 58 / Sonnet 5.5 56）。tb 列无可靠 TB2.1 分，留空。t 评级为基于定位的初步估计."},
       {name:"GLM-5.3 / GLM-5.3-Flash", vendor:"智谱 Zhipu（中国）", price:"Flash 开源 MIT；API $0.15/$0.50 每百万", iaa:45, tb:84.3,
        t:{综合:"A",推理:"A",代码:"A",多模态:"B",长上下文:"A",中文:"S",性价比:"A",开源:"A"},
        note:"国产综合最强之一；Flash 版 8-26 发布即 MIT 开源、AA 42、性价比之王（列表价 $0.15/$0.50）。中文 S。"},
@@ -2367,10 +2379,9 @@ window.RANK = {
        note:"最便宜付费、IDE 原生、issue→PR。团队已在 GitHub 且要低门槛选它。"}
     ],
     tables: {
-      aa: {title:"Artificial Analysis 智能指数 v4.3 Top16（满分≈58，2026-10-10 复核）", unit:"分", rows:[
-        ["Claude Opus 5.5",58],["Claude Sonnet 5.5",56],["Claude Fable 5.1",53],["GPT-6 Astra",53],["Gemini 4 Argon",53],["GPT-6.1 Sol",52],["Claude Opus 5",51],["Claude Fable 5",50],
-        ["Muse Spark 1.3",48],["Grok 4.7",46],["MiMo V2.6 Pro",46],["GLM-5.3",45],        ["Grok 4.6",44],["Kimi K3",44],["StepFun Step 5 Preview",44],
-        ["Claude Haiku 5.5",43]
+      aa: {title:"Artificial Analysis 智能指数 v4.3 Top16（满分≈58，2026-10-14 复核）", unit:"分", rows:[
+        ["Claude Opus 5.5",58],["Claude Sonnet 5.5",56],["MuseWonder (Full)",56],["Claude Fable 5.1",53],["GPT-6 Astra",53],["Gemini 4 Argon",53],["GPT-6.1 Sol",52],["MuseWonder",52],["Claude Opus 5",51],["Claude Fable 5",50],
+        ["Muse Spark 1.3",48],["Grok 4.7",46],["MiMo V2.6 Pro",46],["GLM-5.3",45],["Grok 4.6",44],["Kimi K3",44]
       ]},
       tb: {title:"Terminal-Bench 2.1 Top10（旧版口径，2026-09；⚠ 官方 8/29 已升级 v4.0，AA v4.3 起改用 TB4.0：Astra 59.1 > Fable 5.1 52.0 > Opus 5 49.0 > GPT-5.6 Sol 39.9）", unit:"%", rows:[
         ["Claude Fable 5.1",91.4],["GPT-6 Astra",89.9],["GPT-5.6 Sol",89.5],["Claude Opus 5",89.1],
@@ -5241,7 +5252,7 @@ window.FUNDS_STOCKS = {
     t.addEventListener("click", function(){ showTab(t.dataset.tab); });
   });
 
-  /* ============ RANK DATA (snapshot 2026-10-10) ============ */
+  /* ============ RANK DATA (snapshot 2026-10-14) ============ */
   var RANK = window.RANK || {};
 
   function tierBadge(t){
@@ -5269,7 +5280,7 @@ window.FUNDS_STOCKS = {
         + '</tr>';
     }).join('');
     document.getElementById("p-models").innerHTML =
-      '<div class="legend">评级：<span class="tier t-S">S</span>顶尖/第一梯队 <span class="tier t-A">A</span>很强/第二梯队 <span class="tier t-B">B</span>够用/第三梯队 <span class="tier t-C">C</span>偏弱 <span class="tier t-none">—</span>不适用。AA = Artificial Analysis 智能指数 v4.3（满分≈53），TB2.1 = Terminal-Bench 2.1（%）。表格可左右滑动查看全部列。</div>'
+      '<div class="legend">评级：<span class="tier t-S">S</span>顶尖/第一梯队 <span class="tier t-A">A</span>很强/第二梯队 <span class="tier t-B">B</span>够用/第三梯队 <span class="tier t-C">C</span>偏弱 <span class="tier t-none">—</span>不适用。AA = Artificial Analysis 智能指数 v4.3（满分≈58），TB2.1 = Terminal-Bench 2.1（%）。表格可左右滑动查看全部列。</div>'
       + '<div class="matrix-wrap"><table class="matrix"><thead>'+head+'</thead><tbody>'+rows+'</tbody></table></div>';
   }
   function renderTools(){
@@ -5824,7 +5835,7 @@ window.FUNDS_STOCKS = {
   function renderAutoBar(){
     var el = document.getElementById("autoBar");
     if(!el) return;
-    el.innerHTML = "🔄 <b>每 30 分钟自动刷新</b> · 日报实时拉取（下次还有 <b>"+fmtMMSS(autoNextAt-Date.now())+"</b>）· 上次刷新 <b>"+bjClock(autoLastAt)+"</b> · 排行榜 / 比赛 / AI 上手 为每日自动更新快照（2026-10-10）";
+    el.innerHTML = "🔄 <b>每 30 分钟自动刷新</b> · 日报实时拉取（下次还有 <b>"+fmtMMSS(autoNextAt-Date.now())+"</b>）· 上次刷新 <b>"+bjClock(autoLastAt)+"</b> · 排行榜 / 比赛 / AI 上手 为每日自动更新快照（2026-10-14）";
   }
   function autoRefreshNow(){
     autoLastAt = new Date();
