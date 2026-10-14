@@ -53,9 +53,9 @@ const btns = sel => count(((store[sel]||{}).innerHTML||''), /class="filterbtn/g)
 const TD = sandbox.window.TED || [];
 ok(cards('ted-list') === TD.length && TD.length >= 40, `TED 卡片 = ${cards('ted-list')}（=数据 ${TD.length} 条，要求 >=40）`);
 const tedHtml = (store['ted-list']||{}).innerHTML || '';
-ok(tedHtml.includes('TED官方搜索') && tedHtml.includes('YouTube') && tedHtml.includes('B站'), 'TED 多平台观看入口已渲染（TED官方搜索/YouTube/B站）');
-ok(tedHtml.includes('background:#16a34a') && tedHtml.includes('TED官方搜索'), 'TED 免费入口（TED官方搜索）染绿色');
-ok(!tedHtml.includes('ted.com/talks/'), 'TED 已弃用易 404 的 ted.com/talks/<slug> 直链');
+ok(tedHtml.includes('TED官网直达') && tedHtml.includes('YouTube') && tedHtml.includes('B站'), 'TED 多平台观看入口已渲染（TED官网直达/YouTube/B站）');
+ok(tedHtml.includes('background:#16a34a') && tedHtml.includes('TED官网直达'), 'TED 免费入口（TED官网直达）染绿色');
+ok(tedHtml.includes('ted.com/talks/'), 'TED 官网直达直链已渲染（40 条 ted_enrich 已逐条验活 200，故启用直链）');
 ok(tedHtml.includes('pi.tedcdn.com'), 'TED 封面图已渲染（pi.tedcdn.com CDN）');
 ok(count(tedHtml, /pi\.tedcdn\.com/g) >= TD.length, `TED 每张卡片含封面图（封面数 ${count(tedHtml, /pi\.tedcdn\.com/g)} >= 数据 ${TD.length}）`);
 ok(tedHtml.includes('播放'), 'TED 播放量徽章已渲染（▶ N万播放）');

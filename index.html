@@ -5440,7 +5440,11 @@ window.FUNDS_STOCKS = {
       + '<th>AA<br>指数</th><th>代码<br>TB2.1</th>'
       + dims.map(function(d){return '<th>'+d+'</th>';}).join('')
       + '<th style="text-align:left">一句话点评</th></tr>';
-    var rows = RANK.models.map(function(m,i){
+    var _msorted = RANK.models.slice().sort(function(a,b){
+      var x=(a.iaa==null?-1:a.iaa), y=(b.iaa==null?-1:b.iaa);
+      return y-x; /* AA 指数降序，无分(-1)沉底 */
+    });
+    var rows = _msorted.map(function(m,i){
       var tds = dims.map(function(d){ return '<td>'+tierBadge(m.t[d]||"—")+'</td>'; }).join('');
       return '<tr>'
         + '<td class="num-cell">'+(i+1)+'</td>'
@@ -5457,7 +5461,11 @@ window.FUNDS_STOCKS = {
   function renderTools(){
     var head = '<tr><th>#</th><th style="text-align:left">编码工具 / 默认模型</th>'
       + '<th>代码<br>TB2.1</th><th>SWE-bench<br>Verified</th><th>价格/月</th><th>上手</th><th>开源</th><th style="text-align:left">最适合谁</th></tr>';
-    var rows = RANK.tools.map(function(m,i){
+    var _tsorted = RANK.tools.slice().sort(function(a,b){
+      var x=(a.tb==null?-1:a.tb), y=(b.tb==null?-1:b.tb);
+      return y-x; /* TB2.1 降序，无分沉底 */
+    });
+    var rows = _tsorted.map(function(m,i){
       return '<tr>'
         + '<td class="num-cell">'+(i+1)+'</td>'
         + '<td class="name"><div class="nv">'+esc(m.name)+'</div><div class="mv">'+esc(m.model)+'</div></td>'
@@ -5473,7 +5481,11 @@ window.FUNDS_STOCKS = {
   }
   function renderCombos(){
     var head = '<tr><th>#</th><th style="text-align:left">工具 × 模型 组合</th><th>评分</th><th style="text-align:left">说明</th></tr>';
-    var rows = RANK.combos.map(function(c,i){
+    var _rk={"S":3,"A":2,"B":1};
+    var _csorted = RANK.combos.slice().sort(function(a,b){
+      return (_rk[b.score]||0)-(_rk[a.score]||0); /* S>A>B */
+    });
+    var rows = _csorted.map(function(c,i){
       var sc = ({"S":"t-S","A":"t-A","B":"t-B"}[c.score]||"t-none");
       return '<tr>'
         + '<td class="num-cell">'+(i+1)+'</td>'
@@ -6064,7 +6076,7 @@ window.FUNDS_STOCKS = {
       var qEn = encodeURIComponent(t.en || "");
       var qSp = encodeURIComponent(((t.sp||"") + " " + (t.en||"")).trim());
       var links = [
-        {p:"TED官方搜索(免费)", u:"https://www.ted.com/search?q="+qEn},
+        {p:"TED官网直达(免费)", u:(t.url && /^https?:\/\//.test(t.url)) ? t.url : ("https://www.ted.com/search?q="+qEn)},
         {p:"YouTube", u:"https://www.youtube.com/results?search_query="+qSp},
         {p:"B站(中英字幕)", u:"https://search.bilibili.com/all?keyword="+qSp}
       ];
