@@ -56,6 +56,9 @@ const tedHtml = (store['ted-list']||{}).innerHTML || '';
 ok(tedHtml.includes('TED官方搜索') && tedHtml.includes('YouTube') && tedHtml.includes('B站'), 'TED 多平台观看入口已渲染（TED官方搜索/YouTube/B站）');
 ok(tedHtml.includes('background:#16a34a') && tedHtml.includes('TED官方搜索'), 'TED 免费入口（TED官方搜索）染绿色');
 ok(!tedHtml.includes('ted.com/talks/'), 'TED 已弃用易 404 的 ted.com/talks/<slug> 直链');
+ok(tedHtml.includes('pi.tedcdn.com'), 'TED 封面图已渲染（pi.tedcdn.com CDN）');
+ok(count(tedHtml, /pi\.tedcdn\.com/g) >= TD.length, `TED 每张卡片含封面图（封面数 ${count(tedHtml, /pi\.tedcdn\.com/g)} >= 数据 ${TD.length}）`);
+ok(tedHtml.includes('播放'), 'TED 播放量徽章已渲染（▶ N万播放）');
 /* [2a-2] 成长讲坛 v2：系列 -> 视频两级直达（2026-09-25 按用户反馈重构） */
 const FS = sandbox.window.FORUM_SERIES || [];
 const FV = FS.reduce((a,s)=>a+s.vids.length, 0);

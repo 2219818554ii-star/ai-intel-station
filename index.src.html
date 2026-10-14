@@ -1461,7 +1461,18 @@
         {p:"YouTube", u:"https://www.youtube.com/results?search_query="+qSp},
         {p:"B站(中英字幕)", u:"https://search.bilibili.com/all?keyword="+qSp}
       ];
+      function fmtViews(n){
+        if(typeof n!=="number"||!isFinite(n)) return null;
+        if(n>=1e8) return (n/1e8).toFixed(1)+"亿";
+        if(n>=1e4) return Math.round(n/1e4)+"万";
+        return String(n);
+      }
+      var vtxt = fmtViews(t.views);
+      var cover = (t.cover && /^https?:\/\//.test(t.cover))
+        ? '<img src="'+esc(t.cover)+'" alt="'+esc(t.en||"")+'" loading="lazy" style="width:100%;height:150px;object-fit:cover;border-radius:10px;display:block;margin:2px 0 11px;background:#0b1020">'
+        : '';
       return '<article class="cmp">'+
+        cover +
         '<div class="cmp-head" style="cursor:default">'+
           '<span class="chip" style="border-color:var(--brand);color:var(--brand);background:var(--brand-soft)">'+esc(t.cat||"")+'</span>'+
           '<span class="cmp-name">🎬 '+esc(t.en||"")+'</span>'+
@@ -1472,6 +1483,7 @@
         '<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--ink-soft);margin-bottom:9px">'+
           '<span class="chip" style="border-color:var(--line)">📅 '+esc(String(t.yr||"未知"))+'</span>'+
           '<span class="chip" style="border-color:var(--line)">⏱ '+esc(String(t.dur||"?"))+' 分钟</span>'+
+          (vtxt ? '<span class="chip" style="border-color:#f1c0c0;color:#e02424;font-weight:700">▶ '+vtxt+'播放</span>' : '')+
           '<span class="chip" style="border-color:var(--line)">#'+num+'</span>'+
         '</div>'+
         '<div class="d-row"><span class="d-k">讲什么</span><span class="d-v">'+esc(t.intro||"")+'</span></div>'+
