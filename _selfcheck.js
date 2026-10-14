@@ -393,7 +393,7 @@ ok((store['cqutMatchCount']||{}).textContent && String((store['cqutMatchCount']|
    `折叠标题计数徽章: ${(store['cqutMatchCount']||{}).textContent}`);
 ok(String(((store['matchOpenCount']||{}).textContent)||'').includes('正在报名'),
    `「正在报名」徽章: ${(store['matchOpenCount']||{}).textContent}`);
-ok((store['cqut-match-updated']||{}).textContent === sandbox.window.CQUT_MATCH_UPDATED,
+ok((store['cqut-match-updated']||{}).textContent === sandbox.window.MATCH_UPDATED,
    `比赛更新日期: ${(store['cqut-match-updated']||{}).textContent}`);
 ok(mHtml.includes('🎯 跟你专业对口') && mHtml.includes('正在报名'), '对口 / 正在报名 标记已渲染');
 ok(mHtml.includes('重庆理工') && mHtml.includes('重庆交通大学'), '卡片按学校分类已渲染');
