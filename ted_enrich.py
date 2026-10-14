@@ -4,7 +4,7 @@ SITE = r"C:/Users/22198/WorkBuddy/2026-08-11-19-02-45/ai_daily_site"
 SRC = SITE + "/ted.js"
 
 html = open(SRC, encoding="utf-8").read()
-urls = re.findall(r'url:"([^"]+)"', html)
+urls = re.findall(r'url:"([^"]+)"\},', html)  # 只抓未富集的(以 }, 结尾、无 cover/views)
 uniq = list(dict.fromkeys(urls))
 print("total url fields:", len(urls), "| unique:", len(uniq))
 

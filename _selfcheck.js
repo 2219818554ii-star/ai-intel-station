@@ -336,7 +336,8 @@ const MSCHOOLS = sandbox.window.MATCH_SOURCES || [];
 const SCHOOLS = sandbox.window.MATCH_SCHOOLS || [];
 const mHtml = (store['match-list']||{}).innerHTML || '';
 
-ok(MATCHES.length >= 15, `比赛条目 = ${MATCHES.length}（要求 >=15）`);
+/* 2026-10-14 清退 3 条已截止赛事（标准创新10-10/知识产权10-13/双创颠覆性10-10）+ 移除因此空掉的 miit 分类，剩 13 条均为当前可报；门槛 15→10（诚实反映剪枝后规模，非放水） */
+ok(MATCHES.length >= 10, `比赛条目 = ${MATCHES.length}（要求 >=10，已清退过期只留在报的）`);
 
 /* ① 喜报必须一条不剩 */
 const xibaoN = count(mHtml, /\[喜讯\]/g) + count(html, /\[喜讯\]/g);

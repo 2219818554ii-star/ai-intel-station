@@ -1,0 +1,32 @@
+{
+ "https://www.ted.com/talks/sir_ken_robinson_do_schools_kill_creativity": {
+  "http": "200",
+  "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/6b6eb940bceab359ca676a9b486aae475c1df883_2880x1620.jpg",
+  "views": 80637676
+ },
+ "https://www.ted.com/talks/mihaly_csikszentmihalyi_flow_the_secret_to_happiness": {
+  "http": "200",
+  "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/ec28788873dd3e152461bc6c5c35d3694ab69023_2880x1620.jpg",
+  "views": 8070446
+ },
+ "https://www.ted.com/talks/emily_esfahani_smith_there_s_more_to_life_than_being_happy": {
+  "http": "200",
+  "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/500cb54f-211f-4f7d-8202-a99507891b80/EmilyEsfahaniSmith_2017-embed.jpg",
+  "views": null
+ },
+ "https://www.ted.com/talks/michael_norton_how_to_buy_happiness": {
+  "http": "200",
+  "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/dac773c5-9c88-4502-a01b-454fb89c5d56/MichaelNorton_2011X-embed.jpg",
+  "views": 4872895
+ },
+ "https://www.ted.com/talks/amanda_palmer_the_art_of_asking": {
+  "http": "200",
+  "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/d34538ab-7ae8-46ef-92cc-f83c055c1840/AmandaPalmer_2013-embed.jpg",
+  "views": 13188656
+ },
+ "https://www.ted.com/talks/lera_boroditsky_how_language_shapes_the_way_we_think": {
+  "http": "200",
+  "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/7adc2250-de27-4116-b4ea-6fb4637ca98a/LeraBoroditsky_2017W-embed.jpg",
+  "views": 27161185
+ }
+}
