@@ -788,7 +788,7 @@
   <div class="cmp-list" id="funds-stocks-portfolio" style="margin-bottom:16px"></div>
 
   <div class="lk-tip" style="margin-top:18px">
-    ⚠️ <b>说明：</b>场外基金净值 T+1 公布，QDII（追踪美股的两只）通常更晚，所以页面上的盈亏<b>不是此刻的实时价格</b>，而是最近一个已公布净值日的数据。「持仓市值 / 持有收益」为 2026-09-25 支付宝快照、需你本人同步才改；「估算市值 / 估算盈亏」按份额 × 最新净值自动反推，<b>仅供参考，以你支付宝实际为准</b>。本站只做记录与呈现，<b>不给任何买卖建议</b>。
+    ⚠️ <b>说明：</b>场外基金净值 T+1 公布，QDII（追踪美股的两只）通常更晚，所以页面上的盈亏<b>不是此刻的实时价格</b>，而是最近一个已公布净值日的数据。金额与收益按本次用户截图同步，截图未显示日历日期，日期按本次同步日登记；余额宝单列现金管理，累计收益不计入基金持有收益；当前截图没有份额及对应基准净值，估算暂显示「—」；核实后才按份额 × 最新净值反推，<b>仅供参考，以你支付宝实际为准</b>。本站只做记录与呈现，<b>不给任何买卖建议</b>。
     </div>
   </div>
 
@@ -2028,6 +2028,9 @@
   function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
 
   var H = window.FUNDS_HOLD || [];
+  var CASH = window.FUNDS_CASH || [];
+  var cashAmt = CASH.reduce(function(a,c){return a+(Number.isFinite(c.amt)?c.amt:0);},0);
+  var cashDay = CASH.reduce(function(a,c){return a+(Number.isFinite(c.dayPL)?c.dayPL:0);},0);
   var META = window.FUNDS_META || {};
   var EXPO = window.FUNDS_EXPOSURE || [];
   var UP = document.getElementById('funds-updated');
@@ -2074,7 +2077,8 @@
   var costComplete = H.length>0 && costCount===H.length;
   var snapshotDates = Array.from(new Set(H.map(function(f){return f.amtDate||"未知";}))).join(" / ");
   var totalPct = (sumCost>0) ? sumPL/sumCost : null;
-  var maxPct = (sumAmt>0) ? maxAmt/sumAmt : 0;
+  var assetTotal = sumAmt + cashAmt;
+  var maxPct = assetTotal>0 ? maxAmt/assetTotal : 0;
 
   function card(label, valHtml, sub){
     return '<div class="cmp-item" style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:0">'+
@@ -2088,12 +2092,12 @@
     box.style.gridTemplateColumns="repeat(auto-fit,minmax(160px,1fr))";
     box.style.gap="12px";
     box.innerHTML = [
-      card("持仓市值合计", "¥" + sumAmt.toLocaleString("zh-CN",{minimumFractionDigits:2, maximumFractionDigits:2}), H.length + " 只基金（支付宝快照）"),
+      card("持仓资产合计", moneyTxt(assetTotal), H.length + " 只基金 + " + CASH.length + " 笔现金管理（截图快照）"),
       card("估算市值（最新净值）", estComplete ? moneyTxt(sumEst) : "—", estComplete ? "份额×最新净值·仅供参考" : "净值或基准数据缺失，暂不汇总"),
-      card("快照当日收益", costyle(sumDay, moneyTxt(sumDay)), esc(snapshotDates)),
-      card("持有收益合计", costyle(sumPL, moneyTxt(sumPL)), "成本约 ¥" + sumCost.toLocaleString("zh-CN",{minimumFractionDigits:2, maximumFractionDigits:2})),
+      card("快照日收益（含现金管理）", costyle(sumDay+cashDay, moneyTxt(sumDay+cashDay)), esc(snapshotDates)),
+      card("基金持有收益合计", costyle(sumPL, moneyTxt(sumPL)), "仅基金部分；成本约 ¥" + sumCost.toLocaleString("zh-CN",{minimumFractionDigits:2, maximumFractionDigits:2})),
       card("估算持有盈亏", estComplete && costComplete ? costyle(sumEst - sumCost, moneyTxt(sumEst - sumCost)) : "—", "较成本·以支付宝为准"),
-      card("总收益率", costyle(totalPct, pctTxt(totalPct)), ""),
+      card("基金总收益率（按金额推算）", costyle(totalPct, pctTxt(totalPct)), ""),
       card("最大单一持仓", (maxPct*100).toFixed(1)+"%", maxName)
     ].join("");
   }
@@ -2111,14 +2115,28 @@
         '</div>'+
         '<div style="font-size:12px;color:#64748b;margin:5px 0 10px">'+esc(f.type)+' · '+esc(f.style)+'</div>'+
         '<div style="display:flex;flex-wrap:wrap;gap:16px;font-size:13px">'+
-          '<span>持有金额：<b>'+costyle(f.amt, moneyTxt(f.amt))+'</b> <span style="color:#94a3b8;font-size:11px">（支付宝 '+esc(f.amtDate||'—')+' 快照）</span></span>'+
+          '<span>持有金额：<b>'+costyle(f.amt, moneyTxt(f.amt))+'</b> <span style="color:#94a3b8;font-size:11px">（支付宝截图 · '+esc(f.amtDate||'—')+' 同步）</span></span>'+
           '<span>估算市值：<b>'+ (e ? costyle(e.estVal - f.amt, moneyTxt(e.estVal)) : '—') +'</b> <span style="color:#94a3b8;font-size:11px">（份额×最新净值）</span></span>'+
           '<span>估算盈亏：<b>'+ (e && e.estPL!=null ? costyle(e.estPL, moneyTxt(e.estPL)) : '—') +'</b> <span style="color:#94a3b8;font-size:11px">（较成本）</span></span>'+
           '<span>快照当日收益：<b>'+costyle(f.dayPL, moneyTxt(f.dayPL))+'</b> <small>（'+esc(f.amtDate||'未知')+'）</small></span>'+
-          '<span>持有收益：<b>'+costyle(f.holdPL, moneyTxt(f.holdPL))+' ('+plText(f.holdPL)+')</b></span>'+
-          '<span>收益率：<b>'+costyle(f.holdPct, pctTxt(f.holdPct))+'</b></span>'+
+          '<span>持有收益：<b>'+costyle(f.holdPL, moneyTxt(f.holdPL))+'</b></span>'+
+          '<span>截图持有收益率：<b>'+costyle(f.holdPct, pctTxt(f.holdPct))+'</b>'+(f.holdPct==null?'（小字未确认）':'')+'</span>'+
+          '<span>累计收益：<b>'+costyle(f.cumulativePL,moneyTxt(f.cumulativePL))+'</b></span>'+
+          '<span style="color:#64748b">'+esc(f.snapshotNote||'')+'</span>'+
         '</div></article>';
     }).join("");
+  }
+
+  if(list && CASH.length){
+    list.innerHTML += CASH.map(function(c){
+      return '<article class="cmp-item" style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px">'+
+        '<b>'+esc(c.n)+'</b> <span class="tier t-none">现金管理</span>'+
+        '<div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px">'+
+        '<span>金额：'+costyle(c.amt,moneyTxt(c.amt))+'</span>'+
+        '<span>快照日收益：'+costyle(c.dayPL,moneyTxt(c.dayPL))+'</span>'+
+        '<span>累计收益：'+costyle(c.cumulativePL,moneyTxt(c.cumulativePL))+'</span></div>'+
+        '<div style="font-size:12px;color:#64748b;margin-top:8px">'+esc(c.note)+' · 同步日 '+esc(c.amtDate)+'</div></article>';
+    }).join('');
   }
 
   /* ---- 风格暴露条 ---- */

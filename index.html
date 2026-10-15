@@ -788,7 +788,7 @@
   <div class="cmp-list" id="funds-stocks-portfolio" style="margin-bottom:16px"></div>
 
   <div class="lk-tip" style="margin-top:18px">
-    ⚠️ <b>说明：</b>场外基金净值 T+1 公布，QDII（追踪美股的两只）通常更晚，所以页面上的盈亏<b>不是此刻的实时价格</b>，而是最近一个已公布净值日的数据。「持仓市值 / 持有收益」为 2026-09-25 支付宝快照、需你本人同步才改；「估算市值 / 估算盈亏」按份额 × 最新净值自动反推，<b>仅供参考，以你支付宝实际为准</b>。本站只做记录与呈现，<b>不给任何买卖建议</b>。
+    ⚠️ <b>说明：</b>场外基金净值 T+1 公布，QDII（追踪美股的两只）通常更晚，所以页面上的盈亏<b>不是此刻的实时价格</b>，而是最近一个已公布净值日的数据。金额与收益按本次用户截图同步，截图未显示日历日期，日期按本次同步日登记；余额宝单列现金管理，累计收益不计入基金持有收益；当前截图没有份额及对应基准净值，估算暂显示「—」；核实后才按份额 × 最新净值反推，<b>仅供参考，以你支付宝实际为准</b>。本站只做记录与呈现，<b>不给任何买卖建议</b>。
     </div>
   </div>
 
@@ -5246,38 +5246,106 @@ window.FUNDS_UPDATED = "2026-10-15";
    2026-10-14 收盘例行刷新（16:43 触发）：012920 QDII 出 10-13 净值（3.5707/-0.33%，原 10-12/3.5827），其余 3 只净值无更新（024480/022432 仍为 10-13、016452 仍为 10-12，10-14 当日净值 20:00 后出，不伪造）；4 只 perf 按 FundMNPeriodIncrease 实抓滚动窗口刷新；A股 7 只重点股刷新至 10-14 收盘（光模块/AI 板块深跌：新易盛 -5.84%、中际旭创 -5.73%、寒武纪 -4.86%、兆易 -4.46%），美股停在 10-13 收盘。四日期字段均为 2026-10-14。账户金额未动。
    2026-10-15 每日净值例行更新（天天基金 F10 历史净值接口实抓）：A股两只 024480→10-14（1.6028/-2.36%）、022432→10-14（1.1532/-1.47%）出 10-14 净值；QDII 012920 仍停 10-13（3.5707/-0.33%）、016452 出 10-13 净值（2.3522/-0.32%，T+2 滞后，10-14 净值未公布）；10-15 当日净值约 20:00 后出，不伪造。perf 按 FundMNPeriodIncrease 实抓滚动窗口刷新（024480 近1月 -18.02%/今年来 +54.59%、022432 近1月 -6.35%/今年来 -6.01%、016452 近1月 +3.20%/今年来 +14.83%）。A股 7 只重点股刷新至 10-15 收盘（新易盛 -7.49%、中际旭创 -5.19%、兆易 -4.90%、北方华创 +3.95% 逆势）；美股 4 只刷新至 10-14 收盘（NVDA -3.16%、AMD -5.73%、MU -4.10%）。四日期字段均为 2026-10-15。账户金额(amt/dayPL/holdPL)未动。 */
 window.FUNDS_META = {
-  src: "支付宝 App 持仓截图（持仓金额，快照 2026-09-25）+ 天天基金 F10 历史净值（净值/日增长率/阶段业绩，2026-09-28 建库，2026-10-02 刷新业绩、2026-10-06 滚动窗口）",
-  date: "2026-10-15",
-  note: "连续交易日（国庆后已复市）：截至 10-15 收盘例行刷新，A股两只 024480（1.6028/-2.36%）、022432（1.1532/-1.47%）已出 10-14 净值（10-15 当日净值约 20:00 后公布，页面不伪造当天价）；QDII 两只 012920（3.5707/-0.33%）仍停 10-13、016452（2.3522/-0.32%）出 10-13 净值（QDII T+2 滞后，10-14 净值尚未公布）。A股重点股刷新至 10-15 收盘——光模块/AI 板块继续深度回调：新易盛 -7.49%、中际旭创 -5.19%、源杰科技 -4.68%、寒武纪 -3.43%、兆易创新 -4.90%、北方华创 +3.95%（逆势）、宁德时代 -0.58%；美股刷新至 10-14 收盘（NVDA -3.16%、AMD -5.73%、TSM -3.40%、MU -4.10%，科技股普跌）。场外基金净值 T+1、QDII 更晚，页面显示的是最近一个已公布净值日的数据，不是实时价。金额/收益为 2026-09-25 支付宝快照，净值每日自动刷新但账户金额需你本人同步才改。估算市值/估算盈亏按份额×最新净值反推，仅供参考，以你支付宝实际为准。"
+  "src": "用户提供的最新支付宝全部持有截图（本次同步 2026-10-15，截图时钟 20:27，截图未显示日历日期）",
+  "date": "2026-10-15",
+  "note": "4 只基金金额及日收益、持有收益按截图同步；新增余额宝 270.15 元，日收益 +0.01 元、累计收益 +0.92 元。用户补充清晰截图，四只基金持有收益率与累计收益均已逐项核对；截图没有份额及对应基准净值，navAt 留 null，暂停估算。基金净值及行情仍保留各自原公布日期，未冒充本次刷新。"
 };
 
 /* 持仓：amt=持有金额(元)｜dayPL=昨日收益｜holdPL=持有收益｜holdPct=持有收益率(小数)
    unit/dayPct/navDate = 该只基金最新已公布净值（单位净值 / 日增长率小数 / 净值日期），每日例行刷新。
-   navAt = 份额反推基准净值（支付宝 09-25 快照对应的 09-24 T+1 净值，来自天天基金实抓）。
+   navAt = 当前快照对应基准净值；本次截图无法核实，已清空旧基准，禁止套用 09-25 份额。
    估算市值 = amt × (unit / navAt)；估算持有盈亏 = 估算市值 − (amt−holdPL)；均与最新净值联动、交易日会动。
    估算值仅供参考，最终以罗浩本人支付宝实际为准；份额默认不变（无买卖），大额加/减仓后需重算。
    amt 等账户数据只有罗浩本人同步时才改，自动化不动。 */
 window.FUNDS_HOLD = [
-  { n: "易方达全球成长精选混合(QDII)A", code: "012920", type: "QDII-混合", style: "海外",
-    amt: 216.31, dayPL: -1.33, holdPL: -53.69, holdPct: -0.1989, auto: "定投", amtDate: "2026-09-25",
-    navAt: "3.8463",
-    unit: 3.5707, dayPct: -0.0033, navDate: "2026-10-13",
-    url: "https://fund.eastmoney.com/012920.html" },
-  { n: "财通品质甄选混合A", code: "024480", type: "混合型-偏股", style: "A股",
-    amt: 1411.79, dayPL: -55.83, holdPL: -284.24, holdPct: -0.1676, auto: "", amtDate: "2026-09-25",
-    navAt: "1.9523",
-    unit: 1.6028, dayPct: -0.0236, navDate: "2026-10-14",
-    url: "https://fund.eastmoney.com/024480.html" },
-  { n: "中欧中证A500指数发起A", code: "022432", type: "指数型-股票", style: "A股",
-    amt: 1.57, dayPL: -0.03, holdPL: -0.07, holdPct: -0.0428, auto: "", amtDate: "2026-09-25",
-    navAt: "1.2264",
-    unit: 1.1532, dayPct: -0.0147, navDate: "2026-10-14",
-    url: "https://fund.eastmoney.com/022432.html" },
-  { n: "南方纳斯达克100指数发起(QDII)A", code: "016452", type: "QDII-股票", style: "海外",
-    amt: 862.65, dayPL: -6.87, holdPL: 22.65, holdPct: 0.0276, auto: "定投", amtDate: "2026-09-25",
-    navAt: "2.3525",
-    unit: 2.3522, dayPct: -0.0032, navDate: "2026-10-13",
-    url: "https://fund.eastmoney.com/016452.html" }
+  {
+    "n": "南方纳斯达克100指数发起(QDII)A",
+    "code": "016452",
+    "type": "QDII-股票",
+    "style": "海外",
+    "amt": 952.88,
+    "dayPL": -3,
+    "holdPL": 22.88,
+    "holdPct": 0.0251,
+    "auto": "定投",
+    "amtDate": "2026-10-15",
+    "navAt": null,
+    "unit": 2.3522,
+    "dayPct": -0.0032,
+    "navDate": "2026-10-13",
+    "url": "https://fund.eastmoney.com/016452.html",
+    "snapshotNote": "按用户补充的清晰截图同步；份额及对应基准净值未提供，暂停估算。",
+    "cumulativePL": 22.88
+  },
+  {
+    "n": "中欧中证A500指数发起A",
+    "code": "022432",
+    "type": "指数型-股票",
+    "style": "A股",
+    "amt": 1.48,
+    "dayPL": -0.02,
+    "holdPL": -0.16,
+    "holdPct": -0.0999,
+    "auto": "",
+    "amtDate": "2026-10-15",
+    "navAt": null,
+    "unit": 1.1532,
+    "dayPct": -0.0147,
+    "navDate": "2026-10-14",
+    "url": "https://fund.eastmoney.com/022432.html",
+    "snapshotNote": "按用户补充的清晰截图同步；份额及对应基准净值未提供，暂停估算。",
+    "cumulativePL": 1.12
+  },
+  {
+    "n": "易方达全球成长精选混合(QDII)A",
+    "code": "012920",
+    "type": "QDII-混合",
+    "style": "海外",
+    "amt": 192.6,
+    "dayPL": -6.29,
+    "holdPL": -77.4,
+    "holdPct": -0.2867,
+    "auto": "定投",
+    "amtDate": "2026-10-15",
+    "navAt": null,
+    "unit": 3.5707,
+    "dayPct": -0.0033,
+    "navDate": "2026-10-13",
+    "url": "https://fund.eastmoney.com/012920.html",
+    "snapshotNote": "按用户补充的清晰截图同步；份额及对应基准净值未提供，暂停估算。",
+    "cumulativePL": -77.4
+  },
+  {
+    "n": "财通品质甄选混合A",
+    "code": "024480",
+    "type": "混合型-偏股",
+    "style": "A股",
+    "amt": 1115.44,
+    "dayPL": -43.61,
+    "holdPL": -580.59,
+    "holdPct": -0.3423,
+    "auto": "",
+    "amtDate": "2026-10-15",
+    "navAt": null,
+    "unit": 1.6028,
+    "dayPct": -0.0236,
+    "navDate": "2026-10-14",
+    "url": "https://fund.eastmoney.com/024480.html",
+    "snapshotNote": "按用户补充的清晰截图同步；份额及对应基准净值未提供，暂停估算。",
+    "cumulativePL": -580.59
+  }
+];
+
+window.FUNDS_CASH = [
+  {
+    "n": "余额宝",
+    "kind": "cash",
+    "amt": 270.15,
+    "dayPL": 0.01,
+    "cumulativePL": 0.92,
+    "amtDate": "2026-10-15",
+    "note": "截图未显示底层货币基金名称及代码，不推定基金代码；累计收益不等同于基金持有收益。"
+  }
 ];
 
 /* 基准：沪深300 = 010300，中证A500 无直连代码，用 512500（中证A500ETF，场内）仅作参考链接 */
@@ -5287,8 +5355,18 @@ window.FUNDS_BENCH = [
 
 /* 风格暴露：按持仓真实投向归类，金额来自上面持仓 */
 window.FUNDS_EXPOSURE = [
-  { k: "A股", v: 1413.36 },
-  { k: "海外", v: 1078.96 }
+  {
+    "k": "A股",
+    "v": 1116.92
+  },
+  {
+    "k": "海外",
+    "v": 1145.48
+  },
+  {
+    "k": "现金管理",
+    "v": 270.15
+  }
 ];
 
 /* ===== 深度档案（2026-09-28 阿禾实抓：天天基金 F10） =====
@@ -6747,6 +6825,9 @@ window.FUNDS_STOCKS = {
   function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
 
   var H = window.FUNDS_HOLD || [];
+  var CASH = window.FUNDS_CASH || [];
+  var cashAmt = CASH.reduce(function(a,c){return a+(Number.isFinite(c.amt)?c.amt:0);},0);
+  var cashDay = CASH.reduce(function(a,c){return a+(Number.isFinite(c.dayPL)?c.dayPL:0);},0);
   var META = window.FUNDS_META || {};
   var EXPO = window.FUNDS_EXPOSURE || [];
   var UP = document.getElementById('funds-updated');
@@ -6793,7 +6874,8 @@ window.FUNDS_STOCKS = {
   var costComplete = H.length>0 && costCount===H.length;
   var snapshotDates = Array.from(new Set(H.map(function(f){return f.amtDate||"未知";}))).join(" / ");
   var totalPct = (sumCost>0) ? sumPL/sumCost : null;
-  var maxPct = (sumAmt>0) ? maxAmt/sumAmt : 0;
+  var assetTotal = sumAmt + cashAmt;
+  var maxPct = assetTotal>0 ? maxAmt/assetTotal : 0;
 
   function card(label, valHtml, sub){
     return '<div class="cmp-item" style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:0">'+
@@ -6807,12 +6889,12 @@ window.FUNDS_STOCKS = {
     box.style.gridTemplateColumns="repeat(auto-fit,minmax(160px,1fr))";
     box.style.gap="12px";
     box.innerHTML = [
-      card("持仓市值合计", "¥" + sumAmt.toLocaleString("zh-CN",{minimumFractionDigits:2, maximumFractionDigits:2}), H.length + " 只基金（支付宝快照）"),
+      card("持仓资产合计", moneyTxt(assetTotal), H.length + " 只基金 + " + CASH.length + " 笔现金管理（截图快照）"),
       card("估算市值（最新净值）", estComplete ? moneyTxt(sumEst) : "—", estComplete ? "份额×最新净值·仅供参考" : "净值或基准数据缺失，暂不汇总"),
-      card("快照当日收益", costyle(sumDay, moneyTxt(sumDay)), esc(snapshotDates)),
-      card("持有收益合计", costyle(sumPL, moneyTxt(sumPL)), "成本约 ¥" + sumCost.toLocaleString("zh-CN",{minimumFractionDigits:2, maximumFractionDigits:2})),
+      card("快照日收益（含现金管理）", costyle(sumDay+cashDay, moneyTxt(sumDay+cashDay)), esc(snapshotDates)),
+      card("基金持有收益合计", costyle(sumPL, moneyTxt(sumPL)), "仅基金部分；成本约 ¥" + sumCost.toLocaleString("zh-CN",{minimumFractionDigits:2, maximumFractionDigits:2})),
       card("估算持有盈亏", estComplete && costComplete ? costyle(sumEst - sumCost, moneyTxt(sumEst - sumCost)) : "—", "较成本·以支付宝为准"),
-      card("总收益率", costyle(totalPct, pctTxt(totalPct)), ""),
+      card("基金总收益率（按金额推算）", costyle(totalPct, pctTxt(totalPct)), ""),
       card("最大单一持仓", (maxPct*100).toFixed(1)+"%", maxName)
     ].join("");
   }
@@ -6830,14 +6912,28 @@ window.FUNDS_STOCKS = {
         '</div>'+
         '<div style="font-size:12px;color:#64748b;margin:5px 0 10px">'+esc(f.type)+' · '+esc(f.style)+'</div>'+
         '<div style="display:flex;flex-wrap:wrap;gap:16px;font-size:13px">'+
-          '<span>持有金额：<b>'+costyle(f.amt, moneyTxt(f.amt))+'</b> <span style="color:#94a3b8;font-size:11px">（支付宝 '+esc(f.amtDate||'—')+' 快照）</span></span>'+
+          '<span>持有金额：<b>'+costyle(f.amt, moneyTxt(f.amt))+'</b> <span style="color:#94a3b8;font-size:11px">（支付宝截图 · '+esc(f.amtDate||'—')+' 同步）</span></span>'+
           '<span>估算市值：<b>'+ (e ? costyle(e.estVal - f.amt, moneyTxt(e.estVal)) : '—') +'</b> <span style="color:#94a3b8;font-size:11px">（份额×最新净值）</span></span>'+
           '<span>估算盈亏：<b>'+ (e && e.estPL!=null ? costyle(e.estPL, moneyTxt(e.estPL)) : '—') +'</b> <span style="color:#94a3b8;font-size:11px">（较成本）</span></span>'+
           '<span>快照当日收益：<b>'+costyle(f.dayPL, moneyTxt(f.dayPL))+'</b> <small>（'+esc(f.amtDate||'未知')+'）</small></span>'+
-          '<span>持有收益：<b>'+costyle(f.holdPL, moneyTxt(f.holdPL))+' ('+plText(f.holdPL)+')</b></span>'+
-          '<span>收益率：<b>'+costyle(f.holdPct, pctTxt(f.holdPct))+'</b></span>'+
+          '<span>持有收益：<b>'+costyle(f.holdPL, moneyTxt(f.holdPL))+'</b></span>'+
+          '<span>截图持有收益率：<b>'+costyle(f.holdPct, pctTxt(f.holdPct))+'</b>'+(f.holdPct==null?'（小字未确认）':'')+'</span>'+
+          '<span>累计收益：<b>'+costyle(f.cumulativePL,moneyTxt(f.cumulativePL))+'</b></span>'+
+          '<span style="color:#64748b">'+esc(f.snapshotNote||'')+'</span>'+
         '</div></article>';
     }).join("");
+  }
+
+  if(list && CASH.length){
+    list.innerHTML += CASH.map(function(c){
+      return '<article class="cmp-item" style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px">'+
+        '<b>'+esc(c.n)+'</b> <span class="tier t-none">现金管理</span>'+
+        '<div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px">'+
+        '<span>金额：'+costyle(c.amt,moneyTxt(c.amt))+'</span>'+
+        '<span>快照日收益：'+costyle(c.dayPL,moneyTxt(c.dayPL))+'</span>'+
+        '<span>累计收益：'+costyle(c.cumulativePL,moneyTxt(c.cumulativePL))+'</span></div>'+
+        '<div style="font-size:12px;color:#64748b;margin-top:8px">'+esc(c.note)+' · 同步日 '+esc(c.amtDate)+'</div></article>';
+    }).join('');
   }
 
   /* ---- 风格暴露条 ---- */

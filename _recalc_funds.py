@@ -20,7 +20,7 @@ import tempfile
 BASE = os.path.dirname(os.path.abspath(__file__))
 P = os.path.join(BASE, "funds.js")
 NODE_CANDIDATES = [
-    r"C:\Users\22198\.workbuddy\binaries\node\versions\22.22.2-3\node.exe",
+    r"C:\Users\22198\.workbuddy\binaries\node\versions\22.22.2-6\node.exe",
     "node",
 ]
 
@@ -46,6 +46,7 @@ const D = (win.FUNDS_DEEP || {}).byCode || {};
 const r2 = x => Math.round(x * 100) / 100;
 const agg = {};
 for (const f of H) agg[f.style] = r2((agg[f.style] || 0) + (f.amt || 0));
+for (const c of (win.FUNDS_CASH || [])) agg["现金管理"] = r2((agg["现金管理"] || 0) + (c.amt || 0));
 const stamps = {};
 for (const f of H) { const d = D[f.code] || {}; stamps[f.code] = { unit: f.unit, navDate: f.navDate, dayPct: f.dayPct, deepNav: d.nav, deepDate: d.navDate }; }
 const out = {
@@ -115,7 +116,7 @@ def main():
     print(f"  持仓条数 = {res['n']}（期望 4）")
     print(f"  合计持有金额 amt = {res['totalAmt']}")
     print(f"  合计持有收益 holdPL = {res['totalPL']}")
-    tot_pct = res["totalPL"] / res["totalAmt"] if res["totalAmt"] else 0
+    tot_pct = res["totalPL"] / (res["totalAmt"] - res["totalPL"]) if res["totalAmt"] - res["totalPL"] > 0 else 0
     print(f"  总收益率 = {tot_pct * 100:.2f}%")
 
     print("== 最新已公布净值 + 持仓/深度档案一致性 ==")

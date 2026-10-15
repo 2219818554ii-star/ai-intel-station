@@ -1,0 +1,66 @@
+{
+  "source": "用户补充的清晰支付宝全部持有截图，时钟20:27；截图未显示日历日期，按本次同步日登记",
+  "syncedOn": "2026-10-15",
+  "funds": [
+    {
+      "code": "016452",
+      "amt": 952.88,
+      "dayPL": -3,
+      "holdPL": 22.88,
+      "holdPct": 0.0251,
+      "cumulativePL": 22.88,
+      "navAt": null
+    },
+    {
+      "code": "022432",
+      "amt": 1.48,
+      "dayPL": -0.02,
+      "holdPL": -0.16,
+      "holdPct": -0.0999,
+      "cumulativePL": 1.12,
+      "navAt": null
+    },
+    {
+      "code": "012920",
+      "amt": 192.6,
+      "dayPL": -6.29,
+      "holdPL": -77.4,
+      "holdPct": -0.2867,
+      "cumulativePL": -77.4,
+      "navAt": null
+    },
+    {
+      "code": "024480",
+      "amt": 1115.44,
+      "dayPL": -43.61,
+      "holdPL": -580.59,
+      "holdPct": -0.3423,
+      "cumulativePL": -580.59,
+      "navAt": null
+    }
+  ],
+  "cash": [
+    {
+      "n": "余额宝",
+      "kind": "cash",
+      "amt": 270.15,
+      "dayPL": 0.01,
+      "cumulativePL": 0.92,
+      "amtDate": "2026-10-15",
+      "note": "截图未显示底层货币基金名称及代码，不推定基金代码；累计收益不等同于基金持有收益。"
+    }
+  ],
+  "expected": {
+    "fundAmount": 2262.4,
+    "cashAmount": 270.15,
+    "totalAmount": 2532.55,
+    "fundHoldPL": -635.27,
+    "dayPLIncludingCash": -52.91
+  },
+  "unverified": [
+    "截图日历日期",
+    "当前份额及对应基准净值",
+    "余额宝底层货币基金名称与代码"
+  ],
+  "sourceImageSHA256": "a05798a9689a24dba1a58c50cde8cb4c34b82874c3e51cf5729e1e36d0927acd"
+}
