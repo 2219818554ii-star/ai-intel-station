@@ -1,6 +1,6 @@
 // 深度自检 v2：执行【构建后的 index.html】，模拟分类筛选点击，并体检运行时链接
 const fs = require('fs'); const vm = require('vm');
-const B = 'C:\\Users\\22198\\WorkBuddy\\2026-08-11-19-02-45\\ai_daily_site\\';
+const B = __dirname + require('path').sep;
 const html = fs.readFileSync(B + 'index.html', 'utf8');
 
 let pass = 0, fail = 0;
@@ -55,7 +55,7 @@ ok(cards('ted-list') === TD.length && TD.length >= 40, `TED 卡片 = ${cards('te
 const tedHtml = (store['ted-list']||{}).innerHTML || '';
 ok(tedHtml.includes('TED官网直达') && tedHtml.includes('YouTube') && tedHtml.includes('B站'), 'TED 多平台观看入口已渲染（TED官网直达/YouTube/B站）');
 ok(tedHtml.includes('background:#16a34a') && tedHtml.includes('TED官网直达'), 'TED 免费入口（TED官网直达）染绿色');
-ok(tedHtml.includes('ted.com/talks/'), 'TED 官网直达直链已渲染（40 条 ted_enrich 已逐条验活 200，故启用直链）');
+ok(tedHtml.includes('ted.com/talks/'), 'TED 官网直达直链已渲染（本次仅检查直链结构，不代表联网验活）');
 ok(tedHtml.includes('pi.tedcdn.com'), 'TED 封面图已渲染（pi.tedcdn.com CDN）');
 ok(count(tedHtml, /pi\.tedcdn\.com/g) >= TD.length, `TED 每张卡片含封面图（封面数 ${count(tedHtml, /pi\.tedcdn\.com/g)} >= 数据 ${TD.length}）`);
 ok(tedHtml.includes('播放'), 'TED 播放量徽章已渲染（▶ N万播放）');
@@ -388,11 +388,15 @@ ok(emptySc.length === 0, `每个学校分类都至少有 1 条（空分类 ${emp
 ok(scKeys.length >= 8, `学校分类数 = ${scKeys.length}（要求 >=8）`);
 
 /* ⑦ 还能参加的数量 */
-const openCnt = MATCHES.filter(x => x.st === '报名中').length;
+function deadlineForCheck(x){
+ const m=/^(\d{4}-\d{2}-\d{2})(?:\s+(\d{1,2}):(\d{2}))?(?=$|\s|（|\()/.exec(x.dl||'');
+ return !m || /起|发布/.test(x.dl) ? null : Date.parse(m[1]+'T'+(m[2]?m[2].padStart(2,'0')+':'+m[3]+':00':'23:59:59')+'+08:00');
+}
+const openCnt = MATCHES.filter(x => x.st === '报名中' && (deadlineForCheck(x)===null || deadlineForCheck(x)>=Date.now())).length;
 ok(openCnt >= 10, `「正在报名」条目 = ${openCnt}（要求 >=10）`);
 
 /* ⑧ 渲染 + 计数 */
-ok(cards('match-list') === MATCHES.length, `比赛卡片数 = ${cards('match-list')}，与数据一致`);
+ok(cards('match-list') === openCnt, `默认可报名卡片数 = ${cards('match-list')}，与未过期报名数据 ${openCnt} 一致`);
 ok((store['cqutMatchCount']||{}).textContent && String((store['cqutMatchCount']||{}).textContent).includes('共'),
    `折叠标题计数徽章: ${(store['cqutMatchCount']||{}).textContent}`);
 ok(String(((store['matchOpenCount']||{}).textContent)||'').includes('正在报名'),
@@ -570,5 +574,9 @@ ok(html.includes('内含赛怎么挑'), '卡片模板支持渲染平台赛分析
 ok(html.includes("c.warn?") || html.includes("c.warn'"), '卡片模板支持渲染「官网状态」标注行');
 ok(html.includes('warn-row'), 'warn-row 样式已定义');
 
-console.log(`\n========== 自检: ${pass} 通过 / ${fail} 失败 ==========`);
-process.exit(fail ? 1 : 0);
+require('./_regression.js')({html, inline, sandbox, ok})
+  .catch(e => ok(false, '边界回归异常: ' + e.stack))
+  .then(() => {
+    console.log(`\n========== 自检: ${pass} 通过 / ${fail} 失败 ==========`);
+    process.exit(fail ? 1 : 0);
+  });

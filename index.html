@@ -208,6 +208,8 @@
   .cmp.world{border-left-color:#3b82f6;}
 
   @media (max-width:720px){
+    .ted-card-body{flex-direction:column;}
+    .ted-card-body .ted-cover{flex:0 0 auto!important;margin:12px 0 0!important;}
     .stats{grid-template-columns:repeat(2,1fr);}
     .grid{grid-template-columns:1fr;}
     .tool-row{justify-content:flex-start;}
@@ -771,7 +773,7 @@
   <div class="cmp-list" id="funds-stocks-pano"></div>
   <div class="view-head" style="margin-top:30px">
     <h2 style="font-size:17px">🔎 重点个股追踪</h2>
-    <p>核心持仓股的行情、业务、催化、风险与研判（行情 09-30 收盘 / 美股 10-01）。</p>
+    <p>核心持仓股的行情、业务、催化、风险与研判（行情日期见各卡片）。</p>
   </div>
   <div class="cmp-list" id="funds-stocks-focus"></div>
   <div class="view-head" style="margin-top:30px">
@@ -5252,7 +5254,7 @@ window.FUNDS_META = {
 /* 持仓：amt=持有金额(元)｜dayPL=昨日收益｜holdPL=持有收益｜holdPct=持有收益率(小数)
    unit/dayPct/navDate = 该只基金最新已公布净值（单位净值 / 日增长率小数 / 净值日期），每日例行刷新。
    navAt = 份额反推基准净值（支付宝 09-25 快照对应的 09-24 T+1 净值，来自天天基金实抓）。
-   估算市值 = amt × (unit / navAt)；估算持有盈亏 = 估算市值 − amt/(1+holdPct)；均与最新净值联动、交易日会动。
+   估算市值 = amt × (unit / navAt)；估算持有盈亏 = 估算市值 − (amt−holdPL)；均与最新净值联动、交易日会动。
    估算值仅供参考，最终以罗浩本人支付宝实际为准；份额默认不变（无买卖），大额加/减仓后需重算。
    amt 等账户数据只有罗浩本人同步时才改，自动化不动。 */
 window.FUNDS_HOLD = [
@@ -5418,67 +5420,67 @@ window.FUNDS_STOCKS = {
   ],
   /* 重点个股深度：price=最新价，chg=涨跌幅小数，date=行情日 */
   focus: [
-    { n:"新易盛", code:"300502", mkt:"A股", price:306.01, cur:"¥", chg:-0.0749, date:2026-10-15,
+    { n:"新易盛", code:"300502", mkt:"A股", price:306.01, cur:"¥", chg:-0.0749, date:"2026-10-15",
       biz:"高速光模块(800G/1.6T)龙头，数通光器件核心供应商，深度绑定北美云厂商。",
       trend:"10-15 收 306.01（-7.49%，昨收 330.80）。H1 营收破 200 亿(+100%)、净利 75.29 亿(+90%)，订单能见度至 2027。总市值约 5019 亿，PE 约 38x。（客观分析，非投资建议）",
       catalyst:"1.6T 批量交付 + 硅光渗透提升 ASP/毛利；上游 EML/224G PAM4 DSP 紧缺下龙头溢价。",
       risk:"估值偏高；光模块景气若因 CSP 资本开支放缓退潮，回撤剧烈(板块近 3 月已 -20%~-30%)。",
       view:"中长期 AI 算力基建上行周期未结束，但短期涨幅大、波动高，属高弹性高波动标的。" },
-    { n:"中际旭创", code:"300308", mkt:"A股", price:656.94, cur:"¥", chg:-0.0519, date:2026-10-15,
+    { n:"中际旭创", code:"300308", mkt:"A股", price:656.94, cur:"¥", chg:-0.0519, date:"2026-10-15",
       biz:"全球光模块绝对龙头，800G/1.6T 主力供应商，客户含国内外头部 CSP。",
       trend:"10-15 收 656.94（-5.19%，昨收 692.90）。H1 营收 417.78 亿(+182%)、净利 136.51 亿(+242%)，客户已给 2027 年指引。总市值约 9105 亿，PE 约 45x。（客观分析，非投资建议）",
       catalyst:"GB300/Rubin 超节点部署带动 1.6T DR8/2xFR4 批量上量；ASP 约为 800G 的 2–2.5 倍。",
       risk:"与板块高度同向；上游物料瓶颈若未解，业绩超预期受限；估值不低。",
       view:"基本面最扎实的光模块核心资产，长期看量价齐升，短期随板块高波动。" },
-    { n:"英伟达", code:"NVDA", mkt:"美股", price:221.30, cur:"$", chg:-0.0316, date:2026-10-14,
+    { n:"英伟达", code:"NVDA", mkt:"美股", price:221.30, cur:"$", chg:-0.0316, date:"2026-10-14",
       biz:"全球 AI 加速计算绝对龙头，GPU/数据中心/网络全栈，Blackwell 主力。",
       trend:"10-14 收 221.30（-3.16%，昨收 228.52）。数据中心收入过去数年爆发式增长，52 周区间 164–236。（客观分析，非投资建议）",
       catalyst:"Blackwell 放量、CSP 资本开支 $3200 亿+ 持续、HBM 锁定供应。",
       risk:"估值处高位；AI 收入兑现节奏与反垄断/出口管制风险；竞品(AMD/自研芯片)追赶。",
       view:"AI 算力周期的定海神针，长期逻辑最硬，但单笔仓位波动大。" },
-    { n:"AMD", code:"AMD", mkt:"美股", price:570.82, cur:"$", chg:-0.0573, date:2026-10-14,
+    { n:"AMD", code:"AMD", mkt:"美股", price:570.82, cur:"$", chg:-0.0573, date:"2026-10-14",
       biz:"CPU/GPU/数据中心全栈，MI 系列 AI 加速卡对标英伟达，PC 与服务器 CPU 双线。",
       trend:"10-14 收 570.82（-5.73%，昨收 605.53）。52 周 163–639，PE 约 200x(高增长溢价)。（客观分析，非投资建议）",
       catalyst:"MI 系列 AI 芯片份额提升、台积电 CoWoS 产能扩张利好交付、PC 复苏。",
       risk:"与英伟达差距仍大；AI 软件生态弱；高估值对增速要求高。",
       view:"弹性更大的半导体 Beta，押注 AI 加速卡第二供给 + 周期性复苏。" },
-    { n:"台积电", code:"TSM", mkt:"美股", price:430.00, cur:"$", chg:-0.0340, date:2026-10-14,
+    { n:"台积电", code:"TSM", mkt:"美股", price:430.00, cur:"$", chg:-0.0340, date:"2026-10-14",
       biz:"全球晶圆代工霸主，先进制程(2nm/3nm)与 CoWoS 先进封装独家瓶颈环节。",
       trend:"10-14 收 430.00（-3.40%，昨收 445.12）。2026 capex 上调至 $600–640 亿创历史新高。（客观分析，非投资建议）",
       catalyst:"AI 加速器 wafer 需求 2022–26 预计 11 倍增长；CoWoS 产能 26→28 年翻倍；先进封装满负荷。",
       risk:"地缘/出口管制；资本开支高企折旧压力；HBM/封装产能扩张慢。",
       view:"AI 算力链条最确定的'卖铲人'，但市值已大、上行斜率放缓。" },
-    { n:"美光", code:"MU", mkt:"美股", price:914.13, cur:"$", chg:-0.0410, date:2026-10-14,
+    { n:"美光", code:"MU", mkt:"美股", price:914.13, cur:"$", chg:-0.0410, date:"2026-10-14",
       biz:"全球三大存储原厂之一，HBM/DDR5/NAND 核心供应商，AI 存储直接受益。",
       trend:"10-14 收 914.13（-4.10%，昨收 953.19）。52 周 179–1255，PE 25x。HBM 供需缺口延续至 2027。（客观分析，非投资建议）",
       catalyst:"HBM3E/HBM4 量价齐升；存储涨价周期；与英伟达/谷歌/微软锁定供应。",
       risk:"存储强周期属性，若 AI 资本开支退潮价格易回撤；HBM 良率与产能爬坡。",
       view:"AI 存储涨价周期的核心标的，兼具成长与周期弹性。" },
-    { n:"源杰科技", code:"688498", mkt:"A股", price:1066.50, cur:"¥", chg:-0.0468, date:2026-10-15,
+    { n:"源杰科技", code:"688498", mkt:"A股", price:1066.50, cur:"¥", chg:-0.0468, date:"2026-10-15",
       biz:"光芯片(ID/DFB/EML/硅光 CW 激光器)供应商，光模块上游'卡脖子'环节。",
       trend:"10-15 收 1066.50（-4.68%，昨收 1118.89）。总市值约 1914 亿，PE 约 254x(高成长溢价)。被 2 只基金重仓。（客观分析，非投资建议）",
       catalyst:"1.6T 光模块上量拉动高速光芯片需求；硅光渗透提升 CW 激光器价值量。",
       risk:"估值极高；光芯片国产化与客户认证节奏；上游缺货缓解后议价力变化。",
       view:"光模块上游最纯标的，弹性与风险都极大，波动显著高于中游模块厂。" },
-    { n:"寒武纪", code:"688256", mkt:"A股", price:897.17, cur:"¥", chg:-0.0343, date:2026-10-15,
+    { n:"寒武纪", code:"688256", mkt:"A股", price:897.17, cur:"¥", chg:-0.0343, date:"2026-10-15",
       biz:"国产 AI 训练/推理芯片龙头，国产算力替代核心标的。",
       trend:"10-15 收 897.17（-3.43%，昨收 929.00）。总市值约 6129 亿，PE 约 184x。9 月起随半导体/AI 板块显著回撤。（客观分析，非投资建议）",
       catalyst:"国产算力自主可控政策驱动；大模型厂商国产芯片采购比例提升。",
       risk:"业绩兑现与生态仍弱于英伟达；估值极高；受中美技术与出口博弈影响大。",
       view:"国产 AI 芯片'预期标的'，政策与题材弹性强但基本面验证期长。" },
-    { n:"宁德时代", code:"300750", mkt:"A股", price:278.50, cur:"¥", chg:-0.0058, date:2026-10-15,
+    { n:"宁德时代", code:"300750", mkt:"A股", price:278.50, cur:"¥", chg:-0.0058, date:"2026-10-15",
       biz:"全球动力电池与储能龙头，A500 权重股中唯一的硬科技制造核心。",
       trend:"10-15 收 278.50（-0.58%，昨收 280.12）。总市值约 1.36 万亿，PE 约 16x(估值处历史低位)。（客观分析，非投资建议）",
       catalyst:"储能出海高增；动力电池市占率稳固；固态/钠电等技术迭代。",
       risk:"价格战压制毛利；海外政策与关税；增速较光模块/半导体温和。",
       view:"组合里估值最便宜、防御性最强的制造龙头，起到压舱石作用。" },
-    { n:"兆易创新", code:"603986", mkt:"A股", price:278.22, cur:"¥", chg:-0.0490, date:2026-10-15,
+    { n:"兆易创新", code:"603986", mkt:"A股", price:278.22, cur:"¥", chg:-0.0490, date:"2026-10-15",
       biz:"存储(MCU/NOR 闪存)与利基 DRAM 龙头，A股半导体自主可控核心标的，在中欧A500(022432)占 1.56%。",
       trend:"10-15 收 278.22（-4.90%，昨收 292.56）。总市值约 2378 亿，PE 约 30x(存储周期低位估值不高)。（客观分析，非投资建议）",
       catalyst:"NOR/MCU 周期复苏 + 利基 DRAM 涨价；车规/工业需求回暖；国产替代份额提升。",
       risk:"存储强周期属性，价格若回落业绩弹性反向；大客户砍单与库存波动风险。",
       view:"存储周期低位修复 + 国产替代双逻辑，估值相对其他半导体标的温和，是 A股存储端核心标的。" },
-    { n:"北方华创", code:"002371", mkt:"A股", price:610.00, cur:"¥", chg:0.0395, date:2026-10-15,
+    { n:"北方华创", code:"002371", mkt:"A股", price:610.00, cur:"¥", chg:0.0395, date:"2026-10-15",
       biz:"国产半导体设备平台型龙头，覆盖刻蚀/薄膜沉积/清洗/炉管等，在中欧A500(022432)占 1.09%。",
       trend:"10-15 收 610.00（+3.95%，昨收 586.81）。总市值约 4647 亿，PE 约 81x。受益国产替代与晶圆厂扩产，订单饱满。（客观分析，非投资建议）",
       catalyst:"晶圆厂资本开支与国产化率提升(设备国产化率 14%→24%→26%)；先进制程扩产拉动订单。",
@@ -5537,13 +5539,16 @@ window.FUNDS_STOCKS = {
 
   /* ============ RANK DATA (snapshot 2026-10-14) ============ */
   var RANK = window.RANK || {};
+  ["models","tools","combos"].forEach(function(k){ if(!Array.isArray(RANK[k])) RANK[k]=[]; });
+  RANK.tables = RANK.tables || {};
+  ["aa","tb","swe"].forEach(function(k){ if(!RANK.tables[k]) RANK.tables[k]={title:k,unit:"",rows:[]}; });
 
   function tierBadge(t){
     var cls = {"S":"t-S","A":"t-A","B":"t-B","C":"t-C","—":"t-none"}[t] || "t-none";
-    return '<span class="tier '+cls+'">'+t+'</span>';
+    return '<span class="tier '+cls+'">'+esc(t)+'</span>';
   }
   function numCell(v){
-    if(v==null) return '<span class="tier t-none">—</span>';
+    if(typeof v!=="number" || !Number.isFinite(v)) return '<span class="tier t-none">—</span>';
     return '<span class="num">'+v+'</span>';
   }
   function renderModels(){
@@ -5557,7 +5562,7 @@ window.FUNDS_STOCKS = {
       return y-x; /* AA 指数降序，无分(-1)沉底 */
     });
     var rows = _msorted.map(function(m,i){
-      var tds = dims.map(function(d){ return '<td>'+tierBadge(m.t[d]||"—")+'</td>'; }).join('');
+      var tds = dims.map(function(d){ return '<td>'+tierBadge((m.t||{})[d]||"—")+'</td>'; }).join('');
       return '<tr>'
         + '<td class="num-cell">'+(i+1)+'</td>'
         + '<td class="name"><div class="nv">'+esc(m.name)+'</div><div class="mv">'+esc(m.vendor)+' · '+esc(m.price)+'</div></td>'
@@ -5583,7 +5588,7 @@ window.FUNDS_STOCKS = {
         + '<td class="name"><div class="nv">'+esc(m.name)+'</div><div class="mv">'+esc(m.model)+'</div></td>'
         + '<td>'+numCell(m.tb)+'</td><td>'+numCell(m.sv)+'</td>'
         + '<td style="white-space:nowrap">'+esc(m.price)+'</td>'
-        + '<td>'+tierBadge(m.t.up||"—")+'</td><td>'+tierBadge(m.t.os||"—")+'</td>'
+        + '<td>'+tierBadge((m.t||{}).up||"—")+'</td><td>'+tierBadge((m.t||{}).os||"—")+'</td>'
         + '<td class="note">'+esc(m.note)+'</td>'
         + '</tr>';
     }).join('');
@@ -5602,7 +5607,7 @@ window.FUNDS_STOCKS = {
       return '<tr>'
         + '<td class="num-cell">'+(i+1)+'</td>'
         + '<td class="name"><div class="nv">'+esc(c.name)+'</div></td>'
-        + '<td><span class="tier '+sc+' big">'+c.score+'</span></td>'
+        + '<td><span class="tier '+sc+' big">'+esc(c.score)+'</span></td>'
         + '<td class="note">'+esc(c.note)+'</td>'
         + '</tr>';
     }).join('');
@@ -5614,7 +5619,7 @@ window.FUNDS_STOCKS = {
     function t(obj){
       var _rows = obj.rows.slice().sort(function(a,b){ return (parseFloat(b[1])||0)-(parseFloat(a[1])||0); }); /* 按分数降序 */
       var rows = _rows.map(function(r,i){
-        return '<tr><td class="num-cell">'+(i+1)+'</td><td>'+esc(r[0])+'</td><td style="font-weight:700">'+r[1]+' '+esc(obj.unit)+'</td></tr>';
+        return '<tr><td class="num-cell">'+(i+1)+'</td><td>'+esc(r[0])+'</td><td style="font-weight:700">'+esc(r[1]==null?'—':r[1])+' '+esc(obj.unit)+'</td></tr>';
       }).join("");
       return '<h3 style="margin:18px 0 8px;font-size:16px">'+esc(obj.title)+'</h3>'+
         '<table class="ranktbl"><thead><tr><th>#</th><th>模型 / 组合</th><th>分数</th></tr></thead><tbody>'+rows+'</tbody></table>';
@@ -6002,8 +6007,12 @@ window.FUNDS_STOCKS = {
     var b = document.getElementById("retryBtn");
     if(b) b.addEventListener("click", function(){ loadDate(CURRENT, {refreshIndex:true}); });
   }
+  var dailyRequestId = 0, dailyController = null;
   function loadDate(date, opts){
     opts = opts || {};
+    var requestId = ++dailyRequestId;
+    if(dailyController) dailyController.abort();
+    CURRENT = date;
     setStateLoading();
     var btn = document.getElementById("refreshBtn");
     if(btn) btn.disabled = true;
@@ -6014,17 +6023,18 @@ window.FUNDS_STOCKS = {
       meta.isToday = (date === shanghaiDate(new Date())) || (idx === 0 && !INDEX.some(function(x){return x.date === shanghaiDate(new Date());}));
     }
     var ctrl = new AbortController();
+    dailyController = ctrl;
     var to = setTimeout(function(){ ctrl.abort(); }, 20000);
     fetch(API + "/dailies/" + date, {cache:"no-store", signal: ctrl.signal})
       .then(function(r){ if(!r.ok) throw new Error("HTTP "+r.status+(r.status===404?"（该日期暂无日报）":"")); return r.json(); })
       .then(function(data){
-        clearTimeout(to);
+        if(requestId !== dailyRequestId) return;
         if(!data || !data.report) throw new Error("返回数据缺少 report 字段");
         CURRENT = date;
         render(data.report, meta);
       })
-      .catch(function(err){ setStateError(err && err.message ? err.message : String(err)); })
-      .then(function(){ if(btn) btn.disabled = false; });
+      .catch(function(err){ if(requestId === dailyRequestId) setStateError(err && err.message ? err.message : String(err)); })
+      .finally(function(){ clearTimeout(to); if(requestId === dailyRequestId){ dailyController = null; if(btn) btn.disabled = false; } });
   }
   function goto(date, pushHash){
     if(indexOfDate(date) === -1) return;
@@ -6131,7 +6141,7 @@ window.FUNDS_STOCKS = {
   function renderAutoBar(){
     var el = document.getElementById("autoBar");
     if(!el) return;
-    el.innerHTML = "🔄 <b>每 30 分钟自动刷新</b> · 日报实时拉取（下次还有 <b>"+fmtMMSS(autoNextAt-Date.now())+"</b>）· 上次刷新 <b>"+bjClock(autoLastAt)+"</b> · 排行榜 / 比赛 / AI 上手 为每日自动更新快照（2026-10-14）";
+    el.innerHTML = "🔄 <b>每 30 分钟自动刷新</b> · 日报实时拉取（下次还有 <b>"+fmtMMSS(autoNextAt-Date.now())+"</b>）· 上次刷新 <b>"+bjClock(autoLastAt)+"</b> · 排行榜 / 比赛 / AI 上手 为静态快照，更新日期见各栏目";
   }
   function autoRefreshNow(){
     autoLastAt = new Date();
@@ -6201,10 +6211,10 @@ window.FUNDS_STOCKS = {
       }
       var vtxt = fmtViews(t.views);
       var cover = (t.cover && /^https?:\/\//.test(t.cover))
-        ? '<div style="flex:0 0 148px;margin-left:14px"><a href="https://www.ted.com/search?q='+qEn+'" target="_blank" rel="noopener noreferrer" title="点封面去 TED 官方搜索"><img src="'+esc(t.cover)+'" alt="'+esc(t.en||"")+'" loading="lazy" style="width:148px;height:83px;object-fit:cover;border-radius:9px;display:block;background:#0b1020"></a></div>'
+        ? '<div class="ted-cover" style="flex:0 0 148px;margin-left:14px"><a href="https://www.ted.com/search?q='+qEn+'" target="_blank" rel="noopener noreferrer" title="点封面去 TED 官方搜索"><img src="'+esc(t.cover)+'" alt="'+esc(t.en||"")+'" loading="lazy" style="width:148px;height:83px;object-fit:cover;border-radius:9px;display:block;background:#0b1020"></a></div>'
         : '';
       return '<article class="cmp">'+
-        '<div style="display:flex;gap:0;align-items:flex-start">'+
+        '<div class="ted-card-body" style="display:flex;gap:0;align-items:flex-start">'+
           '<div style="flex:1;min-width:0">'+
             '<div class="cmp-head" style="cursor:default">'+
               '<span class="chip" style="border-color:var(--brand);color:var(--brand);background:var(--brand-soft)">'+esc(t.cat||"")+'</span>'+
@@ -6544,18 +6554,21 @@ window.FUNDS_STOCKS = {
     var nt = document.getElementById('match-note');
     if(nt) nt.textContent = window.MATCH_NOTE || "";
 
-    var isOpen = function(x){ return x.st === "报名中"; };
-    var nOpen = M.filter(isOpen).length;
+    // Only a leading ISO date is a deadline; dates embedded in notes may be publication/start dates.
     function dlDay(x){
-      var m = /(\d{4})-(\d{2})-(\d{2})/.exec(String(x.dl || ""));
-      if(!m) return null;
-      return Date.parse(m[1] + "-" + m[2] + "-" + m[3] + "T23:59:59");
+      var m = /^(\d{4}-\d{2}-\d{2})(?:\s+(\d{1,2}):(\d{2}))?(?=$|\s|（|\()/.exec(String(x.dl || "").trim());
+      if(!m || /起|发布/.test(String(x.dl))) return null;
+      var time = m[2] ? ("0"+m[2]).slice(-2)+":"+m[3]+":00" : "23:59:59";
+      var t = Date.parse(m[1] + "T" + time + "+08:00");
+      return Number.isFinite(t) ? t : null;
     }
+    var isOpen = function(x){ var t=dlDay(x); return x.st === "报名中" && (t===null || t>=Date.now()); };
+    var nOpen = M.filter(isOpen).length;
     function isSoon(x){
       var t = dlDay(x);
-      if(t === null) return false;
+      if(t === null || !isOpen(x)) return false;
       var d = (t - Date.now()) / 86400000;
-      return d >= -1 && d <= 12;
+      return d >= 0 && d <= 12;
     }
 
     var cb = document.getElementById('cqutMatchCount');
@@ -6608,6 +6621,7 @@ window.FUNDS_STOCKS = {
         var ao = isOpen(a) ? 0 : 1, bo = isOpen(b) ? 0 : 1;
         if(ao !== bo) return ao - bo;
         var ta = dlDay(a), tb = dlDay(b);
+        if(ta === null && tb === null) return 0;
         if(ta === null) return 1;
         if(tb === null) return -1;
         return ta - tb;
@@ -6623,7 +6637,7 @@ window.FUNDS_STOCKS = {
         var dl = x.dl && String(x.dl) !== "—"
           ? '<span class="chip" style="border-color:#f59e0b;color:#b45309;background:#fffbeb">⏰ 截止 ' + esc(x.dl) + '</span>'
           : '';
-        var soon = isSoon(x) && !isOpen(x)
+        var soon = isSoon(x)
           ? '<span class="chip" style="border-color:#f59e0b;color:#b45309;background:#fffbeb">⚠️ 即将截止</span>'
           : '';
         var rego = x.rego
@@ -6755,26 +6769,29 @@ window.FUNDS_STOCKS = {
     return '<span style="color:'+col(v)+';font-weight:700">'+esc(txt)+'</span>';
   }
   /* 估算：份额 = 快照金额 / 基准净值(navAt)；估算市值 = 份额 × 最新净值(unit)；
-     估算持有盈亏 = 估算市值 − 成本(amt/(1+holdPct))。与最新净值联动，交易日会动。 */
+     估算持有盈亏 = 估算市值 − 成本(amt−holdPL，避免四舍五入后的收益率引入误差)。与最新净值联动，交易日会动。 */
   function estOf(f){
     var navAt = parseFloat(f.navAt);
-    if(!(navAt>0) || typeof f.amt!=="number" || typeof f.unit!=="number") return null;
+    if(!Number.isFinite(navAt) || !(navAt>0) || !Number.isFinite(f.amt) || f.amt<0 || !Number.isFinite(f.unit) || f.unit<=0) return null;
     var shares = f.amt / navAt;
     var estVal = shares * f.unit;
-    var cost = (typeof f.holdPct==="number") ? f.amt/(1+f.holdPct) : null;
+    var cost = Number.isFinite(f.holdPL) ? f.amt-f.holdPL : null;
     var estPL = (cost!=null) ? estVal - cost : null;
     return { shares:shares, estVal:estVal, estPL:estPL, flt:estVal - f.amt };
   }
 
   /* ---- 总览卡 ---- */
-  var sumAmt=0, sumDay=0, sumPL=0, sumCost=0, sumEst=0, maxAmt=0, maxName="—";
+  var sumAmt=0, sumDay=0, sumPL=0, sumCost=0, sumEst=0, estCount=0, costCount=0, maxAmt=0, maxName="—";
   H.forEach(function(f){
     if(typeof f.amt==="number") sumAmt += f.amt;
     if(typeof f.dayPL==="number") sumDay += f.dayPL;
-    if(typeof f.holdPL==="number"){ sumPL += f.holdPL; sumCost += (f.amt||0) - f.holdPL; }
+    if(Number.isFinite(f.holdPL)){ sumPL += f.holdPL; sumCost += (f.amt||0) - f.holdPL; if(Number.isFinite(f.amt)) costCount++; }
     if(typeof f.amt==="number" && f.amt>maxAmt){ maxAmt=f.amt; maxName=f.n; }
-    var e = estOf(f); if(e) sumEst += e.estVal;
+    var e = estOf(f); if(e){ sumEst += e.estVal; estCount++; }
   });
+  var estComplete = H.length>0 && estCount===H.length;
+  var costComplete = H.length>0 && costCount===H.length;
+  var snapshotDates = Array.from(new Set(H.map(function(f){return f.amtDate||"未知";}))).join(" / ");
   var totalPct = (sumCost>0) ? sumPL/sumCost : null;
   var maxPct = (sumAmt>0) ? maxAmt/sumAmt : 0;
 
@@ -6791,10 +6808,10 @@ window.FUNDS_STOCKS = {
     box.style.gap="12px";
     box.innerHTML = [
       card("持仓市值合计", "¥" + sumAmt.toLocaleString("zh-CN",{minimumFractionDigits:2, maximumFractionDigits:2}), H.length + " 只基金（支付宝快照）"),
-      card("估算市值（最新净值）", "¥" + sumEst.toLocaleString("zh-CN",{minimumFractionDigits:2, maximumFractionDigits:2}), "份额×最新净值·仅供参考"),
-      card("昨日收益", costyle(sumDay, moneyTxt(sumDay)), ""),
+      card("估算市值（最新净值）", estComplete ? moneyTxt(sumEst) : "—", estComplete ? "份额×最新净值·仅供参考" : "净值或基准数据缺失，暂不汇总"),
+      card("快照当日收益", costyle(sumDay, moneyTxt(sumDay)), esc(snapshotDates)),
       card("持有收益合计", costyle(sumPL, moneyTxt(sumPL)), "成本约 ¥" + sumCost.toLocaleString("zh-CN",{minimumFractionDigits:2, maximumFractionDigits:2})),
-      card("估算持有盈亏", costyle(sumEst - sumCost, moneyTxt(sumEst - sumCost)), "较成本·以支付宝为准"),
+      card("估算持有盈亏", estComplete && costComplete ? costyle(sumEst - sumCost, moneyTxt(sumEst - sumCost)) : "—", "较成本·以支付宝为准"),
       card("总收益率", costyle(totalPct, pctTxt(totalPct)), ""),
       card("最大单一持仓", (maxPct*100).toFixed(1)+"%", maxName)
     ].join("");
@@ -6816,7 +6833,7 @@ window.FUNDS_STOCKS = {
           '<span>持有金额：<b>'+costyle(f.amt, moneyTxt(f.amt))+'</b> <span style="color:#94a3b8;font-size:11px">（支付宝 '+esc(f.amtDate||'—')+' 快照）</span></span>'+
           '<span>估算市值：<b>'+ (e ? costyle(e.estVal - f.amt, moneyTxt(e.estVal)) : '—') +'</b> <span style="color:#94a3b8;font-size:11px">（份额×最新净值）</span></span>'+
           '<span>估算盈亏：<b>'+ (e && e.estPL!=null ? costyle(e.estPL, moneyTxt(e.estPL)) : '—') +'</b> <span style="color:#94a3b8;font-size:11px">（较成本）</span></span>'+
-          '<span>昨日收益：<b>'+costyle(f.dayPL, moneyTxt(f.dayPL))+'</b></span>'+
+          '<span>快照当日收益：<b>'+costyle(f.dayPL, moneyTxt(f.dayPL))+'</b> <small>（'+esc(f.amtDate||'未知')+'）</small></span>'+
           '<span>持有收益：<b>'+costyle(f.holdPL, moneyTxt(f.holdPL))+' ('+plText(f.holdPL)+')</b></span>'+
           '<span>收益率：<b>'+costyle(f.holdPct, pctTxt(f.holdPct))+'</b></span>'+
         '</div></article>';
@@ -6902,7 +6919,7 @@ window.FUNDS_STOCKS = {
   var S = window.FUNDS_STOCKS || {};
   if(!S.holdings) return;
   function col(v){ return v>0 ? "#e02424" : (v<0 ? "#16a34a" : "#64748b"); }
-  function chgTxt(v){ if(v==null) return ""; return (v>0?"+":"") + (v*100).toFixed(2) + "%"; }
+  function chgTxt(v){ if(typeof v!=="number" || !Number.isFinite(v)) return ""; return (v>0?"+":"") + (v*100).toFixed(2) + "%"; }
   var fundName = { "012920":"易方达全球成长","024480":"财通品质甄选","022432":"中欧A500","016452":"南方纳指100" };
 
   /* 持仓全景 */
@@ -6925,7 +6942,7 @@ window.FUNDS_STOCKS = {
   var foc = document.getElementById('funds-stocks-focus');
   if(foc){
     foc.innerHTML = (S.focus||[]).map(function(f){
-      var price = (f.cur||"") + (f.price||"—");
+      var price = (f.cur||"") + (f.price==null?"—":f.price);
       var chgHtml = f.chg!=null ? '<span style="color:'+col(f.chg)+';font-weight:700">'+chgTxt(f.chg)+'</span>' : '';
       var url = f.mkt==="美股"
         ? "https://stock.finance.sina.com.cn/usstock/quotes/"+esc(f.code||"")+".html"
@@ -6937,7 +6954,7 @@ window.FUNDS_STOCKS = {
           '<span class="tier t-A" style="font-size:11px">'+esc(f.mkt||"")+'</span>'+
           '<span style="margin-left:auto;font-size:15px;font-weight:800;color:var(--ink)">'+esc(price)+'</span> '+chgHtml+
         '</div>'+
-        '<div style="font-size:11px;color:#94a3b8;margin:4px 0 8px">行情日 '+(f.date||"—")+'</div>'+
+        '<div style="font-size:11px;color:#94a3b8;margin:4px 0 8px">行情日 '+esc(f.date||"—")+'</div>'+
         '<div style="font-size:13px;color:var(--ink);margin-bottom:6px"><b>业务：</b>'+esc(f.biz||"")+'</div>'+
         '<div style="font-size:13px;color:#334155;margin-bottom:6px"><b>走势：</b>'+esc(f.trend||"")+'</div>'+
         '<div style="font-size:13px;color:#334155;margin-bottom:6px"><b>催化：</b>'+esc(f.catalyst||"")+'</div>'+

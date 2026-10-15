@@ -208,6 +208,8 @@
   .cmp.world{border-left-color:#3b82f6;}
 
   @media (max-width:720px){
+    .ted-card-body{flex-direction:column;}
+    .ted-card-body .ted-cover{flex:0 0 auto!important;margin:12px 0 0!important;}
     .stats{grid-template-columns:repeat(2,1fr);}
     .grid{grid-template-columns:1fr;}
     .tool-row{justify-content:flex-start;}
@@ -771,7 +773,7 @@
   <div class="cmp-list" id="funds-stocks-pano"></div>
   <div class="view-head" style="margin-top:30px">
     <h2 style="font-size:17px">🔎 重点个股追踪</h2>
-    <p>核心持仓股的行情、业务、催化、风险与研判（行情 09-30 收盘 / 美股 10-01）。</p>
+    <p>核心持仓股的行情、业务、催化、风险与研判（行情日期见各卡片）。</p>
   </div>
   <div class="cmp-list" id="funds-stocks-focus"></div>
   <div class="view-head" style="margin-top:30px">
@@ -818,13 +820,16 @@
 
   /* ============ RANK DATA (snapshot 2026-10-14) ============ */
   var RANK = window.RANK || {};
+  ["models","tools","combos"].forEach(function(k){ if(!Array.isArray(RANK[k])) RANK[k]=[]; });
+  RANK.tables = RANK.tables || {};
+  ["aa","tb","swe"].forEach(function(k){ if(!RANK.tables[k]) RANK.tables[k]={title:k,unit:"",rows:[]}; });
 
   function tierBadge(t){
     var cls = {"S":"t-S","A":"t-A","B":"t-B","C":"t-C","—":"t-none"}[t] || "t-none";
-    return '<span class="tier '+cls+'">'+t+'</span>';
+    return '<span class="tier '+cls+'">'+esc(t)+'</span>';
   }
   function numCell(v){
-    if(v==null) return '<span class="tier t-none">—</span>';
+    if(typeof v!=="number" || !Number.isFinite(v)) return '<span class="tier t-none">—</span>';
     return '<span class="num">'+v+'</span>';
   }
   function renderModels(){
@@ -838,7 +843,7 @@
       return y-x; /* AA 指数降序，无分(-1)沉底 */
     });
     var rows = _msorted.map(function(m,i){
-      var tds = dims.map(function(d){ return '<td>'+tierBadge(m.t[d]||"—")+'</td>'; }).join('');
+      var tds = dims.map(function(d){ return '<td>'+tierBadge((m.t||{})[d]||"—")+'</td>'; }).join('');
       return '<tr>'
         + '<td class="num-cell">'+(i+1)+'</td>'
         + '<td class="name"><div class="nv">'+esc(m.name)+'</div><div class="mv">'+esc(m.vendor)+' · '+esc(m.price)+'</div></td>'
@@ -864,7 +869,7 @@
         + '<td class="name"><div class="nv">'+esc(m.name)+'</div><div class="mv">'+esc(m.model)+'</div></td>'
         + '<td>'+numCell(m.tb)+'</td><td>'+numCell(m.sv)+'</td>'
         + '<td style="white-space:nowrap">'+esc(m.price)+'</td>'
-        + '<td>'+tierBadge(m.t.up||"—")+'</td><td>'+tierBadge(m.t.os||"—")+'</td>'
+        + '<td>'+tierBadge((m.t||{}).up||"—")+'</td><td>'+tierBadge((m.t||{}).os||"—")+'</td>'
         + '<td class="note">'+esc(m.note)+'</td>'
         + '</tr>';
     }).join('');
@@ -883,7 +888,7 @@
       return '<tr>'
         + '<td class="num-cell">'+(i+1)+'</td>'
         + '<td class="name"><div class="nv">'+esc(c.name)+'</div></td>'
-        + '<td><span class="tier '+sc+' big">'+c.score+'</span></td>'
+        + '<td><span class="tier '+sc+' big">'+esc(c.score)+'</span></td>'
         + '<td class="note">'+esc(c.note)+'</td>'
         + '</tr>';
     }).join('');
@@ -895,7 +900,7 @@
     function t(obj){
       var _rows = obj.rows.slice().sort(function(a,b){ return (parseFloat(b[1])||0)-(parseFloat(a[1])||0); }); /* 按分数降序 */
       var rows = _rows.map(function(r,i){
-        return '<tr><td class="num-cell">'+(i+1)+'</td><td>'+esc(r[0])+'</td><td style="font-weight:700">'+r[1]+' '+esc(obj.unit)+'</td></tr>';
+        return '<tr><td class="num-cell">'+(i+1)+'</td><td>'+esc(r[0])+'</td><td style="font-weight:700">'+esc(r[1]==null?'—':r[1])+' '+esc(obj.unit)+'</td></tr>';
       }).join("");
       return '<h3 style="margin:18px 0 8px;font-size:16px">'+esc(obj.title)+'</h3>'+
         '<table class="ranktbl"><thead><tr><th>#</th><th>模型 / 组合</th><th>分数</th></tr></thead><tbody>'+rows+'</tbody></table>';
@@ -1283,8 +1288,12 @@
     var b = document.getElementById("retryBtn");
     if(b) b.addEventListener("click", function(){ loadDate(CURRENT, {refreshIndex:true}); });
   }
+  var dailyRequestId = 0, dailyController = null;
   function loadDate(date, opts){
     opts = opts || {};
+    var requestId = ++dailyRequestId;
+    if(dailyController) dailyController.abort();
+    CURRENT = date;
     setStateLoading();
     var btn = document.getElementById("refreshBtn");
     if(btn) btn.disabled = true;
@@ -1295,17 +1304,18 @@
       meta.isToday = (date === shanghaiDate(new Date())) || (idx === 0 && !INDEX.some(function(x){return x.date === shanghaiDate(new Date());}));
     }
     var ctrl = new AbortController();
+    dailyController = ctrl;
     var to = setTimeout(function(){ ctrl.abort(); }, 20000);
     fetch(API + "/dailies/" + date, {cache:"no-store", signal: ctrl.signal})
       .then(function(r){ if(!r.ok) throw new Error("HTTP "+r.status+(r.status===404?"（该日期暂无日报）":"")); return r.json(); })
       .then(function(data){
-        clearTimeout(to);
+        if(requestId !== dailyRequestId) return;
         if(!data || !data.report) throw new Error("返回数据缺少 report 字段");
         CURRENT = date;
         render(data.report, meta);
       })
-      .catch(function(err){ setStateError(err && err.message ? err.message : String(err)); })
-      .then(function(){ if(btn) btn.disabled = false; });
+      .catch(function(err){ if(requestId === dailyRequestId) setStateError(err && err.message ? err.message : String(err)); })
+      .finally(function(){ clearTimeout(to); if(requestId === dailyRequestId){ dailyController = null; if(btn) btn.disabled = false; } });
   }
   function goto(date, pushHash){
     if(indexOfDate(date) === -1) return;
@@ -1412,7 +1422,7 @@
   function renderAutoBar(){
     var el = document.getElementById("autoBar");
     if(!el) return;
-    el.innerHTML = "🔄 <b>每 30 分钟自动刷新</b> · 日报实时拉取（下次还有 <b>"+fmtMMSS(autoNextAt-Date.now())+"</b>）· 上次刷新 <b>"+bjClock(autoLastAt)+"</b> · 排行榜 / 比赛 / AI 上手 为每日自动更新快照（2026-10-14）";
+    el.innerHTML = "🔄 <b>每 30 分钟自动刷新</b> · 日报实时拉取（下次还有 <b>"+fmtMMSS(autoNextAt-Date.now())+"</b>）· 上次刷新 <b>"+bjClock(autoLastAt)+"</b> · 排行榜 / 比赛 / AI 上手 为静态快照，更新日期见各栏目";
   }
   function autoRefreshNow(){
     autoLastAt = new Date();
@@ -1482,10 +1492,10 @@
       }
       var vtxt = fmtViews(t.views);
       var cover = (t.cover && /^https?:\/\//.test(t.cover))
-        ? '<div style="flex:0 0 148px;margin-left:14px"><a href="https://www.ted.com/search?q='+qEn+'" target="_blank" rel="noopener noreferrer" title="点封面去 TED 官方搜索"><img src="'+esc(t.cover)+'" alt="'+esc(t.en||"")+'" loading="lazy" style="width:148px;height:83px;object-fit:cover;border-radius:9px;display:block;background:#0b1020"></a></div>'
+        ? '<div class="ted-cover" style="flex:0 0 148px;margin-left:14px"><a href="https://www.ted.com/search?q='+qEn+'" target="_blank" rel="noopener noreferrer" title="点封面去 TED 官方搜索"><img src="'+esc(t.cover)+'" alt="'+esc(t.en||"")+'" loading="lazy" style="width:148px;height:83px;object-fit:cover;border-radius:9px;display:block;background:#0b1020"></a></div>'
         : '';
       return '<article class="cmp">'+
-        '<div style="display:flex;gap:0;align-items:flex-start">'+
+        '<div class="ted-card-body" style="display:flex;gap:0;align-items:flex-start">'+
           '<div style="flex:1;min-width:0">'+
             '<div class="cmp-head" style="cursor:default">'+
               '<span class="chip" style="border-color:var(--brand);color:var(--brand);background:var(--brand-soft)">'+esc(t.cat||"")+'</span>'+
@@ -1825,18 +1835,21 @@
     var nt = document.getElementById('match-note');
     if(nt) nt.textContent = window.MATCH_NOTE || "";
 
-    var isOpen = function(x){ return x.st === "报名中"; };
-    var nOpen = M.filter(isOpen).length;
+    // Only a leading ISO date is a deadline; dates embedded in notes may be publication/start dates.
     function dlDay(x){
-      var m = /(\d{4})-(\d{2})-(\d{2})/.exec(String(x.dl || ""));
-      if(!m) return null;
-      return Date.parse(m[1] + "-" + m[2] + "-" + m[3] + "T23:59:59");
+      var m = /^(\d{4}-\d{2}-\d{2})(?:\s+(\d{1,2}):(\d{2}))?(?=$|\s|（|\()/.exec(String(x.dl || "").trim());
+      if(!m || /起|发布/.test(String(x.dl))) return null;
+      var time = m[2] ? ("0"+m[2]).slice(-2)+":"+m[3]+":00" : "23:59:59";
+      var t = Date.parse(m[1] + "T" + time + "+08:00");
+      return Number.isFinite(t) ? t : null;
     }
+    var isOpen = function(x){ var t=dlDay(x); return x.st === "报名中" && (t===null || t>=Date.now()); };
+    var nOpen = M.filter(isOpen).length;
     function isSoon(x){
       var t = dlDay(x);
-      if(t === null) return false;
+      if(t === null || !isOpen(x)) return false;
       var d = (t - Date.now()) / 86400000;
-      return d >= -1 && d <= 12;
+      return d >= 0 && d <= 12;
     }
 
     var cb = document.getElementById('cqutMatchCount');
@@ -1889,6 +1902,7 @@
         var ao = isOpen(a) ? 0 : 1, bo = isOpen(b) ? 0 : 1;
         if(ao !== bo) return ao - bo;
         var ta = dlDay(a), tb = dlDay(b);
+        if(ta === null && tb === null) return 0;
         if(ta === null) return 1;
         if(tb === null) return -1;
         return ta - tb;
@@ -1904,7 +1918,7 @@
         var dl = x.dl && String(x.dl) !== "—"
           ? '<span class="chip" style="border-color:#f59e0b;color:#b45309;background:#fffbeb">⏰ 截止 ' + esc(x.dl) + '</span>'
           : '';
-        var soon = isSoon(x) && !isOpen(x)
+        var soon = isSoon(x)
           ? '<span class="chip" style="border-color:#f59e0b;color:#b45309;background:#fffbeb">⚠️ 即将截止</span>'
           : '';
         var rego = x.rego
@@ -2036,26 +2050,29 @@
     return '<span style="color:'+col(v)+';font-weight:700">'+esc(txt)+'</span>';
   }
   /* 估算：份额 = 快照金额 / 基准净值(navAt)；估算市值 = 份额 × 最新净值(unit)；
-     估算持有盈亏 = 估算市值 − 成本(amt/(1+holdPct))。与最新净值联动，交易日会动。 */
+     估算持有盈亏 = 估算市值 − 成本(amt−holdPL，避免四舍五入后的收益率引入误差)。与最新净值联动，交易日会动。 */
   function estOf(f){
     var navAt = parseFloat(f.navAt);
-    if(!(navAt>0) || typeof f.amt!=="number" || typeof f.unit!=="number") return null;
+    if(!Number.isFinite(navAt) || !(navAt>0) || !Number.isFinite(f.amt) || f.amt<0 || !Number.isFinite(f.unit) || f.unit<=0) return null;
     var shares = f.amt / navAt;
     var estVal = shares * f.unit;
-    var cost = (typeof f.holdPct==="number") ? f.amt/(1+f.holdPct) : null;
+    var cost = Number.isFinite(f.holdPL) ? f.amt-f.holdPL : null;
     var estPL = (cost!=null) ? estVal - cost : null;
     return { shares:shares, estVal:estVal, estPL:estPL, flt:estVal - f.amt };
   }
 
   /* ---- 总览卡 ---- */
-  var sumAmt=0, sumDay=0, sumPL=0, sumCost=0, sumEst=0, maxAmt=0, maxName="—";
+  var sumAmt=0, sumDay=0, sumPL=0, sumCost=0, sumEst=0, estCount=0, costCount=0, maxAmt=0, maxName="—";
   H.forEach(function(f){
     if(typeof f.amt==="number") sumAmt += f.amt;
     if(typeof f.dayPL==="number") sumDay += f.dayPL;
-    if(typeof f.holdPL==="number"){ sumPL += f.holdPL; sumCost += (f.amt||0) - f.holdPL; }
+    if(Number.isFinite(f.holdPL)){ sumPL += f.holdPL; sumCost += (f.amt||0) - f.holdPL; if(Number.isFinite(f.amt)) costCount++; }
     if(typeof f.amt==="number" && f.amt>maxAmt){ maxAmt=f.amt; maxName=f.n; }
-    var e = estOf(f); if(e) sumEst += e.estVal;
+    var e = estOf(f); if(e){ sumEst += e.estVal; estCount++; }
   });
+  var estComplete = H.length>0 && estCount===H.length;
+  var costComplete = H.length>0 && costCount===H.length;
+  var snapshotDates = Array.from(new Set(H.map(function(f){return f.amtDate||"未知";}))).join(" / ");
   var totalPct = (sumCost>0) ? sumPL/sumCost : null;
   var maxPct = (sumAmt>0) ? maxAmt/sumAmt : 0;
 
@@ -2072,10 +2089,10 @@
     box.style.gap="12px";
     box.innerHTML = [
       card("持仓市值合计", "¥" + sumAmt.toLocaleString("zh-CN",{minimumFractionDigits:2, maximumFractionDigits:2}), H.length + " 只基金（支付宝快照）"),
-      card("估算市值（最新净值）", "¥" + sumEst.toLocaleString("zh-CN",{minimumFractionDigits:2, maximumFractionDigits:2}), "份额×最新净值·仅供参考"),
-      card("昨日收益", costyle(sumDay, moneyTxt(sumDay)), ""),
+      card("估算市值（最新净值）", estComplete ? moneyTxt(sumEst) : "—", estComplete ? "份额×最新净值·仅供参考" : "净值或基准数据缺失，暂不汇总"),
+      card("快照当日收益", costyle(sumDay, moneyTxt(sumDay)), esc(snapshotDates)),
       card("持有收益合计", costyle(sumPL, moneyTxt(sumPL)), "成本约 ¥" + sumCost.toLocaleString("zh-CN",{minimumFractionDigits:2, maximumFractionDigits:2})),
-      card("估算持有盈亏", costyle(sumEst - sumCost, moneyTxt(sumEst - sumCost)), "较成本·以支付宝为准"),
+      card("估算持有盈亏", estComplete && costComplete ? costyle(sumEst - sumCost, moneyTxt(sumEst - sumCost)) : "—", "较成本·以支付宝为准"),
       card("总收益率", costyle(totalPct, pctTxt(totalPct)), ""),
       card("最大单一持仓", (maxPct*100).toFixed(1)+"%", maxName)
     ].join("");
@@ -2097,7 +2114,7 @@
           '<span>持有金额：<b>'+costyle(f.amt, moneyTxt(f.amt))+'</b> <span style="color:#94a3b8;font-size:11px">（支付宝 '+esc(f.amtDate||'—')+' 快照）</span></span>'+
           '<span>估算市值：<b>'+ (e ? costyle(e.estVal - f.amt, moneyTxt(e.estVal)) : '—') +'</b> <span style="color:#94a3b8;font-size:11px">（份额×最新净值）</span></span>'+
           '<span>估算盈亏：<b>'+ (e && e.estPL!=null ? costyle(e.estPL, moneyTxt(e.estPL)) : '—') +'</b> <span style="color:#94a3b8;font-size:11px">（较成本）</span></span>'+
-          '<span>昨日收益：<b>'+costyle(f.dayPL, moneyTxt(f.dayPL))+'</b></span>'+
+          '<span>快照当日收益：<b>'+costyle(f.dayPL, moneyTxt(f.dayPL))+'</b> <small>（'+esc(f.amtDate||'未知')+'）</small></span>'+
           '<span>持有收益：<b>'+costyle(f.holdPL, moneyTxt(f.holdPL))+' ('+plText(f.holdPL)+')</b></span>'+
           '<span>收益率：<b>'+costyle(f.holdPct, pctTxt(f.holdPct))+'</b></span>'+
         '</div></article>';
@@ -2183,7 +2200,7 @@
   var S = window.FUNDS_STOCKS || {};
   if(!S.holdings) return;
   function col(v){ return v>0 ? "#e02424" : (v<0 ? "#16a34a" : "#64748b"); }
-  function chgTxt(v){ if(v==null) return ""; return (v>0?"+":"") + (v*100).toFixed(2) + "%"; }
+  function chgTxt(v){ if(typeof v!=="number" || !Number.isFinite(v)) return ""; return (v>0?"+":"") + (v*100).toFixed(2) + "%"; }
   var fundName = { "012920":"易方达全球成长","024480":"财通品质甄选","022432":"中欧A500","016452":"南方纳指100" };
 
   /* 持仓全景 */
@@ -2206,7 +2223,7 @@
   var foc = document.getElementById('funds-stocks-focus');
   if(foc){
     foc.innerHTML = (S.focus||[]).map(function(f){
-      var price = (f.cur||"") + (f.price||"—");
+      var price = (f.cur||"") + (f.price==null?"—":f.price);
       var chgHtml = f.chg!=null ? '<span style="color:'+col(f.chg)+';font-weight:700">'+chgTxt(f.chg)+'</span>' : '';
       var url = f.mkt==="美股"
         ? "https://stock.finance.sina.com.cn/usstock/quotes/"+esc(f.code||"")+".html"
@@ -2218,7 +2235,7 @@
           '<span class="tier t-A" style="font-size:11px">'+esc(f.mkt||"")+'</span>'+
           '<span style="margin-left:auto;font-size:15px;font-weight:800;color:var(--ink)">'+esc(price)+'</span> '+chgHtml+
         '</div>'+
-        '<div style="font-size:11px;color:#94a3b8;margin:4px 0 8px">行情日 '+(f.date||"—")+'</div>'+
+        '<div style="font-size:11px;color:#94a3b8;margin:4px 0 8px">行情日 '+esc(f.date||"—")+'</div>'+
         '<div style="font-size:13px;color:var(--ink);margin-bottom:6px"><b>业务：</b>'+esc(f.biz||"")+'</div>'+
         '<div style="font-size:13px;color:#334155;margin-bottom:6px"><b>走势：</b>'+esc(f.trend||"")+'</div>'+
         '<div style="font-size:13px;color:#334155;margin-bottom:6px"><b>催化：</b>'+esc(f.catalyst||"")+'</div>'+

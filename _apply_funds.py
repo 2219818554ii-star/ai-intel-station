@@ -2,6 +2,7 @@
 """把 _refresh_funds.py 抓到的真值写回 funds.js。
 每处 old 子串必须唯一匹配(==1)，否则中止、不写坏文件。"""
 import json, sys
+from datetime import date as iso_date
 
 SITE = r"C:/Users/22198/WorkBuddy/2026-08-11-19-02-45/ai_daily_site"
 P = SITE + "/funds.js"
@@ -53,8 +54,9 @@ for code, (old_line, old_pref) in STK.items():
         n, cur, ds = astk[code], "¥", "10-14"
     else:
         n, cur, ds = ustk[code], "$", "10-13"
-    price, chg, date = n["price"], n["chg"], n["date"]
-    new_line = 'price:%.2f, cur:"%s", chg:%s, date:%s' % (price, cur, s(chg), date)
+    price, chg, date = n["price"], n["chg"], iso_date.fromisoformat(str(n["date"])).isoformat()
+    ds = date[5:]
+    new_line = 'price:%.2f, cur:"%s", chg:%s, date:"%s"' % (price, cur, s(chg), date)
     new_pref = build_prefix(ds, price, chg)
     pairs.append((old_line, new_line, "价格 " + code))
     pairs.append((old_pref, new_pref, "行情前缀 " + code))
