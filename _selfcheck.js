@@ -517,7 +517,20 @@ const vm2 = require('vm');
 const ctx = vm2.createContext({ window: g.window, console });
 vm2.runInContext(code, ctx, { filename: 'competitions.js' });
 const CP = g.window.COMP || [];
-ok(CP.length === 182, `赛事条目 = ${CP.length}（期望 182）`);
+// 2026-10-16：核实新增第七届中国人工智能大赛，原182条完整保留。
+// 名称/官网清单是独立复核基线，构建不自动更新；仍严格检查数量和全部身份。
+const compBaseline = JSON.parse(fs.readFileSync(B + '_competition_baseline.json', 'utf8'));
+const compKey = c => c.n + '\n' + c.url;
+const expectedCompKeys = new Set(compBaseline.entries.map(compKey));
+const actualCompKeys = new Set(CP.map(compKey));
+ok(compBaseline.count === 183 && compBaseline.entries.length === compBaseline.count && CP.length === compBaseline.count,
+   `赛事条目 = ${CP.length}（已复核基线 ${compBaseline.count}）`);
+ok(actualCompKeys.size === CP.length, '赛事名称与官网组合无重复');
+ok(expectedCompKeys.size === compBaseline.count && [...expectedCompKeys].every(k=>actualCompKeys.has(k)) && [...actualCompKeys].every(k=>expectedCompKeys.has(k)),
+   '赛事清单与复核基线逐项一致，无误删、替换或额外插入');
+const newAI = CP.find(c=>c.n === '第七届中国人工智能大赛');
+ok(newAI && newAI.url === 'https://ai.xm.gov.cn/' && newAI.reg.includes('2026/10/18') && newAI.evidence === compBaseline.evidence,
+   '新增人工智能大赛官网、报名截止与官方启动通知已固化');
 
 const need = ['n','type','st','ai','pri','team','org','reg','run','desc','fit','help','url'];
 const miss = [];

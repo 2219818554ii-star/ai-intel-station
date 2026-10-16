@@ -1,0 +1,740 @@
+{
+  "version": "2026-10-16",
+  "count": 183,
+  "change": "原182条完整保留；新增第七届中国人工智能大赛，已核对主办方官方启动通知。新增或删改名称/官网时须显式复核此清单，不得由构建自动重写。",
+  "evidence": "https://ai.xm.gov.cn/detail/article-detail.html?id=2026c40news0001",
+  "entries": [
+    {
+      "n": "“华为杯”第23届中国研究生数学建模竞赛",
+      "url": "https://cpipc.acge.org.cn/cw/hp/4/"
+    },
+    {
+      "n": "中国国际大学生创新大赛(2026)（原“互联网+”）",
+      "url": "https://cy.ncss.cn/"
+    },
+    {
+      "n": "中国研究生企业管理创新大赛（第四届）",
+      "url": "https://cpipc.acge.org.cn/cw/hp/2c90801786cfa2b60186de4143390279"
+    },
+    {
+      "n": "2026 科大讯飞 AI 开发者大赛（含星火杯·大模型应用创新赛）",
+      "url": "https://challenge.xfyun.cn/"
+    },
+    {
+      "n": "阿里云天池（Tianchi）算法大赛",
+      "url": "https://tianchi.aliyun.com/"
+    },
+    {
+      "n": "DataFountain · CCF BDCI 大数据与计算智能大赛",
+      "url": "https://www.datafountain.cn/"
+    },
+    {
+      "n": "Kaggle 竞赛（国际·全球开放）",
+      "url": "https://www.kaggle.com/competitions"
+    },
+    {
+      "n": "全国大学生英语翻译大赛（NETCCS，大英赛同主办）",
+      "url": "https://netccs.saikr.com/"
+    },
+    {
+      "n": "中国研究生智慧城市技术与创意设计大赛（第十二届）",
+      "url": "https://cpipc.acge.org.cn/cw/hp/1"
+    },
+    {
+      "n": "“挑战杯”中国大学生创业计划竞赛（第十五届）",
+      "url": "http://www.tiaozhanbei.net/"
+    },
+    {
+      "n": "“挑战杯”全国大学生课外学术科技作品竞赛（第十九届）",
+      "url": "http://www.tiaozhanbei.net/"
+    },
+    {
+      "n": "中国研究生网络安全创新大赛（第五届）",
+      "url": "https://cpipc.acge.org.cn/cw/hp/2c90800c8093eef401809d33b36f0652"
+    },
+    {
+      "n": "中国研究生 EDA 精英挑战赛",
+      "url": "https://cpipc.acge.org.cn/cw/hp/2c9080158ee9c272018f229208b610a6"
+    },
+    {
+      "n": "赛氪（Saikr）竞赛平台 · 在线学科赛汇总",
+      "url": "https://www.saikr.com/"
+    },
+    {
+      "n": "中国研究生“双碳”创新与创意大赛（第五届）",
+      "url": "https://cpipc.acge.org.cn/cw/hp/2c90800c8093eef401809d348f8b0653"
+    },
+    {
+      "n": "全国大学生化工设计竞赛",
+      "url": "http://iche.zju.edu.cn/"
+    },
+    {
+      "n": "全国大学生化学实验创新设计大赛",
+      "url": "https://cid.nju.edu.cn/"
+    },
+    {
+      "n": "全国大学生低碳循环科技创新大赛",
+      "url": "https://www.cnlcr.com/"
+    },
+    {
+      "n": "2026 年大学生“AI+信息素养”大赛（含重理工校赛）",
+      "url": "https://csc.xxsuyang.com/"
+    },
+    {
+      "n": "中国研究生人工智能创新大赛（第八届）",
+      "url": "https://cpipc.acge.org.cn/cw/hp/2c9088a5696cbf370169a3f8101510bd"
+    },
+    {
+      "n": "2026 高校大学生“工创杯”人工智能知识大赛",
+      "url": "https://new.saikr.com/vse/2026RGZN"
+    },
+    {
+      "n": "MathorCup 数学应用挑战赛·大数据竞赛（第七届）",
+      "url": "https://new.saikr.com/vse/bigdata2026"
+    },
+    {
+      "n": "2026 怀柔科学城 AI for Science·OPC 创新挑战赛",
+      "url": "https://www.stdaily.com/web/gdxw/2026-09/13/content_580127.html"
+    },
+    {
+      "n": "第八届全球校园人工智能算法精英大赛",
+      "url": "https://www.aicomp.cn/"
+    },
+    {
+      "n": "NeurIPS Competition Track（神经信息处理系统大会竞赛单元）",
+      "url": "https://neurips.cc/"
+    },
+    {
+      "n": "XPRIZE 大奖赛（碳移除 / 雨林 / 海洋等）",
+      "url": "https://www.xprize.org/"
+    },
+    {
+      "n": "Amazon Alexa Prize（亚马逊 Alexa 大奖）",
+      "url": "https://www.amazon.science/alexa-prize"
+    },
+    {
+      "n": "WMT（机器翻译国际评测）",
+      "url": "https://wmt-conf.net/"
+    },
+    {
+      "n": "BioASQ（生物医学语义问答挑战）",
+      "url": "https://bioasq.org/"
+    },
+    {
+      "n": "ChaLearn AutoML Challenges（自动机器学习系列赛）",
+      "url": "http://www.chalearn.org/"
+    },
+    {
+      "n": "iGEM（国际基因工程机器大赛）",
+      "url": "https://igem.org/"
+    },
+    {
+      "n": "Regeneron ISEF（英特尔国际科学与工程大奖赛）",
+      "url": "https://www.societyforscience.org/isef/"
+    },
+    {
+      "n": "Regeneron STS（美国再生元科学天才奖）",
+      "url": "https://www.societyforscience.org/regeneron-sts/"
+    },
+    {
+      "n": "RoboCup（机器人世界杯）",
+      "url": "https://www.robocup.org/"
+    },
+    {
+      "n": "Formula Student / Formula SAE（大学生方程式）",
+      "url": "https://www.formulastudent.de/"
+    },
+    {
+      "n": "Solar Decathlon（太阳能十项全能）",
+      "url": "https://solardecathlon.net/"
+    },
+    {
+      "n": "DARPA Challenges（美国防高级研究计划局挑战赛）",
+      "url": "https://www.darpa.mil/"
+    },
+    {
+      "n": "IChO（国际化学奥林匹克）",
+      "url": "https://www.icho.science/"
+    },
+    {
+      "n": "NASA Space Apps Challenge（NASA 太空应用黑客松）",
+      "url": "https://www.spaceappschallenge.org/"
+    },
+    {
+      "n": "中国研究生未来飞行器创新大赛（2026）",
+      "url": "https://cpipc.acge.org.cn/cw/hp/3"
+    },
+    {
+      "n": "中国研究生电子设计竞赛（2026）",
+      "url": "https://cpipc.acge.org.cn/cw/hp/6"
+    },
+    {
+      "n": "中国研究生创“芯”大赛（2026）",
+      "url": "https://cpipc.acge.org.cn/cw/hp/10"
+    },
+    {
+      "n": "中国研究生机器人创新设计大赛（2026）",
+      "url": "https://cpipc.acge.org.cn/cw/hp/2c9088a5696cbf370169a3f8934810be"
+    },
+    {
+      "n": "中国研究生能源装备创新设计大赛（2026）",
+      "url": "https://cpipc.acge.org.cn/cw/hp/7"
+    },
+    {
+      "n": "中国研究生公共管理案例大赛（2026）",
+      "url": "https://cpipc.acge.org.cn/cw/hp/8"
+    },
+    {
+      "n": "中国研究生乡村振兴科技强农+创新大赛（2026）",
+      "url": "https://cpipc.acge.org.cn"
+    },
+    {
+      "n": "中国研究生金融科技创新大赛（2026）",
+      "url": "https://cpipc.acge.org.cn/cw/hp/2c90800c8093eef401809d3501080654"
+    },
+    {
+      "n": "中国研究生“美丽中国”创新设计大赛（2026）",
+      "url": "https://cpipc.acge.org.cn/cw/hp/2c908018876ef068018774a9501a03fe"
+    },
+    {
+      "n": "中国研究生工程管理案例大赛（2026）",
+      "url": "https://cpipc.acge.org.cn/pw/notice/detail/2c9080179e4a7a92019e6c3e31d354c0"
+    },
+    {
+      "n": "中国研究生操作系统开源创新大赛（2026）",
+      "url": "https://cpipc.acge.org.cn/cw/hp/2c9080178c7c917b018d1b1a0af61cd6"
+    },
+    {
+      "n": "中国研究生“文化中国”两创大赛（2026）",
+      "url": "https://cpipc.acge.org.cn/cw/hp/2c9080178e896671018e97ce7525018b"
+    },
+    {
+      "n": "中国研究生国际中文教育案例大赛（2026）",
+      "url": "https://cpipc.acge.org.cn/cw/hp/2c9080158e2ad864018e5fa55a450c49"
+    },
+    {
+      "n": "中国研究生智能建造创新大赛（2026）",
+      "url": "https://cpipc.acge.org.cn/cw/hp/2c90801795a92a850195d03b537b1bac"
+    },
+    {
+      "n": "中国研究生“美丽中国”生物多样性保护与利用大赛（专项，2026）",
+      "url": "https://cpipc.acge.org.cn"
+    },
+    {
+      "n": "中国大学生计算机设计大赛（2026）",
+      "url": "https://jsjds.blcu.edu.cn/index.htm"
+    },
+    {
+      "n": "“中国软件杯”大学生软件设计大赛（第十五届，2026）",
+      "url": "https://www.cnsoftbei.com/"
+    },
+    {
+      "n": "全国大学生信息安全竞赛（2026）",
+      "url": "http://www.ciscn.cn/"
+    },
+    {
+      "n": "全国大学生节能减排社会实践与科技竞赛（2026）",
+      "url": "https://www.jienengjianpai.org/"
+    },
+    {
+      "n": "iCAN 大学生创新创业大赛（2026）",
+      "url": "http://g-ican.com/"
+    },
+    {
+      "n": "百度之星·程序设计大赛（2026）",
+      "url": "https://star.baidu.com/"
+    },
+    {
+      "n": "全国大学生光电设计竞赛（2026）",
+      "url": "https://gd.moocollege.com/home/homepage"
+    },
+    {
+      "n": "全国大学生水利创新设计竞赛（2026）",
+      "url": "http://www.cahee.org.cn/"
+    },
+    {
+      "n": "全国大学生先进成图技术与产品信息建模创新大赛（2026）",
+      "url": "http://www.chengtudasai.com/"
+    },
+    {
+      "n": "两岸新锐设计竞赛·华灿奖（2026）",
+      "url": "http://www.huacanjiang.com/"
+    },
+    {
+      "n": "中华经典诵写讲大赛（2026）",
+      "url": "https://jdsxj.eduyun.cn/"
+    },
+    {
+      "n": "蓝桥杯全国软件和信息技术专业人才大赛（2026）",
+      "url": "https://www.lanqiao.cn/"
+    },
+    {
+      "n": "全国大学生计算机系统能力大赛（2026）",
+      "url": "https://os.educg.net/"
+    },
+    {
+      "n": "华为 ICT 大赛（2026–2027）",
+      "url": "https://e.huawei.com/cn/talent/ict-academy/"
+    },
+    {
+      "n": "一带一路暨金砖国家技能发展与技术创新大赛（2026）",
+      "url": "http://www.brskills.com/"
+    },
+    {
+      "n": "未来设计师·全国高校数字艺术设计大赛 NCDA（2026）",
+      "url": "https://www.ncda.org.cn/"
+    },
+    {
+      "n": "全国大学生数字媒体科技作品及创意竞赛（2026）",
+      "url": "https://www.cmatd.cn/"
+    },
+    {
+      "n": "码蹄杯全国大学生程序设计大赛（2026）",
+      "url": "https://www.matibei.com/"
+    },
+    {
+      "n": "中国高校计算机大赛-人工智能创意赛（2026）",
+      "url": "http://www.c4best.cn/"
+    },
+    {
+      "n": "中国青年“揭榜挂帅”·华为赛道（2026）",
+      "url": "https://developer.huaweicloud.com/"
+    },
+    {
+      "n": "华为软件精英挑战赛（2026）",
+      "url": "https://developer.huaweicloud.com/"
+    },
+    {
+      "n": "华为算法挑战赛",
+      "url": "https://developer.huaweicloud.com/"
+    },
+    {
+      "n": "昇腾 AI 原生创新算子挑战赛（S2 赛季）",
+      "url": "https://www.hiascend.com/"
+    },
+    {
+      "n": "全国大学生化工实验大赛（2026）",
+      "url": "http://edu.cteic.com/match/app/main"
+    },
+    {
+      "n": "全国大学生化工安全设计竞赛（2026）",
+      "url": "http://www.ciedu.com.cn/"
+    },
+    {
+      "n": "中国大学生服务外包创新创业大赛（2026）",
+      "url": "http://www.fwwb.org.cn/"
+    },
+    {
+      "n": "全国大学生数学建模竞赛·高教社杯（2026）",
+      "url": "http://www.mcm.edu.cn"
+    },
+    {
+      "n": "美国大学生数学建模竞赛 MCM/ICM（2027 届）",
+      "url": "https://comap.org/contests"
+    },
+    {
+      "n": "ACM-ICPC 国际大学生程序设计竞赛（2026–2027 赛季）",
+      "url": "https://icpc.global/"
+    },
+    {
+      "n": "天池·CCKS2026 大模型生成文本检测及溯源",
+      "url": "https://tianchi.aliyun.com/competition/entrance/532474"
+    },
+    {
+      "n": "天池·Qwen3 推理部署优化挑战赛",
+      "url": "https://tianchi.aliyun.com/competition/entrance/532450"
+    },
+    {
+      "n": "天池·Agent / 数据共情者算法大赛",
+      "url": "https://tianchi.aliyun.com/competition/entrance/532503"
+    },
+    {
+      "n": "科大讯飞 AI 开发者大赛·算法赛（2026）",
+      "url": "https://challenge.xfyun.cn/competition"
+    },
+    {
+      "n": "科大讯飞 AI 开发者大赛·星火杯大模型应用创新赛（2026）",
+      "url": "https://challenge.xfyun.cn/"
+    },
+    {
+      "n": "和鲸 Heywhale 数据竞赛",
+      "url": "https://www.heywhale.com/home/competition"
+    },
+    {
+      "n": "极市 Extreme Mart 计算机视觉竞赛",
+      "url": "https://www.cvmart.net/"
+    },
+    {
+      "n": "Biendata 算法竞赛",
+      "url": "https://biendata.xyz/"
+    },
+    {
+      "n": "FlyAI 算法竞赛",
+      "url": "https://www.flyai.com/"
+    },
+    {
+      "n": "KDD Cup（ACM SIGKDD 数据挖据杯）",
+      "url": "https://www.kdd.org/kdd-cup"
+    },
+    {
+      "n": "CVPR Workshops 挑战赛",
+      "url": "https://cvpr.thecvf.com/"
+    },
+    {
+      "n": "IJCAI 竞赛",
+      "url": "https://ijcai.org/"
+    },
+    {
+      "n": "SemEval（语义评测）",
+      "url": "https://semeval.github.io/"
+    },
+    {
+      "n": "AutoDrive Challenge（自动驾驶挑战赛）",
+      "url": "https://www.autodrive.ai/"
+    },
+    {
+      "n": "Waymo Open Dataset Challenge（Waymo 开放数据集挑战）",
+      "url": "https://waymo.com/open/"
+    },
+    {
+      "n": "ImageNet / ILSVRC（深度学习里程碑，已停办）",
+      "url": "https://image-net.org/"
+    },
+    {
+      "n": "SpaceNet 卫星影像 AI 挑战赛",
+      "url": "https://spacenet.ai/"
+    },
+    {
+      "n": "AI Driving Olympics (AIDO)",
+      "url": "https://www.duckietown.org/"
+    },
+    {
+      "n": "Google AI Challenge（经典 AI 编程赛，历史）",
+      "url": "https://www.kaggle.com/competitions"
+    },
+    {
+      "n": "中国大学生Chem-E-Car竞赛",
+      "url": "http://www.chemecar.cn"
+    },
+    {
+      "n": "全国大学生环境生态科技创新大赛",
+      "url": "http://www.csec.org.cn"
+    },
+    {
+      "n": "全国大学生金相技能大赛",
+      "url": "https://www.jxds.tech/"
+    },
+    {
+      "n": "中国大学生材料热处理创新创业大赛",
+      "url": "https://www.cmes.org/cmes"
+    },
+    {
+      "n": "全国大学生复合材料设计与制作大赛",
+      "url": "http://frp.cn/"
+    },
+    {
+      "n": "光威杯中国复合材料学会大学生科技创新竞赛（原全国大学生碳纤维复合材料创新应用设计大赛）",
+      "url": "https://cmtic.csfcm.org.cn/"
+    },
+    {
+      "n": "全国大学生资源循环利用创新设计大赛",
+      "url": "http://www.nfsoc.org.cn"
+    },
+    {
+      "n": "国药工程杯全国大学生制药工程设计竞赛",
+      "url": "http://www.cpia.org.cn"
+    },
+    {
+      "n": "全国大学生生物制药创新大赛",
+      "url": "http://www.biopharm.org.cn"
+    },
+    {
+      "n": "全国大学生可再生能源竞赛",
+      "url": "http://www.cres.org.cn"
+    },
+    {
+      "n": "全国大学生冶金科技竞赛",
+      "url": "http://www.csm.org.cn"
+    },
+    {
+      "n": "全国大学生水利创新设计大赛",
+      "url": "http://www.cahee.org.cn/"
+    },
+    {
+      "n": "能源·智慧·未来全国大学生油气储运工程设计大赛",
+      "url": "https://www.cup.edu.cn"
+    },
+    {
+      "n": "全国大学生能源经济学术创意大赛",
+      "url": "https://energy.qibebt.ac.cn/eneco/"
+    },
+    {
+      "n": "中国软件杯大学生软件设计大赛",
+      "url": "http://www.cnsoftbei.com"
+    },
+    {
+      "n": "全国大学生电子商务创新创意及创业挑战赛(三创赛)",
+      "url": "http://www.3chuang.net"
+    },
+    {
+      "n": "全国大学生市场调查与分析大赛",
+      "url": "http://www.china-cssc.org/"
+    },
+    {
+      "n": "学创杯全国大学生创业综合模拟大赛",
+      "url": "http://www.xcbds.com"
+    },
+    {
+      "n": "全国大学生广告艺术大赛(大广赛)",
+      "url": "http://www.sun-ada.net"
+    },
+    {
+      "n": "全国大学生工业设计大赛",
+      "url": "http://www.cuidc.net"
+    },
+    {
+      "n": "西门子杯中国智能制造挑战赛",
+      "url": "http://www.siemenscup.com"
+    },
+    {
+      "n": "全国大学生智能汽车竞赛",
+      "url": "https://www.eepw.com.cn/event/action/freescale_car2012/"
+    },
+    {
+      "n": "全国大学生机器人大赛RoboMaster",
+      "url": "https://www.robomaster.com/zh-CN"
+    },
+    {
+      "n": "全国大学生机器人大赛RoboCon",
+      "url": "https://www.robocon.net"
+    },
+    {
+      "n": "外研社·国才杯全国英语演讲写作阅读大赛",
+      "url": "https://uchallenge.unipus.cn"
+    },
+    {
+      "n": "全国大学生英语竞赛NECCS",
+      "url": "http://www.chinaneccs.cn"
+    },
+    {
+      "n": "普译赛全国大学生英语翻译比赛",
+      "url": "http://www.putiyi.com"
+    },
+    {
+      "n": "华数杯国际大学生数学建模竞赛",
+      "url": "http://www.huashubei.com"
+    },
+    {
+      "n": "亚太杯国际大学生数学建模竞赛",
+      "url": "http://www.apmcm.org"
+    },
+    {
+      "n": "认证杯数学中国数学建模网络挑战赛",
+      "url": "http://www.madio.net"
+    },
+    {
+      "n": "全国大学生数学竞赛",
+      "url": "http://www.cmathc.cn"
+    },
+    {
+      "n": "全国大学生物理实验竞赛",
+      "url": "https://wlsycx.moocollege.com/home/homepage"
+    },
+    {
+      "n": "全国大学生结构设计竞赛",
+      "url": "http://www.structurecontest.com/"
+    },
+    {
+      "n": "全国大学生FPGA创新设计竞赛",
+      "url": "http://www.socchina.net"
+    },
+    {
+      "n": "华为ICT大赛",
+      "url": "https://e.huawei.com/cn/"
+    },
+    {
+      "n": "百度之星程序设计大赛",
+      "url": "https://star.baidu.com"
+    },
+    {
+      "n": "中国高校计算机大赛(大数据/AI/微信小程序)",
+      "url": "http://www.c4best.cn"
+    },
+    {
+      "n": "全国大学生服务外包创新创业大赛",
+      "url": "http://www.fwwb.org.cn"
+    },
+    {
+      "n": "中国创翼创业创新大赛",
+      "url": "http://www.cxcyds.com/"
+    },
+    {
+      "n": "全国大学生集成电路创新创业大赛",
+      "url": "http://www.ciciec.com"
+    },
+    {
+      "n": "全国大学生物联网设计竞赛",
+      "url": "https://iot.sjtu.edu.cn/"
+    },
+    {
+      "n": "共享杯科技资源共享服务创新大赛",
+      "url": "https://www.escience.org.cn/"
+    },
+    {
+      "n": "全国大学生测绘技能竞赛",
+      "url": "http://www.csgpc.org"
+    },
+    {
+      "n": "全国大学生GIS应用技能大赛",
+      "url": "http://www.csgpc.org"
+    },
+    {
+      "n": "东方杯全国大学生勘探地球物理竞赛",
+      "url": "https://www.cup.edu.cn"
+    },
+    {
+      "n": "全国大学生统计建模大赛",
+      "url": "http://tjjmds.ai-learning.net/"
+    },
+    {
+      "n": "Zindi 非洲人工智能挑战赛",
+      "url": "https://zindi.world/"
+    },
+    {
+      "n": "DrivenData 数据科学公益赛",
+      "url": "https://www.drivendata.org"
+    },
+    {
+      "n": "Numerai 加密量化预测赛",
+      "url": "https://numer.ai"
+    },
+    {
+      "n": "Topcoder 算法与开发赛",
+      "url": "https://www.topcoder.com"
+    },
+    {
+      "n": "AIcrowd 人工智能挑战赛",
+      "url": "https://www.aicrowd.com"
+    },
+    {
+      "n": "CodaLab 机器学习挑战赛",
+      "url": "https://codalab.lisn.upsaclay.fr"
+    },
+    {
+      "n": "NeurIPS 神经信息处理系统大会竞赛",
+      "url": "https://neurips.cc"
+    },
+    {
+      "n": "XPRIZE 基金会大奖赛",
+      "url": "https://www.xprize.org"
+    },
+    {
+      "n": "Google Solution Challenge",
+      "url": "https://developers.google.com/solution-challenge"
+    },
+    {
+      "n": "Google Code Jam",
+      "url": "https://codingcompetitions.withgoogle.com/codejam"
+    },
+    {
+      "n": "Meta Hacker Cup",
+      "url": "https://www.facebook.com/hackercup"
+    },
+    {
+      "n": "IBM Quantum Challenge",
+      "url": "https://quantum-computing.ibm.com"
+    },
+    {
+      "n": "Hugging Face 社区挑战赛",
+      "url": "https://huggingface.co/challenges"
+    },
+    {
+      "n": "iGEM 国际基因工程机器大赛",
+      "url": "https://igem.org"
+    },
+    {
+      "n": "BIOMOD 国际生物分子设计大赛",
+      "url": "https://biomod.net"
+    },
+    {
+      "n": "ASC 世界大学生超级计算机竞赛",
+      "url": "http://www.asc-events.org"
+    },
+    {
+      "n": "IEEE CIS 计算智能竞赛",
+      "url": "https://cis.ieee.org"
+    },
+    {
+      "n": "InnoCentive 开放式创新挑战赛",
+      "url": "https://www.innocentive.com"
+    },
+    {
+      "n": "MIT HackMIT 黑客松",
+      "url": "https://hackmit.org"
+    },
+    {
+      "n": "数维杯全国大学生数学建模挑战赛（2026 秋季赛）",
+      "url": "https://www.nmmcm.org.cn/"
+    },
+    {
+      "n": "EuroMCM 欧洲数学建模竞赛（2026）",
+      "url": "https://www.euromcm.org/"
+    },
+    {
+      "n": "全国大学生仿真建模应用挑战赛（2026）",
+      "url": "https://www.mojinghub.com/competitions/csf/2026"
+    },
+    {
+      "n": "全国高校计算机能力挑战赛（2026 第八届）",
+      "url": "https://www.ncccu.org.cn/"
+    },
+    {
+      "n": "第九届传智杯全国大学生数智创新与 AI 应用大赛",
+      "url": "https://www.boxuegu.com/match/"
+    },
+    {
+      "n": "“智创未来”高校大学生智能创新与计算机技能应用挑战赛（2026）",
+      "url": "https://new.saikr.com/vse/ZCWL2026"
+    },
+    {
+      "n": "2026 第二届大学生 AI 应用与创新竞赛",
+      "url": "http://aicx.52jingsai.com/"
+    },
+    {
+      "n": "2026 全国大学生人工智能应用实践大赛",
+      "url": "https://m.saikr.com/vse/AIPC26"
+    },
+    {
+      "n": "2026 全国大学生“人工智能+”创新创业大赛",
+      "url": "http://rgzn.52jingsai.com/"
+    },
+    {
+      "n": "第二届全国人工智能应用创新大赛",
+      "url": "https://www.ai-race.com.cn/"
+    },
+    {
+      "n": "麟创杯人工智能知识竞赛（2026 秋季赛）",
+      "url": "https://new.saikr.com/vse/LCBRGZN02"
+    },
+    {
+      "n": "“数学周报”杯全国大学生数学建模大赛（第五届）",
+      "url": "https://m.saikr.com/MW26MM"
+    },
+    {
+      "n": "“科创杯”大学生数学建模竞赛（2026 非企业命题赛道）",
+      "url": "https://www.simcm.org.cn/"
+    },
+    {
+      "n": "2026华智·高校大学生人工智能大赛",
+      "url": "https://new.saikr.com/vse/HZRGZN"
+    },
+    {
+      "n": "2026大学生“麟创杯”创新数学竞赛",
+      "url": "https://new.saikr.com/vse/LCBCXSX"
+    },
+    {
+      "n": "第七届中国人工智能大赛",
+      "url": "https://ai.xm.gov.cn/"
+    }
+  ]
+}
