@@ -1,5 +1,5 @@
 /* AI 情报站 - 实力排行榜数据（每日自动更新） */
-window.RANK_UPDATED = "2026-10-14";
+window.RANK_UPDATED = "2026-10-16";
 window.RANK = {
     models: [
       {name:"Claude Opus 5.5", vendor:"Anthropic（美国）", price:"API $4/$20 每百万", iaa:58, tb:null,
@@ -13,7 +13,7 @@ window.RANK = {
        note:"2026-09-01 发布，AA 智能指数 v4.3 并列第一（53）；TB2.1 第一（91.4%）。⚠ 官方 8/29 已升级 Terminal-Bench v4.0（66 题、难度大幅提升），AA v4.3 起改用 TB4.0：Astra 59.1% > Fable 5.1 52.0% > Opus 5 49.0% > GPT-5.6 Sol 39.9%；本页 TB 列仍为 2.1 旧口径。推理/综合最强，但价格最高、中文偏弱。"},
       {name:"GPT-6 Astra", vendor:"OpenAI（美国）", price:"API $10/$50 每百万", iaa:53, tb:89.9,
        t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"A",性价比:"C",开源:"—"},
-       note:"2026-09-03 发布，号称进入 AGI 时代；AA 指数并列第一（53）、代码 Agent 指数 67；TB4.0 59.1%（max）现居第一。原为「关键网络安全」级、仅 Daybreak 计划批准者可用；10-08 OpenAI 向全体 ChatGPT 用户全面上线 GPT-6、取代 GPT-5.6 Sol/Luna（疑即本品公开化，可用性待核实），投票榜样本仍偏少。"},
+       note:"2026-09-03 发布，号称进入 AGI 时代；AA 指数并列第一（53）、代码 Agent 指数 67；TB4.0 59.1%（max）现居第一。原为「关键网络安全」级、仅 Daybreak 计划批准者可用；10-08 OpenAI 向全体 ChatGPT 用户全面上线 GPT-6、取代 GPT-5.6 Sol/Luna（疑即本品公开化，可用性待核实），投票榜样本仍偏少。⚠ 10-15 TheoPhysEval（50 道未公开理论物理题，35 位研究者发布、数据集已开）GPT-6 Astra 在 Codex 环境解 49/50（98%，平均成本 <$3/题），为目前公开的最高单点成绩（Opus 5.5 92%、Gemini 3.8 Flash 68%）。"},
       {name:"Claude Opus 5", vendor:"Anthropic（美国）", price:"Pro $17–20/月；API $5/$25 每百万", iaa:51, tb:89.1,
        t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"B",性价比:"B",开源:"—"},
        note:"投票榜 coding 冠军（image-to-WebDev 第一），价格仅 Fable 5.1 一半（$5/$25）；TB2.1 89.1%（TB4.0 49.0%）。英文/代码极强，中文偏弱。"},
@@ -136,7 +136,7 @@ window.RANK = {
        note:"最便宜付费、IDE 原生、issue→PR。团队已在 GitHub 且要低门槛选它。"}
     ],
     tables: {
-      aa: {title:"Artificial Analysis 智能指数 v4.3 Top16（满分≈58，2026-10-14 复核）", unit:"分", rows:[
+      aa: {title:"Artificial Analysis 智能指数 v4.3 Top16（满分≈58，2026-10-16 复核）", unit:"分", rows:[
         ["Claude Opus 5.5",58],["Claude Sonnet 5.5",56],["MuseWonder (Full)",56],["Claude Fable 5.1",53],["GPT-6 Astra",53],["Gemini 4 Argon",53],["GPT-6.1 Sol",52],["MuseWonder",52],["Claude Opus 5",51],["Claude Fable 5",50],
         ["Muse Spark 1.3",48],["Grok 4.7",46],["MiMo V2.6 Pro",46],["GLM-5.3",45],["Grok 4.6",44],["Kimi K3",44]
       ]},
