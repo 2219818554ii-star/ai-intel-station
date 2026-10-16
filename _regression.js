@@ -14,7 +14,9 @@ module.exports = async function ({html, inline, sandbox, ok}) {
     const ctx = {...sandbox, window:{...sandbox.window}, document:{...sandbox.document,getElementById:element},
       fetch:()=>Promise.reject(new Error('offline test'))};
     let code = inline.replace('render(data.report, meta);', 'window.__renderedDate = date; render(data.report, meta);').replace('  function goto(date, pushHash){','  window.__loadDate = loadDate;\n  function goto(date, pushHash){')
-      .replace("    var cb = document.getElementById('cqutMatchCount');", "    window.__deadline = {dlDay:dlDay,isOpen:isOpen,isSoon:isSoon};\n    var cb = document.getElementById('cqutMatchCount');");
+      .replace("    var cb = document.getElementById('cqutMatchCount');", "    window.__deadline = {dlDay:dlDay,isOpen:isOpen,isSoon:isSoon};\n    var cb = document.getElementById('cqutMatchCount');")
+      .replace('  function renderComp(){', '  window.__compUX={deadline:compDeadline,status:compStatus,set:function(list,q){COMP=list;COMP_SCOPE="all";COMP_FILTER="open";COMP_SORT="deadline";COMP_QUERY=q||"";COMP_PAGE=1;renderComp();}};\n  function renderComp(){')
+      .replace('  function routeHash(tab){', '  window.__routeUX={show:showTab,hash:routeHash,sync:syncRoute};\n  function routeHash(tab){');
     vm.createContext(ctx);
     vm.runInContext(transform(code),ctx);
     return {ctx,elements,listeners};
@@ -43,6 +45,29 @@ module.exports = async function ({html, inline, sandbox, ok}) {
   ok(d.dlDay({dl:'2026-10-16'})===Date.parse('2026-10-16T23:59:59+08:00'), '仅日期的截止保留到北京时间当天末');
   ok(d.dlDay({dl:'2026-09-28 起各校不一'})===null && d.dlDay({dl:'以通知为准（2026-09-28 发布）'})===null, '开始日期和发布日期不误当截止');
   ok(!d.isOpen({st:'报名中',dl:'2000-01-01'}) && !d.isSoon({st:'报名中',dl:'2000-01-01'}), '已过期比赛退出正在报名和快截止');
+  const ux=base.ctx.window.__compUX;
+  ok(ux.deadline({reg:'报名 9/1 – 10/23 12:00'})?.time===Date.parse('2026-10-23T12:00:00+08:00'), '比赛列表从明确报名区间提取北京时间截止时刻');
+  ok(ux.deadline({reg:'即日起 – 2026/10/20 24:00'})?.time===Date.parse('2026-10-21T00:00:00+08:00'), '比赛列表正确处理截止日期的24:00');
+  ok(['全年滚动','官网2026-09-28 发布','报名 10/20（赛题延至10/27）','2027/1/28 美东截止','12/1 – 1/5','2026/2/30 截止'].every(reg=>ux.deadline({reg})===null), '滚动、发布、延期、多时区、跨年不明及非法日期不生成虚假倒计时');
+  const fixtureComp=(n,reg)=>({scope:'me',st:'open',pri:2,ai:3,n,reg,type:'数据',team:'1–3人',url:'https://example.org/'+encodeURIComponent(n)});
+  ux.set([fixtureComp('晚截止','2099/12/30 截止'),fixtureComp('已过期','2000/1/1 截止'),fixtureComp('早截止','2099/11/30 截止'),fixtureComp('滚动赛','全年滚动')]);
+  const compOrdered=base.elements['comp-list'].innerHTML;
+  ok(compOrdered.indexOf('早截止')<compOrdered.indexOf('晚截止') && compOrdered.indexOf('晚截止')<compOrdered.indexOf('滚动赛') && !compOrdered.includes('已过期'), '截止最近排序生效，未知日期沉底且过期赛事退出可报名');
+  ux.set([fixtureComp('AI 模型','2099/12/30 截止'),fixtureComp('数学建模','2099/12/30 截止')],'ai');
+  ok(base.elements['comp-list'].innerHTML.includes('AI 模型') && !base.elements['comp-list'].innerHTML.includes('数学建模'), '比赛关键词搜索实际过滤数据');
+  ux.set([fixtureComp('AI 模型','2099/12/30 截止')],'不存在的词');
+  ok(base.elements['comp-list'].innerHTML.includes('没有找到匹配'), '比赛搜索无结果时提供恢复操作提示');
+  const route=base.ctx.window.__routeUX;
+  base.ctx.window.location.hash='#funds'; route.sync();
+  ok(base.elements['view-funds'].style.display==='' && base.elements['view-daily'].style.display==='none' && route.hash('funds')==='#funds', '基金独立链接打开基金栏目，不被日报覆盖');
+  base.ctx.window.location.hash='#rank';route.sync();
+  ok(base.elements['view-rank'].style.display==='' && base.elements['view-funds'].style.display==='none', '栏目地址变化正确切换可见视图');
+  ok(base.elements['p-models'].innerHTML.includes('rank-mobile') && base.elements['p-tools'].innerHTML.includes('评分与说明') && html.includes('top:var(--appbar-height'), '手机摘要与动态顶部避让结构存在，完整桌面表格保留');
+  const noticeSearch=base.listeners['cqut-search'].input;
+  noticeSearch({target:{value:'不会存在的通知关键词'}});
+  ok(base.elements['cqut-list'].innerHTML.includes('没有匹配') && base.elements['cqut-search-count'].textContent.includes('0'), '通知搜索及零结果计数生效');
+  const review=JSON.parse(fs.readFileSync(path.join(__dirname,'_matches_review_2026-10-17.json'),'utf8'));
+  ok(review.added.every(x=>base.ctx.window.MATCHES.some(m=>m.n===x.n&&m.url===x.url&&m.dl===x.dl)) && review.removed.every(x=>!base.ctx.window.MATCHES.some(m=>m.n===x.name)), '新增赛项来源与截止记录匹配，已过期及限本科生条目未回流');
   const escaped=run(x=>x.replace('var RANK = window.RANK || {};','var RANK = window.RANK || {}; RANK.combos[0].score="<img src=x onerror=alert(1)>"; RANK.tables.aa.rows[0][1]="<img src=x onerror=alert(1)>";'));
   ok(!escaped.elements['p-combos'].innerHTML.includes('<img') && !escaped.elements['p-tables'].innerHTML.includes('<img'), '排行榜评级及分数不会插入 HTML 标签');
   const empty=run(x=>x.replace('var RANK = window.RANK || {};','var RANK = {};'));

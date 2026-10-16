@@ -1,0 +1,52 @@
+{
+  "reviewedAt": "2026-10-17",
+  "scope": "Active registration curation; no claim of a full revalidation of older notices.",
+  "removed": [
+    {
+      "name": "中国研究生创「芯」大赛 · EDA 精英挑战赛",
+      "reason": "registration deadline passed"
+    },
+    {
+      "name": "第四届重庆市大学生力学竞赛",
+      "reason": "registration deadline passed"
+    },
+    {
+      "name": "第五届重庆市大学生「大数据+」应用创新大赛",
+      "reason": "registration deadline passed"
+    },
+    {
+      "name": "第十五届山东省大学生化工过程创新设计竞赛",
+      "reason": "official notice restricts entry to undergraduates"
+    }
+  ],
+  "added": [
+    {
+      "n": "第七届中国人工智能大赛",
+      "url": "https://ai.xm.gov.cn/detail/article-detail.html?id=2026c40news0001",
+      "dl": "2026-10-18"
+    },
+    {
+      "n": "2026 第十二届数维杯全国大学生数学建模挑战赛（秋季赛）",
+      "url": "https://www.nmmcm.org.cn/",
+      "dl": "2026-11-20 06:00"
+    },
+    {
+      "n": "2026 全国高校计算机能力挑战赛 · 人工智能挑战赛",
+      "url": "https://www.ncccu.org.cn/index/Paper/case1.html",
+      "dl": "2026-11-13"
+    },
+    {
+      "n": "2026 全国高校计算机能力挑战赛 · 大数据挑战赛",
+      "url": "https://www.ncccu.org.cn/index/Paper/case2.html",
+      "dl": "2026-11-06"
+    }
+  ],
+  "sources": [
+    "https://cpipc.acge.org.cn/cw/hp/2c9080158ee9c272018f229208b610a6",
+    "https://hgsy.qust.edu.cn/info/1102/2829.htm",
+    "https://ai.xm.gov.cn/detail/article-detail.html?id=2026c40news0001",
+    "https://www.nmmcm.org.cn/",
+    "https://www.ncccu.org.cn/index/Paper/case1.html",
+    "https://www.ncccu.org.cn/index/Paper/case2.html"
+  ]
+}
