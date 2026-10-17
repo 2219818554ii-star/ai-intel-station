@@ -1,0 +1,20 @@
+const fs = require('fs');
+const vm = require('vm');
+const src = fs.readFileSync('cqut.js', 'utf8');
+const ctx = { window: {} };
+vm.createContext(ctx);
+vm.runInContext(src, ctx);
+const N = ctx.window.CQUT_NOTICES || [];
+const tags = ctx.window.CQUT_TAGS || [];
+const updated = ctx.window.CQUT_UPDATED;
+console.log('COUNT=' + N.length);
+console.log('UPDATED=' + updated);
+console.log('TAGS=' + JSON.stringify(tags.map(t=>t.k)));
+const seen = {};
+N.forEach(n => { seen[n.url] = (seen[n.url]||0)+1; });
+const dupUrls = Object.entries(seen).filter(([k,v])=>v>1);
+console.log('DUPURLS=' + JSON.stringify(dupUrls));
+// dump minimal for dedup: url + title + date
+const rows = N.map(n => ({u:n.url, t:n.t, d:n.date, tag:n.tag, cat:n.cat}));
+fs.writeFileSync('_cqut_existing.json', JSON.stringify(rows, null, 0));
+console.log('WROTE _cqut_existing.json');
