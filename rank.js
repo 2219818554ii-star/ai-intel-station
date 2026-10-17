@@ -1,5 +1,5 @@
 /* AI 情报站 - 实力排行榜数据（每日自动更新） */
-window.RANK_UPDATED = "2026-10-16";
+window.RANK_UPDATED = "2026-10-17";
 window.RANK = {
     models: [
       {name:"Claude Opus 5.5", vendor:"Anthropic（美国）", price:"API $4/$20 每百万", iaa:58, tb:null,
@@ -91,7 +91,13 @@ window.RANK = {
        note:"2026-09-24 小米开源 MiMo V2.6 Pro（开放权重），AA 智能指数 46，登顶开源权重模型（来源 ThursdAI 引 Artificial Analysis）。⚠ 评分为单一报道，建议复核；TB2.1 暂无，tb 列留空。🇨🇳 国产开源新锐，t 评级为基于排名的初步估计。"},
       {name:"StepFun Step 5 Preview", vendor:"阶跃星辰 StepFun（中国）", price:"API 预览（权重拟 2026-10-15 释出）", iaa:44, tb:null,
        t:{综合:"A",推理:"A",代码:"A",多模态:"B",长上下文:"B",中文:"A",性价比:"B",开源:"—"},
-       note:"2026-10-08 阶跃星辰发布 Step 5 Preview（API 预览，权重拟 10-15 释出，当前 API-only）。⚠ AA 智能指数 v4.3 ≈ 44（drmike.xyz 引 Artificial Analysis Data API 自由层，10-07 快照，四舍五入=44），居中游梯队。国产新晋，定位中上游；TB2.1 暂无可靠公开分，tb 列留空。t 评级为基于定位的初步估计。"}
+       note:"2026-10-08 阶跃星辰发布 Step 5 Preview（API 预览，权重拟 10-15 释出，当前 API-only）。⚠ AA 智能指数 v4.3 ≈ 44（drmike.xyz 引 Artificial Analysis Data API 自由层，10-07 快照，四舍五入=44），居中游梯队。国产新晋，定位中上游；TB2.1 暂无可靠公开分，tb 列留空。t 评级为基于定位的初步估计。"},
+      {name:"Reflection Beam", vendor:"Reflection（美国）", price:"开放权重（许可待官方确认）", iaa:30, tb:null,
+       t:{综合:"C",推理:"C",代码:"C",多模态:"C",长上下文:"C",中文:"C",性价比:"B",开源:"A"},
+       note:"2026-10-16 Reflection 发布首款模型 Beam（Beam 1.0），为其首个模型发布。⚠ AA 智能指数 v4.3 = 30（Artificial Analysis 官方 changelog；AA 称其为美国开放权重模型第 2），仅单一官方来源、分数待复核；tb 列无可靠 TB2.1 分，留空。定位开放权重新锐，实际智能处于下游梯队，t 评级为基于定位的初步估计。"},
+      {name:"NVIDIA Nemotron 3.5 Super VL", vendor:"NVIDIA（美国）", price:"开放权重", iaa:26, tb:null,
+       t:{综合:"C",推理:"C",代码:"C",多模态:"B",长上下文:"C",中文:"C",性价比:"B",开源:"A"},
+       note:"2026-10-15 NVIDIA 发布 Nemotron 3.5 Super VL（视觉-语言大模型），AA 智能指数 v4.3 = 26（Artificial Analysis 官方 changelog，称其为当前美国领先开放权重模型）；同批 Nemotron 3.5 Bolt 74B-A9B = 21、Upstage Solar Pro 4 = 27。⚠ tb 列无可靠 TB2.1 分，留空；定位开放权重视觉-语言底座，t 评级为基于定位的初步估计。"}
     ],
     tools: [
       {name:"Claude Code", model:"默认 Claude Opus 5 / Fable 5", price:"Pro $17–20/月（按 token 计）", tb:89.1, sv:95.0,
@@ -136,7 +142,7 @@ window.RANK = {
        note:"最便宜付费、IDE 原生、issue→PR。团队已在 GitHub 且要低门槛选它。"}
     ],
     tables: {
-      aa: {title:"Artificial Analysis 智能指数 v4.3 Top16（满分≈58，2026-10-16 复核）", unit:"分", rows:[
+      aa: {title:"Artificial Analysis 智能指数 v4.3 Top16（满分≈58，2026-10-17 复核）", unit:"分", rows:[
         ["Claude Opus 5.5",58],["Claude Sonnet 5.5",56],["MuseWonder (Full)",56],["Claude Fable 5.1",53],["GPT-6 Astra",53],["Gemini 4 Argon",53],["GPT-6.1 Sol",52],["MuseWonder",52],["Claude Opus 5",51],["Claude Fable 5",50],
         ["Muse Spark 1.3",48],["Grok 4.7",46],["MiMo V2.6 Pro",46],["GLM-5.3",45],["Grok 4.6",44],["Kimi K3",44]
       ]},
