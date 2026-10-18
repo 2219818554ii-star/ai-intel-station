@@ -223,6 +223,8 @@
   .cmp-pager .pg.active{background:var(--brand);color:#fff;border-color:var(--brand);}
   .cmp-pager .pg[disabled]{opacity:.4;cursor:default;}
   .cmp-pager .pg-ell{color:var(--ink-soft);padding:6px 2px;align-self:center;}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+  #copy-dialog::backdrop{background:rgba(15,23,42,.5);}
   .autobar{background:var(--brand-soft);border-bottom:1px solid var(--line);font-size:12.5px;color:var(--ink-soft);text-align:center;padding:6px 14px;line-height:1.5;}
   .autobar b{color:var(--brand);}
 
@@ -429,7 +431,7 @@
   <!-- ================= RANK VIEW ================= -->
   <div id="view-rank" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-rank">
     <div class="view-head"><h2>🏆 AI 实力排行榜</h2>
-      <p>大模型 / 编程工具 / 工具×模型组合 的分维度与综合实力评级。数据截至 <b>2026-10-17</b>。<span style="display:inline-block;margin-left:8px;padding:2px 9px;border-radius:999px;background:#ecfdf5;color:#15803d;font-size:12px;font-weight:700;border:1px solid #bbf7d0">🔄 每日自动更新</span></p></div>
+      <p>大模型 / 编程工具 / 工具×模型组合 的分维度与综合实力评级。最近维护 <b id="rank-updated"></b>。</p><p id="rank-check-note" style="font-size:13px"></p></div>
     <details class="reader-note"><summary>评级口径与历史动态</summary>
     <div class="news">
       🆕 <b>2026 年 9 月新动态：</b>Claude Fable 5.1（9-1，AA 智能指数并列第一）、GPT-6 Astra（9-3，号称 AGI 时代但<b>几乎不可用</b>）、Gemini 3.8 Flash（9-2，多模态标杆）、Muse Spark 1.3（9-2）、Qwen3.8-Max 登 Code Arena WebDev 榜首（9-2）、GLM-5.3-Flash 开源（8-26）、腾讯 Hy4 Preview 开源（8-28）。<b>注意：GPT-6 Astra 被定为「关键网络安全」级，目前仅 Daybreak 计划批准者可用，投票榜样本极少，排名可能随时变化。</b>
@@ -444,7 +446,7 @@
       <button class="subtab active" data-pane="models">🤖 大模型</button>
       <button class="subtab" data-pane="tools">🛠 编程工具</button>
       <button class="subtab" data-pane="combos">🔗 工具×模型组合</button>
-      <button class="subtab" data-pane="tables">📊 真实榜单 Top10</button>
+      <button class="subtab" data-pane="tables">📊 基准榜单选录</button>
     </div>
 
     <div class="rankpane active" id="p-models"></div>
@@ -826,7 +828,7 @@
 
   <div id="view-cqut" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-cqut">
     <div class="view-head"><h2>🏫 重庆理工：学校 / 学院 / 部门 / 学生会通知</h2>
-      <p>每天自动更新。每条都写清「我该关注啥」，末尾附全部信源直达入口。数据更新于 <span id="cqut-updated"></span></p>
+      <p>每天核查官网通知。每条都写清「我该关注啥」，末尾附信源直达入口。最近成功内容更新于 <span id="cqut-updated"></span>。<span id="cqut-check-note"></span></p>
     </div>
 <details id="cqutMatchFold" style="margin-top:32px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden">
       <summary id="cqutMatchSummary" style="cursor:pointer;list-style:none;padding:14px 18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;user-select:none">
@@ -836,7 +838,7 @@
         <span style="font-size:12px;color:#94a3b8;margin-left:auto;flex:none" id="cqutFoldHint">展开 ▾</span>
       </summary>
       <div style="padding:2px 18px 16px;border-top:1px dashed var(--line)">
-        <p style="font-size:13px;color:#64748b;margin:12px 0 0">这一版<b>只剩今天还报得上的比赛</b>：已经截止的、以及那些「我校获全国一等奖」的获奖通稿，全部删光了。范围从只看重理工扩到了<b> 10 个学校/单位分类</b>，每条只写三件事——<b>这是什么 / 你能帮我做啥 / 我需要做啥</b>。数据更新于 <span id="cqut-match-updated"></span></p>
+        <p style="font-size:13px;color:#64748b;margin:12px 0 0">已核实截止或不符合研究生资格的条目会清退。报名资格和各校通道仍需以官网为准；每条写清<b>这是什么 / 能帮你做什么 / 需要你做什么</b>。最近维护于 <span id="cqut-match-updated"></span></p>
 
         <div style="font-size:14px;font-weight:800;color:var(--ink);margin:16px 0 7px;padding-left:10px;border-left:3px solid var(--brand)">🏫 按学校 / 单位分类 · <span style="font-weight:600;color:#64748b">点一下只看这一类</span></div>
         <div class="cmp-toolbar" id="matchSchoolFilters" style="margin-top:0"></div>
@@ -865,7 +867,9 @@
     <div class="cmp-toolbar" id="cqutTagFilters" style="margin-top:9px"></div>
     <div class="search-row"><input type="search" class="section-search" id="cqut-search" aria-label="搜索学校通知" placeholder="搜索通知、学院、关键词…"><button type="button" class="reset-filter" id="cqut-reset" hidden>清除筛选</button></div>
     <div id="cqut-search-count" class="library-count" role="status"></div>
+    <nav id="cqut-pager-top" class="cmp-pager" aria-label="通知分页（上方）"></nav>
     <div class="cmp-list" id="cqut-list"></div>
+    <nav id="cqut-pager" class="cmp-pager" aria-label="通知分页（下方）"></nav>
     <div class="view-head" style="margin-top:30px">
       <h2 style="font-size:20px">🔗 全部信源直达（每个学院、每个部门都能点到）</h2>
       <p>上方哪些没抓到，直接点这里去官网看最新。</p>
@@ -938,11 +942,18 @@
   </div>
 
   <button id="toTop" title="回到顶部" aria-label="回到顶部">↑</button>
+  <div id="copy-status" class="sr-only" role="status" aria-live="polite"></div>
+  <dialog id="copy-dialog" aria-labelledby="copy-title" style="max-width:min(540px,calc(100vw - 32px));width:100%;border:1px solid var(--line);border-radius:14px;padding:20px;box-sizing:border-box">
+    <h2 id="copy-title" style="font-size:18px;margin:0 0 10px">请手动复制</h2>
+    <p style="font-size:14px;color:var(--ink-soft)">浏览器未能自动复制。请选中下方文字，长按或按 Ctrl+C 复制。</p>
+    <textarea id="copy-manual" readonly aria-label="待复制文字" style="width:100%;height:200px;box-sizing:border-box;padding:10px;font:inherit"></textarea>
+    <div style="display:flex;gap:10px;margin-top:12px"><button type="button" class="top-btn" id="copy-select">全选文字</button><button type="button" class="top-btn" id="copy-close">关闭</button></div>
+  </dialog>
 
   <script>
 /* AI 情报站 - 比赛数据（每日自动更新） */
-window.COMP_UPDATED = "2026-10-17";
-/* ============ COMPETITIONS (snapshot 2026-10-17) ============
+window.COMP_UPDATED = "2026-10-19";
+/* ============ COMPETITIONS (deadline review 2026-10-19; identities preserved) ============
    数据规则：走省赛/赛区选拔且官网赛区列表中没有重庆的赛事，一律不放 scope:"me"（挪 world 或不收）。
    已知案例：挑战杯 2026 报备页省赛仅 13 省，无重庆 → 挑战杯两条均为 world。 */
   var CPIPC = "https://cpipc.acge.org.cn/cw/hp/";
@@ -994,7 +1005,7 @@ window.COMP_UPDATED = "2026-10-17";
      url:"https://netccs.saikr.com/"},
     {scope:"me", n:"中国研究生智慧城市技术与创意设计大赛（第十二届）", type:"创意设计", st:"soon", ai:4, pri:3, team:"组队 / 单人可",
      org:"教育部学位管理与研究生教育司指导",
-     reg:"6/27 – 10/23 12:00（距今 6 天，尽快组队）", run:"作品提交至 10/25 12:00；初赛评审 10/26–11/23；决赛入围公布 12 月上旬；全国总决赛 12/26–27",
+     reg:"6/27 – 10/23 12:00（截止时刻以当届赛事细则为准）", run:"作品提交至 10/25 12:00；初赛评审 10/26–11/23；决赛入围公布 12 月上旬；全国总决赛 12/26–27",
      desc:"设计与文化创意/语言类竞赛，AI 可辅助出图、排版、生成与润色。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"AI 帮方案策划、示意图/原型设想、文案与答辩 PPT；跨专业组队友好。",
     url:"https://cpipc.acge.org.cn/cw/hp/1"},
     {scope:"world", n:"“挑战杯”中国大学生创业计划竞赛（第十五届）", type:"创新创业", st:"open", ai:4, pri:3, team:"组队（跨专业友好）",
@@ -1007,9 +1018,9 @@ window.COMP_UPDATED = "2026-10-17";
      reg:"全年滚动（1 – 11 月）；注：2026 报备页省赛仅 13 省、无重庆赛区，故不列入可报名", run:"逐级选拔",
      desc:"面向广泛专业学生的科技/技能综合赛事，门槛低、易于上手。", fit:"2026 省赛阶段官网无重庆赛区，你在重庆无法走省赛通道；若学校单独组织校赛可关注校团委通知。", help:"AI 帮学术论文/报告撰写、数据分析与可视化、答辩稿打磨。",
      url:"http://www.tiaozhanbei.net/"},
-    {scope:"me", n:"中国研究生网络安全创新大赛（第五届）", type:"网络安全", st:"soon", ai:2, pri:2, team:"组队（技术向）",
+    {scope:"me", n:"中国研究生网络安全创新大赛（第五届）", type:"网络安全", st:"closed", ai:2, pri:2, team:"组队（技术向）",
      org:"教育部学位管理与研究生教育司指导 · 哈尔滨工业大学承办",
-     reg:"6/18 – 10/18 23:59（距今 1 天，明天截止，尽快组队）", run:"作品提交至 10/22；决赛 12/25–27",
+     reg:"6/18 – 10/18 23:59（报名已截止；已报名队伍按官网要求提交作品）", run:"作品提交至 10/22；决赛 12/25–27",
      desc:"网络安全攻防与技术竞赛，含 CTF、漏洞挖掘与防护方案。", fit:"跨方向练手或丰富履历，可组跨专业队，我用 AI 帮你补齐技术短板。", help:"需网安基础，AI 主要帮资料整理与文档撰写；契合度较低，化工背景慎选。",
      url:"https://cpipc.acge.org.cn/cw/hp/2c90800c8093eef401809d33b36f0652"},
     {scope:"me", n:"中国研究生 EDA 精英挑战赛", type:"集成电路/EDA", st:"closed", ai:2, pri:2, team:"组队（技术向）",
@@ -1044,7 +1055,7 @@ window.COMP_UPDATED = "2026-10-17";
      url:"https://www.cnlcr.com/"},
     {scope:"me", n:"2026 年大学生“AI+信息素养”大赛（含重理工校赛）", type:"信息素养 / AI 应用", st:"closed", ai:5, pri:2, team:"组队 / 单人可",
      org:"教育部高校图工委、重庆市教委、四川省教育厅指导 · 重庆大学 / 四川大学承办",
-     reg:"学生报名 7/3 – 9/17（已截止）；校赛 9/19–21 已结束；省赛 10/17–11/2（明天开赛）", run:"省赛 10/17–11/2；全国联赛 11/26–27",
+     reg:"学生报名 7/3 – 9/17（已截止）；校赛 9/19–21 已结束；省赛 10/17–11/2（仅面向已获参赛资格的选手）", run:"省赛 10/17–11/2；全国联赛 11/26–27",
      desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"★ 你正在参加的比赛！官方明确「比赛可以用 AI，没有限制」；AI 帮检索策略、CNKI / LeapSpace 实操、知识点速记与模拟练习答题思路。研究生赛道，校赛个人线上答题（50 题 / 100 分）。",
      url:"https://csc.xxsuyang.com/"},
     {scope:"me", n:"中国研究生人工智能创新大赛（第八届）", type:"AI 创新/研究生主场", st:"closed", ai:5, pri:1, team:"组队 / 单人可",
@@ -1059,7 +1070,7 @@ window.COMP_UPDATED = "2026-10-17";
      url:"https://new.saikr.com/vse/2026RGZN"},
     {scope:"me", n:"MathorCup 数学应用挑战赛·大数据竞赛（第七届）", type:"大数据/AI 建模", st:"soon", ai:4, pri:2, team:"组队 / 单人可",
      org:"中国优选法统筹法与经济数学研究会（国家级学会）",
-     reg:"即日起 – 10/23 12:00（距今 6 天，研究生组单独评奖）", run:"初赛 10/23 18:00 – 10/30 20:00；复赛 12/4 – 12/11",
+     reg:"即日起 – 10/23 12:00（研究生组单独评奖）", run:"初赛 10/23 18:00 – 10/30 20:00；复赛 12/4 – 12/11",
      desc:"MathorCup 数学应用挑战赛·大数据竞赛：企业真实场景数据赛，研究生组单独评奖，1–3 人可跨校，金奖 1 万。是华为杯数模之外的优质大数据练兵场。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"企业真实场景数据赛，管理/大数据/AI/数学/计算机等专业均可，1–3 人组队、可跨校。金奖 1 万、银奖 5 千、铜奖 2 千。AI 帮数据清洗、特征工程、建模、论文与代码。是你『华为杯数模』之外的优质大数据练兵场。",
      url:"https://new.saikr.com/vse/bigdata2026"},
     {scope:"me", n:"2026 怀柔科学城 AI for Science·OPC 创新挑战赛", type:"AI for Science", st:"open", ai:5, pri:2, team:"组队 / 单人可",
@@ -1392,7 +1403,7 @@ window.COMP_UPDATED = "2026-10-17";
      url:"https://tianchi.aliyun.com/competition/entrance/532450"},
     {scope:"me", n:"天池·Agent / 数据共情者算法大赛", type:"AI Agent", st:"soon", ai:5, pri:1, team:"单人可 / 可组队",
      org:"阿里云天池",
-     reg:"报名与作品提交 7/17 – 10/20（赛题1 延至 10/27，以官网为准；距今 3 天）", run:"黑客松决赛 11 月（欧莱雅第二届美妆科技黑客松，奖金池 20 万）",
+     reg:"报名与作品提交 7/17 – 10/20（赛题1 延至 10/27，以赛题官方最新通知为准）", run:"黑客松决赛 11 月（欧莱雅第二届美妆科技黑客松，奖金池 20 万）",
      desc:"以人工智能/大模型/算法为核心，多为开放或企业命题，重方案设计、代码实现与结果复现。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"Agent/客服 AI，可练手拿奖。",
      url:"https://tianchi.aliyun.com/competition/entrance/532503"},
     {scope:"me", n:"科大讯飞 AI 开发者大赛·算法赛（2026）", type:"AI 算法", st:"closed", ai:5, pri:1, team:"单人可 / 可组队",
@@ -1635,7 +1646,7 @@ window.COMP_UPDATED = "2026-10-17";
      url:"http://www.madio.net"},
     {scope:"me", n:"全国大学生数学竞赛", type:"数学", st:"soon", ai:3, pri:2, team:"组队（专业相关）",
      org:"中国数学会（第十八届，大连理工大学承办）",
-     reg:"第十八届报名由各省数学会/学校组织，2026/10/19 截止（缴费 10/20；报名费 60–100 元/人以学校为准，距今 2 天）", run:"初赛 2026/11/14（周六）9:00–11:30；决赛预计 2027 年 4 月（大连理工大学）",
+     reg:"第十八届报名由各省数学会/学校组织，2026/10/19 截止（缴费 10/20；各校可能更早截止，资格与费用以本校通知为准）", run:"初赛 2026/11/14（周六）9:00–11:30；决赛预计 2027 年 4 月（大连理工大学）",
      desc:"以建模、统计或数据分析解决真实问题，团队在数天内完成研究论文/报告。", fit:"数学建模是研究生通用硬通货，3 人队即可上场，性价比高。", help:"AI 帮建模思路、代码实现、论文撰写与排版、图表美化。",
      url:"http://www.cmathc.cn"},
     {scope:"me", n:"全国大学生物理实验竞赛", type:"物理", st:"closed", ai:3, pri:2, team:"组队（专业相关）",
@@ -1884,13 +1895,13 @@ window.COMP_UPDATED = "2026-10-17";
      url:"https://m.saikr.com/MW26MM"},
     {scope:"me", n:"“科创杯”大学生数学建模竞赛（2026 非企业命题赛道）", type:"数学建模", st:"soon", ai:4, pri:2, team:"1–3 人队（可跨校，可设 1 名指导教师）",
      org:"创赛网 · 科创杯组委会（十三届历史，国内具广泛影响力）",
-     reg:"非企业命题赛道 2026/9/20 起官网开放注册（免报名费，赛题公布后直接报名参赛）；省赛 10/15 已公布赛题、5 天答题（约 10/20 截止，距今 3 天）、11/10 公示；国赛 11/25 公布赛题、12/21 颁奖；企业命题赛道已结束", run:"省赛 10/15–11/10；国赛 11/25–12/21；按最高学历分研究生/本科/专科组评奖",
+     reg:"非企业命题赛道 2026/9/20 起官网开放注册（免报名费，赛题公布后直接报名参赛）；省赛 10/15 已公布赛题、5 天答题（约 10/20 截止，精确时刻须查赛题通知）、11/10 公示；国赛 11/25 公布赛题、12/21 颁奖；企业命题赛道已结束", run:"省赛 10/15–11/10；国赛 11/25–12/21；按最高学历分研究生/本科/专科组评奖",
      desc:"以建模、统计或数据分析解决真实问题，团队在数天内完成研究论文/报告，题目注重数学方法与计算机技术综合应用，设企业命题与非企业命题两赛道。",
      fit:"数学建模是研究生通用硬通货，你的 3 人化工队可直接上场，性价比高；免报名费、低门槛。", help:"AI 帮建模思路、代码实现、论文撰写与排版、图表美化；面向国内外专科/本科/研究生开放，按最高学历分研究生组单独评奖，成功参赛即得电子证书；官网 www.simcm.org.cn。适合作为数维杯/亚太杯之外的练手+镀金一站。",
      url:"https://www.simcm.org.cn/"},
-    {scope:"me", n:"2026华智·高校大学生人工智能大赛", type:"AI 知识赛/客观题", st:"soon", ai:5, pri:2, team:"单人可",
+    {scope:"me", n:"2026华智·高校大学生人工智能大赛", type:"AI 知识赛/客观题", st:"closed", ai:5, pri:2, team:"单人可",
      org:"中国移动通信联合会教育与科学技术研究院 · 中国国土经济学会产业创新专业委员会（赛氪网技术支持）",
-     reg:"报名 2026.07.01 – 10/18（第三场考试 10/18，距今 1 天，明天截止，尽快报名）", run:"四场任选其一：8/9、9/20、10/18、11/15（每场 9:00–23:00 任选 60 分钟线上客观题，云监考）；每场考后 5 个工作日出成绩",
+     reg:"原公告报名至2026/10/18（已截止）；是否另开11/15场次报名须查官网，不能凭考试日期视为可报名", run:"四场任选其一：8/9、9/20、10/18、11/15（每场 9:00–23:00 任选 60 分钟线上客观题，云监考）；每场考后 5 个工作日出成绩",
      desc:"以人工智能领域知识为核心的线上客观题竞赛，聚焦基础概念、技术原理与应用场景，提供练习备赛，零基础友好。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"★ 低门槛镀金：研究生可报、专业不限、全程线上机考；客观题作答、有云监考系统，获奖发电子+纸质证书。适合作为 AI 知识『练手+镀金』一站，AI 帮你过知识点＋押题。",
      url:"https://new.saikr.com/vse/HZRGZN"},
     {scope:"me", n:"2026大学生“麟创杯”创新数学竞赛", type:"数学知识赛/客观题", st:"open", ai:3, pri:3, team:"单人可",
@@ -1898,11 +1909,11 @@ window.COMP_UPDATED = "2026-10-17";
      reg:"报名 2026.04.29 – 10/25（三场已过两场，最后一场考试 10/24）", run:"三场任选其一：6/6、8/22、10/24（每场 10:00–23:00 任选 1 小时线上机考）；每场赛后约 3 天出获奖名单",
      desc:"以数学分析与数学建模基础知识为核心的线上客观题机考（满分 100 分），提供免费练习知识库，按分数评一二三等/优秀奖，零基础友好。", fit:"数学建模是研究生通用硬通货，单人线上机考即可参加，性价比高。", help:"★ 低门槛镀金：研究生可报、专业不限、全程线上；一等奖 90–100 分、二等奖 80–89 分、三等奖 60–79 分、优秀奖若干（成绩不为 0 即得），电子+纸质证书。50 元资料费，每名选手仅一次报名、一次答题机会。AI 帮你过知识点＋刷题。",
      url:"https://new.saikr.com/vse/LCBCXSX"},
-    {scope:"me", n:"第七届中国人工智能大赛", type:"AI 安全/大模型/具身智能", st:"soon", ai:5, pri:1, team:"组队（高校/企业/科研院所可单独或联合组队）",
+    {scope:"me", n:"第七届中国人工智能大赛", type:"AI 安全/大模型/具身智能", st:"closed", ai:5, pri:1, team:"组队（高校/企业/科研院所可单独或联合组队）",
      org:"国家互联网信息办公室、公安部指导 · 厦门市人民政府主办",
-     reg:"报名 即日起 – 2026/10/18（距今 1 天，明天截止，尽快通过官网注册组队）", run:"竞赛 10–11 月（技术赛线上 / 案例赛线上路演 / 场景赛厦门）；颁奖 11 月厦门",
+     reg:"报名 即日起 – 2026/10/18（官网启动通知规定的报名截止已过）", run:"竞赛 10–11 月（技术赛线上 / 案例赛线上路演 / 场景赛厦门）；颁奖 11 月厦门",
      desc:"国家级 AI 赛事，聚焦大模型、具身智能、智能体三大方向，设 10 道赛题（大模型安全攻防/幻觉挑战/多模态审核、智能安防巡检/物流/服务机器人、政务与民生智能体等）。",
-     fit:"与你的 AI 应用方向高度契合（大模型/智能体），可作高含金量履历镀金；需以高校/联合团队身份报名。", help:"★ 国家级权威赛事（网信办+公安部指导）：技术赛偏攻防与评测、案例赛要落地方案、场景赛在厦门实打实跑机器人；AI 可辅助理解赛题和整理方案，具体使用范围需遵守规则。高校可单独或联合企业/院所组队，须经资格审核；联合参赛需提交各单位盖章声明，报名后原则上不可修改。请于 10/18 截止前提交完整材料，AI 使用范围以赛题规则为准。",
+     fit:"与你的 AI 应用方向高度契合（大模型/智能体），可作高含金量履历镀金；需以高校/联合团队身份报名。", help:"★ 国家级权威赛事（网信办+公安部指导）：技术赛偏攻防与评测、案例赛要落地方案、场景赛在厦门实打实跑机器人；AI 可辅助理解赛题和整理方案，具体使用范围需遵守规则。高校可单独或联合企业/院所组队，须经资格审核；联合参赛需提交各单位盖章声明，报名后原则上不可修改。原报名截止为10/18；已报名团队请核对后续赛程，AI 使用范围以赛题规则为准。",
      evidence:"https://ai.xm.gov.cn/detail/article-detail.html?id=2026c40news0001",
      url:"https://ai.xm.gov.cn/"},
   ];
@@ -2377,7 +2388,7 @@ window.XINXUE_GUIDE = {
 </script>
   <script>
 /* AI 情报站 - 实力排行榜数据（每日自动更新） */
-window.RANK_UPDATED = "2026-10-17";
+window.RANK_UPDATED = "2026-10-19";
 window.RANK = {
     models: [
       {name:"Claude Opus 5.5", vendor:"Anthropic（美国）", price:"API $4/$20 每百万", iaa:58, tb:null,
@@ -2388,10 +2399,10 @@ window.RANK = {
        note:"2026-09-28 发布，Opus 5.5 同门中杯（5 档 effort：low/medium/high/xhigh/max）；AA 智能指数 v4.3 = 56（max，仅次于 Opus 5.5 的 58，居 AA 榜第 2，较 Sonnet 5 +18 点）。定价 $2/$10，与 Sonnet 5 持平、比 Opus 5.5 便宜一半；1M 上下文、多模态（图/PDF），编码与 agent 强（TB4.0 64%）。⚠ 仅 TB4.0 公开分，无 TB2.1，tb 列留空；中文偏弱，且 max 档 token 消耗极大（约 193K/任务，AA 称史上最高）。"},
       {name:"Claude Fable 5.1", vendor:"Anthropic（美国）", price:"Pro $17–20/月；API $10/$50 每百万", iaa:53, tb:91.4,
        t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"B",性价比:"C",开源:"—"},
-       note:"2026-09-01 发布，AA 智能指数 v4.3 并列第一（53）；TB2.1 第一（91.4%）。⚠ 官方 8/29 已升级 Terminal-Bench v4.0（66 题、难度大幅提升），AA v4.3 起改用 TB4.0：Astra 59.1% > Fable 5.1 52.0% > Opus 5 49.0% > GPT-5.6 Sol 39.9%；本页 TB 列仍为 2.1 旧口径。推理/综合最强，但价格最高、中文偏弱。"},
+       note:"10月19日核对AA官方当前榜：max with fallback智能指数53，与GPT-6 Astra(max)、Gemini4 Argon(high)同分；Opus5.5(max with fallback)为58，故不再称AA并列第一。TB2.1旧收录91.4%保留，与TB4.0不可直接比较。"},
       {name:"GPT-6 Astra", vendor:"OpenAI（美国）", price:"API $10/$50 每百万", iaa:53, tb:89.9,
        t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"A",性价比:"C",开源:"—"},
-       note:"2026-09-03 发布，号称进入 AGI 时代；AA 指数并列第一（53）、代码 Agent 指数 67；TB4.0 59.1%（max）现居第一。原为「关键网络安全」级、仅 Daybreak 计划批准者可用；10-08 OpenAI 向全体 ChatGPT 用户全面上线 GPT-6、取代 GPT-5.6 Sol/Luna（疑即本品公开化，可用性待核实），投票榜样本仍偏少。⚠ 10-15 TheoPhysEval（50 道未公开理论物理题，35 位研究者发布、数据集已开）GPT-6 Astra 在 Codex 环境解 49/50（98%，平均成本 <$3/题），为目前公开的最高单点成绩（Opus 5.5 92%、Gemini 3.8 Flash 68%）。"},
+       note:"10月19日核对AA官方当前榜：max档智能指数53；同一型号xhigh为52、high为51，努力档位必须一同比较。本页tb列89.9%为TB2.1历史口径，本次未改。产品可用性、价格与科学题单成绩不由这次榜单核验推断。"},
       {name:"Claude Opus 5", vendor:"Anthropic（美国）", price:"Pro $17–20/月；API $5/$25 每百万", iaa:51, tb:89.1,
        t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"B",性价比:"B",开源:"—"},
        note:"投票榜 coding 冠军（image-to-WebDev 第一），价格仅 Fable 5.1 一半（$5/$25）；TB2.1 89.1%（TB4.0 49.0%）。英文/代码极强，中文偏弱。"},
@@ -2443,12 +2454,12 @@ window.RANK = {
       {name:"Gemini 3.1 Pro", vendor:"Google（美国）", price:"API $2/$12 每百万", iaa:null, tb:null,
        t:{综合:"A",推理:"S",代码:"A",多模态:"A",长上下文:"S",中文:"A",性价比:"B",开源:"—"},
        note:"现仍在售的真正旗舰 Pro（3.5 Pro 一再跳票）；GPQA Diamond 94.3%、ARC-AGI-1 98%。最强纯推理与超长上下文，价格高于 Flash。"},
-      {name:"Qwen3.8-Max", vendor:"阿里巴巴（中国）", price:"闭源顶配 / Qwen3.8-Flash-Next 开源", iaa:40, tb:null,
+      {name:"Qwen3.8-Max", vendor:"阿里巴巴（中国）", price:"闭源顶配 / Qwen3.8-Flash-Next 开源", iaa:45, tb:null,
        t:{综合:"A",推理:"A",代码:"A",多模态:"B",长上下文:"A",中文:"A",性价比:"A",开源:"A"},
-       note:"Qwen3.8-Max-0902 于 9-2 登 Code Arena WebDev 榜首（1691）；开源 Qwen3.8-Flash-Next 首发 Qwen4 架构。生态最大。"},
-      {name:"DeepSeek V4.1-Flash", vendor:"DeepSeek（中国）", price:"限时 API 预览 / 低价", iaa:40, tb:null,
+       note:"10月19日核对AA官方当前榜：Qwen3.8 Max (0902)智能指数45，原收录40混淆了Max与Flash-Next等不同型号。tb列仍为Terminal-Bench2.1，未核得该型号旧版成绩，留空。"},
+      {name:"DeepSeek V4.1-Flash", vendor:"DeepSeek（中国）", price:"限时 API 预览 / 低价", iaa:39, tb:null,
        t:{综合:"B",推理:"B",代码:"A",多模态:"B",长上下文:"B",中文:"A",性价比:"A",开源:"—"},
-       note:"2026-09-10 发布，552B MoE（每 token 激活 8–16B）、原生多模态，推理效率大幅提升；AA 指数 40（max，2026-09-13 版）。⚠ 限时 API 预览版，是否开放权重待核实；TB4.0 各家 harness 差异极大（约 11.6%–26.8%），暂不填。"},
+       note:"10月19日核对AA官方当前榜：DeepSeek V4.1 Flash (max)智能指数39，修正原收录40。分数对应max推理档，不能与non-reasoning混用；TB2.1暂无同口径核实结果，留空。"},
       {name:"DeepSeek V4 Pro", vendor:"DeepSeek（中国）", price:"开源免费 / API 低价", iaa:36, tb:78.7,
        t:{综合:"B",推理:"B",代码:"A",多模态:"B",长上下文:"B",中文:"A",性价比:"S",开源:"S"},
        note:"DeepSWE 1.1 80.6%（开源权重最高）；性价比/开源双 S，可完全自部署。综合与英文稍弱。"},
@@ -2461,15 +2472,15 @@ window.RANK = {
       {name:"Llama 4", vendor:"Meta（美国）", price:"开源权重", iaa:null, tb:null,
        t:{综合:"B",推理:"B",代码:"B",多模态:"B",长上下文:"B",中文:"C",性价比:"B",开源:"S"},
        note:"经典开源底座，生态与工具链最成熟；中文弱，是许多自部署方案的首选底模。"},
-      {name:"MiniMax M3", vendor:"MiniMax（中国）", price:"开源权重 / API", iaa:null, tb:null,
+      {name:"MiniMax M3", vendor:"MiniMax（中国）", price:"开源权重 / API", iaa:29, tb:null,
        t:{综合:"B",推理:"B",代码:"B",多模态:"B",长上下文:"B",中文:"A",性价比:"B",开源:"A"},
-       note:"国产新锐，中文与多模态均衡，已开放部分权重；综合处于第二梯队。"},
+       note:"10月19日核对AA官方当前榜：MiniMax-M3智能指数29，补入原空值。该分只代表AA综合评测；开放权重与产品价格需另查厂商，不能由分数推断。"},
       {name:"MiMo V2.6 Pro", vendor:"小米 Xiaomi（中国）", price:"开放权重（可自部署）", iaa:46, tb:null,
        t:{综合:"A",推理:"A",代码:"A",多模态:"B",长上下文:"B",中文:"B",性价比:"A",开源:"S"},
-       note:"2026-09-24 小米开源 MiMo V2.6 Pro（开放权重），AA 智能指数 46，登顶开源权重模型（来源 ThursdAI 引 Artificial Analysis）。⚠ 评分为单一报道，建议复核；TB2.1 暂无，tb 列留空。🇨🇳 国产开源新锐，t 评级为基于排名的初步估计。"},
+       note:"10月19日直接核对AA官方当前榜：MiMo-V2.6-Pro智能指数46，已取得一手来源，撤去原“单一报道待复核”说明。tb列为TB2.1旧口径，尚无本次核实成绩，留空。"},
       {name:"StepFun Step 5 Preview", vendor:"阶跃星辰 StepFun（中国）", price:"API 预览（权重拟 2026-10-15 释出）", iaa:44, tb:null,
        t:{综合:"A",推理:"A",代码:"A",多模态:"B",长上下文:"B",中文:"A",性价比:"B",开源:"—"},
-       note:"2026-10-08 阶跃星辰发布 Step 5 Preview（API 预览，权重拟 10-15 释出，当前 API-only）。⚠ AA 智能指数 v4.3 ≈ 44（drmike.xyz 引 Artificial Analysis Data API 自由层，10-07 快照，四舍五入=44），居中游梯队。国产新晋，定位中上游；TB2.1 暂无可靠公开分，tb 列留空。t 评级为基于定位的初步估计。"},
+       note:"10月19日核对AA官方当前榜：Step5 Preview智能指数44、1M上下文。10月15日拟开放权重是旧计划，本次未核实是否落实，不能据此改为已开源；TB2.1暂无核实成绩，留空。"},
       {name:"Reflection Beam", vendor:"Reflection（美国）", price:"开放权重（许可待官方确认）", iaa:30, tb:null,
        t:{综合:"C",推理:"C",代码:"C",多模态:"C",长上下文:"C",中文:"C",性价比:"B",开源:"A"},
        note:"2026-10-16 Reflection 发布首款模型 Beam（Beam 1.0），为其首个模型发布。⚠ AA 智能指数 v4.3 = 30（Artificial Analysis 官方 changelog；AA 称其为美国开放权重模型第 2），仅单一官方来源、分数待复核；tb 列无可靠 TB2.1 分，留空。定位开放权重新锐，实际智能处于下游梯队，t 评级为基于定位的初步估计。"},
@@ -2483,7 +2494,7 @@ window.RANK = {
        note:"终端优先、harness 最深：1M 上下文、子代理并行、钩子（hooks）可编程。SWE-bench V 95%（Fable 5）、TB2.1 89.1% 标杆；缺点 token 消耗大（约 Codex 3–4 倍），无 IDE 图形界面。"},
       {name:"OpenAI Codex", model:"默认 GPT-5.6 Sol", price:"Plus $20/月", tb:89.5, sv:88.7,
        t:{上手:"B",开源:"—"},
-       note:"并行/异步云虚拟机跑任务、git worktree 排队不冲突、自动提 PR；Terminal-Bench 2.1 89.5% 第一。跨 CLI/IDE/云/GitHub 最全。"},
+       note:"并行/异步云虚拟机跑任务、git worktree 排队不冲突、自动提 PR；Terminal-Bench 2.1历史收录89.5%，属于旧模型与agent配对，非当前榜首。跨 CLI/IDE/云/GitHub 最全。"},
       {name:"opencode", model:"任意（BYOK，75+ 供应商）", price:"开源免费，只付模型费", tb:null, sv:null,
        t:{上手:"C",开源:"S"},
        note:"星标最多的开源编码 Agent（约 193K，MIT）；自带并行子代理、可换任意模型、可本地/自托管。能力取决于你选的底层模型，灵活度最高。"},
@@ -2507,7 +2518,7 @@ window.RANK = {
       {name:"Claude Code + Claude Fable 5 / Opus 5", score:"S",
        note:"代码 + Agent 综合最强：SWE-bench Verified 95%（Fable 5），Terminal-Bench 89.1%。要最强质量、不怕烧 token 选它。"},
       {name:"Codex CLI + GPT-5.6 Sol", score:"S",
-       note:"Terminal-Bench 89.5% 第一，后台并行 PR、跨端体验最好。OpenAI 生态 / 要异步批量任务选它。"},
+       note:"Terminal-Bench 2.1历史收录89.5%，后台并行 PR、跨端体验最好。OpenAI 生态 / 要异步批量任务选它。"},
       {name:"opencode + 任意模型（如 Claude/GPT/Gemini/本地）", score:"A",
        note:"灵活度与性价比之王：自由换模型、成本低、开源可自托管。战斗力 ≈ 你选的底层模型 + 它的 harness。"},
       {name:"Cursor + 前沿模型", score:"A",
@@ -2520,27 +2531,19 @@ window.RANK = {
        note:"最便宜付费、IDE 原生、issue→PR。团队已在 GitHub 且要低门槛选它。"}
     ],
     tables: {
-      aa: {title:"Artificial Analysis 智能指数 v4.3 Top16（满分≈58，2026-10-17 复核）", unit:"分", rows:[
-        ["Claude Opus 5.5",58],["Claude Sonnet 5.5",56],["MuseWonder (Full)",56],["Claude Fable 5.1",53],["GPT-6 Astra",53],["Gemini 4 Argon",53],["GPT-6.1 Sol",52],["MuseWonder",52],["Claude Opus 5",51],["Claude Fable 5",50],
-        ["Muse Spark 1.3",48],["Grok 4.7",46],["MiMo V2.6 Pro",46],["GLM-5.3",45],["Grok 4.6",44],["Kimi K3",44]
-      ]},
-      tb: {title:"Terminal-Bench 2.1 Top10（旧版口径，2026-09；⚠ 官方 8/29 已升级 v4.0，AA v4.3 起改用 TB4.0：Astra 59.1 > Fable 5.1 52.0 > Opus 5 49.0 > GPT-5.6 Sol 39.9）", unit:"%", rows:[
+      aa: {title:"Artificial Analysis 智能指数 v4.3.2 · 当前模型选录16项（保留推理档位，2026-10-19核对）", unit:"分", rows:[["Claude Opus 5.5 (max with fallback)", 58], ["Claude Sonnet 5.5 (max with fallback)", 56], ["Muse Wonder Full (max)", 56], ["Claude Fable 5.1 (max with fallback)", 53], ["GPT-6 Astra (max)", 53], ["Gemini 4 Argon (high)", 53], ["GPT-6.1 Sol (max)", 52], ["Muse Wonder (max)", 52], ["Muse Spark 1.3 (max)", 48], ["Grok 4.7 (xhigh)", 46], ["MiMo-V2.6-Pro", 46], ["Qwen3.8 Max (0902)", 45], ["GLM-5.3 (max)", 45], ["Step 5 Preview", 44], ["Kimi K3 (max)", 44], ["Claude Haiku 5.5 (max)", 43]]},
+      tb: {title:"Terminal-Bench 2.1 · 历史收录Top10（2026-09；官方当前为4.0，本次未刷新旧分）", capturedAt:"2026-09", unit:"%", rows:[
         ["Claude Fable 5.1",91.4],["GPT-6 Astra",89.9],["GPT-5.6 Sol",89.5],["Claude Opus 5",89.1],
         ["Grok 4.6",88.4],["GPT-5.6 Terra",88.0],["Gemini 3.8 Flash",87.6],["Kimi K3",85.0],
         ["GLM-5.3-Flash",84.3],["DeepSeek V4 Pro",78.7]
       ]},
-      swe: {title:"SWE-bench（真实 GitHub 修 bug，agent 配对，2026-08）", unit:"%", rows:[
-        ["Claude Code + Fable 5 — Verified",95.0],
-        ["Claude Code + Fable 5 — Pro",80.3],
-        ["Codex + GPT-5.5 — Verified",88.7],
-        ["Codex + GPT-5.5 — Pro",58.6],
-        ["Claude Code + Opus 4.8 — Verified",88.6],
-        ["Gemini CLI + Gemini 3.1 Pro — Verified",80.6],
-        ["Gemini CLI + Gemini 3.1 Pro — Pro",54.2],
-        ["Codex + GPT-5.6 Sol — Terminal-Bench 2.1",89.5]
-      ]}
+      swe: {title:"SWE-bench Verified · 历史收录（2026-08；本次未取得同口径新分数）", unit:"%", capturedAt:"2026-08", rows:[["Claude Code + Fable 5 — Verified", 95.0], ["Codex + GPT-5.5 — Verified", 88.7], ["Claude Code + Opus 4.8 — Verified", 88.6], ["Gemini CLI + Gemini 3.1 Pro — Verified", 80.6]]},
+      swe_pro: {title:"SWE-bench Pro · 历史收录（2026-08；本次未取得同口径新分数）", unit:"%", capturedAt:"2026-08", rows:[["Claude Code + Fable 5 — Pro", 80.3], ["Codex + GPT-5.5 — Pro", 58.6], ["Gemini CLI + Gemini 3.1 Pro — Pro", 54.2]]}
     }
   };
+
+/* 局部核验边界：AA日期不代表旧TB/SWE/订阅价格全部重新核验。 */
+window.RANK_CHECK_NOTE = "10月19日已核对AA官方分数；TB2.1保留2026年9月历史收录，SWE Verified与Pro保留2026年8月历史收录并分开展示。工具配对分数、价格和主观等级本次未全部复核。";
 
 </script>
   <script>
@@ -5333,15 +5336,19 @@ window.CQUT_SOURCES = {
   ]
 };
 
+/* 核查尝试与内容成功更新分开记录；反爬挑战不能冒充新通知。 */
+window.CQUT_CHECKED = "2026-10-19";
+window.CQUT_CHECK_NOTE = "官网访问受限，保留已核实通知；具体事务请以官网原文为准。";
+
 </script>
   <script>
 /* ==========================================================================
  * matches.js —— 比赛板块（只收「现在还能参加」的）
  * --------------------------------------------------------------------------
  * 抓自各高校官网 / 主管部门官网 / 全国赛官网，URL 全部真实可点。
- * 本次维护：2026-10-17。清退 3 项已过报名截止的赛事和 1 项限本科生的赛事；
- * 补入数维杯、中国人工智能大赛和计算机能力挑战赛两个独立赛项。
- * 新增项的来源与截止证据见 _matches_review_2026-10-17.json；旧条目不冒充本次全量核验。
+ * 本次维护：2026-10-19。按官方报名日期与学籍要求清退 5 项过期或不符合身份的赛事。
+ * 完整旧条目和退役依据保存在 MATCH_RETIRED 与 _content_review_2026-10-19.json。
+ * 部分来源受反爬限制；保留条目不冒充本次全量可报名核验。
  *
  * 罗浩的规矩：
  *   ① 已结束的、报不上名的，一条不留；
@@ -5356,11 +5363,9 @@ window.CQUT_SOURCES = {
  *   intro 简介（这是什么）   help 我能帮你做啥（AI 代做）
  *   need 我需要做啥（自己动手那部分）   url 源地址
  * ========================================================================== */
-window.MATCH_UPDATED = "2026-10-17";
+window.MATCH_UPDATED = "2026-10-19";
 
-window.MATCH_NOTE =
-  "这一版只剩「今天还报得上」的比赛。已经截止的、还有那些「我校获全国一等奖」的获奖通稿，全部删掉了。" +
-  "每条按你说的写成三段：这是什么 / 你能帮我做啥 / 我需要做啥。点学校名就能只看那一类。";
+window.MATCH_NOTE = "10月19日已清理5项过期或不符合参赛身份的赛事。部分校内来源本次访问受限，报名之前仍需核对本校资格、截止时间和费用；列表不代表保证仍可报名。";
 
 /* ---------------- 学校 / 单位分类 ---------------- */
 window.MATCH_SCHOOLS = [
@@ -5369,9 +5374,7 @@ window.MATCH_SCHOOLS = [
   {k:"city",  n:"🏛 重庆市级赛",     note:"市教委 / 市科协 / 市经信委主办，门槛低"},
   {k:"cpipc", n:"🏆 研究生研创系列", note:"研创网 cpipc.acge.org.cn 统一报名，全国性，研究生专属"},
   {k:"cqjtu", n:"🌉 重庆交通大学"},
-  {k:"ctbu",  n:"💼 重庆工商大学"},
   {k:"cqupt", n:"📡 重庆邮电大学"},
-  {k:"ynu",   n:"🧪 云南大学"},
 ];
 
 /* ---------------- 赛事条目 ---------------- */
@@ -5417,15 +5420,6 @@ window.MATCHES = [
     need:"我需要做啥：① 10 月 23 日前在研创网完成报名，10 月 25 日前交作品；② 组队（研究生当队长，本科生只能当队员）；③ 如果你要走「把实验室成果包装成参赛作品」这条路，得先把<b>实验数据的完整性补齐</b>——评审是看数据的，光有想法拿不到分。",
     url:"https://cpipc.acge.org.cn/pw/notice/detail/2c9080179e403028019e484cf50210a6?page=0"
   },
-  {
-    n:"第五届中国研究生网络安全创新大赛", school:"cpipc",
-    org:"哈工大承办 · 中国研究生创新实践系列大赛",
-    lv:"国家级", st:"报名中", dl:"2026-10-18", fit:false, rego:"在读研究生 · 可跨校组队",
-    intro:"三条赛道：<b>揭榜挑战赛</b>（企业出的真实技术难题）、<b>创意作品赛</b>（密码学/系统安全/应用安全等形式不限的作品）、<b>实网对抗赛</b>（CTF 夺旗赛，初赛线上）。报名到 10 月 18 日 23:59，揭榜和创意作品 10 月 22 日前交作品，决赛 12 月 26–27 日在哈尔滨。",
-    help:"我能帮你：① 揭榜挑战赛那几个「卡脖子」赛题，我把它们翻译成你能理解的<b>工程语言</b>，帮你判断哪一道在你的能力圈内；② 拿一份安全类作品的通用文档骨架给你，你往里填内容；③ 帮你核对作品里「不得体现学校、学院、导师信息」这类容易踩的雷。",
-    need:"我需要做啥：① <b>10 月 18 日 23:59 前</b>报名，这是硬截止；② 10 月 22 日前交 PDF（不超 10M）+ 可执行程序，命名格式「队长姓名+作品名称+资料名称」；③ 文档里<b>不能出现学校、学院、导师等可能影响公平的信息</b>，这条写进通知了，踩了直接出局。",
-    url:"https://graduate.cqu.edu.cn/info/1394/19239.htm"
-  },
 
   /* ===== 🌉 重庆交通大学 ===== */
   {
@@ -5441,57 +5435,13 @@ window.MATCHES = [
   /* ===== ⚖️ 西南政法大学 ===== */
 
   /* ===== 💼 重庆工商大学 ===== */
-  {
-    n:"2026 年第十三届「学创杯」全国大学生创业综合模拟大赛（校内赛）", school:"ctbu",
-    org:"重庆工商大学经济管理实验教学中心",
-    lv:"国家级（B1 类）", st:"报名中", dl:"以校内通知为准", fit:false, rego:"全校本科生和研究生",
-    intro:"高等学校国家级实验教学示范中心联席会经济与管理学科组主办的全国性创业模拟赛，重工商认定为国家 B1 类竞赛。<b>三个赛道：创业综合模拟、数字营销模拟、财务决策模拟</b>，全都用软件平台做经营决策，系统自动评分。校内赛是个人赛，初赛线上、复赛决赛线下。",
-    help:"我能帮你：① 三个赛道里只有<b>财务决策</b>卡专业（财务/会计/审计/金融），另外两个全校各专业都能报，我帮你算哪个赛道在你的条件下拿奖概率最高；② 找一下软件平台的规则说明，帮你把评分机制讲清楚；③ 你要是组队，我帮你排一个「决策轮次」的备赛节奏。",
-    need:"我需要做啥：① 报名走重工商校内通道 + 经管实验教学中心通知（源地址那篇是完整赛制）；② 记清楚一条关键规则：<b>研究生独立比赛，研究生决赛前 9 名组队晋级市赛</b>——这跟本科生（前 12 名）是两条线，别跟本科生比；③ 初赛每场次前 30% 进复赛。",
-    url:"https://news.ctbu.edu.cn/info/1047/1053911.htm"
-  },
 
   /* ===== 🧪 云南大学 ===== */
-  {
-    n:"第六届全国大学生化学实验创新设计大赛 · 云南大学预选赛", school:"ynu",
-    org:"云南大学化学化工国家级实验教学示范中心",
-    lv:"国家级（省预选）", st:"报名中", dl:"2026-11-30", fit:true, rego:"面向在校生",
-    intro:"教育部高等学校化学教育研究中心体系的全国性赛事，分预选赛 → 省赛 → 国赛。<b>云南大学预选赛报名窗口开到 2026 年 11 月 30 日，是这一版里最宽裕的一条</b>。做的是「创新设计」，不是比谁手更稳——考的是你能不能设计一个别人没做过的实验方案。",
-    help:"我能帮你：① 从你正在做的<b>柚子皮粉衍生碳 / 配位聚合物</b>里挑一个能变成实验设计命题的角度，帮你把「创新点」写的评审看得懂；② 往届获奖作品的设计思路拆成结构模板；③ 帮你把实验方案里的「为什么这么做」那一段补出来——这一段最容易被扣分。",
-    need:"我需要做啥：① 先确认云南大学这一级的具体报名通道（源地址是云大化学化工国家级实验教学示范中心那条）；② 报名一般要走所在学校教务处或化学学院，<b>你是重理工的，得先确认能不能跨校报</b>，这条务必问清楚再投入；③ 11 月 30 日截止，但方案是要慢慢磨的。",
-    url:"http://www.eccce.ynu.edu.cn/info/1010/1195.htm"
-  },
 
   /* ===== ⚗️ 青岛科技大学 ===== */
 
 
   /* ===== 🌉 重庆交通大学 ===== */
-  {
-    n:"第七届国际大学生工程力学竞赛（全英文）· 重庆交通大学选拔赛", school:"cqjtu",
-    org:"重庆交通大学（土木工程学院承办）",
-    lv:"国家级（全英文）", st:"报名中", dl:"以选拔赛通知为准（2026-09-28 发布）", fit:false,
-    rego:"以本校选拔通知的参赛对象为准",
-    intro:"中国力学学会体系下的<b>国际大学生工程力学竞赛（IYMC，全英文命题）</b>，重庆交通大学 9 月 28 日刚发的校级选拔赛通知。全英文答题是它跟其他力学竞赛最大的差别，考的是用英文把力学建模和推导写清楚。选拔赛通过后进全国/国际赛轮次。<b>注意：这条跟你的化工专业不对口，属于“看到了顺手记一笔”的类型。</b>",
-    help:"我能帮你：① 先给你判断值不值得花时间——全英文力学竞赛对化工研究生而言，收益主要在英语学术写作和建模表达，性价比不如你手上的化工类竞赛；② 如果你确实想冲，我可以帮你把英文力学竞赛的常见题型（静力学/材料力学/结构力学/动力学）术语表先过一遍，这是全英文赛最大的坎；③ 提醒你别跟实验室的排期撞上，这类比赛都卡在十一月下旬到十二月初的考试周。",
-    need:"我需要做啥：① <b>先点开链接看原文——这条我只核实到“重庆交通大学 9 月 28 日发布了选拔赛通知”这一层，报名表回收方式和截止日没抓到</b>（该站只提供 http，云端抓取通道走 https 会失败），所以别照抄我的说法，一律以原文为准；② 想参加就找本校土木工程学院/教务处这条通知下的联系人，走校内选拔报名；③ 决定要打全英文场的话，现在开始背力学专业英语词汇，这是唯一能靠突击补的。",
-    url:"http://civil.cqjtu.edu.cn/info/1004/13318.htm",
-    status:"2026-09-28 发布，报名细则待原文确认"
-  },
-  {
-    n:"第七届中国人工智能大赛",
-    school:"national",
-    org:"厦门市人民政府主办；国家网信办、公安部指导",
-    lv:"全国性",
-    st:"报名中",
-    dl:"2026-10-18",
-    fit:false,
-    rego:"高校、企业、科研院所单独或联合组队；需资格审核",
-    intro:"围绕大模型、具身智能、智能体设置技术、案例与场景赛题。技术和案例赛在线开展，场景赛在厦门举行。",
-    help:"协助比较赛题、整理技术方案与材料清单；AI 使用范围按具体赛题规则执行。",
-    need:"先确认高校团队报名及盖章要求，10 月 18 日前完成官网注册、提交材料和资格审核。",
-    url:"https://ai.xm.gov.cn/detail/article-detail.html?id=2026c40news0001",
-    alt:"https://ai.xm.gov.cn/"
-  },
   {
     n:"2026 第十二届数维杯全国大学生数学建模挑战赛（秋季赛）",
     school:"national",
@@ -5560,10 +5510,126 @@ window.MATCH_SOURCES = [
   {n:"工业和信息化部产业发展促进中心（官网）", u:"https://www.idpc.org.cn/"}
 ];
 
+/* 已退役精选：仅供审计，不进入可报名列表。原始字段完整保留，禁止无依据回流。 */
+window.MATCH_RETIRED = [
+  {
+    "n": "第五届中国研究生网络安全创新大赛",
+    "school": "cpipc",
+    "org": "哈工大承办 · 中国研究生创新实践系列大赛",
+    "lv": "国家级",
+    "st": "报名中",
+    "dl": "2026-10-18",
+    "fit": false,
+    "rego": "在读研究生 · 可跨校组队",
+    "intro": "三条赛道：<b>揭榜挑战赛</b>（企业出的真实技术难题）、<b>创意作品赛</b>（密码学/系统安全/应用安全等形式不限的作品）、<b>实网对抗赛</b>（CTF 夺旗赛，初赛线上）。报名到 10 月 18 日 23:59，揭榜和创意作品 10 月 22 日前交作品，决赛 12 月 26–27 日在哈尔滨。",
+    "help": "我能帮你：① 揭榜挑战赛那几个「卡脖子」赛题，我把它们翻译成你能理解的<b>工程语言</b>，帮你判断哪一道在你的能力圈内；② 拿一份安全类作品的通用文档骨架给你，你往里填内容；③ 帮你核对作品里「不得体现学校、学院、导师信息」这类容易踩的雷。",
+    "need": "我需要做啥：① <b>10 月 18 日 23:59 前</b>报名，这是硬截止；② 10 月 22 日前交 PDF（不超 10M）+ 可执行程序，命名格式「队长姓名+作品名称+资料名称」；③ 文档里<b>不能出现学校、学院、导师等可能影响公平的信息</b>，这条写进通知了，踩了直接出局。",
+    "url": "https://graduate.cqu.edu.cn/info/1394/19239.htm",
+    "retiredAt": "2026-10-19",
+    "reasonCode": "deadline",
+    "reason": "报名已于北京时间2026年10月18日结束；作品提交期不等于新队伍报名期。",
+    "sourceEvidence": [
+      "https://cpipc.acge.org.cn/cw/hp/2c90800c8093eef401809d33b36f0652"
+    ],
+    "evidenceExcerpt": "官网赛程：报名2026年06月18日—2026年10月18日。",
+    "deadline": "2026-10-18"
+  },
+  {
+    "n": "2026 年第十三届「学创杯」全国大学生创业综合模拟大赛（校内赛）",
+    "school": "ctbu",
+    "org": "重庆工商大学经济管理实验教学中心",
+    "lv": "国家级（B1 类）",
+    "st": "报名中",
+    "dl": "以校内通知为准",
+    "fit": false,
+    "rego": "全校本科生和研究生",
+    "intro": "高等学校国家级实验教学示范中心联席会经济与管理学科组主办的全国性创业模拟赛，重工商认定为国家 B1 类竞赛。<b>三个赛道：创业综合模拟、数字营销模拟、财务决策模拟</b>，全都用软件平台做经营决策，系统自动评分。校内赛是个人赛，初赛线上、复赛决赛线下。",
+    "help": "我能帮你：① 三个赛道里只有<b>财务决策</b>卡专业（财务/会计/审计/金融），另外两个全校各专业都能报，我帮你算哪个赛道在你的条件下拿奖概率最高；② 找一下软件平台的规则说明，帮你把评分机制讲清楚；③ 你要是组队，我帮你排一个「决策轮次」的备赛节奏。",
+    "need": "我需要做啥：① 报名走重工商校内通道 + 经管实验教学中心通知（源地址那篇是完整赛制）；② 记清楚一条关键规则：<b>研究生独立比赛，研究生决赛前 9 名组队晋级市赛</b>——这跟本科生（前 12 名）是两条线，别跟本科生比；③ 初赛每场次前 30% 进复赛。",
+    "url": "https://news.ctbu.edu.cn/info/1047/1053911.htm",
+    "retiredAt": "2026-10-19",
+    "reasonCode": "deadline",
+    "reason": "该校内赛报名与比赛均早已结束，原“以校内通知为准”掩盖了明确的过期信息。",
+    "sourceEvidence": [
+      "https://news.ctbu.edu.cn/info/1047/1053911.htm"
+    ],
+    "evidenceExcerpt": "报名3月25日—4月7日；决赛4月26日。",
+    "deadline": "2026-04-07"
+  },
+  {
+    "n": "第六届全国大学生化学实验创新设计大赛 · 云南大学预选赛",
+    "school": "ynu",
+    "org": "云南大学化学化工国家级实验教学示范中心",
+    "lv": "国家级（省预选）",
+    "st": "报名中",
+    "dl": "2026-11-30",
+    "fit": true,
+    "rego": "面向在校生",
+    "intro": "教育部高等学校化学教育研究中心体系的全国性赛事，分预选赛 → 省赛 → 国赛。<b>云南大学预选赛报名窗口开到 2026 年 11 月 30 日，是这一版里最宽裕的一条</b>。做的是「创新设计」，不是比谁手更稳——考的是你能不能设计一个别人没做过的实验方案。",
+    "help": "我能帮你：① 从你正在做的<b>柚子皮粉衍生碳 / 配位聚合物</b>里挑一个能变成实验设计命题的角度，帮你把「创新点」写的评审看得懂；② 往届获奖作品的设计思路拆成结构模板；③ 帮你把实验方案里的「为什么这么做」那一段补出来——这一段最容易被扣分。",
+    "need": "我需要做啥：① 先确认云南大学这一级的具体报名通道（源地址是云大化学化工国家级实验教学示范中心那条）；② 报名一般要走所在学校教务处或化学学院，<b>你是重理工的，得先确认能不能跨校报</b>，这条务必问清楚再投入；③ 11 月 30 日截止，但方案是要慢慢磨的。",
+    "url": "http://www.eccce.ynu.edu.cn/info/1010/1195.htm",
+    "retiredAt": "2026-10-19",
+    "reasonCode": "eligibility",
+    "reason": "官网明确仅限云南大学普通全日制本科在校学生；本站用户为重庆理工研究生，不符合参赛身份。",
+    "sourceEvidence": [
+      "http://www.eccce.ynu.edu.cn/info/1010/1195.htm"
+    ],
+    "evidenceExcerpt": "参赛对象：云南大学普通全日制本科在校学生。",
+    "deadline": null
+  },
+  {
+    "n": "第七届国际大学生工程力学竞赛（全英文）· 重庆交通大学选拔赛",
+    "school": "cqjtu",
+    "org": "重庆交通大学（土木工程学院承办）",
+    "lv": "国家级（全英文）",
+    "st": "报名中",
+    "dl": "以选拔赛通知为准（2026-09-28 发布）",
+    "fit": false,
+    "rego": "以本校选拔通知的参赛对象为准",
+    "intro": "中国力学学会体系下的<b>国际大学生工程力学竞赛（IYMC，全英文命题）</b>，重庆交通大学 9 月 28 日刚发的校级选拔赛通知。全英文答题是它跟其他力学竞赛最大的差别，考的是用英文把力学建模和推导写清楚。选拔赛通过后进全国/国际赛轮次。<b>注意：这条跟你的化工专业不对口，属于“看到了顺手记一笔”的类型。</b>",
+    "help": "我能帮你：① 先给你判断值不值得花时间——全英文力学竞赛对化工研究生而言，收益主要在英语学术写作和建模表达，性价比不如你手上的化工类竞赛；② 如果你确实想冲，我可以帮你把英文力学竞赛的常见题型（静力学/材料力学/结构力学/动力学）术语表先过一遍，这是全英文赛最大的坎；③ 提醒你别跟实验室的排期撞上，这类比赛都卡在十一月下旬到十二月初的考试周。",
+    "need": "我需要做啥：① <b>先点开链接看原文——这条我只核实到“重庆交通大学 9 月 28 日发布了选拔赛通知”这一层，报名表回收方式和截止日没抓到</b>（该站只提供 http，云端抓取通道走 https 会失败），所以别照抄我的说法，一律以原文为准；② 想参加就找本校土木工程学院/教务处这条通知下的联系人，走校内选拔报名；③ 决定要打全英文场的话，现在开始背力学专业英语词汇，这是唯一能靠突击补的。",
+    "url": "http://civil.cqjtu.edu.cn/info/1004/13318.htm",
+    "status": "2026-09-28 发布，报名细则待原文确认",
+    "retiredAt": "2026-10-19",
+    "reasonCode": "deadline_and_eligibility",
+    "reason": "10月14日已截止、10月16日已举办，且仅限该校本科生。",
+    "sourceEvidence": [
+      "http://civil.cqjtu.edu.cn/info/1004/13318.htm"
+    ],
+    "evidenceExcerpt": "参赛对象：全体在校本科生；2026年10月14日前加入竞赛群；10月16日选拔赛。",
+    "deadline": "2026-10-14"
+  },
+  {
+    "n": "第七届中国人工智能大赛",
+    "school": "national",
+    "org": "厦门市人民政府主办；国家网信办、公安部指导",
+    "lv": "全国性",
+    "st": "报名中",
+    "dl": "2026-10-18",
+    "fit": false,
+    "rego": "高校、企业、科研院所单独或联合组队；需资格审核",
+    "intro": "围绕大模型、具身智能、智能体设置技术、案例与场景赛题。技术和案例赛在线开展，场景赛在厦门举行。",
+    "help": "协助比较赛题、整理技术方案与材料清单；AI 使用范围按具体赛题规则执行。",
+    "need": "先确认高校团队报名及盖章要求，10 月 18 日前完成官网注册、提交材料和资格审核。",
+    "url": "https://ai.xm.gov.cn/detail/article-detail.html?id=2026c40news0001",
+    "alt": "https://ai.xm.gov.cn/",
+    "retiredAt": "2026-10-19",
+    "reasonCode": "deadline",
+    "reason": "官方启动通知规定10月18日报名截止，现已过期。",
+    "sourceEvidence": [
+      "https://ai.xm.gov.cn/detail/article-detail.html?id=2026c40news0001"
+    ],
+    "evidenceExcerpt": "报名阶段即日起—10月18日，报名和资格审核。",
+    "deadline": "2026-10-18"
+  }
+];
+
 </script>
   <script>
 /* 基金看板数据（持仓 4 只 · 支付宝） */
-window.FUNDS_UPDATED = "2026-10-16";
+window.FUNDS_UPDATED = "2026-10-19";
 
 /* 首次填充数据来源：罗浩本人支付宝 App 持仓截图，时点 2026-09-25。
    深度档案(净值/业绩/规模/状态)于 2026-09-28 通过天天基金 F10 实抓刷新（QDII 净值有 T+2 滞后，见各条 navDate）。
@@ -5613,10 +5679,11 @@ window.FUNDS_UPDATED = "2026-10-16";
    2026-10-14 收盘例行刷新（16:43 触发）：012920 QDII 出 10-13 净值（3.5707/-0.33%，原 10-12/3.5827），其余 3 只净值无更新（024480/022432 仍为 10-13、016452 仍为 10-12，10-14 当日净值 20:00 后出，不伪造）；4 只 perf 按 FundMNPeriodIncrease 实抓滚动窗口刷新；A股 7 只重点股刷新至 10-14 收盘（光模块/AI 板块深跌：新易盛 -5.84%、中际旭创 -5.73%、寒武纪 -4.86%、兆易 -4.46%），美股停在 10-13 收盘。四日期字段均为 2026-10-14。账户金额未动。
    2026-10-15 每日净值例行更新（天天基金 F10 历史净值接口实抓）：A股两只 024480→10-14（1.6028/-2.36%）、022432→10-14（1.1532/-1.47%）出 10-14 净值；QDII 012920 仍停 10-13（3.5707/-0.33%）、016452 出 10-13 净值（2.3522/-0.32%，T+2 滞后，10-14 净值未公布）；10-15 当日净值约 20:00 后出，不伪造。perf 按 FundMNPeriodIncrease 实抓滚动窗口刷新（024480 近1月 -18.02%/今年来 +54.59%、022432 近1月 -6.35%/今年来 -6.01%、016452 近1月 +3.20%/今年来 +14.83%）。A股 7 只重点股刷新至 10-15 收盘（新易盛 -7.49%、中际旭创 -5.19%、兆易 -4.90%、北方华创 +3.95% 逆势）；美股 4 只刷新至 10-14 收盘（NVDA -3.16%、AMD -5.73%、MU -4.10%）。四日期字段均为 2026-10-15。账户金额(amt/dayPL/holdPL)未动。
    2026-10-16 每日净值例行更新（天天基金 F10 lsjz 实抓）：4 只全部有新净值 —— A股两只 024480→10-15（1.5425/-3.76%）、022432→10-15（1.1352/-1.56%）；QDII 两只受 T+2 滞后 012920→10-14（3.4578/-3.16%）、016452→10-14（2.3049/-2.01%）。perf 按 FundMNPeriodIncrease 实抓滚动窗口刷新；A股 7 只重点股刷新至 10-16 收盘、美股 4 只刷新至 10-15 收盘。四日期字段均为 2026-10-16。账户金额(amt/dayPL/holdPL)未动。 */
+/* 2026-10-19：4只基金公开净值经天天基金数据源实抓核验；账户/余额宝、个股行情和旧档案未刷新。详见 _funds_review_2026-10-19.json。 */
 window.FUNDS_META = {
   "src": "用户提供的最新支付宝全部持有截图（本次同步 2026-10-15，截图时钟 20:27，截图未显示日历日期）",
-  "date": "2026-10-16",
-  "note": "4 只基金金额及日收益、持有收益按截图同步；新增余额宝 270.15 元，日收益 +0.01 元、累计收益 +0.92 元。用户补充清晰截图，四只基金持有收益率与累计收益均已逐项核对；截图没有份额及对应基准净值，navAt 留 null，暂停估算。2026-10-16 例行刷新：A股两只（024480/022432）净值更新至 10-15、QDII 两只（012920/016452）受 T+2 滞后净值更新至 10-14；行情 A股刷新至 10-16 收盘、美股至 10-15 收盘；账户金额仍为 10-15 支付宝快照，未动。"
+  "date": "2026-10-19",
+  "note": "2026-10-19 已实抓复核4只基金公开净值；净值日期见各基金navDate。账户快照仍为2026-10-15；旧个股行情、阶段业绩和持仓档案保持原日期，不视为本次刷新。"
 };
 
 /* 持仓：amt=持有金额(元)｜dayPL=昨日收益｜holdPL=持有收益｜holdPct=持有收益率(小数)
@@ -5638,9 +5705,9 @@ window.FUNDS_HOLD = [
     "auto": "定投",
     "amtDate": "2026-10-15",
     "navAt": null,
-    "unit": 2.3049,
-    "dayPct": -0.0201,
-    "navDate": "2026-10-14",
+    "unit": 2.3039,
+    "dayPct": -0.0004,
+    "navDate": "2026-10-15",
     "url": "https://fund.eastmoney.com/016452.html",
     "snapshotNote": "按用户补充的清晰截图同步；份额及对应基准净值未提供，暂停估算。",
     "cumulativePL": 22.88
@@ -5657,9 +5724,9 @@ window.FUNDS_HOLD = [
     "auto": "",
     "amtDate": "2026-10-15",
     "navAt": null,
-    "unit": 1.1352,
-    "dayPct": -0.0156,
-    "navDate": "2026-10-15",
+    "unit": 1.137,
+    "dayPct": 0.0016,
+    "navDate": "2026-10-16",
     "url": "https://fund.eastmoney.com/022432.html",
     "snapshotNote": "按用户补充的清晰截图同步；份额及对应基准净值未提供，暂停估算。",
     "cumulativePL": 1.12
@@ -5676,9 +5743,9 @@ window.FUNDS_HOLD = [
     "auto": "定投",
     "amtDate": "2026-10-15",
     "navAt": null,
-    "unit": 3.4578,
-    "dayPct": -0.0316,
-    "navDate": "2026-10-14",
+    "unit": 3.3866,
+    "dayPct": -0.0206,
+    "navDate": "2026-10-15",
     "url": "https://fund.eastmoney.com/012920.html",
     "snapshotNote": "按用户补充的清晰截图同步；份额及对应基准净值未提供，暂停估算。",
     "cumulativePL": -77.4
@@ -5695,9 +5762,9 @@ window.FUNDS_HOLD = [
     "auto": "",
     "amtDate": "2026-10-15",
     "navAt": null,
-    "unit": 1.5425,
-    "dayPct": -0.0376,
-    "navDate": "2026-10-15",
+    "unit": 1.5086,
+    "dayPct": -0.022,
+    "navDate": "2026-10-16",
     "url": "https://fund.eastmoney.com/024480.html",
     "snapshotNote": "按用户补充的清晰截图同步；份额及对应基准净值未提供，暂停估算。",
     "cumulativePL": -580.59
@@ -5742,12 +5809,13 @@ window.FUNDS_EXPOSURE = [
    净值/业绩/规模/申购状态均来自天天基金页面原文（2026-09-28 抓取），抓不到就不写，绝不编造。 */
 window.FUNDS_DEEP = {
   date: "2026-10-16",
+  navCheckedAt: "2026-10-19",
   src: "天天基金 fundf10.eastmoney.com（持仓/经理档案页，2026-09-28 实抓；阶段业绩 2026-10-08 复核，与 10-06/10-07 一致）",
   byCode: {
     "012920": {
       mgr: "郑希", mgrYears: "任职14年", mgrScale: "在管约579亿元",
       mgrNote: "易方达权益投资管理部副总经理，理学硕士；代表作易方达信息产业混合A任期回报约+712.71%，擅长TMT/全球科技成长。",
-      nav: 3.4578, navDate: "2026-10-14", dayPct: -0.0316,
+      nav: 3.3866, navDate: "2026-10-15", dayPct: -0.0206,
       perf: "近1月 -4.13%｜近3月 -21.66%｜近6月 +4.72%｜今年来 +38.00%｜近1年 +53.65%｜近3年 +261.17%｜成立来 +245.78%",
       scale: "74.92亿元（2026-06-30）",
       status: "暂停申购 · 单日限10元（QDII外汇额度紧张），开放赎回",
@@ -5764,7 +5832,7 @@ window.FUNDS_DEEP = {
     "024480": {
       mgr: "金梓才", mgrYears: "任职11年", mgrScale: "在管约565亿元",
       mgrNote: "财通基金副总经理、权益投资总监，上海交大微电子硕士；代表作财通集成电路产业股票A任期回报约+636.69%，风格行业轮动、重仓TMT。",
-      nav: 1.5425, navDate: "2026-10-15", dayPct: -0.0376,
+      nav: 1.5086, navDate: "2026-10-16", dayPct: -0.022,
       perf: "近1月 -21.66%｜近3月 -28.46%｜近6月 +15.59%｜今年来 +48.78%｜成立来 +54.25%（2025-10-31成立）",
       scale: "10.51亿元（2026-06-30）",
       status: "开放申购/赎回",
@@ -5781,7 +5849,7 @@ window.FUNDS_DEEP = {
     "022432": {
       mgr: "宋巍巍", mgrYears: "指数团队", mgrScale: "管理40余只指数基金",
       mgrNote: "中欧基金量化/指数基金经理（量化投资决策委员会委员），历任中欧研究员、投资经理，同时管理机器人/芯片/软件开发/A500等多只指数产品。",
-      nav: 1.1352, navDate: "2026-10-15", dayPct: -0.0156,
+      nav: 1.137, navDate: "2026-10-16", dayPct: 0.0016,
       perf: "近1月 -7.33%｜近3月 -13.13%｜近6月 -10.59%｜今年来 -7.47%｜近1年 -5.16%｜成立来 +13.52%（2024-11-04成立）",
       scale: "3.70亿元（2026-06-30）",
       status: "开放申购/赎回",
@@ -5798,7 +5866,7 @@ window.FUNDS_DEEP = {
     "016452": {
       mgr: "张其思", mgrYears: "任职近4年", mgrScale: "本基金62.10亿元",
       mgrNote: "波士顿大学数理金融硕士，CFA/FRM；南方基金国际指数团队，同时管理纳指100/恒生科技/标普500等多只QDII指数产品。",
-      nav: 2.3049, navDate: "2026-10-14", dayPct: -0.0201,
+      nav: 2.3039, navDate: "2026-10-15", dayPct: -0.0004,
       perf: "近1月 +2.00%｜近3月 +0.15%｜近6月 +12.79%｜今年来 +12.52%｜近1年 +14.14%｜近3年 +74.06%｜成立来 +130.49%（2022-11-29成立）",
       scale: "62.10亿元（2026-06-30）",
       status: "限大额 · 单日限10元（QDII外汇额度紧张），开放赎回",
@@ -5974,6 +6042,42 @@ window.FUNDS_STOCKS = {
     read:function(key){try{var x=JSON.parse(window.sessionStorage.getItem(key)||"{}");return x&&typeof x==="object"&&!Array.isArray(x)?x:{};}catch(e){return {}; }},
     write:function(key,value){try{window.sessionStorage.setItem(key,JSON.stringify(value));}catch(e){}}
   };
+  /* 所有复制入口共用：只在浏览器确认写入后提示成功，受限时提供可选中的原文。 */
+  window.AI_COPY = async function(text, button){
+    if(button && button.disabled) return false;
+    var label=button?button.textContent:"", copied=false, active=document.activeElement;
+    if(button) button.disabled=true;
+    try{
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        try{await navigator.clipboard.writeText(String(text));copied=true;}catch(e){}
+      }
+      if(!copied){
+        var ta=document.createElement("textarea");
+        ta.value=String(text);ta.setAttribute("readonly","");
+        ta.style.cssText="position:fixed;left:-9999px;top:0;opacity:0";
+        document.body.appendChild(ta);
+        try{ta.select();copied=document.execCommand("copy")===true;}catch(e){}
+        finally{document.body.removeChild(ta);}
+      }
+      document.getElementById("copy-status").textContent=copied?"已复制":"自动复制失败，请手动复制下方文字";
+      if(copied){
+        if(button) button.textContent="已复制 ✓";
+      }else{
+        var dialog=document.getElementById("copy-dialog"), field=document.getElementById("copy-manual");
+        dialog._copyTrigger=button||active;
+        field.value=String(text);
+        if(!dialog.open){if(dialog.showModal)dialog.showModal();else dialog.setAttribute("open","");}
+        field.focus();field.select();
+      }
+      return copied;
+    }finally{
+      if(button){button.disabled=false;if(copied)setTimeout(function(){button.textContent=label;},1600);}
+      if(copied&&active&&active.focus)active.focus({preventScroll:true});
+    }
+  };
+  document.getElementById("copy-select").addEventListener("click",function(){var el=document.getElementById("copy-manual");el.focus();el.select();});
+  document.getElementById("copy-close").addEventListener("click",function(){var d=document.getElementById("copy-dialog");if(d.close)d.close();else d.removeAttribute("open");});
+  document.getElementById("copy-dialog").addEventListener("close",function(){var el=this._copyTrigger;if(el&&el.focus)el.focus({preventScroll:true});});
   /* ============ TAB SWITCHING ============ */
   function showTab(tab){
     if(["daily","rank","comp","learn","ted","forum","cqut","funds"].indexOf(tab)<0) return;
@@ -6060,9 +6164,11 @@ window.FUNDS_STOCKS = {
 
   /* ============ RANK DATA (snapshot 2026-10-17) ============ */
   var RANK = window.RANK || {};
+  document.getElementById("rank-updated").textContent=window.RANK_UPDATED||"未知";
+  document.getElementById("rank-check-note").textContent=window.RANK_CHECK_NOTE||"各项日期与评测口径见表格说明。";
   ["models","tools","combos"].forEach(function(k){ if(!Array.isArray(RANK[k])) RANK[k]=[]; });
   RANK.tables = RANK.tables || {};
-  ["aa","tb","swe"].forEach(function(k){ if(!RANK.tables[k]) RANK.tables[k]={title:k,unit:"",rows:[]}; });
+  ["aa","tb","swe","swe_pro"].forEach(function(k){ if(!RANK.tables[k]||typeof RANK.tables[k]!=="object") RANK.tables[k]={title:k,unit:"",rows:[]};if(!Array.isArray(RANK.tables[k].rows))RANK.tables[k].rows=[]; });
 
   function tierBadge(t){
     var cls = {"S":"t-S","A":"t-A","B":"t-B","C":"t-C","—":"t-none"}[t] || "t-none";
@@ -6093,7 +6199,7 @@ window.FUNDS_STOCKS = {
         + '</tr>';
     }).join('');
     document.getElementById("p-models").innerHTML =
-      '<div class="legend">评级：<span class="tier t-S">S</span>顶尖/第一梯队 <span class="tier t-A">A</span>很强/第二梯队 <span class="tier t-B">B</span>够用/第三梯队 <span class="tier t-C">C</span>偏弱 <span class="tier t-none">—</span>不适用。AA = Artificial Analysis 智能指数 v4.3（满分≈58），横向比较请以 AA 为主基准；TB = Terminal-Bench，本列多为 2.1 旧口径（官方 8/29 已升级 4.0，部分模型仅公布 TB4.0、故 TB2.1 列留空，新旧口径不可直接比）。表格可左右滑动查看全部列。</div>'
+      '<div class="legend">评级：<span class="tier t-S">S</span>顶尖/第一梯队 <span class="tier t-A">A</span>很强/第二梯队 <span class="tier t-B">B</span>够用/第三梯队 <span class="tier t-C">C</span>偏弱 <span class="tier t-none">—</span>不适用。评级为本站观点。AA = Artificial Analysis 智能指数 v4.3.2，比较时注意具体型号与推理档位；TB2.1 为历史口径，当前官方榜为 4.0，新旧口径不可直接比。表格可左右滑动查看全部列。</div>'
       + '<div class="matrix-wrap"><table class="matrix"><thead>'+head+'</thead><tbody>'+rows+'</tbody></table></div>';
   }
   function renderTools(){
@@ -6138,15 +6244,15 @@ window.FUNDS_STOCKS = {
   }
   function renderTables(){
     function t(obj){
-      var _rows = obj.rows.slice().sort(function(a,b){ return (parseFloat(b[1])||0)-(parseFloat(a[1])||0); }); /* 按分数降序 */
+      var _rows = (Array.isArray(obj.rows)?obj.rows:[]).filter(Array.isArray).slice().sort(function(a,b){ return (parseFloat(b[1])||0)-(parseFloat(a[1])||0); }); /* 同基准内按分数降序 */
       var rows = _rows.map(function(r,i){
         return '<tr><td class="num-cell">'+(i+1)+'</td><td>'+esc(r[0])+'</td><td style="font-weight:700">'+esc(r[1]==null?'—':r[1])+' '+esc(obj.unit)+'</td></tr>';
       }).join("");
       return '<h3 style="margin:18px 0 8px;font-size:16px">'+esc(obj.title)+'</h3>'+
         '<table class="ranktbl"><thead><tr><th>#</th><th>模型 / 组合</th><th>分数</th></tr></thead><tbody>'+rows+'</tbody></table>';
     }
-    document.getElementById("p-tables").innerHTML = t(RANK.tables.aa)+t(RANK.tables.tb)+t(RANK.tables.swe)+
-      '<p style="color:var(--ink-soft);font-size:13px;margin-top:8px">分数会随版本快速变化，仅供快照参考；权威实时数据请见各榜单官网（Artificial Analysis、Terminal-Bench、SWE-bench）。</p>';
+    document.getElementById("p-tables").innerHTML = t(RANK.tables.aa)+t(RANK.tables.tb)+t(RANK.tables.swe)+(RANK.tables.swe_pro.rows.length?t(RANK.tables.swe_pro):"")+
+      '<p style="color:var(--ink-soft);font-size:13px;margin-top:8px">不同评测与版本不作跨表排名。核对实时数据：<a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener noreferrer">Artificial Analysis ↗</a> · <a href="https://www.tbench.ai/leaderboard" target="_blank" rel="noopener noreferrer">Terminal-Bench ↗</a> · <a href="https://www.swebench.com/" target="_blank" rel="noopener noreferrer">SWE-bench ↗</a>。</p>';
   }
   renderModels(); renderTools(); renderCombos(); renderTables();
   /* Mobile summaries share the same data and ordering as the desktop comparison tables. */
@@ -6379,10 +6485,7 @@ window.FUNDS_STOCKS = {
       var id = btn.getAttribute("data-copy");
       var el = id && document.getElementById(id);
       if(!el) return;
-      var txt = el.innerText || el.textContent;
-      function done(){ var t=btn.textContent; btn.textContent="已复制✓"; setTimeout(function(){btn.textContent=t;},1400); }
-      function fb(){ try{ var r=document.createRange(); r.selectNode(el); var sel=getSelection(); sel.removeAllRanges(); sel.addRange(r); document.execCommand("copy"); sel.removeAllRanges(); done(); }catch(e){} }
-      if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done, fb); } else { fb(); }
+      window.AI_COPY(el.value || el.textContent || "",btn);
       return;
     }
     var head = ev.target.closest ? ev.target.closest(".cmp-head") : null;
@@ -6415,6 +6518,7 @@ window.FUNDS_STOCKS = {
 
   var INDEX = [];
   var CURRENT = null;
+  var indexRequestId=0, dailyBootId=0, dailySelectionId=0;
 
   function esc(s){
     return (s==null?"":String(s)).replace(/[&<>"']/g, function(c){
@@ -6443,21 +6547,32 @@ window.FUNDS_STOCKS = {
   }
 
   function fetchIndex(){
+    var indexId=++indexRequestId;
     var ctrl = new AbortController();
     var to = setTimeout(function(){ ctrl.abort(); }, 15000);
     return fetch(API + "/dailies?limit=180", {cache:"no-store", signal: ctrl.signal})
       .then(function(r){ if(!r.ok) throw new Error("HTTP "+r.status); return r.json(); })
       .then(function(d){
+        if(indexId!==indexRequestId)return false;
         if(!d || !Array.isArray(d.items) || !d.items.length) throw new Error("索引返回异常");
         INDEX = d.items.map(function(it){
           return {date:it.date, leadTitle:(it.leadTitle||""), links:(it.links&&it.links.aihot)||""};
         });
-        return INDEX;
-      }).finally(function(){clearTimeout(to);});
+        return true;
+      }).catch(function(err){if(indexId!==indexRequestId)return false;throw err;}).finally(function(){clearTimeout(to);});
   }
   function indexOfDate(date){
     for(var i=0;i<INDEX.length;i++){ if(INDEX[i].date===date) return i; }
     return -1;
+  }
+  function validDailyDate(date){
+    if(typeof date!=="string"||!/^\d{4}-\d{2}-\d{2}$/.test(date))return false;
+    var d=new Date(date+"T00:00:00Z");return Number.isFinite(d.getTime())&&d.toISOString().slice(0,10)===date;
+  }
+  function validateDailyReport(report,date){
+    if(!report||typeof report!=="object"||!validDailyDate(report.date)||report.date!==date)throw new Error("返回的日报日期无效或与所选日期不符");
+    if(!Array.isArray(report.sections)||report.sections.some(function(s){return !s||typeof s.label!=="string"||!Array.isArray(s.items)||s.items.some(function(it){return !it||typeof it.title!=="string"||(it.summary!=null&&typeof it.summary!=="string");});}))throw new Error("返回的日报版块或条目格式异常");
+    if(report.generatedAt&&!Number.isFinite(new Date(report.generatedAt).getTime()))throw new Error("返回的日报生成时间无效");
   }
   function populateSelect(){
     var sel = document.getElementById("dateSel");
@@ -6634,6 +6749,7 @@ window.FUNDS_STOCKS = {
       .then(function(data){
         if(requestId !== dailyRequestId) return;
         if(!data || !data.report) throw new Error("返回数据缺少 report 字段");
+        validateDailyReport(data.report,date);
         CURRENT = date;
         render(data.report, meta);
       })
@@ -6642,6 +6758,7 @@ window.FUNDS_STOCKS = {
   }
   function goto(date, pushHash){
     if(indexOfDate(date) === -1) return;
+    dailySelectionId++;
     if(pushHash !== false) history.pushState(null, "", "#" + date);
     var older = document.getElementById("olderBtn");
     var newer = document.getElementById("newerBtn");
@@ -6664,8 +6781,10 @@ window.FUNDS_STOCKS = {
     return INDEX.length ? INDEX[0].date : today;
   }
   function boot(){
+    var bootId=++dailyBootId, selectionAtBoot=dailySelectionId;
     fetchIndex()
-      .then(function(){
+      .then(function(applied){
+        if(!applied||bootId!==dailyBootId||selectionAtBoot!==dailySelectionId)return;
         populateSelect();
         var date = resolveInitialDate();
         if(ACTIVE_TAB==="daily" && location.hash !== "#"+date) history.replaceState(null, "", "#"+date);
@@ -6673,7 +6792,7 @@ window.FUNDS_STOCKS = {
         syncNavButtons();
         loadDate(date);
       })
-      .catch(function(err){ setStateError("无法获取日报列表：" + (err && err.message ? err.message : err)); });
+      .catch(function(err){if(bootId===dailyBootId&&selectionAtBoot===dailySelectionId)setStateError("无法获取日报列表：" + (err && err.message ? err.message : err));});
   }
   document.getElementById("dateSel").addEventListener("change", function(e){ goto(e.target.value); });
   /* 今日总结：复制「AI 深度解读」指令（事件委托，日报每次重渲染都生效） */
@@ -6682,10 +6801,7 @@ window.FUNDS_STOCKS = {
     if(!btn) return;
     var el = document.getElementById("dsum-prompt");
     if(!el) return;
-    var txt = el.value || el.innerText || el.textContent;
-    function done(){ var t=btn.textContent; btn.textContent="已复制✓ 去新窗口粘贴给 AI"; setTimeout(function(){btn.textContent=t;},1800); }
-    function fb(){ try{ el.style.display=""; el.select(); document.execCommand("copy"); el.style.display="none"; done(); }catch(e){} }
-    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done, fb); } else { fb(); }
+    window.AI_COPY(el.value || el.textContent || "",btn);
   });
   document.getElementById("newerBtn").addEventListener("click", function(){ var i=indexOfDate(CURRENT); if(i>0) goto(INDEX[i-1].date); });
   document.getElementById("olderBtn").addEventListener("click", function(){ var i=indexOfDate(CURRENT); if(i<INDEX.length-1) goto(INDEX[i+1].date); });
@@ -6700,15 +6816,7 @@ window.FUNDS_STOCKS = {
     boot();
   });
   document.getElementById("copyBtn").addEventListener("click", function(){
-    var url = location.href;
-    function done(){ var b=document.getElementById("copyBtn"); b.textContent="已复制 ✓"; setTimeout(function(){b.textContent="复制链接";},1500); }
-    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(done, fallback); }
-    else { fallback(); }
-    function fallback(){
-      var ta=document.createElement("textarea"); ta.value=url; document.body.appendChild(ta); ta.select();
-      try{ document.execCommand("copy"); done(); }catch(e){}
-      document.body.removeChild(ta);
-    }
+    window.AI_COPY(location.href,document.getElementById("copyBtn"));
   });
   window.addEventListener("hashchange", syncRoute);
   document.getElementById("nav").addEventListener("click",function(e){
@@ -6759,7 +6867,8 @@ window.FUNDS_STOCKS = {
     renderAutoBar();
     var dateAtCheck=CURRENT;
     var wasLatest=!CURRENT||(INDEX.length&&CURRENT===INDEX[0].date);
-    fetchIndex().then(function(){
+    fetchIndex().then(function(applied){
+      if(!applied)return;
       populateSelect();
       if(CURRENT!==dateAtCheck){syncNavButtons();return;}
       var target=(wasLatest||indexOfDate(CURRENT)===-1)?INDEX[0].date:CURRENT;
@@ -6970,7 +7079,7 @@ window.FUNDS_STOCKS = {
       var box=document.getElementById('forum-list');
       if(!box) return;
       var cards=s.vids.map(function(v){
-        return '<article class="cmp" data-vid="'+esc(v.bvid)+'">'+
+        return '<article class="cmp" data-vid="'+esc(v.bvid)+'" data-series="'+esc(s.who)+'">'+
           '<div class="cmp-head" style="cursor:default">'+
             '<span class="chip" style="border-color:#fb7185;color:#fb7185;background:#fff1f2">▶ B站视频</span>'+
             '<span class="cmp-name"><a href="https://www.bilibili.com/video/'+esc(v.bvid)+'" target="_blank" rel="noopener noreferrer">'+esc(v.t||"")+'</a></span>'+
@@ -7061,11 +7170,7 @@ window.FUNDS_STOCKS = {
         var id = btn.getAttribute("data-copy");
         var el = id && document.getElementById(id);
         if(!el) return;
-        var txt = el.innerText || el.textContent;
-        function done(){ var t=btn.textContent; btn.textContent="已复制✓"; btn.disabled=true; setTimeout(function(){btn.textContent=t;btn.disabled=false;},1400); }
-        function fb(){ try{ var r=document.createRange(); r.selectNode(el); var sel=getSelection(); sel.removeAllRanges(); sel.addRange(r); document.execCommand("copy"); sel.removeAllRanges(); done(); }catch(e){} }
-        if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done, fb); }
-        else { fb(); }
+        window.AI_COPY(el.value || el.textContent || "",btn);
       });
       grid.addEventListener("keydown", function(ev){
         if(ev.key!=="Enter" && ev.key!==" ") return;
@@ -7088,6 +7193,7 @@ window.FUNDS_STOCKS = {
   var CQUT_CAT = CAT[cqSaved.cat]?cqSaved.cat:"全部";
   var CQUT_TAG = TAGNAME[cqSaved.tag]?cqSaved.tag:"全部";
   var CQUT_QUERY = typeof cqSaved.query==="string"?cqSaved.query.slice(0,200):"";
+  var CQUT_PAGE = Number.isInteger(cqSaved.page)&&cqSaved.page>0?cqSaved.page:1, CQUT_PAGE_SIZE=30;
   document.getElementById("cqut-search").value=CQUT_QUERY;
 
   function inCat(n){ return CQUT_CAT==="全部" || n.cat===CQUT_CAT; }
@@ -7113,6 +7219,7 @@ window.FUNDS_STOCKS = {
   function render(){
     var up = document.getElementById('cqut-updated');
     if(up){ up.textContent = window.CQUT_UPDATED || "未知"; }
+    document.getElementById("cqut-check-note").textContent=window.CQUT_CHECK_NOTE ? "最近核查 "+(window.CQUT_CHECKED||"未知")+"："+window.CQUT_CHECK_NOTE : "";
     var fw = document.getElementById('cqutFilters');
     if(fw){
       var hs = ['<button class="filterbtn'+(CQUT_CAT==="全部"?" active":"")+'" data-c="全部">全部</button>'];
@@ -7122,18 +7229,23 @@ window.FUNDS_STOCKS = {
       fw.innerHTML = hs.join("");
     }
     renderTagBar();
-    window.AI_SESSION.write("ai-cqut-state",{cat:CQUT_CAT,tag:CQUT_TAG,query:CQUT_QUERY});
     document.getElementById("cqut-reset").hidden=!CQUT_QUERY&&CQUT_CAT==="全部"&&CQUT_TAG==="全部";
     var list = N.filter(function(n){
       var hay=[n.t,n.src,n.sum,n.date,TAGNAME[n.tag]].join(" ").toLowerCase();
       return inCat(n) && inTag(n) && CQUT_QUERY.split(/\s+/).filter(Boolean).every(function(q){return hay.indexOf(q)>=0;});
     });
-    document.getElementById("cqut-search-count").textContent="当前找到 "+list.length+" 条通知";
+    var pages=Math.max(1,Math.ceil(list.length/CQUT_PAGE_SIZE));
+    CQUT_PAGE=Math.min(CQUT_PAGE,pages);
+    var start=(CQUT_PAGE-1)*CQUT_PAGE_SIZE;
+    window.AI_SESSION.write("ai-cqut-state",{cat:CQUT_CAT,tag:CQUT_TAG,query:CQUT_QUERY,page:CQUT_PAGE});
+    document.getElementById("cqut-search-count").textContent="共找到 "+list.length+" 条通知"+(list.length?" · 显示 "+(start+1)+"–"+Math.min(start+CQUT_PAGE_SIZE,list.length)+" 条 · 第 "+CQUT_PAGE+" / "+pages+" 页":"");
+    var pager=pages>1?'<button type="button" class="pg" data-cqut-page="'+(CQUT_PAGE-1)+'"'+(CQUT_PAGE===1?' disabled':'')+'>上一页</button><span class="pg-ell">'+CQUT_PAGE+' / '+pages+'</span><button type="button" class="pg" data-cqut-page="'+(CQUT_PAGE+1)+'"'+(CQUT_PAGE===pages?' disabled':'')+'>下一页</button>':"";
+    ["cqut-pager-top","cqut-pager"].forEach(function(id){document.getElementById(id).innerHTML=pager;});
     var box = document.getElementById('cqut-list');
     if(!box) return;
     if(!list.length){ box.innerHTML = '<div class="search-empty">没有匹配的通知。试试其他关键词或切换分类。</div>'; return; }
-    box.innerHTML = list.map(function(n, i){
-      var num = (i+1<10?"0":"")+(i+1);
+    box.innerHTML = list.slice(start,start+CQUT_PAGE_SIZE).map(function(n, i){
+      var num = (start+i+1<10?"0":"")+(start+i+1);
       var tagHtml = TAGNAME[n.tag] ? '<span class="chip" style="border-color:var(--line)">'+TAGNAME[n.tag]+'</span>' : "";
       return '<article class="cmp">'+
         '<div class="cmp-head" style="cursor:default">'+
@@ -7153,14 +7265,26 @@ window.FUNDS_STOCKS = {
     }).join("");
   }
   var f = document.getElementById('cqutFilters');
-  document.getElementById("cqut-search").addEventListener("input",function(e){CQUT_QUERY=(e.target.value||"").trim().toLowerCase();render();});
-  document.getElementById("cqut-reset").addEventListener("click",function(){CQUT_QUERY="";CQUT_CAT="全部";CQUT_TAG="全部";document.getElementById("cqut-search").value="";render();});
+  document.getElementById("cqut-search").addEventListener("input",function(e){CQUT_QUERY=(e.target.value||"").trim().toLowerCase();CQUT_PAGE=1;render();});
+  document.getElementById("cqut-reset").addEventListener("click",function(){CQUT_QUERY="";CQUT_CAT="全部";CQUT_TAG="全部";CQUT_PAGE=1;document.getElementById("cqut-search").value="";render();});
+  ["cqut-pager-top","cqut-pager"].forEach(function(id){
+    document.getElementById(id).addEventListener("click",function(e){
+      var b=e.target.closest?e.target.closest("button[data-cqut-page]"):null;
+      if(!b||b.disabled)return;
+      var page=Number(b.getAttribute("data-cqut-page"));if(!Number.isInteger(page)||page<1)return;
+      CQUT_PAGE=page;render();
+      var count=document.getElementById("cqut-search-count");count.setAttribute("tabindex","-1");
+      if(count.focus)count.focus({preventScroll:true});
+      if(count.getBoundingClientRect)window.scrollTo({top:window.scrollY+count.getBoundingClientRect().top-(document.querySelector(".appbar")||{offsetHeight:100}).offsetHeight-12,behavior:"instant"});
+    });
+  });
   if(f){
     f.addEventListener("click", function(ev){
       var b = ev.target.closest ? ev.target.closest(".filterbtn") : null;
       if(!b) return;
       CQUT_CAT = b.getAttribute("data-c") || "全部";
       CQUT_TAG = "全部";
+      CQUT_PAGE = 1;
       render();
     });
   }
@@ -7170,6 +7294,7 @@ window.FUNDS_STOCKS = {
       var b = ev.target.closest ? ev.target.closest(".filterbtn") : null;
       if(!b) return;
       CQUT_TAG = b.getAttribute("data-t") || "全部";
+      CQUT_PAGE = 1;
       render();
     });
   }
@@ -7678,9 +7803,9 @@ window.FUNDS_STOCKS = {
     return s ? s.vids.map(function(v){return "forum:https://www.bilibili.com/video/"+v.bvid;}) : [];
   }
   function seriesSearch(card){
-    var who=card.getAttribute("data-open");
+    var seriesCard=card.getAttribute("data-open"), who=seriesCard||card.getAttribute("data-series");
     var s=(window.FORUM_SERIES||[]).find(function(x){return x.who===who;});
-    return s ? s.vids.map(function(v){return v.t+" "+v.up;}).join(" ") : "";
+    return s ? [s.who,s.desc,s.cat].join(" ")+(seriesCard?" "+s.vids.map(function(v){return v.t+" "+v.up;}).join(" "):"") : "";
   }
   function paint(m){
     var q=m.search.value.trim().toLowerCase(), mode=m.select.value, shown=0;

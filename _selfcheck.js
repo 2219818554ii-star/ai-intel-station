@@ -113,7 +113,15 @@ console.log('\n[2e] 基金深度档案（2026-09-26 实抓，防回退断言）'
 const fDeep = sandbox.window.FUNDS_DEEP || {};
 const fDeepBox = (store['funds-deep']||{}).innerHTML || '';
 const fInsBox = (store['funds-insight']||{}).innerHTML || '';
-ok(fDeep.date === sandbox.window.FUNDS_DEEP.date && fDeep.date === sandbox.window.FUNDS_UPDATED, `深度档案日期 = ${fDeep.date}（须与 FUNDS_UPDATED ${sandbox.window.FUNDS_UPDATED} 一致）`);
+// 公开净值核验和经理/业绩/持仓档案更新分开记日，禁止为通过测试伪造全档案刷新。
+const navReview=JSON.parse(fs.readFileSync(B+'_funds_review_2026-10-19.json','utf8'));
+ok(/^\d{4}-\d{2}-\d{2}$/.test(fDeep.date)&&fDeep.date<=fDeep.navCheckedAt&&fDeep.navCheckedAt===sandbox.window.FUNDS_UPDATED&&navReview.checkedAt.slice(0,10)===fDeep.navCheckedAt, `档案历史日期${fDeep.date}独立保留；净值核验${fDeep.navCheckedAt}与实抓记录一致`);
+ok(navReview.observations.length===4 && fHold.every(f=>{
+  const r=navReview.observations.find(x=>x.code===f.code),d=fDeep.byCode[f.code];
+  return r&&r.httpStatus==='200'&&/^[a-f0-9]{64}$/.test(r.sha256)&&r.rawLast&&Number.isFinite(r.rawLast.x)&&Number.isFinite(r.rawLast.equityReturn)&&
+    new Date(r.rawLast.x+8*3600000).toISOString().slice(0,10)===r.nav.navDate&&Math.abs(r.rawLast.equityReturn/100-f.dayPct)<1e-8&&r.rawLast.y===f.unit&&
+    r.nav.unit===f.unit&&r.nav.dayPct===f.dayPct&&r.nav.navDate===f.navDate&&d.nav===f.unit&&d.dayPct===f.dayPct&&d.navDate===f.navDate;
+}), '四只基金日期、净值和涨跌逐项对应HTTP200末条记录，持仓与档案一致（源哈希另行记录）');
 const dCodes = Object.keys(fDeep.byCode || {});
 ok(dCodes.length === 4, `深度档案覆盖 ${dCodes.length} 只（期望 4）`);
 ok(fHold.every(f => (fDeep.byCode||{})[f.code]), '每只持仓都有对应深度档案');
@@ -338,8 +346,19 @@ const MSCHOOLS = sandbox.window.MATCH_SOURCES || [];
 const SCHOOLS = sandbox.window.MATCH_SCHOOLS || [];
 const mHtml = (store['match-list']||{}).innerHTML || '';
 
-/* 2026-10-14 清退 3 条已截止赛事（标准创新10-10/知识产权10-13/双创颠覆性10-10）+ 移除因此空掉的 miit 分类，剩 13 条均为当前可报；门槛 15→10（诚实反映剪枝后规模，非放水） */
-ok(MATCHES.length >= 10, `比赛条目 = ${MATCHES.length}（要求 >=10，已清退过期只留在报的）`);
+/* 2026-10-19：固定“至少10条在报”会逼迫保留已截止/限本科生赛事。
+   改为逐项保护13条历史身份：每条必须仍有效或有官网证据退役，不允许静默丢失或退役回流。
+   新鲜度、字段、来源、截止和渲染检查全部保留；不是把数字门槛降成8。 */
+const matchBaseline=JSON.parse(fs.readFileSync(B+'_match_baseline_2026-10-17.json','utf8'));
+const retired=sandbox.window.MATCH_RETIRED||[];
+const allMatches=MATCHES.concat(retired);
+const sameMatch=(a,b)=>['n','url','dl','school'].every(k=>a[k]===b[k]);
+ok(matchBaseline.count===13 && matchBaseline.matches.length===13 && matchBaseline.matches.every(x=>allMatches.filter(m=>sameMatch(m,x)).length===1),
+   `历史13条比赛身份均唯一保留（活跃${MATCHES.length} / 有据退役${retired.length}）`);
+ok(new Set(allMatches.map(x=>x.n+'|'+x.url)).size===allMatches.length && retired.every(x=>!MATCHES.some(m=>m.n===x.n||m.url===x.url)), '活跃与退役身份无重复，退役条目未回流');
+const retirementReview=JSON.parse(fs.readFileSync(B+'_content_review_2026-10-19.json','utf8'));
+ok(retired.every(x=>retirementReview.removedMatches.some(r=>sameMatch(r.snapshot,x)&&r.reason===x.reason&&r.evidenceExcerpt===x.evidenceExcerpt&&JSON.stringify(r.sourceEvidence)===JSON.stringify(x.sourceEvidence))&&x.retiredAt&&x.reason&&x.evidenceExcerpt&&Array.isArray(x.sourceEvidence)&&x.sourceEvidence.length>0&&x.sourceEvidence.every(u=>/^https?:\/\//.test(u)&&(new URL(u).hostname===new URL(x.url).hostname||(x.school==='cpipc'&&new URL(u).hostname==='cpipc.acge.org.cn')))&&
+   ((x.reasonCode==='eligibility'&&/本科/.test(x.evidenceExcerpt))||(['deadline','deadline_and_eligibility'].includes(x.reasonCode)&&/^\d{4}-\d{2}-\d{2}$/.test(x.deadline)&&Date.parse(x.deadline+'T23:59:59+08:00')<Date.now()))), '每项退役均有匹配原始身份、官网证据和已过截止/本科资格依据');
 
 /* ① 喜报必须一条不剩 */
 const xibaoN = count(mHtml, /\[喜讯\]/g) + count(html, /\[喜讯\]/g);
@@ -387,7 +406,7 @@ const usedSc = {};
 MATCHES.forEach(m => { usedSc[m.school] = (usedSc[m.school]||0) + 1; });
 const emptySc = scKeys.filter(k => !usedSc[k]);
 ok(emptySc.length === 0, `每个学校分类都至少有 1 条（空分类 ${emptySc.length} 个：${emptySc.join(',')}）`);
-ok(scKeys.length >= 8, `学校分类数 = ${scKeys.length}（要求 >=8）`);
+ok(new Set(allMatches.map(x=>x.school)).size>=8 && scKeys.length===new Set(MATCHES.map(x=>x.school)).size, `8个历史学校分类可追溯，当前${scKeys.length}个活跃分类无空项`);
 
 /* ⑦ 还能参加的数量 */
 function deadlineForCheck(x){
@@ -395,7 +414,7 @@ function deadlineForCheck(x){
  return !m || /起|发布/.test(x.dl) ? null : Date.parse(m[1]+'T'+(m[2]?m[2].padStart(2,'0')+':'+m[3]+':00':'23:59:59')+'+08:00');
 }
 const openCnt = MATCHES.filter(x => x.st === '报名中' && (deadlineForCheck(x)===null || deadlineForCheck(x)>=Date.now())).length;
-ok(openCnt >= 10, `「正在报名」条目 = ${openCnt}（要求 >=10）`);
+ok(openCnt===MATCHES.length && MATCHES.length>0, `全部活跃赛事均未过明确截止，当前${openCnt}条；不以数量保留过期内容`);
 
 /* ⑧ 渲染 + 计数 */
 ok(cards('match-list') === openCnt, `默认可报名卡片数 = ${cards('match-list')}，与未过期报名数据 ${openCnt} 一致`);

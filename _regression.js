@@ -88,7 +88,14 @@ module.exports = async function ({html, inline, sandbox, ok}) {
   noticeSearch({target:{value:'不会存在的通知关键词'}});
   ok(base.elements['cqut-list'].innerHTML.includes('没有匹配') && base.elements['cqut-search-count'].textContent.includes('0'), '通知搜索及零结果计数生效');
   const review=JSON.parse(fs.readFileSync(path.join(__dirname,'_matches_review_2026-10-17.json'),'utf8'));
-  ok(review.added.every(x=>base.ctx.window.MATCHES.some(m=>m.n===x.n&&m.url===x.url&&m.dl===x.dl)) && review.removed.every(x=>!base.ctx.window.MATCHES.some(m=>m.n===x.name)), '新增赛项来源与截止记录匹配，已过期及限本科生条目未回流');
+  const retiredMatches=base.ctx.window.MATCH_RETIRED||[];
+  ok(review.added.every(x=>base.ctx.window.MATCHES.concat(retiredMatches).filter(m=>m.n===x.n&&m.url===x.url&&m.dl===x.dl).length===1) && review.removed.every(x=>!base.ctx.window.MATCHES.some(m=>m.n===x.name)), '新增赛项身份在活跃/有据退役中唯一可追溯，旧清退条目未回流');
+  base.listeners['cqut-reset'].click();
+  const firstNotices=base.elements['cqut-list'].innerHTML;
+  base.listeners['cqut-pager'].click({target:{closest(){return{disabled:false,getAttribute(){return '2';}};}}});
+  ok((firstNotices.match(/<article /g)||[]).length===30 && base.elements['cqut-list'].innerHTML!==firstNotices && base.elements['cqut-search-count'].textContent.includes('31–60') && JSON.parse(base.ctx.window.sessionStorage.getItem('ai-cqut-state')).page===2, '通知分页真实显示下一批30条，页码与阅读状态保存');
+  base.listeners['cqut-search'].input({target:{value:'奖学金'}});
+  ok(JSON.parse(base.ctx.window.sessionStorage.getItem('ai-cqut-state')).page===1 && base.elements['cqut-search-count'].textContent.includes(String(base.ctx.window.CQUT_NOTICES.filter(n=>[n.t,n.src,n.sum,n.date].join(' ').includes('奖学金')).length)), '分页后搜索仍覆盖全部通知，并回到第一页');
   const escaped=run(x=>x.replace('var RANK = window.RANK || {};','var RANK = window.RANK || {}; RANK.combos[0].score="<img src=x onerror=alert(1)>"; RANK.tables.aa.rows[0][1]="<img src=x onerror=alert(1)>";'));
   ok(!escaped.elements['p-combos'].innerHTML.includes('<img') && !escaped.elements['p-tables'].innerHTML.includes('<img'), '排行榜评级及分数不会插入 HTML 标签');
   const empty=run(x=>x.replace('var RANK = window.RANK || {};','var RANK = {};'));
@@ -100,18 +107,21 @@ module.exports = async function ({html, inline, sandbox, ok}) {
     ok(n.every((v,i)=>!i||n[i-1]>=v), id+' 实际渲染按分降序且无分沉底');
   }
   const tables=[...base.elements['p-tables'].innerHTML.matchAll(/<tbody>([\s\S]*?)<\/tbody>/g)];
-  ok(tables.length===3 && tables.every(t=>{const n=[...t[1].matchAll(/font-weight:700">([^<]*)</g)].map(m=>parseFloat(m[1]));return n.every((v,i)=>!i||n[i-1]>=v);}), 'AA / TB / SWE 三榜实际渲染降序');
+  ok(tables.length===4 && tables.every(t=>{const n=[...t[1].matchAll(/font-weight:700">([^<]*)</g)].map(m=>parseFloat(m[1]));return n.every((v,i)=>!i||n[i-1]>=v);}), 'AA / TB / SWE Verified / SWE Pro 分别实际渲染降序');
+  const rank=base.ctx.window.RANK;
+  const rankReview=JSON.parse(fs.readFileSync(path.join(__dirname,'_rank_review_2026-10-19.json'),'utf8'));
+  ok(rank.tables.swe.rows.length===4 && rank.tables.swe.rows.every(r=>r[0].endsWith(' — Verified')) && rank.tables.swe_pro.rows.length===3 && rank.tables.swe_pro.rows.every(r=>r[0].endsWith(' — Pro')) && JSON.stringify(rank.tables.swe.rows)===JSON.stringify(rankReview.sweApplied.verified) && JSON.stringify(rank.tables.swe_pro.rows)===JSON.stringify(rankReview.sweApplied.pro), 'SWE历史分数完整保留、按基准分组且没有误混TB成绩');
   // Let initialization's intentionally offline fetch settle before exercising request ordering.
   await new Promise(resolve=>setImmediate(resolve));
   const pending={};
   base.ctx.fetch=url=>new Promise((resolve,reject)=>{pending[url.split('/').pop()]={resolve,reject};});
   base.ctx.window.__loadDate('2026-10-14');
   base.ctx.window.__loadDate('2026-10-13');
-  pending['2026-10-13'].resolve({ok:true,json:async()=>({report:{}})});
+  pending['2026-10-13'].resolve({ok:true,json:async()=>({report:{date:'2026-10-13',sections:[]}})});
   await new Promise(resolve=>setImmediate(resolve));
   // Empty reports exercise render errors too: a stale response must never replace the resulting UI.
   const latestHTML=base.elements.main.innerHTML;
-  pending['2026-10-14'].resolve({ok:true,json:async()=>({report:{}})});
+  pending['2026-10-14'].resolve({ok:true,json:async()=>({report:{date:'2026-10-14',sections:[]}})});
   await new Promise(resolve=>setImmediate(resolve));
   ok(base.elements.main.innerHTML===latestHTML && base.ctx.window.__renderedDate==='2026-10-13', '旧日报响应不能覆盖较新请求的页面');
   base.ctx.window.__loadDate('2026-10-12');
@@ -122,6 +132,12 @@ module.exports = async function ({html, inline, sandbox, ok}) {
   pending['2026-10-11'].reject(new Error('LATEST_ERROR_SENTINEL'));
   await new Promise(resolve=>setImmediate(resolve));
   ok(base.elements.main.innerHTML.includes('LATEST_ERROR_SENTINEL') && !base.elements.refreshBtn.disabled, '最新请求失败正常显示错误并恢复刷新按钮');
+  for(const badDate of [undefined,'2026-02-30','2026-10-09']){
+    base.ctx.window.__loadDate('2026-10-10');
+    pending['2026-10-10'].resolve({ok:true,json:async()=>({report:{date:badDate,sections:[]}})});
+    await new Promise(resolve=>setImmediate(resolve));
+    ok(base.elements.main.innerHTML.includes('日报日期无效或与所选日期不符')&&!base.elements.hero.innerHTML.includes('NaN'), '缺失、非法或错期日报拒绝渲染：'+String(badDate));
+  }
   let expected=fs.readFileSync(path.join(__dirname,'index.src.html'),'utf8');
   for(const f of ['competitions','ted','forum','rank','cqut','matches','funds'])expected=expected.replace('<script src="'+f+'.js"></script>','<script>\n'+fs.readFileSync(path.join(__dirname,f+'.js'),'utf8')+'\n</script>');
   ok(['index.html','gh-pages/index.html','ai_intel_station_standalone.html'].every(f=>fs.readFileSync(path.join(__dirname,f),'utf8').replace(/\r\n/g,'\n')===expected.replace(/\r\n/g,'\n')), '三份构建产物均与当前模板和数据一致');

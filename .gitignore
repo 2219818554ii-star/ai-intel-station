@@ -1,5 +1,7 @@
 # 本地临时/缓存
 .workbuddy/
+__pycache__/
+*.pyc
 gh_install.log
 _remote_idx.html
 _cmp*.py

@@ -223,6 +223,8 @@
   .cmp-pager .pg.active{background:var(--brand);color:#fff;border-color:var(--brand);}
   .cmp-pager .pg[disabled]{opacity:.4;cursor:default;}
   .cmp-pager .pg-ell{color:var(--ink-soft);padding:6px 2px;align-self:center;}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+  #copy-dialog::backdrop{background:rgba(15,23,42,.5);}
   .autobar{background:var(--brand-soft);border-bottom:1px solid var(--line);font-size:12.5px;color:var(--ink-soft);text-align:center;padding:6px 14px;line-height:1.5;}
   .autobar b{color:var(--brand);}
 
@@ -429,7 +431,7 @@
   <!-- ================= RANK VIEW ================= -->
   <div id="view-rank" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-rank">
     <div class="view-head"><h2>🏆 AI 实力排行榜</h2>
-      <p>大模型 / 编程工具 / 工具×模型组合 的分维度与综合实力评级。数据截至 <b>2026-10-17</b>。<span style="display:inline-block;margin-left:8px;padding:2px 9px;border-radius:999px;background:#ecfdf5;color:#15803d;font-size:12px;font-weight:700;border:1px solid #bbf7d0">🔄 每日自动更新</span></p></div>
+      <p>大模型 / 编程工具 / 工具×模型组合 的分维度与综合实力评级。最近维护 <b id="rank-updated"></b>。</p><p id="rank-check-note" style="font-size:13px"></p></div>
     <details class="reader-note"><summary>评级口径与历史动态</summary>
     <div class="news">
       🆕 <b>2026 年 9 月新动态：</b>Claude Fable 5.1（9-1，AA 智能指数并列第一）、GPT-6 Astra（9-3，号称 AGI 时代但<b>几乎不可用</b>）、Gemini 3.8 Flash（9-2，多模态标杆）、Muse Spark 1.3（9-2）、Qwen3.8-Max 登 Code Arena WebDev 榜首（9-2）、GLM-5.3-Flash 开源（8-26）、腾讯 Hy4 Preview 开源（8-28）。<b>注意：GPT-6 Astra 被定为「关键网络安全」级，目前仅 Daybreak 计划批准者可用，投票榜样本极少，排名可能随时变化。</b>
@@ -444,7 +446,7 @@
       <button class="subtab active" data-pane="models">🤖 大模型</button>
       <button class="subtab" data-pane="tools">🛠 编程工具</button>
       <button class="subtab" data-pane="combos">🔗 工具×模型组合</button>
-      <button class="subtab" data-pane="tables">📊 真实榜单 Top10</button>
+      <button class="subtab" data-pane="tables">📊 基准榜单选录</button>
     </div>
 
     <div class="rankpane active" id="p-models"></div>
@@ -826,7 +828,7 @@
 
   <div id="view-cqut" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-cqut">
     <div class="view-head"><h2>🏫 重庆理工：学校 / 学院 / 部门 / 学生会通知</h2>
-      <p>每天自动更新。每条都写清「我该关注啥」，末尾附全部信源直达入口。数据更新于 <span id="cqut-updated"></span></p>
+      <p>每天核查官网通知。每条都写清「我该关注啥」，末尾附信源直达入口。最近成功内容更新于 <span id="cqut-updated"></span>。<span id="cqut-check-note"></span></p>
     </div>
 <details id="cqutMatchFold" style="margin-top:32px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden">
       <summary id="cqutMatchSummary" style="cursor:pointer;list-style:none;padding:14px 18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;user-select:none">
@@ -836,7 +838,7 @@
         <span style="font-size:12px;color:#94a3b8;margin-left:auto;flex:none" id="cqutFoldHint">展开 ▾</span>
       </summary>
       <div style="padding:2px 18px 16px;border-top:1px dashed var(--line)">
-        <p style="font-size:13px;color:#64748b;margin:12px 0 0">这一版<b>只剩今天还报得上的比赛</b>：已经截止的、以及那些「我校获全国一等奖」的获奖通稿，全部删光了。范围从只看重理工扩到了<b> 10 个学校/单位分类</b>，每条只写三件事——<b>这是什么 / 你能帮我做啥 / 我需要做啥</b>。数据更新于 <span id="cqut-match-updated"></span></p>
+        <p style="font-size:13px;color:#64748b;margin:12px 0 0">已核实截止或不符合研究生资格的条目会清退。报名资格和各校通道仍需以官网为准；每条写清<b>这是什么 / 能帮你做什么 / 需要你做什么</b>。最近维护于 <span id="cqut-match-updated"></span></p>
 
         <div style="font-size:14px;font-weight:800;color:var(--ink);margin:16px 0 7px;padding-left:10px;border-left:3px solid var(--brand)">🏫 按学校 / 单位分类 · <span style="font-weight:600;color:#64748b">点一下只看这一类</span></div>
         <div class="cmp-toolbar" id="matchSchoolFilters" style="margin-top:0"></div>
@@ -865,7 +867,9 @@
     <div class="cmp-toolbar" id="cqutTagFilters" style="margin-top:9px"></div>
     <div class="search-row"><input type="search" class="section-search" id="cqut-search" aria-label="搜索学校通知" placeholder="搜索通知、学院、关键词…"><button type="button" class="reset-filter" id="cqut-reset" hidden>清除筛选</button></div>
     <div id="cqut-search-count" class="library-count" role="status"></div>
+    <nav id="cqut-pager-top" class="cmp-pager" aria-label="通知分页（上方）"></nav>
     <div class="cmp-list" id="cqut-list"></div>
+    <nav id="cqut-pager" class="cmp-pager" aria-label="通知分页（下方）"></nav>
     <div class="view-head" style="margin-top:30px">
       <h2 style="font-size:20px">🔗 全部信源直达（每个学院、每个部门都能点到）</h2>
       <p>上方哪些没抓到，直接点这里去官网看最新。</p>
@@ -938,6 +942,13 @@
   </div>
 
   <button id="toTop" title="回到顶部" aria-label="回到顶部">↑</button>
+  <div id="copy-status" class="sr-only" role="status" aria-live="polite"></div>
+  <dialog id="copy-dialog" aria-labelledby="copy-title" style="max-width:min(540px,calc(100vw - 32px));width:100%;border:1px solid var(--line);border-radius:14px;padding:20px;box-sizing:border-box">
+    <h2 id="copy-title" style="font-size:18px;margin:0 0 10px">请手动复制</h2>
+    <p style="font-size:14px;color:var(--ink-soft)">浏览器未能自动复制。请选中下方文字，长按或按 Ctrl+C 复制。</p>
+    <textarea id="copy-manual" readonly aria-label="待复制文字" style="width:100%;height:200px;box-sizing:border-box;padding:10px;font:inherit"></textarea>
+    <div style="display:flex;gap:10px;margin-top:12px"><button type="button" class="top-btn" id="copy-select">全选文字</button><button type="button" class="top-btn" id="copy-close">关闭</button></div>
+  </dialog>
 
   <script src="competitions.js"></script>
   <script src="ted.js"></script>
@@ -954,6 +965,42 @@
     read:function(key){try{var x=JSON.parse(window.sessionStorage.getItem(key)||"{}");return x&&typeof x==="object"&&!Array.isArray(x)?x:{};}catch(e){return {}; }},
     write:function(key,value){try{window.sessionStorage.setItem(key,JSON.stringify(value));}catch(e){}}
   };
+  /* 所有复制入口共用：只在浏览器确认写入后提示成功，受限时提供可选中的原文。 */
+  window.AI_COPY = async function(text, button){
+    if(button && button.disabled) return false;
+    var label=button?button.textContent:"", copied=false, active=document.activeElement;
+    if(button) button.disabled=true;
+    try{
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        try{await navigator.clipboard.writeText(String(text));copied=true;}catch(e){}
+      }
+      if(!copied){
+        var ta=document.createElement("textarea");
+        ta.value=String(text);ta.setAttribute("readonly","");
+        ta.style.cssText="position:fixed;left:-9999px;top:0;opacity:0";
+        document.body.appendChild(ta);
+        try{ta.select();copied=document.execCommand("copy")===true;}catch(e){}
+        finally{document.body.removeChild(ta);}
+      }
+      document.getElementById("copy-status").textContent=copied?"已复制":"自动复制失败，请手动复制下方文字";
+      if(copied){
+        if(button) button.textContent="已复制 ✓";
+      }else{
+        var dialog=document.getElementById("copy-dialog"), field=document.getElementById("copy-manual");
+        dialog._copyTrigger=button||active;
+        field.value=String(text);
+        if(!dialog.open){if(dialog.showModal)dialog.showModal();else dialog.setAttribute("open","");}
+        field.focus();field.select();
+      }
+      return copied;
+    }finally{
+      if(button){button.disabled=false;if(copied)setTimeout(function(){button.textContent=label;},1600);}
+      if(copied&&active&&active.focus)active.focus({preventScroll:true});
+    }
+  };
+  document.getElementById("copy-select").addEventListener("click",function(){var el=document.getElementById("copy-manual");el.focus();el.select();});
+  document.getElementById("copy-close").addEventListener("click",function(){var d=document.getElementById("copy-dialog");if(d.close)d.close();else d.removeAttribute("open");});
+  document.getElementById("copy-dialog").addEventListener("close",function(){var el=this._copyTrigger;if(el&&el.focus)el.focus({preventScroll:true});});
   /* ============ TAB SWITCHING ============ */
   function showTab(tab){
     if(["daily","rank","comp","learn","ted","forum","cqut","funds"].indexOf(tab)<0) return;
@@ -1040,9 +1087,11 @@
 
   /* ============ RANK DATA (snapshot 2026-10-17) ============ */
   var RANK = window.RANK || {};
+  document.getElementById("rank-updated").textContent=window.RANK_UPDATED||"未知";
+  document.getElementById("rank-check-note").textContent=window.RANK_CHECK_NOTE||"各项日期与评测口径见表格说明。";
   ["models","tools","combos"].forEach(function(k){ if(!Array.isArray(RANK[k])) RANK[k]=[]; });
   RANK.tables = RANK.tables || {};
-  ["aa","tb","swe"].forEach(function(k){ if(!RANK.tables[k]) RANK.tables[k]={title:k,unit:"",rows:[]}; });
+  ["aa","tb","swe","swe_pro"].forEach(function(k){ if(!RANK.tables[k]||typeof RANK.tables[k]!=="object") RANK.tables[k]={title:k,unit:"",rows:[]};if(!Array.isArray(RANK.tables[k].rows))RANK.tables[k].rows=[]; });
 
   function tierBadge(t){
     var cls = {"S":"t-S","A":"t-A","B":"t-B","C":"t-C","—":"t-none"}[t] || "t-none";
@@ -1073,7 +1122,7 @@
         + '</tr>';
     }).join('');
     document.getElementById("p-models").innerHTML =
-      '<div class="legend">评级：<span class="tier t-S">S</span>顶尖/第一梯队 <span class="tier t-A">A</span>很强/第二梯队 <span class="tier t-B">B</span>够用/第三梯队 <span class="tier t-C">C</span>偏弱 <span class="tier t-none">—</span>不适用。AA = Artificial Analysis 智能指数 v4.3（满分≈58），横向比较请以 AA 为主基准；TB = Terminal-Bench，本列多为 2.1 旧口径（官方 8/29 已升级 4.0，部分模型仅公布 TB4.0、故 TB2.1 列留空，新旧口径不可直接比）。表格可左右滑动查看全部列。</div>'
+      '<div class="legend">评级：<span class="tier t-S">S</span>顶尖/第一梯队 <span class="tier t-A">A</span>很强/第二梯队 <span class="tier t-B">B</span>够用/第三梯队 <span class="tier t-C">C</span>偏弱 <span class="tier t-none">—</span>不适用。评级为本站观点。AA = Artificial Analysis 智能指数 v4.3.2，比较时注意具体型号与推理档位；TB2.1 为历史口径，当前官方榜为 4.0，新旧口径不可直接比。表格可左右滑动查看全部列。</div>'
       + '<div class="matrix-wrap"><table class="matrix"><thead>'+head+'</thead><tbody>'+rows+'</tbody></table></div>';
   }
   function renderTools(){
@@ -1118,15 +1167,15 @@
   }
   function renderTables(){
     function t(obj){
-      var _rows = obj.rows.slice().sort(function(a,b){ return (parseFloat(b[1])||0)-(parseFloat(a[1])||0); }); /* 按分数降序 */
+      var _rows = (Array.isArray(obj.rows)?obj.rows:[]).filter(Array.isArray).slice().sort(function(a,b){ return (parseFloat(b[1])||0)-(parseFloat(a[1])||0); }); /* 同基准内按分数降序 */
       var rows = _rows.map(function(r,i){
         return '<tr><td class="num-cell">'+(i+1)+'</td><td>'+esc(r[0])+'</td><td style="font-weight:700">'+esc(r[1]==null?'—':r[1])+' '+esc(obj.unit)+'</td></tr>';
       }).join("");
       return '<h3 style="margin:18px 0 8px;font-size:16px">'+esc(obj.title)+'</h3>'+
         '<table class="ranktbl"><thead><tr><th>#</th><th>模型 / 组合</th><th>分数</th></tr></thead><tbody>'+rows+'</tbody></table>';
     }
-    document.getElementById("p-tables").innerHTML = t(RANK.tables.aa)+t(RANK.tables.tb)+t(RANK.tables.swe)+
-      '<p style="color:var(--ink-soft);font-size:13px;margin-top:8px">分数会随版本快速变化，仅供快照参考；权威实时数据请见各榜单官网（Artificial Analysis、Terminal-Bench、SWE-bench）。</p>';
+    document.getElementById("p-tables").innerHTML = t(RANK.tables.aa)+t(RANK.tables.tb)+t(RANK.tables.swe)+(RANK.tables.swe_pro.rows.length?t(RANK.tables.swe_pro):"")+
+      '<p style="color:var(--ink-soft);font-size:13px;margin-top:8px">不同评测与版本不作跨表排名。核对实时数据：<a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener noreferrer">Artificial Analysis ↗</a> · <a href="https://www.tbench.ai/leaderboard" target="_blank" rel="noopener noreferrer">Terminal-Bench ↗</a> · <a href="https://www.swebench.com/" target="_blank" rel="noopener noreferrer">SWE-bench ↗</a>。</p>';
   }
   renderModels(); renderTools(); renderCombos(); renderTables();
   /* Mobile summaries share the same data and ordering as the desktop comparison tables. */
@@ -1359,10 +1408,7 @@
       var id = btn.getAttribute("data-copy");
       var el = id && document.getElementById(id);
       if(!el) return;
-      var txt = el.innerText || el.textContent;
-      function done(){ var t=btn.textContent; btn.textContent="已复制✓"; setTimeout(function(){btn.textContent=t;},1400); }
-      function fb(){ try{ var r=document.createRange(); r.selectNode(el); var sel=getSelection(); sel.removeAllRanges(); sel.addRange(r); document.execCommand("copy"); sel.removeAllRanges(); done(); }catch(e){} }
-      if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done, fb); } else { fb(); }
+      window.AI_COPY(el.value || el.textContent || "",btn);
       return;
     }
     var head = ev.target.closest ? ev.target.closest(".cmp-head") : null;
@@ -1395,6 +1441,7 @@
 
   var INDEX = [];
   var CURRENT = null;
+  var indexRequestId=0, dailyBootId=0, dailySelectionId=0;
 
   function esc(s){
     return (s==null?"":String(s)).replace(/[&<>"']/g, function(c){
@@ -1423,21 +1470,32 @@
   }
 
   function fetchIndex(){
+    var indexId=++indexRequestId;
     var ctrl = new AbortController();
     var to = setTimeout(function(){ ctrl.abort(); }, 15000);
     return fetch(API + "/dailies?limit=180", {cache:"no-store", signal: ctrl.signal})
       .then(function(r){ if(!r.ok) throw new Error("HTTP "+r.status); return r.json(); })
       .then(function(d){
+        if(indexId!==indexRequestId)return false;
         if(!d || !Array.isArray(d.items) || !d.items.length) throw new Error("索引返回异常");
         INDEX = d.items.map(function(it){
           return {date:it.date, leadTitle:(it.leadTitle||""), links:(it.links&&it.links.aihot)||""};
         });
-        return INDEX;
-      }).finally(function(){clearTimeout(to);});
+        return true;
+      }).catch(function(err){if(indexId!==indexRequestId)return false;throw err;}).finally(function(){clearTimeout(to);});
   }
   function indexOfDate(date){
     for(var i=0;i<INDEX.length;i++){ if(INDEX[i].date===date) return i; }
     return -1;
+  }
+  function validDailyDate(date){
+    if(typeof date!=="string"||!/^\d{4}-\d{2}-\d{2}$/.test(date))return false;
+    var d=new Date(date+"T00:00:00Z");return Number.isFinite(d.getTime())&&d.toISOString().slice(0,10)===date;
+  }
+  function validateDailyReport(report,date){
+    if(!report||typeof report!=="object"||!validDailyDate(report.date)||report.date!==date)throw new Error("返回的日报日期无效或与所选日期不符");
+    if(!Array.isArray(report.sections)||report.sections.some(function(s){return !s||typeof s.label!=="string"||!Array.isArray(s.items)||s.items.some(function(it){return !it||typeof it.title!=="string"||(it.summary!=null&&typeof it.summary!=="string");});}))throw new Error("返回的日报版块或条目格式异常");
+    if(report.generatedAt&&!Number.isFinite(new Date(report.generatedAt).getTime()))throw new Error("返回的日报生成时间无效");
   }
   function populateSelect(){
     var sel = document.getElementById("dateSel");
@@ -1614,6 +1672,7 @@
       .then(function(data){
         if(requestId !== dailyRequestId) return;
         if(!data || !data.report) throw new Error("返回数据缺少 report 字段");
+        validateDailyReport(data.report,date);
         CURRENT = date;
         render(data.report, meta);
       })
@@ -1622,6 +1681,7 @@
   }
   function goto(date, pushHash){
     if(indexOfDate(date) === -1) return;
+    dailySelectionId++;
     if(pushHash !== false) history.pushState(null, "", "#" + date);
     var older = document.getElementById("olderBtn");
     var newer = document.getElementById("newerBtn");
@@ -1644,8 +1704,10 @@
     return INDEX.length ? INDEX[0].date : today;
   }
   function boot(){
+    var bootId=++dailyBootId, selectionAtBoot=dailySelectionId;
     fetchIndex()
-      .then(function(){
+      .then(function(applied){
+        if(!applied||bootId!==dailyBootId||selectionAtBoot!==dailySelectionId)return;
         populateSelect();
         var date = resolveInitialDate();
         if(ACTIVE_TAB==="daily" && location.hash !== "#"+date) history.replaceState(null, "", "#"+date);
@@ -1653,7 +1715,7 @@
         syncNavButtons();
         loadDate(date);
       })
-      .catch(function(err){ setStateError("无法获取日报列表：" + (err && err.message ? err.message : err)); });
+      .catch(function(err){if(bootId===dailyBootId&&selectionAtBoot===dailySelectionId)setStateError("无法获取日报列表：" + (err && err.message ? err.message : err));});
   }
   document.getElementById("dateSel").addEventListener("change", function(e){ goto(e.target.value); });
   /* 今日总结：复制「AI 深度解读」指令（事件委托，日报每次重渲染都生效） */
@@ -1662,10 +1724,7 @@
     if(!btn) return;
     var el = document.getElementById("dsum-prompt");
     if(!el) return;
-    var txt = el.value || el.innerText || el.textContent;
-    function done(){ var t=btn.textContent; btn.textContent="已复制✓ 去新窗口粘贴给 AI"; setTimeout(function(){btn.textContent=t;},1800); }
-    function fb(){ try{ el.style.display=""; el.select(); document.execCommand("copy"); el.style.display="none"; done(); }catch(e){} }
-    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done, fb); } else { fb(); }
+    window.AI_COPY(el.value || el.textContent || "",btn);
   });
   document.getElementById("newerBtn").addEventListener("click", function(){ var i=indexOfDate(CURRENT); if(i>0) goto(INDEX[i-1].date); });
   document.getElementById("olderBtn").addEventListener("click", function(){ var i=indexOfDate(CURRENT); if(i<INDEX.length-1) goto(INDEX[i+1].date); });
@@ -1680,15 +1739,7 @@
     boot();
   });
   document.getElementById("copyBtn").addEventListener("click", function(){
-    var url = location.href;
-    function done(){ var b=document.getElementById("copyBtn"); b.textContent="已复制 ✓"; setTimeout(function(){b.textContent="复制链接";},1500); }
-    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(done, fallback); }
-    else { fallback(); }
-    function fallback(){
-      var ta=document.createElement("textarea"); ta.value=url; document.body.appendChild(ta); ta.select();
-      try{ document.execCommand("copy"); done(); }catch(e){}
-      document.body.removeChild(ta);
-    }
+    window.AI_COPY(location.href,document.getElementById("copyBtn"));
   });
   window.addEventListener("hashchange", syncRoute);
   document.getElementById("nav").addEventListener("click",function(e){
@@ -1739,7 +1790,8 @@
     renderAutoBar();
     var dateAtCheck=CURRENT;
     var wasLatest=!CURRENT||(INDEX.length&&CURRENT===INDEX[0].date);
-    fetchIndex().then(function(){
+    fetchIndex().then(function(applied){
+      if(!applied)return;
       populateSelect();
       if(CURRENT!==dateAtCheck){syncNavButtons();return;}
       var target=(wasLatest||indexOfDate(CURRENT)===-1)?INDEX[0].date:CURRENT;
@@ -1950,7 +2002,7 @@
       var box=document.getElementById('forum-list');
       if(!box) return;
       var cards=s.vids.map(function(v){
-        return '<article class="cmp" data-vid="'+esc(v.bvid)+'">'+
+        return '<article class="cmp" data-vid="'+esc(v.bvid)+'" data-series="'+esc(s.who)+'">'+
           '<div class="cmp-head" style="cursor:default">'+
             '<span class="chip" style="border-color:#fb7185;color:#fb7185;background:#fff1f2">▶ B站视频</span>'+
             '<span class="cmp-name"><a href="https://www.bilibili.com/video/'+esc(v.bvid)+'" target="_blank" rel="noopener noreferrer">'+esc(v.t||"")+'</a></span>'+
@@ -2041,11 +2093,7 @@
         var id = btn.getAttribute("data-copy");
         var el = id && document.getElementById(id);
         if(!el) return;
-        var txt = el.innerText || el.textContent;
-        function done(){ var t=btn.textContent; btn.textContent="已复制✓"; btn.disabled=true; setTimeout(function(){btn.textContent=t;btn.disabled=false;},1400); }
-        function fb(){ try{ var r=document.createRange(); r.selectNode(el); var sel=getSelection(); sel.removeAllRanges(); sel.addRange(r); document.execCommand("copy"); sel.removeAllRanges(); done(); }catch(e){} }
-        if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done, fb); }
-        else { fb(); }
+        window.AI_COPY(el.value || el.textContent || "",btn);
       });
       grid.addEventListener("keydown", function(ev){
         if(ev.key!=="Enter" && ev.key!==" ") return;
@@ -2068,6 +2116,7 @@
   var CQUT_CAT = CAT[cqSaved.cat]?cqSaved.cat:"全部";
   var CQUT_TAG = TAGNAME[cqSaved.tag]?cqSaved.tag:"全部";
   var CQUT_QUERY = typeof cqSaved.query==="string"?cqSaved.query.slice(0,200):"";
+  var CQUT_PAGE = Number.isInteger(cqSaved.page)&&cqSaved.page>0?cqSaved.page:1, CQUT_PAGE_SIZE=30;
   document.getElementById("cqut-search").value=CQUT_QUERY;
 
   function inCat(n){ return CQUT_CAT==="全部" || n.cat===CQUT_CAT; }
@@ -2093,6 +2142,7 @@
   function render(){
     var up = document.getElementById('cqut-updated');
     if(up){ up.textContent = window.CQUT_UPDATED || "未知"; }
+    document.getElementById("cqut-check-note").textContent=window.CQUT_CHECK_NOTE ? "最近核查 "+(window.CQUT_CHECKED||"未知")+"："+window.CQUT_CHECK_NOTE : "";
     var fw = document.getElementById('cqutFilters');
     if(fw){
       var hs = ['<button class="filterbtn'+(CQUT_CAT==="全部"?" active":"")+'" data-c="全部">全部</button>'];
@@ -2102,18 +2152,23 @@
       fw.innerHTML = hs.join("");
     }
     renderTagBar();
-    window.AI_SESSION.write("ai-cqut-state",{cat:CQUT_CAT,tag:CQUT_TAG,query:CQUT_QUERY});
     document.getElementById("cqut-reset").hidden=!CQUT_QUERY&&CQUT_CAT==="全部"&&CQUT_TAG==="全部";
     var list = N.filter(function(n){
       var hay=[n.t,n.src,n.sum,n.date,TAGNAME[n.tag]].join(" ").toLowerCase();
       return inCat(n) && inTag(n) && CQUT_QUERY.split(/\s+/).filter(Boolean).every(function(q){return hay.indexOf(q)>=0;});
     });
-    document.getElementById("cqut-search-count").textContent="当前找到 "+list.length+" 条通知";
+    var pages=Math.max(1,Math.ceil(list.length/CQUT_PAGE_SIZE));
+    CQUT_PAGE=Math.min(CQUT_PAGE,pages);
+    var start=(CQUT_PAGE-1)*CQUT_PAGE_SIZE;
+    window.AI_SESSION.write("ai-cqut-state",{cat:CQUT_CAT,tag:CQUT_TAG,query:CQUT_QUERY,page:CQUT_PAGE});
+    document.getElementById("cqut-search-count").textContent="共找到 "+list.length+" 条通知"+(list.length?" · 显示 "+(start+1)+"–"+Math.min(start+CQUT_PAGE_SIZE,list.length)+" 条 · 第 "+CQUT_PAGE+" / "+pages+" 页":"");
+    var pager=pages>1?'<button type="button" class="pg" data-cqut-page="'+(CQUT_PAGE-1)+'"'+(CQUT_PAGE===1?' disabled':'')+'>上一页</button><span class="pg-ell">'+CQUT_PAGE+' / '+pages+'</span><button type="button" class="pg" data-cqut-page="'+(CQUT_PAGE+1)+'"'+(CQUT_PAGE===pages?' disabled':'')+'>下一页</button>':"";
+    ["cqut-pager-top","cqut-pager"].forEach(function(id){document.getElementById(id).innerHTML=pager;});
     var box = document.getElementById('cqut-list');
     if(!box) return;
     if(!list.length){ box.innerHTML = '<div class="search-empty">没有匹配的通知。试试其他关键词或切换分类。</div>'; return; }
-    box.innerHTML = list.map(function(n, i){
-      var num = (i+1<10?"0":"")+(i+1);
+    box.innerHTML = list.slice(start,start+CQUT_PAGE_SIZE).map(function(n, i){
+      var num = (start+i+1<10?"0":"")+(start+i+1);
       var tagHtml = TAGNAME[n.tag] ? '<span class="chip" style="border-color:var(--line)">'+TAGNAME[n.tag]+'</span>' : "";
       return '<article class="cmp">'+
         '<div class="cmp-head" style="cursor:default">'+
@@ -2133,14 +2188,26 @@
     }).join("");
   }
   var f = document.getElementById('cqutFilters');
-  document.getElementById("cqut-search").addEventListener("input",function(e){CQUT_QUERY=(e.target.value||"").trim().toLowerCase();render();});
-  document.getElementById("cqut-reset").addEventListener("click",function(){CQUT_QUERY="";CQUT_CAT="全部";CQUT_TAG="全部";document.getElementById("cqut-search").value="";render();});
+  document.getElementById("cqut-search").addEventListener("input",function(e){CQUT_QUERY=(e.target.value||"").trim().toLowerCase();CQUT_PAGE=1;render();});
+  document.getElementById("cqut-reset").addEventListener("click",function(){CQUT_QUERY="";CQUT_CAT="全部";CQUT_TAG="全部";CQUT_PAGE=1;document.getElementById("cqut-search").value="";render();});
+  ["cqut-pager-top","cqut-pager"].forEach(function(id){
+    document.getElementById(id).addEventListener("click",function(e){
+      var b=e.target.closest?e.target.closest("button[data-cqut-page]"):null;
+      if(!b||b.disabled)return;
+      var page=Number(b.getAttribute("data-cqut-page"));if(!Number.isInteger(page)||page<1)return;
+      CQUT_PAGE=page;render();
+      var count=document.getElementById("cqut-search-count");count.setAttribute("tabindex","-1");
+      if(count.focus)count.focus({preventScroll:true});
+      if(count.getBoundingClientRect)window.scrollTo({top:window.scrollY+count.getBoundingClientRect().top-(document.querySelector(".appbar")||{offsetHeight:100}).offsetHeight-12,behavior:"instant"});
+    });
+  });
   if(f){
     f.addEventListener("click", function(ev){
       var b = ev.target.closest ? ev.target.closest(".filterbtn") : null;
       if(!b) return;
       CQUT_CAT = b.getAttribute("data-c") || "全部";
       CQUT_TAG = "全部";
+      CQUT_PAGE = 1;
       render();
     });
   }
@@ -2150,6 +2217,7 @@
       var b = ev.target.closest ? ev.target.closest(".filterbtn") : null;
       if(!b) return;
       CQUT_TAG = b.getAttribute("data-t") || "全部";
+      CQUT_PAGE = 1;
       render();
     });
   }
@@ -2658,9 +2726,9 @@
     return s ? s.vids.map(function(v){return "forum:https://www.bilibili.com/video/"+v.bvid;}) : [];
   }
   function seriesSearch(card){
-    var who=card.getAttribute("data-open");
+    var seriesCard=card.getAttribute("data-open"), who=seriesCard||card.getAttribute("data-series");
     var s=(window.FORUM_SERIES||[]).find(function(x){return x.who===who;});
-    return s ? s.vids.map(function(v){return v.t+" "+v.up;}).join(" ") : "";
+    return s ? [s.who,s.desc,s.cat].join(" ")+(seriesCard?" "+s.vids.map(function(v){return v.t+" "+v.up;}).join(" "):"") : "";
   }
   function paint(m){
     var q=m.search.value.trim().toLowerCase(), mode=m.select.value, shown=0;

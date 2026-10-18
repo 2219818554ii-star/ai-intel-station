@@ -1,0 +1,239 @@
+{
+  "checkedAt": "2026-10-19",
+  "scope": "Official AA Intelligence Index v4.3.2 review and cross-benchmark comparability audit; no claim of refreshing every price or tool score.",
+  "sources": [
+    {
+      "url": "https://artificialanalysis.ai/leaderboards/models",
+      "method": "official web extraction read 2026-10-19",
+      "usable": true
+    },
+    {
+      "url": "https://artificialanalysis.ai/changelog",
+      "method": "official changelog extraction",
+      "finding": "v4.3.2 methodology release dated 2026-09-19; score entries corroborate Qwen Max45, DeepSeek Flash39 and MiMo Pro46."
+    },
+    {
+      "url": "https://www.tbench.ai/leaderboard",
+      "method": "official page extraction",
+      "finding": "Current page declares Terminal-Bench4.0; current HTML rows were unpopulated. Search extraction has prior values with model+agent+effort; no new TB scores written."
+    },
+    {
+      "url": "https://www.swebench.com/",
+      "method": "official page extraction",
+      "finding": "Verified500 instances and Bash Only mini-SWE-agent methodology explicitly distinguished; no comparable new numeric rows obtained."
+    }
+  ],
+  "modelChanges": [
+    {
+      "name": "Qwen3.8-Max",
+      "field": "iaa",
+      "before": 40.0,
+      "after": 45,
+      "officialSource": "https://artificialanalysis.ai/leaderboards/models",
+      "noteUpdated": true
+    },
+    {
+      "name": "DeepSeek V4.1-Flash",
+      "field": "iaa",
+      "before": 40.0,
+      "after": 39,
+      "officialSource": "https://artificialanalysis.ai/leaderboards/models",
+      "noteUpdated": true
+    },
+    {
+      "name": "MiniMax M3",
+      "field": "iaa",
+      "before": null,
+      "after": 29,
+      "officialSource": "https://artificialanalysis.ai/leaderboards/models",
+      "noteUpdated": true
+    },
+    {
+      "name": "Claude Fable 5.1",
+      "field": "iaa",
+      "before": 53.0,
+      "after": 53,
+      "officialSource": "https://artificialanalysis.ai/leaderboards/models",
+      "noteUpdated": true
+    },
+    {
+      "name": "GPT-6 Astra",
+      "field": "iaa",
+      "before": 53.0,
+      "after": 53,
+      "officialSource": "https://artificialanalysis.ai/leaderboards/models",
+      "noteUpdated": true
+    },
+    {
+      "name": "MiMo V2.6 Pro",
+      "field": "iaa",
+      "before": 46.0,
+      "after": 46,
+      "officialSource": "https://artificialanalysis.ai/leaderboards/models",
+      "noteUpdated": true
+    },
+    {
+      "name": "StepFun Step 5 Preview",
+      "field": "iaa",
+      "before": 44.0,
+      "after": 44,
+      "officialSource": "https://artificialanalysis.ai/leaderboards/models",
+      "noteUpdated": true
+    }
+  ],
+  "aaSelection": [
+    [
+      "Claude Opus 5.5 (max with fallback)",
+      58
+    ],
+    [
+      "Claude Sonnet 5.5 (max with fallback)",
+      56
+    ],
+    [
+      "Muse Wonder Full (max)",
+      56
+    ],
+    [
+      "Claude Fable 5.1 (max with fallback)",
+      53
+    ],
+    [
+      "GPT-6 Astra (max)",
+      53
+    ],
+    [
+      "Gemini 4 Argon (high)",
+      53
+    ],
+    [
+      "GPT-6.1 Sol (max)",
+      52
+    ],
+    [
+      "Muse Wonder (max)",
+      52
+    ],
+    [
+      "Muse Spark 1.3 (max)",
+      48
+    ],
+    [
+      "Grok 4.7 (xhigh)",
+      46
+    ],
+    [
+      "MiMo-V2.6-Pro",
+      46
+    ],
+    [
+      "Qwen3.8 Max (0902)",
+      45
+    ],
+    [
+      "GLM-5.3 (max)",
+      45
+    ],
+    [
+      "Step 5 Preview",
+      44
+    ],
+    [
+      "Kimi K3 (max)",
+      44
+    ],
+    [
+      "Claude Haiku 5.5 (max)",
+      43
+    ]
+  ],
+  "sweMixingFound": {
+    "verified": [
+      [
+        "Claude Code + Fable 5",
+        95.0
+      ],
+      [
+        "Codex + GPT-5.5",
+        88.7
+      ],
+      [
+        "Claude Code + Opus 4.8",
+        88.6
+      ],
+      [
+        "Gemini CLI + Gemini 3.1 Pro",
+        80.6
+      ]
+    ],
+    "pro": [
+      [
+        "Claude Code + Fable 5",
+        80.3
+      ],
+      [
+        "Codex + GPT-5.5",
+        58.6
+      ],
+      [
+        "Gemini CLI + Gemini 3.1 Pro",
+        54.2
+      ]
+    ],
+    "wrongBenchmarkRow": [
+      "Codex + GPT-5.6 Sol — Terminal-Bench 2.1",
+      89.5
+    ],
+    "recommendation": "Keep Verified and Pro in separate historical groups, remove TB row from SWE, avoid a common rank order. Original numeric records are historical and not newly verified."
+  },
+  "limits": [
+    "Prices, subscription availability, subjective letter grades and old TB2.1/tool results were not freshly verified.",
+    "Gemini3.1 Pro Preview30 was not copied into generic Gemini3.1 Pro because the version identity differs.",
+    "AA Current selection is a curated list of represented models, not a claim to include every effort variant or every model."
+  ],
+  "sweApplied": {
+    "verified": [
+      [
+        "Claude Code + Fable 5 — Verified",
+        95.0
+      ],
+      [
+        "Codex + GPT-5.5 — Verified",
+        88.7
+      ],
+      [
+        "Claude Code + Opus 4.8 — Verified",
+        88.6
+      ],
+      [
+        "Gemini CLI + Gemini 3.1 Pro — Verified",
+        80.6
+      ]
+    ],
+    "pro": [
+      [
+        "Claude Code + Fable 5 — Pro",
+        80.3
+      ],
+      [
+        "Codex + GPT-5.5 — Pro",
+        58.6
+      ],
+      [
+        "Gemini CLI + Gemini 3.1 Pro — Pro",
+        54.2
+      ]
+    ],
+    "removedMisfiledRow": [
+      "Codex + GPT-5.6 Sol — Terminal-Bench 2.1",
+      89.5
+    ],
+    "numericValuesChanged": false,
+    "sourceBasis": "Existing historical records were grouped by their already stated benchmark, not promoted to fresh official scores. TB row remains in its original TB table."
+  },
+  "otherChanges": [
+    "TB2.1 title explicitly historical 2026-09, with current4.0 distinction.",
+    "Removed internally inconsistent Codex TB2.1 first-place claim; its89.5 is below existing Fable91.4 and Astra89.9.",
+    "RANK_CHECK_NOTE distinguishes current AA check from old TB/SWE/tool/price/grade records."
+  ]
+}

@@ -2786,3 +2786,7 @@ window.CQUT_SOURCES = {
     }
   ]
 };
+
+/* 核查尝试与内容成功更新分开记录；反爬挑战不能冒充新通知。 */
+window.CQUT_CHECKED = "2026-10-19";
+window.CQUT_CHECK_NOTE = "官网访问受限，保留已核实通知；具体事务请以官网原文为准。";

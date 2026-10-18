@@ -89,4 +89,21 @@ module.exports = async function ({inline, sandbox, ok}) {
   await settle();
   ok(switching.audit.current()===older,
     '定时检查等待索引期间切换历史日期，迟到的检查不会打断阅读');
+
+  const manual=run();await settle();
+  let releaseManual;
+  manual.api.indexGate=new Promise(resolve=>{releaseManual=resolve;});
+  manual.listeners.refreshBtn.click();
+  manual.audit.goto(older);await settle();
+  const reading=manual.elements.main.innerHTML;
+  manual.api.failIndex=true;releaseManual();await settle();
+  ok(manual.audit.current()===older && manual.elements.main.innerHTML===reading && !manual.elements.main.innerHTML.includes('RECOVERABLE_INDEX_ERROR'),
+    '手动刷新索引等待期间切换日期，迟到的索引失败不覆盖已打开的历史内容');
+
+  const manualSuccess=run();await settle();
+  let releaseSuccess;
+  manualSuccess.api.indexGate=new Promise(resolve=>{releaseSuccess=resolve;});
+  manualSuccess.listeners.refreshBtn.click();manualSuccess.audit.goto(older);await settle();
+  manualSuccess.api.dates=[today,yesterday,older];releaseSuccess();await settle();
+  ok(manualSuccess.audit.current()===older, '手动刷新等待期间选择历史日期，索引成功也不会把阅读切回最新');
 };
