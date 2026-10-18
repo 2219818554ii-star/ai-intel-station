@@ -31,10 +31,13 @@ class Response:
 
 
 class DeploymentChecks(unittest.TestCase):
-    def run_check(self, *, skip=False, changed=False, behind=False, optional_dns=False):
+    def run_check(self, *, skip=False, changed=False, behind=False, optional_dns=False, gh_timeout=False):
         requests = []
 
         def command(args, **kwargs):
+            if gh_timeout and str(args[0]).endswith("gh.exe"):
+                self.assertEqual(kwargs.get("timeout"), 25)
+                raise subprocess.TimeoutExpired(args, kwargs["timeout"])
             if "rev-list" in args:
                 output = b"0\t2" if behind else b"0\t0"
             elif "status" in args:
@@ -81,6 +84,14 @@ class DeploymentChecks(unittest.TestCase):
         code, _, output = self.run_check(skip=True, behind=True)
         self.assertEqual(code, 1)
         self.assertIn("本地落后 origin/main 2 个提交", output)
+
+    def test_github_command_timeout_reports_warning_and_checks_public_page(self):
+        code, requests, output = self.run_check(gh_timeout=True)
+        self.assertEqual(code, 0)
+        self.assertIn("尝试 3/3", output)
+        self.assertIn("取不到仓库里的 index.html", output)
+        self.assertTrue(any(".github.io/" in url for url in requests))
+        self.assertIn("线上站点页面 = 本地产物", output)
 
 
 if __name__ == "__main__":

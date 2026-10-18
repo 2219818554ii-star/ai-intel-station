@@ -93,8 +93,12 @@ def readtxt(path):
 
 
 def run(cmd, **kw):
-    p = subprocess.run(cmd, shell=False, cwd=BASE,
-                       stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    try:
+        p = subprocess.run(cmd, shell=False, cwd=BASE,
+                           stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                           timeout=kw.pop("timeout", 25), **kw)
+    except subprocess.TimeoutExpired:
+        return 124, "外部命令超时，未取得结果"
     out = p.stdout.decode("utf-8", "replace") + p.stderr.decode("utf-8", "replace")
     return p.returncode, out.strip()
 

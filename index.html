@@ -6154,6 +6154,11 @@ window.FUNDS_STOCKS = {
     var extra=window.matchMedia("(max-width:720px)").matches ? 12 : ((bar && bar.getBoundingClientRect().height)||110)+12;
     document.documentElement.style.setProperty("--appbar-height",h+"px");
     document.documentElement.style.setProperty("--reading-offset",(h+extra)+"px");
+    var nav=document.querySelector(".tabs"), selected=document.getElementById("tab-"+ACTIVE_TAB);
+    if(nav&&selected&&selected.getBoundingClientRect){
+      var a=selected.getBoundingClientRect(),n=nav.getBoundingClientRect();
+      if(a.left<n.left||a.right>n.right)nav.scrollLeft+=a.left-n.left-(nav.clientWidth-a.width)/2;
+    }
   }
   if(typeof ResizeObserver!=="undefined"){
     var headerObserver=new ResizeObserver(measureHeader);
