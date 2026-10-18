@@ -118,7 +118,7 @@ prod = readtxt(PROD)
 
 # ---------- [1] 产物是否过期 ----------
 print("[1] 产物新鲜度")
-src_files = ["index.src.html", "competitions.js", "ted.js", "forum.js",
+src_files = ["index.src.html", "competitions.js", "matches.js", "ted.js", "forum.js",
              "rank.js", "cqut.js", "funds.js"]
 pm = os.path.getmtime(os.path.join(BASE, PROD))
 fresh = []
@@ -136,7 +136,7 @@ if fresh:
 else:
     ok(PASS, "源文件全部已构建进产物（%d 个输入）" % len(src_files))
 
-# 产物里必须内联了 5 份数据，不能还是外链
+# 产物里必须内联全部数据文件，不能还是外链
 leftover = [f for f in src_files[1:]
             if '<script src="%s"></script>' % f in prod]
 if leftover:
@@ -219,13 +219,17 @@ elif tagkeys:
 
 # ---------- [3] git 是否与线上同步 ----------
 print("\n[3] git 同步状态")
-rc, out = git("rev-list", "--count", "origin/main..HEAD")
-if rc != 0 or not out.isdigit():
+rc, out = git("rev-list", "--left-right", "--count", "HEAD...origin/main")
+counts = re.fullmatch(r"(\d+)\s+(\d+)", out) if rc == 0 else None
+if not counts:
     warn("拿不到 origin/main 提交数（可能刚建仓库或断网），跳过",
          "确认过 [4] 线上一致即可")
-elif int(out) > 0:
-    bad("还有 %s 个提交没推到 GitHub" % out,
+elif int(counts.group(1)) > 0:
+    bad("还有 %s 个提交没推到 GitHub" % counts.group(1),
         "推送时先存退出码再判断，别用 `push | tail`（tail 会盖掉 git 的退出码）")
+elif int(counts.group(2)) > 0:
+    bad("本地落后 origin/main %s 个提交" % counts.group(2),
+        "先同步远端，再重新构建和自检，避免覆盖自动任务更新")
 else:
     ok(PASS, "本地与 origin/main 完全同步（落后 0 个提交）")
 
@@ -275,24 +279,17 @@ else:
             ok(PASS, "线上站点页面 = 本地产物（%.1f KB），用户看到的就是最新版"
                % (len(online) / 1024.0))
         else:
-            # md5 会受 Pages 注入 / 缓存头影响而虚惊，关键标记才说明「到底是不是新版」
+            # 栏目容器名在多个旧版本里也存在，只能辅助定位，不能证明内容一致。
             probes = [k for k in ("window.MATCHES", "id=\"match-list\"",
                                   "id=\"matchSchoolFilters\"", "id=\"match-sources\"",
                                   "获奖喜报类的通稿一条不留")
                       if k in local_txt]
             hits = [k for k in probes if k in online_txt]
-            if probes and len(hits) == len(probes):
-                ok(PASS, "线上已是最新版（关键标记 %d/%d 全部命中：%s）\n"
-                          "         md5 不同只因 Pages 注入了构建头，内容一致"
-                   % (len(hits), len(probes), "、".join(hits)))
-            else:
-                bad("线上还是旧版：本地标记 %d 个，线上命中 %d 个\n        "
-                    "本地有 / 线上无：%s"
-                    % (len(probes), len(hits),
-                       "、".join([k for k in probes if k not in online_txt]) or "（无）"),
-                    "① 先 `git status --porcelain` 确认 index.html 已提交\n"
-                    "② `git push`，推完等 1–2 分钟让 Pages 构建完再跑本脚本\n"
-                    "③ 真还不行就别宣布上线，直接跟用户说线上滞后")
+            bad("线上页面与本地产物不同，不能确认已部署最新版（关键标记命中 %d/%d 也不代表内容一致）"
+                % (len(hits), len(probes)),
+                "① 确认 index.html 已提交并推送\n"
+                "② 等 Pages 构建完成后重新检查；换行差异已自动忽略\n"
+                "③ 若平台确实改写 HTML，须另行核对实际脚本和内容，不能仅凭容器名判定通过")
 
 # ---------- [5] 链接真实抽检 ----------
 print("\n[5] 链接真实抽检（HTTP 请求，非 2xx 才报错）")
@@ -306,7 +303,9 @@ PROBE = [
 ]
 WAF = (412, 403, 503)  # 学校站 WAF/反爬，不代表链接失效
 hard_bad, waf_list, ok_list, soft_note = [], [], [], []
-for name, url in PROBE:
+if skip_remote:
+    print("  (跳过：手动指定 --skip-remote，未验证远程链接)")
+for name, url in ([] if skip_remote else PROBE):
     try:
         req = urllib.request.Request(url, headers={"User-Agent": UA})
         with urllib.request.urlopen(req, timeout=10) as r:
@@ -323,7 +322,7 @@ for name, url in PROBE:
     except Exception as e:
         # 「如用到」类探针：站点里压根没这个链接，网络不通只算提示，不能判死
         if "（如用到）" in name:
-            if '"%s"' % url.split("//")[-1] in html or url in html:
+            if '"%s"' % url.split("//")[-1] in prod or url in prod:
                 hard_bad.append("%s → 页面在引用它但连不上（%s）" % (name, getattr(e, "reason", e)))
             else:
                 soft_note.append("%s → 未使用，跳过（%s）" % (name, getattr(e, "reason", e)))
@@ -333,7 +332,7 @@ for line in ok_list + waf_list + soft_note:
     print("      %s" % line)
 if hard_bad:
     bad("抽检到 %d 个打不开的链接：%s" % (len(hard_bad), "、".join(hard_bad)))
-else:
+elif not skip_remote:
     ok(PASS, "抽检 %d 个关键入口全部可达（%d 个站点反爬已豁免）"
        % (len(PROBE), len(waf_list)))
 
@@ -347,6 +346,10 @@ print("  上线前总检：%d 通过 / %d 警告 / %d 失败" % (np_, nw, nf))
 if nf:
     print("\n  >>> 结论：不许宣布上线。按上面 FAIL 行的 ↳ 提示逐条修。")
     print("      禁止用「应该没问题吧」蒙混——你就是靠这个才被 TED 404 截图的。")
+elif skip_remote:
+    print("\n  >>> 本地检查通过；已跳过线上一致性与链接检查，尚不能据此确认上线。")
+elif nw:
+    print("\n  >>> 无硬性失败，但仍有警告待核对；不能仅据此确认线上一致。")
 else:
     print("\n  >>> 结论：可以上线。本地 = 线上 = 最新构建。")
 print(deadline)

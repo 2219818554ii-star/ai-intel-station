@@ -174,7 +174,9 @@ const mSeries = FS.find(s=>s.who==='马云');
 const mvHtml = (store['forum-list']||{}).innerHTML || '';
 ok(mSeries && cards('forum-list') === mSeries.vids.length, `点「马云」系列 → ${cards('forum-list')} 张视频卡（期望 ${mSeries?mSeries.vids.length:'?'}）`);
 ok(mvHtml.includes('← 返回系列列表'), '视频清单含「← 返回系列列表」按钮');
-ok(mvHtml.split('bilibili.com/video/').length - 1 === (mSeries?mSeries.vids.length:0), '每条视频都是 bilibili.com/video/<BV> 直达播放页链接');
+// Titles and play buttons both link to the same verified video; check identities, not raw URL occurrences.
+const mvLinks=[...mvHtml.matchAll(/href="https:\/\/www\.bilibili\.com\/video\/([^"\s]+)"/g)].map(m=>m[1]);
+ok(!!mSeries && mvLinks.length===mSeries.vids.length*2 && mSeries.vids.every(v=>mvLinks.filter(id=>id===v.bvid).length===2), '每条视频标题与播放按钮均直达对应BV，数量与身份逐一一致');
 ok(mvHtml.includes('在B站播放'), '视频卡片含「在B站播放」按钮');
 ok(mvHtml.includes('👤') && mvHtml.includes('播放'), '视频卡片显示 UP主（👤）与播放量');
 forumBack();

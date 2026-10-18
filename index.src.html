@@ -271,6 +271,16 @@
   .reader-note>summary{cursor:pointer;font-weight:600;color:var(--ink-soft);}
   .reader-note .news,.reader-note .disclaim{margin:10px 0 0;}
   .section-search{display:block;width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:15px;margin:0 0 12px;}
+  .search-row{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
+  .search-row .section-search{margin:0;min-width:0;flex:1;}
+  .reset-filter{flex:none;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--brand);padding:9px 11px;font-size:13px;cursor:pointer;}
+  .search-empty .reset-filter{display:block;margin-top:12px;}
+  .library-progress{font-size:13px;color:var(--ink-soft);margin:9px 0;}
+  .resume-learning{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+  .matchinfo .reset-filter{margin-left:10px;padding:4px 9px;}
+  .view{scroll-margin-top:calc(var(--appbar-height,84px) + 12px);}
+  .skip-link{position:fixed;top:-100px;left:12px;z-index:100;background:var(--brand);color:#fff;padding:9px 14px;border-radius:8px;}
+  .skip-link:focus{top:8px;}
   .search-empty{padding:20px;border:1px dashed var(--line);border-radius:10px;color:var(--ink-soft);background:#fff;}
   .cmp-quick{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:9px;font-size:13px;color:var(--ink-soft);}
   .cmp-deadline{flex:1 1 210px;min-width:0;}
@@ -366,6 +376,7 @@
 </style>
 </head>
 <body>
+  <a class="skip-link" href="#main" id="skip-content">跳到正文</a>
   <div class="appbar">
     <div class="appbar-inner">
       <div class="brand">AI 情报站 <small class="brand-summary">日报 · 排名 · 学习</small><small class="nav-hint">栏目可左右滑动 →</small></div>
@@ -763,7 +774,7 @@
       🌍 <b>全球一览：</b>以下为世界级赛事——AI / 机器人 / 航天 / 科创的"奥运会"。多数你<b>无法以个人身份报名</b>（限国籍 / 年龄 / 高校团队 / 邀请制），列出仅供开眼界：看全球在比什么、顶尖水平在哪。少数（如 NASA Space Apps、Kaggle）其实对中国开放，卡片里标了就说明你能上。
     </div>
 
-    <input type="search" class="section-search" id="comp-search" aria-label="搜索比赛" placeholder="搜索比赛、方向、主办方…">
+    <div class="search-row"><input type="search" class="section-search" id="comp-search" aria-label="搜索比赛" placeholder="搜索比赛、方向、主办方…"><button type="button" class="reset-filter" id="comp-reset" hidden>清除筛选</button></div>
     <div class="cmp-list" id="comp-list"></div>
     <div class="cmp-pager" id="comp-pager"></div>
 
@@ -852,7 +863,7 @@
       <button class="filterbtn" data-c="student">🎒 团委·学生会</button>
     </div>
     <div class="cmp-toolbar" id="cqutTagFilters" style="margin-top:9px"></div>
-    <input type="search" class="section-search" id="cqut-search" aria-label="搜索学校通知" placeholder="搜索通知、学院、关键词…">
+    <div class="search-row"><input type="search" class="section-search" id="cqut-search" aria-label="搜索学校通知" placeholder="搜索通知、学院、关键词…"><button type="button" class="reset-filter" id="cqut-reset" hidden>清除筛选</button></div>
     <div id="cqut-search-count" class="library-count" role="status"></div>
     <div class="cmp-list" id="cqut-list"></div>
     <div class="view-head" style="margin-top:30px">
@@ -939,25 +950,41 @@
 (function(){
   "use strict";
 
+  window.AI_SESSION = {
+    read:function(key){try{var x=JSON.parse(window.sessionStorage.getItem(key)||"{}");return x&&typeof x==="object"&&!Array.isArray(x)?x:{};}catch(e){return {}; }},
+    write:function(key,value){try{window.sessionStorage.setItem(key,JSON.stringify(value));}catch(e){}}
+  };
   /* ============ TAB SWITCHING ============ */
   function showTab(tab){
     if(["daily","rank","comp","learn","ted","forum","cqut","funds"].indexOf(tab)<0) return;
-    VIEW_SCROLL[ACTIVE_TAB] = window.scrollY || 0;
+    if(!RESTORE_PENDING) VIEW_SCROLL[ACTIVE_TAB] = window.scrollY || 0;
+    if(DOM_READY) RESTORE_PENDING=false;
     ACTIVE_TAB = tab;
-    document.querySelectorAll(".tab").forEach(function(t){ var on=(t.dataset.tab===tab); t.classList.toggle("active", on); t.setAttribute("aria-selected", on?"true":"false"); });
+    document.querySelectorAll(".tab").forEach(function(t){ var on=(t.dataset.tab===tab); t.classList.toggle("active", on); t.setAttribute("aria-selected", on?"true":"false");t.setAttribute("tabindex",on?"0":"-1"); });
     ["daily","rank","comp","learn","ted","forum","cqut","funds"].forEach(function(v){
       var el=document.getElementById("view-"+v);
       if(el){ el.style.display = (v===tab)?"":"none"; el.setAttribute("aria-hidden", v===tab?"false":"true"); }
     });
     var selected=document.getElementById("tab-"+tab);
-    if(selected.scrollIntoView) selected.scrollIntoView({block:"nearest",inline:"center",behavior:"instant"});
-    window.scrollTo({top:VIEW_SCROLL[tab] || 0,behavior:"instant"});
+    if(!RESTORE_PENDING){
+      if(selected.scrollIntoView) selected.scrollIntoView({block:"nearest",inline:"center",behavior:"instant"});
+      window.scrollTo({top:VIEW_SCROLL[tab] || 0,behavior:"instant"});
+    }
     document.title = document.getElementById("tab-"+tab).textContent.replace(/^\S+\s*/,"") + " · AI 情报站";
     saveViewState();
   }
-  var ACTIVE_TAB = "daily", VIEW_SCROLL = {};
+  var ACTIVE_TAB = "daily", VIEW_SCROLL = {}, DOM_READY=false, DAILY_READY=false, RESTORE_PENDING=true;
   if(typeof history!=="undefined" && "scrollRestoration" in history) history.scrollRestoration="manual";
-  try{ VIEW_SCROLL=JSON.parse(window.sessionStorage.getItem("ai-view-scroll")||"{}"); if(!VIEW_SCROLL || typeof VIEW_SCROLL!=="object") VIEW_SCROLL={}; }catch(e){}
+  try{ VIEW_SCROLL=JSON.parse(window.sessionStorage.getItem("ai-view-scroll")||"{}"); if(!VIEW_SCROLL || typeof VIEW_SCROLL!=="object" || Array.isArray(VIEW_SCROLL)) VIEW_SCROLL={}; }catch(e){}
+  Object.keys(VIEW_SCROLL).forEach(function(k){if(!Number.isFinite(VIEW_SCROLL[k])||VIEW_SCROLL[k]<0)delete VIEW_SCROLL[k];});
+  function finishInitialRestore(){
+    if(!RESTORE_PENDING || !DOM_READY || (ACTIVE_TAB==="daily"&&!DAILY_READY)) return;
+    RESTORE_PENDING=false;
+    var selected=document.getElementById("tab-"+ACTIVE_TAB);
+    if(selected.scrollIntoView)selected.scrollIntoView({block:"nearest",inline:"center",behavior:"instant"});
+    window.scrollTo({top:VIEW_SCROLL[ACTIVE_TAB]||0,behavior:"instant"});
+  }
+  document.addEventListener("DOMContentLoaded",function(){DOM_READY=true;finishInitialRestore();});
   function saveViewState(){
     try{ window.sessionStorage.setItem("ai-view-scroll",JSON.stringify(VIEW_SCROLL)); }catch(e){}
   }
@@ -969,6 +996,7 @@
     if(/^\d{4}-\d{2}-\d{2}$/.test(h) && indexOfDate(h)!==-1 && h!==CURRENT){ CURRENT=h; syncNavButtons(); loadDate(h); }
   }
   document.querySelectorAll(".tab").forEach(function(t){
+    t.setAttribute("tabindex",t.dataset.tab===ACTIVE_TAB?"0":"-1");
     t.addEventListener("click", function(){
       if(t.dataset.tab!==ACTIVE_TAB){ history.pushState(null,"",routeHash(t.dataset.tab)); showTab(t.dataset.tab); }
     });
@@ -984,11 +1012,17 @@
   });
   var viewSaveTimer;
   window.addEventListener("scroll",function(){
+    if(RESTORE_PENDING)return;
     VIEW_SCROLL[ACTIVE_TAB]=window.scrollY||0;
     clearTimeout(viewSaveTimer); viewSaveTimer=setTimeout(saveViewState,200);
   },{passive:true});
-  window.addEventListener("pagehide",saveViewState);
+  window.addEventListener("pagehide",function(){if(!RESTORE_PENDING)VIEW_SCROLL[ACTIVE_TAB]=window.scrollY||0;saveViewState();});
   window.addEventListener("popstate",syncRoute);
+  document.getElementById("skip-content").addEventListener("click",function(e){
+    e.preventDefault();
+    var panel=document.getElementById("view-"+ACTIVE_TAB), target=panel.querySelector("h1,h2")||panel;
+    target.setAttribute("tabindex","-1");target.focus();
+  });
   function measureHeader(){
     var app=document.querySelector(".appbar"), bar=document.querySelector(".toolbar");
     if(!app || !document.documentElement) return;
@@ -1116,19 +1150,27 @@
     b.addEventListener("click", function(){
       document.querySelectorAll("#rankSubtabs .subtab").forEach(function(x){x.classList.toggle("active",x===b);});
       document.querySelectorAll(".rankpane").forEach(function(p){p.classList.toggle("active",p.id==="p-"+b.dataset.pane);});
+      window.AI_SESSION.write("ai-rank-state",{pane:b.dataset.pane});
     });
   });
+  var savedRank=window.AI_SESSION.read("ai-rank-state").pane;
+  if(["models","tools","combos","tables"].indexOf(savedRank)>=0){
+    document.querySelectorAll("#rankSubtabs .subtab").forEach(function(b){b.classList.toggle("active",b.dataset.pane===savedRank);});
+    document.querySelectorAll(".rankpane").forEach(function(p){p.classList.toggle("active",p.id==="p-"+savedRank);});
+  }
 
     /* COMPETITIONS loaded from competitions.js (每日自动更新) */
   var COMP = window.COMP || [];
   (function(){ var el=document.getElementById('comp-updated'); if(el){ el.textContent='比赛数据更新于 '+(window.COMP_UPDATED||'未知'); } var cv=document.getElementById('comp-verified'); if(cv){ cv.textContent=window.COMP_UPDATED||'未知'; } var cc=document.getElementById('comp-count'); if(cc){ cc.textContent=COMP.length; } })();
   function compStars(k){ var s=""; for(var i=0;i<5;i++){ s += (i<k?"★":"☆"); } return s; }
-  var COMP_FILTER = "open";
-  var COMP_SCOPE = "me";
-  var COMP_SORT = "deadline";
+  var savedComp=window.AI_SESSION.read("ai-comp-state");
+  var COMP_FILTER = ["all","open","soon","closed"].indexOf(savedComp.filter)>=0?savedComp.filter:"open";
+  var COMP_SCOPE = ["all","me","world"].indexOf(savedComp.scope)>=0?savedComp.scope:"me";
+  var COMP_SORT = ["deadline","pri","default"].indexOf(savedComp.sort)>=0?savedComp.sort:"deadline";
   var COMP_PER_PAGE = 12;
-  var COMP_PAGE = 1;
-  var COMP_QUERY = "";
+  var COMP_PAGE = Number.isInteger(savedComp.page)&&savedComp.page>0?savedComp.page:1;
+  var COMP_QUERY = typeof savedComp.query==="string"?savedComp.query.slice(0,200):"";
+  document.getElementById("comp-search").value=COMP_QUERY;
   // Parse only a single unambiguous registration range, never dates from explanatory notes.
   function compDeadline(c){
     var raw=String(c.reg||"");
@@ -1156,6 +1198,10 @@
     return base;
   }
   function renderComp(){
+    document.querySelectorAll("#compScope .filterbtn").forEach(function(b){var on=b.dataset.s===COMP_SCOPE;b.classList.toggle("active",on);b.setAttribute("aria-pressed",String(on));});
+    document.querySelectorAll("#compFilters .filterbtn").forEach(function(b){var on=b.dataset.f===COMP_FILTER;b.classList.toggle("active",on);b.setAttribute("aria-pressed",String(on));});
+    document.querySelectorAll("#compSort .filterbtn").forEach(function(b){var on=b.dataset.sort===COMP_SORT;b.classList.toggle("active",on);b.setAttribute("aria-pressed",String(on));});
+    document.getElementById("comp-reset").hidden=!COMP_QUERY&&COMP_SCOPE==="me"&&COMP_FILTER==="open"&&COMP_SORT==="deadline";
     var cnt = {open:0, soon:0, closed:0};
     COMP.forEach(function(c){ if(c.scope!=="world") cnt[c.st] = (cnt[c.st]||0)+1; });
     var statusChip = {open:'<span class="chip open">🟢 可报名</span>',
@@ -1199,6 +1245,7 @@
     var totalPages = Math.max(1, Math.ceil(list.length / COMP_PER_PAGE));
     if(COMP_PAGE > totalPages) COMP_PAGE = totalPages;
     if(COMP_PAGE < 1) COMP_PAGE = 1;
+    window.AI_SESSION.write("ai-comp-state",{filter:COMP_FILTER,scope:COMP_SCOPE,sort:COMP_SORT,page:COMP_PAGE,query:COMP_QUERY});
     var start = (COMP_PAGE - 1) * COMP_PER_PAGE;
     var pageList = list.slice(start, start + COMP_PER_PAGE);
     document.getElementById("comp-list").innerHTML = pageList.map(function(c, ci){
@@ -1270,6 +1317,7 @@
     }
   }
   document.getElementById("comp-search").addEventListener("input",function(e){ COMP_QUERY=(e.target.value||"").trim().toLowerCase(); COMP_PAGE=1; renderComp(); });
+  document.getElementById("comp-reset").addEventListener("click",function(){COMP_QUERY="";COMP_FILTER="open";COMP_SCOPE="me";COMP_SORT="deadline";COMP_PAGE=1;document.getElementById("comp-search").value="";renderComp();});
   document.querySelectorAll("#compFilters .filterbtn").forEach(function(b){
     b.addEventListener("click", function(){
       document.querySelectorAll("#compFilters .filterbtn").forEach(function(x){x.classList.toggle("active", x===b);});
@@ -1335,7 +1383,7 @@
   renderComp();
 
   /* ============ DAILY REPORT (existing, with fix) ============ */
-  var API = "https://aihot.virxact.com/api/v1";
+  var API = "https://aihot.news/api/v1";
   var SECTIONS = [
     {label:"模型发布/更新", id:"sec-models"},
     {label:"产品发布/更新", id:"sec-products"},
@@ -1380,13 +1428,12 @@
     return fetch(API + "/dailies?limit=180", {cache:"no-store", signal: ctrl.signal})
       .then(function(r){ if(!r.ok) throw new Error("HTTP "+r.status); return r.json(); })
       .then(function(d){
-        clearTimeout(to);
-        if(!d || !d.items) throw new Error("索引返回异常");
+        if(!d || !Array.isArray(d.items) || !d.items.length) throw new Error("索引返回异常");
         INDEX = d.items.map(function(it){
           return {date:it.date, leadTitle:(it.leadTitle||""), links:(it.links&&it.links.aihot)||""};
         });
         return INDEX;
-      });
+      }).finally(function(){clearTimeout(to);});
   }
   function indexOfDate(date){
     for(var i=0;i<INDEX.length;i++){ if(INDEX[i].date===date) return i; }
@@ -1488,10 +1535,11 @@
           '<textarea id="dsum-prompt" style="display:none" aria-hidden="true">'+esc(dsumPrompt)+'</textarea>'+
         '</article></div>'+
       '</section>';
-    document.getElementById("main").innerHTML = mainHtml + sumHtml;
+    document.getElementById("main").innerHTML = mainHtml + sumHtml + '<div class="search-empty" id="daily-search-empty" hidden>没有找到相关日报内容。<button type="button" class="reset-filter" id="daily-clear-search">清除搜索</button></div>';
+    document.getElementById("daily-clear-search").addEventListener("click",clearDailySearch);
     document.getElementById("main").style.display = "";
 
-    var srcUrl = (report.links && report.links.aihot) || "https://aihot.virxact.com/";
+    var srcUrl = (report.links && report.links.aihot) || "https://aihot.news/";
     document.getElementById("footer").style.display = "";
     document.getElementById("footer").innerHTML =
       '<div class="big">本期共 '+total+' 条 AI 动态</div>'+
@@ -1502,21 +1550,26 @@
     document.getElementById("dateSel").value = dateStr;
     setupScrollSpy();
     applyFilter();
+    DAILY_READY=true;finishInitialRestore();
   }
+  function clearDailySearch(){document.getElementById("search").value="";applyFilter();document.getElementById("search").focus();}
   function applyFilter(){
     var q = (document.getElementById("search").value || "").trim().toLowerCase();
-    var cards = document.querySelectorAll("#main .card");
+    var cards = document.querySelectorAll("#main .card[data-search]");
     var visibleTotal = 0;
     cards.forEach(function(card){
-      var hit = !q || card.getAttribute("data-search").indexOf(q) !== -1;
+      var hit = !q || String(card.getAttribute("data-search")||"").indexOf(q) !== -1;
       card.style.display = hit ? "" : "none";
       if(hit) visibleTotal++;
     });
     document.querySelectorAll("#main .block").forEach(function(block){
+      if(block.id==="daily-summary"){block.style.display=q?"none":"";return;}
       var any = block.querySelector(".card:not([style*='display: none'])");
       block.style.display = any ? "" : "none";
     });
-    document.getElementById("matchInfo").textContent = q ? ("搜索“"+q+"”：命中 "+visibleTotal+" / "+cards.length+" 条") : "";
+    document.getElementById("matchInfo").innerHTML = q ? ("命中 "+visibleTotal+" / "+cards.length+' 条 <button type="button" class="reset-filter" id="daily-reset">清除搜索</button>') : "";
+    var reset=document.getElementById("daily-reset");if(q&&reset)reset.addEventListener("click",clearDailySearch);
+    var empty=document.getElementById("daily-search-empty");if(empty)empty.hidden=!q||visibleTotal>0;
   }
   function setStateLoading(){
     document.getElementById("main").style.display = "";
@@ -1533,16 +1586,18 @@
       '<div style="font-size:13px;margin-top:6px">请检查网络后点击刷新重试（AI HOT 接口偶发波动）。</div>'+
       '<button id="retryBtn">重试</button></div>';
     var b = document.getElementById("retryBtn");
-    if(b) b.addEventListener("click", function(){ loadDate(CURRENT, {refreshIndex:true}); });
+    if(b) b.addEventListener("click", function(){ boot(); });
+    DAILY_READY=true;finishInitialRestore();
   }
   var dailyRequestId = 0, dailyController = null;
   function loadDate(date, opts){
     opts = opts || {};
     var requestId = ++dailyRequestId;
     if(dailyController) dailyController.abort();
+    var keepReading=opts.background && DAILY_READY && CURRENT===date;
     CURRENT = date;
     try{ window.sessionStorage.setItem("ai-daily-date",date); }catch(e){}
-    setStateLoading();
+    if(!keepReading)setStateLoading();
     var btn = document.getElementById("refreshBtn");
     if(btn) btn.disabled = true;
     var meta = {};
@@ -1562,7 +1617,7 @@
         CURRENT = date;
         render(data.report, meta);
       })
-      .catch(function(err){ if(requestId === dailyRequestId) setStateError(err && err.message ? err.message : String(err)); })
+      .catch(function(err){ if(requestId === dailyRequestId){if(keepReading){document.getElementById("statusBadge").textContent="更新失败，保留上次内容；可点击刷新重试";}else setStateError(err && err.message ? err.message : String(err));} })
       .finally(function(){ clearTimeout(to); if(requestId === dailyRequestId){ dailyController = null; if(btn) btn.disabled = false; } });
   }
   function goto(date, pushHash){
@@ -1622,7 +1677,7 @@
   document.getElementById("refreshBtn").addEventListener("click", function(){
     autoLastAt = new Date(); autoNextAt = Date.now() + AUTO_MS;
     renderAutoBar();
-    fetchIndex().then(function(){ populateSelect(); loadDate(CURRENT); }).catch(function(){}).then(renderAutoBar);
+    boot();
   });
   document.getElementById("copyBtn").addEventListener("click", function(){
     var url = location.href;
@@ -1642,21 +1697,25 @@
     var target=document.getElementById(link.getAttribute("data-target"));
     if(target && target.scrollIntoView){e.preventDefault();target.scrollIntoView({behavior:"smooth",block:"start"});}
   });
+  var dailyScrollSpy=null;
+  var topButton=document.getElementById("toTop");
+  topButton.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"});});
+  window.addEventListener("scroll",function(){
+    topButton.classList.toggle("show",window.scrollY>400);
+    if(ACTIVE_TAB==="daily"&&dailyScrollSpy)dailyScrollSpy();
+  },{passive:true});
   function setupScrollSpy(){
     var links = Array.prototype.slice.call(document.querySelectorAll(".nav-link[data-target]"));
     var map = {};
     links.forEach(function(l){ map[l.getAttribute("data-target")] = l; });
     var targets = links.map(function(l){ return document.getElementById(l.getAttribute("data-target")); }).filter(Boolean);
-    var toTop = document.getElementById("toTop");
     function onScroll(){
-      var pos = window.scrollY + 170, current = null;
+      var pos = window.scrollY + ((document.querySelector(".toolbar")||{}).offsetHeight||110) + ((document.querySelector(".appbar")||{}).offsetHeight||84) + 12, current = null;
       targets.forEach(function(t){ if(t.offsetTop <= pos) current = t.id; });
       links.forEach(function(l){ l.classList.remove("active"); });
       if(current && map[current]) map[current].classList.add("active");
-      if(window.scrollY > 400) toTop.classList.add("show"); else toTop.classList.remove("show");
     }
-    window.addEventListener("scroll", onScroll, {passive:true});
-    toTop.addEventListener("click", function(){ window.scrollTo({top:0, behavior:"smooth"}); });
+    dailyScrollSpy=onScroll;
     onScroll();
   }
   /* ============ 自动刷新：每 30 分钟 ============ */
@@ -1678,12 +1737,17 @@
     autoLastAt = new Date();
     autoNextAt = Date.now() + AUTO_MS;
     renderAutoBar();
+    var dateAtCheck=CURRENT;
+    var wasLatest=!CURRENT||(INDEX.length&&CURRENT===INDEX[0].date);
     fetchIndex().then(function(){
       populateSelect();
-      var today = shanghaiDate(new Date());
-      if(!CURRENT || indexOfDate(CURRENT) === -1){ var d = resolveInitialDate(); CURRENT = d; syncNavButtons(); loadDate(d); }
-      else if(CURRENT === today){ loadDate(CURRENT); }
-    }).catch(function(){}).then(renderAutoBar);
+      if(CURRENT!==dateAtCheck){syncNavButtons();return;}
+      var target=(wasLatest||indexOfDate(CURRENT)===-1)?INDEX[0].date:CURRENT;
+      if(wasLatest||target!==CURRENT){
+        if(ACTIVE_TAB==="daily"&&target!==CURRENT&&typeof history!=="undefined")history.replaceState(null,"","#"+target);
+        loadDate(target,{background:target===CURRENT&&DAILY_READY});syncNavButtons();
+      }
+    }).catch(function(){document.getElementById("statusBadge").textContent="检查更新失败，保留上次内容；可点击刷新重试";}).then(renderAutoBar);
   }
   setInterval(function(){
     if(Date.now() >= autoNextAt){ autoRefreshNow(); } else { renderAutoBar(); }
@@ -1697,7 +1761,8 @@
   /* ============ TED VIEW ============ */
   (function(){
     var TED = window.TED || [];
-    var TED_CAT = "全部";
+    var tedSaved=window.AI_SESSION.read("ai-ted-state");
+    var TED_CAT = TED.some(function(t){return t.cat===tedSaved.cat;})?tedSaved.cat:"全部";
     /* 本模块自带转义助手（不依赖外部 IIFE 作用域） */
     function esc(s){
       return (s==null?"":String(s)).replace(/[&<>"']/g, function(c){
@@ -1712,6 +1777,7 @@
     return out;
   }
   function renderTED(){
+    window.AI_SESSION.write("ai-ted-state",{cat:TED_CAT});
     var cats = tedCatList();
     var fw = document.getElementById('tedFilters');
     if(fw){
@@ -1743,7 +1809,7 @@
       }
       var vtxt = fmtViews(t.views);
       var cover = (t.cover && /^https?:\/\//.test(t.cover))
-        ? '<div class="ted-cover" style="flex:0 0 148px;margin-left:14px"><a href="https://www.ted.com/search?q='+qEn+'" target="_blank" rel="noopener noreferrer" title="点封面去 TED 官方搜索"><img src="'+esc(t.cover)+'" alt="'+esc(t.en||"")+'" loading="lazy" style="width:148px;height:83px;object-fit:cover;border-radius:9px;display:block;background:#0b1020"></a></div>'
+        ? '<div class="ted-cover" style="flex:0 0 148px;margin-left:14px"><a href="'+esc(links[0].u)+'" target="_blank" rel="noopener noreferrer" title="在 TED 官网观看"><img src="'+esc(t.cover)+'" alt="'+esc(t.en||"")+'" loading="lazy" style="width:148px;height:83px;object-fit:cover;border-radius:9px;display:block;background:#0b1020"></a></div>'
         : '';
       return '<article class="cmp">'+
         '<div class="ted-card-body" style="display:flex;gap:0;align-items:flex-start">'+
@@ -1786,6 +1852,7 @@
     });
   }
   renderTED();
+  document.getElementById("view-ted").addEventListener("library-reset",function(){TED_CAT="全部";renderTED();});
 })();
 
   /* ============ FORUM VIEW: 成长讲坛（系列 -> 视频两级直达） ============ */
@@ -1793,14 +1860,17 @@
     var SERIES = window.FORUM_SERIES || [];
     var GUIDE = window.XINXUE_GUIDE || null;
     var CATS = window.FORUM_CATS || [];
-    var FCAT = "全部";   // 一级筛选：分类
-    var FCUR = null;     // null=系列列表；数字=当前打开的系列下标（在筛选后的列表里）
+    var forumSaved=window.AI_SESSION.read("ai-forum-state");
+    var FCAT = CATS.indexOf(forumSaved.cat)>=0?forumSaved.cat:"全部";
+    var FCUR = null;
+    seriesOf(FCAT).forEach(function(s,i){if(s.who===forumSaved.who)FCUR=i;});
     function esc(s){
       return (s==null?"":String(s)).replace(/[&<>"']/g, function(c){
         return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
       });
     }
     var uel=document.getElementById('forum-updated'); if(uel){ uel.textContent=(window.FORUM_UPDATED||'未知'); }
+    if(window.FORUM_REVIEW_NOTE && uel && uel.parentElement && uel.parentElement.insertAdjacentElement){var note=document.createElement("p");note.className="library-storage-note";note.textContent=window.FORUM_REVIEW_NOTE;uel.parentElement.insertAdjacentElement("afterend",note);}
     /* vm 沙箱无 ICU，播放量格式化手写：12500 -> 1.3万 */
     function fmtPlay(n){
       if(!n || n<0) return "—";
@@ -1875,15 +1945,15 @@
       var s=list[FCUR];
       if(!s){ FCUR=null; renderSeries(); return; }
       var st=document.getElementById('forum-stat');
-      if(st){ st.textContent="「"+s.who+"」系列 · "+s.vids.length+" 个视频 · 点卡片直接看"; }
+      if(st){ st.textContent="「"+s.who+"」系列 · "+s.vids.length+" 个视频 · 点击标题或播放按钮观看"; }
       renderGuide();
       var box=document.getElementById('forum-list');
       if(!box) return;
       var cards=s.vids.map(function(v){
-        return '<article class="cmp" data-vid="'+esc(v.bvid)+'" style="cursor:pointer">'+
+        return '<article class="cmp" data-vid="'+esc(v.bvid)+'">'+
           '<div class="cmp-head" style="cursor:default">'+
-            '<span class="chip" style="border-color:#fb7185;color:#fb7185;background:#fff1f2">▶ 点击直接看</span>'+
-            '<span class="cmp-name">'+esc(v.t||"")+'</span>'+
+            '<span class="chip" style="border-color:#fb7185;color:#fb7185;background:#fff1f2">▶ B站视频</span>'+
+            '<span class="cmp-name"><a href="https://www.bilibili.com/video/'+esc(v.bvid)+'" target="_blank" rel="noopener noreferrer">'+esc(v.t||"")+'</a></span>'+
           '</div>'+
           '<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--ink-soft);margin:8px 0">'+
             '<span class="chip" style="border-color:var(--line)">👤 '+esc(v.up||"")+'</span>'+
@@ -1899,12 +1969,14 @@
     }
 
     function render(){
+      window.AI_SESSION.write("ai-forum-state",{cat:FCAT,who:FCUR===null?null:(seriesOf(FCAT)[FCUR]||{}).who});
       renderFilters();
       if(FCUR===null) renderSeries(); else renderVids();
     }
     render();
 
     /* 分类筛选 */
+    document.getElementById("view-forum").addEventListener("library-reset",function(){FCAT="全部";FCUR=null;render();});
     var ff=document.getElementById('forumFilters');
     if(ff){
       ff.addEventListener("click", function(ev){
@@ -1992,9 +2064,11 @@
   var TAGNAME = {};
   TAGS.forEach(function(x){ TAGNAME[x.k] = x.n; });
   var N = window.CQUT_NOTICES || [];
-  var CQUT_CAT = "全部";
-  var CQUT_TAG = "全部";
-  var CQUT_QUERY = "";
+  var cqSaved=window.AI_SESSION.read("ai-cqut-state");
+  var CQUT_CAT = CAT[cqSaved.cat]?cqSaved.cat:"全部";
+  var CQUT_TAG = TAGNAME[cqSaved.tag]?cqSaved.tag:"全部";
+  var CQUT_QUERY = typeof cqSaved.query==="string"?cqSaved.query.slice(0,200):"";
+  document.getElementById("cqut-search").value=CQUT_QUERY;
 
   function inCat(n){ return CQUT_CAT==="全部" || n.cat===CQUT_CAT; }
   function inTag(n){ return CQUT_TAG==="全部" || n.tag===CQUT_TAG; }
@@ -2028,6 +2102,8 @@
       fw.innerHTML = hs.join("");
     }
     renderTagBar();
+    window.AI_SESSION.write("ai-cqut-state",{cat:CQUT_CAT,tag:CQUT_TAG,query:CQUT_QUERY});
+    document.getElementById("cqut-reset").hidden=!CQUT_QUERY&&CQUT_CAT==="全部"&&CQUT_TAG==="全部";
     var list = N.filter(function(n){
       var hay=[n.t,n.src,n.sum,n.date,TAGNAME[n.tag]].join(" ").toLowerCase();
       return inCat(n) && inTag(n) && CQUT_QUERY.split(/\s+/).filter(Boolean).every(function(q){return hay.indexOf(q)>=0;});
@@ -2058,6 +2134,7 @@
   }
   var f = document.getElementById('cqutFilters');
   document.getElementById("cqut-search").addEventListener("input",function(e){CQUT_QUERY=(e.target.value||"").trim().toLowerCase();render();});
+  document.getElementById("cqut-reset").addEventListener("click",function(){CQUT_QUERY="";CQUT_CAT="全部";CQUT_TAG="全部";document.getElementById("cqut-search").value="";render();});
   if(f){
     f.addEventListener("click", function(ev){
       var b = ev.target.closest ? ev.target.closest(".filterbtn") : null;
@@ -2587,9 +2664,12 @@
   }
   function paint(m){
     var q=m.search.value.trim().toLowerCase(), mode=m.select.value, shown=0;
+    window.AI_SESSION.write("ai-library-"+m.kind,{query:m.search.value.slice(0,200),mode:mode});
     var cards=Array.from(m.root.querySelectorAll(m.kind==="learn"?".rsrc-item":"article.cmp"));
+    var available=new Set();
     cards.forEach(function(card){
       var meta=info(card,m.kind), keys=meta?[meta.id]:seriesKeys(card);
+      keys.forEach(function(k){available.add(k);});
       if(card.dataset.librarySearch===undefined) card.dataset.librarySearch=(card.textContent+" "+seriesSearch(card)).toLowerCase();
       if(meta){
         var record=entries[meta.id]||{};
@@ -2604,6 +2684,12 @@
           b.setAttribute("aria-pressed",on?"true":"false");
           if(b.textContent!==text) b.textContent=text;
         });
+      }else if(keys.length){
+        var progress=card.querySelector(".series-progress");
+        if(!progress){progress=document.createElement("div");progress.className="series-progress library-progress";card.appendChild(progress);}
+        var seen=keys.filter(function(k){return entries[k]&&entries[k].done;}).length;
+        var progressText="已看 "+seen+" / "+keys.length+" 个视频";
+        if(progress.textContent!==progressText)progress.textContent=progressText;
       }
       var matches=q.split(/\s+/).filter(Boolean).every(function(term){return card.dataset.librarySearch.indexOf(term)>=0;});
       if(mode==="fav") matches=matches&&keys.some(function(k){return entries[k]&&entries[k].fav;});
@@ -2613,6 +2699,10 @@
     });
     m.count.textContent=(q||mode!=="all") ? "找到 "+shown+" / "+cards.length+(m.kind==="forum"?" 项内容":" 项内容") : "";
     m.empty.hidden=shown!==0;
+    var marked=Array.from(available),doneN=marked.filter(function(k){return entries[k]&&entries[k].done;}).length,favN=marked.filter(function(k){return entries[k]&&entries[k].fav;}).length;
+    m.progress.textContent="当前列表：已看 "+doneN+" / "+marked.length+" · 已收藏 "+favN;
+    var category=window.AI_SESSION.read("ai-"+m.kind+"-state");
+    m.clear.hidden=!q&&mode==="all"&&(!category.cat||category.cat==="全部")&&!category.who;
     if(m.kind==="learn"){
       m.root.querySelectorAll(".rsrc-grid").forEach(function(grid){
         var visible=Array.from(grid.querySelectorAll(".rsrc-item")).some(function(c){return !c.hidden;});
@@ -2629,12 +2719,16 @@
     var root=document.getElementById(pair[1]); if(!root) return;
     var tools=document.createElement("div"); tools.className="library-tools";
     var label=pair[0]==="learn"?"课程":(pair[0]==="ted"?"演讲":"系列或视频");
-    tools.innerHTML='<div class="library-tools-row"><input type="search" class="section-search" aria-label="搜索'+label+'" placeholder="搜索'+label+'、关键词…"><select class="library-select" aria-label="筛选学习状态"><option value="all">全部内容</option><option value="fav">已收藏</option><option value="unseen">还没看</option><option value="done">已看完</option></select></div><div class="library-recent"></div><div class="library-count" role="status"></div><div class="library-storage-note"></div>';
+    tools.innerHTML='<div class="library-tools-row"><input type="search" class="section-search" aria-label="搜索'+label+'" placeholder="搜索'+label+'、关键词…"><select class="library-select" aria-label="筛选学习状态"><option value="all">全部内容</option><option value="fav">已收藏</option><option value="unseen">还没看</option><option value="done">已看完</option></select></div><div class="resume-learning"><div class="library-progress"></div><button type="button" class="reset-filter" data-library-reset hidden>清除筛选</button></div><div class="library-recent"></div><div class="library-count" role="status"></div><div class="library-storage-note"></div>';
     if(pair[0]==="learn") root.querySelector(".view-head").insertAdjacentElement("afterend",tools);
     else root.insertAdjacentElement("beforebegin",tools);
     var empty=document.createElement("div");empty.className="search-empty";empty.hidden=true;empty.textContent="没有匹配内容。试试其他关键词或切换学习状态。";
     root.insertAdjacentElement("afterend",empty);
-    var m={kind:pair[0],root:root,search:tools.querySelector("input"),select:tools.querySelector("select"),count:tools.querySelector(".library-count"),recent:tools.querySelector(".library-recent"),note:tools.querySelector(".library-storage-note"),empty:empty};
+    var m={kind:pair[0],root:root,search:tools.querySelector("input"),select:tools.querySelector("select"),count:tools.querySelector(".library-count"),recent:tools.querySelector(".library-recent"),note:tools.querySelector(".library-storage-note"),empty:empty,progress:tools.querySelector(".library-progress"),clear:tools.querySelector("[data-library-reset]")};
+    var saved=window.AI_SESSION.read("ai-library-"+m.kind);
+    m.search.value=typeof saved.query==="string"?saved.query.slice(0,200):"";
+    m.select.value=["all","fav","unseen","done"].indexOf(saved.mode)>=0?saved.mode:"all";
+    m.clear.addEventListener("click",function(){m.search.value="";m.select.value="all";document.getElementById("view-"+m.kind).dispatchEvent(new Event("library-reset"));paint(m);});
     modules.push(m);
     m.search.addEventListener("input",function(){paint(m);});m.select.addEventListener("change",function(){paint(m);});
     if(pair[0]!=="learn") new MutationObserver(function(){paint(m);}).observe(root,{childList:true,subtree:true});

@@ -2,24 +2,26 @@ const fs = require('fs');
 const vm = require('vm');
 const path = require('path');
 module.exports = async function ({html, inline, sandbox, ok}) {
-  function run(transform = x => x) {
+  function run(transform = x => x, saved = {}) {
     const elements = {};
     const listeners = {};
     function element(id) {
       return elements[id] ||= {id,innerHTML:'',textContent:'',style:{},dataset:{},
         classList:{add(){},remove(){},toggle(){},contains(){return false;}},
         setAttribute(){},getAttribute(){return null;},addEventListener(t,fn){(listeners[id] ||= {})[t]=fn;},
-        querySelectorAll(){return [];},querySelector(){return null;},appendChild(){}};
+        querySelectorAll(){return [];},querySelector(){return null;},appendChild(){},focus(){}};
     }
-    const ctx = {...sandbox, window:{...sandbox.window}, document:{...sandbox.document,getElementById:element},
+    const documentEvents={};
+    const ctx = {...sandbox, window:{...sandbox.window,sessionStorage:{getItem(k){return saved[k]||null;},setItem(k,v){saved[k]=v;}}}, document:{...sandbox.document,getElementById:element,addEventListener(t,fn){documentEvents[t]=fn;}},
       fetch:()=>Promise.reject(new Error('offline test'))};
     let code = inline.replace('render(data.report, meta);', 'window.__renderedDate = date; render(data.report, meta);').replace('  function goto(date, pushHash){','  window.__loadDate = loadDate;\n  function goto(date, pushHash){')
       .replace("    var cb = document.getElementById('cqutMatchCount');", "    window.__deadline = {dlDay:dlDay,isOpen:isOpen,isSoon:isSoon};\n    var cb = document.getElementById('cqutMatchCount');")
       .replace('  function renderComp(){', '  window.__compUX={deadline:compDeadline,status:compStatus,set:function(list,q){COMP=list;COMP_SCOPE="all";COMP_FILTER="open";COMP_SORT="deadline";COMP_QUERY=q||"";COMP_PAGE=1;renderComp();}};\n  function renderComp(){')
-      .replace('  function routeHash(tab){', '  window.__routeUX={show:showTab,hash:routeHash,sync:syncRoute};\n  function routeHash(tab){');
+      .replace('  function routeHash(tab){', '  window.__routeUX={show:showTab,hash:routeHash,sync:syncRoute};\n  function routeHash(tab){')
+      .replace('  function applyFilter(){', '  window.__applyDailyFilter=applyFilter;\n  function applyFilter(){');
     vm.createContext(ctx);
     vm.runInContext(transform(code),ctx);
-    return {ctx,elements,listeners};
+    return {ctx,elements,listeners,documentEvents};
   }
   const base = run();
   const focus = base.ctx.window.FUNDS_STOCKS.focus;
@@ -62,6 +64,25 @@ module.exports = async function ({html, inline, sandbox, ok}) {
   ok(base.elements['view-funds'].style.display==='' && base.elements['view-daily'].style.display==='none' && route.hash('funds')==='#funds', '基金独立链接打开基金栏目，不被日报覆盖');
   base.ctx.window.location.hash='#rank';route.sync();
   ok(base.elements['view-rank'].style.display==='' && base.elements['view-funds'].style.display==='none', '栏目地址变化正确切换可见视图');
+  const restored=run(x=>x,{'ai-view-scroll':JSON.stringify({funds:1400}),'ai-comp-state':JSON.stringify({query:'人工智能',sort:'pri',scope:'all',filter:'all',page:2})});
+  const scrollCalls=[];restored.ctx.window.scrollTo=x=>scrollCalls.push(x);
+  restored.ctx.window.location.hash='#funds';restored.ctx.window.__routeUX.sync();
+  restored.documentEvents.DOMContentLoaded();
+  ok(scrollCalls.at(-1)?.top===1400,'重新打开栏目在数据和控件渲染完成后恢复阅读位置');
+  ok(restored.elements['comp-search'].value==='人工智能'&&restored.elements['comp-list'].innerHTML.includes('人工智能'),'刷新后比赛关键词与筛选状态保留');
+  restored.listeners['comp-reset'].click();
+  const clearedComp=JSON.parse(restored.ctx.window.sessionStorage.getItem('ai-comp-state'));
+  ok(restored.elements['comp-search'].value===''&&clearedComp.scope==='me'&&clearedComp.filter==='open'&&clearedComp.page===1,'清除比赛筛选恢复默认列表与第一页');
+  const newsCard={style:{},getAttribute(){return 'alpha learning';}}, summaryCard={style:{},getAttribute(){return null;}};
+  const newsBlock={id:'sec-models',style:{},querySelector(){return newsCard.style.display==='none'?null:newsCard;}},summaryBlock={id:'daily-summary',style:{}};
+  base.ctx.document.querySelectorAll=sel=>sel==='#main .card[data-search]'?[newsCard]:(sel==='#main .card'?[newsCard,summaryCard]:(sel==='#main .block'?[newsBlock,summaryBlock]:[]));
+  base.elements.search.value='alpha';let filterError=null;
+  try{base.ctx.window.__applyDailyFilter();}catch(e){filterError=e;}
+  ok(!filterError&&newsCard.style.display===''&&summaryBlock.style.display==='none'&&base.elements.matchInfo.innerHTML.includes('1 / 1'),'日报搜索排除总结卡片，不报错且命中统计准确');
+  base.elements.search.value='missing';base.ctx.window.__applyDailyFilter();
+  ok(base.elements['daily-search-empty'].hidden===false&&newsBlock.style.display==='none','日报搜索无结果时显示可恢复的空状态');
+  base.listeners['daily-reset'].click();
+  ok(base.elements.search.value===''&&summaryBlock.style.display===''&&newsCard.style.display==='','清除日报搜索恢复新闻与总结');
   ok(base.elements['p-models'].innerHTML.includes('rank-mobile') && base.elements['p-tools'].innerHTML.includes('评分与说明') && html.includes('top:var(--appbar-height'), '手机摘要与动态顶部避让结构存在，完整桌面表格保留');
   const noticeSearch=base.listeners['cqut-search'].input;
   noticeSearch({target:{value:'不会存在的通知关键词'}});
@@ -104,4 +125,5 @@ module.exports = async function ({html, inline, sandbox, ok}) {
   let expected=fs.readFileSync(path.join(__dirname,'index.src.html'),'utf8');
   for(const f of ['competitions','ted','forum','rank','cqut','matches','funds'])expected=expected.replace('<script src="'+f+'.js"></script>','<script>\n'+fs.readFileSync(path.join(__dirname,f+'.js'),'utf8')+'\n</script>');
   ok(['index.html','gh-pages/index.html','ai_intel_station_standalone.html'].every(f=>fs.readFileSync(path.join(__dirname,f),'utf8').replace(/\r\n/g,'\n')===expected.replace(/\r\n/g,'\n')), '三份构建产物均与当前模板和数据一致');
+  await require('./_daily_recovery_regression.js')({inline,sandbox,ok});
 };

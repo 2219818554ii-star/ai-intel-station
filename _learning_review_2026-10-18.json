@@ -1,0 +1,1027 @@
+{
+  "reviewDate": "2026-10-18",
+  "checkedAtUTC": "2026-10-17T17:49:32.717058+00:00",
+  "ted": [
+    {
+      "url": "https://www.ted.com/talks/charlie_robinson_why_you_thought_school_was_a_waste_of_time",
+      "title": "Why you thought school was a waste of time",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 15688,
+      "officialTitle": "Why you thought school was a waste of time",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/a18066a3-3a24-405d-bca9-f8ca57670259/mqdefault.jpg",
+      "views": 15691,
+      "durationSeconds": 882
+    },
+    {
+      "url": "https://www.ted.com/talks/angela_lee_duckworth_grit_the_power_of_passion_and_perseverance",
+      "title": "Grit: The power of passion and perseverance",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 39108942,
+      "officialTitle": "Grit: The power of passion and perseverance",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/49490c34-ef8e-45b1-8037-a4958efc2609/AngelaDuckworth_2013S-embed.jpg",
+      "views": 39139293,
+      "durationSeconds": 359
+    },
+    {
+      "url": "https://www.ted.com/talks/carol_dweck_the_power_of_believing_that_you_can_improve",
+      "title": "The power of believing that you can improve",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 18286091,
+      "officialTitle": "The power of believing that you can improve",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/85582d553035da22504c315ba5ec7ed727f16354_2880x1620.jpg",
+      "views": 18299303,
+      "durationSeconds": 610
+    },
+    {
+      "url": "https://www.ted.com/talks/diana_laufenberg_how_to_learn_from_mistakes",
+      "title": "How to learn? From mistakes",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 2481485,
+      "officialTitle": "How to learn? From mistakes",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/5e5ffce52162fbe4c59cf923ab53adcd9e99587a_1600x1200.jpg",
+      "views": 2481763,
+      "durationSeconds": 589
+    },
+    {
+      "url": "https://www.ted.com/talks/dan_gilbert_the_surprising_science_of_happiness",
+      "title": "The surprising science of happiness",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 21155189,
+      "officialTitle": "The surprising science of happiness",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/016a827cc0757092a0439ab2a63feca8655b6c29_1600x1200.jpg",
+      "views": 21156696,
+      "durationSeconds": 1251
+    },
+    {
+      "url": "https://www.ted.com/talks/dan_gilbert_the_psychology_of_your_future_self",
+      "title": "The psychology of your future self",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 7851871,
+      "officialTitle": "The psychology of your future self",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/d7c5293df469e90b62ed7bfced793ed7f2bad6c2_1600x1200.jpg",
+      "views": 7853529,
+      "durationSeconds": 395
+    },
+    {
+      "url": "https://www.ted.com/talks/robert_waldinger_what_makes_a_good_life_lessons_from_the_longest_study_on_happiness",
+      "title": "What makes a good life? Lessons from the longest study on happiness",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 53388751,
+      "officialTitle": "What makes a good life? Lessons from the longest study on happiness",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/1dc3550a-4ff0-44cf-9be6-2aa6ef9c43dd/RobertWaldinger_2015X-embed.jpg",
+      "views": 53423928,
+      "durationSeconds": 757
+    },
+    {
+      "url": "https://www.ted.com/talks/shawn_achor_the_happy_secret_to_better_work",
+      "title": "The happy secret to better work",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 27344903,
+      "officialTitle": "The happy secret to better work",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/e02ed13dcc2684221ce59429a722479dd13661fb_2880x1620.jpg",
+      "views": 27349089,
+      "durationSeconds": 723
+    },
+    {
+      "url": "https://www.ted.com/talks/matthieu_ricard_the_habits_of_happiness",
+      "title": "The habits of happiness",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 10947397,
+      "officialTitle": "The habits of happiness",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/e819fff6-a202-484a-a2ab-65c8f736fa3e/MatthieuRicard_2004-embed.jpg",
+      "views": 10948451,
+      "durationSeconds": 1240
+    },
+    {
+      "url": "https://www.ted.com/talks/kelly_mcgonigal_how_to_make_stress_your_friend",
+      "title": "How to make stress your friend",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 37322172,
+      "officialTitle": "How to make stress your friend",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/4ebfc94d-c426-4019-9060-20edc54dcec8/KellyMcGonigal_2013G-embed.jpg",
+      "views": 37367075,
+      "durationSeconds": 855
+    },
+    {
+      "url": "https://www.ted.com/talks/judson_brewer_a_simple_way_to_break_a_bad_habit",
+      "title": "A simple way to break a bad habit",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 24742395,
+      "officialTitle": "A simple way to break a bad habit",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/56962f83-978a-41dd-bacb-72dc228be2ff/JudsonBrewer_2015P-embed.jpg",
+      "views": 24798588,
+      "durationSeconds": 554
+    },
+    {
+      "url": "https://www.ted.com/talks/tim_urban_inside_the_mind_of_a_master_procrastinator",
+      "title": "Inside the mind of a master procrastinator",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 79166048,
+      "officialTitle": "Inside the mind of a master procrastinator",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/d5d00454-d7aa-434c-8fae-ff2bc97c5f02/TimUrban_2016-embed.jpg",
+      "views": 79205037,
+      "durationSeconds": 834
+    },
+    {
+      "url": "https://www.ted.com/talks/laura_vanderkam_how_to_gain_control_of_your_free_time",
+      "title": "How to gain control of your free time",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 16491845,
+      "officialTitle": "How to gain control of your free time",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/90c69f27-5216-46fa-a1ae-42e3c4243ddd/LauraVanderkam_2016W-embed.jpg",
+      "views": 16500503,
+      "durationSeconds": 704
+    },
+    {
+      "url": "https://www.ted.com/talks/amy_cuddy_your_body_language_may_shape_who_you_are",
+      "title": "Your body language may shape who you are",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 77703526,
+      "officialTitle": "Your body language may shape who you are",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/8ff886f0-7953-4f9b-8726-1ce98cae10c6/AmyCuddy_2012G-embed.jpg",
+      "views": 77736146,
+      "durationSeconds": 1245
+    },
+    {
+      "url": "https://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action",
+      "title": "How great leaders inspire action",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 71216793,
+      "officialTitle": "How great leaders inspire action",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/04916ee6e81065c8333e6546184af512eee37bbe_2880x1620.jpg",
+      "views": 71245207,
+      "durationSeconds": 1067
+    },
+    {
+      "url": "https://www.ted.com/talks/simon_sinek_why_good_leaders_make_you_feel_safe",
+      "title": "Why good leaders make you feel safe",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 22422909,
+      "officialTitle": "Why good leaders make you feel safe",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/b6cccc7593928f4861601289b937d19dac95bed9_1600x1200.jpg",
+      "views": 22435806,
+      "durationSeconds": 705
+    },
+    {
+      "url": "https://www.ted.com/talks/julian_treasure_how_to_speak_so_that_people_want_to_listen",
+      "title": "How to speak so that people want to listen",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 71368918,
+      "officialTitle": "How to speak so that people want to listen",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/46964e3c-1231-42b7-9288-671ff9fdde2e/JulianTreasure_2013U-embed.jpg",
+      "views": 71442983,
+      "durationSeconds": 584
+    },
+    {
+      "url": "https://www.ted.com/talks/brene_brown_the_power_of_vulnerability",
+      "title": "The power of vulnerability",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 71288205,
+      "officialTitle": "The power of vulnerability",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/9595cdc1-fd8e-4aa1-863a-2c6641ae3cbb/BreneBrown_2010X-embed.jpg",
+      "views": 71317096,
+      "durationSeconds": 1202
+    },
+    {
+      "url": "https://www.ted.com/talks/chimamanda_ngozi_adichie_the_danger_of_a_single_story",
+      "title": "The danger of a single story",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 43169197,
+      "officialTitle": "The danger of a single story",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/8953d163-926f-4331-8f1f-86db90b94f0b/ChimamandaAdichie_2009G-embed.jpg",
+      "views": 43208384,
+      "durationSeconds": 1112
+    },
+    {
+      "url": "https://www.ted.com/talks/dan_pink_the_puzzle_of_motivation",
+      "title": "The puzzle of motivation",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 32583796,
+      "officialTitle": "The puzzle of motivation",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/110884_800x600.jpg",
+      "views": 32591841,
+      "durationSeconds": 1102
+    },
+    {
+      "url": "https://www.ted.com/talks/elizabeth_gilbert_your_elusive_creative_genius",
+      "title": "Your elusive creative genius",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 22245718,
+      "officialTitle": "Your elusive creative genius",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/f2f6d094758c36a61b3ee7992a9b197eb4c07979_2880x1620.jpg",
+      "views": 22248302,
+      "durationSeconds": 1154
+    },
+    {
+      "url": "https://www.ted.com/talks/david_kelley_how_to_build_your_creative_confidence",
+      "title": "How to build your creative confidence",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 6571061,
+      "officialTitle": "How to build your creative confidence",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/25308d79fc7c5a343317a5bdbe0d0f62adc4491c_2880x1620.jpg",
+      "views": 6572315,
+      "durationSeconds": 689
+    },
+    {
+      "url": "https://www.ted.com/talks/pamela_meyer_how_to_spot_a_liar",
+      "title": "How to spot a liar",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 34631865,
+      "officialTitle": "How to spot a liar",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/40c841c7-43c2-4386-a885-9600f528ea55/PamelaMeyer_2011G-embed.jpg",
+      "views": 34636399,
+      "durationSeconds": 1113
+    },
+    {
+      "url": "https://www.ted.com/talks/sheena_iyengar_the_art_of_choosing",
+      "title": "The art of choosing",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 4569705,
+      "officialTitle": "The art of choosing",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/a40be2d3-65b1-4278-9715-75f91a067118/SheenaIyengar_2010G-embed.jpg",
+      "views": 4570963,
+      "durationSeconds": 1431
+    },
+    {
+      "url": "https://www.ted.com/talks/susan_cain_the_power_of_introverts",
+      "title": "The power of introverts",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 36413971,
+      "officialTitle": "The power of introverts",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/b542b1ddd2e40cfcf9db3430598bc37cebfec8c1_1600x1200.jpg",
+      "views": 36422694,
+      "durationSeconds": 1127
+    },
+    {
+      "url": "https://www.ted.com/talks/matt_cutts_try_something_new_for_30_days",
+      "title": "Try something new for 30 days",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 16070113,
+      "officialTitle": "Try something new for 30 days",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/424e6719-7627-40bc-ae35-1ed70a66ed2a/MattCutts_2011U-embed.jpg",
+      "views": 16074928,
+      "durationSeconds": 190
+    },
+    {
+      "url": "https://www.ted.com/talks/rita_pierson_every_kid_needs_a_champion",
+      "title": "Every kid needs a champion",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 17698702,
+      "officialTitle": "Every kid needs a champion",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/25a5bc18d2472308c8ed2bb401b4a497f49a0265_1600x1200.jpg",
+      "views": 17710314,
+      "durationSeconds": 454
+    },
+    {
+      "url": "https://www.ted.com/talks/matt_walker_sleep_is_your_superpower",
+      "title": "Sleep is your superpower",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 27004199,
+      "officialTitle": "Sleep is your superpower",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/0a95ffba-8cfe-4d9c-8913-736275f78bf9/MatthewWalker_2019-embed.jpg",
+      "views": 27043211,
+      "durationSeconds": 1148
+    },
+    {
+      "url": "https://www.ted.com/talks/sam_berns_my_philosophy_for_a_happy_life",
+      "title": "My philosophy for a happy life",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 49981453,
+      "officialTitle": "My philosophy for a happy life",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/dceb97aa-e320-4f5d-905f-14375f6d2a07/Sam+Berns.jpeg",
+      "views": 49988651,
+      "durationSeconds": 765
+    },
+    {
+      "url": "https://www.ted.com/talks/tim_ferriss_why_you_should_define_your_fears_instead_of_your_goals",
+      "title": "Why you should define your fears instead of your goals",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 13018486,
+      "officialTitle": "Why you should define your fears instead of your goals",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/6b784c62-b4d0-4b3a-a1de-89de39b002bc/TimFerriss_2017-embed.jpg",
+      "views": 13022063,
+      "durationSeconds": 792
+    },
+    {
+      "url": "https://www.ted.com/talks/adam_velasquez_finding_confidence_through_failure",
+      "title": "Finding Confidence through Failure",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": null,
+      "officialTitle": "Finding Confidence through Failure",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/d480df85-f1d5-4842-9a55-e2193aa2467a/mqdefault.jpg",
+      "views": null,
+      "durationSeconds": 795
+    },
+    {
+      "url": "https://www.ted.com/talks/celeste_headlee_10_ways_to_have_a_better_conversation",
+      "title": "10 ways to have a better conversation",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 33126324,
+      "officialTitle": "10 ways to have a better conversation",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/42293f27-ad85-4999-a72b-96b6d5d2c398/CelesteHeadlee_2015X_embed.jpg",
+      "views": 33146106,
+      "durationSeconds": 680
+    },
+    {
+      "url": "https://www.ted.com/talks/steven_johnson_where_good_ideas_come_from",
+      "title": "Where good ideas come from",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 5930968,
+      "officialTitle": "Where good ideas come from",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/c8244a05-ac8e-45c6-9b06-ac22113031db/StevenJohnson-2010G-embed.jpg",
+      "views": 5931694,
+      "durationSeconds": 1048
+    },
+    {
+      "url": "https://www.ted.com/talks/sir_ken_robinson_do_schools_kill_creativity",
+      "title": "Do schools kill creativity?",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 80637676,
+      "officialTitle": "Do schools kill creativity?",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/6b6eb940bceab359ca676a9b486aae475c1df883_2880x1620.jpg",
+      "views": 80651569,
+      "durationSeconds": 1151
+    },
+    {
+      "url": "https://www.ted.com/talks/mihaly_csikszentmihalyi_flow_the_secret_to_happiness",
+      "title": "Flow, the secret to happiness",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 8070446,
+      "officialTitle": "Flow, the secret to happiness",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/ec28788873dd3e152461bc6c5c35d3694ab69023_2880x1620.jpg",
+      "views": 8071838,
+      "durationSeconds": 1121
+    },
+    {
+      "url": "https://www.ted.com/talks/emily_esfahani_smith_there_s_more_to_life_than_being_happy",
+      "title": "There's more to life than being happy",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": null,
+      "officialTitle": "There's more to life than being happy",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/500cb54f-211f-4f7d-8202-a99507891b80/EmilyEsfahaniSmith_2017-embed.jpg",
+      "views": 15353247,
+      "durationSeconds": 728
+    },
+    {
+      "url": "https://www.ted.com/talks/michael_norton_how_to_buy_happiness",
+      "title": "How to buy happiness",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 4872895,
+      "officialTitle": "How to buy happiness",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/dac773c5-9c88-4502-a01b-454fb89c5d56/MichaelNorton_2011X-embed.jpg",
+      "views": 4873478,
+      "durationSeconds": 641
+    },
+    {
+      "url": "https://www.ted.com/talks/amanda_palmer_the_art_of_asking",
+      "title": "The art of asking",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 13188656,
+      "officialTitle": "The art of asking",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/d34538ab-7ae8-46ef-92cc-f83c055c1840/AmandaPalmer_2013-embed.jpg",
+      "views": 13189104,
+      "durationSeconds": 810
+    },
+    {
+      "url": "https://www.ted.com/talks/lera_boroditsky_how_language_shapes_the_way_we_think",
+      "title": "How language shapes the way we think",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 27161185,
+      "officialTitle": "How language shapes the way we think",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/7adc2250-de27-4116-b4ea-6fb4637ca98a/LeraBoroditsky_2017W-embed.jpg",
+      "views": 27175115,
+      "durationSeconds": 842
+    },
+    {
+      "url": "https://www.ted.com/talks/david_steindl_rast_want_to_be_happy_be_grateful",
+      "title": "Want to be happy? Be grateful",
+      "http": 200,
+      "curlExit": 0,
+      "previousViews": 9690322,
+      "officialTitle": "Want to be happy? Be grateful",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/02722e8404d9e8dd2ec003b249db0ce3d05bda19_1600x1200.jpg",
+      "views": 9692648,
+      "durationSeconds": 856
+    }
+  ],
+  "forumAccessChecks": [
+    {
+      "url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1va4y1s7k8",
+      "http": 0,
+      "curlExit": 28,
+      "securityRejection": false
+    },
+    {
+      "url": "https://www.bilibili.com/video/BV1va4y1s7k8",
+      "http": 412,
+      "curlExit": 0,
+      "securityRejection": true
+    },
+    {
+      "url": "https://api.bilibili.com/x/web-interface/view?bvid=BV15Z4y1R76Z",
+      "http": 412,
+      "curlExit": 0,
+      "securityRejection": true
+    }
+  ],
+  "forumAccessLimit": "Bilibili returned HTTP 412. Playback counts and current availability are not refreshed or inferred from this response.",
+  "forumContentCorrections": [
+    {
+      "series": "马云",
+      "bvid": "BV1zW411b753",
+      "title": "震惊！马云模仿迈克尔杰克逊舞姿现场气氛燃爆了",
+      "reason": "舞蹈表演，不是演讲或学习课程",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "马云",
+      "bvid": "BV1Fs411e7Sb",
+      "title": "香港顶级富豪在马云面前“炫富”，看看马云怎么怼他的！",
+      "reason": "富豪互怼剪辑，偏离演讲学习用途",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "马云",
+      "bvid": "BV1yb411k7KG",
+      "title": "早年刘强东和马云饭桌吹牛视频曝光，刘强东稚嫩马云像传销头子",
+      "reason": "饭桌八卦剪辑，偏离演讲学习用途",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "马斯克",
+      "bvid": "BV1EeYN6cEKW",
+      "title": "川普在共和党中期大会上的演讲完整版(上) | 2026.9.10 | 美剧级别字幕",
+      "reason": "标题为特朗普演讲，误归入马斯克系列",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "乔布斯",
+      "bvid": "BV1U5RNYgEfp",
+      "title": "斯坦福大学《深度学习自然语言处理|Stanford CS224N NLP with Deep Learning 2024》中英字幕（deepseek-R1",
+      "reason": "斯坦福CS224N课程，不是乔布斯演讲",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "任正非",
+      "bvid": "BV1kP4y1Y7tV",
+      "title": "原形毕露！人民日报三次揭露马云真正野心，和任正非根本不能比",
+      "reason": "人物对立与野心指控的剪辑，偏离访谈学习用途",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "曹德旺",
+      "bvid": "BV187qQBpECc",
+      "title": "馆长12.18直播⑴：我那天在福耀科技大学啊，听曹德旺那些大佬演讲，我在台下就想着完了，毕竟小时不读书，长大当馆长嘛，这种场合太不符合我的风格了",
+      "reason": "馆长个人直播，不是曹德旺演讲或专访",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "稻盛和夫",
+      "bvid": "BV1aF411Q7Je",
+      "title": "【TED演讲】什么是美好生活、怎么活最幸福——哈佛75年研究成果",
+      "reason": "哈佛幸福研究TED，不是稻盛和夫演讲",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "曾毓群",
+      "bvid": "BV1oG4y1D7DW",
+      "title": "30万公里威马EX5宁德时代电池衰减测试",
+      "reason": "车主电池衰减测试，不是曾毓群本人演讲或访谈",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "曾毓群",
+      "bvid": "BV1NG4y1i7Cb",
+      "title": "【面相分析电池大王:曾毓群】额头丰隆真的一定为佳吗？",
+      "reason": "面相分析，不是电池技术或经营内容",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "曾毓群",
+      "bvid": "BV1FweJ6VEJB",
+      "title": "宁德时代任雨婷出轨事件2",
+      "reason": "个人八卦事件，偏离动力电池学习用途",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "易中天",
+      "bvid": "BV1KvmcBNEoX",
+      "title": "我为什么从易中天的粉丝到后来脱粉",
+      "reason": "粉丝脱粉评论，偏离本系列历史课程用途",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "易中天",
+      "bvid": "BV12j416VEvM",
+      "title": "《AI易中天品新三国》第15集_曹操举兵",
+      "reason": "标题明确为AI虚构三国内容，不是易中天本人讲坛",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "易中天",
+      "bvid": "BV1PMDvBYE2U",
+      "title": "易中天老师怎么还在坚持这种读者意林小故事呢？",
+      "reason": "围绕讲者的小故事争议评论，偏离历史课程用途",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "王立群",
+      "bvid": "BV1Z8411c7t7",
+      "title": "《史记》原文朗读（配文字）",
+      "reason": "史记原文朗读，标题没有王立群讲解，不应归为其讲坛",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "于丹",
+      "bvid": "BV1e64y1Q7D5",
+      "title": "被学生轰下台的于丹，现状如何？跌落神坛的日子里，丈夫这样做！【解说人物】",
+      "reason": "讲者个人现状八卦，偏离国学课程用途",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "于丹",
+      "bvid": "BV1Dw4m1m7pm",
+      "title": "2024.4.15 于丹 2——中国女主播年鉴",
+      "reason": "标题明确为女主播年鉴，同名人物误命中",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "于丹",
+      "bvid": "BV1Ui421D7Dq",
+      "title": "2024.5.19 于丹——中国女主播年鉴",
+      "reason": "标题明确为女主播年鉴，同名人物误命中",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "蒙曼",
+      "bvid": "BV1Typ4eME4g",
+      "title": "武则天女帝八字，三甲天上贵，千古罕见！（三连关注简评，评论区抽下期素材）",
+      "reason": "武则天八字分析，不是蒙曼历史讲座",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "蒙曼",
+      "bvid": "BV1dMyhBWEA4",
+      "title": "B站最细！黑马武则天精讲教学，一期视频教会你！！",
+      "reason": "游戏角色武则天教学，与蒙曼历史讲座无关",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "郦波",
+      "bvid": "BV1E94y1E7mx",
+      "title": "一口气看完王阳明，500年来第一完人，人生迷茫就读王阳明吧",
+      "reason": "知识放映室第三方王阳明概述，标题未署郦波；避免误作其讲座",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "康震",
+      "bvid": "BV1ZvpCzoELp",
+      "title": "【宗师列传·唐宋八大家】柳宗元",
+      "reason": "唐宋主题电视节目，标题未署康震，避免误作其讲座",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "阎崇年",
+      "bvid": "BV15W4y1d7Jk",
+      "title": "清史专家阎崇年2008年被掌帼事件",
+      "reason": "掌掴事件报道，偏离清史课程用途",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "阎崇年",
+      "bvid": "BV1M5Et6GEWe",
+      "title": "黄海清：我为什么掌掴阎崇年？",
+      "reason": "掌掴事件当事人评论，偏离清史课程用途",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "阎崇年",
+      "bvid": "BV12b411S7FW",
+      "title": "清史专家阎崇年回应掌掴风波  2008",
+      "reason": "掌掴风波回应，偏离清史课程用途",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "阎崇年",
+      "bvid": "BV1ciKQ6wEuo",
+      "title": "黄海清：我为什么掌掴阎崇年？",
+      "reason": "掌掴事件当事人评论，偏离清史课程用途",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "郦波 · 心学入门",
+      "bvid": "BV1E94y1E7mx",
+      "title": "一口气看完王阳明，500年来第一完人，人生迷茫就读王阳明吧",
+      "reason": "知识放映室第三方王阳明概述，标题未署郦波；避免误作其讲座",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "董平 · 浙大公开课",
+      "bvid": "BV15Z4y1R76Z",
+      "title": "【王德峰教授讲座】王阳明心学 （全8讲）",
+      "reason": "王德峰讲座误归董平，已保留在王德峰及心学实践系列",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "王德峰 · 复旦讲座",
+      "bvid": "BV11Z3NzMEk8",
+      "title": "【已完结】如图",
+      "reason": "标题仅为如图，无法从现有元数据确认课程主题与讲者",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "典籍里的中国",
+      "bvid": "BV1oU4y1a7dc",
+      "title": "【中国文学史】欧丽娟老师 #35集.完",
+      "reason": "欧丽娟中国文学史课程，不是央视典籍里的中国",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "典籍里的中国",
+      "bvid": "BV151JLziEeJ",
+      "title": "【公开课】《传习录》（全7讲）王德峰",
+      "reason": "王德峰传习录公开课，不是央视典籍里的中国节目",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "传习录精读",
+      "bvid": "BV1QY411J7jv",
+      "title": "【北京大学】中国哲学史（全41讲）杨立华",
+      "reason": "杨立华中国哲学史通论，不是传习录精读课程",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "度阴山 · 通俗解读",
+      "bvid": "BV1xo4y1T7cU",
+      "title": "人物-熊逸[王阳明：一切心法1+2]全72集,普通读者罕有知道，王阳明原是一个被翻案的奸佞。《明实录》里的王阳明不但奸邪，还很有几分色厉内荏的丑态，是一个墙头草",
+      "reason": "作者为熊逸，不是度阴山；保留在心学实践主题系列",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "度阴山 · 通俗解读",
+      "bvid": "BV1pj421o7UX",
+      "title": "【战争雷霆】“但使龙城飞将在，不教胡马度阴山！”ZBD-04A 历史&amp;简评&amp;实战",
+      "reason": "战争雷霆游戏，与作者度阴山或阳明心学无关",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "度阴山 · 通俗解读",
+      "bvid": "BV1SA4m1F7PS",
+      "title": "【MC动画短片】但使龙城飞将在，不教胡马度阴山",
+      "reason": "MC游戏动画，因诗句度阴山误命中作者名",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    },
+    {
+      "series": "度阴山 · 通俗解读",
+      "bvid": "BV1oL411N763",
+      "title": "【狼肉】但使色狱裸仙在,不教流氓度阴山！--《魅魔/SUCCUBUS》第一期",
+      "reason": "成人游戏实况，与作者度阴山或阳明心学无关",
+      "basis": "Previously stored Bilibili title/uploader; no claim of fresh video-page verification"
+    }
+  ],
+  "tedRetriedCount": 10,
+  "tedAppliedChanges": [
+    {
+      "url": "https://www.ted.com/talks/charlie_robinson_why_you_thought_school_was_a_waste_of_time",
+      "previousViews": 15688,
+      "views": 15691
+    },
+    {
+      "url": "https://www.ted.com/talks/angela_lee_duckworth_grit_the_power_of_passion_and_perseverance",
+      "previousViews": 39108942,
+      "views": 39139293
+    },
+    {
+      "url": "https://www.ted.com/talks/carol_dweck_the_power_of_believing_that_you_can_improve",
+      "previousViews": 18286091,
+      "views": 18299303
+    },
+    {
+      "url": "https://www.ted.com/talks/diana_laufenberg_how_to_learn_from_mistakes",
+      "previousViews": 2481485,
+      "views": 2481763
+    },
+    {
+      "url": "https://www.ted.com/talks/dan_gilbert_the_surprising_science_of_happiness",
+      "previousViews": 21155189,
+      "views": 21156696
+    },
+    {
+      "url": "https://www.ted.com/talks/dan_gilbert_the_psychology_of_your_future_self",
+      "previousViews": 7851871,
+      "views": 7853529
+    },
+    {
+      "url": "https://www.ted.com/talks/robert_waldinger_what_makes_a_good_life_lessons_from_the_longest_study_on_happiness",
+      "previousViews": 53388751,
+      "views": 53423928
+    },
+    {
+      "url": "https://www.ted.com/talks/shawn_achor_the_happy_secret_to_better_work",
+      "previousViews": 27344903,
+      "views": 27349089
+    },
+    {
+      "url": "https://www.ted.com/talks/matthieu_ricard_the_habits_of_happiness",
+      "previousViews": 10947397,
+      "views": 10948451
+    },
+    {
+      "url": "https://www.ted.com/talks/kelly_mcgonigal_how_to_make_stress_your_friend",
+      "previousViews": 37322172,
+      "views": 37367075
+    },
+    {
+      "url": "https://www.ted.com/talks/judson_brewer_a_simple_way_to_break_a_bad_habit",
+      "previousViews": 24742395,
+      "views": 24798588
+    },
+    {
+      "url": "https://www.ted.com/talks/tim_urban_inside_the_mind_of_a_master_procrastinator",
+      "previousViews": 79166048,
+      "views": 79205037
+    },
+    {
+      "url": "https://www.ted.com/talks/laura_vanderkam_how_to_gain_control_of_your_free_time",
+      "previousViews": 16491845,
+      "views": 16500503
+    },
+    {
+      "url": "https://www.ted.com/talks/amy_cuddy_your_body_language_may_shape_who_you_are",
+      "previousViews": 77703526,
+      "views": 77736146
+    },
+    {
+      "url": "https://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action",
+      "previousViews": 71216793,
+      "views": 71245207
+    },
+    {
+      "url": "https://www.ted.com/talks/simon_sinek_why_good_leaders_make_you_feel_safe",
+      "previousViews": 22422909,
+      "views": 22435806
+    },
+    {
+      "url": "https://www.ted.com/talks/julian_treasure_how_to_speak_so_that_people_want_to_listen",
+      "previousViews": 71368918,
+      "views": 71442983
+    },
+    {
+      "url": "https://www.ted.com/talks/brene_brown_the_power_of_vulnerability",
+      "previousViews": 71288205,
+      "views": 71317096
+    },
+    {
+      "url": "https://www.ted.com/talks/chimamanda_ngozi_adichie_the_danger_of_a_single_story",
+      "previousViews": 43169197,
+      "views": 43208384
+    },
+    {
+      "url": "https://www.ted.com/talks/dan_pink_the_puzzle_of_motivation",
+      "previousViews": 32583796,
+      "views": 32591841
+    },
+    {
+      "url": "https://www.ted.com/talks/elizabeth_gilbert_your_elusive_creative_genius",
+      "previousViews": 22245718,
+      "views": 22248302
+    },
+    {
+      "url": "https://www.ted.com/talks/david_kelley_how_to_build_your_creative_confidence",
+      "previousViews": 6571061,
+      "views": 6572315
+    },
+    {
+      "url": "https://www.ted.com/talks/pamela_meyer_how_to_spot_a_liar",
+      "previousViews": 34631865,
+      "views": 34636399
+    },
+    {
+      "url": "https://www.ted.com/talks/sheena_iyengar_the_art_of_choosing",
+      "previousViews": 4569705,
+      "views": 4570963
+    },
+    {
+      "url": "https://www.ted.com/talks/susan_cain_the_power_of_introverts",
+      "previousViews": 36413971,
+      "views": 36422694
+    },
+    {
+      "url": "https://www.ted.com/talks/matt_cutts_try_something_new_for_30_days",
+      "previousViews": 16070113,
+      "views": 16074928
+    },
+    {
+      "url": "https://www.ted.com/talks/rita_pierson_every_kid_needs_a_champion",
+      "previousViews": 17698702,
+      "views": 17710314
+    },
+    {
+      "url": "https://www.ted.com/talks/matt_walker_sleep_is_your_superpower",
+      "previousViews": 27004199,
+      "views": 27043211
+    },
+    {
+      "url": "https://www.ted.com/talks/sam_berns_my_philosophy_for_a_happy_life",
+      "previousViews": 49981453,
+      "views": 49988651
+    },
+    {
+      "url": "https://www.ted.com/talks/tim_ferriss_why_you_should_define_your_fears_instead_of_your_goals",
+      "previousViews": 13018486,
+      "views": 13022063
+    },
+    {
+      "url": "https://www.ted.com/talks/celeste_headlee_10_ways_to_have_a_better_conversation",
+      "previousViews": 33126324,
+      "views": 33146106
+    },
+    {
+      "url": "https://www.ted.com/talks/steven_johnson_where_good_ideas_come_from",
+      "previousViews": 5930968,
+      "views": 5931694
+    },
+    {
+      "url": "https://www.ted.com/talks/sir_ken_robinson_do_schools_kill_creativity",
+      "previousViews": 80637676,
+      "views": 80651569
+    },
+    {
+      "url": "https://www.ted.com/talks/mihaly_csikszentmihalyi_flow_the_secret_to_happiness",
+      "previousViews": 8070446,
+      "views": 8071838
+    },
+    {
+      "url": "https://www.ted.com/talks/emily_esfahani_smith_there_s_more_to_life_than_being_happy",
+      "previousViews": null,
+      "views": 15353247
+    },
+    {
+      "url": "https://www.ted.com/talks/michael_norton_how_to_buy_happiness",
+      "previousViews": 4872895,
+      "views": 4873478
+    },
+    {
+      "url": "https://www.ted.com/talks/amanda_palmer_the_art_of_asking",
+      "previousViews": 13188656,
+      "views": 13189104
+    },
+    {
+      "url": "https://www.ted.com/talks/lera_boroditsky_how_language_shapes_the_way_we_think",
+      "previousViews": 27161185,
+      "views": 27175115
+    },
+    {
+      "url": "https://www.ted.com/talks/david_steindl_rast_want_to_be_happy_be_grateful",
+      "previousViews": 9690322,
+      "views": 9692648
+    }
+  ],
+  "forumVideoCountBefore": 241,
+  "forumVideoCountAfter": 205,
+  "forumSeriesAfter": [
+    {
+      "who": "马云",
+      "count": 7
+    },
+    {
+      "who": "雷军",
+      "count": 10
+    },
+    {
+      "who": "马斯克",
+      "count": 9
+    },
+    {
+      "who": "乔布斯",
+      "count": 9
+    },
+    {
+      "who": "任正非",
+      "count": 9
+    },
+    {
+      "who": "曹德旺",
+      "count": 9
+    },
+    {
+      "who": "张一鸣",
+      "count": 10
+    },
+    {
+      "who": "俞敏洪",
+      "count": 10
+    },
+    {
+      "who": "稻盛和夫",
+      "count": 9
+    },
+    {
+      "who": "曾毓群",
+      "count": 7
+    },
+    {
+      "who": "易中天",
+      "count": 7
+    },
+    {
+      "who": "王立群",
+      "count": 9
+    },
+    {
+      "who": "于丹",
+      "count": 7
+    },
+    {
+      "who": "蒙曼",
+      "count": 8
+    },
+    {
+      "who": "鲍鹏山",
+      "count": 10
+    },
+    {
+      "who": "郦波",
+      "count": 9
+    },
+    {
+      "who": "康震",
+      "count": 9
+    },
+    {
+      "who": "阎崇年",
+      "count": 6
+    },
+    {
+      "who": "郦波 · 心学入门",
+      "count": 9
+    },
+    {
+      "who": "董平 · 浙大公开课",
+      "count": 9
+    },
+    {
+      "who": "王德峰 · 复旦讲座",
+      "count": 9
+    },
+    {
+      "who": "典籍里的中国",
+      "count": 8
+    },
+    {
+      "who": "传习录精读",
+      "count": 5
+    },
+    {
+      "who": "度阴山 · 通俗解读",
+      "count": 5
+    },
+    {
+      "who": "心学实践",
+      "count": 6
+    }
+  ],
+  "forumDurationFormattingNormalized": 36,
+  "forumPlaybackValuesChanged": 0,
+  "forumCountSafeguards": "Unchanged: exactly 25 series; each >=3 videos; total >=100.",
+  "forumPlaybackCapturedAt": "2026-10-14"
+}
