@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI 情报站 · 日报 · 排行榜 · AI 上手</title>
-<meta name="description" content="AI 情报站：每日 AI 晨报、大模型实力排行榜、可报名比赛地图、零基础 AI 上手指令台。面向研究生与科研党的 AI 提效工具。">
+<meta name="description" content="AI 情报站：每日 AI 晨报、大模型实力排行榜、可报名比赛、AI 学习资源与知名期刊精选。面向研究生与科研党的信息与阅读工具。">
 <meta name="theme-color" content="#4f46e5">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="zh_CN">
@@ -374,6 +374,45 @@
     input,select{font-size:16px;}
     #toTop{right:14px;bottom:16px;}
   }
+  /* ---- editorial reading shelf ---- */
+  .mag-hero{display:flex;justify-content:space-between;align-items:flex-end;gap:22px;padding:24px 0 20px;border-bottom:2px solid var(--ink);margin-bottom:20px;}
+  .mag-kicker{font-size:12px;letter-spacing:.18em;color:var(--brand);font-weight:700;}
+  .mag-hero h2{font-size:clamp(28px,5vw,38px);line-height:1.3;margin:8px 0 10px;letter-spacing:.02em;}
+  .mag-hero p{margin:0;color:var(--ink-soft);font-size:14px;max-width:620px;}
+  .mag-stamp{flex-shrink:0;color:var(--ink-soft);font-size:12px;text-align:right;}
+  .mag-shelf{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0 24px;}
+  .mag-pub{min-width:0;border:1px solid var(--line);border-top:4px solid var(--pub-accent,var(--brand));border-radius:12px;background:#fff;overflow:hidden;}
+  .mag-pub.selected{outline:2px solid var(--pub-accent,var(--brand));outline-offset:1px;}
+  .mag-pick{display:block;width:100%;border:0;background:transparent;text-align:left;cursor:pointer;padding:14px 15px 10px;color:var(--ink);font:inherit;}
+  .mag-pick:hover{background:#f5f7fb;}
+  .mag-pick strong{display:block;font-size:20px;font-family:"Noto Serif SC","Songti SC",SimSun,serif;letter-spacing:.04em;margin:3px 0 6px;}
+  .mag-pick small{display:block;font-size:12px;color:var(--ink-soft);min-height:20px;}
+  .mag-pub-foot{display:flex;gap:10px;justify-content:space-between;align-items:center;padding:0 15px 12px;font-size:12px;color:var(--ink-soft);}
+  .mag-pub-foot a{color:var(--brand);padding:3px 0;}
+  .mag-tools{background:#fff;padding:15px;border:1px solid var(--line);border-radius:12px;margin:16px 0;display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+  .mag-tools .section-search{flex:1 1 300px;min-width:0;}
+  .mag-tools select{max-width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);font:inherit;font-size:14px;}
+  .mag-caption{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin:22px 0 10px;}
+  .mag-caption h3{margin:0;font-size:19px;}
+  .mag-caption p{margin:0;font-size:12px;color:var(--ink-soft);}
+  .mag-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}
+  .mag-article{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;min-width:0;}
+  .mag-meta{display:flex;justify-content:space-between;gap:10px;font-size:12px;color:var(--ink-soft);}
+  .mag-meta span{color:var(--pub-accent,var(--brand));font-weight:700;}
+  .mag-article h4{margin:12px 0 10px;font-size:19px;line-height:1.65;overflow-wrap:anywhere;}
+  .mag-article h4 a:hover{color:var(--brand);text-decoration:underline;}
+  .mag-article p{color:var(--ink-soft);font-size:14px;margin:0 0 18px;line-height:1.8;}
+  .mag-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:auto;}
+  .mag-actions .top-btn{padding:7px 11px;min-height:36px;}
+  .mag-actions .mag-save{margin-left:auto;}
+  .mag-actions button[aria-pressed="true"]{background:var(--brand-soft);}
+  .mag-notice{font-size:12px;color:var(--ink-soft);line-height:1.8;margin:12px 0;}
+  .mag-empty{grid-column:1/-1;background:#fff;border:1px dashed var(--line);border-radius:12px;padding:30px 18px;text-align:center;color:var(--ink-soft);}
+  @media(max-width:700px){
+    .mag-hero{display:block;padding-top:8px;}.mag-stamp{text-align:left;margin-top:13px;}
+    .mag-shelf{display:flex;overflow-x:auto;scroll-snap-type:x proximity;padding:3px 3px 6px;gap:10px;}.mag-pub{flex:0 0 220px;scroll-snap-align:start;}
+    .mag-list{grid-template-columns:1fr;}.mag-article{padding:17px;}.mag-tools{padding:12px;}.mag-tools select{flex:1 1 110px;}.mag-tools .section-search{flex-basis:100%;}
+  }
   @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition:none!important;}}
 </style>
 </head>
@@ -389,6 +428,7 @@
         <button class="tab" id="tab-learn" role="tab" aria-selected="false" aria-controls="view-learn" data-tab="learn">📚 AI 上手</button>
         <button class="tab" id="tab-ted" role="tab" aria-selected="false" aria-controls="view-ted" data-tab="ted">🎓 TED 英语</button>
         <button class="tab" id="tab-forum" role="tab" aria-selected="false" aria-controls="view-forum" data-tab="forum">🌱 成长讲坛</button>
+        <button class="tab" id="tab-magazines" role="tab" aria-selected="false" aria-controls="view-magazines" data-tab="magazines">🗞 期刊精选</button>
     <button class="tab" id="tab-cqut" role="tab" aria-selected="false" aria-controls="view-cqut" data-tab="cqut">🏫 重庆理工</button>
     <button class="tab" id="tab-funds" role="tab" aria-selected="false" aria-controls="view-funds" data-tab="funds">📈 基金看板</button>
       </nav>
@@ -826,6 +866,27 @@
     </div>
   </div>
 
+  <div id="view-magazines" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-magazines">
+    <div class="mag-hero">
+      <div><div class="mag-kicker">THE READING SHELF · 期刊精选</div><h2>读商业，也读生活与人。</h2><p>把值得读的刊物放在一起。选一本，读一篇；遇到想细看的，先收藏，慢慢读。</p></div>
+      <div class="mag-stamp" id="magazine-stamp"></div>
+    </div>
+    <div class="mag-caption"><h3>你的期刊架</h3><p>点击刊名筛选文章 · 手机可左右滑动选刊</p></div>
+    <div id="magazine-publishers" class="mag-shelf" aria-label="按刊物筛选"></div>
+    <div class="mag-tools">
+      <input id="magazine-query" class="section-search" type="search" placeholder="搜索标题、刊物或关键词…" aria-label="搜索期刊文章">
+      <select id="magazine-category" aria-label="文章主题"><option value="all">全部主题</option><option value="商业财经">商业财经</option><option value="生活人文">生活人文</option><option value="人物纪实">人物纪实</option><option value="时事观察">时事观察</option></select>
+      <select id="magazine-mode" aria-label="阅读状态"><option value="all">全部文章</option><option value="fav">我的收藏</option><option value="unread">还没读过</option><option value="read">已经读过</option></select>
+      <button class="top-btn" id="magazine-reset" type="button">重置筛选</button>
+    </div>
+    <div class="mag-caption"><h3 id="magazine-heading" tabindex="-1">近期选读</h3><p id="magazine-count" role="status" aria-live="polite"></p></div>
+    <p id="magazine-source-note" class="mag-notice"></p>
+    <div id="magazine-list" class="mag-list"></div>
+    <div style="text-align:center;margin-top:20px"><button id="magazine-more" type="button" class="top-btn" style="display:none">再看一些</button></div>
+    <p class="mag-notice" id="magazine-storage-note">收藏与已读保存在当前浏览器；打开原文后，可回来手动标记已读。</p>
+    <details class="reader-note"><summary>关于来源与更新</summary><p class="mag-notice">这里只整理官方渠道的标题、日期和阅读入口。文章按原文发布日期排列，未明确日期的条目列在最后；最近核查日期不代表今天发布。部分原文可能需要登录或订阅，以原站提示为准。自动维护访问受限时保留已核实内容，不编造新文章。</p></details>
+  </div>
+
   <div id="view-cqut" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-cqut">
     <div class="view-head"><h2>🏫 重庆理工：学校 / 学院 / 部门 / 学生会通知</h2>
       <p>每天核查官网通知。每条都写清「我该关注啥」，末尾附信源直达入口。最近成功内容更新于 <span id="cqut-updated"></span>。<span id="cqut-check-note"></span></p>
@@ -957,6 +1018,7 @@
   <script src="cqut.js"></script>
   <script src="matches.js"></script>
   <script src="funds.js"></script>
+  <script src="magazines.js"></script>
 <script>
 (function(){
   "use strict";
@@ -1003,12 +1065,12 @@
   document.getElementById("copy-dialog").addEventListener("close",function(){var el=this._copyTrigger;if(el&&el.focus)el.focus({preventScroll:true});});
   /* ============ TAB SWITCHING ============ */
   function showTab(tab){
-    if(["daily","rank","comp","learn","ted","forum","cqut","funds"].indexOf(tab)<0) return;
+    if(["daily","rank","comp","learn","ted","forum","magazines","cqut","funds"].indexOf(tab)<0) return;
     if(!RESTORE_PENDING) VIEW_SCROLL[ACTIVE_TAB] = window.scrollY || 0;
     if(DOM_READY) RESTORE_PENDING=false;
     ACTIVE_TAB = tab;
     document.querySelectorAll(".tab").forEach(function(t){ var on=(t.dataset.tab===tab); t.classList.toggle("active", on); t.setAttribute("aria-selected", on?"true":"false");t.setAttribute("tabindex",on?"0":"-1"); });
-    ["daily","rank","comp","learn","ted","forum","cqut","funds"].forEach(function(v){
+    ["daily","rank","comp","learn","ted","forum","magazines","cqut","funds"].forEach(function(v){
       var el=document.getElementById("view-"+v);
       if(el){ el.style.display = (v===tab)?"":"none"; el.setAttribute("aria-hidden", v===tab?"false":"true"); }
     });
@@ -1038,7 +1100,7 @@
   function routeHash(tab){ return tab==="daily" ? "#"+(CURRENT || "daily") : "#"+tab; }
   function syncRoute(){
     var h=(window.location.hash||"").slice(1);
-    var tab=["rank","comp","learn","ted","forum","cqut","funds"].indexOf(h)>=0 ? h : "daily";
+    var tab=["rank","comp","learn","ted","forum","magazines","cqut","funds"].indexOf(h)>=0 ? h : "daily";
     if(tab!==ACTIVE_TAB) showTab(tab);
     if(/^\d{4}-\d{2}-\d{2}$/.test(h) && indexOfDate(h)!==-1 && h!==CURRENT){ CURRENT=h; syncNavButtons(); loadDate(h); }
   }
@@ -2826,6 +2888,59 @@
     });
   },true);
   window.addEventListener("storage",function(e){if(e.key===KEY){entries=Object.create(null);read();modules.forEach(paint);}});
+})();
+</script>
+<script>
+/* 期刊阅读记录独立存储；原文发布日期与来源核查日期分开。 */
+(function(){
+  "use strict";
+  var root=document.getElementById("view-magazines");if(!root)return;
+  var pubs=Array.isArray(window.MAGAZINES)?window.MAGAZINES:[], byId=Object.create(null), records=Object.create(null), canSave=true;
+  var KEY="ai-magazine-reading-v1", session=window.AI_SESSION.read("ai-magazine-filters"), limit=18;
+  function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+  function safeURL(url,pub){var m=/^https:\/\/([a-z0-9.-]+)(?:[/?#]|$)/i.exec(String(url||""));return !!(m&&pub&&Array.isArray(pub.hosts)&&pub.hosts.indexOf(m[1].toLowerCase())>=0&&!/[\s<>"'\\]/.test(url));}
+  function validDate(s){return typeof s==="string"&&/^\d{4}-\d{2}-\d{2}$/.test(s)&&!isNaN(Date.parse(s))&&new Date(s+"T00:00:00Z").toISOString().slice(0,10)===s;}
+  pubs=pubs.filter(function(p){if(!p||typeof p.id!=="string"||!/^[-a-z0-9]+$/.test(p.id)||!p.name||!safeURL(p.url,p)||byId[p.id])return false;byId[p.id]=p;return true;});
+  var seen=Object.create(null), articles=(Array.isArray(window.MAGAZINE_ARTICLES)?window.MAGAZINE_ARTICLES:[]).filter(function(a){
+    if(!a||!a.title||!byId[a.publication]||!safeURL(a.url,byId[a.publication])||seen[a.url])return false;seen[a.url]=true;return true;
+  }).sort(function(a,b){return (validDate(b.publishedAt)?b.publishedAt:"").localeCompare(validDate(a.publishedAt)?a.publishedAt:"");});
+  function read(){records=Object.create(null);try{var list=JSON.parse(window.localStorage.getItem(KEY)||"[]");if(Array.isArray(list))list.slice(0,1000).forEach(function(x){if(x&&typeof x.url==="string"&&/^https:\/\//.test(x.url))records[x.url]={fav:x.fav===true,read:x.read===true,at:Number(x.at)||0};});}catch(e){}}
+  function save(){try{var list=Object.keys(records).filter(function(k){return records[k].fav||records[k].read;}).sort(function(a,b){return records[b].at-records[a].at;}).slice(0,1000).map(function(k){return {url:k,fav:records[k].fav,read:records[k].read,at:records[k].at};});window.localStorage.setItem(KEY,JSON.stringify(list));}catch(e){canSave=false;}}
+  read();
+  var q=document.getElementById("magazine-query"), category=document.getElementById("magazine-category"), mode=document.getElementById("magazine-mode"), selected=byId[session.publication]?session.publication:"all";
+  q.value=typeof session.query==="string"?session.query.slice(0,300):"";
+  category.value=["商业财经","生活人文","人物纪实","时事观察"].indexOf(session.category)>=0?session.category:"all";
+  mode.value=["fav","unread","read"].indexOf(session.mode)>=0?session.mode:"all";
+  function countFor(id){return articles.filter(function(a){return a.publication===id;}).length;}
+  function accent(p){return /^#[a-f0-9]{6}$/i.test(p.accent||"")?p.accent:"#4f46e5";}
+  function articleNote(a,p){
+    var parts=[];
+    if(a.archive||(validDate(a.publishedAt)&&Date.now()-Date.parse(a.publishedAt+"T00:00:00+08:00")>180*86400000))parts.push("往期阅读");
+    if(a.issue)parts.push(a.issue);
+    var access=a.access||(["lifeweek","yimagazine"].indexOf(p.id)>=0?"数字刊 · 可能需要订阅":"");
+    if(access)parts.push(access);
+    return parts.join(" · ");
+  }
+  function render(){
+    window.AI_SESSION.write("ai-magazine-filters",{publication:selected,query:q.value,category:category.value,mode:mode.value});
+    document.getElementById("magazine-stamp").textContent=pubs.length+" 本刊物 · "+articles.length+" 篇选读 · 最近核查 "+(window.MAGAZINES_CHECKED||"待核查");
+    document.getElementById("magazine-publishers").innerHTML=pubs.map(function(p){return '<div class="mag-pub'+(selected===p.id?' selected':'')+'" style="--pub-accent:'+accent(p)+'"><button type="button" class="mag-pick" data-mag-pub="'+esc(p.id)+'" aria-pressed="'+(selected===p.id)+'"><small>'+esc(p.category)+'</small><strong>'+esc(p.name)+'</strong><small>'+esc(p.description||"")+'</small></button><div class="mag-pub-foot"><span>'+countFor(p.id)+' 篇'+(p.status==="unavailable"?' · 核查受限':'')+'</span><a href="'+esc(p.url)+'" target="_blank" rel="noopener noreferrer" aria-label="打开'+esc(p.name)+'官方阅读渠道">官方阅读 ↗</a></div></div>';}).join("");
+    var words=q.value.toLowerCase().trim().split(/\s+/).filter(Boolean), filtered=articles.filter(function(a){var p=byId[a.publication], r=records[a.url]||{},hay=[a.title,a.summary,p.name,p.description,p.category].join(" ").toLowerCase();return (selected==="all"||a.publication===selected)&&(category.value==="all"||p.category===category.value)&&(mode.value==="all"||mode.value==="fav"&&r.fav||mode.value==="read"&&r.read||mode.value==="unread"&&!r.read)&&words.every(function(w){return hay.indexOf(w)>=0;});});
+    var chosen=byId[selected];
+    document.getElementById("magazine-heading").textContent=chosen?chosen.name+" · 选读":"近期选读";
+    document.getElementById("magazine-source-note").textContent=chosen?(chosen.note||"")+(chosen.status==="unavailable"?' 最近自动核查未能获取新列表，保留上次已核实文章。':''):"原文日期由新到旧排列；部分官方文章可能需要订阅或登录。";
+    document.getElementById("magazine-count").textContent="共 "+filtered.length+" 篇 · 已显示 "+Math.min(limit,filtered.length)+" 篇";
+    document.getElementById("magazine-list").innerHTML=filtered.slice(0,limit).map(function(a){var p=byId[a.publication],r=records[a.url]||{};return '<article class="mag-article" style="--pub-accent:'+accent(p)+'"><div class="mag-meta"><span>'+esc(p.name)+'</span><time'+(validDate(a.publishedAt)?' datetime="'+a.publishedAt+'"':'')+'>'+esc(validDate(a.publishedAt)?a.publishedAt:'原文未标日期')+'</time></div><h4><a href="'+esc(a.url)+'" target="_blank" rel="noopener noreferrer">'+esc(a.title)+'</a></h4>'+(articleNote(a,p)?'<div class="mag-notice">'+esc(articleNote(a,p))+'</div>':'')+(a.summary?'<p>'+esc(a.summary)+'</p>':'')+'<div class="mag-actions"><a class="top-btn" href="'+esc(a.url)+'" target="_blank" rel="noopener noreferrer">读原文 ↗</a><button type="button" class="top-btn mag-save" data-mag-action="fav" data-mag-url="'+esc(a.url)+'" aria-pressed="'+!!r.fav+'" aria-label="'+(r.fav?'取消收藏：':'收藏：')+esc(a.title)+'">'+(r.fav?'已收藏':'收藏')+'</button><button type="button" class="top-btn" data-mag-action="read" data-mag-url="'+esc(a.url)+'" aria-pressed="'+!!r.read+'" aria-label="'+(r.read?'标为未读：':'标为已读：')+esc(a.title)+'">'+(r.read?'已读 ✓':'标记已读')+'</button></div></article>';}).join("")||'<div class="mag-empty">'+(articles.length?'没有匹配的文章。试试其他刊物、关键词，或重置筛选。':'文章列表暂不可用，可先从上方官方阅读入口选刊。')+'</div>';
+    document.getElementById("magazine-more").style.display=filtered.length>limit?"":"none";
+    if(!canSave)document.getElementById("magazine-storage-note").textContent="浏览器未允许保存阅读记录，本次操作仅在当前页面有效。";
+  }
+  function changed(){limit=18;render();}
+  q.addEventListener("input",changed);category.addEventListener("change",function(){selected="all";changed();});mode.addEventListener("change",changed);
+  document.getElementById("magazine-reset").addEventListener("click",function(){selected="all";q.value="";category.value="all";mode.value="all";changed();});
+  document.getElementById("magazine-more").addEventListener("click",function(){var before=limit;limit+=18;render();var next=document.querySelectorAll("#magazine-list h4 a")[before];if(next)next.focus();});
+  root.addEventListener("click",function(e){var el=e.target.closest?e.target.closest("button[data-mag-pub],button[data-mag-action]"):null;if(!el)return;if(el.dataset.magPub){selected=selected===el.dataset.magPub?"all":el.dataset.magPub;category.value="all";changed();var pubFocus=document.querySelector('[data-mag-pub="'+el.dataset.magPub+'"]');if(pubFocus)pubFocus.focus({preventScroll:true});return;}var url=el.dataset.magUrl,action=el.dataset.magAction;if(!seen[url]||["fav","read"].indexOf(action)<0)return;var r=records[url]||(records[url]={fav:false,read:false,at:0});r[action]=!r[action];r.at=Date.now();save();render();var replacement=document.querySelector('[data-mag-action="'+action+'"][data-mag-url="'+url.replace(/\\/g,"\\\\").replace(/"/g,'\\"')+'"]');if(!replacement)replacement=document.querySelector('[data-mag-action="'+action+'"]')||document.getElementById("magazine-heading");if(replacement)replacement.focus({preventScroll:true});});
+  window.addEventListener("storage",function(e){if(e.key===KEY||e.key===null){read();render();}});
+  render();
 })();
 </script>
 </body>

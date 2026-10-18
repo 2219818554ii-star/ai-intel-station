@@ -1,0 +1,218 @@
+{
+  "checkedAt": "2026-10-19",
+  "attemptedAt": "2026-10-18T17:05:26.465853+00:00",
+  "sources": [
+    {
+      "publication": "shangjie",
+      "checkedAt": "2026-10-19",
+      "attemptedUrl": "https://www.pedaily.cn/media/m439",
+      "status": "ok",
+      "listUrl": "https://www.pedaily.cn/media/m439",
+      "articles": [
+        {
+          "publication": "shangjie",
+          "title": "比房地产还惨？一年倒闭超过7000家",
+          "url": "https://news.pedaily.cn/202504/549033.shtml",
+          "publishedAt": "2025-04-28",
+          "summary": "",
+          "checkedAt": "2026-10-19"
+        },
+        {
+          "publication": "shangjie",
+          "title": "「超市版拼多多」：黄光裕夜访，一年卖出400亿",
+          "url": "https://news.pedaily.cn/202405/534446.shtml",
+          "publishedAt": "2024-05-24",
+          "summary": "",
+          "checkedAt": "2026-10-19"
+        },
+        {
+          "publication": "shangjie",
+          "title": "100亿的福耀科技大学，藏着曹德旺的什么企图？",
+          "url": "https://news.pedaily.cn/202403/531673.shtml",
+          "publishedAt": "2024-03-27",
+          "summary": "",
+          "checkedAt": "2026-10-19"
+        },
+        {
+          "publication": "shangjie",
+          "title": "2024年，谁能拿到投资机构的钱？",
+          "url": "https://news.pedaily.cn/202403/530654.shtml",
+          "publishedAt": "2024-03-05",
+          "summary": "",
+          "checkedAt": "2026-10-19"
+        },
+        {
+          "publication": "shangjie",
+          "title": "价格战杀疯了，燃油车苦撑",
+          "url": "https://news.pedaily.cn/202402/530448.shtml",
+          "publishedAt": "2024-02-29",
+          "summary": "",
+          "checkedAt": "2026-10-19"
+        },
+        {
+          "publication": "shangjie",
+          "title": "李宁，真急了",
+          "url": "https://news.pedaily.cn/202402/530247.shtml",
+          "publishedAt": "2024-02-26",
+          "summary": "",
+          "checkedAt": "2026-10-19"
+        },
+        {
+          "publication": "shangjie",
+          "title": "2024年，第一家停产的新能源汽车出现了",
+          "url": "https://news.pedaily.cn/202402/530139.shtml",
+          "publishedAt": "2024-02-23",
+          "summary": "",
+          "checkedAt": "2026-10-19"
+        },
+        {
+          "publication": "shangjie",
+          "title": "3年狂飙900亿，恐怖的极兔",
+          "url": "https://news.pedaily.cn/202307/517233.shtml",
+          "publishedAt": "2023-07-10",
+          "summary": "",
+          "checkedAt": "2026-10-19"
+        }
+      ],
+      "details": [
+        {
+          "url": "https://news.pedaily.cn/202504/549033.shtml",
+          "status": "ok",
+          "title": "比房地产还惨？一年倒闭超过7000家"
+        },
+        {
+          "url": "https://news.pedaily.cn/202405/534446.shtml",
+          "status": "ok",
+          "title": "「超市版拼多多」：黄光裕夜访，一年卖出400亿"
+        },
+        {
+          "url": "https://news.pedaily.cn/202403/531673.shtml",
+          "status": "ok",
+          "title": "100亿的福耀科技大学，藏着曹德旺的什么企图？"
+        },
+        {
+          "url": "https://news.pedaily.cn/202403/530654.shtml",
+          "status": "ok",
+          "title": "2024年，谁能拿到投资机构的钱？"
+        },
+        {
+          "url": "https://news.pedaily.cn/202402/530448.shtml",
+          "status": "ok",
+          "title": "价格战杀疯了，燃油车苦撑"
+        },
+        {
+          "url": "https://news.pedaily.cn/202402/530247.shtml",
+          "status": "ok",
+          "title": "李宁，真急了"
+        },
+        {
+          "url": "https://news.pedaily.cn/202402/530139.shtml",
+          "status": "ok",
+          "title": "2024年，第一家停产的新能源汽车出现了"
+        },
+        {
+          "url": "https://news.pedaily.cn/202307/517233.shtml",
+          "status": "ok",
+          "title": "3年狂飙900亿，恐怖的极兔"
+        }
+      ],
+      "retainedArticles": []
+    },
+    {
+      "publication": "lifeweek",
+      "checkedAt": "2026-10-19",
+      "attemptedUrl": "https://www.lifeweek.com.cn/magazine?magazineid=1",
+      "status": "unavailable",
+      "reason": "<urlopen error timed out>",
+      "articles": [],
+      "retainedArticles": []
+    },
+    {
+      "publication": "yimagazine",
+      "checkedAt": "2026-10-19",
+      "attemptedUrl": "https://www.yicai.com/api/ajax/getlistbypid?page=1&pagesize=6&id=55&type=3",
+      "status": "ok",
+      "listUrl": "https://www.yicai.com/api/ajax/getlistbypid?page=1&pagesize=6&id=55&type=3",
+      "articles": [
+        {
+          "publication": "yimagazine",
+          "title": "碎片化时代的消费向心力",
+          "url": "https://www.yicai.com/vip/news/103394820.html",
+          "publishedAt": "2026-10-15",
+          "summary": "",
+          "checkedAt": "2026-10-19"
+        },
+        {
+          "publication": "yimagazine",
+          "title": "跨国公司再谈加深本土化，这次有何不同？",
+          "url": "https://www.yicai.com/vip/news/103394594.html",
+          "publishedAt": "2026-10-15",
+          "summary": "",
+          "checkedAt": "2026-10-19"
+        },
+        {
+          "publication": "yimagazine",
+          "title": "我们高估了自有品牌的威胁",
+          "url": "https://www.yicai.com/vip/news/103394573.html",
+          "publishedAt": "2026-10-15",
+          "summary": "",
+          "checkedAt": "2026-10-19"
+        },
+        {
+          "publication": "yimagazine",
+          "title": "谁是2026年的商业新锐势力？",
+          "url": "https://www.yicai.com/vip/news/103394569.html",
+          "publishedAt": "2026-10-15",
+          "summary": "",
+          "checkedAt": "2026-10-19"
+        },
+        {
+          "publication": "yimagazine",
+          "title": "秦朔：新消费的下半场，回归自我与真实的连接",
+          "url": "https://www.yicai.com/vip/news/103394558.html",
+          "publishedAt": "2026-10-15",
+          "summary": "",
+          "checkedAt": "2026-10-19"
+        },
+        {
+          "publication": "yimagazine",
+          "title": "新鲜零食，何以新鲜",
+          "url": "https://www.yicai.com/vip/news/103394546.html",
+          "publishedAt": "2026-10-15",
+          "summary": "",
+          "checkedAt": "2026-10-19"
+        }
+      ],
+      "details": [],
+      "retainedArticles": []
+    },
+    {
+      "publication": "renwu",
+      "checkedAt": "2026-10-19",
+      "attemptedUrl": "https://boyamedia.com/category-rw/",
+      "status": "unavailable",
+      "reason": "<urlopen error _ssl.c:1015: The handshake operation timed out>",
+      "articles": [],
+      "retainedArticles": []
+    },
+    {
+      "publication": "blogweekly",
+      "checkedAt": "2026-10-19",
+      "attemptedUrl": "https://boyamedia.com/category-bk/",
+      "status": "unavailable",
+      "reason": "No trustworthy publication-specific articles found; old entries retained; <urlopen error _ssl.c:1015: The handshake operation timed out>",
+      "articles": [],
+      "retainedArticles": []
+    },
+    {
+      "publication": "globalpeople",
+      "checkedAt": "2026-10-19",
+      "attemptedUrl": "https://www.globalpeople.com.cn/",
+      "status": "unavailable",
+      "reason": "HTTP 302; source unavailable, not classified as a dead link",
+      "articles": [],
+      "retainedArticles": []
+    }
+  ],
+  "policy": "Official metadata only; failed sources preserve previous entries and dates; no full text."
+}

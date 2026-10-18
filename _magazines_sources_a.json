@@ -1,0 +1,195 @@
+{
+  "checkedAt": "2026-10-19",
+  "method": "核对官方站点、官方阅读频道和可确认的媒体官方入驻账号；仅保存标题、公开元数据和自写阅读方向，不转载正文。",
+  "magazines": [
+    {
+      "id": "shangjie",
+      "name": "商界",
+      "aliases": ["商界杂志"],
+      "category": "商业观察",
+      "description": "从企业故事、消费变化与经营案例理解商业。",
+      "home": "https://www.pedaily.cn/media/m439",
+      "homeLabel": "官方账号 · 投资界",
+      "officialStatus": "账号页明确标示“商界传媒集团官方账号”；文章页标示商界授权发布。该链接为官方入驻账号，并非商界独立官网。",
+      "evidence": [
+        {
+          "url": "https://www.pedaily.cn/media/m439",
+          "checked": true,
+          "finding": "账号简介为商界传媒集团官方账号，文章列表日期为绝对日期。最近一篇列表文章发布日期是2025-04-28；不能称为今日或最新一期。"
+        },
+        {
+          "url": "https://news.pedaily.cn/202504/549033.shtml",
+          "checked": true,
+          "finding": "文章页标注商界作者与2025-04-28 17:48，底部写明由投资界合作伙伴商界授权发布。"
+        }
+      ],
+      "access": "公开文章；此账号近期未持续更新，以下为往期阅读。",
+      "refresh": {
+        "kind": "official-account-html",
+        "url": "https://www.pedaily.cn/media/m439",
+        "articleHost": "news.pedaily.cn",
+        "hints": "文章位于h3标题链接，指向https://news.pedaily.cn/YYYYMM/ID.shtml，列表相邻文本为YYYY-MM-DD HH:mm。必须先确认本页含商界传媒集团官方账号，不能抓其他媒体推荐区。单篇保留原始日期。",
+        "limitations": "候选独立官网https://www.cnbizmedia.com/在本轮web工具不可达，本机请求无正常页面；未将其配置为可用入口。未找到核实可用的官方RSS。"
+      },
+      "articles": [
+        {
+          "title": "比房地产还惨？一年倒闭超过7000家",
+          "date": "2025-04-28",
+          "url": "https://news.pedaily.cn/202504/549033.shtml",
+          "direction": "从钢琴行业案例，观察需求变化与企业转型。",
+          "category": "产业观察",
+          "access": "公开阅读",
+          "archive": true,
+          "checked": true
+        },
+        {
+          "title": "「超市版拼多多」：黄光裕夜访，一年卖出400亿",
+          "date": "2024-05-24",
+          "url": "https://news.pedaily.cn/202405/534446.shtml",
+          "direction": "沿着折扣零售的选品与供应链，拆解一家企业的经营路径。",
+          "category": "零售案例",
+          "access": "公开阅读",
+          "archive": true,
+          "checked": true
+        }
+      ]
+    },
+    {
+      "id": "lifeweek",
+      "name": "三联生活周刊",
+      "aliases": ["三联"],
+      "category": "社会人文",
+      "description": "把社会议题、科学与文化放回具体的人和生活。",
+      "home": "https://www.lifeweek.com.cn/magazine?magazineid=1",
+      "homeLabel": "官方杂志频道",
+      "officialStatus": "网站页脚署名三联生活传媒有限公司，提供官方APP、微信公众号与数字刊入口。",
+      "evidence": [
+        {
+          "url": "https://www.lifeweek.com.cn/magazine?magazineid=1",
+          "checked": true,
+          "finding": "本机请求HTTP200，SSR数据为2026年第42期《人类向自然追问》，总第1411期，期刊出版日期2026-10-19。相关文章ID和标题位于data[0].activePeriodicalRecommend.rltArticleList。"
+        },
+        {
+          "url": "https://www.lifeweek.com.cn/article/274426",
+          "checked": true,
+          "finding": "本机请求HTTP200，title和SSR articleDetail匹配，feeType=1、price=10、未订阅用户仅有部分正文。articleDetail.zhuanlan.pubTime=2026-10-19属于期刊日期；未发现可确认的单篇发布日期，因此文章date=null。"
+        }
+      ],
+      "issue": {
+        "title": "人类向自然追问",
+        "subtitle": "2026，改变世界的人",
+        "label": "2026年第42期 · 总第1411期",
+        "date": "2026-10-19",
+        "url": "https://www.lifeweek.com.cn/magazine/5284"
+      },
+      "access": "可浏览导读，数字刊全文可能需要订阅。",
+      "refresh": {
+        "kind": "official-ssr",
+        "url": "https://www.lifeweek.com.cn/magazine?magazineid=1",
+        "articleHost": "www.lifeweek.com.cn",
+        "hints": "HTML包含window.__NUXT__=(function(...){...}(...))。列表内activePeriodicalRecommend.rltArticleList有id、title；单篇URL为/article/{id}。期刊pubTime不能混作文章发布日期。可用HTML内rltArticleList片段保守匹配数字id和JSON字符串title，无需执行整站脚本。",
+        "limitations": "web阅读工具部分单篇报不可达，但本机请求三篇均为HTTP200且标题匹配。SSR为带变量的Nuxt序列化表达式；不要用无沙箱eval。未确认有公开RSS。"
+      },
+      "articles": [
+        {
+          "title": "观察、理解与控制",
+          "date": null,
+          "issueDate": "2026-10-19",
+          "issue": "2026年第42期",
+          "url": "https://www.lifeweek.com.cn/article/274426",
+          "direction": "借科学研究议题，思考人类怎样认识和干预自然。",
+          "category": "科学与思想",
+          "access": "导读 / 订阅全文",
+          "checked": true
+        },
+        {
+          "title": "什么才是真正重要的科学",
+          "date": null,
+          "issueDate": "2026-10-19",
+          "issue": "2026年第42期",
+          "url": "https://www.lifeweek.com.cn/article/274427",
+          "direction": "从科学奖项的评选视角，理解研究价值如何被讨论。",
+          "category": "科学访谈",
+          "access": "导读 / 订阅全文",
+          "checked": true
+        },
+        {
+          "title": "画中故国：明清易代后的南京",
+          "date": null,
+          "issueDate": "2026-10-19",
+          "issue": "2026年第42期",
+          "url": "https://www.lifeweek.com.cn/article/274442",
+          "direction": "通过书画与城市记忆，进入明清之际南京的历史现场。",
+          "category": "历史与艺术",
+          "access": "导读 / 订阅全文",
+          "checked": true
+        }
+      ]
+    },
+    {
+      "id": "yimagazine",
+      "name": "第一财经 YiMagazine",
+      "aliases": ["第一财经周刊", "第一财经杂志"],
+      "category": "商业观察",
+      "description": "看懂公司、消费与城市里的商业变化。",
+      "home": "https://www.yicai.com/vip/product/55/",
+      "homeLabel": "官方杂志频道",
+      "officialStatus": "第一财经官网说明：自2019年起，《第一财经周刊》改为《第一财经》YiMagazine，以月刊频次出版。",
+      "nameNote": "原《第一财经周刊》，现为月刊。",
+      "evidence": [
+        {
+          "url": "https://www.yicai.com/others/aboutus.html",
+          "checked": true,
+          "finding": "出版一节确认刊名变更、月刊频次与官方客户端。"
+        },
+        {
+          "url": "https://www.yicai.com/vip/product/55/",
+          "checked": true,
+          "finding": "官方频道题名第一财经杂志丨YiMagazine，简介、试读、目录与最新等区域可见；源模板为列表url前加/vip。"
+        },
+        {
+          "url": "https://www.yicai.com/api/ajax/getlistbypid?page=1&pagesize=6&id=55&type=3",
+          "checked": true,
+          "finding": "本机HTTP200返回JSON数组，含NewsTitle、CreateDate、NewsID、url、ChannelName=第一财经杂志。最近6条均为2026-10-15。"
+        }
+      ],
+      "access": "可浏览试读，全文付费解锁。",
+      "refresh": {
+        "kind": "official-json",
+        "url": "https://www.yicai.com/api/ajax/getlistbypid?page=1&pagesize=6&id=55&type=3",
+        "articleHost": "www.yicai.com",
+        "hints": "返回JSON数组。标题NewsTitle；绝对日期CreateDate取前10位；文章URL=https://www.yicai.com/vip + item.url，item.url形如/news/103394820.html。仅取ChannelName=第一财经杂志，读取文章h1和公开发布日期验证。",
+        "limitations": "属于网站公开列表接口，并非稳定API服务承诺；失败保留旧记录。文章有付费提示，不应标成免费全文。"
+      },
+      "articles": [
+        {
+          "title": "碎片化时代的消费向心力",
+          "date": "2026-10-15",
+          "url": "https://www.yicai.com/vip/news/103394820.html",
+          "direction": "从媒介与渠道的分散，理解品牌争取消费者注意力的难题。",
+          "category": "消费与品牌",
+          "access": "试读 / 付费全文",
+          "checked": true
+        },
+        {
+          "title": "跨国公司再谈加深本土化，这次有何不同？",
+          "date": "2026-10-15",
+          "url": "https://www.yicai.com/vip/news/103394594.html",
+          "direction": "关注跨国公司的本地经营，比较“本土化”在不同阶段的含义。",
+          "category": "公司与全球化",
+          "access": "试读 / 付费全文",
+          "checked": true
+        },
+        {
+          "title": "我们高估了自有品牌的威胁",
+          "date": "2026-10-15",
+          "url": "https://www.yicai.com/vip/news/103394573.html",
+          "direction": "围绕零售商自有品牌，审视品牌与渠道之间的竞争关系。",
+          "category": "零售与品牌",
+          "access": "试读 / 付费全文",
+          "checked": true
+        }
+      ]
+    }
+  ]
+}

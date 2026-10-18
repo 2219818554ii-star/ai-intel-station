@@ -9,10 +9,10 @@ const count = (s, re) => (s.match(re) || []).length;
 
 console.log('\n[1] 静态结构');
 const tabs = [...html.matchAll(/data-tab="([^"]+)"/g)].map(m => m[1]);
-ok(tabs.length === 8, `tab 数量 = ${tabs.length}（期望 8）: ${tabs.join(', ')}`);
-ok(['daily','rank','comp','learn','ted','forum','cqut','funds'].every(v => html.includes(`id="view-${v}"`)), 'view 区块 = 8/8');
-ok(html.includes('["daily","rank","comp","learn","ted","forum","cqut","funds"]'), 'showTab 数组含全部 8 个视图');
-ok(!/<script src="(competitions|ted|forum|rank|cqut|matches|funds)\.js"/.test(html), '七个数据文件均已内联（无外链脚本）');
+ok(tabs.length === 9, `tab 数量 = ${tabs.length}（期望 9）: ${tabs.join(', ')}`);
+ok(['daily','rank','comp','learn','ted','forum','magazines','cqut','funds'].every(v => html.includes(`id="view-${v}"`)), 'view 区块 = 9/9');
+ok(html.includes('["daily","rank","comp","learn","ted","forum","magazines","cqut","funds"]'), 'showTab 数组含全部 9 个视图');
+ok(!/<script src="(competitions|ted|forum|rank|cqut|matches|funds|magazines)\.js"/.test(html), '八个数据文件均已内联（无外链脚本）');
 const httpLeft = count(html, /href="http:\/\//g);
 ok(httpLeft === 0, `无 http:// 明文链接（剩余 ${httpLeft}）`);
 
@@ -505,7 +505,7 @@ const expCog = TD.filter(x => x.cat === '认知思维').length;
 ok(cards('ted-list') === expCog, `TED「认知思维」→ ${cards('ted-list')} 条（期望 ${expCog}）`);
 
 console.log('\n[4] 链接体检（静态 + 运行时渲染）');
-const runtime = ['ted-list','forum-list','comp-list']
+const runtime = ['ted-list','forum-list','comp-list','magazine-list','magazine-publishers']
   .map(k => ((store[k]||{}).innerHTML||'')).join('');
 const allUrls = [...html.matchAll(/href="(https?:[^"]+)"/g)].map(m => m[1])
   .concat([...runtime.matchAll(/href="(https?:[^"]+)"/g)].map(m => m[1]));

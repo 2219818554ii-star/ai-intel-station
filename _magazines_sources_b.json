@@ -1,0 +1,84 @@
+{
+  "checkedAt": "2026-10-19",
+  "scope": "Official-source research for 人物、博客天下、环球人物. Titles and publication dates come from official pages; blurbs are independently written reading directions. No full text or cover images are copied.",
+  "magazines": [
+    {
+      "id": "renwu",
+      "name": "人物",
+      "category": "人物与社会",
+      "description": "从人物经历理解社会变化，适合慢读、访谈和非虚构写作。",
+      "officialUrl": "https://boyamedia.com/category-rw/",
+      "publisherUrl": "https://boyamedia.com/",
+      "officialSocialUrl": "https://weibo.com/renwuzazhi",
+      "officialEvidence": "博雅天下官网首页及人物频道列出《人物》杂志刊例、人物原创文章，版权主体为北京博雅天下传媒文化发展有限公司；文章标记“人物作者”并含《人物》采访署名。微博搜索结果亦明确标注《人物》杂志官方微博。不是同名人物门户或期刊订阅中介。",
+      "accessNote": "官网文章在 Web 工具中可读且无登录提示；本机 urllib 请求部分返回 HTTP 204 空正文，自动刷新必须验证正文和标题，不能把 2xx 当成功。官网各入口缓存可能不同，频道列表曾比根首页少一篇，勿以列表缺失删除既有文章。",
+      "automation": {
+        "listUrls": ["https://boyamedia.com/", "https://boyamedia.com/category-rw/"],
+        "articleUrlPattern": "https://boyamedia.com/sys-nd/{numeric-id}.html",
+        "mobileArticleUrlPattern": "https://m.boyamedia.com/nd.jsp?id={numeric-id}",
+        "parseHints": "从首页人物区块或人物频道提取实际存在的 /sys-nd/ 数字链接，勿猜测数字 ID；详情页 h1 是标题，文字“发表时间：YYYY-MM-DD HH:MM”给出刊发日期，人物作者及文/编辑署名可辅助判别身份。应跟随列表实际链接并逐篇验证。",
+        "rssVerified": false,
+        "apiVerified": false,
+        "failurePolicy": "204/空正文、反爬、超时保留旧条目与原发布日期，记录核查失败；可用 Web 浏览官网作人工核查，但不能冒称脚本抓取成功。"
+      },
+      "articles": [
+        {"title": "37万元，在北京买一套两居室", "date": "2026-10-18", "url": "https://boyamedia.com/sys-nd/200.html", "blurb": "从京郊低总价住房的购买者出发，观察落户、教育与居住需求怎样交织。", "tags": ["城市生活", "社会观察"], "verification": "Web 已打开官方详情，h1 与发表时间 2026-10-18 10:00 相符；标注人物作者、文肉松、编辑楚明。", "access": "官方公开文章；本机脚本返回 204 空正文，不能保证所有网络可直接抓取。"},
+        {"title": "最有可能拿诺奖的德国女作家，在历史的废墟上写作", "date": "2026-10-17", "url": "https://boyamedia.com/sys-nd/199.html", "blurb": "通过作家燕妮·埃彭贝克的访谈，思考历史巨变与个人经验如何进入文学。", "tags": ["文学", "访谈"], "verification": "Web 已打开官方详情，发表时间 2026-10-17 10:00，人物作者，文林鸱、编辑姚璐、翻译张晏。标题是原刊标题，不代表本站预测诺奖。", "access": "官方公开文章；本机脚本返回 204 空正文。"},
+        {"title": "朱之文，脱下大衣", "date": "2026-10-15", "url": "https://boyamedia.com/sys-nd/196.html", "blurb": "借一次连续跟访，观察成名十五年后的乡土歌手与流量、商演及日常生活。", "tags": ["人物特写", "文化生活"], "verification": "Web 已打开官方详情，发表时间 2026-10-15 09:00，人物作者，文明雪、编辑楚明。", "access": "官方公开文章；自动抓取需验证实际正文。"}
+      ]
+    },
+    {
+      "id": "blogweekly",
+      "name": "博客天下",
+      "category": "商业与社会",
+      "description": "关注企业、消费、影视与社会议题，适合从故事进入商业问题。",
+      "officialUrl": "https://boyamedia.com/category-bk/",
+      "publisherUrl": "https://boyamedia.com/",
+      "officialSocialUrl": "https://weibo.com/blogweekly",
+      "officialEvidence": "博雅天下官网首页有博客栏目与《博客天下》杂志刊例；旧版官方杂志页 https://www.boyamedia.com/magazine/detail/108/ 明确标注首页—博客天下及该刊期次，当前版权主体北京博雅天下传媒文化发展有限公司。官方微博品牌名博客天下。",
+      "accessNote": "官网文章在 Web 工具中可读，未见登录或付费墙；本机 urllib 返回 HTTP 204 空正文。官网不同版本列表有缓存差异，当前根首页博客最新 2026-10-16，category-bk 一次 Web 响应停留在 2026-09-17，故优先核对根首页博客分区及详情。",
+      "automation": {
+        "listUrls": ["https://boyamedia.com/", "https://boyamedia.com/category-bk/"],
+        "articleUrlPattern": "https://boyamedia.com/sys-nd/{numeric-id}.html",
+        "mobileArticleUrlPattern": "https://m.boyamedia.com/nd.jsp?id={numeric-id}",
+        "parseHints": "同人物，但必须限定根首页博客栏目或已确认的博客频道链接，不能将人物区混入；详情 h1 标题及“发表时间”日期。列表包含重复标题链接，按规范化文章 URL 去重。",
+        "rssVerified": false,
+        "apiVerified": false,
+        "failurePolicy": "204/空正文、超时或列表缓存旧时不覆盖最新数据。记录失败并保留原文入口。"
+      },
+      "articles": [
+        {"title": "前三季度销量下滑，大众汽车在华加速变革", "date": "2026-10-16", "url": "https://boyamedia.com/sys-nd/198.html", "blurb": "从大众在华业务变化，阅读合资车企面对新能源转型时的产品与组织选择。", "tags": ["汽车", "商业观察"], "verification": "Web 已打开官方详情，发表时间 2026-10-16 15:25，官网首页归在博客分区。", "access": "官方公开文章；本机 urllib 204 空正文。"},
+        {"title": "“不烧心”的红果，开始烧内娱的心了", "date": "2026-10-15", "url": "https://boyamedia.com/sys-nd/197.html", "blurb": "围绕红果短剧的内容生态，了解 AI 制作、分发渠道与商业竞争的关联。", "tags": ["AI", "内容产业"], "verification": "Web 曾打开官方详情，后续请求间歇超时；官方详情搜索正文明确发表时间 2026-10-15 13:45，官方移动详情同日。", "access": "官方公开文章；可能间歇超时，本机 urllib 204 空正文。"},
+        {"title": "从大众点评到“小众点评”，真实口碑逃得过生意吗？", "date": "2026-10-13", "url": "https://boyamedia.com/sys-nd/194.html", "blurb": "从寻找餐厅的日常经验，追问口碑平台商业化后真实评价如何保留价值。", "tags": ["消费", "平台经济"], "verification": "Web 已打开官方详情一次，后续间歇超时；官网首页博客分区明确题名和日期 2026-10-13。", "access": "官方公开文章；可能间歇超时。"}
+      ]
+    },
+    {
+      "id": "globalpeople",
+      "name": "环球人物",
+      "category": "人物与世界",
+      "description": "以人物报道连接国际、科技、文化与社会议题。",
+      "officialUrl": "https://www.globalpeople.com.cn/",
+      "officialEvidenceUrl": "https://www.globalpeople.com.cn/channel/16/index.html",
+      "officialEvidence": "官方关于我们明确：《环球人物》杂志由人民日报社主管、主办；环球人物网是《环球人物》杂志社官方网站。正式刊名为环球人物。用户写的环球人物周刊也可能指凤凰同名电视节目，本栏目依上下文收录期刊环球人物，不能混淆。",
+      "accessNote": "官网搜索索引可核实标题、日期、来源、署名及正文；本轮 Web 直接打开多次出现循环重定向，本机 urllib HTTP 403，不能声称已成功直抓。建议 UI 保留官方原文入口并明示访问可能受限，刷新失败保留原日期。",
+      "automation": {
+        "listUrls": ["https://www.globalpeople.com.cn/", "https://www.globalpeople.com.cn/306717/"],
+        "articleUrlPattern": "https://www.globalpeople.com.cn/n4/YYYY/MMDD/c{channel}-{id}.html",
+        "parseHints": "只跟随官网真实 /n4/ 文章链接，标题 h1，刊发时间正文为 YYYY年MM月DD日HH:MM、来源、作者；URL 日期和正文发表日期不一定一致（如丁龙文章 URL 0929，正文09月25日），必须优先正文时间。来源需为环球人物网或环球人物杂志，不能把官网转载的红星新闻等当该刊原创。",
+        "rssVerified": false,
+        "apiVerified": false,
+        "failurePolicy": "403/循环跳转/空正文不能刷新成功日期或用网页路径猜时间；保留旧条目并记录来源访问限制。"
+      },
+      "articles": [
+        {"title": "一场“思享者的盛宴”", "date": "2026-10-17", "url": "https://www.globalpeople.com.cn/n4/2026/1017/c306726-21655863.html", "blurb": "从年度盛典的对话现场，了解科技产业与文化实践如何相互启发。", "tags": ["人物对话", "产业观察"], "verification": "官方原文搜索正文已核实：2026年10月17日19:40，来源环球人物网，作者陈佳莉、蔡晓慧。当前 Web 直接打开受限，不能计为实时直抓成功。", "access": "官方索引已核实，直接访问可能受限；无已核实付费墙。", "directFetchVerified": false},
+        {"title": "专访耶鲁教授马松：中国AI产业 不做“鲨鱼”做“鲇鱼”", "date": "2026-10-12", "url": "https://www.globalpeople.com.cn/n4/2026/1012/c305917-21655680.html", "blurb": "沿着金融学者的访谈，思考开源 AI、产业竞争与知识普惠之间的关系。", "tags": ["AI", "访谈"], "verification": "官方原文搜索正文完整可核实：2026年10月12日09:42，来源环球人物网-《环球人物》杂志，作者尹洁。当前 Web 直接打开循环重定向，本机403。", "access": "官方索引已核实，直接访问可能受限；版权声明禁止未经授权转载，本站只保留标题、独立导读和原文链接。", "directFetchVerified": false},
+        {"title": "被寻找120 年，一位普通华工改写美国汉学历史", "date": "2026-09-25", "url": "https://www.globalpeople.com.cn/n4/2026/0929/c306717-21655284.html", "blurb": "从华工丁龙身世的考证线索，回看一段跨越太平洋的教育与文化交流往事。", "tags": ["历史", "文化交流"], "verification": "官方原文搜索正文核实：2026年09月25日15:00，来源环球人物网；新刊推介列表同为09月25日。URL路径0929不是发表日期。当前直接抓取受限。", "access": "官方索引已核实，直接访问可能受限；该条不是今日新闻。", "directFetchVerified": false}
+      ]
+    }
+  ],
+  "excluded": [
+    {"url": "https://rw.zazhi.com.cn/", "reason": "页面明示非官网，为杂志征订中介。"},
+    {"url": "https://www.renwu.org.cn/", "reason": "中国人物网同名门户，未核实与《人物》杂志关系，不当作该刊官网。"},
+    {"title": "中国盾构机背后的首席专家王杜娟：年轻团队开启“地下新长征”", "url": "https://www.globalpeople.com.cn/n4/2026/1013/c306475-21655776.html", "reason": "环球人物官网页面来源标红星新闻、作者吴阳，属于站内转载，不计为该刊原创精选。"}
+  ]
+}

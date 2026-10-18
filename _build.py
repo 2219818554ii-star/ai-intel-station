@@ -11,6 +11,7 @@ rank = os.path.join(base, "rank.js")             # 实力排行榜数据（每�
 cqut = os.path.join(base, "cqut.js")              # 重庆理工通知数据（学校/学院/部门/学生会）
 nation = os.path.join(base, "matches.js")         # 比赛板块（按学校分类，只收还能参加的）
 funds = os.path.join(base, "funds.js")            # 基金看板数据（持仓）
+magazines = os.path.join(base, "magazines.js")    # 官方期刊与文章元数据
 out_deploy = os.path.join(base, "index.html")    # 部署版（GitHub Pages 服务它）
 out_gh     = os.path.join(base, "gh-pages", "index.html")
 out_local  = os.path.join(base, "ai_intel_station_standalone.html")
@@ -51,6 +52,11 @@ funds_marker = '<script src="funds.js"></script>'
 assert funds_marker in html, "funds marker not found in index.src.html!"
 funds_data = open(funds, encoding="utf-8").read()
 standalone = standalone.replace(funds_marker, "<script>\n" + funds_data + "\n</script>", 1)
+
+magazines_marker = '<script src="magazines.js"></script>'
+assert magazines_marker in html, "magazines marker not found in index.src.html!"
+magazines_data = open(magazines, encoding="utf-8").read()
+standalone = standalone.replace(magazines_marker, "<script>\n" + magazines_data + "\n</script>", 1)
 
 for p in (out_deploy, out_gh, out_local):
     os.makedirs(os.path.dirname(p), exist_ok=True)

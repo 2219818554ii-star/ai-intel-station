@@ -123,7 +123,7 @@ prod = readtxt(PROD)
 # ---------- [1] 产物是否过期 ----------
 print("[1] 产物新鲜度")
 src_files = ["index.src.html", "competitions.js", "matches.js", "ted.js", "forum.js",
-             "rank.js", "cqut.js", "funds.js"]
+             "rank.js", "cqut.js", "funds.js", "magazines.js"]
 pm = os.path.getmtime(os.path.join(BASE, PROD))
 fresh = []
 for f in src_files:
@@ -158,6 +158,10 @@ MUST_CONTAIN = [
     ("AI 上手 tab 文案", "📚"),
     ("TED 英语 tab 文案", "🎓"),
     ("成长讲坛 tab 文案", "🌱"),
+    ("期刊精选 tab 文案", "🗞 期刊精选"),
+    ("期刊阅读架", 'id="magazine-publishers"'),
+    ("期刊文章列表", 'id="magazine-list"'),
+    ("期刊关键词搜索", 'id="magazine-query"'),
     ("重庆理工 tab 文案", "🏫"),
     ("理工列表容器", 'id="cqut-list"'),
     ("理工一级筛选", 'id="cqutFilters"'),
@@ -181,7 +185,7 @@ if missing:
     bad("产物里找不到：%s" % "、".join(missing),
         "改了 index.src.html 但没构建 / 或改动本身有 bug")
 else:
-    ok(PASS, "%d 项关键结构全部存在（8 栏目 + 理工 4 组件 + 基金 2 组件 + 比赛 6 组件 + TED 多看入口）"
+    ok(PASS, "%d 项关键结构全部存在（9 栏目及各栏关键组件）"
        % len(MUST_CONTAIN))
 
 # 反向：这些必须一条不剩（获奖喜报、已结束条目、旧字段）
