@@ -8,22 +8,33 @@ module.exports=async function({inline,sandbox,ok}){
     return {ctx,elements,events,saved};
   }
   const base=run(),w=base.ctx.window,pubs=w.MAGAZINES,articles=w.MAGAZINE_ARTICLES;
-  ok(pubs.length===6&&['商界','三联生活周刊','第一财经','博客天下','人物','环球人物'].every(n=>pubs.some(p=>p.name===n)),'期刊架完整覆盖六本指定刊物，并使用已核实的正式刊名');
+  ok(pubs.length>=19&&['商界','三联生活周刊','第一财经','博客天下','人物','环球人物'].every(n=>pubs.some(p=>p.name===n)),'期刊扩展到至少19本，完整保留原六本指定刊物');
+  const baseline=JSON.parse(fs.readFileSync(path.join(__dirname,'_magazines_catalog_baseline.json'),'utf8'));
+  ok(baseline.publications.every(p=>pubs.some(x=>x.id===p.id&&x.name===p.name&&x.url===p.url&&JSON.stringify(x.hosts)===JSON.stringify(p.hosts))&&articles.filter(a=>a.publication===p.id).length>=p.minimumArticles),'全部已核实刊物身份和各刊文章基础量未回退');
   ok(new Set(pubs.map(p=>p.id)).size===pubs.length,'期刊身份无重复');
   ok(articles.length>=17&&new Set(articles.map(a=>a.url)).size===articles.length,'已核实期刊文章不少于17篇且URL无重复');
   ok(pubs.every(p=>/^https:\/\//.test(p.url)&&p.hosts.includes(new URL(p.url).hostname))&&articles.every(a=>pubs.find(p=>p.id===a.publication)?.hosts.includes(new URL(a.url).hostname)),'期刊与原文链接均属于各自已确认官方渠道');
-  const original=['a','b'].flatMap(s=>JSON.parse(fs.readFileSync(path.join(__dirname,'_magazines_sources_'+s+'.json'),'utf8')).magazines.flatMap(p=>p.articles.map(a=>({publication:p.id,title:a.title,url:a.url,publishedAt:a.date??null}))));
+  const evidenceFiles=['_magazines_sources_a.json','_magazines_sources_b.json','_magazines_expansion_cn.json','_magazines_expansion_world.json'];
+  const sourceData=evidenceFiles.map(f=>JSON.parse(fs.readFileSync(path.join(__dirname,f),'utf8')));
+  const original=sourceData.flatMap(d=>d.magazines.flatMap(p=>p.articles.map(a=>({...a,publication:p.id,publishedAt:a.publishedAt??a.date??null}))));
   let refreshed=[];const reportFile=path.join(__dirname,'_magazines_refresh.json');
   if(fs.existsSync(reportFile)){const report=JSON.parse(fs.readFileSync(reportFile,'utf8'));refreshed=(report.sources||[]).flatMap(s=>(s.articles||[]).concat(s.retainedArticles||[]).map(a=>({...a,publication:s.publication})));}
   ok(articles.every(a=>original.concat(refreshed).some(e=>e.publication===a.publication&&e.url===a.url&&e.title===a.title&&(e.publishedAt??null)===(a.publishedAt??null))),'每篇标题、原文和发布日期均能对上初始官方核实或最近成功刷新证据');
+  const hotProof=original.concat(refreshed);
+  for(const d of sourceData)for(const h of (d.hotLists||[]).concat(d.magazines.flatMap(p=>p.hotLists||[]))){if(Array.isArray(h.items))h.items.forEach(a=>hotProof.push({...a,publication:h.publication,hotRank:a.rank,hotSource:h.sourceUrl,hotCheckedAt:h.asOf}));}
+  const hot=articles.filter(a=>a.hotRank),editorial=JSON.parse(fs.readFileSync(path.join(__dirname,'_magazines_editorial.json'),'utf8')).articles;
+  ok(['infzm','quanta','sciencenews'].every(p=>hot.some(a=>a.publication===p))&&hot.every(a=>hotProof.some(e=>e.publication===a.publication&&e.url===a.url&&e.hotRank===a.hotRank&&e.hotSource===a.hotSource&&e.hotCheckedAt===a.hotCheckedAt)),'三份官方热榜均有真实条目，排名/来源/核查日期逐条可追溯（条数服从原榜）');
+  ok(articles.filter(a=>a.featuredReason).length>=20&&articles.filter(a=>a.featuredReason).every(a=>editorial.some(e=>e.publication===a.publication&&e.url===a.url&&e.title===a.title&&e.reason===a.featuredReason&&e.priority===a.featuredPriority)),'本站精选逐篇具备明确选读理由与独立配置，不冒充官方热度');
   const date=s=>typeof s==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(s)&&!isNaN(Date.parse(s))&&new Date(s+'T00:00:00Z').toISOString().slice(0,10)===s;
   const today=new Date().toLocaleDateString('en-CA',{timeZone:'Asia/Shanghai'});
   ok(date(w.MAGAZINES_CHECKED)&&w.MAGAZINES_CHECKED<=today&&(Date.parse(today)-Date.parse(w.MAGAZINES_CHECKED))/86400000<=2,'期刊最近核查日期真实有效且不超过2天，不冒充文章发布日期');
   ok(pubs.every(p=>p.checkedAt===w.MAGAZINES_CHECKED&&['ok','unavailable'].includes(p.status)),'每本刊物有当次核查日期及明确结果状态');
   ok(articles.every(a=>(a.publishedAt===null||date(a.publishedAt)&&a.publishedAt<=today)&&date(a.checkedAt)&&a.checkedAt<=w.MAGAZINES_CHECKED),'期刊文章无非法或未来日期，未披露单篇日期明确留空');
   ok(articles.filter(a=>a.publication==='lifeweek'&&original.some(o=>o.url===a.url)).every(a=>a.publishedAt===null),'三联已核实条目不把期刊出版日冒充单篇发布日期');
-  if(articles.length>18)base.events['magazine-more'].click();
+  base.elements['magazine-publication'].value='lifeweek';base.events['magazine-publication'].change();
   ok(base.elements['magazine-list'].innerHTML.includes('原文未标日期')&&base.elements['magazine-publishers'].innerHTML.includes('官方阅读'),'未披露日期与官方阅读入口均实际渲染');
+  base.events['magazine-reset'].click();
+  if(articles.length>18)base.events['magazine-more'].click();
   const orderedDates=[...base.elements['magazine-list'].innerHTML.matchAll(/<time(?: datetime="([^"]+)")?>/g)].map(m=>m[1]||'');
   ok(orderedDates.every((d,i)=>i===0||orderedDates[i-1]>=d),'期刊文章按明确发布日期倒序，未知日期不伪排序为今天');
   if(articles.length>18)ok((base.elements['magazine-list'].innerHTML.match(/class="mag-article"/g)||[]).length>18,'期刊加载更多实际增加文章而非只改计数');
@@ -48,4 +59,18 @@ module.exports=async function({inline,sandbox,ok}){
   ok(broken.elements['magazine-count'].textContent.includes('17')||broken.elements['magazine-list'].innerHTML.includes('mag-article'),'损坏阅读记录和失效筛选值安全回退');
   const blocked=run('',{},true);blocked.events['view-magazines'].click({target:{closest(){return {dataset:{magAction:'fav',magUrl:url}};}}});
   ok(blocked.elements['magazine-storage-note'].textContent.includes('仅在当前页面有效'),'浏览器禁止存储时如实提示，仍可本页操作');
+  base.events['magazine-reset'].click();base.events['magazine-order-hot'].click();
+  const hotHTML=base.elements['magazine-list'].innerHTML;
+  ok(hotHTML.includes('mag-hot')&&hotHTML.includes('核查')&&!hotHTML.includes('7000家')&&base.elements['magazine-order-note'].textContent.includes('不同刊物分别排名'),'热榜只列有来源名次，展示核查日并声明各刊分别排名');
+  base.elements['magazine-publication'].value='shangjie';base.events['magazine-publication'].change();
+  ok(base.elements['magazine-list'].innerHTML.includes('没有可核实的官方热榜'),'未公开热榜的刊物给出诚实空态，不造热度');
+  base.events['magazine-reset'].click();base.events['magazine-order-featured'].click();
+  ok(base.elements['magazine-list'].innerHTML.includes('选读理由')&&base.elements['magazine-order-note'].textContent.includes('不代表原刊热度'),'编辑精选真实筛出有推荐理由文章并标明主观口径');
+  const remembered=run('',base.saved);ok(remembered.elements['magazine-heading'].textContent.includes('编辑精选'),'阅读榜单选择重开后恢复');
+  base.events['magazine-reset'].click();base.elements['magazine-publication'].value='scientificamerican';base.events['magazine-publication'].change();base.elements['magazine-category'].value='科学新知';base.events['magazine-category'].change();base.elements['magazine-language'].value='en';base.events['magazine-language'].change();
+  ok(base.elements['magazine-publication'].value==='scientificamerican'&&base.elements['magazine-list'].innerHTML.includes('英文'),'兼容主题和语言保留所选刊物，不扩大筛选结果');
+  base.elements['magazine-language'].value='zh';base.events['magazine-language'].change();
+  ok(base.elements['magazine-publication'].value==='all'&&!base.elements['magazine-list'].innerHTML.includes('data-publication="scientificamerican"'),'只在语言不兼容时清除刊物，保留明确筛选条件');
+  base.events['magazine-reset'].click();base.events['magazine-more'].click();const loaded=base.elements['magazine-count'].textContent;
+  ok(run('',base.saved).elements['magazine-count'].textContent===loaded,'加载更多后的显示数量重开时恢复，长文阅读位置有足够列表高度');
 };

@@ -143,4 +143,5 @@ module.exports = async function ({html, inline, sandbox, ok}) {
   ok(['index.html','gh-pages/index.html','ai_intel_station_standalone.html'].every(f=>fs.readFileSync(path.join(__dirname,f),'utf8').replace(/\r\n/g,'\n')===expected.replace(/\r\n/g,'\n')), '三份构建产物均与当前模板和数据一致');
   await require('./_daily_recovery_regression.js')({inline,sandbox,ok});
   await require('./_magazines_regression.js')({html,inline,sandbox,ok});
+  await require('./_section_rankings_regression.js')({inline,sandbox,ok});
 };

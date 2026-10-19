@@ -98,6 +98,19 @@ class FakeResponse:
 
 
 class MagazineRefreshRegressions(unittest.TestCase):
+    def test_invalid_short_feed_label_does_not_discard_valid_magazine_stories(self):
+        pub = publication("yimagazine")
+        response = json.dumps([
+            {"ChannelName": "第一财经杂志", "url": "/news/123.html", "NewsTitle": "目录", "CreateDate": DAY_ONE},
+            {"ChannelName": "第一财经杂志", "url": "/news/124.html", "NewsTitle": "一篇可核实的商业文章", "CreateDate": DAY_ONE},
+            {"ChannelName": "其他频道", "url": "/news/125.html", "NewsTitle": "其他频道不能混入", "CreateDate": DAY_ONE}
+        ], ensure_ascii=False)
+        with patch.object(refresh_module, "fetch_text", return_value=(response, pub["feedUrl"])):
+            rows, proof = refresh_module.collect(pub, DAY_ONE, 1)
+        self.assertEqual([row["title"] for row in rows], ["一篇可核实的商业文章"])
+        self.assertEqual(rows[0]["publishedAt"], DAY_ONE)
+        self.assertEqual(len(proof["details"]), 1)
+
     def setUp(self):
         # A forgotten network mock fails locally instead of contacting a source.
         self.network_guard = patch.object(

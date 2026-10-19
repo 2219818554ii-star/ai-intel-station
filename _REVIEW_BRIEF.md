@@ -16,7 +16,7 @@
   - `competitions.js`（全国比赛资源库 183 条）
   - `cqut.js`（重庆理工通知）
   - `rank.js`（排行榜：models/tools/combos/tables）
-  - `magazines.js`（6 本期刊的已核实官方入口、文章元数据、核查状态）
+  - `magazines.js`（19 本期刊的官方入口、文章元数据、核查状态；当前592篇）
 
 **构建 / 校验 / 抓取脚本**
 - `_build.py` — 读 index.src.html + 各 .js，内联生成 `index.html` / `gh-pages/index.html` / `ai_intel_station_standalone.html`
@@ -30,6 +30,9 @@
 & 'C:/Users/22198/.workbuddy/binaries/python/versions/3.13.12/python.exe' _build.py
 & 'C:/Users/22198/.workbuddy/binaries/node/versions/22.22.2-6/node.exe' _selfcheck.js
 & 'C:/Users/22198/.workbuddy/binaries/python/versions/3.13.12/python.exe' _magazines_refresh_regression.py
+& 'C:/Users/22198/.workbuddy/binaries/python/versions/3.13.12/python.exe' _magazines_cn_regression.py
+& 'C:/Users/22198/.workbuddy/binaries/python/versions/3.13.12/python.exe' _magazines_rss_regression.py
+& 'C:/Users/22198/.workbuddy/binaries/python/versions/3.13.12/python.exe' _magazines_pipeline_regression.py
 & 'C:/Users/22198/.workbuddy/binaries/python/versions/3.13.12/python.exe' _preship_regression.py
 # Git executable: D:/Git/cmd/git.EXE
 ```
@@ -66,9 +69,13 @@
 - 排行榜 TB 列大量留空：官方 8/29 已把 Terminal-Bench 升级到 4.0，很多模型只有 TB4.0 分、无 TB2.1，故留空——正常（legend 已说明）。
 
 ## 7. 2026-10-19 新增「期刊精选」维护约定
-- 第9栏 `#magazines`：商界、三联生活周刊、第一财经（原第一财经周刊）、博客天下、人物、环球人物。保留官方出处，提供多词搜索、主题/刊物筛选、独立收藏及已读记录、分批阅读与手机横滑选刊。
+- 第9栏 `#magazines`：已由6刊扩展19刊，另增中国新闻周刊、新周刊、南方人物周刊、财经、财新周刊、南方周末、Scientific American、Nature、Science News、The Atlantic、The Economist、Smithsonian、Quanta。保留官方出处，支持5类主题、原文语言、刊物与阅读状态组合，折叠书架避免挤压正文。
 - `magazines.js` 中 `MAGAZINES_CHECKED` / 每刊 `checkedAt` 表示实际核查日；`MAGAZINE_ARTICLES[].publishedAt` 只填原文明示的单篇发布日期，未知留 `null`。三联期刊日期不能代替单篇日期。原文可能需要订阅或登录，本站只保存元数据和独立导读。
 - 初始逐篇来源与身份核实见 `_magazines_sources_a.json`、`_magazines_sources_b.json`；动态核查报告 `_magazines_refresh.json` 保留每刊尝试结果、当次确切元数据及上次独立证据。不得用数据自己给自己认证或删掉失败时的原文。
 - 先运行 `_refresh_magazines.py --dry-run --timeout 8` 可预览而不写文件；正式运行 `_refresh_magazines.py --timeout 8` 更新源数据及报告，然后构建、跑零失败自检与两组 Python 回归，再验证浏览器及上线版本。
 - 抓取只允许配置的官方 HTTPS 域名，空页面、超时及访问保护要保留旧内容；商界入口为投资界认证官方账号，明确是往期文章。人物、博客天下使用博雅官方分刊频道，不抓混合首页。环球人物暂无稳定直接解析，需维护任务继续核查官方网页/索引，不能声称脚本六刊全部成功。
 - 现有每日09:00任务已扩展到期刊。它负责实际核查、必要优化、生成、检查和上线；内容未变化时不编造新增。阅读记录仅保存在当前浏览器，不随公开内容更新清空。
+- 三类榜单分开：最新只用单篇明确日期；来源热榜只用南方周末热门、Quanta过去一周Most Read、Science News Trending的真实原站顺序，展示原榜、名次和核查日，各刊分别排名；编辑精选由 `_magazines_editorial.json` 明确选择，逐篇给出阅读切入点，配置标题/URL/刊物精确匹配才生效。
+- `_magazines_cn.py` / `_magazines_rss.py` 是官方HTML/SSR/API与RSS1/RDF/RSS2/Atom的独立解析器。刷新可用 `--workers 3 --timeout 6` 并行核查，失败保留旧文章与榜单原核查日；新榜成功时去掉落榜标记但保留原文。报告的独立旧证据会跨失败轮次延续，不能用数据自己认证数据。
+- `_magazines_catalog_baseline.json` 保留已核实刊物身份、域名和基础文章量；扩展证据在 `_magazines_expansion_cn.json` / `_magazines_expansion_world.json`。元数据、热榜来源与编辑精选均有额外回归，不能只把下拉控件做出来而不实际排序。
+- 其他栏目：TED按精选、真实累计播放量、演讲年份排序，播放采集日 `TED_VIEWS_CAPTURED_AT` 独立于内容更新；讲坛系列按已收录视频累计播放合计、进入系列后按单视频播放，不去重观众且非实时；通知按明确原文日期或研究生/奖助/考试分组优先；比赛推荐为已有适配建议，不能冒称报名热度。新增 `_section_rankings_regression.js` 已接入自检。

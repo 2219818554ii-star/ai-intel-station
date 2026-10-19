@@ -1,0 +1,179 @@
+{
+  "checkedAt": "2026-10-19",
+  "publications": [
+    {
+      "id": "shangjie",
+      "name": "商界",
+      "url": "https://www.pedaily.cn/media/m439",
+      "hosts": [
+        "www.pedaily.cn",
+        "news.pedaily.cn"
+      ],
+      "minimumArticles": 8
+    },
+    {
+      "id": "lifeweek",
+      "name": "三联生活周刊",
+      "url": "https://www.lifeweek.com.cn/magazine?magazineid=1",
+      "hosts": [
+        "www.lifeweek.com.cn"
+      ],
+      "minimumArticles": 3
+    },
+    {
+      "id": "yimagazine",
+      "name": "第一财经",
+      "url": "https://www.yicai.com/vip/product/55/",
+      "hosts": [
+        "www.yicai.com"
+      ],
+      "minimumArticles": 6
+    },
+    {
+      "id": "renwu",
+      "name": "人物",
+      "url": "https://boyamedia.com/category-rw/",
+      "hosts": [
+        "boyamedia.com",
+        "www.boyamedia.com"
+      ],
+      "minimumArticles": 3
+    },
+    {
+      "id": "blogweekly",
+      "name": "博客天下",
+      "url": "https://boyamedia.com/category-bk/",
+      "hosts": [
+        "boyamedia.com",
+        "www.boyamedia.com"
+      ],
+      "minimumArticles": 3
+    },
+    {
+      "id": "globalpeople",
+      "name": "环球人物",
+      "url": "https://www.globalpeople.com.cn/",
+      "hosts": [
+        "www.globalpeople.com.cn"
+      ],
+      "minimumArticles": 3
+    },
+    {
+      "id": "chinanewsweek",
+      "name": "中国新闻周刊",
+      "url": "https://www.inewsweek.cn/",
+      "hosts": [
+        "www.inewsweek.cn"
+      ],
+      "minimumArticles": 20
+    },
+    {
+      "id": "neweekly",
+      "name": "新周刊",
+      "url": "https://neweekly.com.cn/",
+      "hosts": [
+        "neweekly.com.cn"
+      ],
+      "minimumArticles": 20
+    },
+    {
+      "id": "nfpeople",
+      "name": "南方人物周刊",
+      "url": "https://www.nfpeople.com/",
+      "hosts": [
+        "www.nfpeople.com"
+      ],
+      "minimumArticles": 20
+    },
+    {
+      "id": "caijing",
+      "name": "财经",
+      "url": "https://magazine.caijing.com.cn/",
+      "hosts": [
+        "magazine.caijing.com.cn"
+      ],
+      "minimumArticles": 20
+    },
+    {
+      "id": "caixin",
+      "name": "财新周刊",
+      "url": "https://weekly.caixin.com/",
+      "hosts": [
+        "weekly.caixin.com"
+      ],
+      "minimumArticles": 20
+    },
+    {
+      "id": "infzm",
+      "name": "南方周末",
+      "url": "https://www.infzm.com/",
+      "hosts": [
+        "www.infzm.com"
+      ],
+      "minimumArticles": 20
+    },
+    {
+      "id": "scientificamerican",
+      "name": "科学美国人 Scientific American",
+      "url": "https://www.scientificamerican.com/",
+      "hosts": [
+        "www.scientificamerican.com"
+      ],
+      "minimumArticles": 20
+    },
+    {
+      "id": "nature",
+      "name": "自然 Nature",
+      "url": "https://www.nature.com/nature/",
+      "hosts": [
+        "www.nature.com"
+      ],
+      "minimumArticles": 20
+    },
+    {
+      "id": "sciencenews",
+      "name": "科学新闻 Science News",
+      "url": "https://www.sciencenews.org/",
+      "hosts": [
+        "www.sciencenews.org"
+      ],
+      "minimumArticles": 20
+    },
+    {
+      "id": "atlantic",
+      "name": "大西洋月刊 The Atlantic",
+      "url": "https://www.theatlantic.com/",
+      "hosts": [
+        "www.theatlantic.com"
+      ],
+      "minimumArticles": 20
+    },
+    {
+      "id": "economist",
+      "name": "经济学人 The Economist",
+      "url": "https://www.economist.com/",
+      "hosts": [
+        "www.economist.com"
+      ],
+      "minimumArticles": 20
+    },
+    {
+      "id": "smithsonian",
+      "name": "史密森尼 Smithsonian",
+      "url": "https://www.smithsonianmag.com/",
+      "hosts": [
+        "www.smithsonianmag.com"
+      ],
+      "minimumArticles": 20
+    },
+    {
+      "id": "quanta",
+      "name": "量子杂志 Quanta",
+      "url": "https://www.quantamagazine.org/",
+      "hosts": [
+        "www.quantamagazine.org"
+      ],
+      "minimumArticles": 20
+    }
+  ]
+}

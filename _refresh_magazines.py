@@ -9,6 +9,7 @@ Usage: python _refresh_magazines.py [--dry-run] [--today YYYY-MM-DD]
 from __future__ import annotations
 
 import argparse
+from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timezone
 import gzip
 from html import unescape
@@ -27,7 +28,7 @@ ROOT = Path(__file__).resolve().parent
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36")
 MAX_BYTES = 3_000_000
-PER_PUBLICATION = 24
+PER_PUBLICATION = 80
 MAX_DETAIL_REQUESTS = 8
 
 
@@ -196,6 +197,13 @@ def detail_metadata(url, publication, timeout, *, allow_title=False):
 
 def collect(publication, today, timeout):
     """Return a verified list and metadata-only fetch evidence."""
+    if publication.get("parser") in ("cn", "rss"):
+        if publication["parser"] == "cn":
+            from _magazines_cn import collect as provider_collect
+        else:
+            from _magazines_rss import collect as provider_collect
+        return provider_collect(publication, today, timeout, fetch_text, official_url,
+                                article, parse_html, limit=PER_PUBLICATION)
     feed = publication.get("feedUrl") or publication["url"]
     text, final = fetch_text(feed, publication["hosts"], timeout)
     hostname = urlsplit(final).hostname
@@ -210,9 +218,14 @@ def collect(publication, today, timeout):
             path = item.get("url", "")
             if not re.fullmatch(r"/news/\d+\.html", path):
                 continue
-            rows.append(article(publication, item.get("NewsTitle"),
-                                "https://www.yicai.com/vip" + path,
-                                item.get("CreateDate"), today))
+            url = "https://www.yicai.com/vip" + path
+            try:
+                rows.append(article(publication, item.get("NewsTitle"), url,
+                                    item.get("CreateDate"), today))
+            except (TypeError, ValueError) as error:
+                # An index/short label in the official feed cannot discard
+                # other independently validated stories in the same response.
+                details.append({"url": url, "status": "unavailable", "reason": error_text(error)})
     elif hostname == "www.lifeweek.com.cn" and "/magazine" in urlsplit(final).path:
         # Nuxt shares values through parameters. Read only the active magazine's
         # actual IDs, then use each article page's title; never eval the bundle.
@@ -335,7 +348,7 @@ def merge_articles(previous, incoming, publication):
         merged["publishedAt"] = row.get("publishedAt") or old.get("publishedAt")
         if merged["url"] not in {x["url"] for x in fresh}:
             fresh.append(merged)
-    old_rows = [row for row in previous if row.get("publication") == publication
+    old_rows = [dict(row) for row in previous if row.get("publication") == publication
                 and row["url"] not in {x["url"] for x in fresh}]
     return (fresh + old_rows)[:PER_PUBLICATION]
 
@@ -357,16 +370,19 @@ def retained_evidence(rows, publication, prior_report):
         key = (row.get("title"), row.get("url"), row.get("publishedAt"))
         if key in verified:
             old = verified[key]
-            retained.append({"publication": publication, "title": old["title"],
+            record = {"publication": publication, "title": old["title"],
                 "url": old["url"], "publishedAt": old.get("publishedAt"),
                 "checkedAt": old.get("checkedAt"),
-                "verification": "Retained from an earlier successful source report; not fetched this run."})
+                "verification": "Retained from an earlier successful source report; not fetched this run."}
+            fields = ("hotRank", "hotSource", "hotLabel", "hotCheckedAt")
+            if old.get("hotRank") and all(old.get(k) == row.get(k) for k in fields):
+                record.update({k: old[k] for k in fields if k in old})
+            retained.append(record)
     return retained
 
 
-def refresh(publications, previous, today, timeout, prior_report=None):
-    output, all_articles, reports = [], [], []
-    for original in publications:
+def refresh(publications, previous, today, timeout, prior_report=None, workers=1):
+    def refresh_one(original):
         publication = dict(original)
         publication["checkedAt"] = today
         # Keep the editorial description/access note separate from a transient
@@ -379,6 +395,14 @@ def refresh(publications, previous, today, timeout, prior_report=None):
             publication.update(status="ok", lastSuccessAt=today,
                                note=publication["sourceNote"])
             rows = merge_articles(previous, incoming, publication["id"])
+            if evidence.get("hotStatus") == "ok" or evidence.get("hotLists"):
+                # A newly verified list replaces its previous membership. A
+                # failed list fetch leaves the last known ranks and dates.
+                current_hot = {row["url"] for row in incoming if row.get("hotRank")}
+                for row in rows:
+                    if row["url"] not in current_hot:
+                        for field in ("hotRank", "hotSource", "hotLabel", "hotCheckedAt"):
+                            row.pop(field, None)
             report.update(status="ok", **evidence)
         except Exception as error:
             reason = error_text(error)
@@ -387,9 +411,15 @@ def refresh(publications, previous, today, timeout, prior_report=None):
             rows = [row for row in previous if row.get("publication") == publication["id"]]
             report.update(status="unavailable", reason=reason, articles=[])
         report["retainedArticles"] = retained_evidence(rows, publication["id"], prior_report)
-        output.append(publication)
-        all_articles.extend(rows)
-        reports.append(report)
+        return publication, rows, report
+    if workers > 1:
+        with ThreadPoolExecutor(max_workers=min(workers, len(publications))) as pool:
+            results = list(pool.map(refresh_one, publications))
+    else:
+        results = [refresh_one(p) for p in publications]
+    output = [result[0] for result in results]
+    all_articles = [row for result in results for row in result[1]]
+    reports = [result[2] for result in results]
     return output, all_articles, {"checkedAt": today,
         "attemptedAt": datetime.now(timezone.utc).isoformat(), "sources": reports,
         "policy": "Official metadata only; failed sources preserve previous entries and dates; no full text."}
@@ -406,6 +436,25 @@ def atomic_write(path, text):
         temporary.unlink(missing_ok=True)
 
 
+def apply_editorial(rows, editorial):
+    """Apply explicit site curation only while its exact article still matches."""
+    if not isinstance(editorial, dict) or not isinstance(editorial.get("articles"), list):
+        raise ValueError("Editorial selections must contain an article list")
+    selected = {}
+    for item in editorial["articles"]:
+        if (not isinstance(item, dict) or not isinstance(item.get("reason"), str)
+                or not item["reason"].strip() or not isinstance(item.get("priority"), int)):
+            raise ValueError("Every editorial selection needs a reason and priority")
+        selected[(item.get("publication"), item.get("url"), item.get("title"))] = item
+    for row in rows:
+        row.pop("featuredReason", None)
+        row.pop("featuredPriority", None)
+        item = selected.get((row["publication"], row["url"], row["title"]))
+        if item:
+            row.update(featuredReason=item["reason"], featuredPriority=item["priority"])
+    return rows
+
+
 def main():
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -415,10 +464,15 @@ def main():
                         default=date.today(), help="Explicit check date for reproducible checks")
     parser.add_argument("--data", type=Path, default=ROOT / "magazines.js")
     parser.add_argument("--report", type=Path, default=ROOT / "_magazines_refresh.json")
+    parser.add_argument("--editorial", type=Path, default=ROOT / "_magazines_editorial.json")
     parser.add_argument("--timeout", type=float, default=12)
+    parser.add_argument("--workers", type=int, default=4,
+                        help="Independent official-source workers (1-6)")
     args = parser.parse_args()
     if not 0 < args.timeout <= 60:
         parser.error("--timeout must be greater than zero and no more than 60 seconds")
+    if not 1 <= args.workers <= 6:
+        parser.error("--workers must be between 1 and 6")
     try:
         source = args.data.read_text(encoding="utf-8")
         publications, _ = read_assignment(source, "MAGAZINES")
@@ -441,7 +495,9 @@ def main():
             if not isinstance(prior_report, dict) or not isinstance(prior_report.get("sources", []), list):
                 raise ValueError("Previous metadata report has an invalid evidence structure")
         updated, articles, report = refresh(publications, previous, args.today.isoformat(), args.timeout,
-                                            prior_report=prior_report)
+                                            prior_report=prior_report, workers=args.workers)
+        if args.editorial.exists():
+            articles = apply_editorial(articles, json.loads(args.editorial.read_text(encoding="utf-8-sig")))
         if args.dry_run:
             print(json.dumps(report, ensure_ascii=False, indent=2))
         else:

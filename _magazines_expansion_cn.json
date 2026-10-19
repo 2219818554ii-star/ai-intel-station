@@ -1,0 +1,4536 @@
+{
+  "checkedAt": "2026-10-19",
+  "magazines": [
+    {
+      "id": "chinanewsweek",
+      "name": "中国新闻周刊",
+      "category": "时事观察",
+      "description": "从社会议题、国际局势与经济变化观察当下。",
+      "url": "https://www.inewsweek.cn/",
+      "hosts": [
+        "www.inewsweek.cn"
+      ],
+      "feedUrl": "https://www.inewsweek.cn/",
+      "note": "仅收官方新闻频道；品牌观察推广稿不纳入。",
+      "accent": "#b92836",
+      "language": "zh",
+      "parser": "cn",
+      "parserHints": "GB 编码静态 HTML；首页和 society/finance/world/wh 频道；文章 editor 区域是明确发布时间。",
+      "officialEvidence": "https://www.inewsweek.cn/",
+      "articles": [
+        {
+          "publication": "chinanewsweek",
+          "title": "丑闻缠身的国王弟弟，打赢了官司",
+          "url": "https://www.inewsweek.cn/world/2026-10-16/32573.shtml",
+          "publishedAt": "2026-10-16",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "总统和副总统的“战争”，加速了",
+          "url": "https://www.inewsweek.cn/world/2026-10-16/32559.shtml",
+          "publishedAt": "2026-10-16",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "马斯克，“最大金主”归来",
+          "url": "https://www.inewsweek.cn/world/2026-10-16/32552.shtml",
+          "publishedAt": "2026-10-16",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "巨头，突然宣布大裁员",
+          "url": "https://www.inewsweek.cn/wh/2026-10-16/32569.shtml",
+          "publishedAt": "2026-10-16",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "著名女星发声：不想再拍大尺度戏",
+          "url": "https://www.inewsweek.cn/wh/2026-10-16/32556.shtml",
+          "publishedAt": "2026-10-16",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "1岁幼儿误食邻居投毒的鸡蛋后脑萎缩，家长称3只狗也被毒死",
+          "url": "https://www.inewsweek.cn/society/2026-10-16/32553.shtml",
+          "publishedAt": "2026-10-16",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "害怕罚款的司机，在服务区看到了绝望一幕",
+          "url": "https://www.inewsweek.cn/politics/2026-10-16/32558.shtml",
+          "publishedAt": "2026-10-16",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "37亿大单，到账为0",
+          "url": "https://www.inewsweek.cn/finance/2026-10-16/32566.shtml",
+          "publishedAt": "2026-10-16",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "汽车业，迎重大变局",
+          "url": "https://www.inewsweek.cn/auto/2026-10-16/32557.shtml",
+          "publishedAt": "2026-10-16",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "“北漂”白宫首秀，“惨不忍睹”",
+          "url": "https://www.inewsweek.cn/world/2026-10-15/32549.shtml",
+          "publishedAt": "2026-10-15",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "很快换总统？",
+          "url": "https://www.inewsweek.cn/world/2026-10-15/32540.shtml",
+          "publishedAt": "2026-10-15",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "“送1.9元汽水后举报医务人员”，专家：借故生非，恶意举报",
+          "url": "https://www.inewsweek.cn/society/2026-10-15/32550.shtml",
+          "publishedAt": "2026-10-15",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "顶流男星“与未成年女孩交往”事件，大反转",
+          "url": "https://www.inewsweek.cn/society/2026-10-15/32546.shtml",
+          "publishedAt": "2026-10-15",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "每小时200元？女生“有偿旅拍”，出事了",
+          "url": "https://www.inewsweek.cn/finance/2026-10-15/32538.shtml",
+          "publishedAt": "2026-10-15",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "雅思主办方致歉后，“380元转考费依然打了水漂”？",
+          "url": "https://www.inewsweek.cn/society/2026-10-14/32529.shtml",
+          "publishedAt": "2026-10-14",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "24岁百万粉丝吃播博主去世，血钾浓度最低2.3，医生紧急提醒",
+          "url": "https://www.inewsweek.cn/society/2026-10-14/32528.shtml",
+          "publishedAt": "2026-10-14",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "“黑客杀死了我的一缸鱼？”",
+          "url": "https://www.inewsweek.cn/society/2026-10-14/32524.shtml",
+          "publishedAt": "2026-10-14",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "有偿旅拍，内地女生被抓",
+          "url": "https://www.inewsweek.cn/society/2026-10-12/32494.shtml",
+          "publishedAt": "2026-10-12",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "凌晨两点，31岁女子被人撬开窗户“掳走”",
+          "url": "https://www.inewsweek.cn/society/2026-10-12/32493.shtml",
+          "publishedAt": "2026-10-12",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "34岁摄影师在曼谷失踪，家属披露两次通话内容",
+          "url": "https://www.inewsweek.cn/society/2026-10-10/32465.shtml",
+          "publishedAt": "2026-10-10",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "加油站办婚礼放烟花？官方回应",
+          "url": "https://www.inewsweek.cn/society/2026-10-09/32455.shtml",
+          "publishedAt": "2026-10-09",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "王心凌“你没报批不能上来”，纯属误读？",
+          "url": "https://www.inewsweek.cn/society/2026-10-09/32450.shtml",
+          "publishedAt": "2026-10-09",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "98％肺癌女性从不吸烟，罪魁祸首是谁？",
+          "url": "https://www.inewsweek.cn/society/2026-10-08/32415.shtml",
+          "publishedAt": "2026-10-08",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "“对孩子的内疚，会伴随我一辈子”",
+          "url": "https://www.inewsweek.cn/society/2026-10-08/32413.shtml",
+          "publishedAt": "2026-10-08",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "租客搬走后，把12岁儿子留下独居一年，“屋里都发霉了”",
+          "url": "https://www.inewsweek.cn/society/2026-09-30/32395.shtml",
+          "publishedAt": "2026-09-30",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "“我就是个第一书记，为什么要每天研究流量？”",
+          "url": "https://www.inewsweek.cn/society/2026-09-28/32347.shtml",
+          "publishedAt": "2026-09-28",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "烧烤界海底捞，急了？",
+          "url": "https://www.inewsweek.cn/society/2026-09-24/32321.shtml",
+          "publishedAt": "2026-09-24",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "百亿巨头董事长：我错了",
+          "url": "https://www.inewsweek.cn/society/2026-09-23/32299.shtml",
+          "publishedAt": "2026-09-23",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "大厂员工长期受贿，“数额特别巨大”",
+          "url": "https://www.inewsweek.cn/society/2026-09-23/32293.shtml",
+          "publishedAt": "2026-09-23",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "chinanewsweek",
+          "title": "教了11年小学数学，转岗初中语文",
+          "url": "https://www.inewsweek.cn/society/2026-10-16/32567.shtml",
+          "publishedAt": null,
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        }
+      ],
+      "evidence": {
+        "listUrl": "https://www.inewsweek.cn/",
+        "articles": [
+          {
+            "publication": "chinanewsweek",
+            "title": "丑闻缠身的国王弟弟，打赢了官司",
+            "url": "https://www.inewsweek.cn/world/2026-10-16/32573.shtml",
+            "publishedAt": "2026-10-16",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "总统和副总统的“战争”，加速了",
+            "url": "https://www.inewsweek.cn/world/2026-10-16/32559.shtml",
+            "publishedAt": "2026-10-16",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "马斯克，“最大金主”归来",
+            "url": "https://www.inewsweek.cn/world/2026-10-16/32552.shtml",
+            "publishedAt": "2026-10-16",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "巨头，突然宣布大裁员",
+            "url": "https://www.inewsweek.cn/wh/2026-10-16/32569.shtml",
+            "publishedAt": "2026-10-16",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "著名女星发声：不想再拍大尺度戏",
+            "url": "https://www.inewsweek.cn/wh/2026-10-16/32556.shtml",
+            "publishedAt": "2026-10-16",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "1岁幼儿误食邻居投毒的鸡蛋后脑萎缩，家长称3只狗也被毒死",
+            "url": "https://www.inewsweek.cn/society/2026-10-16/32553.shtml",
+            "publishedAt": "2026-10-16",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "害怕罚款的司机，在服务区看到了绝望一幕",
+            "url": "https://www.inewsweek.cn/politics/2026-10-16/32558.shtml",
+            "publishedAt": "2026-10-16",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "37亿大单，到账为0",
+            "url": "https://www.inewsweek.cn/finance/2026-10-16/32566.shtml",
+            "publishedAt": "2026-10-16",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "汽车业，迎重大变局",
+            "url": "https://www.inewsweek.cn/auto/2026-10-16/32557.shtml",
+            "publishedAt": "2026-10-16",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "“北漂”白宫首秀，“惨不忍睹”",
+            "url": "https://www.inewsweek.cn/world/2026-10-15/32549.shtml",
+            "publishedAt": "2026-10-15",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "很快换总统？",
+            "url": "https://www.inewsweek.cn/world/2026-10-15/32540.shtml",
+            "publishedAt": "2026-10-15",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "“送1.9元汽水后举报医务人员”，专家：借故生非，恶意举报",
+            "url": "https://www.inewsweek.cn/society/2026-10-15/32550.shtml",
+            "publishedAt": "2026-10-15",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "顶流男星“与未成年女孩交往”事件，大反转",
+            "url": "https://www.inewsweek.cn/society/2026-10-15/32546.shtml",
+            "publishedAt": "2026-10-15",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "每小时200元？女生“有偿旅拍”，出事了",
+            "url": "https://www.inewsweek.cn/finance/2026-10-15/32538.shtml",
+            "publishedAt": "2026-10-15",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "雅思主办方致歉后，“380元转考费依然打了水漂”？",
+            "url": "https://www.inewsweek.cn/society/2026-10-14/32529.shtml",
+            "publishedAt": "2026-10-14",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "24岁百万粉丝吃播博主去世，血钾浓度最低2.3，医生紧急提醒",
+            "url": "https://www.inewsweek.cn/society/2026-10-14/32528.shtml",
+            "publishedAt": "2026-10-14",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "“黑客杀死了我的一缸鱼？”",
+            "url": "https://www.inewsweek.cn/society/2026-10-14/32524.shtml",
+            "publishedAt": "2026-10-14",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "有偿旅拍，内地女生被抓",
+            "url": "https://www.inewsweek.cn/society/2026-10-12/32494.shtml",
+            "publishedAt": "2026-10-12",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "凌晨两点，31岁女子被人撬开窗户“掳走”",
+            "url": "https://www.inewsweek.cn/society/2026-10-12/32493.shtml",
+            "publishedAt": "2026-10-12",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "34岁摄影师在曼谷失踪，家属披露两次通话内容",
+            "url": "https://www.inewsweek.cn/society/2026-10-10/32465.shtml",
+            "publishedAt": "2026-10-10",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "加油站办婚礼放烟花？官方回应",
+            "url": "https://www.inewsweek.cn/society/2026-10-09/32455.shtml",
+            "publishedAt": "2026-10-09",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "王心凌“你没报批不能上来”，纯属误读？",
+            "url": "https://www.inewsweek.cn/society/2026-10-09/32450.shtml",
+            "publishedAt": "2026-10-09",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "98％肺癌女性从不吸烟，罪魁祸首是谁？",
+            "url": "https://www.inewsweek.cn/society/2026-10-08/32415.shtml",
+            "publishedAt": "2026-10-08",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "“对孩子的内疚，会伴随我一辈子”",
+            "url": "https://www.inewsweek.cn/society/2026-10-08/32413.shtml",
+            "publishedAt": "2026-10-08",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "租客搬走后，把12岁儿子留下独居一年，“屋里都发霉了”",
+            "url": "https://www.inewsweek.cn/society/2026-09-30/32395.shtml",
+            "publishedAt": "2026-09-30",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "“我就是个第一书记，为什么要每天研究流量？”",
+            "url": "https://www.inewsweek.cn/society/2026-09-28/32347.shtml",
+            "publishedAt": "2026-09-28",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "烧烤界海底捞，急了？",
+            "url": "https://www.inewsweek.cn/society/2026-09-24/32321.shtml",
+            "publishedAt": "2026-09-24",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "百亿巨头董事长：我错了",
+            "url": "https://www.inewsweek.cn/society/2026-09-23/32299.shtml",
+            "publishedAt": "2026-09-23",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "大厂员工长期受贿，“数额特别巨大”",
+            "url": "https://www.inewsweek.cn/society/2026-09-23/32293.shtml",
+            "publishedAt": "2026-09-23",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "chinanewsweek",
+            "title": "教了11年小学数学，转岗初中语文",
+            "url": "https://www.inewsweek.cn/society/2026-10-16/32567.shtml",
+            "publishedAt": null,
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          }
+        ],
+        "details": [
+          {
+            "url": "https://www.inewsweek.cn/wh/2026-10-16/32569.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-16"
+          },
+          {
+            "url": "https://www.inewsweek.cn/world/2026-10-15/32549.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-15"
+          },
+          {
+            "url": "https://www.inewsweek.cn/society/2026-10-16/32567.shtml",
+            "status": "unavailable",
+            "reason": "Empty response; no verified article list"
+          },
+          {
+            "url": "https://www.inewsweek.cn/finance/2026-10-16/32566.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-16"
+          },
+          {
+            "url": "https://www.inewsweek.cn/world/2026-10-16/32559.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-16"
+          },
+          {
+            "url": "https://www.inewsweek.cn/world/2026-10-16/32573.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-16"
+          },
+          {
+            "url": "https://www.inewsweek.cn/politics/2026-10-16/32558.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-16"
+          },
+          {
+            "url": "https://www.inewsweek.cn/auto/2026-10-16/32557.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-16"
+          },
+          {
+            "url": "https://www.inewsweek.cn/wh/2026-10-16/32556.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-16"
+          },
+          {
+            "url": "https://www.inewsweek.cn/society/2026-10-16/32553.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-16"
+          },
+          {
+            "url": "https://www.inewsweek.cn/world/2026-10-16/32552.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-16"
+          },
+          {
+            "url": "https://www.inewsweek.cn/world/2026-10-15/32540.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-15"
+          },
+          {
+            "url": "https://www.inewsweek.cn/society/2026-10-15/32550.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-15"
+          },
+          {
+            "url": "https://www.inewsweek.cn/society/2026-10-15/32546.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-15"
+          },
+          {
+            "url": "https://www.inewsweek.cn/society/2026-10-14/32529.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-14"
+          },
+          {
+            "url": "https://www.inewsweek.cn/society/2026-10-14/32528.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-14"
+          },
+          {
+            "url": "https://www.inewsweek.cn/society/2026-10-14/32524.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-14"
+          },
+          {
+            "url": "https://www.inewsweek.cn/society/2026-10-12/32494.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-12"
+          },
+          {
+            "url": "https://www.inewsweek.cn/society/2026-10-12/32493.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-12"
+          },
+          {
+            "url": "https://www.inewsweek.cn/society/2026-10-10/32465.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-10"
+          },
+          {
+            "url": "https://www.inewsweek.cn/society/2026-10-09/32455.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-09"
+          },
+          {
+            "url": "https://www.inewsweek.cn/society/2026-10-09/32450.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-09"
+          },
+          {
+            "url": "https://www.inewsweek.cn/society/2026-10-08/32415.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-08"
+          },
+          {
+            "url": "https://www.inewsweek.cn/society/2026-10-08/32413.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-08"
+          },
+          {
+            "url": "https://www.inewsweek.cn/society/2026-09-30/32395.shtml",
+            "status": "ok",
+            "publishedAt": "2026-09-30"
+          },
+          {
+            "url": "https://www.inewsweek.cn/society/2026-09-28/32347.shtml",
+            "status": "ok",
+            "publishedAt": "2026-09-28"
+          },
+          {
+            "url": "https://www.inewsweek.cn/society/2026-09-24/32321.shtml",
+            "status": "ok",
+            "publishedAt": "2026-09-24"
+          },
+          {
+            "url": "https://www.inewsweek.cn/society/2026-09-23/32299.shtml",
+            "status": "ok",
+            "publishedAt": "2026-09-23"
+          },
+          {
+            "url": "https://www.inewsweek.cn/society/2026-09-23/32293.shtml",
+            "status": "ok",
+            "publishedAt": "2026-09-23"
+          },
+          {
+            "url": "https://www.inewsweek.cn/finance/2026-10-15/32538.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-15"
+          }
+        ]
+      }
+    },
+    {
+      "id": "neweekly",
+      "name": "新周刊",
+      "category": "生活人文",
+      "description": "通过生活方式、青年文化与城市议题理解时代变化。",
+      "url": "https://neweekly.com.cn/",
+      "hosts": [
+        "neweekly.com.cn"
+      ],
+      "feedUrl": "https://neweekly.com.cn/",
+      "note": "官方 apex 站点可访问；专栏含历史精选，日期按原发布时间。",
+      "accent": "#e44052",
+      "language": "zh",
+      "parser": "cn",
+      "parserHints": "window.__INITIAL_DATA__ JSON；indexStore.data 和 dailyStore.list、columnStore.articleList；factTime 为官方文章时间毫秒。",
+      "officialEvidence": "https://neweekly.com.cn/",
+      "articles": [
+        {
+          "publication": "neweekly",
+          "title": "时隔23年又翻红的《大长今》，到底往剧里放了什么？",
+          "url": "https://neweekly.com.cn/article/shp1559356774",
+          "publishedAt": "2026-10-18",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "被封杀的“大结果之母”，靠AI卷土重来赚了三百万",
+          "url": "https://neweekly.com.cn/article/shp0073460960",
+          "publishedAt": "2026-10-18",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "北上广深杭最拉胯的dating，在大厂园区排队打饭",
+          "url": "https://neweekly.com.cn/article/shp1036864549",
+          "publishedAt": "2026-10-17",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "创业者骊沣：去非洲卖菜，看见另一种可能",
+          "url": "https://neweekly.com.cn/article/shp1603517972",
+          "publishedAt": "2026-10-16",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "冲上热搜的怀孕AI偶像，把全网都“耍了”",
+          "url": "https://neweekly.com.cn/article/shp1401557461",
+          "publishedAt": "2026-10-16",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "月入5000但没有KPI，景区npc真是年轻人理想工作？",
+          "url": "https://neweekly.com.cn/article/shp1219293684",
+          "publishedAt": "2026-10-16",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "有的环保主义者，只是在cosplay｜专访罗伯特·麦克法伦",
+          "url": "https://neweekly.com.cn/article/shp1934294882",
+          "publishedAt": "2026-09-15",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "在标准时代，做一个反思标准的人|专访艺术家高孝午",
+          "url": "https://neweekly.com.cn/article/shp0981957709",
+          "publishedAt": "2026-09-10",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "安妮宝贝到庆山的26年｜专访庆山",
+          "url": "https://neweekly.com.cn/article/shp1303778613",
+          "publishedAt": "2026-08-23",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "李现都沦陷了，观鸟为何让人如此“上头”？",
+          "url": "https://neweekly.com.cn/article/shp1975407750",
+          "publishedAt": "2026-08-22",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "陈丹青：AI这事儿，我根本没资格有意见",
+          "url": "https://neweekly.com.cn/article/shp0364599521",
+          "publishedAt": "2026-08-21",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "许知远：我们对具体经验的提问变少了",
+          "url": "https://neweekly.com.cn/article/shp0419494440",
+          "publishedAt": "2026-08-20",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "采访诺兰火遍外网后，她说自己随时准备退网 | 专访仲树",
+          "url": "https://neweekly.com.cn/article/shp0302116189",
+          "publishedAt": "2026-08-08",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "一夜爆红后潇洒“退圈”，30年前的顶流女星如今怎样了?",
+          "url": "https://neweekly.com.cn/article/shp0849948013",
+          "publishedAt": "2026-06-23",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "拍出《无名之辈》的他，成了“最佳演员”",
+          "url": "https://neweekly.com.cn/article/shp1568390836",
+          "publishedAt": "2026-06-05",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "王朔：我不是一个人，只不过室友不是人",
+          "url": "https://neweekly.com.cn/article/shp0482480332",
+          "publishedAt": "2026-04-24",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "一个70岁走红的女人，拒绝被浪漫化",
+          "url": "https://neweekly.com.cn/article/shp0971100706",
+          "publishedAt": "2026-03-26",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "10个消失在家谱里的女人，秘密终于被她拆开了",
+          "url": "https://neweekly.com.cn/article/shp0933852543",
+          "publishedAt": "2026-03-08",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "不会再有第二个侯孝贤，也不会再有第二个朱天文｜专访朱天文",
+          "url": "https://neweekly.com.cn/article/shp2077773423",
+          "publishedAt": "2026-01-18",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "屈雨瑜：用行动打破偏见，女性照样颠大勺 | 极限女性第二季第9期",
+          "url": "https://neweekly.com.cn/article/shp1985323427",
+          "publishedAt": "2025-11-28",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "中国父母的空心病，正在传给孩子丨专访梁鸿",
+          "url": "https://neweekly.com.cn/article/shp1871871995",
+          "publishedAt": "2025-11-07",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "专访舒淇：不会撒娇的女孩，从小就学着长大",
+          "url": "https://neweekly.com.cn/article/shp0621368846",
+          "publishedAt": "2025-11-03",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "真人秀结束一年，李行亮们还在被网暴",
+          "url": "https://neweekly.com.cn/article/shp0554301326",
+          "publishedAt": "2025-10-28",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "99.99%的普通人，不该从历史中消失｜专访王笛",
+          "url": "https://neweekly.com.cn/article/shp1871552011",
+          "publishedAt": "2025-10-16",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "她，不仅仅是“蔡磊的妻子” | 极限女性第二季第7期",
+          "url": "https://neweekly.com.cn/article/shp0186469144",
+          "publishedAt": "2025-09-23",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "房主任：我没有退路，所以才努力爬上岸 | 极限女性第二季第6期",
+          "url": "https://neweekly.com.cn/article/shp1962820666",
+          "publishedAt": "2025-08-26",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "龚琳娜：50岁，我开始真正的叛逆期 | 极限女性第二季第5期",
+          "url": "https://neweekly.com.cn/article/shp0750839517",
+          "publishedAt": "2025-07-22",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "马静芬：过去我叫褚马氏，现在我叫马静芬｜极限女性第二季第 4 期",
+          "url": "https://neweekly.com.cn/article/shp1020363549",
+          "publishedAt": "2025-05-26",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "颜怡颜悦：我们要写自己也会被“骂到”的东西｜极限女性第二季",
+          "url": "https://neweekly.com.cn/article/shp1265701687",
+          "publishedAt": "2025-02-18",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "neweekly",
+          "title": "张越：进入和离开个体生命，是让人生更丰富和宽广的过程｜极限女性第二季",
+          "url": "https://neweekly.com.cn/article/shp2063280335",
+          "publishedAt": "2025-01-21",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        }
+      ],
+      "evidence": {
+        "listUrl": "https://neweekly.com.cn/",
+        "articles": [
+          {
+            "publication": "neweekly",
+            "title": "时隔23年又翻红的《大长今》，到底往剧里放了什么？",
+            "url": "https://neweekly.com.cn/article/shp1559356774",
+            "publishedAt": "2026-10-18",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "被封杀的“大结果之母”，靠AI卷土重来赚了三百万",
+            "url": "https://neweekly.com.cn/article/shp0073460960",
+            "publishedAt": "2026-10-18",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "北上广深杭最拉胯的dating，在大厂园区排队打饭",
+            "url": "https://neweekly.com.cn/article/shp1036864549",
+            "publishedAt": "2026-10-17",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "创业者骊沣：去非洲卖菜，看见另一种可能",
+            "url": "https://neweekly.com.cn/article/shp1603517972",
+            "publishedAt": "2026-10-16",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "冲上热搜的怀孕AI偶像，把全网都“耍了”",
+            "url": "https://neweekly.com.cn/article/shp1401557461",
+            "publishedAt": "2026-10-16",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "月入5000但没有KPI，景区npc真是年轻人理想工作？",
+            "url": "https://neweekly.com.cn/article/shp1219293684",
+            "publishedAt": "2026-10-16",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "有的环保主义者，只是在cosplay｜专访罗伯特·麦克法伦",
+            "url": "https://neweekly.com.cn/article/shp1934294882",
+            "publishedAt": "2026-09-15",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "在标准时代，做一个反思标准的人|专访艺术家高孝午",
+            "url": "https://neweekly.com.cn/article/shp0981957709",
+            "publishedAt": "2026-09-10",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "安妮宝贝到庆山的26年｜专访庆山",
+            "url": "https://neweekly.com.cn/article/shp1303778613",
+            "publishedAt": "2026-08-23",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "李现都沦陷了，观鸟为何让人如此“上头”？",
+            "url": "https://neweekly.com.cn/article/shp1975407750",
+            "publishedAt": "2026-08-22",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "陈丹青：AI这事儿，我根本没资格有意见",
+            "url": "https://neweekly.com.cn/article/shp0364599521",
+            "publishedAt": "2026-08-21",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "许知远：我们对具体经验的提问变少了",
+            "url": "https://neweekly.com.cn/article/shp0419494440",
+            "publishedAt": "2026-08-20",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "采访诺兰火遍外网后，她说自己随时准备退网 | 专访仲树",
+            "url": "https://neweekly.com.cn/article/shp0302116189",
+            "publishedAt": "2026-08-08",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "一夜爆红后潇洒“退圈”，30年前的顶流女星如今怎样了?",
+            "url": "https://neweekly.com.cn/article/shp0849948013",
+            "publishedAt": "2026-06-23",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "拍出《无名之辈》的他，成了“最佳演员”",
+            "url": "https://neweekly.com.cn/article/shp1568390836",
+            "publishedAt": "2026-06-05",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "王朔：我不是一个人，只不过室友不是人",
+            "url": "https://neweekly.com.cn/article/shp0482480332",
+            "publishedAt": "2026-04-24",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "一个70岁走红的女人，拒绝被浪漫化",
+            "url": "https://neweekly.com.cn/article/shp0971100706",
+            "publishedAt": "2026-03-26",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "10个消失在家谱里的女人，秘密终于被她拆开了",
+            "url": "https://neweekly.com.cn/article/shp0933852543",
+            "publishedAt": "2026-03-08",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "不会再有第二个侯孝贤，也不会再有第二个朱天文｜专访朱天文",
+            "url": "https://neweekly.com.cn/article/shp2077773423",
+            "publishedAt": "2026-01-18",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "屈雨瑜：用行动打破偏见，女性照样颠大勺 | 极限女性第二季第9期",
+            "url": "https://neweekly.com.cn/article/shp1985323427",
+            "publishedAt": "2025-11-28",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "中国父母的空心病，正在传给孩子丨专访梁鸿",
+            "url": "https://neweekly.com.cn/article/shp1871871995",
+            "publishedAt": "2025-11-07",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "专访舒淇：不会撒娇的女孩，从小就学着长大",
+            "url": "https://neweekly.com.cn/article/shp0621368846",
+            "publishedAt": "2025-11-03",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "真人秀结束一年，李行亮们还在被网暴",
+            "url": "https://neweekly.com.cn/article/shp0554301326",
+            "publishedAt": "2025-10-28",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "99.99%的普通人，不该从历史中消失｜专访王笛",
+            "url": "https://neweekly.com.cn/article/shp1871552011",
+            "publishedAt": "2025-10-16",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "她，不仅仅是“蔡磊的妻子” | 极限女性第二季第7期",
+            "url": "https://neweekly.com.cn/article/shp0186469144",
+            "publishedAt": "2025-09-23",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "房主任：我没有退路，所以才努力爬上岸 | 极限女性第二季第6期",
+            "url": "https://neweekly.com.cn/article/shp1962820666",
+            "publishedAt": "2025-08-26",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "龚琳娜：50岁，我开始真正的叛逆期 | 极限女性第二季第5期",
+            "url": "https://neweekly.com.cn/article/shp0750839517",
+            "publishedAt": "2025-07-22",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "马静芬：过去我叫褚马氏，现在我叫马静芬｜极限女性第二季第 4 期",
+            "url": "https://neweekly.com.cn/article/shp1020363549",
+            "publishedAt": "2025-05-26",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "颜怡颜悦：我们要写自己也会被“骂到”的东西｜极限女性第二季",
+            "url": "https://neweekly.com.cn/article/shp1265701687",
+            "publishedAt": "2025-02-18",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "neweekly",
+            "title": "张越：进入和离开个体生命，是让人生更丰富和宽广的过程｜极限女性第二季",
+            "url": "https://neweekly.com.cn/article/shp2063280335",
+            "publishedAt": "2025-01-21",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          }
+        ],
+        "details": [
+          {
+            "url": "https://neweekly.com.cn/daily",
+            "status": "ok",
+            "items": 3
+          },
+          {
+            "url": "https://neweekly.com.cn/column/10074",
+            "status": "ok",
+            "items": 4
+          },
+          {
+            "url": "https://neweekly.com.cn/column/10076",
+            "status": "ok",
+            "items": 1
+          },
+          {
+            "url": "https://neweekly.com.cn/column/10075",
+            "status": "ok",
+            "items": 8
+          },
+          {
+            "url": "https://neweekly.com.cn/column/10071",
+            "status": "ok",
+            "items": 12
+          }
+        ]
+      }
+    },
+    {
+      "id": "nfpeople",
+      "name": "南方人物周刊",
+      "category": "人物纪实",
+      "description": "读人物访谈、生命经验与人文现场。",
+      "url": "https://www.nfpeople.com/",
+      "hosts": [
+        "www.nfpeople.com"
+      ],
+      "feedUrl": "https://www.nfpeople.com/",
+      "note": "从官网提取题名和文章页明确日期。",
+      "accent": "#c54733",
+      "language": "zh",
+      "parser": "cn",
+      "parserHints": "静态 /article/数字；p.source 中 日期：YYYY-MM-DD；首页永久旧资料与新文混合，按实际日期展示。",
+      "officialEvidence": "https://www.nfpeople.com/index.php/page/1",
+      "articles": [
+        {
+          "publication": "nfpeople",
+          "title": "吴文伦：“没这种戏了，也没这种修养了”丨逝者",
+          "url": "https://www.nfpeople.com/article/14335",
+          "publishedAt": "2026-10-05",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "最后一个不眠之夜",
+          "url": "https://www.nfpeople.com/article/14334",
+          "publishedAt": "2026-10-05",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "黄丽华：汉剧青衣的破与立",
+          "url": "https://www.nfpeople.com/article/14333",
+          "publishedAt": "2026-10-05",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "卢为：跳水台上， 一次漫长的二次绽放",
+          "url": "https://www.nfpeople.com/article/14332",
+          "publishedAt": "2026-10-05",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "郑执：我真正想写的是亲密关系的建立和崩塌",
+          "url": "https://www.nfpeople.com/article/14331",
+          "publishedAt": "2026-10-05",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "在国外被性骚扰的女留学生，赢了一场无人受罚的诉讼",
+          "url": "https://www.nfpeople.com/article/14329",
+          "publishedAt": "2026-10-05",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "舟行花海采睡莲丨眼界",
+          "url": "https://www.nfpeople.com/article/14327",
+          "publishedAt": "2026-10-05",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "“中国天眼”落成十周年丨眼界",
+          "url": "https://www.nfpeople.com/article/14326",
+          "publishedAt": "2026-10-05",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "理工强势、文科收缩，AI重塑全球大学权力版图丨维度",
+          "url": "https://www.nfpeople.com/article/14325",
+          "publishedAt": "2026-10-05",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "回音（20261005）",
+          "url": "https://www.nfpeople.com/article/14324",
+          "publishedAt": "2026-10-05",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "《朱砂掌》里的虚构与非虚构丨记者手记",
+          "url": "https://www.nfpeople.com/article/14323",
+          "publishedAt": "2026-10-05",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "梁绍基：为什么要被归类？丨逝者",
+          "url": "https://www.nfpeople.com/article/14322",
+          "publishedAt": "2026-09-28",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "《杀死比尔：血色全传》： 一个绚烂而短暂的千禧年电影梦",
+          "url": "https://www.nfpeople.com/article/14321",
+          "publishedAt": "2026-09-28",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "来到梦中的黄果树瀑布",
+          "url": "https://www.nfpeople.com/article/14320",
+          "publishedAt": "2026-09-28",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "梁玉嵘：有海水的地方就有粤曲",
+          "url": "https://www.nfpeople.com/article/14319",
+          "publishedAt": "2026-09-28",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "被羞辱、遭网暴，普通人如何自保？",
+          "url": "https://www.nfpeople.com/article/14318",
+          "publishedAt": "2026-09-28",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "极端气候肆虐， 谁在杀死河流？",
+          "url": "https://www.nfpeople.com/article/14317",
+          "publishedAt": "2026-09-28",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "打工人的“穷鬼超市”奥乐齐被起诉，掀起一场货架之争",
+          "url": "https://www.nfpeople.com/article/14315",
+          "publishedAt": "2026-09-28",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "致命的徒步：跟风进山的年轻人，低估了自然的残酷",
+          "url": "https://www.nfpeople.com/article/14314",
+          "publishedAt": "2026-09-28",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "欧洲有轨电车司机锦标赛丨眼界",
+          "url": "https://www.nfpeople.com/article/14312",
+          "publishedAt": "2026-09-28",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "平陆运河建成通航丨眼界",
+          "url": "https://www.nfpeople.com/article/14311",
+          "publishedAt": "2026-09-28",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "陈观泰：人生如擂台丨逝者",
+          "url": "https://www.nfpeople.com/article/14307",
+          "publishedAt": "2026-09-21",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "把“不可能被改编的”《百年孤独》搬上荧屏",
+          "url": "https://www.nfpeople.com/article/14306",
+          "publishedAt": "2026-09-21",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "留下15万张秘密底片的保姆，死后成了摄影史上的街拍传奇",
+          "url": "https://www.nfpeople.com/article/14305",
+          "publishedAt": "2026-09-21",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "印度公考名师，想要成为国师",
+          "url": "https://www.nfpeople.com/article/14301",
+          "publishedAt": "2026-09-21",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "罗永浩炮轰苹果折叠屏“抄袭”，手机为什么越卖越贵？",
+          "url": "https://www.nfpeople.com/article/14300",
+          "publishedAt": "2026-09-21",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "最后的江湖戏班：台上唱忠孝节义，台下是赤裸人性",
+          "url": "https://www.nfpeople.com/article/14286",
+          "publishedAt": "2026-09-07",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "悬崖边的因凡蒂诺：足球、金元与权力的游戏",
+          "url": "https://www.nfpeople.com/article/14273",
+          "publishedAt": "2026-08-31",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "姚璇秋：前人传给我， 我就有责任传给后人",
+          "url": "https://www.nfpeople.com/article/11026",
+          "publishedAt": "2021-11-24",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "nfpeople",
+          "title": "卢永根：把根深深扎在泥土里",
+          "url": "https://www.nfpeople.com/article/10979",
+          "publishedAt": "2021-11-05",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        }
+      ],
+      "evidence": {
+        "listUrl": "https://www.nfpeople.com/",
+        "articles": [
+          {
+            "publication": "nfpeople",
+            "title": "吴文伦：“没这种戏了，也没这种修养了”丨逝者",
+            "url": "https://www.nfpeople.com/article/14335",
+            "publishedAt": "2026-10-05",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "最后一个不眠之夜",
+            "url": "https://www.nfpeople.com/article/14334",
+            "publishedAt": "2026-10-05",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "黄丽华：汉剧青衣的破与立",
+            "url": "https://www.nfpeople.com/article/14333",
+            "publishedAt": "2026-10-05",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "卢为：跳水台上， 一次漫长的二次绽放",
+            "url": "https://www.nfpeople.com/article/14332",
+            "publishedAt": "2026-10-05",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "郑执：我真正想写的是亲密关系的建立和崩塌",
+            "url": "https://www.nfpeople.com/article/14331",
+            "publishedAt": "2026-10-05",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "在国外被性骚扰的女留学生，赢了一场无人受罚的诉讼",
+            "url": "https://www.nfpeople.com/article/14329",
+            "publishedAt": "2026-10-05",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "舟行花海采睡莲丨眼界",
+            "url": "https://www.nfpeople.com/article/14327",
+            "publishedAt": "2026-10-05",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "“中国天眼”落成十周年丨眼界",
+            "url": "https://www.nfpeople.com/article/14326",
+            "publishedAt": "2026-10-05",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "理工强势、文科收缩，AI重塑全球大学权力版图丨维度",
+            "url": "https://www.nfpeople.com/article/14325",
+            "publishedAt": "2026-10-05",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "回音（20261005）",
+            "url": "https://www.nfpeople.com/article/14324",
+            "publishedAt": "2026-10-05",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "《朱砂掌》里的虚构与非虚构丨记者手记",
+            "url": "https://www.nfpeople.com/article/14323",
+            "publishedAt": "2026-10-05",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "梁绍基：为什么要被归类？丨逝者",
+            "url": "https://www.nfpeople.com/article/14322",
+            "publishedAt": "2026-09-28",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "《杀死比尔：血色全传》： 一个绚烂而短暂的千禧年电影梦",
+            "url": "https://www.nfpeople.com/article/14321",
+            "publishedAt": "2026-09-28",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "来到梦中的黄果树瀑布",
+            "url": "https://www.nfpeople.com/article/14320",
+            "publishedAt": "2026-09-28",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "梁玉嵘：有海水的地方就有粤曲",
+            "url": "https://www.nfpeople.com/article/14319",
+            "publishedAt": "2026-09-28",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "被羞辱、遭网暴，普通人如何自保？",
+            "url": "https://www.nfpeople.com/article/14318",
+            "publishedAt": "2026-09-28",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "极端气候肆虐， 谁在杀死河流？",
+            "url": "https://www.nfpeople.com/article/14317",
+            "publishedAt": "2026-09-28",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "打工人的“穷鬼超市”奥乐齐被起诉，掀起一场货架之争",
+            "url": "https://www.nfpeople.com/article/14315",
+            "publishedAt": "2026-09-28",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "致命的徒步：跟风进山的年轻人，低估了自然的残酷",
+            "url": "https://www.nfpeople.com/article/14314",
+            "publishedAt": "2026-09-28",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "欧洲有轨电车司机锦标赛丨眼界",
+            "url": "https://www.nfpeople.com/article/14312",
+            "publishedAt": "2026-09-28",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "平陆运河建成通航丨眼界",
+            "url": "https://www.nfpeople.com/article/14311",
+            "publishedAt": "2026-09-28",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "陈观泰：人生如擂台丨逝者",
+            "url": "https://www.nfpeople.com/article/14307",
+            "publishedAt": "2026-09-21",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "把“不可能被改编的”《百年孤独》搬上荧屏",
+            "url": "https://www.nfpeople.com/article/14306",
+            "publishedAt": "2026-09-21",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "留下15万张秘密底片的保姆，死后成了摄影史上的街拍传奇",
+            "url": "https://www.nfpeople.com/article/14305",
+            "publishedAt": "2026-09-21",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "印度公考名师，想要成为国师",
+            "url": "https://www.nfpeople.com/article/14301",
+            "publishedAt": "2026-09-21",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "罗永浩炮轰苹果折叠屏“抄袭”，手机为什么越卖越贵？",
+            "url": "https://www.nfpeople.com/article/14300",
+            "publishedAt": "2026-09-21",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "最后的江湖戏班：台上唱忠孝节义，台下是赤裸人性",
+            "url": "https://www.nfpeople.com/article/14286",
+            "publishedAt": "2026-09-07",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "悬崖边的因凡蒂诺：足球、金元与权力的游戏",
+            "url": "https://www.nfpeople.com/article/14273",
+            "publishedAt": "2026-08-31",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "姚璇秋：前人传给我， 我就有责任传给后人",
+            "url": "https://www.nfpeople.com/article/11026",
+            "publishedAt": "2021-11-24",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "nfpeople",
+            "title": "卢永根：把根深深扎在泥土里",
+            "url": "https://www.nfpeople.com/article/10979",
+            "publishedAt": "2021-11-05",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          }
+        ],
+        "details": [
+          {
+            "url": "https://www.nfpeople.com/article/14335",
+            "status": "ok",
+            "publishedAt": "2026-10-05"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/14334",
+            "status": "ok",
+            "publishedAt": "2026-10-05"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/14333",
+            "status": "ok",
+            "publishedAt": "2026-10-05"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/14332",
+            "status": "ok",
+            "publishedAt": "2026-10-05"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/14331",
+            "status": "ok",
+            "publishedAt": "2026-10-05"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/14329",
+            "status": "ok",
+            "publishedAt": "2026-10-05"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/14327",
+            "status": "ok",
+            "publishedAt": "2026-10-05"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/14326",
+            "status": "ok",
+            "publishedAt": "2026-10-05"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/14325",
+            "status": "ok",
+            "publishedAt": "2026-10-05"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/14324",
+            "status": "ok",
+            "publishedAt": "2026-10-05"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/14323",
+            "status": "ok",
+            "publishedAt": "2026-10-05"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/14322",
+            "status": "ok",
+            "publishedAt": "2026-09-28"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/14321",
+            "status": "ok",
+            "publishedAt": "2026-09-28"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/14320",
+            "status": "ok",
+            "publishedAt": "2026-09-28"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/14319",
+            "status": "ok",
+            "publishedAt": "2026-09-28"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/14318",
+            "status": "ok",
+            "publishedAt": "2026-09-28"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/14317",
+            "status": "ok",
+            "publishedAt": "2026-09-28"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/14315",
+            "status": "ok",
+            "publishedAt": "2026-09-28"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/14314",
+            "status": "ok",
+            "publishedAt": "2026-09-28"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/14312",
+            "status": "ok",
+            "publishedAt": "2026-09-28"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/14311",
+            "status": "ok",
+            "publishedAt": "2026-09-28"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/14307",
+            "status": "ok",
+            "publishedAt": "2026-09-21"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/14306",
+            "status": "ok",
+            "publishedAt": "2026-09-21"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/14305",
+            "status": "ok",
+            "publishedAt": "2026-09-21"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/14301",
+            "status": "ok",
+            "publishedAt": "2026-09-21"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/14300",
+            "status": "ok",
+            "publishedAt": "2026-09-21"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/14286",
+            "status": "ok",
+            "publishedAt": "2026-09-07"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/14273",
+            "status": "ok",
+            "publishedAt": "2026-08-31"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/11026",
+            "status": "ok",
+            "publishedAt": "2021-11-24"
+          },
+          {
+            "url": "https://www.nfpeople.com/article/10979",
+            "status": "ok",
+            "publishedAt": "2021-11-05"
+          }
+        ]
+      }
+    },
+    {
+      "id": "caijing",
+      "name": "财经",
+      "category": "商业财经",
+      "description": "关注宏观经济、产业与金融的长篇报道。",
+      "url": "https://magazine.caijing.com.cn/",
+      "hosts": [
+        "magazine.caijing.com.cn"
+      ],
+      "feedUrl": "https://magazine.caijing.com.cn/",
+      "note": "部分原文需订阅；仅显示元数据并链接官网。",
+      "accent": "#194988",
+      "language": "zh",
+      "parser": "cn",
+      "parserHints": "从首页实际 /caijingmagazine/年/期号/ 链接跟随当期目录；文章 .news_date 提供发布时间，禁止借出版日期。 最近6期公开目录均来自首页实际链接，不推算期号。",
+      "officialEvidence": "https://magazine.caijing.com.cn/",
+      "articles": [
+        {
+          "publication": "caijing",
+          "title": "“宁王”的九月围城",
+          "url": "https://magazine.caijing.com.cn/20261012/5187292.shtml",
+          "publishedAt": "2026-10-12",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "一粒药到患者手中加价几成？",
+          "url": "https://magazine.caijing.com.cn/20261012/5187290.shtml",
+          "publishedAt": "2026-10-12",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "百亿基金经理大迁徙",
+          "url": "https://magazine.caijing.com.cn/20261012/5187289.shtml",
+          "publishedAt": "2026-10-12",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "中欧经贸磋商再迎关键节点",
+          "url": "https://magazine.caijing.com.cn/20261012/5187286.shtml",
+          "publishedAt": "2026-10-12",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "清欠连环债",
+          "url": "https://magazine.caijing.com.cn/20261012/5187285.shtml",
+          "publishedAt": "2026-10-12",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "美国加密货币立法失败",
+          "url": "https://magazine.caijing.com.cn/20261010/5187070.shtml",
+          "publishedAt": "2026-10-10",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "国内外药企押注降压疫苗",
+          "url": "https://magazine.caijing.com.cn/20261010/5187069.shtml",
+          "publishedAt": "2026-10-10",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "未来五年，香港资本市场进阶路",
+          "url": "https://magazine.caijing.com.cn/20261010/5187068.shtml",
+          "publishedAt": "2026-10-10",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "脑机接口的两个故事版本",
+          "url": "https://magazine.caijing.com.cn/20261010/5187067.shtml",
+          "publishedAt": "2026-10-10",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "寻找地方新税源",
+          "url": "https://magazine.caijing.com.cn/20261010/5187065.shtml",
+          "publishedAt": "2026-10-10",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "北交所五载蝶变",
+          "url": "https://magazine.caijing.com.cn/20260914/5183335.shtml",
+          "publishedAt": "2026-09-14",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "博士真的“过剩”了吗？",
+          "url": "https://magazine.caijing.com.cn/20260914/5183333.shtml",
+          "publishedAt": "2026-09-14",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "香港北都“土地新政”新在哪里？",
+          "url": "https://magazine.caijing.com.cn/20260914/5183332.shtml",
+          "publishedAt": "2026-09-14",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "金融央企增资扩围",
+          "url": "https://magazine.caijing.com.cn/20260914/5183331.shtml",
+          "publishedAt": "2026-09-14",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "楼市现房时刻",
+          "url": "https://magazine.caijing.com.cn/20260914/5183330.shtml",
+          "publishedAt": "2026-09-14",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "信用评级挤水分",
+          "url": "https://magazine.caijing.com.cn/20260831/5180700.shtml",
+          "publishedAt": "2026-08-31",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "年轻人为何不爱出国留学了？",
+          "url": "https://magazine.caijing.com.cn/20260831/5180698.shtml",
+          "publishedAt": "2026-08-31",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "多部门联手应对青年失业率上升",
+          "url": "https://magazine.caijing.com.cn/20260831/5180694.shtml",
+          "publishedAt": "2026-08-31",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "证券业黑灰产调查",
+          "url": "https://magazine.caijing.com.cn/20260831/5180692.shtml",
+          "publishedAt": "2026-08-31",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "宇树的低成本密码",
+          "url": "https://magazine.caijing.com.cn/20260831/5180688.shtml",
+          "publishedAt": "2026-08-31",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "这些专业为何“招不满”？",
+          "url": "https://magazine.caijing.com.cn/20260818/5177724.shtml",
+          "publishedAt": "2026-08-18",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "蚂蚁分拆融资启幕",
+          "url": "https://magazine.caijing.com.cn/20260818/5177720.shtml",
+          "publishedAt": "2026-08-18",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "城市更新的15万亿元账本",
+          "url": "https://magazine.caijing.com.cn/20260818/5177719.shtml",
+          "publishedAt": "2026-08-18",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "宇树科技估值大考",
+          "url": "https://magazine.caijing.com.cn/20260818/5177718.shtml",
+          "publishedAt": "2026-08-18",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "Token经济，中国账本",
+          "url": "https://magazine.caijing.com.cn/20260818/5177717.shtml",
+          "publishedAt": "2026-08-18",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "困在睡眠里的罕见病患者",
+          "url": "https://magazine.caijing.com.cn/20260804/5175192.shtml",
+          "publishedAt": "2026-08-04",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "未来十年，中国消费机会来自哪里？",
+          "url": "https://magazine.caijing.com.cn/20260804/5175190.shtml",
+          "publishedAt": "2026-08-04",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "长鑫何以问鼎",
+          "url": "https://magazine.caijing.com.cn/20260804/5175189.shtml",
+          "publishedAt": "2026-08-04",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caijing",
+          "title": "世界杯：金钱、权势与分裂",
+          "url": "https://magazine.caijing.com.cn/20260804/5175187.shtml",
+          "publishedAt": "2026-08-04",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        }
+      ],
+      "evidence": {
+        "listUrl": "https://magazine.caijing.com.cn/",
+        "articles": [
+          {
+            "publication": "caijing",
+            "title": "“宁王”的九月围城",
+            "url": "https://magazine.caijing.com.cn/20261012/5187292.shtml",
+            "publishedAt": "2026-10-12",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "一粒药到患者手中加价几成？",
+            "url": "https://magazine.caijing.com.cn/20261012/5187290.shtml",
+            "publishedAt": "2026-10-12",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "百亿基金经理大迁徙",
+            "url": "https://magazine.caijing.com.cn/20261012/5187289.shtml",
+            "publishedAt": "2026-10-12",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "中欧经贸磋商再迎关键节点",
+            "url": "https://magazine.caijing.com.cn/20261012/5187286.shtml",
+            "publishedAt": "2026-10-12",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "清欠连环债",
+            "url": "https://magazine.caijing.com.cn/20261012/5187285.shtml",
+            "publishedAt": "2026-10-12",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "美国加密货币立法失败",
+            "url": "https://magazine.caijing.com.cn/20261010/5187070.shtml",
+            "publishedAt": "2026-10-10",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "国内外药企押注降压疫苗",
+            "url": "https://magazine.caijing.com.cn/20261010/5187069.shtml",
+            "publishedAt": "2026-10-10",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "未来五年，香港资本市场进阶路",
+            "url": "https://magazine.caijing.com.cn/20261010/5187068.shtml",
+            "publishedAt": "2026-10-10",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "脑机接口的两个故事版本",
+            "url": "https://magazine.caijing.com.cn/20261010/5187067.shtml",
+            "publishedAt": "2026-10-10",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "寻找地方新税源",
+            "url": "https://magazine.caijing.com.cn/20261010/5187065.shtml",
+            "publishedAt": "2026-10-10",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "北交所五载蝶变",
+            "url": "https://magazine.caijing.com.cn/20260914/5183335.shtml",
+            "publishedAt": "2026-09-14",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "博士真的“过剩”了吗？",
+            "url": "https://magazine.caijing.com.cn/20260914/5183333.shtml",
+            "publishedAt": "2026-09-14",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "香港北都“土地新政”新在哪里？",
+            "url": "https://magazine.caijing.com.cn/20260914/5183332.shtml",
+            "publishedAt": "2026-09-14",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "金融央企增资扩围",
+            "url": "https://magazine.caijing.com.cn/20260914/5183331.shtml",
+            "publishedAt": "2026-09-14",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "楼市现房时刻",
+            "url": "https://magazine.caijing.com.cn/20260914/5183330.shtml",
+            "publishedAt": "2026-09-14",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "信用评级挤水分",
+            "url": "https://magazine.caijing.com.cn/20260831/5180700.shtml",
+            "publishedAt": "2026-08-31",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "年轻人为何不爱出国留学了？",
+            "url": "https://magazine.caijing.com.cn/20260831/5180698.shtml",
+            "publishedAt": "2026-08-31",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "多部门联手应对青年失业率上升",
+            "url": "https://magazine.caijing.com.cn/20260831/5180694.shtml",
+            "publishedAt": "2026-08-31",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "证券业黑灰产调查",
+            "url": "https://magazine.caijing.com.cn/20260831/5180692.shtml",
+            "publishedAt": "2026-08-31",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "宇树的低成本密码",
+            "url": "https://magazine.caijing.com.cn/20260831/5180688.shtml",
+            "publishedAt": "2026-08-31",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "这些专业为何“招不满”？",
+            "url": "https://magazine.caijing.com.cn/20260818/5177724.shtml",
+            "publishedAt": "2026-08-18",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "蚂蚁分拆融资启幕",
+            "url": "https://magazine.caijing.com.cn/20260818/5177720.shtml",
+            "publishedAt": "2026-08-18",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "城市更新的15万亿元账本",
+            "url": "https://magazine.caijing.com.cn/20260818/5177719.shtml",
+            "publishedAt": "2026-08-18",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "宇树科技估值大考",
+            "url": "https://magazine.caijing.com.cn/20260818/5177718.shtml",
+            "publishedAt": "2026-08-18",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "Token经济，中国账本",
+            "url": "https://magazine.caijing.com.cn/20260818/5177717.shtml",
+            "publishedAt": "2026-08-18",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "困在睡眠里的罕见病患者",
+            "url": "https://magazine.caijing.com.cn/20260804/5175192.shtml",
+            "publishedAt": "2026-08-04",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "未来十年，中国消费机会来自哪里？",
+            "url": "https://magazine.caijing.com.cn/20260804/5175190.shtml",
+            "publishedAt": "2026-08-04",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "长鑫何以问鼎",
+            "url": "https://magazine.caijing.com.cn/20260804/5175189.shtml",
+            "publishedAt": "2026-08-04",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caijing",
+            "title": "世界杯：金钱、权势与分裂",
+            "url": "https://magazine.caijing.com.cn/20260804/5175187.shtml",
+            "publishedAt": "2026-08-04",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          }
+        ],
+        "details": [
+          {
+            "url": "https://magazine.caijing.com.cn/caijingmagazine/2026/259/",
+            "status": "ok"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/caijingmagazine/2026/258/",
+            "status": "ok"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/caijingmagazine/2026/256/",
+            "status": "ok"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/caijingmagazine/2026/255/",
+            "status": "ok"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/caijingmagazine/2026/254/",
+            "status": "ok"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/caijingmagazine/2026/253/",
+            "status": "ok"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20261012/5187285.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-12"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20261012/5187289.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-12"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20261012/5187290.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-12"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20261012/5187286.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-12"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20261012/5187292.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-12"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20261010/5187065.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-10"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20261010/5187067.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-10"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20261010/5187070.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-10"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20261010/5187068.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-10"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20261010/5187069.shtml",
+            "status": "ok",
+            "publishedAt": "2026-10-10"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20260914/5183330.shtml",
+            "status": "ok",
+            "publishedAt": "2026-09-14"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20260914/5183331.shtml",
+            "status": "ok",
+            "publishedAt": "2026-09-14"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20260914/5183333.shtml",
+            "status": "ok",
+            "publishedAt": "2026-09-14"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20260914/5183332.shtml",
+            "status": "ok",
+            "publishedAt": "2026-09-14"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20260914/5183335.shtml",
+            "status": "ok",
+            "publishedAt": "2026-09-14"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20260831/5180688.shtml",
+            "status": "ok",
+            "publishedAt": "2026-08-31"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20260831/5180692.shtml",
+            "status": "ok",
+            "publishedAt": "2026-08-31"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20260831/5180698.shtml",
+            "status": "ok",
+            "publishedAt": "2026-08-31"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20260831/5180694.shtml",
+            "status": "ok",
+            "publishedAt": "2026-08-31"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20260831/5180700.shtml",
+            "status": "ok",
+            "publishedAt": "2026-08-31"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20260818/5177717.shtml",
+            "status": "ok",
+            "publishedAt": "2026-08-18"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20260818/5177718.shtml",
+            "status": "ok",
+            "publishedAt": "2026-08-18"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20260818/5177724.shtml",
+            "status": "ok",
+            "publishedAt": "2026-08-18"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20260818/5177719.shtml",
+            "status": "ok",
+            "publishedAt": "2026-08-18"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20260818/5177720.shtml",
+            "status": "ok",
+            "publishedAt": "2026-08-18"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20260804/5175187.shtml",
+            "status": "ok",
+            "publishedAt": "2026-08-04"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20260804/5175189.shtml",
+            "status": "ok",
+            "publishedAt": "2026-08-04"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20260804/5175192.shtml",
+            "status": "ok",
+            "publishedAt": "2026-08-04"
+          },
+          {
+            "url": "https://magazine.caijing.com.cn/20260804/5175190.shtml",
+            "status": "ok",
+            "publishedAt": "2026-08-04"
+          }
+        ]
+      }
+    },
+    {
+      "id": "caixin",
+      "name": "财新周刊",
+      "category": "商业财经",
+      "description": "深入金融、商业与公共议题的周刊报道。",
+      "url": "https://weekly.caixin.com/",
+      "hosts": [
+        "weekly.caixin.com"
+      ],
+      "feedUrl": "https://weekly.caixin.com/",
+      "note": "原文可能需要财新订阅；不绕过付费墙。",
+      "accent": "#287084",
+      "language": "zh",
+      "parser": "cn",
+      "parserHints": "静态周刊目录；仅 weekly.caixin.com 日期路径文章（路径日期不作为日期值）；正文 pubtime_baidu 为明确日期。",
+      "officialEvidence": "https://weekly.caixin.com/",
+      "articles": [
+        {
+          "publication": "caixin",
+          "title": "回溯｜一周回溯（《财新周刊》2026年第40期）",
+          "url": "https://weekly.caixin.com/2026-10-17/102494252.html",
+          "publishedAt": "2026-10-17",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caixin",
+          "title": "答疑（《财新周刊》2026年第40期）",
+          "url": "https://weekly.caixin.com/2026-10-17/102494251.html",
+          "publishedAt": "2026-10-17",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caixin",
+          "title": "融媒精选（《财新周刊》2026年第40期）",
+          "url": "https://weekly.caixin.com/2026-10-17/102494250.html",
+          "publishedAt": "2026-10-17",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caixin",
+          "title": "读周刊 看视频（《财新周刊》2026年第40期）",
+          "url": "https://weekly.caixin.com/2026-10-17/102494249.html",
+          "publishedAt": "2026-10-17",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caixin",
+          "title": "回声（《财新周刊》2026年第39期）",
+          "url": "https://weekly.caixin.com/2026-10-17/102494248.html",
+          "publishedAt": "2026-10-17",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caixin",
+          "title": "前瞻｜塞尔维亚将举行议会选举",
+          "url": "https://weekly.caixin.com/2026-10-17/102494243.html",
+          "publishedAt": "2026-10-17",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caixin",
+          "title": "心智｜当道德成为流量生意",
+          "url": "https://weekly.caixin.com/2026-10-17/102494242.html",
+          "publishedAt": "2026-10-17",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caixin",
+          "title": "天眼｜热带风暴袭长滩",
+          "url": "https://weekly.caixin.com/2026-10-17/102494241.html",
+          "publishedAt": "2026-10-17",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caixin",
+          "title": "国风｜雅思连续三日大面积停考",
+          "url": "https://weekly.caixin.com/2026-10-17/102494240.html",
+          "publishedAt": "2026-10-17",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caixin",
+          "title": "逝者｜楼宇烈：人文立本，道艺并进",
+          "url": "https://weekly.caixin.com/2026-10-17/102494239.html",
+          "publishedAt": "2026-10-17",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caixin",
+          "title": "随笔｜不断更新评选标准的文学诺奖",
+          "url": "https://weekly.caixin.com/2026-10-17/102494238.html",
+          "publishedAt": "2026-10-17",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caixin",
+          "title": "随笔｜安妮·卡森：思接千载，独行绝境",
+          "url": "https://weekly.caixin.com/2026-10-17/102494237.html",
+          "publishedAt": "2026-10-17",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caixin",
+          "title": "最新财新周刊｜暂别“陪聊”智能体",
+          "url": "https://weekly.caixin.com/2026-10-17/102494236.html",
+          "publishedAt": "2026-10-17",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caixin",
+          "title": "最新财新周刊｜印尼跨境烟霾再起",
+          "url": "https://weekly.caixin.com/2026-10-17/102494235.html",
+          "publishedAt": "2026-10-17",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caixin",
+          "title": "最新财新周刊｜工商业土地进入续期时刻",
+          "url": "https://weekly.caixin.com/2026-10-17/102494234.html",
+          "publishedAt": "2026-10-17",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caixin",
+          "title": "最新财新周刊｜锂电投资调节奏",
+          "url": "https://weekly.caixin.com/2026-10-17/102494233.html",
+          "publishedAt": "2026-10-17",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caixin",
+          "title": "最新财新周刊｜中欧汽车贸易再平衡",
+          "url": "https://weekly.caixin.com/2026-10-17/102494232.html",
+          "publishedAt": "2026-10-17",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caixin",
+          "title": "最新财新周刊｜险资权益投资进退",
+          "url": "https://weekly.caixin.com/2026-10-17/102494231.html",
+          "publishedAt": "2026-10-17",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caixin",
+          "title": "最新财新周刊｜银行股修复中分化",
+          "url": "https://weekly.caixin.com/2026-10-17/102494230.html",
+          "publishedAt": "2026-10-17",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caixin",
+          "title": "专栏｜美国社保欠账问题镜鉴",
+          "url": "https://weekly.caixin.com/2026-10-17/102494229.html",
+          "publishedAt": "2026-10-17",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caixin",
+          "title": "最新财新周刊｜2026年诺贝尔经济学奖：理解组成宏观的微观个体",
+          "url": "https://weekly.caixin.com/2026-10-17/102494228.html",
+          "publishedAt": "2026-10-17",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caixin",
+          "title": "最新财新周刊｜巴西置身十字路口",
+          "url": "https://weekly.caixin.com/2026-10-17/102494227.html",
+          "publishedAt": "2026-10-17",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caixin",
+          "title": "最新财新周刊｜户外运动乱象待破局",
+          "url": "https://weekly.caixin.com/2026-10-17/102494226.html",
+          "publishedAt": "2026-10-17",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caixin",
+          "title": "财新观察｜以安全筑牢汽车产业 高质量发展底座",
+          "url": "https://weekly.caixin.com/2026-10-17/102494225.html",
+          "publishedAt": "2026-10-17",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caixin",
+          "title": "最新封面报道｜售电巨亏谁埋单？",
+          "url": "https://weekly.caixin.com/2026-10-16/102493974.html",
+          "publishedAt": "2026-10-16",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "caixin",
+          "title": "显影｜捡土豆的凉山女工",
+          "url": "https://weekly.caixin.com/2026-10-16/102493973.html",
+          "publishedAt": null,
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        }
+      ],
+      "evidence": {
+        "listUrl": "https://weekly.caixin.com/",
+        "articles": [
+          {
+            "publication": "caixin",
+            "title": "回溯｜一周回溯（《财新周刊》2026年第40期）",
+            "url": "https://weekly.caixin.com/2026-10-17/102494252.html",
+            "publishedAt": "2026-10-17",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caixin",
+            "title": "答疑（《财新周刊》2026年第40期）",
+            "url": "https://weekly.caixin.com/2026-10-17/102494251.html",
+            "publishedAt": "2026-10-17",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caixin",
+            "title": "融媒精选（《财新周刊》2026年第40期）",
+            "url": "https://weekly.caixin.com/2026-10-17/102494250.html",
+            "publishedAt": "2026-10-17",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caixin",
+            "title": "读周刊 看视频（《财新周刊》2026年第40期）",
+            "url": "https://weekly.caixin.com/2026-10-17/102494249.html",
+            "publishedAt": "2026-10-17",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caixin",
+            "title": "回声（《财新周刊》2026年第39期）",
+            "url": "https://weekly.caixin.com/2026-10-17/102494248.html",
+            "publishedAt": "2026-10-17",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caixin",
+            "title": "前瞻｜塞尔维亚将举行议会选举",
+            "url": "https://weekly.caixin.com/2026-10-17/102494243.html",
+            "publishedAt": "2026-10-17",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caixin",
+            "title": "心智｜当道德成为流量生意",
+            "url": "https://weekly.caixin.com/2026-10-17/102494242.html",
+            "publishedAt": "2026-10-17",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caixin",
+            "title": "天眼｜热带风暴袭长滩",
+            "url": "https://weekly.caixin.com/2026-10-17/102494241.html",
+            "publishedAt": "2026-10-17",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caixin",
+            "title": "国风｜雅思连续三日大面积停考",
+            "url": "https://weekly.caixin.com/2026-10-17/102494240.html",
+            "publishedAt": "2026-10-17",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caixin",
+            "title": "逝者｜楼宇烈：人文立本，道艺并进",
+            "url": "https://weekly.caixin.com/2026-10-17/102494239.html",
+            "publishedAt": "2026-10-17",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caixin",
+            "title": "随笔｜不断更新评选标准的文学诺奖",
+            "url": "https://weekly.caixin.com/2026-10-17/102494238.html",
+            "publishedAt": "2026-10-17",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caixin",
+            "title": "随笔｜安妮·卡森：思接千载，独行绝境",
+            "url": "https://weekly.caixin.com/2026-10-17/102494237.html",
+            "publishedAt": "2026-10-17",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caixin",
+            "title": "最新财新周刊｜暂别“陪聊”智能体",
+            "url": "https://weekly.caixin.com/2026-10-17/102494236.html",
+            "publishedAt": "2026-10-17",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caixin",
+            "title": "最新财新周刊｜印尼跨境烟霾再起",
+            "url": "https://weekly.caixin.com/2026-10-17/102494235.html",
+            "publishedAt": "2026-10-17",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caixin",
+            "title": "最新财新周刊｜工商业土地进入续期时刻",
+            "url": "https://weekly.caixin.com/2026-10-17/102494234.html",
+            "publishedAt": "2026-10-17",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caixin",
+            "title": "最新财新周刊｜锂电投资调节奏",
+            "url": "https://weekly.caixin.com/2026-10-17/102494233.html",
+            "publishedAt": "2026-10-17",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caixin",
+            "title": "最新财新周刊｜中欧汽车贸易再平衡",
+            "url": "https://weekly.caixin.com/2026-10-17/102494232.html",
+            "publishedAt": "2026-10-17",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caixin",
+            "title": "最新财新周刊｜险资权益投资进退",
+            "url": "https://weekly.caixin.com/2026-10-17/102494231.html",
+            "publishedAt": "2026-10-17",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caixin",
+            "title": "最新财新周刊｜银行股修复中分化",
+            "url": "https://weekly.caixin.com/2026-10-17/102494230.html",
+            "publishedAt": "2026-10-17",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caixin",
+            "title": "专栏｜美国社保欠账问题镜鉴",
+            "url": "https://weekly.caixin.com/2026-10-17/102494229.html",
+            "publishedAt": "2026-10-17",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caixin",
+            "title": "最新财新周刊｜2026年诺贝尔经济学奖：理解组成宏观的微观个体",
+            "url": "https://weekly.caixin.com/2026-10-17/102494228.html",
+            "publishedAt": "2026-10-17",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caixin",
+            "title": "最新财新周刊｜巴西置身十字路口",
+            "url": "https://weekly.caixin.com/2026-10-17/102494227.html",
+            "publishedAt": "2026-10-17",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caixin",
+            "title": "最新财新周刊｜户外运动乱象待破局",
+            "url": "https://weekly.caixin.com/2026-10-17/102494226.html",
+            "publishedAt": "2026-10-17",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caixin",
+            "title": "财新观察｜以安全筑牢汽车产业 高质量发展底座",
+            "url": "https://weekly.caixin.com/2026-10-17/102494225.html",
+            "publishedAt": "2026-10-17",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caixin",
+            "title": "最新封面报道｜售电巨亏谁埋单？",
+            "url": "https://weekly.caixin.com/2026-10-16/102493974.html",
+            "publishedAt": "2026-10-16",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "caixin",
+            "title": "显影｜捡土豆的凉山女工",
+            "url": "https://weekly.caixin.com/2026-10-16/102493973.html",
+            "publishedAt": null,
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          }
+        ],
+        "details": [
+          {
+            "url": "https://weekly.caixin.com/2026-10-16/102493974.html",
+            "status": "ok",
+            "publishedAt": "2026-10-16"
+          },
+          {
+            "url": "https://weekly.caixin.com/2026-10-17/102494228.html",
+            "status": "ok",
+            "publishedAt": "2026-10-17"
+          },
+          {
+            "url": "https://weekly.caixin.com/2026-10-17/102494230.html",
+            "status": "ok",
+            "publishedAt": "2026-10-17"
+          },
+          {
+            "url": "https://weekly.caixin.com/2026-10-17/102494232.html",
+            "status": "ok",
+            "publishedAt": "2026-10-17"
+          },
+          {
+            "url": "https://weekly.caixin.com/2026-10-17/102494225.html",
+            "status": "ok",
+            "publishedAt": "2026-10-17"
+          },
+          {
+            "url": "https://weekly.caixin.com/2026-10-18/102494546.html",
+            "status": "ok",
+            "publishedAt": "2026-10-18"
+          },
+          {
+            "url": "https://weekly.caixin.com/2026-10-17/102494226.html",
+            "status": "ok",
+            "publishedAt": "2026-10-17"
+          },
+          {
+            "url": "https://weekly.caixin.com/2026-10-17/102494227.html",
+            "status": "ok",
+            "publishedAt": "2026-10-17"
+          },
+          {
+            "url": "https://weekly.caixin.com/2026-10-17/102494229.html",
+            "status": "ok",
+            "publishedAt": "2026-10-17"
+          },
+          {
+            "url": "https://weekly.caixin.com/2026-10-17/102494231.html",
+            "status": "ok",
+            "publishedAt": "2026-10-17"
+          },
+          {
+            "url": "https://weekly.caixin.com/2026-10-17/102494233.html",
+            "status": "ok",
+            "publishedAt": "2026-10-17"
+          },
+          {
+            "url": "https://weekly.caixin.com/2026-10-17/102494234.html",
+            "status": "ok",
+            "publishedAt": "2026-10-17"
+          },
+          {
+            "url": "https://weekly.caixin.com/2026-10-17/102494235.html",
+            "status": "ok",
+            "publishedAt": "2026-10-17"
+          },
+          {
+            "url": "https://weekly.caixin.com/2026-10-17/102494236.html",
+            "status": "ok",
+            "publishedAt": "2026-10-17"
+          },
+          {
+            "url": "https://weekly.caixin.com/2026-10-16/102493973.html",
+            "status": "ok",
+            "publishedAt": null
+          },
+          {
+            "url": "https://weekly.caixin.com/2026-10-17/102494237.html",
+            "status": "ok",
+            "publishedAt": "2026-10-17"
+          },
+          {
+            "url": "https://weekly.caixin.com/2026-10-17/102494238.html",
+            "status": "ok",
+            "publishedAt": "2026-10-17"
+          },
+          {
+            "url": "https://weekly.caixin.com/2026-10-17/102494239.html",
+            "status": "ok",
+            "publishedAt": "2026-10-17"
+          },
+          {
+            "url": "https://weekly.caixin.com/2026-10-17/102494252.html",
+            "status": "ok",
+            "publishedAt": "2026-10-17"
+          },
+          {
+            "url": "https://weekly.caixin.com/2026-10-17/102494243.html",
+            "status": "ok",
+            "publishedAt": "2026-10-17"
+          },
+          {
+            "url": "https://weekly.caixin.com/2026-10-17/102494240.html",
+            "status": "ok",
+            "publishedAt": "2026-10-17"
+          },
+          {
+            "url": "https://weekly.caixin.com/2026-10-17/102494242.html",
+            "status": "ok",
+            "publishedAt": "2026-10-17"
+          },
+          {
+            "url": "https://weekly.caixin.com/2026-10-17/102494241.html",
+            "status": "ok",
+            "publishedAt": "2026-10-17"
+          },
+          {
+            "url": "https://weekly.caixin.com/2026-10-17/102494248.html",
+            "status": "ok",
+            "publishedAt": "2026-10-17"
+          },
+          {
+            "url": "https://weekly.caixin.com/2026-10-17/102494249.html",
+            "status": "ok",
+            "publishedAt": "2026-10-17"
+          },
+          {
+            "url": "https://weekly.caixin.com/2026-10-17/102494250.html",
+            "status": "ok",
+            "publishedAt": "2026-10-17"
+          },
+          {
+            "url": "https://weekly.caixin.com/2026-10-17/102494251.html",
+            "status": "ok",
+            "publishedAt": "2026-10-17"
+          }
+        ]
+      }
+    },
+    {
+      "id": "infzm",
+      "name": "南方周末",
+      "category": "时事观察",
+      "description": "调查、深度报道与公共议题评论。",
+      "url": "https://www.infzm.com/",
+      "hosts": [
+        "www.infzm.com"
+      ],
+      "feedUrl": "https://www.infzm.com/",
+      "note": "新闻周报；部分文章有会员阅读限制。",
+      "accent": "#296d52",
+      "language": "zh",
+      "parser": "cn",
+      "parserHints": "官网组件 /hot_contents?format=json 返回 data.hot_contents，顺序就是官网热门文章；publish_time 是明确发布时间。contents?term_id=1&format=json 为公开列表。",
+      "officialEvidence": "https://www.infzm.com/about",
+      "articles": [
+        {
+          "publication": "infzm",
+          "title": "AI、机器人、芯片封测，上演“破产三姐妹”丨科创要闻",
+          "url": "https://www.infzm.com/contents/342851",
+          "publishedAt": "2026-10-19",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "infzm",
+          "title": "与自然灾害为邻",
+          "url": "https://www.infzm.com/contents/342855",
+          "publishedAt": "2026-10-18",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "infzm",
+          "title": "上海拟改革五天育儿假，专家建议“只增天数”还不够",
+          "url": "https://www.infzm.com/contents/342853",
+          "publishedAt": "2026-10-18",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "infzm",
+          "title": "专访保加利亚前总统：APEC向世界展示亚洲力量",
+          "url": "https://www.infzm.com/contents/342841",
+          "publishedAt": "2026-10-18",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "infzm",
+          "title": "靠约稿谋生的年轻画师们，被骗子盯上了",
+          "url": "https://www.infzm.com/contents/342835",
+          "publishedAt": "2026-10-18",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "infzm",
+          "title": "世界职业技术教育发展大会：“硬核教具”现场圈粉",
+          "url": "https://www.infzm.com/contents/342833",
+          "publishedAt": "2026-10-18",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "infzm",
+          "title": "国家职业教育产教融合发展智库主任谈职教发展",
+          "url": "https://www.infzm.com/contents/342831",
+          "publishedAt": "2026-10-18",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "infzm",
+          "title": "编剧王要：“艺术可以让人超越陈规陋习”",
+          "url": "https://www.infzm.com/contents/342827",
+          "publishedAt": "2026-10-18",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "infzm",
+          "title": "只有内行和文青会欣赏艺术？这位意大利设计师不这么认为",
+          "url": "https://www.infzm.com/contents/342821",
+          "publishedAt": "2026-10-18",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "infzm",
+          "title": "你以为的主体性，其实是被塑造出来的",
+          "url": "https://www.infzm.com/contents/342819",
+          "publishedAt": "2026-10-18",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "infzm",
+          "title": "不愿成为超级明星的人丨逝者",
+          "url": "https://www.infzm.com/contents/342621",
+          "publishedAt": "2026-10-18",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotScore": null,
+          "hotSource": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "infzm",
+          "title": "被差评三天后死去",
+          "url": "https://www.infzm.com/contents/342806",
+          "publishedAt": "2026-10-17",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotRank": 2,
+          "hotSource": "https://www.infzm.com/hot_contents?format=json",
+          "hotLabel": "南方周末热门文章",
+          "hotCheckedAt": "2026-10-19",
+          "hotScore": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "infzm",
+          "title": "1.6万字封面报道｜刘欢的时代，时代的刘欢",
+          "url": "https://www.infzm.com/contents/342593",
+          "publishedAt": "2026-10-15",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotRank": 4,
+          "hotSource": "https://www.infzm.com/hot_contents?format=json",
+          "hotLabel": "南方周末热门文章",
+          "hotCheckedAt": "2026-10-19",
+          "hotScore": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "infzm",
+          "title": "2026诺贝尔经济学奖：宏观政策需要理解微观家庭",
+          "url": "https://www.infzm.com/contents/342570",
+          "publishedAt": "2026-10-14",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotRank": 8,
+          "hotSource": "https://www.infzm.com/hot_contents?format=json",
+          "hotLabel": "南方周末热门文章",
+          "hotCheckedAt": "2026-10-19",
+          "hotScore": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "infzm",
+          "title": "一些花费百万的留学生，靠“上门做饭”谋生",
+          "url": "https://www.infzm.com/contents/342468",
+          "publishedAt": "2026-10-13",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotRank": 6,
+          "hotSource": "https://www.infzm.com/hot_contents?format=json",
+          "hotLabel": "南方周末热门文章",
+          "hotCheckedAt": "2026-10-19",
+          "hotScore": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "infzm",
+          "title": "“进山娶媳妇”，短视频背后的跨省速婚生意",
+          "url": "https://www.infzm.com/contents/342466",
+          "publishedAt": "2026-10-13",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotRank": 10,
+          "hotSource": "https://www.infzm.com/hot_contents?format=json",
+          "hotLabel": "南方周末热门文章",
+          "hotCheckedAt": "2026-10-19",
+          "hotScore": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "infzm",
+          "title": "杜甫凭什么叫“诗圣”？抄完这7首诗就懂了",
+          "url": "https://www.infzm.com/contents/342445",
+          "publishedAt": "2026-10-13",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotRank": 3,
+          "hotSource": "https://www.infzm.com/hot_contents?format=json",
+          "hotLabel": "南方周末热门文章",
+          "hotCheckedAt": "2026-10-19",
+          "hotScore": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "infzm",
+          "title": "捐出大脑 只为“破案”",
+          "url": "https://www.infzm.com/contents/342449",
+          "publishedAt": "2026-10-12",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotRank": 9,
+          "hotSource": "https://www.infzm.com/hot_contents?format=json",
+          "hotLabel": "南方周末热门文章",
+          "hotCheckedAt": "2026-10-19",
+          "hotScore": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "infzm",
+          "title": "林粮间作：一个林业大镇的禁种困局",
+          "url": "https://www.infzm.com/contents/342367",
+          "publishedAt": "2026-10-12",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotRank": 7,
+          "hotSource": "https://www.infzm.com/hot_contents?format=json",
+          "hotLabel": "南方周末热门文章",
+          "hotCheckedAt": "2026-10-19",
+          "hotScore": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "infzm",
+          "title": "非法占用农用地罪：一个标点引发的争议",
+          "url": "https://www.infzm.com/contents/342365",
+          "publishedAt": "2026-10-12",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotRank": 5,
+          "hotSource": "https://www.infzm.com/hot_contents?format=json",
+          "hotLabel": "南方周末热门文章",
+          "hotCheckedAt": "2026-10-19",
+          "hotScore": null,
+          "featuredReason": null
+        },
+        {
+          "publication": "infzm",
+          "title": "“北京小姐”的造林“孽”",
+          "url": "https://www.infzm.com/contents/342363",
+          "publishedAt": "2026-10-12",
+          "summary": "",
+          "checkedAt": "2026-10-19",
+          "hotRank": 1,
+          "hotSource": "https://www.infzm.com/hot_contents?format=json",
+          "hotLabel": "南方周末热门文章",
+          "hotCheckedAt": "2026-10-19",
+          "hotScore": null,
+          "featuredReason": null
+        }
+      ],
+      "evidence": {
+        "listUrl": "https://www.infzm.com/",
+        "articles": [
+          {
+            "publication": "infzm",
+            "title": "AI、机器人、芯片封测，上演“破产三姐妹”丨科创要闻",
+            "url": "https://www.infzm.com/contents/342851",
+            "publishedAt": "2026-10-19",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "infzm",
+            "title": "与自然灾害为邻",
+            "url": "https://www.infzm.com/contents/342855",
+            "publishedAt": "2026-10-18",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "infzm",
+            "title": "上海拟改革五天育儿假，专家建议“只增天数”还不够",
+            "url": "https://www.infzm.com/contents/342853",
+            "publishedAt": "2026-10-18",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "infzm",
+            "title": "专访保加利亚前总统：APEC向世界展示亚洲力量",
+            "url": "https://www.infzm.com/contents/342841",
+            "publishedAt": "2026-10-18",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "infzm",
+            "title": "靠约稿谋生的年轻画师们，被骗子盯上了",
+            "url": "https://www.infzm.com/contents/342835",
+            "publishedAt": "2026-10-18",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "infzm",
+            "title": "世界职业技术教育发展大会：“硬核教具”现场圈粉",
+            "url": "https://www.infzm.com/contents/342833",
+            "publishedAt": "2026-10-18",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "infzm",
+            "title": "国家职业教育产教融合发展智库主任谈职教发展",
+            "url": "https://www.infzm.com/contents/342831",
+            "publishedAt": "2026-10-18",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "infzm",
+            "title": "编剧王要：“艺术可以让人超越陈规陋习”",
+            "url": "https://www.infzm.com/contents/342827",
+            "publishedAt": "2026-10-18",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "infzm",
+            "title": "只有内行和文青会欣赏艺术？这位意大利设计师不这么认为",
+            "url": "https://www.infzm.com/contents/342821",
+            "publishedAt": "2026-10-18",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "infzm",
+            "title": "你以为的主体性，其实是被塑造出来的",
+            "url": "https://www.infzm.com/contents/342819",
+            "publishedAt": "2026-10-18",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "infzm",
+            "title": "不愿成为超级明星的人丨逝者",
+            "url": "https://www.infzm.com/contents/342621",
+            "publishedAt": "2026-10-18",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotScore": null,
+            "hotSource": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "infzm",
+            "title": "被差评三天后死去",
+            "url": "https://www.infzm.com/contents/342806",
+            "publishedAt": "2026-10-17",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotRank": 2,
+            "hotSource": "https://www.infzm.com/hot_contents?format=json",
+            "hotLabel": "南方周末热门文章",
+            "hotCheckedAt": "2026-10-19",
+            "hotScore": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "infzm",
+            "title": "1.6万字封面报道｜刘欢的时代，时代的刘欢",
+            "url": "https://www.infzm.com/contents/342593",
+            "publishedAt": "2026-10-15",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotRank": 4,
+            "hotSource": "https://www.infzm.com/hot_contents?format=json",
+            "hotLabel": "南方周末热门文章",
+            "hotCheckedAt": "2026-10-19",
+            "hotScore": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "infzm",
+            "title": "2026诺贝尔经济学奖：宏观政策需要理解微观家庭",
+            "url": "https://www.infzm.com/contents/342570",
+            "publishedAt": "2026-10-14",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotRank": 8,
+            "hotSource": "https://www.infzm.com/hot_contents?format=json",
+            "hotLabel": "南方周末热门文章",
+            "hotCheckedAt": "2026-10-19",
+            "hotScore": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "infzm",
+            "title": "一些花费百万的留学生，靠“上门做饭”谋生",
+            "url": "https://www.infzm.com/contents/342468",
+            "publishedAt": "2026-10-13",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotRank": 6,
+            "hotSource": "https://www.infzm.com/hot_contents?format=json",
+            "hotLabel": "南方周末热门文章",
+            "hotCheckedAt": "2026-10-19",
+            "hotScore": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "infzm",
+            "title": "“进山娶媳妇”，短视频背后的跨省速婚生意",
+            "url": "https://www.infzm.com/contents/342466",
+            "publishedAt": "2026-10-13",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotRank": 10,
+            "hotSource": "https://www.infzm.com/hot_contents?format=json",
+            "hotLabel": "南方周末热门文章",
+            "hotCheckedAt": "2026-10-19",
+            "hotScore": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "infzm",
+            "title": "杜甫凭什么叫“诗圣”？抄完这7首诗就懂了",
+            "url": "https://www.infzm.com/contents/342445",
+            "publishedAt": "2026-10-13",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotRank": 3,
+            "hotSource": "https://www.infzm.com/hot_contents?format=json",
+            "hotLabel": "南方周末热门文章",
+            "hotCheckedAt": "2026-10-19",
+            "hotScore": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "infzm",
+            "title": "捐出大脑 只为“破案”",
+            "url": "https://www.infzm.com/contents/342449",
+            "publishedAt": "2026-10-12",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotRank": 9,
+            "hotSource": "https://www.infzm.com/hot_contents?format=json",
+            "hotLabel": "南方周末热门文章",
+            "hotCheckedAt": "2026-10-19",
+            "hotScore": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "infzm",
+            "title": "林粮间作：一个林业大镇的禁种困局",
+            "url": "https://www.infzm.com/contents/342367",
+            "publishedAt": "2026-10-12",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotRank": 7,
+            "hotSource": "https://www.infzm.com/hot_contents?format=json",
+            "hotLabel": "南方周末热门文章",
+            "hotCheckedAt": "2026-10-19",
+            "hotScore": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "infzm",
+            "title": "非法占用农用地罪：一个标点引发的争议",
+            "url": "https://www.infzm.com/contents/342365",
+            "publishedAt": "2026-10-12",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotRank": 5,
+            "hotSource": "https://www.infzm.com/hot_contents?format=json",
+            "hotLabel": "南方周末热门文章",
+            "hotCheckedAt": "2026-10-19",
+            "hotScore": null,
+            "featuredReason": null
+          },
+          {
+            "publication": "infzm",
+            "title": "“北京小姐”的造林“孽”",
+            "url": "https://www.infzm.com/contents/342363",
+            "publishedAt": "2026-10-12",
+            "summary": "",
+            "checkedAt": "2026-10-19",
+            "hotRank": 1,
+            "hotSource": "https://www.infzm.com/hot_contents?format=json",
+            "hotLabel": "南方周末热门文章",
+            "hotCheckedAt": "2026-10-19",
+            "hotScore": null,
+            "featuredReason": null
+          }
+        ],
+        "details": [
+          {
+            "url": "https://www.infzm.com/contents?term_id=1&format=json",
+            "status": "ok",
+            "items": 10
+          },
+          {
+            "url": "https://www.infzm.com/contents?term_id=998&format=json",
+            "status": "ok",
+            "items": 10
+          }
+        ],
+        "hotList": {
+          "url": "https://www.infzm.com/hot_contents?format=json",
+          "asOf": "2026-10-19",
+          "label": "南方周末官网热门文章顺序；不代表跨刊综合热度",
+          "items": 10
+        },
+        "hotStatus": "ok",
+        "hotLists": [
+          {
+            "url": "https://www.infzm.com/hot_contents?format=json",
+            "asOf": "2026-10-19",
+            "label": "南方周末官网热门文章顺序；不代表跨刊综合热度",
+            "items": 10
+          }
+        ]
+      },
+      "hotLists": [
+        {
+          "url": "https://www.infzm.com/hot_contents?format=json",
+          "asOf": "2026-10-19",
+          "label": "南方周末官网热门文章顺序；不代表跨刊综合热度",
+          "items": 10
+        }
+      ]
+    }
+  ],
+  "errors": []
+}
