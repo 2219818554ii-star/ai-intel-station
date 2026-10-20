@@ -55,7 +55,8 @@ module.exports = async function ({html, inline, sandbox, ok}) {
   ok(['全年滚动','官网2026-09-28 发布','报名 10/20（赛题延至10/27）','2027/1/28 美东截止','12/1 – 1/5','2026/2/30 截止'].every(reg=>ux.deadline({reg})===null), '滚动、发布、延期、多时区、跨年不明及非法日期不生成虚假倒计时');
   const fixtureComp=(n,reg)=>({scope:'me',st:'open',pri:2,ai:3,n,reg,type:'数据',team:'1–3人',url:'https://example.org/'+encodeURIComponent(n)});
   ux.set([{...fixtureComp('旧入口已失效','全年滚动'),entryUnavailable:true,alt:'https://example.org/official-archive'}]);
-  ok(base.elements['comp-list'].innerHTML.includes('class="go" href="https://example.org/official-archive"')&&base.elements['comp-list'].innerHTML.includes('官方历史资料'), '已核实失效入口的主按钮转向明确标注的官方历史资料');
+  const archivedEntry=base.elements['comp-list'].innerHTML;
+  ok((archivedEntry.match(/class="go" href="https:\/\/example.org\/official-archive"/g)||[]).length===2&&(archivedEntry.match(/官方历史资料/g)||[]).length===2&&!archivedEntry.includes('href="https://example.org/'+encodeURIComponent('旧入口已失效')+'"'), '已核实失效入口的主按钮及展开按钮均转向明确标注的官方历史资料');
   ux.set([fixtureComp('晚截止','2099/12/30 截止'),fixtureComp('已过期','2000/1/1 截止'),fixtureComp('早截止','2099/11/30 截止'),fixtureComp('滚动赛','全年滚动')]);
   const compOrdered=base.elements['comp-list'].innerHTML;
   ok(compOrdered.indexOf('早截止')<compOrdered.indexOf('晚截止') && compOrdered.indexOf('晚截止')<compOrdered.indexOf('滚动赛') && !compOrdered.includes('已过期'), '截止最近排序生效，未知日期沉底且过期赛事退出可报名');

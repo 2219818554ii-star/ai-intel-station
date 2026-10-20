@@ -12764,7 +12764,7 @@ window.MAGAZINE_ARTICLES = [
           (c.warn?'<div class="d-row warn-row"><span class="d-k">官网状态</span><span class="d-v">'+esc(c.warn)+'</span></div>':'')+
           (c.sub?'<div class="d-row"><span class="d-k">内含赛怎么挑</span><span class="d-v">'+esc(c.sub)+'</span></div>':'')+
           '<div class="d-go" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">'+
-            '<a class="go" href="'+esc(c.url)+'" target="_blank" rel="noopener noreferrer">官网 / 报名 ↗</a>'+
+            '<a class="go" href="'+esc(c.entryUnavailable&&c.alt?c.alt:c.url)+'" target="_blank" rel="noopener noreferrer">'+(c.entryUnavailable&&c.alt?'官方历史资料 ↗':'官网 / 报名 ↗')+'</a>'+
             '<button class="copybtn" data-copy="cp-'+ci+'">📋 复制参赛指令</button>'+
           '</div>'+
           '<textarea id="cp-'+ci+'" style="display:none" aria-hidden="true">'+esc(cpPrompt(c))+'</textarea>'+
