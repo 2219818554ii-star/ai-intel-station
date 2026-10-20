@@ -279,6 +279,25 @@ class PipelineRegressions(unittest.TestCase):
                             for item in report["sources"][0]["details"]))
         self.assertEqual(previous, before)
 
+    def test_rolling_cap_keeps_current_hot_even_when_older_than_regular_articles(self):
+        previous = [{**old_article("one", "/recent-" + str(day)),
+                     "publishedAt": "2026-10-%02d" % day} for day in (19, 18, 17)]
+        ranked = {**old_article("one", "/older-but-currently-ranked"),
+                  "publishedAt": "2026-09-01", "summary": "", "hotRank": 1,
+                  "hotSource": "https://example.test/most-read", "hotLabel": "Most Read",
+                  "hotCheckedAt": DAY_TWO}
+        original = deepcopy(ranked)
+        with patch.object(refresh_module, "PER_PUBLICATION", 3):
+            merged = refresh_module.merge_articles(previous, [ranked], "one")
+            self.assertEqual(len(merged), 4)
+            self.assertEqual(merged[-1], ranked)
+            for field in HOT_FIELDS:
+                merged[-1].pop(field, None)
+            next_run = refresh_module.merge_articles(merged, previous, "one")
+        self.assertEqual(len(next_run), 3)
+        self.assertFalse(any(row["url"] == ranked["url"] for row in next_run))
+        self.assertEqual(ranked, original)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

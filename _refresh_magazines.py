@@ -361,13 +361,14 @@ def merge_articles(previous, incoming, publication):
     # source dates determine recency; undated rows remain at the end.
     combined = sorted(fresh + old_rows,
                       key=lambda row: row.get("publishedAt") or "", reverse=True)
-    # Keep explicit reading selections when the rolling feed reaches its cap.
-    # Curation is reapplied by exact title/URL afterwards; removed selections
-    # lose their flag instead of becoming permanent pins.
+    # Keep explicit reading selections and current official ranking entries
+    # when the rolling feed reaches its cap. Curation is reapplied by exact
+    # title/URL; a successfully refreshed ranking clears dropped hot flags.
     regular = combined[:PER_PUBLICATION]
     kept = {row["url"] for row in regular}
     selected = [row for row in combined[PER_PUBLICATION:]
-                if row.get("featuredReason") and row["url"] not in kept]
+                if (row.get("featuredReason") or row.get("hotRank"))
+                and row["url"] not in kept]
     return regular + selected
 
 
