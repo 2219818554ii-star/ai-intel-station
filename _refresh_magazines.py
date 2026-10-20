@@ -356,7 +356,11 @@ def merge_articles(previous, incoming, publication):
             fresh.append(merged)
     old_rows = [dict(row) for row in previous if row.get("publication") == publication
                 and row["url"] not in {x["url"] for x in fresh}]
-    combined = fresh + old_rows
+    # A successful older feed must not push newer verified articles out when
+    # another feed of the same publication temporarily fails. Only explicit
+    # source dates determine recency; undated rows remain at the end.
+    combined = sorted(fresh + old_rows,
+                      key=lambda row: row.get("publishedAt") or "", reverse=True)
     # Keep explicit reading selections when the rolling feed reaches its cap.
     # Curation is reapplied by exact title/URL afterwards; removed selections
     # lose their flag instead of becoming permanent pins.

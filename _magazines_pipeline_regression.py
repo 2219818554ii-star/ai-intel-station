@@ -259,6 +259,26 @@ class PipelineRegressions(unittest.TestCase):
         prior = {"sources": [{"publication": "one", "status": "ok", "articles": [old]}]}
         self.assertEqual(len(refresh_module.retained_evidence(merged, "one", prior)), 1)
 
+    def test_partial_feed_cannot_evict_newer_verified_articles_at_capacity(self):
+        pub = publication("one", "example.test", hot=False)
+        pub["feedUrls"] = [pub["feedUrl"], "https://example.test/science/feed"]
+        previous = [{**old_article("one", "/business-" + str(day)),
+                     "publishedAt": "2026-10-%02d" % day} for day in (19, 18, 17)]
+        before = deepcopy(previous)
+        prior = {"sources": [{"publication": "one", "status": "ok",
+                              "articles": deepcopy(previous)}]}
+        responses = {pub["feedUrl"]: TimeoutError("Business feed temporarily unavailable"),
+                     pub["feedUrls"][1]: feed("example.test", [
+                         ("An older science story", "/science-" + str(day),
+                          "2026-09-%02d" % day) for day in (3, 2, 1)])}
+        with patch.object(refresh_module, "PER_PUBLICATION", 3):
+            _, rows, report = self.run_refresh([pub], previous, DAY_TWO, responses, prior)
+        self.assertEqual({row["url"] for row in rows}, {row["url"] for row in previous})
+        self.assertEqual(len(report["sources"][0]["retainedArticles"]), 3)
+        self.assertTrue(any(item["status"] == "unavailable"
+                            for item in report["sources"][0]["details"]))
+        self.assertEqual(previous, before)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
