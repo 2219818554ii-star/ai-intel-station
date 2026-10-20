@@ -114,7 +114,9 @@ const fDeep = sandbox.window.FUNDS_DEEP || {};
 const fDeepBox = (store['funds-deep']||{}).innerHTML || '';
 const fInsBox = (store['funds-insight']||{}).innerHTML || '';
 // 公开净值核验和经理/业绩/持仓档案更新分开记日，禁止为通过测试伪造全档案刷新。
-const navReview=JSON.parse(fs.readFileSync(B+'_funds_review_2026-10-19.json','utf8'));
+// Require the independent source report for this exact NAV check day.
+// A new successful collection must not keep validating against an old report.
+const navReview=JSON.parse(fs.readFileSync(B+'_funds_review_'+fDeep.navCheckedAt+'.json','utf8'));
 ok(/^\d{4}-\d{2}-\d{2}$/.test(fDeep.date)&&fDeep.date<=fDeep.navCheckedAt&&fDeep.navCheckedAt===sandbox.window.FUNDS_UPDATED&&navReview.checkedAt.slice(0,10)===fDeep.navCheckedAt, `档案历史日期${fDeep.date}独立保留；净值核验${fDeep.navCheckedAt}与实抓记录一致`);
 ok(navReview.observations.length===4 && fHold.every(f=>{
   const r=navReview.observations.find(x=>x.code===f.code),d=fDeep.byCode[f.code];
@@ -356,8 +358,21 @@ const sameMatch=(a,b)=>['n','url','dl','school'].every(k=>a[k]===b[k]);
 ok(matchBaseline.count===13 && matchBaseline.matches.length===13 && matchBaseline.matches.every(x=>allMatches.filter(m=>sameMatch(m,x)).length===1),
    `历史13条比赛身份均唯一保留（活跃${MATCHES.length} / 有据退役${retired.length}）`);
 ok(new Set(allMatches.map(x=>x.n+'|'+x.url)).size===allMatches.length && retired.every(x=>!MATCHES.some(m=>m.n===x.n||m.url===x.url)), '活跃与退役身份无重复，退役条目未回流');
-const retirementReview=JSON.parse(fs.readFileSync(B+'_content_review_2026-10-19.json','utf8'));
-ok(retired.every(x=>retirementReview.removedMatches.some(r=>sameMatch(r.snapshot,x)&&r.reason===x.reason&&r.evidenceExcerpt===x.evidenceExcerpt&&JSON.stringify(r.sourceEvidence)===JSON.stringify(x.sourceEvidence))&&x.retiredAt&&x.reason&&x.evidenceExcerpt&&Array.isArray(x.sourceEvidence)&&x.sourceEvidence.length>0&&x.sourceEvidence.every(u=>/^https?:\/\//.test(u)&&(new URL(u).hostname===new URL(x.url).hostname||(x.school==='cpipc'&&new URL(u).hostname==='cpipc.acge.org.cn')))&&
+const retirementReviews=Object.fromEntries([...new Set(retired.map(x=>x.retiredAt))].map(day=>{
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(day))throw Error('Invalid retirement evidence date');
+  return [day,JSON.parse(fs.readFileSync(B+'_content_review_'+day+'.json','utf8'))];
+}));
+// Exact university hosts independently verified on 2026-10-20. Other domains
+// still require the original host or the existing graduate-contest exception.
+const additionalRetirementHosts=new Set(['news.cqjtu.edu.cn','math.nankai.edu.cn','jwc.ynu.edu.cn']);
+const retirementSourceAllowed=(x,u)=>{
+  if(!/^https?:\/\//.test(u))return false;
+  const host=new URL(u).hostname,review=retirementReviews[x.retiredAt];
+  return host===new URL(x.url).hostname||(x.school==='cpipc'&&host==='cpipc.acge.org.cn')||
+    (additionalRetirementHosts.has(host)&&review.retirementAllowedHosts?.includes(host)&&
+     review.officialExtracts?.some(e=>e.url===u&&e.checkedAt===x.retiredAt&&e.finding));
+};
+ok(retired.every(x=>retirementReviews[x.retiredAt].removedMatches.some(r=>sameMatch(r.snapshot,x)&&r.reason===x.reason&&r.evidenceExcerpt===x.evidenceExcerpt&&JSON.stringify(r.sourceEvidence)===JSON.stringify(x.sourceEvidence))&&x.retiredAt&&x.reason&&x.evidenceExcerpt&&Array.isArray(x.sourceEvidence)&&x.sourceEvidence.length>0&&x.sourceEvidence.every(u=>retirementSourceAllowed(x,u))&&
    ((x.reasonCode==='eligibility'&&/本科/.test(x.evidenceExcerpt))||(['deadline','deadline_and_eligibility'].includes(x.reasonCode)&&/^\d{4}-\d{2}-\d{2}$/.test(x.deadline)&&Date.parse(x.deadline+'T23:59:59+08:00')<Date.now()))), '每项退役均有匹配原始身份、官网证据和已过截止/本科资格依据');
 
 /* ① 喜报必须一条不剩 */
@@ -425,7 +440,7 @@ ok(String(((store['matchOpenCount']||{}).textContent)||'').includes('正在报�
 ok((store['cqut-match-updated']||{}).textContent === sandbox.window.MATCH_UPDATED,
    `比赛更新日期: ${(store['cqut-match-updated']||{}).textContent}`);
 ok(mHtml.includes('🎯 跟你专业对口') && mHtml.includes('正在报名'), '对口 / 正在报名 标记已渲染');
-ok(mHtml.includes('重庆理工') && mHtml.includes('重庆交通大学'), '卡片按学校分类已渲染');
+ok(SCHOOLS.length>0&&SCHOOLS.every(s=>mHtml.includes(s.n)), '全部当前活跃学校分类均实际渲染，不要求已退役学校保留空分类');
 
 /* ⑨ 筛选按钮 */
 const sBtn = count(((store['matchSchoolFilters']||{}).innerHTML||''), /class="filterbtn/g);

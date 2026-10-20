@@ -1,5 +1,6 @@
 /* AI 情报站 - 实力排行榜数据（每日自动更新） */
-window.RANK_UPDATED = "2026-10-19";
+window.RANK_UPDATED = "2026-10-20";
+window.RANK_CHECKED = "2026-10-20";
 window.RANK = {
     models: [
       {name:"Claude Opus 5.5", vendor:"Anthropic（美国）", price:"API $4/$20 每百万", iaa:58, tb:null,
@@ -68,6 +69,9 @@ window.RANK = {
       {name:"Qwen3.8-Max", vendor:"阿里巴巴（中国）", price:"闭源顶配 / Qwen3.8-Flash-Next 开源", iaa:45, tb:null,
        t:{综合:"A",推理:"A",代码:"A",多模态:"B",长上下文:"A",中文:"A",性价比:"A",开源:"A"},
        note:"10月19日核对AA官方当前榜：Qwen3.8 Max (0902)智能指数45，原收录40混淆了Max与Flash-Next等不同型号。tb列仍为Terminal-Bench2.1，未核得该型号旧版成绩，留空。"},
+      {name:"DeepSeek V4.1 Flash 1017 (max)", vendor:"DeepSeek（中国）", price:"API（本次未核价）", iaa:45, tb:null,
+       t:{},
+       note:"10月20日核对AA官方榜及10月18日评测更新：1017版max档智能指数45、1M上下文。它是独立版本，不覆盖下方旧版39分；本次未取得同口径TB2.1或完整分维度评测，留空，不由综合分推断专项等级。"},
       {name:"DeepSeek V4.1-Flash", vendor:"DeepSeek（中国）", price:"限时 API 预览 / 低价", iaa:39, tb:null,
        t:{综合:"B",推理:"B",代码:"A",多模态:"B",长上下文:"B",中文:"A",性价比:"A",开源:"—"},
        note:"10月19日核对AA官方当前榜：DeepSeek V4.1 Flash (max)智能指数39，修正原收录40。分数对应max推理档，不能与non-reasoning混用；TB2.1暂无同口径核实结果，留空。"},
@@ -83,6 +87,9 @@ window.RANK = {
       {name:"Llama 4", vendor:"Meta（美国）", price:"开源权重", iaa:null, tb:null,
        t:{综合:"B",推理:"B",代码:"B",多模态:"B",长上下文:"B",中文:"C",性价比:"B",开源:"S"},
        note:"经典开源底座，生态与工具链最成熟；中文弱，是许多自部署方案的首选底模。"},
+      {name:"MiniMax-M3.1-Flash", vendor:"MiniMax（中国）", price:"API（本次未核价）", iaa:43, tb:null,
+       t:{},
+       note:"10月20日核对AA官方榜及10月19日评测更新：M3.1-Flash智能指数43、1M上下文。它与旧M3（29分）分开收录；本次未核验完整专项成绩、TB2.1与当前价格，因此均不猜填。"},
       {name:"MiniMax M3", vendor:"MiniMax（中国）", price:"开源权重 / API", iaa:29, tb:null,
        t:{综合:"B",推理:"B",代码:"B",多模态:"B",长上下文:"B",中文:"A",性价比:"B",开源:"A"},
        note:"10月19日核对AA官方当前榜：MiniMax-M3智能指数29，补入原空值。该分只代表AA综合评测；开放权重与产品价格需另查厂商，不能由分数推断。"},
@@ -100,49 +107,49 @@ window.RANK = {
        note:"2026-10-15 NVIDIA 发布 Nemotron 3.5 Super VL（视觉-语言大模型），AA 智能指数 v4.3 = 26（Artificial Analysis 官方 changelog，称其为当前美国领先开放权重模型）；同批 Nemotron 3.5 Bolt 74B-A9B = 21、Upstage Solar Pro 4 = 27。⚠ tb 列无可靠 TB2.1 分，留空；定位开放权重视觉-语言底座，t 评级为基于定位的初步估计。"}
     ],
     tools: [
-      {name:"Claude Code", model:"默认 Claude Opus 5 / Fable 5", price:"Pro $17–20/月（按 token 计）", tb:89.1, sv:95.0,
+      {name:"Claude Code", model:"按账号可用的 Claude 模型选择", price:"订阅或API计费，以官方方案为准", tb:89.1, sv:95.0,
        t:{上手:"B",开源:"—"},
-       note:"终端优先、harness 最深：1M 上下文、子代理并行、钩子（hooks）可编程。SWE-bench V 95%（Fable 5）、TB2.1 89.1% 标杆；缺点 token 消耗大（约 Codex 3–4 倍），无 IDE 图形界面。"},
-      {name:"OpenAI Codex", model:"默认 GPT-5.6 Sol", price:"Plus $20/月", tb:89.5, sv:88.7,
+       note:"10月20日核对官方文档：支持终端、IDE扩展、桌面与网页，可读写项目、运行命令、使用子代理及hooks。表中TB2.1与SWE为历史模型/工具配对记录，不能代表当前默认模型；成本随模型、任务和方案变化。"},
+      {name:"OpenAI Codex", model:"按账号可用模型选择", price:"ChatGPT订阅或API计费，以官方方案为准", tb:89.5, sv:88.7,
        t:{上手:"B",开源:"—"},
-       note:"并行/异步云虚拟机跑任务、git worktree 排队不冲突、自动提 PR；Terminal-Bench 2.1历史收录89.5%，属于旧模型与agent配对，非当前榜首。跨 CLI/IDE/云/GitHub 最全。"},
-      {name:"opencode", model:"任意（BYOK，75+ 供应商）", price:"开源免费，只付模型费", tb:null, sv:null,
+       note:"官方文档提供本地桌面、CLI、IDE扩展及云端项目工作流，具体能力依账号和环境。TB2.1历史收录89.5%；SWE历史配对见独立榜单，不把旧成绩归给当前默认模型。"},
+      {name:"opencode", model:"可配置模型与供应商", price:"客户端开源；模型费用依供应商", tb:null, sv:null,
        t:{上手:"C",开源:"S"},
-       note:"星标最多的开源编码 Agent（约 193K，MIT）；自带并行子代理、可换任意模型、可本地/自托管。能力取决于你选的底层模型，灵活度最高。"},
-      {name:"Cursor", model:"前沿模型（可换）", price:"$20/月 + 用量", tb:null, sv:74.1,
+       note:"官方文档支持在终端中使用编码代理、配置模型与供应商、连接开发工具。适合需要自行选择模型的项目；实际表现取决于模型与配置，本次未取得同口径可比较的成绩。"},
+      {name:"Cursor", model:"按账号可用模型选择", price:"以官方订阅和用量方案为准", tb:null, sv:74.1,
        t:{上手:"A",开源:"—"},
-       note:"VS Code 分支，编辑器内最顺手：Composer 多文件编辑、最高 8 个并行 Agent。适合不想碰命令行的交互式编码。"},
-      {name:"Gemini CLI", model:"Gemini 3.1 Pro / 3.8 Flash", price:"免费额度大（约 1000 请求/天）", tb:70.7, sv:80.6,
+       note:"官方文档提供编辑器Agent、规则、MCP与CLI等入口，适合结合代码编辑器查看和修改项目。表中SWE74.1为历史记录，本次未核得当前同环境新成绩。"},
+      {name:"Gemini CLI", model:"可用Gemini模型，依账号与配置", price:"额度和计费依认证方式与官方方案", tb:70.7, sv:80.6,
        t:{上手:"B",开源:"—"},
-       note:"免费、零成本入门命令行 AI 编码；SWE-bench V 80.6%、Terminal-Bench 70.7%。轻度任务足够，重度不如前几位。"},
-      {name:"GitHub Copilot", model:"多模型", price:"Pro $10/月起（最便宜付费）", tb:null, sv:null,
+       note:"官方文档支持终端代码理解、文件操作、命令执行和MCP，可按任务选模型。旧TB70.7与SWE80.6只代表原历史配对；不沿用固定免费请求数或跨工具优劣结论。"},
+      {name:"GitHub Copilot", model:"可用模型依方案、客户端和组织策略", price:"免费与付费方案，以官方额度为准", tb:null, sv:null,
        t:{上手:"A",开源:"—"},
-       note:"IDE 原生、issue→PR 自动化；按 AI Credit 计费，补全免费。适合已在 GitHub 工作的团队，门槛最低。"},
-      {name:"Google Antigravity", model:"Gemini 3.5/3.8 Flash", price:"AI Pro $19.99/月", tb:71.2, sv:79.4,
+       note:"官方文档提供代码建议、问答、评审及任务代理，可结合issues与PR工作流；功能取决于方案、客户端和组织设置。学生等资格用户可查看官方免费访问条件。"},
+      {name:"Google Antigravity", model:"以账号当前可用模型为准", price:"以官方当前方案为准", tb:71.2, sv:79.4,
        t:{上手:"A",开源:"—"},
-       note:"2026 最技术激进的 IDE：多智能体编排、内置 Chromium 浏览器、约 289 tok/s（Opus 4.8 的 4 倍）。快但深推理不如 Claude Code。"},
-      {name:"Cline / Aider", model:"任意（BYOK）", price:"开源免费，只付模型费", tb:null, sv:null,
+       note:"官方文档提供Antigravity的产品与开发工作流入口。表中TB71.2/SWE79.4为历史记录；本次未取得当前模型、环境一致的速度与质量对照，不据旧吞吐量排名。"},
+      {name:"Cline / Aider", model:"可配置云端或本地模型", price:"依所选服务、模型与方案计费", tb:null, sv:null,
        t:{上手:"B",开源:"S"},
-       note:"开源、Git 原生、按需付费模型。Aider 偏结对编程+自动提交，Cline 偏 VS Code 内自主编辑。零成本试水 Agent 编码的好选择。"}
+       note:"官方文档中Cline提供编辑器、终端等代理入口；Aider侧重终端结对编程和Git工作流。二者分别配置模型与权限，开源客户端不等于模型调用免费；本次无同口径成绩。"}
     ],
     combos: [
       {name:"Claude Code + Claude Fable 5 / Opus 5", score:"S",
-       note:"代码 + Agent 综合最强：SWE-bench Verified 95%（Fable 5），Terminal-Bench 89.1%。要最强质量、不怕烧 token 选它。"},
+       note:"历史工具与模型配对。SWE Verified95%与TB2.1 89.1%来自不同旧配对；选择前核对当前可用模型、成本和自己的项目效果，不视为当前综合榜首。"},
       {name:"Codex CLI + GPT-5.6 Sol", score:"S",
-       note:"Terminal-Bench 2.1历史收录89.5%，后台并行 PR、跨端体验最好。OpenAI 生态 / 要异步批量任务选它。"},
+       note:"历史模型配对，TB2.1收录89.5%。可从本地CLI或云端项目工作流入手，当前可选模型与权限以账号和官方文档为准。"},
       {name:"opencode + 任意模型（如 Claude/GPT/Gemini/本地）", score:"A",
-       note:"灵活度与性价比之王：自由换模型、成本低、开源可自托管。战斗力 ≈ 你选的底层模型 + 它的 harness。"},
+       note:"适合希望自行选择模型与供应商的终端工作流；质量和费用随底层模型、项目及代理配置变化。本站未取得可与其他组合直接比较的新成绩。"},
       {name:"Cursor + 前沿模型", score:"A",
-       note:"编辑器内最顺手，多文件编辑强。要在 IDE 里交互式写代码而非整任务外包选它。"},
+       note:"适合希望在代码编辑器内检查修改、按需调用Agent的工作流。先用自己的项目试验，再按方案、模型和使用量评估是否合适。"},
       {name:"Google Antigravity + Gemini", score:"A",
-       note:"最快吞吐（约 289 tok/s）、多智能体编排。重速度轻深推理的迭代循环选它。"},
+       note:"适合从官方文档了解其开发工作流。旧模型吞吐量不代表当前组合，本次未取得同环境可比较的新速度或质量成绩。"},
       {name:"Gemini CLI + Gemini 3.1/3.8", score:"B",
-       note:"免费额度大、零成本。轻度脚本/学习阶段够用，重度工程不推荐。"},
+       note:"历史组合名称保留供追溯；当前按账号可用的Gemini模型配置。先核对认证方式、免费额度和计费，再在自己的任务上试用。"},
       {name:"GitHub Copilot + 多模型", score:"B",
-       note:"最便宜付费、IDE 原生、issue→PR。团队已在 GitHub 且要低门槛选它。"}
+       note:"适合已在GitHub上管理代码、issues与PR的团队。具体模型、代理功能和免费资格依账号及组织策略，不作跨产品最低价承诺。"}
     ],
     tables: {
-      aa: {title:"Artificial Analysis 智能指数 v4.3.2 · 当前模型选录16项（保留推理档位，2026-10-19核对）", unit:"分", rows:[["Claude Opus 5.5 (max with fallback)", 58], ["Claude Sonnet 5.5 (max with fallback)", 56], ["Muse Wonder Full (max)", 56], ["Claude Fable 5.1 (max with fallback)", 53], ["GPT-6 Astra (max)", 53], ["Gemini 4 Argon (high)", 53], ["GPT-6.1 Sol (max)", 52], ["Muse Wonder (max)", 52], ["Muse Spark 1.3 (max)", 48], ["Grok 4.7 (xhigh)", 46], ["MiMo-V2.6-Pro", 46], ["Qwen3.8 Max (0902)", 45], ["GLM-5.3 (max)", 45], ["Step 5 Preview", 44], ["Kimi K3 (max)", 44], ["Claude Haiku 5.5 (max)", 43]]},
+      aa: {title:"Artificial Analysis 智能指数 v4.3.2 · 当前模型选录18项（保留版本与推理档位，2026-10-20核对）", unit:"分", rows:[["Claude Opus 5.5 (max with fallback)", 58], ["Claude Sonnet 5.5 (max with fallback)", 56], ["Muse Wonder Full (max)", 56], ["Claude Fable 5.1 (max with fallback)", 53], ["GPT-6 Astra (max)", 53], ["Gemini 4 Argon (high)", 53], ["GPT-6.1 Sol (max)", 52], ["Muse Wonder (max)", 52], ["Muse Spark 1.3 (max)", 48], ["Grok 4.7 (xhigh)", 46], ["MiMo-V2.6-Pro", 46], ["Qwen3.8 Max (0902)", 45], ["DeepSeek V4.1 Flash 1017 (max)", 45], ["GLM-5.3 (max)", 45], ["Step 5 Preview", 44], ["Kimi K3 (max)", 44], ["Claude Haiku 5.5 (max)", 43], ["MiniMax-M3.1-Flash", 43]]},
       tb: {title:"Terminal-Bench 2.1 · 历史收录Top10（2026-09；官方当前为4.0，本次未刷新旧分）", capturedAt:"2026-09", unit:"%", rows:[
         ["Claude Fable 5.1",91.4],["GPT-6 Astra",89.9],["GPT-5.6 Sol",89.5],["Claude Opus 5",89.1],
         ["Grok 4.6",88.4],["GPT-5.6 Terra",88.0],["Gemini 3.8 Flash",87.6],["Kimi K3",85.0],
@@ -154,4 +161,4 @@ window.RANK = {
   };
 
 /* 局部核验边界：AA日期不代表旧TB/SWE/订阅价格全部重新核验。 */
-window.RANK_CHECK_NOTE = "10月19日已核对AA官方分数；TB2.1保留2026年9月历史收录，SWE Verified与Pro保留2026年8月历史收录并分开展示。工具配对分数、价格和主观等级本次未全部复核。";
+window.RANK_CHECK_NOTE = "10月20日已核对AA官方榜，新增DeepSeek 1017版与MiniMax M3.1-Flash，旧型号分数不混用；工具功能入口已按官方文档复核。TB当前官方为4.0，本站TB2.1保留2026年9月历史收录；SWE Verified与Pro保留2026年8月历史收录。工具历史成绩未重测，全体模型价格及主观等级未全部复核。";

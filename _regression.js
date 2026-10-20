@@ -24,6 +24,8 @@ module.exports = async function ({html, inline, sandbox, ok}) {
     return {ctx,elements,listeners,documentEvents};
   }
   const base = run();
+  const compCheckDates=run(x=>x.replace('var COMP = window.COMP || [];','var COMP = window.COMP || [];window.COMP_CHECKED="2099-01-01";'));
+  ok(compCheckDates.elements['comp-check-note'].textContent.includes('2099-01-01')&&!compCheckDates.elements['comp-updated'].textContent.includes('2099-01-01'), '比赛来源核查日与最近成功内容更新日独立显示');
   const focus = base.ctx.window.FUNDS_STOCKS.focus;
   ok(focus.length>0 && focus.every(f=>typeof f.date==='string' && /^\d{4}-\d{2}-\d{2}$/.test(f.date)), '个股行情日期均为 ISO 字符串，未被当减法执行');
   ok(!base.elements['funds-stats'].innerHTML.includes('昨日收益') && base.elements['funds-stats'].innerHTML.includes('2026-10-15'), '快照当日收益显示快照日期');
@@ -52,6 +54,8 @@ module.exports = async function ({html, inline, sandbox, ok}) {
   ok(ux.deadline({reg:'即日起 – 2026/10/20 24:00'})?.time===Date.parse('2026-10-21T00:00:00+08:00'), '比赛列表正确处理截止日期的24:00');
   ok(['全年滚动','官网2026-09-28 发布','报名 10/20（赛题延至10/27）','2027/1/28 美东截止','12/1 – 1/5','2026/2/30 截止'].every(reg=>ux.deadline({reg})===null), '滚动、发布、延期、多时区、跨年不明及非法日期不生成虚假倒计时');
   const fixtureComp=(n,reg)=>({scope:'me',st:'open',pri:2,ai:3,n,reg,type:'数据',team:'1–3人',url:'https://example.org/'+encodeURIComponent(n)});
+  ux.set([{...fixtureComp('旧入口已失效','全年滚动'),entryUnavailable:true,alt:'https://example.org/official-archive'}]);
+  ok(base.elements['comp-list'].innerHTML.includes('class="go" href="https://example.org/official-archive"')&&base.elements['comp-list'].innerHTML.includes('官方历史资料'), '已核实失效入口的主按钮转向明确标注的官方历史资料');
   ux.set([fixtureComp('晚截止','2099/12/30 截止'),fixtureComp('已过期','2000/1/1 截止'),fixtureComp('早截止','2099/11/30 截止'),fixtureComp('滚动赛','全年滚动')]);
   const compOrdered=base.elements['comp-list'].innerHTML;
   ok(compOrdered.indexOf('早截止')<compOrdered.indexOf('晚截止') && compOrdered.indexOf('晚截止')<compOrdered.indexOf('滚动赛') && !compOrdered.includes('已过期'), '截止最近排序生效，未知日期沉底且过期赛事退出可报名');
@@ -109,6 +113,11 @@ module.exports = async function ({html, inline, sandbox, ok}) {
   const tables=[...base.elements['p-tables'].innerHTML.matchAll(/<tbody>([\s\S]*?)<\/tbody>/g)];
   ok(tables.length===4 && tables.every(t=>{const n=[...t[1].matchAll(/font-weight:700">([^<]*)</g)].map(m=>parseFloat(m[1]));return n.every((v,i)=>!i||n[i-1]>=v);}), 'AA / TB / SWE Verified / SWE Pro 分别实际渲染降序');
   const rank=base.ctx.window.RANK;
+  const toolCells=[...base.elements['p-tools'].innerHTML.matchAll(/<tr>(.*?)<\/tr>/g)].map(row=>[...row[1].matchAll(/<td[^>]*>(.*?)<\/td>/g)].map(cell=>cell[1].replace(/<[^>]*>/g,''))).filter(row=>row.length===8);
+  const sortedTools=rank.tools.slice().sort((a,b)=>(b.tb??-1)-(a.tb??-1));
+  ok(toolCells.length===sortedTools.length&&sortedTools.every((tool,i)=>toolCells[i][5]===(tool.t.up||tool.t['上手']||'—')&&toolCells[i][6]===(tool.t.os||tool.t['开源']||'—')), '工具桌面评级与实际中文/英文键数据逐项一致，和手机卡保持一致');
+  const currentRankProof=JSON.parse(fs.readFileSync(path.join(__dirname,'_rank_review_'+base.ctx.window.RANK_UPDATED+'.json'),'utf8'));
+  ok(currentRankProof.checkedAt===base.ctx.window.RANK_UPDATED&&JSON.stringify(rank.tables.aa.rows)===JSON.stringify(currentRankProof.aaApplied), '当前AA选录逐项对应独立官方核查报告，不混用型号与推理档位');
   const rankReview=JSON.parse(fs.readFileSync(path.join(__dirname,'_rank_review_2026-10-19.json'),'utf8'));
   ok(rank.tables.swe.rows.length===4 && rank.tables.swe.rows.every(r=>r[0].endsWith(' — Verified')) && rank.tables.swe_pro.rows.length===3 && rank.tables.swe_pro.rows.every(r=>r[0].endsWith(' — Pro')) && JSON.stringify(rank.tables.swe.rows)===JSON.stringify(rankReview.sweApplied.verified) && JSON.stringify(rank.tables.swe_pro.rows)===JSON.stringify(rankReview.sweApplied.pro), 'SWE历史分数完整保留、按基准分组且没有误混TB成绩');
   // Let initialization's intentionally offline fetch settle before exercising request ordering.

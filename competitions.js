@@ -1,5 +1,5 @@
 /* AI 情报站 - 比赛数据（每日自动更新） */
-window.COMP_UPDATED = "2026-10-19";
+window.COMP_UPDATED = "2026-10-20";
 /* ============ COMPETITIONS (deadline review 2026-10-19; identities preserved) ============
    数据规则：走省赛/赛区选拔且官网赛区列表中没有重庆的赛事，一律不放 scope:"me"（挪 world 或不收）。
    已知案例：挑战杯 2026 报备页省赛仅 13 省，无重庆 → 挑战杯两条均为 world。 */
@@ -691,10 +691,10 @@ window.COMP_UPDATED = "2026-10-19";
      reg:"4–5月/11–12月", run:"5 月/12 月",
      desc:"以建模、统计或数据分析解决真实问题，团队在数天内完成研究论文/报告。", fit:"数学建模是研究生通用硬通货，3 人队即可上场，性价比高。", help:"AI 帮建模思路、代码实现、论文撰写与排版、图表美化。",
      url:"http://www.madio.net"},
-    {scope:"me", n:"全国大学生数学竞赛", type:"数学", st:"soon", ai:3, pri:2, team:"组队（专业相关）",
+    {scope:"world", n:"全国大学生数学竞赛", type:"数学", st:"closed", ai:3, pri:2, team:"个人笔试（本科生）",
      org:"中国数学会（第十八届，大连理工大学承办）",
-     reg:"第十八届报名由各省数学会/学校组织，2026/10/19 截止（缴费 10/20；各校可能更早截止，资格与费用以本校通知为准）", run:"初赛 2026/11/14（周六）9:00–11:30；决赛预计 2027 年 4 月（大连理工大学）",
-     desc:"以建模、统计或数据分析解决真实问题，团队在数天内完成研究论文/报告。", fit:"数学建模是研究生通用硬通货，3 人队即可上场，性价比高。", help:"AI 帮建模思路、代码实现、论文撰写与排版、图表美化。",
+     reg:"第十八届由各省数学会与学校组织报名；本站原收录截止10/19已过。研究生不符合已核实的本科生参赛要求，各校已报名考生按校内通知参加初赛。", run:"初赛 2026/11/14（周六）9:00–11:30；决赛预计 2027 年 4 月（大连理工大学）",
+     desc:"中国数学会主办的个人数学笔试，分数学专业与非数学专业等类别；不是三人组队的数学建模论文竞赛。", fit:"当届南开、云南大学正式通知均明确本科生资格，不适配本站研究生用户；保留资源身份供查阅。", help:"可用历届试题复习高等数学与线性代数；不要按研究生数学建模赛准备组队、论文或报名材料。",
      url:"http://www.cmathc.cn"},
     {scope:"me", n:"全国大学生物理实验竞赛", type:"物理", st:"closed", ai:3, pri:2, team:"组队（专业相关）",
      org:"教育部物理学类教指委",
@@ -813,17 +813,22 @@ window.COMP_UPDATED = "2026-10-19";
      reg:"常年(多年期)", run:"多年期",
      desc:"国际开放赛事，全球高校均可远程参与，看全球在比什么、顶级水平在哪。", fit:"可远程参赛或仅作眼界参考，启发科研与选题，拓展国际视野。", help:"AI 帮读赛题、写 baseline、调参、整理方案；多数对中国个人开放、远程可完成。",
      url:"https://www.xprize.org"},
-    {scope:"world", n:"Google Solution Challenge", type:"AI 应用", st:"closed", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+    {scope:"world", n:"Google Solution Challenge", type:"AI 应用", st:"closed", ai:4, pri:3, team:"组队；资格以当届地区规则为准",
      org:"Google",
-     reg:"每年1–6月", run:"7 月决赛",
-     desc:"国际开放赛事，全球高校均可远程参与，看全球在比什么、顶级水平在哪。", fit:"可远程参赛或仅作眼界参考，启发科研与选题，拓展国际视野。", help:"AI 帮读赛题、写 baseline、调参、整理方案；多数对中国个人开放、远程可完成。",
-     warn:"2026-09-26 实测：这台机器打不开该站（返回 000）。域名本身还在、可能是境外网络或站点临时故障，但没法替你确认它现在是活的。报名前请在校内网或问同学再核一次，别直接点这条链接。",
+     reg:"未核实当前适用于中国学生的报名入口；已核实2026年印度地区活动不等于全球开放报名", run:"当届适用赛程待核实",
+     desc:"Google学生开发者社区的技术解决方案挑战，历史全球届以联合国可持续发展目标为主题；2026年已查到地区活动。", fit:"保留为项目选题参考；需先核实本人地区、学籍与当届资格。", help:"可参考历届真实项目的需求定义、技术实现和演示方法。",
+     warn:"2026-10-20复核：旧入口返回HTTP404。备用链接是Google官方2024届历史介绍；GDG社区可查到2026年印度地区活动，但本次未取得中国学生可报名的当届全球入口，暂不作为可报名推荐。",
+     alt:"https://developers.googleblog.com/en/solution-challenge-2024-using-google-technology-to-address-un-sustainable-development-goals/",
+     entryUnavailable:true,
      url:"https://developers.google.com/solution-challenge"},
-    {scope:"world", n:"Google Code Jam", type:"算法", st:"closed", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
+    {scope:"world", n:"Google Code Jam", type:"算法", st:"closed", ai:4, pri:3, team:"历史个人编程赛；仅供练习",
      org:"Google",
-     reg:"每年4–8月", run:"世界总决赛8月",
-     desc:"国际开放赛事，全球高校均可远程参与，看全球在比什么、顶级水平在哪。", fit:"可远程参赛或仅作眼界参考，启发科研与选题，拓展国际视野。", help:"AI 帮读赛题、写 baseline、调参、整理方案；多数对中国个人开放、远程可完成。",
-     warn:"2026-09-26 实测：这台机器打不开该站（返回 000）。域名本身还在、可能是境外网络或站点临时故障，但没法替你确认它现在是活的。报名前请在校内网或问同学再核一次，别直接点这条链接。",
+     reg:"已于2023年结束举办，不再报名", run:"最终告别轮为2023/4/15",
+     desc:"Google曾举办的个人算法编程赛事，已结束；官方保留题目、分析和测试数据档案。", fit:"仅作算法训练与历史资料参考。", help:"通过官方题库练习算法、核验复杂度和对照官方解析。",
+     warn:"2026-10-20复核：旧入口返回HTTP404。Google官方2023年5月23日告别公告已明确赛事结束；备用入口为Google官方历史题库，不能用于报名。",
+     evidence:"https://developers.googleblog.com/celebrate-googles-coding-competitions-with-a-final-round-of-programming-fun/",
+     alt:"https://github.com/google/coding-competitions-archive",
+     entryUnavailable:true,
      url:"https://codingcompetitions.withgoogle.com/codejam"},
     {scope:"world", n:"Meta Hacker Cup", type:"算法", st:"open", ai:4, pri:3, team:"远程可参赛 / 多数可单人",
      org:"Meta",
@@ -964,3 +969,7 @@ window.COMP_UPDATED = "2026-10-19";
      evidence:"https://ai.xm.gov.cn/detail/article-detail.html?id=2026c40news0001",
      url:"https://ai.xm.gov.cn/"},
   ];
+
+/* 本次实际请求全部已收录入口；访问受限不是来源已失效。 */
+window.COMP_CHECKED = "2026-10-20";
+window.COMP_CHECK_NOTE = "已实际核查全部已收录入口，纠正数学竞赛截止、个人笔试与本科资格；部分官网访问受限，其他旧赛程不冒充今日全部重新确认。";

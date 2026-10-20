@@ -233,6 +233,32 @@ class PipelineRegressions(unittest.TestCase):
         self.assertFalse(any(field in dropped for field in HOT_FIELDS))
         self.assertEqual(dropped["publishedAt"], "2026-10-16")
 
+    def test_rolling_feed_cap_preserves_exact_editorial_selection(self):
+        old = old_article("one", "/important-research")
+        old.update(featuredReason="Read the research methods critically.", featuredPriority=1)
+        incoming = [old_article("one", "/new-" + str(i))
+                    for i in range(refresh_module.PER_PUBLICATION)]
+        before = deepcopy(old)
+        merged = refresh_module.merge_articles([old], incoming, "one")
+        self.assertEqual(len(merged), refresh_module.PER_PUBLICATION + 1)
+        self.assertEqual(merged[-1], old)
+        self.assertEqual(old, before)
+        cleared = refresh_module.apply_editorial(merged, {"articles": []})
+        next_run = refresh_module.merge_articles(cleared, incoming, "one")
+        self.assertEqual(len(next_run), refresh_module.PER_PUBLICATION)
+        self.assertFalse(any(row["url"] == old["url"] for row in next_run))
+
+    def test_partial_list_headline_cannot_borrow_an_earlier_article_date(self):
+        old = old_article("one", "/known-story", "Exact verified headline")
+        incoming = {**old, "title": old["title"] + " Category", "publishedAt": None,
+                    "checkedAt": DAY_TWO}
+        merged = refresh_module.merge_articles([old], [incoming], "one")
+        self.assertEqual(merged[0]["title"], old["title"])
+        self.assertEqual(merged[0]["publishedAt"], old["publishedAt"])
+        self.assertEqual(merged[0]["checkedAt"], old["checkedAt"])
+        prior = {"sources": [{"publication": "one", "status": "ok", "articles": [old]}]}
+        self.assertEqual(len(refresh_module.retained_evidence(merged, "one", prior)), 1)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

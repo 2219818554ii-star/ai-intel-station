@@ -346,11 +346,25 @@ def merge_articles(previous, incoming, publication):
         merged["summary"] = old.get("summary", "")
         # A missing timestamp from today's list does not erase a known source date.
         merged["publishedAt"] = row.get("publishedAt") or old.get("publishedAt")
+        # Partial list text can include a category/teaser when a detail fetch
+        # fails. Do not splice that new headline onto an earlier article date.
+        if (not row.get("publishedAt") and old.get("publishedAt")
+                and row.get("title") != old.get("title")):
+            merged["title"] = old["title"]
+            merged["checkedAt"] = old["checkedAt"]
         if merged["url"] not in {x["url"] for x in fresh}:
             fresh.append(merged)
     old_rows = [dict(row) for row in previous if row.get("publication") == publication
                 and row["url"] not in {x["url"] for x in fresh}]
-    return (fresh + old_rows)[:PER_PUBLICATION]
+    combined = fresh + old_rows
+    # Keep explicit reading selections when the rolling feed reaches its cap.
+    # Curation is reapplied by exact title/URL afterwards; removed selections
+    # lose their flag instead of becoming permanent pins.
+    regular = combined[:PER_PUBLICATION]
+    kept = {row["url"] for row in regular}
+    selected = [row for row in combined[PER_PUBLICATION:]
+                if row.get("featuredReason") and row["url"] not in kept]
+    return regular + selected
 
 
 def retained_evidence(rows, publication, prior_report):

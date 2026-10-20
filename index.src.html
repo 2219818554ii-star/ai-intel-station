@@ -510,7 +510,7 @@
   <!-- ================= LEARN VIEW ================= -->
   <div id="view-learn" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-learn">
     <div class="view-head"><h2>📚 AI 上手 · 教学视频与课程库</h2>
-      <p>这页只放 <b>AI 教学</b>：8 大类 46+ 条，中文优先、B站直链优先（点得开、不用翻墙）。别囤课——<b>看完一个再看下一个</b>，今天挑一条看 15 分钟就赢。</p></div>
+      <p>从 AI 入门到科研实操，按主题挑一条跟练。新增材料与储能的官方示例；视频、课程和工具文档分清入口，<b>先完成一个小任务，再学下一项</b>。</p></div>
 
     <style>
       .rlib-intro{font-size:14px;color:#374151;line-height:1.75;margin:6px 0 14px}
@@ -525,6 +525,28 @@
       .tag{display:inline-block;font-size:11px;color:#0f766e;background:#e6f7f3;border:1px solid #b8e6dd;border-radius:999px;padding:1px 8px;margin:2px 5px 0 0}
       .rlib-note{font-size:13px;color:#374151;line-height:1.7;margin-top:14px;padding:10px 12px;background:#fff7ed;border:1px solid #fed7aa;border-radius:10px}
     </style>
+
+    <section id="materials-practice" data-library-group aria-labelledby="materials-practice-heading">
+      <h3 class="cat-h" id="materials-practice-heading">🔬 材料与储能实操 · 从官方示例开始</h3>
+      <p class="rlib-intro">2026-10-20 核查官方入口。需要基础 Python，先用示例或公开数据练习；模型输出与实验测量分开记录。</p>
+      <div class="rsrc-grid">
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://pybamm.org/" target="_blank" rel="noopener noreferrer">PyBaMM · 电池性能与老化建模<span class="plat">官方文档 · 英文</span></a>
+          <p>起步任务：从官网进入 Getting started，跑通一个电池示例，再只改一个工况比较电压曲线。记录参数和模型假设，避免把仿真曲线当成自己的实验结果。</p>
+          <span class="tag">电池</span><span class="tag">储能</span><span class="tag">Python</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://pymatgen.org/" target="_blank" rel="noopener noreferrer">pymatgen · 材料结构与相图分析<span class="plat">官方文档 · 英文</span></a>
+          <p>起步任务：跟随 Quick start 读取一个公开 CIF 文件，核对组成、晶格和单位；再从官网 Matgenb Examples 选择结构或相图示例。保留输入文件的来源。</p>
+          <span class="tag">材料</span><span class="tag">晶体结构</span><span class="tag">Python</span>
+        </div>
+        <div class="rsrc-item">
+          <a class="rsrc" href="https://hackingmaterials.lbl.gov/matminer/" target="_blank" rel="noopener noreferrer">matminer · 材料数据与机器学习<span class="plat">官方文档 · 英文</span></a>
+          <p>起步任务：用官方数据集示例完成一次“材料组成 → 特征 → 基线模型”练习。先划分训练与测试数据，再处理特征，检查重复样本和数据泄漏。</p>
+          <span class="tag">材料数据</span><span class="tag">机器学习</span><span class="tag">公开数据</span>
+        </div>
+      </div>
+    </section>
 
     <h4 class="cat-h">🎬 一、零基础看懂 AI（科普视频，中文优先）</h4>
       <div class="rsrc-grid">
@@ -608,12 +630,12 @@
         </div>
         <div class="rsrc-item">
           <a class="rsrc" href="https://search.bilibili.com/all?keyword=DeepSeek%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：DeepSeek 教程<span class="plat">B站</span></a>
-          <p>国产模型代表，中文理解好、免费额度足。推理模式（R1）做数学/逻辑题很强，数模比赛能派上用场。</p>
+          <p>学习中文问答、推理与代码任务的基本用法。教程版本可能较旧，具体型号、可用功能和额度以官网为准。</p>
           <span class="tag">工具</span><span class="tag">中文</span><span class="tag">免费</span>
         </div>
         <div class="rsrc-item">
           <a class="rsrc" href="https://search.bilibili.com/all?keyword=Kimi%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：Kimi 教程<span class="plat">B站</span></a>
-          <p>长文本之王：整本论文、几十篇 PDF 一次丢进去总结。改第三章时“整篇通读”就靠这类。</p>
+          <p>练习长文档阅读与资料整理：先提供一篇论文，要求标注原文位置，再逐条核对总结。文件限制以当前产品为准。</p>
           <span class="tag">工具</span><span class="tag">中文</span><span class="tag">长文本</span>
         </div>
         <div class="rsrc-item">
@@ -628,7 +650,7 @@
         </div>
         <div class="rsrc-item">
           <a class="rsrc" href="https://search.bilibili.com/all?keyword=NotebookLM%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：NotebookLM 教程<span class="plat">B站</span></a>
-          <p>Google 出品：把你的文献喂进去，它只基于你给的材料回答，幻觉少，还能生成播客式讲解。</p>
+          <p>围绕导入资料练习问答、提纲与引用核对。重要结论仍回到原文检查，别把回答中的引用当成准确保证。</p>
           <span class="tag">工具</span><span class="tag">视频</span><span class="tag">英文</span>
         </div>
         <div class="rsrc-item">
@@ -638,7 +660,7 @@
         </div>
         <div class="rsrc-item">
           <a class="rsrc" href="https://search.bilibili.com/all?keyword=Claude%20%E6%95%99%E7%A8%8B" target="_blank" rel="noopener noreferrer">B站搜：Claude 教程<span class="plat">B站</span></a>
-          <p>长文写作与代码质量口碑最好的一家，你的 Claude Code 就是它——先看别人怎么用。</p>
+          <p>练习长文改稿和代码协作：先给边界与验收要求，再逐步检查输出。Claude 与 Claude Code 的功能、计费分别以官网为准。</p>
           <span class="tag">工具</span><span class="tag">中文</span><span class="tag">视频</span>
         </div>
       </div>
@@ -681,8 +703,8 @@
       <div class="rsrc-grid">
         <div class="rsrc-item">
           <a class="rsrc" href="https://www.deeplearning.ai/" target="_blank" rel="noopener noreferrer">DeepLearning.AI（Andrew Ng）<span class="plat">官网</span></a>
-          <p>吴恩达出品，短课制，ChatGPT Prompt Engineering for Developers 等课免费且质量极高。</p>
-          <span class="tag">系统课</span><span class="tag">免费</span><span class="tag">英文</span>
+          <p>提供 AI 短课与系统课；视频可免费学习，实验、测验和证书等权益以课程页及会员方案为准。</p>
+          <span class="tag">系统课</span><span class="tag">视频可免费</span><span class="tag">英文</span>
         </div>
         <div class="rsrc-item">
           <a class="rsrc" href="https://developers.google.com/machine-learning/crash-course" target="_blank" rel="noopener noreferrer">Google 机器学习速成课 MLCC<span class="plat">官网</span></a>
@@ -729,7 +751,7 @@
           <span class="tag">提示词</span><span class="tag">英文</span><span class="tag">官方</span>
         </div>
         <div class="rsrc-item">
-          <a class="rsrc" href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank" rel="noopener noreferrer">Anthropic 提示工程文档<span class="plat">官网</span></a>
+          <a class="rsrc" href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview" target="_blank" rel="noopener noreferrer">Anthropic 提示工程文档<span class="plat">官网</span></a>
           <p>Claude 视角的提示工程，章节化、示例多，配套 Prompt Library 可直接抄模板。</p>
           <span class="tag">提示词</span><span class="tag">英文</span><span class="tag">官方</span>
         </div>
@@ -824,6 +846,7 @@
         <button class="filterbtn" data-sort="default">默认</button>
       </div>
     </div>
+    <p id="comp-check-note" class="library-storage-note"></p>
     <p id="comp-sort-note" class="library-storage-note"></p>
     <div id="comp-world-note" class="news" style="display:none">
       🌍 <b>全球一览：</b>以下为世界级赛事——AI / 机器人 / 航天 / 科创的"奥运会"。多数你<b>无法以个人身份报名</b>（限国籍 / 年龄 / 高校团队 / 邀请制），列出仅供开眼界：看全球在比什么、顶尖水平在哪。少数（如 NASA Space Apps、Kaggle）其实对中国开放，卡片里标了就说明你能上。
@@ -1215,12 +1238,12 @@
         + '</tr>';
     }).join('');
     document.getElementById("p-models").innerHTML =
-      '<div class="legend">评级：<span class="tier t-S">S</span>顶尖/第一梯队 <span class="tier t-A">A</span>很强/第二梯队 <span class="tier t-B">B</span>够用/第三梯队 <span class="tier t-C">C</span>偏弱 <span class="tier t-none">—</span>不适用。评级为本站观点。AA = Artificial Analysis 智能指数 v4.3.2，比较时注意具体型号与推理档位；TB2.1 为历史口径，当前官方榜为 4.0，新旧口径不可直接比。表格可左右滑动查看全部列。</div>'
+      '<div class="legend">评级：<span class="tier t-S">S</span>顶尖/第一梯队 <span class="tier t-A">A</span>很强/第二梯队 <span class="tier t-B">B</span>够用/第三梯队 <span class="tier t-C">C</span>偏弱 <span class="tier t-none">—</span>未核实 / 不适用。评级为本站观点。AA = Artificial Analysis 智能指数 v4.3.2，比较时注意具体型号与推理档位；TB2.1 为历史口径，当前官方榜为 4.0，新旧口径不可直接比。表格可左右滑动查看全部列。</div>'
       + '<div class="matrix-wrap"><table class="matrix"><thead>'+head+'</thead><tbody>'+rows+'</tbody></table></div>';
   }
   function renderTools(){
-    var head = '<tr><th>#</th><th style="text-align:left">编码工具 / 默认模型</th>'
-      + '<th>代码<br>TB2.1</th><th>SWE-bench<br>Verified</th><th>价格/月</th><th>上手</th><th>开源</th><th style="text-align:left">最适合谁</th></tr>';
+    var head = '<tr><th>#</th><th style="text-align:left">编码工具 / 模型配置</th>'
+      + '<th>历史代码<br>TB2.1</th><th>历史 SWE-bench<br>Verified</th><th>计费方式</th><th>上手</th><th>开源</th><th style="text-align:left">使用建议</th></tr>';
     var _tsorted = RANK.tools.slice().sort(function(a,b){
       var x=(a.tb==null?-1:a.tb), y=(b.tb==null?-1:b.tb);
       return y-x; /* TB2.1 降序，无分沉底 */
@@ -1231,12 +1254,12 @@
         + '<td class="name"><div class="nv">'+esc(m.name)+'</div><div class="mv">'+esc(m.model)+'</div></td>'
         + '<td>'+numCell(m.tb)+'</td><td>'+numCell(m.sv)+'</td>'
         + '<td style="white-space:nowrap">'+esc(m.price)+'</td>'
-        + '<td>'+tierBadge((m.t||{}).up||"—")+'</td><td>'+tierBadge((m.t||{}).os||"—")+'</td>'
+        + '<td>'+tierBadge((m.t||{}).up||(m.t||{})["上手"]||"—")+'</td><td>'+tierBadge((m.t||{}).os||(m.t||{})["开源"]||"—")+'</td>'
         + '<td class="note">'+esc(m.note)+'</td>'
         + '</tr>';
     }).join('');
     document.getElementById("p-tools").innerHTML =
-      '<div class="legend">开源工具（opencode/Cline/Aider）能力≈所选底层模型，下表按"默认最佳实践"给。TB2.1 = Terminal-Bench 2.1（%），SWE-bench Verified 为真实 GitHub 修 bug 通过率。上手：<span class="tier t-A">A</span>最易 / <span class="tier t-B">B</span>需一点基础 / <span class="tier t-C">C</span>需会用终端。</div>'
+      '<div class="legend">表现取决于模型、工具配置与具体任务。表内 TB2.1 / SWE-bench Verified 为已收录的历史基准，不能当作今天的工具实测；模型支持及计费方式按本轮官方文档核查，具体套餐与额度以官网为准。上手评级为本站建议：<span class="tier t-A">A</span>较易 / <span class="tier t-B">B</span>需一点基础 / <span class="tier t-C">C</span>需会用终端。</div>'
       + '<div class="matrix-wrap"><table class="matrix"><thead>'+head+'</thead><tbody>'+rows+'</tbody></table></div>';
   }
   function renderCombos(){
@@ -1255,7 +1278,7 @@
         + '</tr>';
     }).join('');
     document.getElementById("p-combos").innerHTML =
-      '<div class="legend">"组合战斗力"= 工具 harness × 底层模型。同一工具换不同模型，排名会变；下表按"当前最强默认组合"评级。</div>'
+      '<div class="legend">以下为站内保留的工具与模型配对建议，评级属于历史主观整理。模型版本、工具配置和任务都会影响表现；它们不是当前默认设置，也不是经过统一实测的最强组合。</div>'
       + '<div class="matrix-wrap"><table class="matrix"><thead>'+head+'</thead><tbody>'+rows+'</tbody></table></div>';
   }
   function renderTables(){
@@ -1303,7 +1326,7 @@
 
     /* COMPETITIONS loaded from competitions.js (每日自动更新) */
   var COMP = window.COMP || [];
-  (function(){ var el=document.getElementById('comp-updated'); if(el){ el.textContent='比赛数据更新于 '+(window.COMP_UPDATED||'未知'); } var cv=document.getElementById('comp-verified'); if(cv){ cv.textContent=window.COMP_UPDATED||'未知'; } var cc=document.getElementById('comp-count'); if(cc){ cc.textContent=COMP.length; } })();
+  (function(){ var el=document.getElementById('comp-updated'); if(el){ el.textContent='比赛数据更新于 '+(window.COMP_UPDATED||'未知'); } var cv=document.getElementById('comp-verified'); if(cv){ cv.textContent=window.COMP_UPDATED||'未知'; } var cc=document.getElementById('comp-count'); if(cc){ cc.textContent=COMP.length; } var note=document.getElementById('comp-check-note'); if(note&&window.COMP_CHECK_NOTE){note.textContent='最近核查 '+(window.COMP_CHECKED||'未知')+'：'+window.COMP_CHECK_NOTE;} })();
   function compStars(k){ var s=""; for(var i=0;i<5;i++){ s += (i<k?"★":"☆"); } return s; }
   var savedComp=window.AI_SESSION.read("ai-comp-state");
   var COMP_FILTER = ["all","open","soon","closed"].indexOf(savedComp.filter)>=0?savedComp.filter:"open";
@@ -1419,7 +1442,7 @@
         '</div>'+
         '<div class="cmp-quick"><div class="cmp-deadline" title="'+esc(c.reg||'')+'"><span>'+esc(dateLine)+'</span></div>'+
           '<span class="team-info">组队：'+esc(c.team||'以官网为准')+'</span>'+
-          '<a class="go" href="'+esc(c.url)+'" target="_blank" rel="noopener noreferrer">官网 / 报名 ↗</a></div>'+
+          '<a class="go" href="'+esc(c.entryUnavailable&&c.alt?c.alt:c.url)+'" target="_blank" rel="noopener noreferrer">'+(c.entryUnavailable&&c.alt?'官方历史资料 ↗':'官网 / 报名 ↗')+'</a></div>'+
         '<div class="cmp-detail">'+
           '<div class="d-row"><span class="d-k">这是什么</span><span class="d-v">'+esc(c.desc||"")+'</span></div>'+
           '<div class="d-row"><span class="d-k">'+(c.scope==="world"?"对你意味着":"为什么适合你")+'</span><span class="d-v">'+esc(c.fit||"")+'</span></div>'+
@@ -2896,6 +2919,9 @@
         grid.hidden=!visible;
         if(grid.previousElementSibling && grid.previousElementSibling.classList.contains("cat-h")) grid.previousElementSibling.hidden=!visible;
       });
+      m.root.querySelectorAll("[data-library-group]").forEach(function(group){
+        group.hidden=!Array.from(group.querySelectorAll(".rsrc-item")).some(function(card){return !card.hidden;});
+      });
     }
     var recent=Object.values(entries).filter(function(x){return x.kind===m.kind&&x.at>0;}).sort(function(a,b){return b.at-a.at;})[0];
     var html=recent?'上次打开：<a href="'+esc(recent.url)+'" target="_blank" rel="noopener noreferrer">'+esc(recent.title)+'</a>':"";
@@ -2910,7 +2936,8 @@
     if(pair[0]==="learn") root.querySelector(".view-head").insertAdjacentElement("afterend",tools);
     else root.insertAdjacentElement("beforebegin",tools);
     var empty=document.createElement("div");empty.className="search-empty";empty.hidden=true;empty.textContent="没有匹配内容。试试其他关键词或切换学习状态。";
-    root.insertAdjacentElement("afterend",empty);
+    if(pair[0]==="learn") root.appendChild(empty);
+    else root.insertAdjacentElement("afterend",empty);
     var m={kind:pair[0],root:root,search:tools.querySelector("input"),select:tools.querySelector("select"),count:tools.querySelector(".library-count"),recent:tools.querySelector(".library-recent"),note:tools.querySelector(".library-storage-note"),empty:empty,progress:tools.querySelector(".library-progress"),clear:tools.querySelector("[data-library-reset]")};
     var saved=window.AI_SESSION.read("ai-library-"+m.kind);
     m.search.value=typeof saved.query==="string"?saved.query.slice(0,200):"";

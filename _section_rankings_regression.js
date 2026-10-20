@@ -1,4 +1,4 @@
-const vm=require('vm');
+const vm=require('vm'),fs=require('fs'),path=require('path');
 module.exports=async function({inline,sandbox,ok}){
   function run(transform=x=>x,saved={}){
     const elements={},events={};
@@ -17,7 +17,9 @@ module.exports=async function({inline,sandbox,ok}){
   let tedOrder=w.TED.slice().sort((a,b)=>known(b.views)-known(a.views));
   const ordered=(text,values)=>values.every((v,i)=>i===0||text.indexOf(v)>text.indexOf(values[i-1]));
   ok(ordered(base.elements['ted-list'].innerHTML,tedOrder.map(t=>'<span class="cmp-name">🎬 '+esc(t.en)+'</span>')),'TED 播放最多真实降序，未披露播放量的演讲沉底');
-  ok(base.elements['ted-sort-note'].textContent.includes('非实时')&&w.TED_VIEWS_CAPTURED_AT==='2026-10-18'&&base.elements['ted-sort-note'].textContent.includes(w.TED_VIEWS_CAPTURED_AT),'TED 播放排序展示独立采集日期与累计口径');
+  const tedProof=JSON.parse(fs.readFileSync(path.join(__dirname,'_learning_review_'+w.TED_VIEWS_CAPTURED_AT+'.json'),'utf8'));
+  ok(base.elements['ted-sort-note'].textContent.includes('非实时')&&w.TED_VIEWS_CAPTURED_AT===tedProof.reviewDate&&base.elements['ted-sort-note'].textContent.includes(w.TED_VIEWS_CAPTURED_AT),'TED 播放排序展示独立采集日期与累计口径');
+  ok(tedProof.ted.length===w.TED.length&&w.TED.every(t=>tedProof.ted.some(p=>p.url===t.url&&p.http===200&&p.curlExit===0&&p.officialTitle===t.en&&(p.views??null)===(t.views??null))),'TED 每条播放量与相同采集日的完整官方响应及标题逐一对应');
   const splitTEDDates=run(x=>x.replace('var TED = window.TED || [];','var TED = window.TED || [];window.TED_UPDATED="2099-01-01";'));
   change(splitTEDDates,'ted-sort','hot');
   ok(splitTEDDates.elements['ted-sort-note'].textContent.includes(w.TED_VIEWS_CAPTURED_AT)&&!splitTEDDates.elements['ted-sort-note'].textContent.includes('2099-01-01'),'仅内容更新不冒充播放量重新采集日期');

@@ -1,0 +1,1804 @@
+{
+  "reviewDate": "2026-10-20",
+  "checkedAtUTC": "2026-10-20T13:05:26.876317+00:00",
+  "ted": [
+    {
+      "url": "https://www.ted.com/talks/charlie_robinson_why_you_thought_school_was_a_waste_of_time",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/charlie_robinson_why_you_thought_school_was_a_waste_of_time",
+      "curlExit": 0,
+      "bytes": 33081,
+      "error": "",
+      "title": "Why you thought school was a waste of time",
+      "previousViews": 15691,
+      "officialTitle": "Why you thought school was a waste of time",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/a18066a3-3a24-405d-bca9-f8ca57670259/mqdefault.jpg",
+      "views": 15692
+    },
+    {
+      "url": "https://www.ted.com/talks/angela_lee_duckworth_grit_the_power_of_passion_and_perseverance",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/angela_lee_duckworth_grit_the_power_of_passion_and_perseverance",
+      "curlExit": 0,
+      "bytes": 185061,
+      "error": "",
+      "title": "Grit: The power of passion and perseverance",
+      "previousViews": 39139293,
+      "officialTitle": "Grit: The power of passion and perseverance",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/49490c34-ef8e-45b1-8037-a4958efc2609/AngelaDuckworth_2013S-embed.jpg",
+      "views": 39151103
+    },
+    {
+      "url": "https://www.ted.com/talks/carol_dweck_the_power_of_believing_that_you_can_improve",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/carol_dweck_the_power_of_believing_that_you_can_improve",
+      "curlExit": 0,
+      "bytes": 184875,
+      "error": "",
+      "title": "The power of believing that you can improve",
+      "previousViews": 18299303,
+      "officialTitle": "The power of believing that you can improve",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/85582d553035da22504c315ba5ec7ed727f16354_2880x1620.jpg",
+      "views": 18305005
+    },
+    {
+      "url": "https://www.ted.com/talks/diana_laufenberg_how_to_learn_from_mistakes",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/diana_laufenberg_how_to_learn_from_mistakes",
+      "curlExit": 0,
+      "bytes": 45495,
+      "error": "",
+      "title": "How to learn? From mistakes",
+      "previousViews": 2481763,
+      "officialTitle": "How to learn? From mistakes",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/5e5ffce52162fbe4c59cf923ab53adcd9e99587a_1600x1200.jpg",
+      "views": 2481853
+    },
+    {
+      "url": "https://www.ted.com/talks/dan_gilbert_the_surprising_science_of_happiness",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/dan_gilbert_the_surprising_science_of_happiness",
+      "curlExit": 0,
+      "bytes": 58757,
+      "error": "",
+      "title": "The surprising science of happiness",
+      "previousViews": 21156696,
+      "officialTitle": "The surprising science of happiness",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/016a827cc0757092a0439ab2a63feca8655b6c29_1600x1200.jpg",
+      "views": 21157147
+    },
+    {
+      "url": "https://www.ted.com/talks/dan_gilbert_the_psychology_of_your_future_self",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/dan_gilbert_the_psychology_of_your_future_self",
+      "curlExit": 0,
+      "bytes": 42196,
+      "error": "",
+      "title": "The psychology of your future self",
+      "previousViews": 7853529,
+      "officialTitle": "The psychology of your future self",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/d7c5293df469e90b62ed7bfced793ed7f2bad6c2_1600x1200.jpg",
+      "views": 7854226
+    },
+    {
+      "url": "https://www.ted.com/talks/robert_waldinger_what_makes_a_good_life_lessons_from_the_longest_study_on_happiness",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/robert_waldinger_what_makes_a_good_life_lessons_from_the_longest_study_on_happiness",
+      "curlExit": 0,
+      "bytes": 46315,
+      "error": "",
+      "title": "What makes a good life? Lessons from the longest study on happiness",
+      "previousViews": 53423928,
+      "officialTitle": "What makes a good life? Lessons from the longest study on happiness",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/1dc3550a-4ff0-44cf-9be6-2aa6ef9c43dd/RobertWaldinger_2015X-embed.jpg",
+      "views": 53436642
+    },
+    {
+      "url": "https://www.ted.com/talks/shawn_achor_the_happy_secret_to_better_work",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/shawn_achor_the_happy_secret_to_better_work",
+      "curlExit": 0,
+      "bytes": 52436,
+      "error": "",
+      "title": "The happy secret to better work",
+      "previousViews": 27349089,
+      "officialTitle": "The happy secret to better work",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/e02ed13dcc2684221ce59429a722479dd13661fb_2880x1620.jpg",
+      "views": 27350851
+    },
+    {
+      "url": "https://www.ted.com/talks/matthieu_ricard_the_habits_of_happiness",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/matthieu_ricard_the_habits_of_happiness",
+      "curlExit": 0,
+      "bytes": 52579,
+      "error": "",
+      "title": "The habits of happiness",
+      "previousViews": 10948451,
+      "officialTitle": "The habits of happiness",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/e819fff6-a202-484a-a2ab-65c8f736fa3e/MatthieuRicard_2004-embed.jpg",
+      "views": 10948866
+    },
+    {
+      "url": "https://www.ted.com/talks/kelly_mcgonigal_how_to_make_stress_your_friend",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/kelly_mcgonigal_how_to_make_stress_your_friend",
+      "curlExit": 0,
+      "bytes": 48858,
+      "error": "",
+      "title": "How to make stress your friend",
+      "previousViews": 37367075,
+      "officialTitle": "How to make stress your friend",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/4ebfc94d-c426-4019-9060-20edc54dcec8/KellyMcGonigal_2013G-embed.jpg",
+      "views": 37386891
+    },
+    {
+      "url": "https://www.ted.com/talks/judson_brewer_a_simple_way_to_break_a_bad_habit",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/judson_brewer_a_simple_way_to_break_a_bad_habit",
+      "curlExit": 0,
+      "bytes": 48447,
+      "error": "",
+      "title": "A simple way to break a bad habit",
+      "previousViews": 24798588,
+      "officialTitle": "A simple way to break a bad habit",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/56962f83-978a-41dd-bacb-72dc228be2ff/JudsonBrewer_2015P-embed.jpg",
+      "views": 24819459
+    },
+    {
+      "url": "https://www.ted.com/talks/tim_urban_inside_the_mind_of_a_master_procrastinator",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/tim_urban_inside_the_mind_of_a_master_procrastinator",
+      "curlExit": 0,
+      "bytes": 50642,
+      "error": "",
+      "title": "Inside the mind of a master procrastinator",
+      "previousViews": 79205037,
+      "officialTitle": "Inside the mind of a master procrastinator",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/d5d00454-d7aa-434c-8fae-ff2bc97c5f02/TimUrban_2016-embed.jpg",
+      "views": 79217299
+    },
+    {
+      "url": "https://www.ted.com/talks/laura_vanderkam_how_to_gain_control_of_your_free_time",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/laura_vanderkam_how_to_gain_control_of_your_free_time",
+      "curlExit": 0,
+      "bytes": 50684,
+      "error": "",
+      "title": "How to gain control of your free time",
+      "previousViews": 16500503,
+      "officialTitle": "How to gain control of your free time",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/90c69f27-5216-46fa-a1ae-42e3c4243ddd/LauraVanderkam_2016W-embed.jpg",
+      "views": 16503427
+    },
+    {
+      "url": "https://www.ted.com/talks/amy_cuddy_your_body_language_may_shape_who_you_are",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/amy_cuddy_your_body_language_may_shape_who_you_are",
+      "curlExit": 0,
+      "bytes": 56244,
+      "error": "",
+      "title": "Your body language may shape who you are",
+      "previousViews": 77736146,
+      "officialTitle": "Your body language may shape who you are",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/8ff886f0-7953-4f9b-8726-1ce98cae10c6/AmyCuddy_2012G-embed.jpg",
+      "views": 77753253
+    },
+    {
+      "url": "https://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action",
+      "curlExit": 0,
+      "bytes": 53183,
+      "error": "",
+      "title": "How great leaders inspire action",
+      "previousViews": 71245207,
+      "officialTitle": "How great leaders inspire action",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/04916ee6e81065c8333e6546184af512eee37bbe_2880x1620.jpg",
+      "views": 71256571
+    },
+    {
+      "url": "https://www.ted.com/talks/simon_sinek_why_good_leaders_make_you_feel_safe",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/simon_sinek_why_good_leaders_make_you_feel_safe",
+      "curlExit": 0,
+      "bytes": 205076,
+      "error": "",
+      "title": "Why good leaders make you feel safe",
+      "previousViews": 22435806,
+      "officialTitle": "Why good leaders make you feel safe",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/b6cccc7593928f4861601289b937d19dac95bed9_1600x1200.jpg",
+      "views": 22441691
+    },
+    {
+      "url": "https://www.ted.com/talks/julian_treasure_how_to_speak_so_that_people_want_to_listen",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/julian_treasure_how_to_speak_so_that_people_want_to_listen",
+      "curlExit": 0,
+      "bytes": 46887,
+      "error": "",
+      "title": "How to speak so that people want to listen",
+      "previousViews": 71442983,
+      "officialTitle": "How to speak so that people want to listen",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/46964e3c-1231-42b7-9288-671ff9fdde2e/JulianTreasure_2013U-embed.jpg",
+      "views": 71475665
+    },
+    {
+      "url": "https://www.ted.com/talks/brene_brown_the_power_of_vulnerability",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/brene_brown_the_power_of_vulnerability",
+      "curlExit": 0,
+      "bytes": 53870,
+      "error": "",
+      "title": "The power of vulnerability",
+      "previousViews": 71317096,
+      "officialTitle": "The power of vulnerability",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/9595cdc1-fd8e-4aa1-863a-2c6641ae3cbb/BreneBrown_2010X-embed.jpg",
+      "views": 71329554
+    },
+    {
+      "url": "https://www.ted.com/talks/chimamanda_ngozi_adichie_the_danger_of_a_single_story",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/chimamanda_ngozi_adichie_the_danger_of_a_single_story",
+      "curlExit": 0,
+      "bytes": 52570,
+      "error": "",
+      "title": "The danger of a single story",
+      "previousViews": 43208384,
+      "officialTitle": "The danger of a single story",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/8953d163-926f-4331-8f1f-86db90b94f0b/ChimamandaAdichie_2009G-embed.jpg",
+      "views": 43220045
+    },
+    {
+      "url": "https://www.ted.com/talks/dan_pink_the_puzzle_of_motivation",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/dan_pink_the_puzzle_of_motivation",
+      "curlExit": 0,
+      "bytes": 53455,
+      "error": "",
+      "title": "The puzzle of motivation",
+      "previousViews": 32591841,
+      "officialTitle": "The puzzle of motivation",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/110884_800x600.jpg",
+      "views": 32594973
+    },
+    {
+      "url": "https://www.ted.com/talks/elizabeth_gilbert_your_elusive_creative_genius",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/elizabeth_gilbert_your_elusive_creative_genius",
+      "curlExit": 0,
+      "bytes": 58042,
+      "error": "",
+      "title": "Your elusive creative genius",
+      "previousViews": 22248302,
+      "officialTitle": "Your elusive creative genius",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/f2f6d094758c36a61b3ee7992a9b197eb4c07979_2880x1620.jpg",
+      "views": 22249318
+    },
+    {
+      "url": "https://www.ted.com/talks/david_kelley_how_to_build_your_creative_confidence",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/david_kelley_how_to_build_your_creative_confidence",
+      "curlExit": 0,
+      "bytes": 196502,
+      "error": "",
+      "title": "How to build your creative confidence",
+      "previousViews": 6572315,
+      "officialTitle": "How to build your creative confidence",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/25308d79fc7c5a343317a5bdbe0d0f62adc4491c_2880x1620.jpg",
+      "views": 6572773
+    },
+    {
+      "url": "https://www.ted.com/talks/pamela_meyer_how_to_spot_a_liar",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/pamela_meyer_how_to_spot_a_liar",
+      "curlExit": 0,
+      "bytes": 246811,
+      "error": "",
+      "title": "How to spot a liar",
+      "previousViews": 34636399,
+      "officialTitle": "How to spot a liar",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/40c841c7-43c2-4386-a885-9600f528ea55/PamelaMeyer_2011G-embed.jpg",
+      "views": 34638304
+    },
+    {
+      "url": "https://www.ted.com/talks/sheena_iyengar_the_art_of_choosing",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/sheena_iyengar_the_art_of_choosing",
+      "curlExit": 0,
+      "bytes": 230921,
+      "error": "",
+      "title": "The art of choosing",
+      "previousViews": 4570963,
+      "officialTitle": "The art of choosing",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/a40be2d3-65b1-4278-9715-75f91a067118/SheenaIyengar_2010G-embed.jpg",
+      "views": 4571367
+    },
+    {
+      "url": "https://www.ted.com/talks/susan_cain_the_power_of_introverts",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/susan_cain_the_power_of_introverts",
+      "curlExit": 0,
+      "bytes": 56293,
+      "error": "",
+      "title": "The power of introverts",
+      "previousViews": 36422694,
+      "officialTitle": "The power of introverts",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/b542b1ddd2e40cfcf9db3430598bc37cebfec8c1_1600x1200.jpg",
+      "views": 36426630
+    },
+    {
+      "url": "https://www.ted.com/talks/matt_cutts_try_something_new_for_30_days",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/matt_cutts_try_something_new_for_30_days",
+      "curlExit": 0,
+      "bytes": 40008,
+      "error": "",
+      "title": "Try something new for 30 days",
+      "previousViews": 16074928,
+      "officialTitle": "Try something new for 30 days",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/424e6719-7627-40bc-ae35-1ed70a66ed2a/MattCutts_2011U-embed.jpg",
+      "views": 16076600
+    },
+    {
+      "url": "https://www.ted.com/talks/rita_pierson_every_kid_needs_a_champion",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/rita_pierson_every_kid_needs_a_champion",
+      "curlExit": 0,
+      "bytes": 42705,
+      "error": "",
+      "title": "Every kid needs a champion",
+      "previousViews": 17710314,
+      "officialTitle": "Every kid needs a champion",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/25a5bc18d2472308c8ed2bb401b4a497f49a0265_1600x1200.jpg",
+      "views": 17715496
+    },
+    {
+      "url": "https://www.ted.com/talks/matt_walker_sleep_is_your_superpower",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/matt_walker_sleep_is_your_superpower",
+      "curlExit": 0,
+      "bytes": 52378,
+      "error": "",
+      "title": "Sleep is your superpower",
+      "previousViews": 27043211,
+      "officialTitle": "Sleep is your superpower",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/0a95ffba-8cfe-4d9c-8913-736275f78bf9/MatthewWalker_2019-embed.jpg",
+      "views": 27072340
+    },
+    {
+      "url": "https://www.ted.com/talks/sam_berns_my_philosophy_for_a_happy_life",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/sam_berns_my_philosophy_for_a_happy_life",
+      "curlExit": 0,
+      "bytes": 44732,
+      "error": "",
+      "title": "My philosophy for a happy life",
+      "previousViews": 49988651,
+      "officialTitle": "My philosophy for a happy life",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/dceb97aa-e320-4f5d-905f-14375f6d2a07/Sam+Berns.jpeg",
+      "views": 49993768
+    },
+    {
+      "url": "https://www.ted.com/talks/tim_ferriss_why_you_should_define_your_fears_instead_of_your_goals",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/tim_ferriss_why_you_should_define_your_fears_instead_of_your_goals",
+      "curlExit": 0,
+      "bytes": 50459,
+      "error": "",
+      "title": "Why you should define your fears instead of your goals",
+      "previousViews": 13022063,
+      "officialTitle": "Why you should define your fears instead of your goals",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/6b784c62-b4d0-4b3a-a1de-89de39b002bc/TimFerriss_2017-embed.jpg",
+      "views": 13023044
+    },
+    {
+      "url": "https://www.ted.com/talks/adam_velasquez_finding_confidence_through_failure",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/adam_velasquez_finding_confidence_through_failure",
+      "curlExit": 0,
+      "bytes": 146359,
+      "error": "",
+      "title": "Finding Confidence through Failure",
+      "previousViews": null,
+      "officialTitle": "Finding Confidence through Failure",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/d480df85-f1d5-4842-9a55-e2193aa2467a/mqdefault.jpg",
+      "views": null
+    },
+    {
+      "url": "https://www.ted.com/talks/celeste_headlee_10_ways_to_have_a_better_conversation",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/celeste_headlee_10_ways_to_have_a_better_conversation",
+      "curlExit": 0,
+      "bytes": 49438,
+      "error": "",
+      "title": "10 ways to have a better conversation",
+      "previousViews": 33146106,
+      "officialTitle": "10 ways to have a better conversation",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/42293f27-ad85-4999-a72b-96b6d5d2c398/CelesteHeadlee_2015X_embed.jpg",
+      "views": 33152704
+    },
+    {
+      "url": "https://www.ted.com/talks/steven_johnson_where_good_ideas_come_from",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/steven_johnson_where_good_ideas_come_from",
+      "curlExit": 0,
+      "bytes": 220654,
+      "error": "",
+      "title": "Where good ideas come from",
+      "previousViews": 5931694,
+      "officialTitle": "Where good ideas come from",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/c8244a05-ac8e-45c6-9b06-ac22113031db/StevenJohnson-2010G-embed.jpg",
+      "views": 5932134
+    },
+    {
+      "url": "https://www.ted.com/talks/sir_ken_robinson_do_schools_kill_creativity",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/sir_ken_robinson_do_schools_kill_creativity",
+      "curlExit": 0,
+      "bytes": 56335,
+      "error": "",
+      "title": "Do schools kill creativity?",
+      "previousViews": 80651569,
+      "officialTitle": "Do schools kill creativity?",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/6b6eb940bceab359ca676a9b486aae475c1df883_2880x1620.jpg",
+      "views": 80659124
+    },
+    {
+      "url": "https://www.ted.com/talks/mihaly_csikszentmihalyi_flow_the_secret_to_happiness",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/mihaly_csikszentmihalyi_flow_the_secret_to_happiness",
+      "curlExit": 0,
+      "bytes": 48369,
+      "error": "",
+      "title": "Flow, the secret to happiness",
+      "previousViews": 8071838,
+      "officialTitle": "Flow, the secret to happiness",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/ec28788873dd3e152461bc6c5c35d3694ab69023_2880x1620.jpg",
+      "views": 8072555
+    },
+    {
+      "url": "https://www.ted.com/talks/emily_esfahani_smith_there_s_more_to_life_than_being_happy",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/emily_esfahani_smith_there_s_more_to_life_than_being_happy",
+      "curlExit": 0,
+      "bytes": 53212,
+      "error": "",
+      "title": "There's more to life than being happy",
+      "previousViews": 15353247,
+      "officialTitle": "There's more to life than being happy",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/500cb54f-211f-4f7d-8202-a99507891b80/EmilyEsfahaniSmith_2017-embed.jpg",
+      "views": 15354956
+    },
+    {
+      "url": "https://www.ted.com/talks/michael_norton_how_to_buy_happiness",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/michael_norton_how_to_buy_happiness",
+      "curlExit": 0,
+      "bytes": 48861,
+      "error": "",
+      "title": "How to buy happiness",
+      "previousViews": 4873478,
+      "officialTitle": "How to buy happiness",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/dac773c5-9c88-4502-a01b-454fb89c5d56/MichaelNorton_2011X-embed.jpg",
+      "views": 4873742
+    },
+    {
+      "url": "https://www.ted.com/talks/amanda_palmer_the_art_of_asking",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/amanda_palmer_the_art_of_asking",
+      "curlExit": 0,
+      "bytes": 52857,
+      "error": "",
+      "title": "The art of asking",
+      "previousViews": 13189104,
+      "officialTitle": "The art of asking",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/d34538ab-7ae8-46ef-92cc-f83c055c1840/AmandaPalmer_2013-embed.jpg",
+      "views": 13189379
+    },
+    {
+      "url": "https://www.ted.com/talks/lera_boroditsky_how_language_shapes_the_way_we_think",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/lera_boroditsky_how_language_shapes_the_way_we_think",
+      "curlExit": 0,
+      "bytes": 51876,
+      "error": "",
+      "title": "How language shapes the way we think",
+      "previousViews": 27175115,
+      "officialTitle": "How language shapes the way we think",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/7adc2250-de27-4116-b4ea-6fb4637ca98a/LeraBoroditsky_2017W-embed.jpg",
+      "views": 27185960
+    },
+    {
+      "url": "https://www.ted.com/talks/david_steindl_rast_want_to_be_happy_be_grateful",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/david_steindl_rast_want_to_be_happy_be_grateful",
+      "curlExit": 0,
+      "bytes": 45322,
+      "error": "",
+      "title": "Want to be happy? Be grateful",
+      "previousViews": 9692648,
+      "officialTitle": "Want to be happy? Be grateful",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/02722e8404d9e8dd2ec003b249db0ce3d05bda19_1600x1200.jpg",
+      "views": 9693505
+    }
+  ],
+  "forumAccessChecks": [
+    {
+      "url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1Az4y1v7Z8",
+      "http": 0,
+      "finalURL": "https://api.bilibili.com/x/web-interface/view?bvid=BV1Az4y1v7Z8",
+      "curlExit": 6,
+      "bytes": 0,
+      "error": "curl: (6) Could not resolve host: api.bilibili.com",
+      "bvid": "BV1Az4y1v7Z8",
+      "title": "马云斯坦福演讲：世界在改变 你要采取行动",
+      "previousPlay": 211489
+    },
+    {
+      "url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1ATPQz5EVd",
+      "http": 412,
+      "finalURL": "https://api.bilibili.com/x/web-interface/view?bvid=BV1ATPQz5EVd",
+      "curlExit": 0,
+      "bytes": 3400,
+      "error": "",
+      "bvid": "BV1ATPQz5EVd",
+      "title": "易中天《易中天品三国》52集全",
+      "previousPlay": 875734
+    },
+    {
+      "url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1h44y1D7mU",
+      "http": 412,
+      "finalURL": "https://api.bilibili.com/x/web-interface/view?bvid=BV1h44y1D7mU",
+      "curlExit": 0,
+      "bytes": 3400,
+      "error": "",
+      "bvid": "BV1h44y1D7mU",
+      "title": "【五百年来王阳明】传奇开始的地方，知行合一（郦波）",
+      "previousPlay": 422686
+    },
+    {
+      "url": "https://www.bilibili.com/video/BV1Az4y1v7Z8",
+      "http": 412,
+      "finalURL": "https://www.bilibili.com/video/BV1Az4y1v7Z8",
+      "curlExit": 0,
+      "bytes": 3400,
+      "error": ""
+    }
+  ],
+  "forumSeries": 25,
+  "forumVideos": 205,
+  "learningResourceChecks": [
+    {
+      "url": "https://pybamm.org/",
+      "http": 200,
+      "finalURL": "https://pybamm.org/",
+      "curlExit": 0,
+      "bytes": 17013,
+      "error": "",
+      "title": "PyBaMM · 电池性能与老化建模官方文档 · 英文",
+      "pageTitle": "PyBaMM - Homepage",
+      "classification": "http-accessible"
+    },
+    {
+      "url": "https://pymatgen.org/",
+      "http": 200,
+      "finalURL": "https://pymatgen.org/",
+      "curlExit": 0,
+      "bytes": 42877,
+      "error": "",
+      "title": "pymatgen · 材料结构与相图分析官方文档 · 英文",
+      "pageTitle": "Home | pymatgen",
+      "classification": "http-accessible"
+    },
+    {
+      "url": "https://hackingmaterials.lbl.gov/matminer/",
+      "http": 200,
+      "finalURL": "https://hackingmaterials.lbl.gov/matminer/",
+      "curlExit": 0,
+      "bytes": 29841,
+      "error": "",
+      "title": "matminer · 材料数据与机器学习官方文档 · 英文",
+      "pageTitle": "matminer (Materials Data Mining) — matminer 0.10.0rc0 documentation",
+      "classification": "http-accessible"
+    },
+    {
+      "url": "https://www.bilibili.com/video/BV1KUNjzpEpM/",
+      "http": 412,
+      "finalURL": "https://www.bilibili.com/video/BV1KUNjzpEpM/",
+      "curlExit": 0,
+      "bytes": 3400,
+      "error": "",
+      "title": "李宏毅《生成式AI导论 2025》B站",
+      "pageTitle": "出错啦! - bilibili.com",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://www.bilibili.com/video/BV1aiADewEBC/",
+      "http": 412,
+      "finalURL": "https://www.bilibili.com/video/BV1aiADewEBC/",
+      "curlExit": 0,
+      "bytes": 3400,
+      "error": "",
+      "title": "李宏毅《机器学习 2025》B站",
+      "pageTitle": "出错啦! - bilibili.com",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://space.bilibili.com/88461692",
+      "http": 412,
+      "finalURL": "https://space.bilibili.com/88461692",
+      "curlExit": 0,
+      "bytes": 3400,
+      "error": "",
+      "title": "3Blue1Brown 官方账号（中文字幕）B站",
+      "pageTitle": "出错啦! - bilibili.com",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://www.youtube.com/@AndrejKarpathy",
+      "http": 200,
+      "finalURL": "https://www.youtube.com/@AndrejKarpathy",
+      "curlExit": 28,
+      "bytes": 194930,
+      "error": "curl: (28) Operation timed out after 12005 milliseconds with 194930 bytes received",
+      "title": "Karpathy：How I use LLMs / Intro to LLMsYouTube（需梯子）",
+      "pageTitle": null,
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://search.bilibili.com/all?keyword=%E5%A4%A7%E6%A8%A1%E5%9E%8B%20%E5%8E%9F%E7%90%86%20%E5%85%A5%E9%97%A8",
+      "http": 200,
+      "finalURL": "https://search.bilibili.com/all?keyword=%E5%A4%A7%E6%A8%A1%E5%9E%8B%20%E5%8E%9F%E7%90%86%20%E5%85%A5%E9%97%A8",
+      "curlExit": 28,
+      "bytes": 99462,
+      "error": "curl: (28) Operation timed out after 12003 milliseconds with 99462 bytes received",
+      "title": "B站搜：大模型 原理 入门B站",
+      "pageTitle": "大模型 原理 入门-哔哩哔哩_bilibili",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://search.bilibili.com/all?keyword=AI%20%E7%A7%91%E6%99%AE%20%E9%80%9A%E4%BF%97",
+      "http": 200,
+      "finalURL": "https://search.bilibili.com/all?keyword=AI%20%E7%A7%91%E6%99%AE%20%E9%80%9A%E4%BF%97",
+      "curlExit": 28,
+      "bytes": 127713,
+      "error": "curl: (28) Operation timed out after 12013 milliseconds with 127713 bytes received",
+      "title": "B站搜：AI 科普 通俗B站",
+      "pageTitle": "AI 科普 通俗-哔哩哔哩_bilibili",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://search.bilibili.com/all?keyword=%E5%81%9A%E7%A7%91%E7%A0%94%E7%9A%84%E5%A4%A7%E5%B8%88%E5%85%84",
+      "http": 200,
+      "finalURL": "https://search.bilibili.com/all?keyword=%E5%81%9A%E7%A7%91%E7%A0%94%E7%9A%84%E5%A4%A7%E5%B8%88%E5%85%84",
+      "curlExit": 28,
+      "bytes": 50609,
+      "error": "curl: (28) Operation timed out after 12009 milliseconds with 50609 bytes received",
+      "title": "做科研的大师兄B站",
+      "pageTitle": "做科研的大师兄-哔哩哔哩_bilibili",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://search.bilibili.com/all?keyword=%E5%90%8C%E6%B5%8E%E5%AD%90%E8%B1%AA%E5%85%84",
+      "http": 200,
+      "finalURL": "https://search.bilibili.com/all?keyword=%E5%90%8C%E6%B5%8E%E5%AD%90%E8%B1%AA%E5%85%84",
+      "curlExit": 28,
+      "bytes": 50223,
+      "error": "curl: (28) Operation timed out after 12005 milliseconds with 50223 bytes received",
+      "title": "同济子豪兄B站",
+      "pageTitle": "同济子豪兄-哔哩哔哩_bilibili",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://search.bilibili.com/all?keyword=%E5%A4%A9JIANG",
+      "http": 200,
+      "finalURL": "https://search.bilibili.com/all?keyword=%E5%A4%A9JIANG",
+      "curlExit": 28,
+      "bytes": 83134,
+      "error": "curl: (28) Operation timed out after 12006 milliseconds with 83134 bytes received",
+      "title": "天Jiang 学长B站",
+      "pageTitle": "天JIANG-哔哩哔哩_bilibili",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://search.bilibili.com/all?keyword=AI%20%E5%86%99%E8%AE%BA%E6%96%87%20%E6%95%99%E7%A8%8B",
+      "http": 200,
+      "finalURL": "https://search.bilibili.com/all?keyword=AI%20%E5%86%99%E8%AE%BA%E6%96%87%20%E6%95%99%E7%A8%8B",
+      "curlExit": 28,
+      "bytes": 50212,
+      "error": "curl: (28) Operation timed out after 12012 milliseconds with 50212 bytes received",
+      "title": "B站搜：AI 写论文 教程B站",
+      "pageTitle": "AI 写论文 教程-哔哩哔哩_bilibili",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://search.bilibili.com/all?keyword=ChatGPT%20%E7%A7%91%E7%A0%94%20%E4%BD%BF%E7%94%A8",
+      "http": 200,
+      "finalURL": "https://search.bilibili.com/all?keyword=ChatGPT%20%E7%A7%91%E7%A0%94%20%E4%BD%BF%E7%94%A8",
+      "curlExit": 28,
+      "bytes": 114303,
+      "error": "curl: (28) Operation timed out after 12011 milliseconds with 114303 bytes received",
+      "title": "B站搜：ChatGPT 科研 使用B站",
+      "pageTitle": "ChatGPT 科研 使用-哔哩哔哩_bilibili",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://search.bilibili.com/all?keyword=AI%20%E6%96%87%E7%8C%AE%E7%BB%BC%E8%BF%B0",
+      "http": 200,
+      "finalURL": "https://search.bilibili.com/all?keyword=AI%20%E6%96%87%E7%8C%AE%E7%BB%BC%E8%BF%B0",
+      "curlExit": 28,
+      "bytes": 16531,
+      "error": "curl: (28) Operation timed out after 12013 milliseconds with 16531 bytes received",
+      "title": "B站搜：AI 文献综述B站",
+      "pageTitle": "AI 文献综述-哔哩哔哩_bilibili",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://search.bilibili.com/all?keyword=AI%20%E6%B6%A6%E8%89%B2%20%E8%AE%BA%E6%96%87",
+      "http": 200,
+      "finalURL": "https://search.bilibili.com/all?keyword=AI%20%E6%B6%A6%E8%89%B2%20%E8%AE%BA%E6%96%87",
+      "curlExit": 28,
+      "bytes": 63531,
+      "error": "curl: (28) Operation timed out after 12013 milliseconds with 63531 bytes received",
+      "title": "B站搜：AI 润色 论文B站",
+      "pageTitle": "AI 润色 论文-哔哩哔哩_bilibili",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://search.bilibili.com/all?keyword=ChatGPT%20%E6%95%99%E7%A8%8B",
+      "http": 200,
+      "finalURL": "https://search.bilibili.com/all?keyword=ChatGPT%20%E6%95%99%E7%A8%8B",
+      "curlExit": 28,
+      "bytes": 179005,
+      "error": "curl: (28) Operation timed out after 12007 milliseconds with 179005 bytes received",
+      "title": "B站搜：ChatGPT 教程B站",
+      "pageTitle": "ChatGPT 教程-哔哩哔哩_bilibili",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://search.bilibili.com/all?keyword=DeepSeek%20%E6%95%99%E7%A8%8B",
+      "http": 0,
+      "finalURL": "https://search.bilibili.com/all?keyword=DeepSeek%20%E6%95%99%E7%A8%8B",
+      "curlExit": 35,
+      "bytes": 0,
+      "error": "curl: (35) Recv failure: Connection was reset",
+      "title": "B站搜：DeepSeek 教程B站",
+      "pageTitle": null,
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://search.bilibili.com/all?keyword=Kimi%20%E6%95%99%E7%A8%8B",
+      "http": 200,
+      "finalURL": "https://search.bilibili.com/all?keyword=Kimi%20%E6%95%99%E7%A8%8B",
+      "curlExit": 28,
+      "bytes": 66597,
+      "error": "curl: (28) Operation timed out after 12014 milliseconds with 66597 bytes received",
+      "title": "B站搜：Kimi 教程B站",
+      "pageTitle": "Kimi 教程-哔哩哔哩_bilibili",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://search.bilibili.com/all?keyword=AI%20%E5%81%9A%20PPT%20%E6%95%99%E7%A8%8B",
+      "http": 200,
+      "finalURL": "https://search.bilibili.com/all?keyword=AI%20%E5%81%9A%20PPT%20%E6%95%99%E7%A8%8B",
+      "curlExit": 28,
+      "bytes": 115768,
+      "error": "curl: (28) Operation timed out after 12015 milliseconds with 115768 bytes received",
+      "title": "B站搜：AI 做 PPT 教程B站",
+      "pageTitle": "AI 做 PPT 教程-哔哩哔哩_bilibili",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://search.bilibili.com/all?keyword=AI%20%E7%BB%98%E5%9B%BE%20%E6%95%99%E7%A8%8B",
+      "http": 200,
+      "finalURL": "https://search.bilibili.com/all?keyword=AI%20%E7%BB%98%E5%9B%BE%20%E6%95%99%E7%A8%8B",
+      "curlExit": 28,
+      "bytes": 33926,
+      "error": "curl: (28) Operation timed out after 12003 milliseconds with 33926 bytes received",
+      "title": "B站搜：AI 绘图 教程B站",
+      "pageTitle": "AI 绘图 教程-哔哩哔哩_bilibili",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://search.bilibili.com/all?keyword=NotebookLM%20%E6%95%99%E7%A8%8B",
+      "http": 200,
+      "finalURL": "https://search.bilibili.com/all?keyword=NotebookLM%20%E6%95%99%E7%A8%8B",
+      "curlExit": 28,
+      "bytes": 16470,
+      "error": "curl: (28) Operation timed out after 12003 milliseconds with 16470 bytes received",
+      "title": "B站搜：NotebookLM 教程B站",
+      "pageTitle": "NotebookLM 教程-哔哩哔哩_bilibili",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://search.bilibili.com/all?keyword=%E8%B1%86%E5%8C%85%20AI%20%E6%95%99%E7%A8%8B",
+      "http": 200,
+      "finalURL": "https://search.bilibili.com/all?keyword=%E8%B1%86%E5%8C%85%20AI%20%E6%95%99%E7%A8%8B",
+      "curlExit": 28,
+      "bytes": 110802,
+      "error": "curl: (28) Operation timed out after 12006 milliseconds with 110802 bytes received",
+      "title": "B站搜：豆包 AI 教程B站",
+      "pageTitle": "豆包 AI 教程-哔哩哔哩_bilibili",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://search.bilibili.com/all?keyword=Claude%20%E6%95%99%E7%A8%8B",
+      "http": 200,
+      "finalURL": "https://search.bilibili.com/all?keyword=Claude%20%E6%95%99%E7%A8%8B",
+      "curlExit": 28,
+      "bytes": 50277,
+      "error": "curl: (28) Operation timed out after 12006 milliseconds with 50277 bytes received",
+      "title": "B站搜：Claude 教程B站",
+      "pageTitle": "Claude 教程-哔哩哔哩_bilibili",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://www.bilibili.com/video/BV1daQAYuEYm/",
+      "http": 412,
+      "finalURL": "https://www.bilibili.com/video/BV1daQAYuEYm/",
+      "curlExit": 0,
+      "bytes": 3400,
+      "error": "",
+      "title": "李沐《动手学深度学习》B站",
+      "pageTitle": "出错啦! - bilibili.com",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://search.bilibili.com/all?keyword=Python%20%E9%9B%B6%E5%9F%BA%E7%A1%80%20%E5%85%A5%E9%97%A8",
+      "http": 200,
+      "finalURL": "https://search.bilibili.com/all?keyword=Python%20%E9%9B%B6%E5%9F%BA%E7%A1%80%20%E5%85%A5%E9%97%A8",
+      "curlExit": 28,
+      "bytes": 59797,
+      "error": "curl: (28) Operation timed out after 12014 milliseconds with 59797 bytes received",
+      "title": "B站搜：Python 零基础 入门B站",
+      "pageTitle": "Python 零基础 入门-哔哩哔哩_bilibili",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://search.bilibili.com/all?keyword=Origin%20%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%20%E6%95%99%E7%A8%8B",
+      "http": 200,
+      "finalURL": "https://search.bilibili.com/all?keyword=Origin%20%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%20%E6%95%99%E7%A8%8B",
+      "curlExit": 28,
+      "bytes": 50334,
+      "error": "curl: (28) Operation timed out after 12015 milliseconds with 50334 bytes received",
+      "title": "B站搜：Origin 数据处理 教程B站",
+      "pageTitle": "Origin 数据处理 教程-哔哩哔哩_bilibili",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://search.bilibili.com/all?keyword=Excel%20%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%20%E6%95%99%E7%A8%8B",
+      "http": 200,
+      "finalURL": "https://search.bilibili.com/all?keyword=Excel%20%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%20%E6%95%99%E7%A8%8B",
+      "curlExit": 28,
+      "bytes": 99874,
+      "error": "curl: (28) Operation timed out after 12009 milliseconds with 99874 bytes received",
+      "title": "B站搜：Excel 数据分析 教程B站",
+      "pageTitle": "Excel 数据分析 教程-哔哩哔哩_bilibili",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://search.bilibili.com/all?keyword=SPSS%20%E6%95%99%E7%A8%8B",
+      "http": 200,
+      "finalURL": "https://search.bilibili.com/all?keyword=SPSS%20%E6%95%99%E7%A8%8B",
+      "curlExit": 28,
+      "bytes": 50269,
+      "error": "curl: (28) Operation timed out after 12013 milliseconds with 50269 bytes received",
+      "title": "B站搜：SPSS 教程B站",
+      "pageTitle": "SPSS 教程-哔哩哔哩_bilibili",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://search.bilibili.com/all?keyword=MATLAB%20%E6%95%99%E7%A8%8B",
+      "http": 200,
+      "finalURL": "https://search.bilibili.com/all?keyword=MATLAB%20%E6%95%99%E7%A8%8B",
+      "curlExit": 28,
+      "bytes": 16585,
+      "error": "curl: (28) Operation timed out after 12010 milliseconds with 16585 bytes received",
+      "title": "B站搜：MATLAB 教程B站",
+      "pageTitle": "MATLAB 教程-哔哩哔哩_bilibili",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://www.deeplearning.ai/",
+      "http": 200,
+      "finalURL": "https://www.deeplearning.ai/",
+      "curlExit": 28,
+      "bytes": 201872,
+      "error": "curl: (28) Operation timed out after 12001 milliseconds with 201872 bytes received",
+      "title": "DeepLearning.AI（Andrew Ng）官网",
+      "pageTitle": "DeepLearning.AI: Start or Advance Your Career in AI",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://developers.google.com/machine-learning/crash-course",
+      "http": 200,
+      "finalURL": "https://developers.google.com/machine-learning/crash-course",
+      "curlExit": 0,
+      "bytes": 139503,
+      "error": "",
+      "title": "Google 机器学习速成课 MLCC官网",
+      "pageTitle": "Machine Learning  |  Google for Developers",
+      "classification": "http-accessible"
+    },
+    {
+      "url": "https://cs50.harvard.edu/ai/",
+      "http": 200,
+      "finalURL": "https://cs50.harvard.edu/ai/",
+      "curlExit": 0,
+      "bytes": 17115,
+      "error": "",
+      "title": "Harvard CS50 AI with Python官网",
+      "pageTitle": "CS50's Introduction to Artificial Intelligence with Python",
+      "classification": "http-accessible"
+    },
+    {
+      "url": "https://www.fast.ai/",
+      "http": 200,
+      "finalURL": "https://www.fast.ai/",
+      "curlExit": 0,
+      "bytes": 252562,
+      "error": "",
+      "title": "fast.ai《Practical Deep Learning》官网",
+      "pageTitle": "fast.ai—Making neural nets uncool again – fast.ai",
+      "classification": "http-accessible"
+    },
+    {
+      "url": "https://www.elementsofai.com/",
+      "http": 200,
+      "finalURL": "https://www.elementsofai.com/",
+      "curlExit": 0,
+      "bytes": 63234,
+      "error": "",
+      "title": "Elements of AI（赫尔辛基大学）官网",
+      "pageTitle": "A free online introduction to artificial intelligence for non-experts",
+      "classification": "http-accessible"
+    },
+    {
+      "url": "https://introtodeeplearning.com/",
+      "http": 200,
+      "finalURL": "https://introtodeeplearning.com/",
+      "curlExit": 0,
+      "bytes": 92433,
+      "error": "",
+      "title": "MIT 6.S191 深度学习导论官网",
+      "pageTitle": "MIT Deep Learning 6.S191",
+      "classification": "http-accessible"
+    },
+    {
+      "url": "https://huggingface.co/learn",
+      "http": 200,
+      "finalURL": "https://huggingface.co/learn",
+      "curlExit": 0,
+      "bytes": 70309,
+      "error": "",
+      "title": "Hugging Face Learn官网",
+      "pageTitle": "Hugging Face - Learn",
+      "classification": "http-accessible"
+    },
+    {
+      "url": "https://www.kaggle.com/learn",
+      "http": 200,
+      "finalURL": "https://www.kaggle.com/learn",
+      "curlExit": 0,
+      "bytes": 6074,
+      "error": "",
+      "title": "Kaggle Learn官网",
+      "pageTitle": "Learn Python, Data Viz, Pandas & More | Tutorials | Kaggle",
+      "classification": "http-accessible"
+    },
+    {
+      "url": "https://platform.openai.com/docs/guides/prompt-engineering",
+      "http": 301,
+      "finalURL": "https://platform.openai.com/docs/guides/prompt-engineering",
+      "curlExit": 28,
+      "bytes": 0,
+      "error": "curl: (28) Operation timed out after 12004 milliseconds with 0 out of 98 bytes received",
+      "title": "OpenAI 官方提示工程指南官网",
+      "pageTitle": null,
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "http": 301,
+      "finalURL": "https://platform.claude.com/docs/en/docs/build-with-claude/prompt-engineering/overview",
+      "curlExit": 28,
+      "bytes": 0,
+      "error": "curl: (28) Operation timed out after 5525 milliseconds with 0 bytes received",
+      "title": "Anthropic 提示工程文档官网",
+      "pageTitle": null,
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://learnprompting.org/",
+      "http": 200,
+      "finalURL": "https://learnprompting.org/",
+      "curlExit": 0,
+      "bytes": 101208,
+      "error": "",
+      "title": "Learn Prompting（开源教程）官网",
+      "pageTitle": "Learn Prompting: Your Guide to Communicating with AI",
+      "classification": "http-accessible"
+    },
+    {
+      "url": "https://www.promptingguide.ai/",
+      "http": 200,
+      "finalURL": "https://www.promptingguide.ai/",
+      "curlExit": 0,
+      "bytes": 133747,
+      "error": "",
+      "title": "Prompt Engineering Guide（DAIR.AI）官网",
+      "pageTitle": "Prompt Engineering Guide | Prompt Engineering Guide",
+      "classification": "http-accessible"
+    },
+    {
+      "url": "https://search.bilibili.com/all?keyword=%E6%8F%90%E7%A4%BA%E8%AF%8D%20%E6%8A%80%E5%B7%A7",
+      "http": 200,
+      "finalURL": "https://search.bilibili.com/all?keyword=%E6%8F%90%E7%A4%BA%E8%AF%8D%20%E6%8A%80%E5%B7%A7",
+      "curlExit": 28,
+      "bytes": 78682,
+      "error": "curl: (28) Operation timed out after 12007 milliseconds with 78682 bytes received",
+      "title": "B站搜：提示词 技巧B站",
+      "pageTitle": "提示词 技巧-哔哩哔哩_bilibili",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://www.deeplearning.ai/the-batch/",
+      "http": 200,
+      "finalURL": "https://www.deeplearning.ai/the-batch",
+      "curlExit": 0,
+      "bytes": 192545,
+      "error": "",
+      "title": "The Batch（DeepLearning.AI 周报）官网",
+      "pageTitle": "The Batch | DeepLearning.AI | AI News & Insights",
+      "classification": "http-accessible"
+    },
+    {
+      "url": "https://lilianweng.github.io/",
+      "http": 200,
+      "finalURL": "https://lilianweng.github.io/",
+      "curlExit": 0,
+      "bytes": 26437,
+      "error": "",
+      "title": "Lilian Weng Blog官网",
+      "pageTitle": "Lil'Log",
+      "classification": "http-accessible"
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/prompting-strategies",
+      "http": 302,
+      "finalURL": "https://ai.google.dev/gemini-api/docs/prompting-strategies",
+      "curlExit": 28,
+      "bytes": 0,
+      "error": "curl: (28) Operation timed out after 12377 milliseconds with 0 bytes received",
+      "title": "Google Gemini 提示策略官网",
+      "pageTitle": null,
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://www.jiqizhixin.com/",
+      "http": 200,
+      "finalURL": "https://www.jiqizhixin.com/",
+      "curlExit": 0,
+      "bytes": 13346,
+      "error": "",
+      "title": "机器之心官网",
+      "pageTitle": "机器之心",
+      "classification": "http-accessible"
+    },
+    {
+      "url": "https://www.qbitai.com/",
+      "http": 0,
+      "curlExit": -1,
+      "error": "Command '['curl.exe', '-L', '-sS', '--max-time', '12', '-A', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', '-H', 'Referer: https://www.qbitai.com/', '-w', '\\n@@RESULT@@%{json}', 'https://www.qbitai.com/']' timed out after 16 second",
+      "title": "量子位官网",
+      "pageTitle": null,
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://search.bilibili.com/all?keyword=AI%20%E6%97%A5%E6%8A%A5",
+      "http": 200,
+      "finalURL": "https://search.bilibili.com/all?keyword=AI%20%E6%97%A5%E6%8A%A5",
+      "curlExit": 28,
+      "bytes": 99459,
+      "error": "curl: (28) Operation timed out after 12006 milliseconds with 99459 bytes received",
+      "title": "B站搜：AI 日报B站",
+      "pageTitle": "AI 日报-哔哩哔哩_bilibili",
+      "classification": "unverified-access"
+    }
+  ],
+  "scope": "TED: all 40 official talk pages. Forum: one API sample from each of the three categories and one ordinary playback page; failures do not imply other videos are dead. Learning: every distinct existing resource link; HTTP success is not a full course or pricing validation.",
+  "applied": true,
+  "initialTedAttempt": [
+    {
+      "url": "https://www.ted.com/talks/charlie_robinson_why_you_thought_school_was_a_waste_of_time",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/charlie_robinson_why_you_thought_school_was_a_waste_of_time",
+      "curlExit": 28,
+      "bytes": 98304,
+      "error": "curl: (28) Operation timed out after 18012 milliseconds with 98304 out of 148680 bytes received",
+      "title": "Why you thought school was a waste of time",
+      "previousViews": 15691
+    },
+    {
+      "url": "https://www.ted.com/talks/angela_lee_duckworth_grit_the_power_of_passion_and_perseverance",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/angela_lee_duckworth_grit_the_power_of_passion_and_perseverance",
+      "curlExit": 0,
+      "bytes": 185061,
+      "error": "",
+      "title": "Grit: The power of passion and perseverance",
+      "previousViews": 39139293,
+      "officialTitle": "Grit: The power of passion and perseverance",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/49490c34-ef8e-45b1-8037-a4958efc2609/AngelaDuckworth_2013S-embed.jpg",
+      "views": 39151103
+    },
+    {
+      "url": "https://www.ted.com/talks/carol_dweck_the_power_of_believing_that_you_can_improve",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/carol_dweck_the_power_of_believing_that_you_can_improve",
+      "curlExit": 0,
+      "bytes": 184875,
+      "error": "",
+      "title": "The power of believing that you can improve",
+      "previousViews": 18299303,
+      "officialTitle": "The power of believing that you can improve",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/85582d553035da22504c315ba5ec7ed727f16354_2880x1620.jpg",
+      "views": 18305005
+    },
+    {
+      "url": "https://www.ted.com/talks/diana_laufenberg_how_to_learn_from_mistakes",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/diana_laufenberg_how_to_learn_from_mistakes",
+      "curlExit": 28,
+      "bytes": 178504,
+      "error": "curl: (28) Operation timed out after 18014 milliseconds with 178504 out of 193682 bytes received",
+      "title": "How to learn? From mistakes",
+      "previousViews": 2481763
+    },
+    {
+      "url": "https://www.ted.com/talks/dan_gilbert_the_surprising_science_of_happiness",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/dan_gilbert_the_surprising_science_of_happiness",
+      "curlExit": 28,
+      "bytes": 178506,
+      "error": "curl: (28) Operation timed out after 18002 milliseconds with 178506 out of 235203 bytes received",
+      "title": "The surprising science of happiness",
+      "previousViews": 21156696
+    },
+    {
+      "url": "https://www.ted.com/talks/dan_gilbert_the_psychology_of_your_future_self",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/dan_gilbert_the_psychology_of_your_future_self",
+      "curlExit": 28,
+      "bytes": 146176,
+      "error": "curl: (28) Operation timed out after 18006 milliseconds with 146176 out of 183830 bytes received",
+      "title": "The psychology of your future self",
+      "previousViews": 7853529
+    },
+    {
+      "url": "https://www.ted.com/talks/robert_waldinger_what_makes_a_good_life_lessons_from_the_longest_study_on_happiness",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/robert_waldinger_what_makes_a_good_life_lessons_from_the_longest_study_on_happiness",
+      "curlExit": 28,
+      "bytes": 48175,
+      "error": "curl: (28) Operation timed out after 18015 milliseconds with 48175 out of 201096 bytes received",
+      "title": "What makes a good life? Lessons from the longest study on happiness",
+      "previousViews": 53423928
+    },
+    {
+      "url": "https://www.ted.com/talks/shawn_achor_the_happy_secret_to_better_work",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/shawn_achor_the_happy_secret_to_better_work",
+      "curlExit": 28,
+      "bytes": 194889,
+      "error": "curl: (28) Operation timed out after 18000 milliseconds with 194889 out of 216734 bytes received",
+      "title": "The happy secret to better work",
+      "previousViews": 27349089
+    },
+    {
+      "url": "https://www.ted.com/talks/matthieu_ricard_the_habits_of_happiness",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/matthieu_ricard_the_habits_of_happiness",
+      "curlExit": 28,
+      "bytes": 162145,
+      "error": "curl: (28) Operation timed out after 18014 milliseconds with 162145 out of 215148 bytes received",
+      "title": "The habits of happiness",
+      "previousViews": 10948451
+    },
+    {
+      "url": "https://www.ted.com/talks/kelly_mcgonigal_how_to_make_stress_your_friend",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/kelly_mcgonigal_how_to_make_stress_your_friend",
+      "curlExit": 28,
+      "bytes": 196608,
+      "error": "curl: (28) Operation timed out after 18009 milliseconds with 196608 out of 208194 bytes received",
+      "title": "How to make stress your friend",
+      "previousViews": 37367075
+    },
+    {
+      "url": "https://www.ted.com/talks/judson_brewer_a_simple_way_to_break_a_bad_habit",
+      "http": 0,
+      "finalURL": "https://www.ted.com/talks/judson_brewer_a_simple_way_to_break_a_bad_habit",
+      "curlExit": 28,
+      "bytes": 0,
+      "error": "curl: (28) Connection timed out after 18013 milliseconds",
+      "title": "A simple way to break a bad habit",
+      "previousViews": 24798588
+    },
+    {
+      "url": "https://www.ted.com/talks/tim_urban_inside_the_mind_of_a_master_procrastinator",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/tim_urban_inside_the_mind_of_a_master_procrastinator",
+      "curlExit": 28,
+      "bytes": 162864,
+      "error": "curl: (28) Operation timed out after 18000 milliseconds with 162864 out of 214180 bytes received",
+      "title": "Inside the mind of a master procrastinator",
+      "previousViews": 79205037
+    },
+    {
+      "url": "https://www.ted.com/talks/laura_vanderkam_how_to_gain_control_of_your_free_time",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/laura_vanderkam_how_to_gain_control_of_your_free_time",
+      "curlExit": 28,
+      "bytes": 180224,
+      "error": "curl: (28) Operation timed out after 18009 milliseconds with 180224 out of 210870 bytes received",
+      "title": "How to gain control of your free time",
+      "previousViews": 16500503
+    },
+    {
+      "url": "https://www.ted.com/talks/amy_cuddy_your_body_language_may_shape_who_you_are",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/amy_cuddy_your_body_language_may_shape_who_you_are",
+      "curlExit": 28,
+      "bytes": 162864,
+      "error": "curl: (28) Operation timed out after 18011 milliseconds with 162864 out of 233023 bytes received",
+      "title": "Your body language may shape who you are",
+      "previousViews": 77736146
+    },
+    {
+      "url": "https://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action",
+      "curlExit": 28,
+      "bytes": 98304,
+      "error": "curl: (28) Operation timed out after 18005 milliseconds with 98304 out of 222838 bytes received",
+      "title": "How great leaders inspire action",
+      "previousViews": 71245207
+    },
+    {
+      "url": "https://www.ted.com/talks/simon_sinek_why_good_leaders_make_you_feel_safe",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/simon_sinek_why_good_leaders_make_you_feel_safe",
+      "curlExit": 0,
+      "bytes": 205076,
+      "error": "",
+      "title": "Why good leaders make you feel safe",
+      "previousViews": 22435806,
+      "officialTitle": "Why good leaders make you feel safe",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/b6cccc7593928f4861601289b937d19dac95bed9_1600x1200.jpg",
+      "views": 22441691
+    },
+    {
+      "url": "https://www.ted.com/talks/julian_treasure_how_to_speak_so_that_people_want_to_listen",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/julian_treasure_how_to_speak_so_that_people_want_to_listen",
+      "curlExit": 28,
+      "bytes": 196608,
+      "error": "curl: (28) Operation timed out after 18007 milliseconds with 196608 out of 209685 bytes received",
+      "title": "How to speak so that people want to listen",
+      "previousViews": 71442983
+    },
+    {
+      "url": "https://www.ted.com/talks/brene_brown_the_power_of_vulnerability",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/brene_brown_the_power_of_vulnerability",
+      "curlExit": 28,
+      "bytes": 130095,
+      "error": "curl: (28) Operation timed out after 18010 milliseconds with 130095 out of 226419 bytes received",
+      "title": "The power of vulnerability",
+      "previousViews": 71317096
+    },
+    {
+      "url": "https://www.ted.com/talks/chimamanda_ngozi_adichie_the_danger_of_a_single_story",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/chimamanda_ngozi_adichie_the_danger_of_a_single_story",
+      "curlExit": 28,
+      "bytes": 145737,
+      "error": "curl: (28) Operation timed out after 18013 milliseconds with 145737 out of 218386 bytes received",
+      "title": "The danger of a single story",
+      "previousViews": 43208384
+    },
+    {
+      "url": "https://www.ted.com/talks/dan_pink_the_puzzle_of_motivation",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/dan_pink_the_puzzle_of_motivation",
+      "curlExit": 28,
+      "bytes": 48176,
+      "error": "curl: (28) Operation timed out after 18006 milliseconds with 48176 out of 218476 bytes received",
+      "title": "The puzzle of motivation",
+      "previousViews": 32591841
+    },
+    {
+      "url": "https://www.ted.com/talks/elizabeth_gilbert_your_elusive_creative_genius",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/elizabeth_gilbert_your_elusive_creative_genius",
+      "curlExit": 28,
+      "bytes": 147456,
+      "error": "curl: (28) Operation timed out after 18006 milliseconds with 147456 out of 233291 bytes received",
+      "title": "Your elusive creative genius",
+      "previousViews": 22248302
+    },
+    {
+      "url": "https://www.ted.com/talks/david_kelley_how_to_build_your_creative_confidence",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/david_kelley_how_to_build_your_creative_confidence",
+      "curlExit": 0,
+      "bytes": 196502,
+      "error": "",
+      "title": "How to build your creative confidence",
+      "previousViews": 6572315,
+      "officialTitle": "How to build your creative confidence",
+      "cover": "https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/25308d79fc7c5a343317a5bdbe0d0f62adc4491c_2880x1620.jpg",
+      "views": 6572773
+    },
+    {
+      "url": "https://www.ted.com/talks/pamela_meyer_how_to_spot_a_liar",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/pamela_meyer_how_to_spot_a_liar",
+      "curlExit": 0,
+      "bytes": 246811,
+      "error": "",
+      "title": "How to spot a liar",
+      "previousViews": 34636399,
+      "officialTitle": "How to spot a liar",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/40c841c7-43c2-4386-a885-9600f528ea55/PamelaMeyer_2011G-embed.jpg",
+      "views": 34638304
+    },
+    {
+      "url": "https://www.ted.com/talks/sheena_iyengar_the_art_of_choosing",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/sheena_iyengar_the_art_of_choosing",
+      "curlExit": 0,
+      "bytes": 230921,
+      "error": "",
+      "title": "The art of choosing",
+      "previousViews": 4570963,
+      "officialTitle": "The art of choosing",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/a40be2d3-65b1-4278-9715-75f91a067118/SheenaIyengar_2010G-embed.jpg",
+      "views": 4571367
+    },
+    {
+      "url": "https://www.ted.com/talks/susan_cain_the_power_of_introverts",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/susan_cain_the_power_of_introverts",
+      "curlExit": 28,
+      "bytes": 81920,
+      "error": "curl: (28) Operation timed out after 18002 milliseconds with 81920 out of 226972 bytes received",
+      "title": "The power of introverts",
+      "previousViews": 36422694
+    },
+    {
+      "url": "https://www.ted.com/talks/matt_cutts_try_something_new_for_30_days",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/matt_cutts_try_something_new_for_30_days",
+      "curlExit": 28,
+      "bytes": 146481,
+      "error": "curl: (28) Operation timed out after 18012 milliseconds with 146481 out of 180415 bytes received",
+      "title": "Try something new for 30 days",
+      "previousViews": 16074928
+    },
+    {
+      "url": "https://www.ted.com/talks/rita_pierson_every_kid_needs_a_champion",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/rita_pierson_every_kid_needs_a_champion",
+      "curlExit": 28,
+      "bytes": 49152,
+      "error": "curl: (28) Operation timed out after 18014 milliseconds with 49152 out of 186289 bytes received",
+      "title": "Every kid needs a champion",
+      "previousViews": 17710314
+    },
+    {
+      "url": "https://www.ted.com/talks/matt_walker_sleep_is_your_superpower",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/matt_walker_sleep_is_your_superpower",
+      "curlExit": 28,
+      "bytes": 146504,
+      "error": "curl: (28) Operation timed out after 18000 milliseconds with 146504 out of 214817 bytes received",
+      "title": "Sleep is your superpower",
+      "previousViews": 27043211
+    },
+    {
+      "url": "https://www.ted.com/talks/sam_berns_my_philosophy_for_a_happy_life",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/sam_berns_my_philosophy_for_a_happy_life",
+      "curlExit": 28,
+      "bytes": 65536,
+      "error": "curl: (28) Operation timed out after 18014 milliseconds with 65536 out of 188599 bytes received",
+      "title": "My philosophy for a happy life",
+      "previousViews": 49988651
+    },
+    {
+      "url": "https://www.ted.com/talks/tim_ferriss_why_you_should_define_your_fears_instead_of_your_goals",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/tim_ferriss_why_you_should_define_your_fears_instead_of_your_goals",
+      "curlExit": 28,
+      "bytes": 178505,
+      "error": "curl: (28) Operation timed out after 18011 milliseconds with 178505 out of 206019 bytes received",
+      "title": "Why you should define your fears instead of your goals",
+      "previousViews": 13022063
+    },
+    {
+      "url": "https://www.ted.com/talks/adam_velasquez_finding_confidence_through_failure",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/adam_velasquez_finding_confidence_through_failure",
+      "curlExit": 0,
+      "bytes": 146359,
+      "error": "",
+      "title": "Finding Confidence through Failure",
+      "previousViews": null,
+      "officialTitle": "Finding Confidence through Failure",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/d480df85-f1d5-4842-9a55-e2193aa2467a/mqdefault.jpg",
+      "views": null
+    },
+    {
+      "url": "https://www.ted.com/talks/celeste_headlee_10_ways_to_have_a_better_conversation",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/celeste_headlee_10_ways_to_have_a_better_conversation",
+      "curlExit": 28,
+      "bytes": 196608,
+      "error": "curl: (28) Operation timed out after 18002 milliseconds with 196608 out of 207380 bytes received",
+      "title": "10 ways to have a better conversation",
+      "previousViews": 33146106
+    },
+    {
+      "url": "https://www.ted.com/talks/steven_johnson_where_good_ideas_come_from",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/steven_johnson_where_good_ideas_come_from",
+      "curlExit": 0,
+      "bytes": 220654,
+      "error": "",
+      "title": "Where good ideas come from",
+      "previousViews": 5931694,
+      "officialTitle": "Where good ideas come from",
+      "cover": "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/c8244a05-ac8e-45c6-9b06-ac22113031db/StevenJohnson-2010G-embed.jpg",
+      "views": 5932134
+    },
+    {
+      "url": "https://www.ted.com/talks/sir_ken_robinson_do_schools_kill_creativity",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/sir_ken_robinson_do_schools_kill_creativity",
+      "curlExit": 28,
+      "bytes": 212040,
+      "error": "curl: (28) Operation timed out after 18013 milliseconds with 212040 out of 233125 bytes received",
+      "title": "Do schools kill creativity?",
+      "previousViews": 80651569
+    },
+    {
+      "url": "https://www.ted.com/talks/mihaly_csikszentmihalyi_flow_the_secret_to_happiness",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/mihaly_csikszentmihalyi_flow_the_secret_to_happiness",
+      "curlExit": 28,
+      "bytes": 178506,
+      "error": "curl: (28) Operation timed out after 18012 milliseconds with 178506 out of 200718 bytes received",
+      "title": "Flow, the secret to happiness",
+      "previousViews": 8071838
+    },
+    {
+      "url": "https://www.ted.com/talks/emily_esfahani_smith_there_s_more_to_life_than_being_happy",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/emily_esfahani_smith_there_s_more_to_life_than_being_happy",
+      "curlExit": 28,
+      "bytes": 194890,
+      "error": "curl: (28) Operation timed out after 18011 milliseconds with 194890 out of 215678 bytes received",
+      "title": "There's more to life than being happy",
+      "previousViews": 15353247
+    },
+    {
+      "url": "https://www.ted.com/talks/michael_norton_how_to_buy_happiness",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/michael_norton_how_to_buy_happiness",
+      "curlExit": 28,
+      "bytes": 162121,
+      "error": "curl: (28) Operation timed out after 18008 milliseconds with 162121 out of 203720 bytes received",
+      "title": "How to buy happiness",
+      "previousViews": 4873478
+    },
+    {
+      "url": "https://www.ted.com/talks/amanda_palmer_the_art_of_asking",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/amanda_palmer_the_art_of_asking",
+      "curlExit": 28,
+      "bytes": 146479,
+      "error": "curl: (28) Operation timed out after 18013 milliseconds with 146479 out of 214426 bytes received",
+      "title": "The art of asking",
+      "previousViews": 13189104
+    },
+    {
+      "url": "https://www.ted.com/talks/lera_boroditsky_how_language_shapes_the_way_we_think",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/lera_boroditsky_how_language_shapes_the_way_we_think",
+      "curlExit": 28,
+      "bytes": 146480,
+      "error": "curl: (28) Operation timed out after 18010 milliseconds with 146480 out of 229274 bytes received",
+      "title": "How language shapes the way we think",
+      "previousViews": 27175115
+    },
+    {
+      "url": "https://www.ted.com/talks/david_steindl_rast_want_to_be_happy_be_grateful",
+      "http": 200,
+      "finalURL": "https://www.ted.com/talks/david_steindl_rast_want_to_be_happy_be_grateful",
+      "curlExit": 28,
+      "bytes": 195632,
+      "error": "curl: (28) Operation timed out after 18013 milliseconds with 195632 out of 196689 bytes received",
+      "title": "Want to be happy? Be grateful",
+      "previousViews": 9692648
+    }
+  ],
+  "retryCount": 32,
+  "retryCheckedAtUTC": "2026-10-20T13:07:08.071726+00:00",
+  "tedAppliedChanges": [
+    {
+      "url": "https://www.ted.com/talks/charlie_robinson_why_you_thought_school_was_a_waste_of_time",
+      "previousViews": 15691,
+      "views": 15692
+    },
+    {
+      "url": "https://www.ted.com/talks/angela_lee_duckworth_grit_the_power_of_passion_and_perseverance",
+      "previousViews": 39139293,
+      "views": 39151103
+    },
+    {
+      "url": "https://www.ted.com/talks/carol_dweck_the_power_of_believing_that_you_can_improve",
+      "previousViews": 18299303,
+      "views": 18305005
+    },
+    {
+      "url": "https://www.ted.com/talks/diana_laufenberg_how_to_learn_from_mistakes",
+      "previousViews": 2481763,
+      "views": 2481853
+    },
+    {
+      "url": "https://www.ted.com/talks/dan_gilbert_the_surprising_science_of_happiness",
+      "previousViews": 21156696,
+      "views": 21157147
+    },
+    {
+      "url": "https://www.ted.com/talks/dan_gilbert_the_psychology_of_your_future_self",
+      "previousViews": 7853529,
+      "views": 7854226
+    },
+    {
+      "url": "https://www.ted.com/talks/robert_waldinger_what_makes_a_good_life_lessons_from_the_longest_study_on_happiness",
+      "previousViews": 53423928,
+      "views": 53436642
+    },
+    {
+      "url": "https://www.ted.com/talks/shawn_achor_the_happy_secret_to_better_work",
+      "previousViews": 27349089,
+      "views": 27350851
+    },
+    {
+      "url": "https://www.ted.com/talks/matthieu_ricard_the_habits_of_happiness",
+      "previousViews": 10948451,
+      "views": 10948866
+    },
+    {
+      "url": "https://www.ted.com/talks/kelly_mcgonigal_how_to_make_stress_your_friend",
+      "previousViews": 37367075,
+      "views": 37386891
+    },
+    {
+      "url": "https://www.ted.com/talks/judson_brewer_a_simple_way_to_break_a_bad_habit",
+      "previousViews": 24798588,
+      "views": 24819459
+    },
+    {
+      "url": "https://www.ted.com/talks/tim_urban_inside_the_mind_of_a_master_procrastinator",
+      "previousViews": 79205037,
+      "views": 79217299
+    },
+    {
+      "url": "https://www.ted.com/talks/laura_vanderkam_how_to_gain_control_of_your_free_time",
+      "previousViews": 16500503,
+      "views": 16503427
+    },
+    {
+      "url": "https://www.ted.com/talks/amy_cuddy_your_body_language_may_shape_who_you_are",
+      "previousViews": 77736146,
+      "views": 77753253
+    },
+    {
+      "url": "https://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action",
+      "previousViews": 71245207,
+      "views": 71256571
+    },
+    {
+      "url": "https://www.ted.com/talks/simon_sinek_why_good_leaders_make_you_feel_safe",
+      "previousViews": 22435806,
+      "views": 22441691
+    },
+    {
+      "url": "https://www.ted.com/talks/julian_treasure_how_to_speak_so_that_people_want_to_listen",
+      "previousViews": 71442983,
+      "views": 71475665
+    },
+    {
+      "url": "https://www.ted.com/talks/brene_brown_the_power_of_vulnerability",
+      "previousViews": 71317096,
+      "views": 71329554
+    },
+    {
+      "url": "https://www.ted.com/talks/chimamanda_ngozi_adichie_the_danger_of_a_single_story",
+      "previousViews": 43208384,
+      "views": 43220045
+    },
+    {
+      "url": "https://www.ted.com/talks/dan_pink_the_puzzle_of_motivation",
+      "previousViews": 32591841,
+      "views": 32594973
+    },
+    {
+      "url": "https://www.ted.com/talks/elizabeth_gilbert_your_elusive_creative_genius",
+      "previousViews": 22248302,
+      "views": 22249318
+    },
+    {
+      "url": "https://www.ted.com/talks/david_kelley_how_to_build_your_creative_confidence",
+      "previousViews": 6572315,
+      "views": 6572773
+    },
+    {
+      "url": "https://www.ted.com/talks/pamela_meyer_how_to_spot_a_liar",
+      "previousViews": 34636399,
+      "views": 34638304
+    },
+    {
+      "url": "https://www.ted.com/talks/sheena_iyengar_the_art_of_choosing",
+      "previousViews": 4570963,
+      "views": 4571367
+    },
+    {
+      "url": "https://www.ted.com/talks/susan_cain_the_power_of_introverts",
+      "previousViews": 36422694,
+      "views": 36426630
+    },
+    {
+      "url": "https://www.ted.com/talks/matt_cutts_try_something_new_for_30_days",
+      "previousViews": 16074928,
+      "views": 16076600
+    },
+    {
+      "url": "https://www.ted.com/talks/rita_pierson_every_kid_needs_a_champion",
+      "previousViews": 17710314,
+      "views": 17715496
+    },
+    {
+      "url": "https://www.ted.com/talks/matt_walker_sleep_is_your_superpower",
+      "previousViews": 27043211,
+      "views": 27072340
+    },
+    {
+      "url": "https://www.ted.com/talks/sam_berns_my_philosophy_for_a_happy_life",
+      "previousViews": 49988651,
+      "views": 49993768
+    },
+    {
+      "url": "https://www.ted.com/talks/tim_ferriss_why_you_should_define_your_fears_instead_of_your_goals",
+      "previousViews": 13022063,
+      "views": 13023044
+    },
+    {
+      "url": "https://www.ted.com/talks/celeste_headlee_10_ways_to_have_a_better_conversation",
+      "previousViews": 33146106,
+      "views": 33152704
+    },
+    {
+      "url": "https://www.ted.com/talks/steven_johnson_where_good_ideas_come_from",
+      "previousViews": 5931694,
+      "views": 5932134
+    },
+    {
+      "url": "https://www.ted.com/talks/sir_ken_robinson_do_schools_kill_creativity",
+      "previousViews": 80651569,
+      "views": 80659124
+    },
+    {
+      "url": "https://www.ted.com/talks/mihaly_csikszentmihalyi_flow_the_secret_to_happiness",
+      "previousViews": 8071838,
+      "views": 8072555
+    },
+    {
+      "url": "https://www.ted.com/talks/emily_esfahani_smith_there_s_more_to_life_than_being_happy",
+      "previousViews": 15353247,
+      "views": 15354956
+    },
+    {
+      "url": "https://www.ted.com/talks/michael_norton_how_to_buy_happiness",
+      "previousViews": 4873478,
+      "views": 4873742
+    },
+    {
+      "url": "https://www.ted.com/talks/amanda_palmer_the_art_of_asking",
+      "previousViews": 13189104,
+      "views": 13189379
+    },
+    {
+      "url": "https://www.ted.com/talks/lera_boroditsky_how_language_shapes_the_way_we_think",
+      "previousViews": 27175115,
+      "views": 27185960
+    },
+    {
+      "url": "https://www.ted.com/talks/david_steindl_rast_want_to_be_happy_be_grateful",
+      "previousViews": 9692648,
+      "views": 9693505
+    }
+  ],
+  "tedViewsCapturedAt": "2026-10-20",
+  "forumSeriesAndVideosUnchanged": true,
+  "forumPlayCapturedAt": "2026-10-14",
+  "forumContentUpdatedAt": "2026-10-18",
+  "forumPlaybackValuesChanged": 0,
+  "learningResourceRetries": [
+    {
+      "url": "https://platform.openai.com/docs/guides/prompt-engineering",
+      "http": 200,
+      "finalURL": "https://developers.openai.com/api/docs/guides/prompt-engineering",
+      "curlExit": 28,
+      "bytes": 69626,
+      "error": "curl: (28) Operation timed out after 12076 milliseconds with 69626 bytes received",
+      "title": "https://platform.openai.com/docs/guides/prompt-engineering",
+      "pageTitle": "Prompt engineering | OpenAI API",
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "http": 200,
+      "finalURL": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview",
+      "curlExit": 0,
+      "bytes": 47225,
+      "error": "",
+      "title": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "pageTitle": "Prompt engineering overview - Claude Platform Docs",
+      "classification": "http-accessible"
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/prompting-strategies",
+      "http": 302,
+      "finalURL": "https://accounts.google.com/o/oauth2/v2/auth",
+      "curlExit": 28,
+      "bytes": 0,
+      "error": "curl: (28) Operation timed out after 12009 milliseconds with 0 bytes received",
+      "title": "https://ai.google.dev/gemini-api/docs/prompting-strategies",
+      "pageTitle": null,
+      "classification": "unverified-access"
+    },
+    {
+      "url": "https://www.qbitai.com/",
+      "http": 0,
+      "curlExit": -1,
+      "error": "Command '['curl.exe', '-L', '-sS', '--compressed', '--max-time', '12', '-A', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', '-H', 'Referer: https://www.qbitai.com/', '-w', '\\n@@RESULT@@%{json}', 'https://www.qbitai.com/']' timed out",
+      "title": "https://www.qbitai.com/",
+      "pageTitle": null,
+      "classification": "unverified-access"
+    }
+  ],
+  "learningEditorialEvidence": [
+    {
+      "url": "https://pybamm.org/",
+      "finding": "Official Python physics-based battery modelling homepage with getting-started/examples entries; this is a simulation learning resource, not validation of any user experiment."
+    },
+    {
+      "url": "https://pymatgen.org/",
+      "finding": "Official materials analysis library homepage: structure, phase diagrams and diffusion analysis; links official example notebooks."
+    },
+    {
+      "url": "https://hackingmaterials.lbl.gov/matminer/",
+      "finding": "Official current documentation: material datasets, composition/structure featurization and example notebooks. Avoid the obsolete readthedocs copy."
+    },
+    {
+      "url": "https://info.deeplearning.ai/knowledge-base/what-do-i-get-with-the-deeplearning.ai-pro-membership-that-i-dont-get-for-free",
+      "finding": "Official help distinguishes free video access from Pro quizzes/labs/certificates; source read on review date."
+    }
+  ]
+}
