@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "sourceLabel": "Google 科研展示表",
-  "sourceUpdatedAt": "2026-10-21T10:15:26Z",
-  "syncedAt": "2026-10-21T10:15:26Z",
-  "revision": "b87cc8302a6106c7",
+  "sourceUpdatedAt": "2026-10-21T12:32:10Z",
+  "syncedAt": "2026-10-21T12:32:10Z",
+  "revision": "b649a901ddf36c3a",
   "tasks": [
     {
       "id": "T001",
@@ -16,10 +16,10 @@
     {
       "id": "T002",
       "date": "2026-10-21",
-      "title": "电池装配与测试核验",
-      "status": "进行中",
+      "title": "科研资料整理提交",
+      "status": "已完成",
       "hours": 3,
-      "category": "安全与测试"
+      "category": "科研整理"
     },
     {
       "id": "T003",
@@ -105,7 +105,7 @@
       "id": "T013",
       "date": "2026-10-22",
       "title": "电池装配与测试核验",
-      "status": "计划中",
+      "status": "进行中",
       "hours": 3,
       "category": "安全与测试"
     },

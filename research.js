@@ -5,7 +5,7 @@
   if(typeof document!=='undefined')root.AI_RESEARCH=api.mount(root,document);
 })(typeof window!=='undefined'?window:null,function(){
   'use strict';
-  var titles=['实验资源协调','电池装配与测试核验','科研记录与数据检查','电极质量检查','计划复盘与科研协调','科研阅读与论文撰写','电化学测试与数据整理','实验样品制备','实验表征与记录'];
+  var titles=['科研资料整理提交','实验资源协调','电池装配与测试核验','科研记录与数据检查','电极质量检查','计划复盘与科研协调','科研阅读与论文撰写','电化学测试与数据整理','实验样品制备','实验表征与记录'];
   var categories=['实验资源','安全与测试','科研整理','样品质量','项目管理','写作','电化学','实验制备','实验表征'];
   var statuses=['计划中','进行中','待条件','待确认','已完成','已取消'];
   var esc=function(v){return String(v==null?'':v).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});};
@@ -55,10 +55,12 @@
     function renderSummary(){
       var complete=groups.done.length,pct=data.tasks.length?Math.round(100*complete/data.tasks.length):0;
       $('research-date').textContent=currentDay+' · 北京时间';
-      $('research-focus').textContent=groups.today.length?'今天 '+groups.today.length+' 项待办，预计主动工时 '+hours(groups.today).text+'。':'今天没有已排定的待办，可以查看未来7天和待协调事项。';
+      $('research-focus').textContent=groups.today.length?'今天 '+groups.today.length+' 项待办，预计主动工时 '+hours(groups.today).text+'；已完成事项 '+complete+' 项。':'今天没有已排定的待办；已完成事项 '+complete+' 项，可以查看已完成和未来7天。';
       $('research-stats').innerHTML=[['today','今日待办',groups.today.length,hours(groups.today).text],['week','未来7天',groups.week.length,hours(groups.week).text],['risk','风险待核对',groups.risk.length,'条件 / 日期 / 工时'],['done','已标记完成',complete,'共 '+data.tasks.length+' 项']].map(function(x){return '<button type="button" class="research-stat" data-rscope="'+x[0]+'"><span>'+x[1]+'</span><strong>'+x[2]+'</strong><small>'+esc(x[3])+'</small></button>';}).join('');
       $('research-progress').textContent='已标记完成 '+complete+' / '+data.tasks.length+' 项（'+pct+'%）；此处不表示实验已验收。';
       $('research-progress-fill').style.width=pct+'%';
+      $('research-completed-panel').hidden=complete===0;
+      $('research-completed-list').innerHTML=groups.done.slice(0,3).map(function(t){return '<a href="https://luohao-research-desk.easyroot8192.chatgpt.site/?task='+encodeURIComponent(t.id)+'" target="_top" rel="noopener"><span>✓ 已完成</span> '+esc(t.id)+' · '+esc(t.title)+'</a>';}).join('');
       $('research-meta').textContent='来源：Google 科研展示表 · 表格更新时间 '+stamp(data.sourceUpdatedAt)+' · 网站同步时间 '+stamp(data.syncedAt)+' · 版本 '+data.revision.slice(0,8);
       var max=Math.max.apply(null,[8].concat(groups.days.map(function(d){return d.hours.known;})));
       $('research-week-chart').innerHTML=groups.days.map(function(d){return '<button type="button" class="research-day'+(d.hours.known>8?' overload':'')+'" data-rday="'+d.date+'" aria-label="'+d.date+'，'+d.tasks.length+'项，'+esc(d.hours.text)+'"><span>'+d.date.slice(5).replace('-','/')+'</span><span class="research-day-track"><i style="height:'+Math.max(d.hours.known?5:0,100*d.hours.known/max)+'%"></i></span><b>'+d.hours.known+' h</b><small>'+d.tasks.length+'项'+(d.hours.missing?' · 待估':'')+'</small></button>';}).join('');

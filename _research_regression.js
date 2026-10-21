@@ -6,7 +6,7 @@ module.exports=async function({ok}){
  const api=ctx.module.exports;
  const m=api.model(raw.tasks,'2026-10-21');
  ok(api.validate(raw)===raw&&raw.tasks.length===135&&raw.tasks.every(t=>Object.keys(t).length===6),'科研仅接收展示表六字段，135项任务无丢失');
- ok(m.today.length===2&&api.hours(m.today).known===4.5,'今日两项任务与4.5小时预计主动工时对应');
+ ok(m.today.length===1&&api.hours(m.today).known===1.5&&m.done.length===1,'资料提交已完成退出今日待办，剩余一项1.5小时，不误判科学验收');
  ok(m.week.length===9&&m.days.length===7&&m.days[0].date==='2026-10-22'&&m.days[6].date==='2026-10-28','未来7天按北京时间日期范围分组，不混入今天');
  ok(m.risk.length===11&&m.risk.filter(t=>!t.date).length===3,'展示表11项待条件含3项日期未定，风险合并去重');
  let t=clone(raw.tasks[0]);t.hours=null;
@@ -26,6 +26,8 @@ module.exports=async function({ok}){
  let calls=[];let next=clone(raw);next.tasks[0].status='进行中';next.tasks[0].hours=2;next.revision='2222222222222222';next.syncedAt='2099-01-01T00:00:00Z';
  let r=run(async(url,opts)=>{calls.push({url,opts});return{ok:true,json:async()=>next};});
  ok(r.e['research-list'].innerHTML.includes('T001')&&r.e['research-list'].innerHTML.includes('预计 1.5 h'),'内联摘要可立即展示今天任务与工时');
+ ok(!r.e['research-list'].innerHTML.includes('T002')&&!r.e['research-completed-panel'].hidden&&r.e['research-completed-list'].innerHTML.includes('T002')&&r.e['research-completed-list'].innerHTML.includes('科研资料整理提交'),'T002以已完成事项显著展示，不再混入待办或丢失历史');
+ r.click({rscope:'done'});ok(r.e['research-list'].innerHTML.includes('T002')&&r.e['research-list-heading'].textContent==='已标记完成','已完成视图真实可查看已完成任务');r.app.setScope('today');
  ok(r.e['research-list'].innerHTML.includes('chatgpt.site/?task=T001')&&r.e['research-list'].innerHTML.includes('查看详细任务')&&r.e['research-list'].innerHTML.includes('rel="noopener"')&&r.e['research-list'].innerHTML.includes('target="_top"'),'每项任务提供按编号定位的私有详情入口，公共摘要未增加字段');
  await r.app.refresh();
  ok(r.e['research-list'].innerHTML.includes('进行中')&&r.e['research-list'].innerHTML.includes('预计 2 h')&&r.app.state().data.revision===next.revision,'刷新实际替换状态和工时，不只是改变更新时间文案');
