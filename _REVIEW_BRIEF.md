@@ -4,6 +4,16 @@
 > 站点：GitHub Pages 单文件静态站。线上 https://2219818554ii-star.github.io/ai-intel-station/
 
 ## 1. 仓库与文件角色
+
+### 2026-10-21 科研网页工作流（替代入口初版）
+
+- 用户只看网站执行，在当前对话反馈，由我核对并更新后台任务和网页；不再要求用户查看Google表格。
+- 公开每日网站的 `#research` 栏目连接 https://luohao-research-desk.easyroot8192.chatgpt.site ，提供直接打开与按需嵌入。私有工作台含任务、分类、搜索、待协调、进度与阶段路线。
+- 私有源码与数据位于 `C:/Users/22198/Documents/Codex/2026-10-21/referenced-chatgpt-conversation-this-is-an/work/research-private-site`，保持该目录 `.openai/hosting.json` 的 project_id；更新流程见其 README.md。绝不可把任务数据、源码目录、认证令牌加入此公开仓库。
+- Google总表保留为后台唯一任务来源；每次反馈核对后更新总表、派生手机视图，并重新读取数据生成私有站点的发布视图，私有发布成功才算网站更新完成。网页明确标注最近核对时间，不声称实时同步。
+- 私有站点平台权限仅owner一人可见。登录可能需要顶层页面，iframe失败应直接打开工作台，加载事件不能证明授权成功。
+- 本地 `file://` 不能跨设备使用，其他设备用在线网址。只编辑模板并构建三份产物，保护原有栏目与基金快照。
+
 路径：`C:/Users/22198/WorkBuddy/2026-08-11-19-02-45/ai_daily_site`
 
 **唯一源文件（要审的）**

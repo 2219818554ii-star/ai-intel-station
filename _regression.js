@@ -8,7 +8,7 @@ module.exports = async function ({html, inline, sandbox, ok}) {
     function element(id) {
       return elements[id] ||= {id,innerHTML:'',textContent:'',style:{},dataset:{},
         classList:{add(){},remove(){},toggle(){},contains(){return false;}},
-        setAttribute(){},getAttribute(){return null;},addEventListener(t,fn){(listeners[id] ||= {})[t]=fn;},
+        _attrs:{},setAttribute(k,v){this._attrs[k]=v;},getAttribute(k){return this._attrs[k]??null;},removeAttribute(k){delete this._attrs[k];if(k==='src')delete this.src;},addEventListener(t,fn){(listeners[id] ||= {})[t]=fn;},
         querySelectorAll(){return [];},querySelector(){return null;},appendChild(){},focus(){}};
     }
     const documentEvents={};
@@ -73,6 +73,18 @@ module.exports = async function ({html, inline, sandbox, ok}) {
   const route=base.ctx.window.__routeUX;
   base.ctx.window.location.hash='#funds'; route.sync();
   ok(base.elements['view-funds'].style.display==='' && base.elements['view-daily'].style.display==='none' && route.hash('funds')==='#funds', '基金独立链接打开基金栏目，不被日报覆盖');
+  base.ctx.window.location.hash='#research'; route.sync();
+  ok(base.elements['view-research'].style.display==='' && base.elements['view-funds'].style.display==='none' && route.hash('research')==='#research', '科研独立链接切换栏目且隐藏前一栏目');
+  const research=run(), re=research.elements, rl=research.listeners;
+  ok(!re['research-frame'].src && /<iframe id="research-frame"[^>]* hidden><\/iframe>/.test(html), '私有科研工作台默认不加载，不影响其他栏目');
+  rl['research-preview-load'].click();
+  ok(re['research-frame'].src==='https://luohao-research-desk.easyroot8192.chatgpt.site' && re['research-frame'].hidden===false, '科研嵌入只打开已确认的私有站点');
+  ok(re['research-preview-status'].textContent.includes('不代表已获得权限') && re['research-preview-status'].textContent.includes('新页面'), '嵌入失败保留登录退路，不声称授权成功');
+  const researchMarkup=html.split('id="view-research"')[1].split('id="view-funds"')[0];
+  ok(researchMarkup.includes('id="research-private-open"') && researchMarkup.includes('href="https://luohao-research-desk.easyroot8192.chatgpt.site"'), '公开栏目保留私有工作台的直接入口');
+  ok(!/\bT\d{3}\b|access_token|api_key|research-data\.json/.test(researchMarkup), '公开科研栏目不含任务明文、数据文件或凭据');
+  ok(!html.includes('1-dfc8ry6ARxWM071wltd-LSZq30FtxxQwPoKD9zMuFw'), '日常入口不再要求用户打开Google表格');
+  ok(researchMarkup.includes('唯一任务来源') && researchMarkup.includes('file://'), '后台来源和跨设备访问限制清楚可见');
   base.ctx.window.location.hash='#rank';route.sync();
   ok(base.elements['view-rank'].style.display==='' && base.elements['view-funds'].style.display==='none', '栏目地址变化正确切换可见视图');
   const restored=run(x=>x,{'ai-view-scroll':JSON.stringify({funds:1400}),'ai-comp-state':JSON.stringify({query:'人工智能',sort:'pri',scope:'all',filter:'all',page:2})});

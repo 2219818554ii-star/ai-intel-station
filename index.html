@@ -246,6 +246,23 @@
   .sc-why{font-size:13.5px;color:var(--ink-soft);margin:0 0 8px;line-height:1.6;}
   .sc-foot{display:flex;align-items:center;gap:10px;margin-top:10px;}
   .sc-tool{font-size:12.5px;color:var(--ink-soft);}
+  /* 科研入口仅链接私有总表；任务内容不打包进静态网站。 */
+  .research-hero{background:linear-gradient(120deg,#eef0ff,#f1fbfa);border:1px solid var(--line);border-radius:18px;padding:24px;margin-bottom:18px;}
+  .research-hero h2{margin:8px 0;font-size:28px;}.research-hero p{color:var(--ink-soft);margin:8px 0 18px;}
+  .research-tag{font-size:12px;color:#3f46a4;letter-spacing:.08em;}
+  .research-actions{display:flex;gap:10px;flex-wrap:wrap;}
+  .research-action{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:10px 16px;border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--brand);font:inherit;font-weight:600;cursor:pointer;}
+  .research-action.primary{background:var(--brand);border-color:var(--brand);color:white;}
+  .research-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0;}
+  .research-card{display:block;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;min-width:0;}
+  a.research-card:hover{border-color:var(--brand);}.research-card strong{display:block;font-size:17px;}.research-card p{font-size:14px;color:var(--ink-soft);margin:8px 0 0;}
+  .research-box{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;margin:16px 0;}
+  .research-box h3{margin:0 0 10px;font-size:19px;}.research-note{font-size:14px;color:var(--ink-soft);overflow-wrap:anywhere;}
+  .research-preview-tools{display:flex;align-items:center;flex-wrap:wrap;gap:10px;}.research-preview-tools select{font:inherit;min-height:44px;max-width:100%;border:1px solid var(--line);border-radius:9px;padding:8px;}
+  #research-frame{display:block;border:1px solid var(--line);border-radius:10px;width:100%;height:660px;margin-top:14px;background:var(--bg);}
+  #research-frame[hidden]{display:none;}#research-feedback{width:100%;min-height:156px;resize:vertical;line-height:1.7;font:inherit;padding:12px;border:1px solid var(--line);border-radius:10px;}
+  #view-research a:focus-visible,#view-research button:focus-visible,#view-research select:focus-visible,#view-research textarea:focus-visible{outline:3px solid var(--accent);outline-offset:3px;}
+  @media(max-width:720px){.research-hero{padding:20px;}.research-hero h2{font-size:25px;}.research-grid{grid-template-columns:1fr;gap:10px;}.research-actions{display:grid;grid-template-columns:1fr;width:100%;}.research-box{padding:16px;}#research-frame{height:560px;}.research-preview-tools{align-items:stretch;}.research-preview-tools select{width:100%;}}
 </style>
 <style id="experience-styles">
   :root{--shadow:0 2px 10px rgba(20,30,60,.045);--appbar-height:54px;--reading-offset:170px;}
@@ -435,6 +452,7 @@
       <div class="brand">AI 情报站 <small class="brand-summary">日报 · 排名 · 学习</small><small class="nav-hint">栏目可左右滑动 →</small></div>
       <nav class="tabs" role="tablist" aria-label="主导航">
         <button class="tab active" id="tab-daily" role="tab" aria-selected="true" aria-controls="view-daily" data-tab="daily">📰 每日日报</button>
+        <button class="tab" id="tab-research" role="tab" aria-selected="false" aria-controls="view-research" data-tab="research">🔬 科研</button>
         <button class="tab" id="tab-rank" role="tab" aria-selected="false" aria-controls="view-rank" data-tab="rank">🏆 实力排行榜</button>
         <button class="tab" id="tab-comp" role="tab" aria-selected="false" aria-controls="view-comp" data-tab="comp">🏁 可报名比赛</button>
         <button class="tab" id="tab-learn" role="tab" aria-selected="false" aria-controls="view-learn" data-tab="learn">📚 AI 上手</button>
@@ -988,6 +1006,27 @@
     <div class="lk-tip" style="margin-top:18px">
       💡 <b>怎么快速筛：</b>研究生最先看「🏛 学校各部门」里的<b>教务 / 研究生院 / 科研</b>三条，其次看自己学院；<b>团委·学生会</b>看着像闲事，但入党、评优、团员关系全挂在这。
     </div>
+  </div>
+
+  <div id="view-research" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-research">
+    <header class="research-hero">
+      <span class="research-tag">我的科研 · 每天从这里开始</span>
+      <h2>🔬 科研工作台</h2>
+      <p>任务、进度、待协调事项，都在网页里看。你执行后在对话中反馈，我核对并更新计划和网页。</p>
+      <div class="research-actions">
+        <a class="research-action primary" id="research-private-open" href="https://luohao-research-desk.easyroot8192.chatgpt.site" target="_blank" rel="noopener noreferrer">打开科研工作台 ↗</a>
+        <button class="research-action" id="research-preview-load" type="button">在本页打开工作台</button>
+      </div>
+      <p class="research-note">电脑、手机都可以打开。首次访问请用你本人的 ChatGPT 账号登录，科研内容仅本人可见。</p>
+    </header>
+    <div class="research-grid" aria-label="科研工作台内容">
+      <div class="research-card"><strong>📅 今天与近期安排</strong><p>直接看任务卡片、前置条件与验收要求，按日期执行。</p></div>
+      <div class="research-card"><strong>🧭 待协调与分类检索</strong><p>查看卡在哪里，按研究分类或任务状态筛选，也可以搜索编号。</p></div>
+      <div class="research-card"><strong>📊 进度与研究路线</strong><p>区分完成标记和证据验收，按阶段查看计划与所需证据。</p></div>
+    </div>
+    <p class="research-note" id="research-preview-status" role="status">若本页打开后空白或要求登录，请使用上方「打开科研工作台」。页面加载不代表已获得访问权限。</p>
+    <iframe id="research-frame" title="私有科研工作台" referrerpolicy="no-referrer" hidden></iframe>
+    <aside class="research-box" aria-label="访问与更新说明"><h3>以后就按这个流程</h3><p class="research-note">你看网站执行 → 在本对话反馈进展、日期和证据 → 我核对后更新任务与网站。网页显示最近一次发布的计划，并注明核对时间；不需要你再打开表格。</p><p class="research-note">公开的每日网站只接入私有工作台，不包含科研任务数据或访问凭据。Google 总表仅作为后台唯一任务来源；任务由我维护后更新网站。其他设备请使用在线网址，file:// 本地路径不能跨设备访问。</p></aside>
   </div>
 
   <div id="view-funds" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-funds">
@@ -12684,12 +12723,12 @@ window.MAGAZINE_ARTICLES = [
   document.getElementById("copy-dialog").addEventListener("close",function(){var el=this._copyTrigger;if(el&&el.focus)el.focus({preventScroll:true});});
   /* ============ TAB SWITCHING ============ */
   function showTab(tab){
-    if(["daily","rank","comp","learn","ted","forum","magazines","cqut","funds"].indexOf(tab)<0) return;
+    if(["daily","research","rank","comp","learn","ted","forum","magazines","cqut","funds"].indexOf(tab)<0) return;
     if(!RESTORE_PENDING) VIEW_SCROLL[ACTIVE_TAB] = window.scrollY || 0;
     if(DOM_READY) RESTORE_PENDING=false;
     ACTIVE_TAB = tab;
     document.querySelectorAll(".tab").forEach(function(t){ var on=(t.dataset.tab===tab); t.classList.toggle("active", on); t.setAttribute("aria-selected", on?"true":"false");t.setAttribute("tabindex",on?"0":"-1"); });
-    ["daily","rank","comp","learn","ted","forum","magazines","cqut","funds"].forEach(function(v){
+    ["daily","research","rank","comp","learn","ted","forum","magazines","cqut","funds"].forEach(function(v){
       var el=document.getElementById("view-"+v);
       if(el){ el.style.display = (v===tab)?"":"none"; el.setAttribute("aria-hidden", v===tab?"false":"true"); }
     });
@@ -12719,7 +12758,7 @@ window.MAGAZINE_ARTICLES = [
   function routeHash(tab){ return tab==="daily" ? "#"+(CURRENT || "daily") : "#"+tab; }
   function syncRoute(){
     var h=(window.location.hash||"").slice(1);
-    var tab=["rank","comp","learn","ted","forum","magazines","cqut","funds"].indexOf(h)>=0 ? h : "daily";
+    var tab=["research","rank","comp","learn","ted","forum","magazines","cqut","funds"].indexOf(h)>=0 ? h : "daily";
     if(tab!==ACTIVE_TAB) showTab(tab);
     if(/^\d{4}-\d{2}-\d{2}$/.test(h) && indexOfDate(h)!==-1 && h!==CURRENT){ CURRENT=h; syncNavButtons(); loadDate(h); }
   }
@@ -14613,6 +14652,17 @@ window.MAGAZINE_ARTICLES = [
   root.addEventListener("click",function(e){var el=e.target.closest?e.target.closest("button[data-mag-pub],button[data-mag-action]"):null;if(!el)return;if(el.dataset.magPub){selected=selected===el.dataset.magPub?"all":el.dataset.magPub;publication.value=selected;category.value="all";language.value="all";changed();var pubFocus=document.querySelector('[data-mag-pub="'+el.dataset.magPub+'"]');if(pubFocus)pubFocus.focus({preventScroll:true});return;}var url=el.dataset.magUrl,action=el.dataset.magAction;if(!seen[url]||["fav","read"].indexOf(action)<0)return;var r=records[url]||(records[url]={fav:false,read:false,at:0});r[action]=!r[action];r.at=Date.now();save();render();var replacement=document.querySelector('[data-mag-action="'+action+'"][data-mag-url="'+url.replace(/\\/g,"\\\\").replace(/"/g,'\\"')+'"]');if(!replacement)replacement=document.querySelector('[data-mag-action="'+action+'"]')||document.getElementById("magazine-heading");if(replacement)replacement.focus({preventScroll:true});});
   window.addEventListener("storage",function(e){if(e.key===KEY||e.key===null){read();render();}});
   render();
+})();
+</script>
+<script>
+(function(){
+  "use strict";
+  var frame=document.getElementById("research-frame"),button=document.getElementById("research-preview-load");
+  button.addEventListener("click",function(){
+    frame.src="https://luohao-research-desk.easyroot8192.chatgpt.site";frame.hidden=false;
+    button.textContent="重新加载工作台";
+    document.getElementById("research-preview-status").textContent="已请求私有工作台。空白或要求登录时，请在新页面打开并登录本人账号；此提示不代表已获得权限。";
+  });
 })();
 </script>
 </body>
