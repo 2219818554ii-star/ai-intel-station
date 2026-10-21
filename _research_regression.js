@@ -7,7 +7,7 @@ module.exports=async function({ok}){
  const m=api.model(raw.tasks,'2026-10-21');
  ok(api.validate(raw)===raw&&raw.tasks.length===135&&raw.tasks.every(t=>Object.keys(t).length===6),'科研仅接收展示表六字段，135项任务无丢失');
  ok(m.today.length===2&&api.hours(m.today).known===4.5,'今日两项任务与4.5小时预计主动工时对应');
- ok(m.week.length===8&&m.days.length===7&&m.days[0].date==='2026-10-22'&&m.days[6].date==='2026-10-28','未来7天按北京时间日期范围分组，不混入今天');
+ ok(m.week.length===9&&m.days.length===7&&m.days[0].date==='2026-10-22'&&m.days[6].date==='2026-10-28','未来7天按北京时间日期范围分组，不混入今天');
  ok(m.risk.length===11&&m.risk.filter(t=>!t.date).length===3,'展示表11项待条件含3项日期未定，风险合并去重');
  let t=clone(raw.tasks[0]);t.hours=null;
  ok(api.hours([t]).known===0&&api.hours([t]).missing===1&&api.hours([t]).text.includes('待估')&&api.risks(t,'2026-10-21').includes('预计工时待补充'),'缺工时明确标为待估，不伪造为已知零工时');
@@ -35,7 +35,7 @@ module.exports=async function({ok}){
  r.e['research-search'].value='T135';r.events['research-search'].input.call(r.e['research-search']);ok(r.e['research-result-count'].textContent.includes('1 项')&&r.e['research-list'].innerHTML.includes('T135'),'任务编号搜索覆盖全部任务而非当前页');
  r.e['research-search'].value='无匹配关键词';r.events['research-search'].input.call(r.e['research-search']);ok(r.e['research-list'].innerHTML.includes('没有匹配的任务'),'无匹配给出清除筛选提示');
  r.events['research-reset'].click();r.e['research-category'].value='实验资源';r.events['research-category'].change.call(r.e['research-category']);ok(!r.e['research-list'].innerHTML.includes('科研阅读与论文撰写'),'分类筛选实际过滤任务');
- r.events['research-reset'].click();r.click({rday:'2026-10-22'});ok(r.e['research-list-heading'].textContent.includes('2026-10-22')&&r.e['research-result-count'].textContent.includes('2 项'),'工时图点击日期会定位当天计划');
+ r.events['research-reset'].click();r.click({rday:'2026-10-22'});ok(r.e['research-list-heading'].textContent.includes('2026-10-22')&&r.e['research-result-count'].textContent.includes('3 项'),'工时图点击日期会定位当天计划');
  r.click({rfeedback:'T001'});r.events['research-copy'].click.call(r.e['research-copy']);ok(r.w.copied.includes('T001')&&r.w.copied.includes('实际主动工时'),'任务反馈带编号，复制当前反馈文本');
  let fail=run(async()=>{throw Error('offline');});await fail.app.refresh();ok(fail.e['research-list'].innerHTML.includes('T001')&&fail.e['research-sync-status'].textContent.includes('不代表已同步'),'网络失败保留有效摘要并明确同步未确认');
  let invalid=run(async()=>({ok:true,json:async()=>({tasks:[]})}));await invalid.app.refresh();ok(invalid.e['research-list'].innerHTML.includes('T001')&&invalid.e['research-sync-status'].textContent.includes('失败'),'异常响应不清空已有任务或显示假空态');
