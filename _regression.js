@@ -49,6 +49,12 @@ module.exports = async function ({html, inline, sandbox, ok}) {
   ok(d.dlDay({dl:'2026-10-16'})===Date.parse('2026-10-16T23:59:59+08:00'), '仅日期的截止保留到北京时间当天末');
   ok(d.dlDay({dl:'2026-09-28 起各校不一'})===null && d.dlDay({dl:'以通知为准（2026-09-28 发布）'})===null, '开始日期和发布日期不误当截止');
   ok(!d.isOpen({st:'报名中',dl:'2000-01-01'}) && !d.isSoon({st:'报名中',dl:'2000-01-01'}), '已过期比赛退出正在报名和快截止');
+  ok(!d.isSoon({st:'报名中',dl:new Date(Date.now()+86400000).toISOString().slice(0,10),deadlineUnverified:true})&&!d.isOpen({st:'报名中',dl:'2000-01-01',deadlineUnverified:true}), '待核实截止不生成临近提示，也不能让已过期报名重新开放');
+  const pendingMatch=run(x=>x.replace('var M = window.MATCHES || [];','var M = window.MATCHES || []; M=M.map((m,i)=>i?m:{...m,deadlineUnverified:true,verificationNote:"独立原文年份待核实"});'));
+  ok(pendingMatch.elements['match-list'].innerHTML.includes('截止待核实')&&pendingMatch.elements['match-list'].innerHTML.includes('独立原文年份待核实')&&pendingMatch.elements['matchOpenCount'].textContent.includes('条待核实'), '报名候选中待核实项目单独计数并在卡片解释来源限制');
+  const matchMarkup=run(x=>x.replace('var M = window.MATCHES || [];','var M = window.MATCHES || []; M=M.map((m,i)=>i?m:{...m,intro:"<b>重点说明</b><img src=x onerror=alert(1)>"});'));
+  const matchMarkupHtml=matchMarkup.elements['match-list'].innerHTML;
+  ok(matchMarkupHtml.includes('重点说明')&&!matchMarkupHtml.includes('&lt;b&gt;')&&matchMarkupHtml.includes('&lt;img src=x onerror=alert(1)&gt;')&&!matchMarkupHtml.includes('<img'), '比赛正文不显示旧加粗标记，其他HTML仍严格转义');
   const ux=base.ctx.window.__compUX;
   ok(ux.deadline({reg:'报名 9/1 – 10/23 12:00'})?.time===Date.parse('2026-10-23T12:00:00+08:00'), '比赛列表从明确报名区间提取北京时间截止时刻');
   ok(ux.deadline({reg:'即日起 – 2026/10/20 24:00'})?.time===Date.parse('2026-10-21T00:00:00+08:00'), '比赛列表正确处理截止日期的24:00');

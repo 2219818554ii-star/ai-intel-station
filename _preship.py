@@ -184,7 +184,7 @@ MUST_CONTAIN = [
     ("比赛信源容器", 'id="match-sources"'),
     ("我需要做啥栏位", "我需要做啥"),
     ("我能帮你做啥栏位", "我能帮你做啥"),
-    ("只收还能参加", "只收还能参加的"),
+    ("比赛报名与资格", "比赛 · 报名与资格核查"),
 ]
 missing = [n for n, s in MUST_CONTAIN if s not in prod]
 if missing:

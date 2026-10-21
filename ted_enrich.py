@@ -29,7 +29,7 @@ for u in uniq:
         og = re.search(r'og:image"\s+content="([^"]+)"', body)
         if og:
             cover = og.group(1).split("?")[0].replace("&amp;", "&")
-        vm = re.search(r'([0-9,]+)<!--\s*-->\s*plays', body)
+        vm = re.search(r'([0-9,]+)(?:<!--\s*-->\s*|\s+)plays\b', body)
         if vm:
             try:
                 views = int(vm.group(1).replace(",", ""))

@@ -1,6 +1,6 @@
 /* AI 情报站 - 实力排行榜数据（每日自动更新） */
 window.RANK_UPDATED = "2026-10-20";
-window.RANK_CHECKED = "2026-10-20";
+window.RANK_CHECKED = "2026-10-21";
 window.RANK = {
     models: [
       {name:"Claude Opus 5.5", vendor:"Anthropic（美国）", price:"API $4/$20 每百万", iaa:58, tb:null,
@@ -161,4 +161,4 @@ window.RANK = {
   };
 
 /* 局部核验边界：AA日期不代表旧TB/SWE/订阅价格全部重新核验。 */
-window.RANK_CHECK_NOTE = "10月20日已核对AA官方榜，新增DeepSeek 1017版与MiniMax M3.1-Flash，旧型号分数不混用；工具功能入口已按官方文档复核。TB当前官方为4.0，本站TB2.1保留2026年9月历史收录；SWE Verified与Pro保留2026年8月历史收录。工具历史成绩未重测，全体模型价格及主观等级未全部复核。";
+window.RANK_CHECK_NOTE = "10月21日已核对AA官方榜，18个选录型号、推理档位与分数均无变化，内容更新仍为10月20日；9个工具官方文档入口已复核。TB当前官方为4.0，本站TB2.1保留2026年9月历史收录；SWE Verified与Pro保留2026年8月历史收录。工具历史成绩未重测，全体模型价格及主观等级未全部复核。";

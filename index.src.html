@@ -940,13 +940,13 @@
     </div>
 <details id="cqutMatchFold" style="margin-top:32px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden">
       <summary id="cqutMatchSummary" style="cursor:pointer;list-style:none;padding:14px 18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;user-select:none">
-        <span style="font-size:19px">🏅 比赛 · 只收还能参加的</span>
+        <span style="font-size:19px">🏅 比赛 · 报名与资格核查</span>
         <span class="tier t-none" id="cqutMatchCount">—</span>
         <span class="tier t-none" id="matchOpenCount" style="background:#fef2f2;color:#e02424">—</span>
         <span style="font-size:12px;color:#94a3b8;margin-left:auto;flex:none" id="cqutFoldHint">展开 ▾</span>
       </summary>
       <div style="padding:2px 18px 16px;border-top:1px dashed var(--line)">
-        <p style="font-size:13px;color:#64748b;margin:12px 0 0">已核实截止或不符合研究生资格的条目会清退。报名资格和各校通道仍需以官网为准；每条写清<b>这是什么 / 能帮你做什么 / 需要你做什么</b>。最近维护于 <span id="cqut-match-updated"></span></p>
+        <p style="font-size:13px;color:#64748b;margin:12px 0 0">已核实截止或不符合研究生资格的条目会清退，待核实信息单独提示。报名资格和各校通道仍需以官网为准；每条写清<b>这是什么 / 能帮你做什么 / 需要你做什么</b>。最近维护于 <span id="cqut-match-updated"></span></p>
 
         <div style="font-size:14px;font-weight:800;color:var(--ink);margin:16px 0 7px;padding-left:10px;border-left:3px solid var(--brand)">🏫 按学校 / 单位分类 · <span style="font-weight:600;color:#64748b">点一下只看这一类</span></div>
         <div class="cmp-toolbar" id="matchSchoolFilters" style="margin-top:0"></div>
@@ -2389,9 +2389,10 @@
     }
     var isOpen = function(x){ var t=dlDay(x); return x.st === "报名中" && (t===null || t>=Date.now()); };
     var nOpen = M.filter(isOpen).length;
+    var nPending = M.filter(function(x){ return isOpen(x) && x.deadlineUnverified; }).length;
     function isSoon(x){
       var t = dlDay(x);
-      if(t === null || !isOpen(x)) return false;
+      if(x.deadlineUnverified || t === null || !isOpen(x)) return false;
       var d = (t - Date.now()) / 86400000;
       return d >= 0 && d <= 12;
     }
@@ -2399,7 +2400,7 @@
     var cb = document.getElementById('cqutMatchCount');
     if(cb) cb.textContent = '共 ' + M.length + ' 条';
     var ob = document.getElementById('matchOpenCount');
-    if(ob) ob.textContent = '🔥 ' + nOpen + ' 条正在报名';
+    if(ob) ob.textContent = '🔥 ' + (nOpen-nPending) + ' 条正在报名' + (nPending ? ' · ' + nPending + ' 条待核实' : '');
 
     /* --- 学校分类按钮 --- */
     var fwS = document.getElementById('matchSchoolFilters');
@@ -2420,7 +2421,7 @@
       var nFit = M.filter(function(x){ return !!x.fit; }).length;
       var nSoon = M.filter(isSoon).length;
       fwF.innerHTML = [
-        '<button class="filterbtn' + (FCUR === "open" ? " active" : "") + '" data-f="open">🔥 正在报名（' + nOpen + '）</button>',
+        '<button class="filterbtn' + (FCUR === "open" ? " active" : "") + '" data-f="open">🔥 ' + (nPending ? '报名 / 待核实' : '正在报名') + '（' + nOpen + '）</button>',
         '<button class="filterbtn' + (FCUR === "soon" ? " active" : "") + '" data-f="soon">⏰ 快截止（' + nSoon + '）</button>',
         '<button class="filterbtn' + (FCUR === "fit" ? " active" : "") + '" data-f="fit">🎯 专业对口（' + nFit + '）</button>',
         '<button class="filterbtn' + (FCUR === "all" ? " active" : "") + '" data-f="all">📋 全部（' + M.length + '）</button>'
@@ -2428,6 +2429,9 @@
     }
 
     var box = document.getElementById('match-list');
+    function matchText(value){
+      return esc(String(value == null ? '' : value).replace(/<\/?b>/gi, ''));
+    }
     function draw(){
       if(!box) return;
       var list = M.filter(function(x){
@@ -2445,7 +2449,7 @@
       list.sort(function(a, b){
         var ao = isOpen(a) ? 0 : 1, bo = isOpen(b) ? 0 : 1;
         if(ao !== bo) return ao - bo;
-        var ta = dlDay(a), tb = dlDay(b);
+        var ta = a.deadlineUnverified ? null : dlDay(a), tb = b.deadlineUnverified ? null : dlDay(b);
         if(ta === null && tb === null) return 0;
         if(ta === null) return 1;
         if(tb === null) return -1;
@@ -2457,9 +2461,9 @@
           ? '<span class="chip" style="border-color:var(--brand);color:var(--brand);background:var(--brand-soft)">🎯 跟你专业对口</span>'
           : '';
         var hot = isOpen(x)
-          ? '<span class="chip" style="border-color:#e02424;color:#e02424;background:#fef2f2">🔥 正在报名</span>'
+          ? (x.deadlineUnverified ? '<span class="chip">报名待核实</span>' : '<span class="chip" style="border-color:#e02424;color:#e02424;background:#fef2f2">🔥 正在报名</span>')
           : '';
-        var dl = x.dl && String(x.dl) !== "—"
+        var dl = x.deadlineUnverified ? '<span class="chip">截止待核实</span>' : x.dl && String(x.dl) !== "—"
           ? '<span class="chip" style="border-color:#f59e0b;color:#b45309;background:#fffbeb">⏰ 截止 ' + esc(x.dl) + '</span>'
           : '';
         var soon = isSoon(x)
@@ -2478,9 +2482,10 @@
             '<span class="chip" style="border-color:var(--line)">🏛 ' + esc(x.org || "") + '</span>' +
             hot + soon + dl + rego + fit +
           '</div>' +
-          '<div class="d-row"><span class="d-k">简介</span><span class="d-v">' + esc(x.intro || "") + '</span></div>' +
-          '<div class="d-row"><span class="d-k">我能帮你做啥</span><span class="d-v">' + esc(x.help || "") + '</span></div>' +
-          '<div class="d-row"><span class="d-k">我需要做啥</span><span class="d-v">' + esc(x.need || "") + '</span></div>' +
+          (x.verificationNote ? '<div class="d-row"><span class="d-k">核查说明</span><span class="d-v">' + esc(x.verificationNote) + '</span></div>' : '') +
+          '<div class="d-row"><span class="d-k">简介</span><span class="d-v">' + matchText(x.intro) + '</span></div>' +
+          '<div class="d-row"><span class="d-k">我能帮你做啥</span><span class="d-v">' + matchText(x.help) + '</span></div>' +
+          '<div class="d-row"><span class="d-k">我需要做啥</span><span class="d-v">' + matchText(x.need) + '</span></div>' +
           '<div style="margin-top:11px">' +
             '<a class="top-btn" href="' + esc(x.url || "#") + '" target="_blank" rel="noopener noreferrer">🔗 源地址 ↗</a>' +
             (x.alt
