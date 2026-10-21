@@ -26,6 +26,7 @@ module.exports=async function({ok}){
  let calls=[];let next=clone(raw);next.tasks[0].status='进行中';next.tasks[0].hours=2;next.revision='2222222222222222';next.syncedAt='2099-01-01T00:00:00Z';
  let r=run(async(url,opts)=>{calls.push({url,opts});return{ok:true,json:async()=>next};});
  ok(r.e['research-list'].innerHTML.includes('T001')&&r.e['research-list'].innerHTML.includes('预计 1.5 h'),'内联摘要可立即展示今天任务与工时');
+ ok(r.e['research-list'].innerHTML.includes('chatgpt.site/?task=T001')&&r.e['research-list'].innerHTML.includes('查看详细任务')&&r.e['research-list'].innerHTML.includes('rel="noopener"'),'每项任务提供按编号定位的私有详情入口，公共摘要未增加字段');
  await r.app.refresh();
  ok(r.e['research-list'].innerHTML.includes('进行中')&&r.e['research-list'].innerHTML.includes('预计 2 h')&&r.app.state().data.revision===next.revision,'刷新实际替换状态和工时，不只是改变更新时间文案');
  ok(calls[0].opts.cache==='no-store'&&calls[0].url.startsWith('research-data.json?t=')&&calls[0].opts.credentials==='same-origin','刷新绕过浏览器缓存，仅请求本站展示摘要');

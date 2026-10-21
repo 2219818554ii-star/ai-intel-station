@@ -77,7 +77,7 @@ module.exports = async function ({html, inline, sandbox, ok}) {
   ok(base.elements['view-research'].style.display==='' && base.elements['view-funds'].style.display==='none' && route.hash('research')==='#research', '科研独立链接切换栏目且隐藏前一栏目');
   const researchMarkup=html.split('id="view-research"')[1].split('id="view-funds"')[0];
   ok(researchMarkup.includes('id="research-list"') && !researchMarkup.includes('<iframe'), '科研在原栏目直接展示任务，不再嵌入或跳转重复网站');
-  ok(!html.includes('1-dfc8ry6ARxWM071wltd-LSZq30FtxxQwPoKD9zMuFw') && !html.includes('luohao-research-desk.easyroot8192.chatgpt.site'), '科研前台不包含完整总表ID或旧独立网站入口');
+  ok(!html.includes('1-dfc8ry6ARxWM071wltd-LSZq30FtxxQwPoKD9zMuFw'), '科研公开页面不包含完整总表ID');
   ok(researchMarkup.includes('保持私有') && researchMarkup.includes('展示表') && researchMarkup.includes('工时'), '科研说明明确展示来源、工时性质和私有边界');
   await require('./_research_regression.js')({ok});
   base.ctx.window.location.hash='#rank';route.sync();
