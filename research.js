@@ -89,6 +89,7 @@
       if(loc.protocol==='file:'){$('research-sync-status').textContent='当前为本地网页摘要。请打开在线网站读取最新发布数据；本地路径不能供其他设备访问。';return;}
       if(!fetcher)return;
       var mine=++request;if(controller)controller.abort();controller=typeof AbortController!=='undefined'?new AbortController():null;
+      var localController=controller,timeout=setTimeout(function(){if(localController)localController.abort();},15000);
       refreshButton.disabled=true;$('research-sync-status').textContent='正在检查最新发布数据…';
       try{
         var response=await fetcher('research-data.json?t='+Date.now(),{cache:'no-store',credentials:'same-origin',signal:controller?controller.signal:undefined});
@@ -96,7 +97,7 @@
         if(data&&Date.parse(next.syncedAt)<Date.parse(data.syncedAt)){$('research-sync-status').textContent='服务器返回了较旧的摘要，已保留较新版本。请稍后重试。';return;}
         apply(next);lastCheck=Date.now();$('research-sync-status').textContent='已读取最新发布摘要。表格修改后由我同步发布。';
       }catch(e){if(mine!==request)return;$('research-sync-status').textContent=data?'更新检查失败，保留上次有效摘要。请稍后重试；当前不代表已同步。':'任务暂时无法读取，请稍后重试。读取失败不代表没有任务。';}
-      finally{if(mine===request)refreshButton.disabled=false;}
+      finally{clearTimeout(timeout);if(mine===request)refreshButton.disabled=false;}
     }
     $('view-research').addEventListener('click',function(e){
       var b=e.target.closest?e.target.closest('button[data-rscope],button[data-rday],button[data-rfeedback]'):null;if(!b)return;

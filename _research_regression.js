@@ -2,7 +2,7 @@ const fs=require('fs'),vm=require('vm'),path=require('path');
 module.exports=async function({ok}){
  const raw=JSON.parse(fs.readFileSync(path.join(__dirname,'research-data.json'),'utf8'));
  const clone=x=>JSON.parse(JSON.stringify(x));
- const ctx={module:{exports:{}},setInterval(){},Intl,Date,AbortController};vm.createContext(ctx);vm.runInContext(fs.readFileSync(path.join(__dirname,'research.js'),'utf8'),ctx);
+ const timers=[];const ctx={module:{exports:{}},setInterval(){},setTimeout(fn){timers.push(fn);return timers.length;},clearTimeout(){},Intl,Date,AbortController};vm.createContext(ctx);vm.runInContext(fs.readFileSync(path.join(__dirname,'research.js'),'utf8'),ctx);
  const api=ctx.module.exports;
  const m=api.model(raw.tasks,'2026-10-21');
  ok(api.validate(raw)===raw&&raw.tasks.length===135&&raw.tasks.every(t=>Object.keys(t).length===6),'科研仅接收展示表六字段，135项任务无丢失');
@@ -41,4 +41,5 @@ module.exports=async function({ok}){
  let localCalls=0,local=run(async()=>{localCalls++;},'file:');await local.app.refresh();ok(localCalls===0&&local.e['research-sync-status'].textContent.includes('本地'),'本地文件使用打包摘要，不将文件读取失败声称为已同步');
  let older=clone(raw);older.syncedAt='2000-01-01T00:00:00Z';let old=run(async()=>({ok:true,json:async()=>older}));await old.app.refresh();ok(old.app.state().data.syncedAt===raw.syncedAt&&old.e['research-sync-status'].textContent.includes('较旧'),'服务器旧缓存不覆盖较新的内联摘要');
  const waiting=[];let race=run(()=>new Promise(resolve=>waiting.push(resolve)));let one=race.app.refresh(),two=race.app.refresh();waiting[1]({ok:true,json:async()=>next});await two;waiting[0]({ok:true,json:async()=>raw});await one;ok(race.app.state().data.revision===next.revision,'连续刷新时迟到的旧请求不能覆盖最新状态');
+ let timeout=run((url,opts)=>new Promise((resolve,reject)=>opts.signal.addEventListener('abort',()=>reject(Error('timeout')))));let pending=timeout.app.refresh();timers.at(-1)();await pending;ok(!timeout.e['research-refresh'].disabled&&timeout.e['research-list'].innerHTML.includes('T001')&&timeout.e['research-sync-status'].textContent.includes('失败'),'刷新超时会恢复按钮并保留原任务，不会无限卡在加载中');
 };
