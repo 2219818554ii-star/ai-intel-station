@@ -246,23 +246,18 @@
   .sc-why{font-size:13.5px;color:var(--ink-soft);margin:0 0 8px;line-height:1.6;}
   .sc-foot{display:flex;align-items:center;gap:10px;margin-top:10px;}
   .sc-tool{font-size:12.5px;color:var(--ink-soft);}
-  /* 科研入口仅链接私有总表；任务内容不打包进静态网站。 */
-  .research-hero{background:linear-gradient(120deg,#eef0ff,#f1fbfa);border:1px solid var(--line);border-radius:18px;padding:24px;margin-bottom:18px;}
-  .research-hero h2{margin:8px 0;font-size:28px;}.research-hero p{color:var(--ink-soft);margin:8px 0 18px;}
-  .research-tag{font-size:12px;color:#3f46a4;letter-spacing:.08em;}
-  .research-actions{display:flex;gap:10px;flex-wrap:wrap;}
-  .research-action{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:10px 16px;border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--brand);font:inherit;font-weight:600;cursor:pointer;}
-  .research-action.primary{background:var(--brand);border-color:var(--brand);color:white;}
-  .research-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0;}
-  .research-card{display:block;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;min-width:0;}
-  a.research-card:hover{border-color:var(--brand);}.research-card strong{display:block;font-size:17px;}.research-card p{font-size:14px;color:var(--ink-soft);margin:8px 0 0;}
-  .research-box{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;margin:16px 0;}
-  .research-box h3{margin:0 0 10px;font-size:19px;}.research-note{font-size:14px;color:var(--ink-soft);overflow-wrap:anywhere;}
-  .research-preview-tools{display:flex;align-items:center;flex-wrap:wrap;gap:10px;}.research-preview-tools select{font:inherit;min-height:44px;max-width:100%;border:1px solid var(--line);border-radius:9px;padding:8px;}
-  #research-frame{display:block;border:1px solid var(--line);border-radius:10px;width:100%;height:660px;margin-top:14px;background:var(--bg);}
-  #research-frame[hidden]{display:none;}#research-feedback{width:100%;min-height:156px;resize:vertical;line-height:1.7;font:inherit;padding:12px;border:1px solid var(--line);border-radius:10px;}
-  #view-research a:focus-visible,#view-research button:focus-visible,#view-research select:focus-visible,#view-research textarea:focus-visible{outline:3px solid var(--accent);outline-offset:3px;}
-  @media(max-width:720px){.research-hero{padding:20px;}.research-hero h2{font-size:25px;}.research-grid{grid-template-columns:1fr;gap:10px;}.research-actions{display:grid;grid-template-columns:1fr;width:100%;}.research-box{padding:16px;}#research-frame{height:560px;}.research-preview-tools{align-items:stretch;}.research-preview-tools select{width:100%;}}
+  /* 科研栏目：只渲染已审核展示表六字段。 */
+  #research-list-heading{scroll-margin-top:calc(var(--appbar-height) + 16px)}
+  @media(max-width:720px){.research-stat[data-rscope="risk"] small{display:none}}
+  .research-hero{padding:18px 20px;background:linear-gradient(110deg,#eef0ff,#eff9f8);border:1px solid var(--line);border-radius:14px;display:flex;align-items:center;justify-content:space-between;gap:18px;}
+  .research-kicker{font-size:12px;color:var(--brand);letter-spacing:.07em}.research-hero h2{font-size:27px;margin:4px 0}.research-hero p{font-size:14px;color:var(--ink-soft);margin:6px 0}.research-refresh{border:1px solid #c9cfef;border-radius:10px;background:white;color:var(--brand);padding:10px 16px;white-space:nowrap;min-height:44px;cursor:pointer}.research-refresh:disabled{opacity:.6;cursor:wait}
+  .research-sync{font-size:12px;color:var(--ink-soft);margin:9px 0 15px;overflow-wrap:anywhere}.research-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0 0 16px}.research-stat{text-align:left;background:white;border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;color:var(--ink);min-width:0}.research-stat span,.research-stat small{display:block;font-size:12px}.research-stat small{color:var(--ink-soft);margin-top:3px}.research-stat strong{display:block;font-size:27px;line-height:1.35;margin-top:6px}.research-stat.selected{border-color:var(--brand)}
+  .research-risk-strip{display:flex;align-items:center;gap:10px;justify-content:space-between;border:1px solid #f1dfc8;background:#fff8ee;border-radius:10px;padding:11px 14px;margin-bottom:20px;font-size:13px;color:#855321}.research-risk-strip p{margin:0}.research-risk-strip button{background:none;border:0;color:inherit;cursor:pointer;min-height:36px;white-space:nowrap;text-decoration:underline}
+  .research-workspace{background:white;border:1px solid var(--line);border-radius:15px;padding:20px}.research-section-head{display:flex;justify-content:space-between;gap:12px;align-items:center}.research-section-head h3{font-size:20px;margin:0}.research-subtle{background:none;border:0;color:var(--ink-soft);font-size:12px;min-height:40px;cursor:pointer}.research-tabs{display:flex;gap:7px;margin:14px 0;overflow-x:auto;scrollbar-width:none}.research-tabs::-webkit-scrollbar{display:none}.research-tabs button{border:0;padding:9px 14px;border-radius:8px;background:#f3f4fa;color:var(--ink-soft);white-space:nowrap;min-height:40px;cursor:pointer}.research-tabs button.selected{background:var(--brand);color:white}
+  .research-filters{display:flex;gap:9px;align-items:center}.research-filters input{flex:1;min-width:0;padding:10px 12px;background:#f8f9fc;border:1px solid var(--line);border-radius:9px;min-height:44px}.research-filters select{background:white;border:1px solid var(--line);border-radius:8px;padding:9px;min-height:44px;max-width:180px;color:var(--ink)}.research-result{font-size:12px;color:var(--ink-soft);margin:12px 0}.research-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.research-task{border:1px solid var(--line);border-radius:12px;padding:17px;min-width:0}.research-task.has-risk{border-left:3px solid #dba962}.research-task-top{display:flex;justify-content:space-between;align-items:center;color:var(--brand);font-size:12px}.research-task-top>small{color:var(--ink-soft)}.research-task h3{font-size:18px;line-height:1.5;margin:12px 0}.research-task-tags{display:flex;gap:7px;flex-wrap:wrap;color:var(--ink-soft);font-size:12px;align-items:center}.research-state{padding:2px 8px;border-radius:6px;background:#f0f2fc;color:#525e99}.research-state.hold{background:#fff0d9;color:#8a551e}.research-state.done{background:#eaf6ee;color:#37734e}.research-task-risk{font-size:12px;background:#fff8ed;color:#8a551e;padding:8px 10px;border-radius:7px;margin:12px 0 0}.research-task-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:15px}.research-task-bottom small{font-size:11px;color:var(--ink-soft)}.research-task-bottom button{background:white;border:1px solid #daddf0;border-radius:8px;color:var(--brand);padding:7px 12px;min-height:40px;cursor:pointer;font-size:13px}.research-empty{grid-column:1/-1;text-align:center;padding:30px 12px;color:var(--ink-soft)}.research-empty strong{font-size:17px;color:var(--ink)}.research-more{display:block;margin:18px auto 0;min-height:44px;padding:9px 24px;color:var(--brand);border:0;border-radius:9px;background:var(--brand-soft);cursor:pointer}
+  .research-chart-box{margin-top:20px;border:1px solid var(--line);border-radius:14px;background:white;padding:18px 20px}.research-chart-box summary{font-weight:700;cursor:pointer;min-height:36px}.research-chart-box summary small{font-size:12px;font-weight:400;color:var(--ink-soft);margin-left:10px}.research-week-chart{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;margin-top:15px}.research-day{display:flex;flex-direction:column;align-items:center;gap:5px;background:#fafbff;border:1px solid var(--line);border-radius:9px;padding:10px 5px;min-width:0;cursor:pointer;font-size:12px;color:var(--ink-soft)}.research-day-track{height:66px;width:22px;background:#edf0fa;border-radius:5px;display:flex;align-items:flex-end;overflow:hidden}.research-day-track i{display:block;width:100%;background:#8189d9;border-radius:5px}.research-day b{color:var(--ink);font-size:13px}.research-day small{font-size:11px}.research-day.overload .research-day-track i{background:#d69a59}.research-chart-note{font-size:12px;color:var(--ink-soft);margin:12px 0 0}.research-progress-track{height:5px;border-radius:9px;background:#edf0fa;margin:14px 0 7px;overflow:hidden}.research-progress-track span{display:block;width:0;height:100%;background:var(--brand)}
+  .research-feedback-box{padding:20px;margin-top:20px;border:1px solid var(--line);border-radius:14px;background:white}.research-feedback-box h3{font-size:18px;margin:0 0 8px}.research-feedback-box p,.research-source details{font-size:13px;color:var(--ink-soft)}#research-feedback-text{display:block;width:100%;min-height:145px;resize:vertical;border:1px solid var(--line);border-radius:9px;padding:12px;font:inherit;line-height:1.7;margin:12px 0}.research-source{font-size:12px;color:var(--ink-soft);margin:16px 0}.research-source summary{cursor:pointer;min-height:32px}.research-source p{overflow-wrap:anywhere}.research-source code{font-size:12px}
+  @media(max-width:720px){.research-hero{padding:15px;gap:10px;align-items:flex-start}.research-hero h2{font-size:23px}.research-hero p{font-size:13px}.research-refresh{font-size:12px;padding:8px 10px;min-height:42px}.research-stats{gap:7px}.research-stat{padding:10px 8px}.research-stat span,.research-stat small{font-size:11px}.research-stat strong{font-size:24px}.research-stat small{line-height:1.5}.research-risk-strip{font-size:12px;padding:9px 11px;margin-bottom:15px}.research-workspace{padding:15px 13px}.research-section-head h3{font-size:18px}.research-tabs{gap:5px;margin:10px 0 12px}.research-tabs button{font-size:13px;padding:8px 11px}.research-filters{display:grid;grid-template-columns:1fr 1fr;gap:8px}.research-filters input{grid-column:1/-1;font-size:16px}.research-filters select{max-width:none;min-width:0;width:100%;font-size:13px}.research-list{grid-template-columns:1fr}.research-task{padding:15px}.research-task h3{font-size:17px}.research-chart-box,.research-feedback-box{padding:16px}.research-week-chart{gap:4px}.research-day{font-size:10px;padding:8px 2px}.research-day b{font-size:11px}.research-day small{font-size:10px}.research-day-track{width:18px;height:54px}.research-chart-box summary small{display:block;margin:4px 0}.research-source{font-size:11px}#research-feedback-text{font-size:16px}}
 </style>
 <style id="experience-styles">
   :root{--shadow:0 2px 10px rgba(20,30,60,.045);--appbar-height:54px;--reading-offset:170px;}
@@ -1009,24 +1004,22 @@
   </div>
 
   <div id="view-research" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-research">
-    <header class="research-hero">
-      <span class="research-tag">我的科研 · 每天从这里开始</span>
-      <h2>🔬 科研工作台</h2>
-      <p>任务、进度、待协调事项，都在网页里看。你执行后在对话中反馈，我核对并更新计划和网页。</p>
-      <div class="research-actions">
-        <a class="research-action primary" id="research-private-open" href="https://luohao-research-desk.easyroot8192.chatgpt.site" target="_blank" rel="noopener noreferrer">打开科研工作台 ↗</a>
-        <button class="research-action" id="research-preview-load" type="button">在本页打开工作台</button>
-      </div>
-      <p class="research-note">电脑、手机都可以打开。首次访问请用你本人的 ChatGPT 账号登录，科研内容仅本人可见。</p>
-    </header>
-    <div class="research-grid" aria-label="科研工作台内容">
-      <div class="research-card"><strong>📅 今天与近期安排</strong><p>直接看任务卡片、前置条件与验收要求，按日期执行。</p></div>
-      <div class="research-card"><strong>🧭 待协调与分类检索</strong><p>查看卡在哪里，按研究分类或任务状态筛选，也可以搜索编号。</p></div>
-      <div class="research-card"><strong>📊 进度与研究路线</strong><p>区分完成标记和证据验收，按阶段查看计划与所需证据。</p></div>
-    </div>
-    <p class="research-note" id="research-preview-status" role="status">若本页打开后空白或要求登录，请使用上方「打开科研工作台」。页面加载不代表已获得访问权限。</p>
-    <iframe id="research-frame" title="私有科研工作台" referrerpolicy="no-referrer" hidden></iframe>
-    <aside class="research-box" aria-label="访问与更新说明"><h3>以后就按这个流程</h3><p class="research-note">你看网站执行 → 在本对话反馈进展、日期和证据 → 我核对后更新任务与网站。网页显示最近一次发布的计划，并注明核对时间；不需要你再打开表格。</p><p class="research-note">公开的每日网站只接入私有工作台，不包含科研任务数据或访问凭据。Google 总表仅作为后台唯一任务来源；任务由我维护后更新网站。其他设备请使用在线网址，file:// 本地路径不能跨设备访问。</p></aside>
+    <header class="research-hero"><div><span class="research-kicker" id="research-date">我的科研 · 北京时间</span><h2>🔬 科研 · 今日安排</h2><p id="research-focus">正在读取科研展示摘要…</p></div><button type="button" class="research-refresh" id="research-refresh">刷新任务</button></header>
+    <p id="research-sync-status" class="research-sync" role="status">正在核对发布数据…</p>
+    <div class="research-stats" id="research-stats" aria-label="任务与工时概览"></div>
+    <aside class="research-risk-strip" aria-label="风险提醒"><p id="research-risk-note">正在核对风险…</p><button type="button" data-rscope="risk">查看</button></aside>
+    <section class="research-workspace" aria-labelledby="research-list-heading"><div class="research-section-head"><h3 id="research-list-heading">今日任务</h3><button type="button" id="research-reset" class="research-subtle">清除筛选</button></div>
+      <nav class="research-tabs" aria-label="科研任务视图"><button type="button" data-rscope="today" class="selected" aria-pressed="true">今天</button><button type="button" data-rscope="week" aria-pressed="false">未来7天</button><button type="button" data-rscope="risk" aria-pressed="false">风险待核对</button><button type="button" data-rscope="all" aria-pressed="false">全部任务</button></nav>
+      <div class="research-filters"><input type="search" id="research-search" aria-label="搜索科研任务" placeholder="搜索任务、编号、分类…"><select id="research-category" aria-label="筛选科研分类"><option value="all">全部分类</option></select><select id="research-state" aria-label="筛选任务状态"><option value="all">全部状态</option><option>计划中</option><option>进行中</option><option>待条件</option><option>待确认</option><option>已完成</option><option>已取消</option></select></div>
+      <p class="research-result" id="research-result-count" role="status"></p><div class="research-list" id="research-list" aria-live="polite"></div><button type="button" id="research-more" class="research-more" hidden>再看12项</button>
+    </section>
+    <details class="research-chart-box"><summary>未来7天 · 预计主动工时 <small>不含今天，点击日期查看当天计划</small></summary><div id="research-week-chart" class="research-week-chart" aria-label="未来7天预计工时图"></div><p class="research-chart-note">按未完成任务汇总；空工时标为待估。工时为计划估计，不含实验等待或设备占用时间，超过8小时以暖色提醒核对。</p><div class="research-progress-track" aria-hidden="true"><span id="research-progress-fill"></span></div><p id="research-progress" class="research-chart-note"></p></details>
+    <section class="research-feedback-box" id="research-feedback-box" aria-labelledby="research-feedback-heading"><h3 id="research-feedback-heading">有进展，在本对话里告诉我</h3><p>点击任务上的「反馈这项」，可带入编号。你反馈后，我核对并更新任务与网站；展示状态不等于实验已验收。</p><textarea id="research-feedback-text" aria-label="科研进展反馈内容">任务ID：
+进展 / 新情况：
+实际日期 / 希望调整到：
+实际主动工时（可选）：
+需要协调的事：</textarea><button type="button" class="research-refresh" id="research-copy">复制反馈内容</button></section>
+    <footer class="research-source"><details><summary>数据来源、隐私与更新方式</summary><p id="research-meta"></p><p>这里只展示 Google 科研展示表审核后的6列摘要。完整科研总表、实验原始数据、配方和证据路径保持私有；风险提醒仅依据公开状态、日期和工时生成。</p><p>工作流：你看网站执行 → 在本对话反馈 → 我更新展示表并同步发布网站。网页刷新读取最新发布的摘要；不会绕过授权实时读取私有表。file:// 是电脑本地文件地址，其他设备请使用在线网站。</p></details></footer>
   </div>
 
   <div id="view-funds" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-funds">
@@ -1157,6 +1150,7 @@
     if(!RESTORE_PENDING) VIEW_SCROLL[ACTIVE_TAB] = window.scrollY || 0;
     if(DOM_READY) RESTORE_PENDING=false;
     ACTIVE_TAB = tab;
+    if(tab==="research"&&window.AI_RESEARCH)window.AI_RESEARCH.refresh();
     document.querySelectorAll(".tab").forEach(function(t){ var on=(t.dataset.tab===tab); t.classList.toggle("active", on); t.setAttribute("aria-selected", on?"true":"false");t.setAttribute("tabindex",on?"0":"-1"); });
     ["daily","research","rank","comp","learn","ted","forum","magazines","cqut","funds"].forEach(function(v){
       var el=document.getElementById("view-"+v);
@@ -3084,16 +3078,7 @@
   render();
 })();
 </script>
-<script>
-(function(){
-  "use strict";
-  var frame=document.getElementById("research-frame"),button=document.getElementById("research-preview-load");
-  button.addEventListener("click",function(){
-    frame.src="https://luohao-research-desk.easyroot8192.chatgpt.site";frame.hidden=false;
-    button.textContent="重新加载工作台";
-    document.getElementById("research-preview-status").textContent="已请求私有工作台。空白或要求登录时，请在新页面打开并登录本人账号；此提示不代表已获得权限。";
-  });
-})();
-</script>
+<script id="research-data-snapshot"></script>
+<script src="research.js"></script>
 </body>
 </html>

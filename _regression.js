@@ -75,16 +75,11 @@ module.exports = async function ({html, inline, sandbox, ok}) {
   ok(base.elements['view-funds'].style.display==='' && base.elements['view-daily'].style.display==='none' && route.hash('funds')==='#funds', '基金独立链接打开基金栏目，不被日报覆盖');
   base.ctx.window.location.hash='#research'; route.sync();
   ok(base.elements['view-research'].style.display==='' && base.elements['view-funds'].style.display==='none' && route.hash('research')==='#research', '科研独立链接切换栏目且隐藏前一栏目');
-  const research=run(), re=research.elements, rl=research.listeners;
-  ok(!re['research-frame'].src && /<iframe id="research-frame"[^>]* hidden><\/iframe>/.test(html), '私有科研工作台默认不加载，不影响其他栏目');
-  rl['research-preview-load'].click();
-  ok(re['research-frame'].src==='https://luohao-research-desk.easyroot8192.chatgpt.site' && re['research-frame'].hidden===false, '科研嵌入只打开已确认的私有站点');
-  ok(re['research-preview-status'].textContent.includes('不代表已获得权限') && re['research-preview-status'].textContent.includes('新页面'), '嵌入失败保留登录退路，不声称授权成功');
   const researchMarkup=html.split('id="view-research"')[1].split('id="view-funds"')[0];
-  ok(researchMarkup.includes('id="research-private-open"') && researchMarkup.includes('href="https://luohao-research-desk.easyroot8192.chatgpt.site"'), '公开栏目保留私有工作台的直接入口');
-  ok(!/\bT\d{3}\b|access_token|api_key|research-data\.json/.test(researchMarkup), '公开科研栏目不含任务明文、数据文件或凭据');
-  ok(!html.includes('1-dfc8ry6ARxWM071wltd-LSZq30FtxxQwPoKD9zMuFw'), '日常入口不再要求用户打开Google表格');
-  ok(researchMarkup.includes('唯一任务来源') && researchMarkup.includes('file://'), '后台来源和跨设备访问限制清楚可见');
+  ok(researchMarkup.includes('id="research-list"') && !researchMarkup.includes('<iframe'), '科研在原栏目直接展示任务，不再嵌入或跳转重复网站');
+  ok(!html.includes('1-dfc8ry6ARxWM071wltd-LSZq30FtxxQwPoKD9zMuFw') && !html.includes('luohao-research-desk.easyroot8192.chatgpt.site'), '科研前台不包含完整总表ID或旧独立网站入口');
+  ok(researchMarkup.includes('保持私有') && researchMarkup.includes('展示表') && researchMarkup.includes('工时'), '科研说明明确展示来源、工时性质和私有边界');
+  await require('./_research_regression.js')({ok});
   base.ctx.window.location.hash='#rank';route.sync();
   ok(base.elements['view-rank'].style.display==='' && base.elements['view-funds'].style.display==='none', '栏目地址变化正确切换可见视图');
   const restored=run(x=>x,{'ai-view-scroll':JSON.stringify({funds:1400}),'ai-comp-state':JSON.stringify({query:'人工智能',sort:'pri',scope:'all',filter:'all',page:2})});
@@ -168,6 +163,8 @@ module.exports = async function ({html, inline, sandbox, ok}) {
   }
   let expected=fs.readFileSync(path.join(__dirname,'index.src.html'),'utf8');
   for(const f of ['competitions','ted','forum','rank','cqut','matches','funds','magazines'])expected=expected.replace('<script src="'+f+'.js"></script>','<script>\n'+fs.readFileSync(path.join(__dirname,f+'.js'),'utf8')+'\n</script>');
+  expected=expected.replace('<script id="research-data-snapshot"></script>','<script>\nwindow.RESEARCH_SNAPSHOT='+JSON.stringify(JSON.parse(fs.readFileSync(path.join(__dirname,'research-data.json'),'utf8'))).replace(/</g,'\\u003c')+';\n</script>');
+  expected=expected.replace('<script src="research.js"></script>','<script>\n'+fs.readFileSync(path.join(__dirname,'research.js'),'utf8')+'\n</script>');
   ok(['index.html','gh-pages/index.html','ai_intel_station_standalone.html'].every(f=>fs.readFileSync(path.join(__dirname,f),'utf8').replace(/\r\n/g,'\n')===expected.replace(/\r\n/g,'\n')), '三份构建产物均与当前模板和数据一致');
   await require('./_daily_recovery_regression.js')({inline,sandbox,ok});
   await require('./_magazines_regression.js')({html,inline,sandbox,ok});

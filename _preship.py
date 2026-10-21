@@ -123,7 +123,7 @@ prod = readtxt(PROD)
 # ---------- [1] 产物是否过期 ----------
 print("[1] 产物新鲜度")
 src_files = ["index.src.html", "competitions.js", "matches.js", "ted.js", "forum.js",
-             "rank.js", "cqut.js", "funds.js", "magazines.js"]
+             "rank.js", "cqut.js", "funds.js", "magazines.js", "research.js", "research-data.json"]
 pm = os.path.getmtime(os.path.join(BASE, PROD))
 fresh = []
 for f in src_files:
@@ -152,6 +152,10 @@ else:
 # ---------- [2] 关键内容是否真的落地 ----------
 print("\n[2] 关键内容落地检查（直接读产物全文，emoji 也精确匹配）")
 MUST_CONTAIN = [
+    ("科研栏目", 'id="view-research"'),
+    ("科研原生任务清单", 'id="research-list"'),
+    ("科研刷新入口", 'id="research-refresh"'),
+    ("科研六字段摘要", 'window.RESEARCH_SNAPSHOT='),
     ("每日日报 tab 文案", "📰"),
     ("实力排行榜 tab 文案", "🏆"),
     ("可报名比赛 tab 文案", "🏁"),

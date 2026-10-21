@@ -12,7 +12,7 @@ const tabs = [...html.matchAll(/data-tab="([^"]+)"/g)].map(m => m[1]);
 ok(tabs.length === 10, `tab 数量 = ${tabs.length}（期望 10）: ${tabs.join(', ')}`);
 ok(['daily','research','rank','comp','learn','ted','forum','magazines','cqut','funds'].every(v => html.includes(`id="view-${v}"`)), 'view 区块 = 10/10');
 ok(html.includes('["daily","research","rank","comp","learn","ted","forum","magazines","cqut","funds"]'), 'showTab 数组含全部 10 个视图');
-ok(!/<script src="(competitions|ted|forum|rank|cqut|matches|funds|magazines)\.js"/.test(html), '八个数据文件均已内联（无外链脚本）');
+ok(!/<script src="(competitions|ted|forum|rank|cqut|matches|funds|magazines|research)\.js"/.test(html), '八个数据脚本与科研逻辑均已内联（无外链脚本）');
 const httpLeft = count(html, /href="http:\/\//g);
 ok(httpLeft === 0, `无 http:// 明文链接（剩余 ${httpLeft}）`);
 

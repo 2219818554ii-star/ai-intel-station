@@ -1,6 +1,8 @@
 # 构建脚本：把模块化源(index.src.html + competitions.js + ted.js) 重新生成自包含部署版
 # 用法：python _build.py
 import os
+import json
+from _sync_research import validate as validate_research
 
 base = os.path.dirname(os.path.abspath(__file__))
 src = os.path.join(base, "index.src.html")      # 模块化源（可编辑）
@@ -57,6 +59,15 @@ magazines_marker = '<script src="magazines.js"></script>'
 assert magazines_marker in html, "magazines marker not found in index.src.html!"
 magazines_data = open(magazines, encoding="utf-8").read()
 standalone = standalone.replace(magazines_marker, "<script>\n" + magazines_data + "\n</script>", 1)
+
+# 只允许已审核的六字段展示摘要；网页含回退副本，在线时另取最新JSON。
+research_data = validate_research(json.load(open(os.path.join(base, "research-data.json"), encoding="utf-8")))
+research_snapshot = '<script id="research-data-snapshot"></script>'
+research_marker = '<script src="research.js"></script>'
+assert research_snapshot in standalone and research_marker in standalone, "research markers missing"
+research_json = json.dumps(research_data, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
+standalone = standalone.replace(research_snapshot, "<script>\nwindow.RESEARCH_SNAPSHOT=" + research_json + ";\n</script>", 1)
+standalone = standalone.replace(research_marker, "<script>\n" + open(os.path.join(base,"research.js"), encoding="utf-8").read() + "\n</script>", 1)
 
 for p in (out_deploy, out_gh, out_local):
     os.makedirs(os.path.dirname(p), exist_ok=True)
