@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "sourceLabel": "Google 科研展示表",
-  "sourceUpdatedAt": "2026-10-22T14:14:49Z",
-  "syncedAt": "2026-10-22T14:14:49Z",
-  "revision": "08885a59b89c8033",
+  "sourceUpdatedAt": "2026-10-22T14:39:45Z",
+  "syncedAt": "2026-10-22T14:39:45Z",
+  "revision": "f2be25b4ea08e78a",
   "tasks": [
     {
       "id": "T001",
-      "date": "2026-10-22",
+      "date": "2026-10-23",
       "title": "实验资源协调",
       "status": "计划中",
-      "hours": 1.5,
+      "hours": 2,
       "category": "实验资源"
     },
     {
@@ -25,7 +25,7 @@
       "id": "T003",
       "date": "2026-10-23",
       "title": "安全与接收审批",
-      "status": "计划中",
+      "status": "已取消",
       "hours": 2,
       "category": "实验资源"
     },
@@ -33,7 +33,7 @@
       "id": "T004",
       "date": "2026-10-28",
       "title": "实验材料盘点",
-      "status": "计划中",
+      "status": "已完成",
       "hours": 2.5,
       "category": "科研整理"
     },
@@ -41,7 +41,7 @@
       "id": "T005",
       "date": "2026-10-23",
       "title": "电池装配规范复核",
-      "status": "计划中",
+      "status": "已完成",
       "hours": 1.5,
       "category": "安全与测试"
     },
@@ -105,7 +105,7 @@
       "id": "T013",
       "date": "2026-10-22",
       "title": "设备连接与模式核验",
-      "status": "进行中",
+      "status": "已完成",
       "hours": 3,
       "category": "安全与测试"
     },
@@ -127,10 +127,10 @@
     },
     {
       "id": "T016",
-      "date": "2026-10-30",
+      "date": "2026-10-23",
       "title": "合格样品测量验证",
-      "status": "待条件",
-      "hours": 4.5,
+      "status": "计划中",
+      "hours": 1.5,
       "category": "安全与测试"
     },
     {
@@ -209,7 +209,7 @@
       "id": "T026",
       "date": "2026-10-22",
       "title": "样品编号与质量台账",
-      "status": "计划中",
+      "status": "进行中",
       "hours": 2.5,
       "category": "科研整理"
     },

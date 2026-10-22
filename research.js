@@ -45,6 +45,9 @@
     return groups;
   }
   function mount(w,doc,opts){
+    var privateFrame=doc.getElementById('research-private-frame');
+    w.addEventListener('message',function(event){if(!privateFrame||event.origin!=='https://luohao-research-desk.easyroot8192.chatgpt.site'||event.source!==privateFrame.contentWindow||!event.data||event.data.type!=='research-frame-size')return;var h=event.data.height;if(typeof h==='number'&&Number.isFinite(h)&&h>=200&&h<=30000)privateFrame.style.height=(Math.ceil(h)+20)+'px';});
+
     opts=opts||{};var $=function(id){return doc.getElementById(id);},data=null,currentDay=opts.today||beijingDay(),groups=null,scope='today',limit=12,selectedDay='',query='',category='all',state='all',request=0,controller=null,lastCheck=0;
     var fetcher=opts.fetcher||(typeof fetch==='function'?fetch:null),refreshButton=$('research-refresh');
     function stamp(value){return new Date(value).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',hour12:false});}
@@ -76,7 +79,7 @@
       doc.querySelectorAll('#view-research [data-rscope]').forEach(function(el){var on=el.dataset.rscope===scope;el.classList.toggle('selected',on);el.setAttribute('aria-pressed',on?'true':'false');});
       $('research-list-heading').textContent=selectedDay?selectedDay+' 的安排':labels[scope];
       $('research-result-count').textContent=list.length+' 项 · '+hours(list).text+(scope==='week'?' · 不含今天':'')+(list.length>limit?' · 已显示 '+limit+' 项':'');
-      $('research-list').innerHTML=list.slice(0,limit).map(function(t){var warnings=risks(t,currentDay);return '<article class="research-task'+(warnings.length?' has-risk':'')+'"><div class="research-task-top"><span>'+esc(t.category)+'</span><small>'+esc(t.id)+'</small></div><h3>'+esc(t.title)+'</h3><div class="research-task-tags"><span class="research-state '+(t.status==='已完成'?'done':t.status==='待条件'?'hold':'')+'">'+esc(t.status)+'</span><span>'+esc(t.date||'日期待确认')+'</span><span>预计 '+(t.hours===null?'待估':t.hours+' h')+'</span></div>'+(warnings.length?'<p class="research-task-risk">'+esc(warnings.join('；'))+'</p>':'')+'<div class="research-task-bottom"><a class="research-detail-link" href="https://luohao-research-desk.easyroot8192.chatgpt.site/?task='+encodeURIComponent(t.id)+'" target="_top" rel="noopener" aria-label="查看'+t.id+'的详细任务（登录后可见）">查看详细任务 ↗</a><button type="button" data-rfeedback="'+t.id+'">反馈这项</button></div></article>';}).join('')||'<div class="research-empty"><strong>没有匹配的任务</strong><p>可以清除筛选，或查看未来7天和风险待核对。</p></div>';
+      $('research-list').innerHTML=list.slice(0,limit).map(function(t){var warnings=risks(t,currentDay);return '<article class="research-task'+(warnings.length?' has-risk':'')+'"><div class="research-task-top"><span>'+esc(t.category)+'</span><small>'+esc(t.id)+'</small></div><h3>'+esc(t.title)+'</h3><div class="research-task-tags"><span class="research-state '+(t.status==='已完成'?'done':t.status==='待条件'?'hold':'')+'">'+esc(t.status)+'</span><span>'+esc(t.date||'日期待确认')+'</span><span>预计 '+(t.hours===null?'待估':t.hours+' h')+'</span></div>'+(warnings.length?'<p class="research-task-risk">'+esc(warnings.join('；'))+'</p>':'')+'<div class="research-task-bottom"><a class="research-detail-link" href="https://luohao-research-desk.easyroot8192.chatgpt.site/?task='+encodeURIComponent(t.id)+'" target="_top" rel="noopener" aria-label="查看'+t.id+'的任务记录（登录后可见）">在上方清单直接查看</a><button type="button" data-rfeedback="'+t.id+'">反馈这项</button></div></article>';}).join('')||'<div class="research-empty"><strong>没有匹配的任务</strong><p>可以清除筛选，或查看未来7天和风险待核对。</p></div>';
       $('research-more').hidden=list.length<=limit;
     }
     function setScope(next){scope=['today','week','risk','all','done'].indexOf(next)>=0?next:'today';limit=12;selectedDay='';render();}
