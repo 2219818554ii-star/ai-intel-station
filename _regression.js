@@ -24,6 +24,20 @@ module.exports = async function ({html, inline, sandbox, ok}) {
     return {ctx,elements,listeners,documentEvents};
   }
   const base = run();
+  const forumVideos=base.ctx.window.FORUM_SERIES.flatMap(s=>s.vids);
+  const forumMetadataReports={};
+  function forumProof(day){
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(day||''))return null;
+    if(!forumMetadataReports[day]){
+      const report=JSON.parse(fs.readFileSync(path.join(__dirname,'_forum_metadata_'+day+'.json'),'utf8'));
+      forumMetadataReports[day]=Object.fromEntries((report.attempts||[]).map(row=>[row.bvid,row]));
+    }
+    return forumMetadataReports[day];
+  }
+  ok(forumVideos.every(v=>{
+    const proof=forumProof(v.metadataCheckedAt),r=proof&&proof[v.bvid];
+    return r&&r.http===200&&r.curlExit===0&&r.apiCode===0&&r.url==='https://api.bilibili.com/x/player/pagelist?bvid='+v.bvid&&Array.isArray(r.officialData)&&r.officialData.length>0&&Number.isInteger(v.pageCount)&&v.pageCount===r.officialData.length&&r.officialData.every((p,i)=>p.page===i+1&&Number.isInteger(p.cid)&&Number.isInteger(p.duration)&&p.duration>=0)&&v.durationSeconds===r.officialData.reduce((n,p)=>n+p.duration,0)&&String(v.dur).split(':').reduce((n,p)=>n*60+Number(p),0)===v.durationSeconds;
+  }), '讲坛每条分P数与总秒数均匹配同日完整官方响应，未拿元数据冒充播放统计');
   const compCheckDates=run(x=>x.replace('var COMP = window.COMP || [];','var COMP = window.COMP || [];window.COMP_CHECKED="2099-01-01";'));
   ok(compCheckDates.elements['comp-check-note'].textContent.includes('2099-01-01')&&!compCheckDates.elements['comp-updated'].textContent.includes('2099-01-01'), '比赛来源核查日与最近成功内容更新日独立显示');
   const focus = base.ctx.window.FUNDS_STOCKS.focus;
@@ -47,6 +61,7 @@ module.exports = async function ({html, inline, sandbox, ok}) {
   const d=base.ctx.window.__deadline;
   ok(d.dlDay({dl:'2026-10-16 12:00（校赛）'})===Date.parse('2026-10-16T12:00:00+08:00'), '比赛明确截止时刻按北京时间解析');
   ok(d.dlDay({dl:'2026-10-16'})===Date.parse('2026-10-16T23:59:59+08:00'), '仅日期的截止保留到北京时间当天末');
+  ok(d.dlDay({dl:'2026-10-23',deadlineTime:'12:00'})===Date.parse('2026-10-23T12:00:00+08:00')&&d.dlDay({dl:'2026-10-23',deadlineTime:'25:00'})===null&&d.dlDay({dl:'2026-10-23 11:00',deadlineTime:'12:00'})===null, '独立核实的中午截止按北京时间生效，非法或冲突时刻不生成假倒计时');
   ok(d.dlDay({dl:'2026-09-28 起各校不一'})===null && d.dlDay({dl:'以通知为准（2026-09-28 发布）'})===null, '开始日期和发布日期不误当截止');
   ok(!d.isOpen({st:'报名中',dl:'2000-01-01'}) && !d.isSoon({st:'报名中',dl:'2000-01-01'}), '已过期比赛退出正在报名和快截止');
   ok(!d.isSoon({st:'报名中',dl:new Date(Date.now()+86400000).toISOString().slice(0,10),deadlineUnverified:true})&&!d.isOpen({st:'报名中',dl:'2000-01-01',deadlineUnverified:true}), '待核实截止不生成临近提示，也不能让已过期报名重新开放');

@@ -197,6 +197,7 @@
   .cmp a.go{font-size:12.5px;font-weight:700;color:var(--brand);border:1px solid var(--brand);border-radius:8px;padding:5px 12px;transition:all .15s ease;display:inline-block;}
   .cmp a.go:hover{background:var(--brand);color:#fff;}
   .chip{font-size:11.5px;padding:2px 9px;border-radius:999px;font-weight:700;white-space:nowrap;}
+  #match-list .chip{max-width:100%;box-sizing:border-box;white-space:normal;overflow-wrap:anywhere;}
   .chip.open{background:#dcfce7;color:#166534;}
   .chip.soon{background:#fef3c7;color:#92400e;}
   .chip.closed{background:#e5e7eb;color:#475569;}
@@ -2178,6 +2179,7 @@
           '<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--ink-soft);margin:8px 0">'+
             '<span class="chip" style="border-color:var(--line)">👤 '+esc(v.up||"")+'</span>'+
             '<span class="chip" style="border-color:var(--line)">⏱ '+esc(v.dur||"")+'</span>'+
+            (Number.isInteger(v.pageCount)&&v.pageCount>0?'<span class="chip" style="border-color:var(--line)" title="'+esc('官方分P元数据核验于 '+(v.metadataCheckedAt||'未知日期')+'；不代表已验证全部可播')+'">官方分P '+v.pageCount+'</span>':'')+
             '<span class="chip" style="border-color:var(--line)">▶ '+fmtPlay(v.play)+' 播放</span>'+
           '</div>'+
           '<div style="margin-top:10px">'+
@@ -2417,7 +2419,10 @@
     function dlDay(x){
       var m = /^(\d{4}-\d{2}-\d{2})(?:\s+(\d{1,2}):(\d{2}))?(?=$|\s|（|\()/.exec(String(x.dl || "").trim());
       if(!m || /起|发布/.test(String(x.dl))) return null;
-      var time = m[2] ? ("0"+m[2]).slice(-2)+":"+m[3]+":00" : "23:59:59";
+      var exact = x.deadlineTime == null ? null : /^([01]\d|2[0-3]):([0-5]\d)$/.exec(String(x.deadlineTime));
+      if(x.deadlineTime != null && !exact) return null;
+      if(exact && m[2] && (Number(m[2])!==Number(exact[1]) || m[3]!==exact[2])) return null;
+      var time = m[2] ? ("0"+m[2]).slice(-2)+":"+m[3]+":00" : exact ? exact[1]+":"+exact[2]+":00" : "23:59:59";
       var t = Date.parse(m[1] + "T" + time + "+08:00");
       return Number.isFinite(t) ? t : null;
     }
@@ -2498,7 +2503,7 @@
           ? (x.deadlineUnverified ? '<span class="chip">报名待核实</span>' : '<span class="chip" style="border-color:#e02424;color:#e02424;background:#fef2f2">🔥 正在报名</span>')
           : '';
         var dl = x.deadlineUnverified ? '<span class="chip">截止待核实</span>' : x.dl && String(x.dl) !== "—"
-          ? '<span class="chip" style="border-color:#f59e0b;color:#b45309;background:#fffbeb">⏰ 截止 ' + esc(x.dl) + '</span>'
+          ? '<span class="chip" style="border-color:#f59e0b;color:#b45309;background:#fffbeb">⏰ 截止 ' + esc(x.dl+(x.deadlineTime?' '+x.deadlineTime:'')) + '</span>'
           : '';
         var soon = isSoon(x)
           ? '<span class="chip" style="border-color:#f59e0b;color:#b45309;background:#fffbeb">⚠️ 即将截止</span>'

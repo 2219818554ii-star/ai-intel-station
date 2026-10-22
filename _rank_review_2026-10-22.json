@@ -1,0 +1,461 @@
+{
+  "checkedAt": "2026-10-22",
+  "checkedAtTimestamp": "2026-10-22T13:00:03.460696+08:00",
+  "scope": "Official AA selected model rows and tool documentation; preserve historical TB/SWE and account-independent metadata.",
+  "sources": [
+    {
+      "url": "https://artificialanalysis.ai/leaderboards/models",
+      "method": "Official web extraction read 2026-10-22",
+      "usable": true,
+      "observedRows": [
+        [
+          "Claude Opus 5.5 (max with fallback)",
+          58
+        ],
+        [
+          "Claude Sonnet 5.5 (max with fallback)",
+          56
+        ],
+        [
+          "Muse Wonder Full (max)",
+          56
+        ],
+        [
+          "Claude Fable 5.1 (max with fallback)",
+          53
+        ],
+        [
+          "GPT-6 Astra (max)",
+          53
+        ],
+        [
+          "Gemini 4 Argon (high)",
+          53
+        ],
+        [
+          "GPT-6.1 Sol (max)",
+          52
+        ],
+        [
+          "Muse Wonder (max)",
+          52
+        ],
+        [
+          "Grok 4.7 (xhigh)",
+          46
+        ],
+        [
+          "MiMo-V2.6-Pro",
+          46
+        ],
+        [
+          "Qwen3.8 Max (0902)",
+          45
+        ],
+        [
+          "DeepSeek V4.1 Flash 1017 (max)",
+          45
+        ],
+        [
+          "GLM-5.3 (max)",
+          45
+        ],
+        [
+          "Step 5 Preview",
+          44
+        ],
+        [
+          "Kimi K3 (max)",
+          44
+        ],
+        [
+          "Claude Haiku 5.5 (max)",
+          43
+        ],
+        [
+          "MiniMax-M3.1-Flash",
+          43
+        ]
+      ],
+      "finding": "Seventeen selected exact model/effort rows are visible in the Current table; Muse Spark 1.3 was not present in this view and required independent exact-model confirmation."
+    },
+    {
+      "url": "https://artificialanalysis.ai/models/comparisons/muse-spark-1-3-vs-muse-spark-1-3-xhigh",
+      "method": "Official comparison table read 2026-10-22",
+      "usable": true,
+      "observedRows": [
+        [
+          "Muse Spark 1.3 (max)",
+          48
+        ],
+        [
+          "Muse Spark 1.3 (xhigh)",
+          45
+        ]
+      ],
+      "finding": "The official comparison distinguishes Max48 from Xhigh45. Only the existing Max48 selection is retained; an absent Current-table row alone is not retirement or score-change evidence."
+    },
+    {
+      "url": "https://artificialanalysis.ai/models/muse-spark-1-3",
+      "method": "Official model page attempted 2026-10-22",
+      "usable": false,
+      "error": "Web extractor rejected content exceeding 4 MiB; official exact-model comparison above supplied the score evidence. This is not a dead-link determination."
+    },
+    {
+      "url": "https://artificialanalysis.ai/changelog",
+      "method": "Official dated changelog read 2026-10-22",
+      "findings": [
+        {
+          "date": "2026-10-18",
+          "model": "DeepSeek V4.1 Flash 1017 (max)",
+          "iaa": 45
+        },
+        {
+          "date": "2026-10-19",
+          "model": "MiniMax-M3.1-Flash",
+          "iaa": 43
+        },
+        {
+          "date": "2026-09-10",
+          "model": "DeepSeek V4.1 Flash (max)",
+          "iaa": 39
+        }
+      ]
+    },
+    {
+      "url": "https://www.tbench.ai/leaderboard",
+      "finding": "Redirects to official Terminal-Bench4.0 homepage; no same-version TB2.1 new scores written."
+    },
+    {
+      "url": "https://www.swebench.com/",
+      "finding": "Verified500 and BashOnly mini-SWE-agent are different views; no current comparable numeric results obtained."
+    }
+  ],
+  "modelAdditions": [],
+  "contentChanges": [],
+  "comparison": "All 18 selected exact model/effort scores are corroborated: 17 by the official Current table and Muse Spark1.3 Max48 by the official comparison page. Scores match October20 content; no numeric score or model addition written.",
+  "lastSuccessfulContentUpdate": "2026-10-20",
+  "changelogReview": "Latest visible October21 entries add LithosAI/Makora performance results for DeepSeek1017 and DigitalOcean results for Beam1.0. Provider performance announcements are not new intelligence scores or new model identities.",
+  "aaApplied": [
+    [
+      "Claude Opus 5.5 (max with fallback)",
+      58
+    ],
+    [
+      "Claude Sonnet 5.5 (max with fallback)",
+      56
+    ],
+    [
+      "Muse Wonder Full (max)",
+      56
+    ],
+    [
+      "Claude Fable 5.1 (max with fallback)",
+      53
+    ],
+    [
+      "GPT-6 Astra (max)",
+      53
+    ],
+    [
+      "Gemini 4 Argon (high)",
+      53
+    ],
+    [
+      "GPT-6.1 Sol (max)",
+      52
+    ],
+    [
+      "Muse Wonder (max)",
+      52
+    ],
+    [
+      "Muse Spark 1.3 (max)",
+      48
+    ],
+    [
+      "Grok 4.7 (xhigh)",
+      46
+    ],
+    [
+      "MiMo-V2.6-Pro",
+      46
+    ],
+    [
+      "Qwen3.8 Max (0902)",
+      45
+    ],
+    [
+      "DeepSeek V4.1 Flash 1017 (max)",
+      45
+    ],
+    [
+      "GLM-5.3 (max)",
+      45
+    ],
+    [
+      "Step 5 Preview",
+      44
+    ],
+    [
+      "Kimi K3 (max)",
+      44
+    ],
+    [
+      "Claude Haiku 5.5 (max)",
+      43
+    ],
+    [
+      "MiniMax-M3.1-Flash",
+      43
+    ]
+  ],
+  "sweApplied": {
+    "verified": [
+      [
+        "Claude Code + Fable 5 — Verified",
+        95.0
+      ],
+      [
+        "Codex + GPT-5.5 — Verified",
+        88.7
+      ],
+      [
+        "Claude Code + Opus 4.8 — Verified",
+        88.6
+      ],
+      [
+        "Gemini CLI + Gemini 3.1 Pro — Verified",
+        80.6
+      ]
+    ],
+    "pro": [
+      [
+        "Claude Code + Fable 5 — Pro",
+        80.3
+      ],
+      [
+        "Codex + GPT-5.5 — Pro",
+        58.6
+      ],
+      [
+        "Gemini CLI + Gemini 3.1 Pro — Pro",
+        54.2
+      ]
+    ],
+    "removedMisfiledRow": [
+      "Codex + GPT-5.6 Sol — Terminal-Bench 2.1",
+      89.5
+    ],
+    "numericValuesChanged": false,
+    "sourceBasis": "Existing historical records were grouped by their already stated benchmark, not promoted to fresh official scores. TB row remains in its original TB table."
+  },
+  "toolsReview": [
+    {
+      "name": "Claude Code",
+      "url": "https://code.claude.com/docs/en/overview",
+      "checkedAt": "2026-10-22",
+      "method": "Official web extraction",
+      "finding": "Terminal, IDE extensions, desktop and web are explicitly supported."
+    },
+    {
+      "name": "OpenAI Codex",
+      "url": "https://learn.chatgpt.com/docs/quickstart?setup=app",
+      "checkedAt": "2026-10-22",
+      "method": "Official web extraction",
+      "finding": "CLI, IDE, local desktop and cloud project workflows; availability depends on account and environment."
+    },
+    {
+      "name": "opencode",
+      "url": "https://opencode.ai/docs/",
+      "checkedAt": "2026-10-22",
+      "method": "Official web extraction",
+      "finding": "Open source coding agent with terminal, desktop and IDE extension entry points; configurable models and providers."
+    },
+    {
+      "name": "Cursor",
+      "url": "https://cursor.com/docs",
+      "checkedAt": "2026-10-22",
+      "method": "Official web extraction",
+      "finding": "Agent, rules, MCP, subagents, hooks and CLI documentation; no fixed parallel-agent ceiling asserted."
+    },
+    {
+      "name": "Gemini CLI",
+      "url": "https://geminicli.com/docs/",
+      "checkedAt": "2026-10-22",
+      "method": "Official web extraction",
+      "finding": "Terminal file, shell, model-selection and MCP workflows; fixed free quota not asserted."
+    },
+    {
+      "name": "GitHub Copilot",
+      "url": "https://docs.github.com/en/copilot/get-started/about-github-copilot",
+      "checkedAt": "2026-10-22",
+      "method": "Official web extraction",
+      "finding": "Code suggestions, review, issues and PR agent workflows; plan and organization policies govern features."
+    },
+    {
+      "name": "Google Antigravity",
+      "url": "https://antigravity.google/docs/overview",
+      "checkedAt": "2026-10-22",
+      "method": "Official web extraction",
+      "finding": "Official product/workflow documentation; historical throughput is not a fresh cross-product comparison."
+    },
+    {
+      "name": "Cline",
+      "url": "https://docs.cline.bot/cline-overview",
+      "checkedAt": "2026-10-22",
+      "method": "Official web extraction",
+      "finding": "Editor, terminal and other app surfaces with configurable model access; client availability does not imply free inference."
+    },
+    {
+      "name": "Aider",
+      "url": "https://aider.chat/docs/",
+      "checkedAt": "2026-10-22",
+      "method": "Official web extraction",
+      "finding": "Terminal pair-programming and Git workflow documentation."
+    }
+  ],
+  "additionalToolObservation": {
+    "name": "OpenCode",
+    "url": "https://opencode.ai/v2/docs/",
+    "checkedAt": "2026-10-22",
+    "finding": "V1 documentation now points to separate V2 documentation. V1 and V2 share the opencode command and default installations can conflict. Existing generic model/provider description remains accurate; no version-specific install command is published in rank.js."
+  },
+  "transportObservations": [
+    {
+      "url": "https://artificialanalysis.ai/leaderboards/models",
+      "httpStatus": "200",
+      "bytes": 166718,
+      "sha256": "a2a82f551cf39d1197b10f5386b2a0fd9d77115fec1f8a3e080383e089888700",
+      "exitCode": 28,
+      "error": "curl: (28) Operation timed out after 12008 milliseconds with 166718 out of 1894271 bytes received\r\n"
+    },
+    {
+      "url": "https://artificialanalysis.ai/changelog",
+      "httpStatus": "200",
+      "bytes": 102394,
+      "sha256": "76f33be09d4b2ad0b98608ce20583054e0f738a44082889952ce49b87b095622",
+      "exitCode": 28,
+      "error": "curl: (28) Operation timed out after 12016 milliseconds with 102394 bytes received\r\n"
+    },
+    {
+      "url": "https://artificialanalysis.ai/models/comparisons/muse-spark-1-3-vs-muse-spark-1-3-xhigh",
+      "httpStatus": "200",
+      "bytes": 104701,
+      "sha256": "2668bf392e4d931c5dfb408c9b642a3d2000381321c3ba115e51b79110e8f49e",
+      "exitCode": 28,
+      "error": "curl: (28) Operation timed out after 12013 milliseconds with 104701 out of 1540721 bytes received\r\n"
+    },
+    {
+      "url": "https://artificialanalysis.ai/models/muse-spark-1-3",
+      "httpStatus": "200",
+      "bytes": 101247,
+      "sha256": "56b3bd6e23fb48e8b5797de483b58351bd08767e187468eecbe9b469af62e272",
+      "exitCode": 28,
+      "error": "curl: (28) Operation timed out after 12008 milliseconds with 101247 out of 4458769 bytes received\r\n"
+    },
+    {
+      "url": "https://www.tbench.ai/leaderboard",
+      "httpStatus": "200",
+      "bytes": 145339,
+      "sha256": "62edb13f7e38c0b4b71e37b88ac0bad25d88e6597d693c40a94ec52e4c2d9aa0",
+      "exitCode": 0,
+      "error": null
+    },
+    {
+      "url": "https://www.swebench.com/",
+      "httpStatus": "200",
+      "bytes": 1323399,
+      "sha256": "d77793ff981128d6c2388bf50dc160dd4bd80f33a672ee798cc3ade97bc63548",
+      "exitCode": 28,
+      "error": "curl: (28) Operation timed out after 12009 milliseconds with 1323399 bytes received\r\n"
+    },
+    {
+      "url": "https://opencode.ai/v2/docs/",
+      "httpStatus": "200",
+      "bytes": 21049,
+      "sha256": "1b65665753f849f0cac0a115fe32a7607cc08d194959c8af21863d0454a6cda3",
+      "exitCode": 0,
+      "error": null
+    },
+    {
+      "url": "https://code.claude.com/docs/en/overview",
+      "httpStatus": "200",
+      "bytes": 69810,
+      "sha256": "9d4bd029b564ea6dc3ea28aec36b83408024eb0597da3650ac903fa5c952a41a",
+      "exitCode": 28,
+      "error": "curl: (28) Operation timed out after 12002 milliseconds with 69810 bytes received\r\n"
+    },
+    {
+      "url": "https://learn.chatgpt.com/docs/quickstart?setup=app",
+      "httpStatus": "200",
+      "bytes": 178841,
+      "sha256": "e59189347c519d1a3c9ab2cec5485da79ce10df0ebbea6b7a3dbe00f537b6f57",
+      "exitCode": 28,
+      "error": "curl: (28) Operation timed out after 12000 milliseconds with 178841 out of 418618 bytes received\r\n"
+    },
+    {
+      "url": "https://opencode.ai/docs/",
+      "httpStatus": "200",
+      "bytes": 99209,
+      "sha256": "a08155bcd5a3bcabf79225a2947d845074924ab746c98beb031e9c7bd8ebd348",
+      "exitCode": 0,
+      "error": null
+    },
+    {
+      "url": "https://cursor.com/docs",
+      "httpStatus": "200",
+      "bytes": 141670,
+      "sha256": "f67cbd1ea284b1fff45a99e3a704b69dce72236e473946bdf454f365b97c3182",
+      "exitCode": 28,
+      "error": "curl: (28) Operation timed out after 12006 milliseconds with 141670 out of 603587 bytes received\r\n"
+    },
+    {
+      "url": "https://geminicli.com/docs/",
+      "httpStatus": "200",
+      "bytes": 111011,
+      "sha256": "8a4b728f42049b68b1725dc1477f9bbbf2cc44c35c657845a1a5dc3fc223eba9",
+      "exitCode": 0,
+      "error": null
+    },
+    {
+      "url": "https://docs.github.com/en/copilot/get-started/about-github-copilot",
+      "httpStatus": "200",
+      "bytes": 586063,
+      "sha256": "de8c279f74bf141b532f9a62fa72c1093bde456dc6e0461aac687b802e5e9d20",
+      "exitCode": 0,
+      "error": null
+    },
+    {
+      "url": "https://antigravity.google/docs/overview",
+      "httpStatus": "200",
+      "bytes": 67933,
+      "sha256": "3511f77c341e05e91bf56e2aa6eb2a163becb1c0c5594d34d0fe0bd25fa11f92",
+      "exitCode": 0,
+      "error": null
+    },
+    {
+      "url": "https://docs.cline.bot/cline-overview",
+      "httpStatus": "200",
+      "bytes": 131072,
+      "sha256": "1628691aaf63a3dd4401a4badb5aff6800ab3e18747e97c46cbf50c3538159b7",
+      "exitCode": 28,
+      "error": "curl: (28) Operation timed out after 12008 milliseconds with 131072 bytes received\r\n"
+    },
+    {
+      "url": "https://aider.chat/docs/",
+      "httpStatus": "200",
+      "bytes": 49153,
+      "sha256": "3e8a0546effca7f1cd7d69e3b634da35073bbc154c839738405b9d75b7ef856a",
+      "exitCode": 0,
+      "error": null
+    }
+  ],
+  "limits": [
+    "Transport HTTP success is separate from the official web extraction used for semantic verification.",
+    "Tool benchmark scores retain old model/harness pairings; none are presented as fresh scores.",
+    "Subscription prices, defaults, quotas and star counts were not refreshed; tool descriptions continue to defer to official account and plan availability.",
+    "Existing full model price fields and subjective grades were not fully reverified; global note preserves this limit.",
+    "AA selection contains represented model versions, not every model or every reasoning effort."
+  ]
+}

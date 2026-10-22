@@ -1,0 +1,139 @@
+{
+  "reviewDate": "2026-10-22",
+  "checkedAtUTC": "2026-10-22T04:57:45.379951+00:00",
+  "scope": "Ordinary public official stat, mobile playback, page-list, and detail endpoints. No login, CAPTCHA solving, private cookies, or alternate-domain proxies.",
+  "attempts": [
+    {
+      "url": "https://api.bilibili.com/x/web-interface/archive/stat?bvid=BV1Az4y1v7Z8",
+      "http": 404,
+      "finalURL": "https://api.bilibili.com/x/web-interface/archive/stat?bvid=BV1Az4y1v7Z8",
+      "curlExit": 0,
+      "bytes": 1777,
+      "error": "",
+      "kind": "official-public-stat-api",
+      "bvid": "BV1Az4y1v7Z8",
+      "storedTitle": "马云斯坦福演讲：世界在改变 你要采取行动",
+      "storedPlay": 211489,
+      "pageTitle": "出错啦! - bilibili.com",
+      "responseExcerpt": " \n \n\n \n     \n     \n     \n     \n     \n     出错啦! - bilibili.com \n     \n        html,\n        body {\n            vertical-align: middle;\n            padding: 0;\n            margin: 0;\n            background: var(--bg3, #f1f2f3);\n        }\n\n        .error-container {\n            width: 980px;\n            margin: 30px auto 30px;\n            background: var(--bg1, #ffffff);\n            border-radius: 10px;\n        }\n\n        .widescreen .error-container {\n            width: 1160px;\n        }\n\n        .error-panel {\n            overflow: hidden;\n        }\n\n        .error-panel .rollback-btn {\n       "
+    },
+    {
+      "url": "https://m.bilibili.com/video/BV1Az4y1v7Z8",
+      "http": 412,
+      "finalURL": "https://www.bilibili.com/video/BV1Az4y1v7Z8",
+      "curlExit": 0,
+      "bytes": 3400,
+      "error": "",
+      "kind": "official-mobile-playback",
+      "bvid": "BV1Az4y1v7Z8",
+      "storedTitle": "马云斯坦福演讲：世界在改变 你要采取行动",
+      "storedPlay": 211489,
+      "pageTitle": "出错啦! - bilibili.com",
+      "responseExcerpt": " \n \n\n \n     \n     \n     \n     \n     \n     \n     出错啦! - bilibili.com \n     \n      \n     \n        body {\n          margin: 0;\n          padding: 0;\n          width: 100vw;\n          height: 100vh;\n        }\n       .error-container {\n          height: 100%;\n          width: 100%;\n          display: flex;\n          justify-content: center;\n          align-items: center;\n        }\n        .captcha-content {\n          text-align: center;\n        }\n        .txt-wrap {\n          margin-top: 15px;\n          font-size: 12px;\n          line-height: 22px;\n          color: #999;\n          text-align: left;"
+    },
+    {
+      "url": "https://api.bilibili.com/x/web-interface/archive/stat?bvid=BV1ATPQz5EVd",
+      "http": 0,
+      "finalURL": "https://api.bilibili.com/x/web-interface/archive/stat?bvid=BV1ATPQz5EVd",
+      "curlExit": 28,
+      "bytes": 0,
+      "error": "curl: (28) Operation timed out after 15005 milliseconds with 0 bytes received",
+      "kind": "official-public-stat-api",
+      "bvid": "BV1ATPQz5EVd",
+      "storedTitle": "易中天《易中天品三国》52集全",
+      "storedPlay": 875734,
+      "pageTitle": null,
+      "responseExcerpt": ""
+    },
+    {
+      "url": "https://m.bilibili.com/video/BV1ATPQz5EVd",
+      "http": 412,
+      "finalURL": "https://www.bilibili.com/video/BV1ATPQz5EVd",
+      "curlExit": 0,
+      "bytes": 3400,
+      "error": "",
+      "kind": "official-mobile-playback",
+      "bvid": "BV1ATPQz5EVd",
+      "storedTitle": "易中天《易中天品三国》52集全",
+      "storedPlay": 875734,
+      "pageTitle": "出错啦! - bilibili.com",
+      "responseExcerpt": " \n \n\n \n     \n     \n     \n     \n     \n     \n     出错啦! - bilibili.com \n     \n      \n     \n        body {\n          margin: 0;\n          padding: 0;\n          width: 100vw;\n          height: 100vh;\n        }\n       .error-container {\n          height: 100%;\n          width: 100%;\n          display: flex;\n          justify-content: center;\n          align-items: center;\n        }\n        .captcha-content {\n          text-align: center;\n        }\n        .txt-wrap {\n          margin-top: 15px;\n          font-size: 12px;\n          line-height: 22px;\n          color: #999;\n          text-align: left;"
+    },
+    {
+      "url": "https://api.bilibili.com/x/web-interface/archive/stat?bvid=BV1h44y1D7mU",
+      "http": 404,
+      "finalURL": "https://api.bilibili.com/x/web-interface/archive/stat?bvid=BV1h44y1D7mU",
+      "curlExit": 0,
+      "bytes": 1777,
+      "error": "",
+      "kind": "official-public-stat-api",
+      "bvid": "BV1h44y1D7mU",
+      "storedTitle": "【五百年来王阳明】传奇开始的地方，知行合一（郦波）",
+      "storedPlay": 422686,
+      "pageTitle": "出错啦! - bilibili.com",
+      "responseExcerpt": " \n \n\n \n     \n     \n     \n     \n     \n     出错啦! - bilibili.com \n     \n        html,\n        body {\n            vertical-align: middle;\n            padding: 0;\n            margin: 0;\n            background: var(--bg3, #f1f2f3);\n        }\n\n        .error-container {\n            width: 980px;\n            margin: 30px auto 30px;\n            background: var(--bg1, #ffffff);\n            border-radius: 10px;\n        }\n\n        .widescreen .error-container {\n            width: 1160px;\n        }\n\n        .error-panel {\n            overflow: hidden;\n        }\n\n        .error-panel .rollback-btn {\n       "
+    },
+    {
+      "url": "https://m.bilibili.com/video/BV1h44y1D7mU",
+      "http": 302,
+      "finalURL": "https://www.bilibili.com/video/BV1h44y1D7mU",
+      "curlExit": 28,
+      "bytes": 0,
+      "error": "curl: (28) Operation timed out after 15241 milliseconds with 0 bytes received",
+      "kind": "official-mobile-playback",
+      "bvid": "BV1h44y1D7mU",
+      "storedTitle": "【五百年来王阳明】传奇开始的地方，知行合一（郦波）",
+      "storedPlay": 422686,
+      "pageTitle": null,
+      "responseExcerpt": ""
+    },
+    {
+      "url": "https://api.bilibili.com/x/player/pagelist?bvid=BV1Az4y1v7Z8",
+      "http": 200,
+      "finalURL": "https://api.bilibili.com/x/player/pagelist?bvid=BV1Az4y1v7Z8",
+      "curlExit": 0,
+      "bytes": 356,
+      "error": "",
+      "kind": "official-public-pages-api",
+      "bvid": "BV1Az4y1v7Z8",
+      "storedTitle": "马云斯坦福演讲：世界在改变 你要采取行动",
+      "storedPlay": 211489,
+      "apiCode": 0,
+      "apiMessage": "OK",
+      "officialData": [
+        {
+          "cid": 1168639393,
+          "page": 1,
+          "from": "vupload",
+          "part": "马云斯坦福演讲：世界在改变 你要采取行动",
+          "duration": 2079,
+          "vid": "",
+          "weblink": "",
+          "dimension": {
+            "width": 1920,
+            "height": 1080,
+            "rotate": 0
+          },
+          "first_frame": "http://i2.hdslb.com/bfs/storyff/n230619a22p0bfyvb45l0q1nzd43du1f_firsti.jpg",
+          "ctime": 1687153500
+        }
+      ],
+      "pageTitle": null,
+      "responseExcerpt": "{\"code\":0,\"message\":\"OK\",\"ttl\":1,\"data\":[{\"cid\":1168639393,\"page\":1,\"from\":\"vupload\",\"part\":\"马云斯坦福演讲：世界在改变 你要采取行动\",\"duration\":2079,\"vid\":\"\",\"weblink\":\"\",\"dimension\":{\"width\":1920,\"height\":1080,\"rotate\":0},\"first_frame\":\"http://i2.hdslb.com/bfs/storyff/n230619a22p0bfyvb45l0q1nzd43du1f_firsti.jpg\",\"ctime\":1687153500}]}"
+    },
+    {
+      "url": "https://api.bilibili.com/x/web-interface/view/detail?bvid=BV1Az4y1v7Z8",
+      "http": 0,
+      "finalURL": "https://api.bilibili.com/x/web-interface/view/detail?bvid=BV1Az4y1v7Z8",
+      "curlExit": 28,
+      "bytes": 0,
+      "error": "curl: (28) Operation timed out after 15014 milliseconds with 0 bytes received",
+      "kind": "official-public-detail-api",
+      "bvid": "BV1Az4y1v7Z8",
+      "storedTitle": "马云斯坦福演讲：世界在改变 你要采取行动",
+      "storedPlay": 211489,
+      "pageTitle": null,
+      "responseExcerpt": ""
+    }
+  ]
+}

@@ -31,7 +31,7 @@
   - `competitions.js`（全国比赛资源库 183 条）
   - `cqut.js`（重庆理工通知）
   - `rank.js`（排行榜：models/tools/combos/tables）
-- `magazines.js`（19 本期刊的官方入口、文章元数据、核查状态；当前718篇，38篇编辑精选）
+- `magazines.js`（19 本期刊的官方入口、文章元数据、核查状态；当前743篇，43篇编辑精选）
 
 **构建 / 校验 / 抓取脚本**
 - `_build.py` — 读 index.src.html + 各 .js，内联生成 `index.html` / `gh-pages/index.html` / `ai_intel_station_standalone.html`

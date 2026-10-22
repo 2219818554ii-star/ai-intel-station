@@ -1,14 +1,54 @@
 {
-  "checkedAt": "2026-10-21",
+  "checkedAt": "2026-10-22",
   "policy": "本站按题目与主题选择阅读切入点；不代表原刊热榜或对文章全部观点的背书。",
   "articles": [
+    {
+      "title": "De novo design of enantioselective artificial metalloenzyme photocatalysts",
+      "url": "https://www.nature.com/articles/s41586-026-11317-6",
+      "publication": "nature",
+      "reason": "适合训练催化研究的机制证据链：公开摘要将生成式蛋白骨架设计、定向进化和光谱研究联系起来，可据此列出选择性来源与催化性能分别需要哪些验证。",
+      "evidenceBoundary": "仅依据Nature官方公开摘要；直接网页一度转向访问保护，随后从该官网的公开索引读到摘要。未审阅受限全文或补充实验，不给出工艺复现参数，也不将底物适用性外推到所有反应。",
+      "priority": 1
+    },
+    {
+      "title": "Enzyme-embedded polyesters for accelerated biodegradation in the deep sea",
+      "url": "https://www.nature.com/articles/s41586-026-11192-1",
+      "publication": "nature",
+      "reason": "聚酯材料与环境降解直接相关，适合练习把材料服役性能、酶活性保持和环境测试条件放在同一评价框架，并区分聚合物断链、样品失重与矿化证据。",
+      "evidenceBoundary": "依据Nature官网公开摘要与公开内容索引；仅概括嵌酶、海洋环境与性能权衡。未独立审核全部原始数据；不同聚酯、酶和海域条件不能合并成普遍降解保证，材料更易降解不等于总体环境影响已解决。",
+      "priority": 2
+    },
+    {
+      "title": "Additive manufacturing of ultralong and architected single crystals",
+      "url": "https://www.nature.com/articles/s41586-026-11185-0",
+      "publication": "nature",
+      "reason": "适合作为材料研究组会的工艺—组织—性能案例：公开摘要报告用交替脉冲热输入控制单晶生长，并将组织层次与蠕变表现关联，可训练结构表征和性能归因的阅读方法。",
+      "evidenceBoundary": "已读Nature网页公开摘要，全文标为订阅预览。只据摘要提出阅读问题，未审阅完整工艺窗口、重复批次或性能原始数据；不据此宣称所有金属均可规模化单晶打印。",
+      "priority": 3
+    },
+    {
+      "title": "Octupole-driven spin torque switching of antiferromagnetic tunnel junctions",
+      "url": "https://www.nature.com/articles/s41586-026-11172-5",
+      "publication": "nature",
+      "reason": "适合材料与器件方向训练电学读写机制的区分：公开摘要同时讨论隧穿磁阻与八极矩驱动转矩，可据此检查器件数据、理论解释和应用展望的证据层级。",
+      "evidenceBoundary": "依据Nature官方公开摘要及主题页说明；直接原页访问保护不判为死链。只讨论所报全反铁磁隧穿结研究，未核验完整数据与制造良率，不能把器件演示当作成熟存储产品或储能性能提升。",
+      "priority": 4
+    },
+    {
+      "title": "AI could turn scientific papers into research assistants",
+      "url": "https://www.sciencenews.org/article/ai-scientific-papers-research-assistant",
+      "publication": "sciencenews",
+      "reason": "直接服务研究生的方法训练：报道介绍将论文附带代码、方法和数据整理为经过参考输出测试的工具，可据此为自己的文献复现建立依赖、测试与结果核对清单。",
+      "evidenceBoundary": "已阅读Science News公开报道：测试对象为100篇计算生物学论文，其中74篇完成转换，缺少代码、数据或软件不能运行会失败。不能把该结果视为任意学科论文都可自动复现，也不能用代理回答代替作者澄清。",
+      "priority": 5
+    },
     {
       "publication": "nature",
       "url": "https://www.nature.com/articles/d41586-026-03200-1",
       "title": "It’s time to teach peer review as a core research skill",
       "evidenceBoundary": "官方RSS准确题目；文章直达被Nature身份跳转/下载不完整阻挡，未据此声称读完全文。",
       "reason": "把同行评审当作研究训练：在组会中练习核对对照条件、样本与统计依据，再写出可执行的修改意见。",
-      "priority": 1
+      "priority": 6
     },
     {
       "publication": "economist",
@@ -16,7 +56,7 @@
       "title": "AI-powered personal assistants could reshape the digital economy",
       "evidenceBoundary": "官方RSS准确题目；原文入口访问保护，未假称取得全文结论。",
       "reason": "带着信息推荐、行动权限和平台利益三个问题读，思考把查文献、整理资料交给AI助手时还要掌握哪些决定。",
-      "priority": 2
+      "priority": 7
     },
     {
       "publication": "smithsonian",
@@ -24,252 +64,252 @@
       "title": "A Vast New Database Shows How Britain Built a Global Empire by Trading Goods Like Coal, Wine and Wood Closer to Home",
       "evidenceBoundary": "官方公开页及导语核查到AI整理手写港口记录、数据库与人工复核信息；本地curl的403单独保留，不作死链结论。",
       "reason": "从手写港口记录到可查询数据库，关注AI抽取与人工复核怎样衔接，可对照自己的文献数据表或实验台账。",
-      "priority": 3
+      "priority": 8
     },
     {
       "publication": "smithsonian",
       "url": "https://www.smithsonianmag.com/science-nature/the-race-for-hydrogen-fuel-has-taken-these-scientists-to-the-arctic-seafloor-but-can-they-unlock-its-secrets-before-its-too-late-180989707/",
       "title": "The Race for Hydrogen Fuel Has Taken These Scientists to the Arctic Seafloor. But Can They Unlock Its Secrets Before It's Too Late?",
       "reason": "从天然氢的勘探切入能源议题：带着资源形成、可获取性和成本这三个问题阅读。",
-      "priority": 4
+      "priority": 9
     },
     {
       "publication": "nature",
       "url": "https://www.nature.com/articles/d41586-026-03228-3",
       "title": "Audio long read: How to stay smart in the age of AI — the science of critical thinking",
       "reason": "围绕 AI 时代的批判性思维选读，对照自己的文献检索、出处核验和独立判断习惯。",
-      "priority": 5
+      "priority": 10
     },
     {
       "publication": "nature",
       "url": "https://www.nature.com/articles/d41586-026-03328-0",
       "title": "Why failure is a taboo topic in science",
       "reason": "从科研中怎样谈论失败入手，思考实验记录如何容纳负结果，而不是只保留成功故事。",
-      "priority": 6
+      "priority": 11
     },
     {
       "publication": "quanta",
       "url": "https://www.quantamagazine.org/ai-proved-the-quasi-riemann-hypothesis-what-happens-now-20261019/",
       "title": "AI Proved the Quasi-Riemann Hypothesis. What Happens Now?",
       "reason": "区分猜想的不同版本、形式化验证与人类理解，阅读时追踪每种结论的证据边界。",
-      "priority": 7
+      "priority": 12
     },
     {
       "publication": "nfpeople",
       "url": "https://www.nfpeople.com/article/14345",
       "title": "AI速通多项难题：人类还需要数学家吗？",
       "reason": "以 AI 与数学家的关系为切口，思考研究训练中哪些工作能借助工具，哪些仍需自己理解。",
-      "priority": 8
+      "priority": 13
     },
     {
       "publication": "economist",
       "url": "https://www.economist.com/science-and-technology/2026/10/19/americas-new-era-of-private-science",
       "title": "America’s new era of private science",
       "reason": "从私人科研资助切入，关注研究议题、成果开放与长期投入之间的关系。",
-      "priority": 9
+      "priority": 14
     },
     {
       "publication": "nfpeople",
       "url": "https://www.nfpeople.com/article/14325",
       "title": "理工强势、文科收缩，AI重塑全球大学权力版图丨维度",
       "reason": "与你的研究生阶段直接相关：带着学科选择和能力结构的问题去读。",
-      "priority": 10
+      "priority": 15
     },
     {
       "publication": "nature",
       "url": "https://www.nature.com/articles/d41586-026-03253-2",
       "title": "PhD students who write dissertations with AI less likely to stay in academia",
       "reason": "把论文写作中的工具使用与学术训练放在一起思考，留意证据与因果的区别。",
-      "priority": 11
+      "priority": 16
     },
     {
       "publication": "quanta",
       "url": "https://www.quantamagazine.org/he-wants-ai-benchmarking-to-be-a-science-not-a-dark-art-20261016/",
       "title": "He Wants AI Benchmarking To Be a Science, Not a Dark Art",
       "reason": "从评测方法切入，关注模型排名背后的指标、复现和验证过程。",
-      "priority": 12
+      "priority": 17
     },
     {
       "publication": "lifeweek",
       "url": "https://www.lifeweek.com.cn/article/274427",
       "title": "什么才是真正重要的科学",
       "reason": "围绕研究价值提出问题，适合思考课题选择时怎样兼顾意义与证据。",
-      "priority": 13
+      "priority": 18
     },
     {
       "publication": "scientificamerican",
       "url": "https://www.scientificamerican.com/article/new-first-proof-exam-reveals-how-ai-powered-math-is-a-pay-for-play-sport/",
       "title": "New ‘First Proof’ exam reveals how AI-powered math is a pay-to-play sport",
       "reason": "从评测条件与使用门槛切入，留意模型能力比较是否建立在相同条件上。",
-      "priority": 14
+      "priority": 19
     },
     {
       "publication": "economist",
       "url": "https://www.economist.com/business/2026/10/14/the-ai-boom-is-threatened-by-an-epidemic-of-unreliable-numbers",
       "title": "The AI boom is threatened by an epidemic of unreliable numbers",
       "reason": "读AI产业数字时先问统计口径和来源，补上技术排行榜之外的商业视角。",
-      "priority": 15
+      "priority": 20
     },
     {
       "publication": "infzm",
       "url": "https://www.infzm.com/contents/342851",
       "title": "AI、机器人、芯片封测，上演“破产三姐妹”丨科创要闻",
       "reason": "把热门技术放回企业经营与退出风险中观察，补充产业叙事的另一面。",
-      "priority": 16
+      "priority": 21
     },
     {
       "publication": "yimagazine",
       "url": "https://www.yicai.com/vip/news/103394820.html",
       "title": "碎片化时代的消费向心力",
       "reason": "从消费和渠道的变化进入商业问题，练习把具体案例连回需求。",
-      "priority": 17
+      "priority": 22
     },
     {
       "publication": "caijing",
       "url": "https://magazine.caijing.com.cn/20260818/5177719.shtml",
       "title": "城市更新的15万亿元账本",
       "reason": "从城市更新的资金与需求关系入手，理解一个长期议题。",
-      "priority": 18
+      "priority": 23
     },
     {
       "publication": "caixin",
       "url": "https://weekly.caixin.com/2026-10-17/102494234.html",
       "title": "最新财新周刊｜工商业土地进入续期时刻",
       "reason": "聚焦制度变化如何影响企业与城市，适合梳理长期规则问题。",
-      "priority": 19
+      "priority": 24
     },
     {
       "publication": "chinanewsweek",
       "url": "https://www.inewsweek.cn/society/2026-09-28/32347.shtml",
       "title": "“我就是个第一书记，为什么要每天研究流量？”",
       "reason": "把注意力放在基层工作与流量指标之间的关系，观察组织行为的变化。",
-      "priority": 20
+      "priority": 25
     },
     {
       "publication": "neweekly",
       "url": "https://neweekly.com.cn/article/shp1219293684",
       "title": "月入5000但没有KPI，景区npc真是年轻人理想工作？",
       "reason": "从新职业观察就业选择和工作评价，带着真实工作条件的问题去读。",
-      "priority": 21
+      "priority": 26
     },
     {
       "publication": "renwu",
       "url": "https://boyamedia.com/sys-nd/200.html",
       "title": "37万元，在北京买一套两居室",
       "reason": "从具体居住选择进入城市生活，比较价格之外的教育、通勤与家庭需求。",
-      "priority": 22
+      "priority": 27
     },
     {
       "publication": "blogweekly",
       "url": "https://boyamedia.com/sys-nd/197.html",
       "title": "“不烧心”的红果，开始烧内娱的心了",
       "reason": "把AI制作、内容分发与商业竞争联系起来，观察内容产业的变化。",
-      "priority": 23
+      "priority": 28
     },
     {
       "publication": "globalpeople",
       "url": "https://www.globalpeople.com.cn/n4/2026/1012/c305917-21655680.html",
       "title": "专访耶鲁教授马松：中国AI产业 不做“鲨鱼”做“鲇鱼”",
       "reason": "沿着访谈观察开源AI、产业竞争与知识普惠的关系，留意不同立场的论据。",
-      "priority": 24
+      "priority": 29
     },
     {
       "publication": "sciencenews",
       "url": "https://www.sciencenews.org/article/math-human-ai-age",
       "title": "Can math stay human in the age of AI?",
       "reason": "把数学研究与AI工具的边界作为阅读问题，关注过程而不只看结论。",
-      "priority": 25
+      "priority": 30
     },
     {
       "publication": "atlantic",
       "url": "https://www.theatlantic.com/ideas/2026/10/newsrooms-journalism-openai-funding/689043/",
       "title": "What Newsrooms Should Know Before They Take Money From OpenAI",
       "reason": "从媒体与技术公司的关系观察报道独立性，练习辨别信息来源。",
-      "priority": 26
+      "priority": 31
     },
     {
       "publication": "smithsonian",
       "url": "https://www.smithsonianmag.com/history/who-wrote-elizabeth-is-most-scathing-letters-new-research-suggests-the-tudor-queens-male-secretaries-revised-her-correspondence-to-emphasize-her-temper-180989565/",
       "title": "Who Wrote Elizabeth I's Most Scathing Letters? New Research Suggests the Tudor Queen's Male Secretaries Revised Her Correspondence to Emphasize Her Temper",
       "reason": "从历史书信的作者与修订痕迹进入史料判断，区分记录与解释。",
-      "priority": 27
+      "priority": 32
     },
     {
       "publication": "shangjie",
       "url": "https://news.pedaily.cn/202504/549033.shtml",
       "title": "比房地产还惨？一年倒闭超过7000家",
       "reason": "以往期行业案例观察需求变化；先核对原日期，再思考哪些问题仍值得参考。",
-      "priority": 28
+      "priority": 33
     },
     {
       "publication": "quanta",
       "url": "https://www.quantamagazine.org/is-attention-the-essence-of-intelligence-20261012/",
       "title": "Is ‘Attention’ the Essence of Intelligence?",
       "reason": "借注意力机制的讨论，回到智能的定义与模型工作方式。",
-      "priority": 29
+      "priority": 34
     },
     {
       "publication": "quanta",
       "url": "https://www.quantamagazine.org/is-ai-the-end-of-math-as-we-know-it-20261005/",
       "title": "Is AI the End of Math As We Know It?",
       "reason": "从数学工作的问题与方法出发，思考AI怎样改变研究者的角色。",
-      "priority": 30
+      "priority": 35
     },
     {
       "publication": "lifeweek",
       "url": "https://www.lifeweek.com.cn/article/274426",
       "title": "观察、理解与控制",
       "reason": "围绕认识自然与干预自然的关系，思考科学问题如何被提出。",
-      "priority": 31
+      "priority": 36
     },
     {
       "publication": "renwu",
       "url": "https://boyamedia.com/sys-nd/199.html",
       "title": "最有可能拿诺奖的德国女作家，在历史的废墟上写作",
       "reason": "通过文学与个人经验的关系，给技术和商业阅读之外留一个人文入口。",
-      "priority": 32
+      "priority": 37
     },
     {
       "publication": "blogweekly",
       "url": "https://boyamedia.com/sys-nd/194.html",
       "title": "从大众点评到“小众点评”，真实口碑逃得过生意吗？",
       "reason": "从寻找餐厅的日常经验，追问口碑平台商业化后怎样保留真实评价。",
-      "priority": 33
+      "priority": 38
     },
     {
       "publication": "scientificamerican",
       "url": "https://www.scientificamerican.com/article/can-ai-break-encryption-openai-new-math-has-cryptographers-divided/",
       "title": "Can AI break encryption? OpenAI’s new math has cryptographers divided",
       "reason": "把AI能力讨论放进密码学场景，留意不同判断使用了什么证据。",
-      "priority": 34
+      "priority": 39
     },
     {
       "publication": "nature",
       "url": "https://www.nature.com/articles/d41586-026-03338-y",
       "title": "History’s long-secret codes are being cracked by amateurs using AI",
       "reason": "从跨领域解题的故事观察工具如何改变问题的可解性。",
-      "priority": 35
+      "priority": 40
     },
     {
       "publication": "economist",
       "url": "https://www.economist.com/business/2026/10/15/when-ai-agents-take-matters-into-their-own-hands",
       "title": "When AI agents take matters into their own hands",
       "reason": "从AI代理进入现实商业场景时的行为和责任问题展开阅读。",
-      "priority": 36
+      "priority": 41
     },
     {
       "publication": "sciencenews",
       "url": "https://www.sciencenews.org/article/artemis-ii-human-moon-science",
       "title": "Artemis II results show how much science people can do at the moon",
       "reason": "给日常阅读补一个航天科学视角，关注探索任务究竟能做哪些研究。",
-      "priority": 37
+      "priority": 42
     },
     {
       "publication": "neweekly",
       "url": "https://neweekly.com.cn/article/shp1401557461",
       "title": "冲上热搜的怀孕AI偶像，把全网都“耍了”",
       "reason": "从虚拟人物与公众反应切入，观察AI内容、注意力和信任之间的关系。",
-      "priority": 38
+      "priority": 43
     }
   ]
 }
