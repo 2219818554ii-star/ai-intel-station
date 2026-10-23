@@ -28,7 +28,7 @@ module.exports=async function({ok}){
  ok(r.e['research-list'].innerHTML.includes('T026')&&r.e['research-list'].innerHTML.includes('预计 2.5 h'),'内联摘要可立即展示今天任务与工时');
  ok(!r.e['research-list'].innerHTML.includes('T013')&&!r.e['research-completed-panel'].hidden&&r.e['research-completed-list'].innerHTML.includes('T002')&&r.e['research-completed-list'].innerHTML.includes('科研资料整理提交'),'T002以已完成事项显著展示，不再混入待办或丢失历史');
  r.click({rscope:'done'});ok(r.e['research-list'].innerHTML.includes('T002')&&r.e['research-list-heading'].textContent==='已标记完成','已完成视图真实可查看已完成任务');r.app.setScope('today');
- ok(r.e['research-list'].innerHTML.includes('chatgpt.site/?task=T026')&&r.e['research-list'].innerHTML.includes('在上方清单直接查看')&&r.e['research-list'].innerHTML.includes('rel="noopener"')&&r.e['research-list'].innerHTML.includes('target="_top"'),'每项任务提供按编号定位的私有详情入口，公共摘要未增加字段');
+ ok(!r.e['research-list'].innerHTML.includes('查看详细任务')&&r.e['research-list'].innerHTML.includes('具体工作见完整科研清单')&&r.e['research-list'].innerHTML.includes('反馈这项'),'任务摘要不再要求逐项跳转详情，完整正文集中到安全登录清单');
  await r.app.refresh();
  ok(r.e['research-list'].innerHTML.includes('进行中')&&r.e['research-list'].innerHTML.includes('预计 2 h')&&r.app.state().data.revision===next.revision,'刷新实际替换状态和工时，不只是改变更新时间文案');
  ok(calls[0].opts.cache==='no-store'&&calls[0].url.startsWith('research-data.json?t=')&&calls[0].opts.credentials==='same-origin','刷新绕过浏览器缓存，仅请求本站展示摘要');

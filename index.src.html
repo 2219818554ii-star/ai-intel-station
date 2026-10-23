@@ -250,7 +250,7 @@
   /* 科研栏目：只渲染已审核展示表六字段。 */
   #research-list-heading{scroll-margin-top:calc(var(--appbar-height) + 16px)}
   @media(max-width:720px){.research-stat[data-rscope="risk"] small{display:none}}
-  .research-private-board{margin:16px 0;padding:18px;background:white;border:1px solid var(--line);border-radius:14px}.research-private-board h3{font-size:18px;margin:0}.research-private-board p{font-size:12px;color:var(--ink-soft);margin:10px 0}.research-private-board a{font-size:12px;color:var(--brand)}#research-private-frame{width:100%;height:1400px;border:0;background:#f5f6fa;border-radius:10px}.research-public-summary>summary{cursor:pointer;color:var(--ink-soft);padding:15px 0;font-size:13px}@media(max-width:620px){.research-private-board{padding:10px}.research-private-board .research-section-head{align-items:flex-start}.research-private-board h3{font-size:16px}}
+  .research-private-board{margin:16px 0;padding:18px;background:white;border:1px solid var(--line);border-radius:14px}.research-private-board h3{font-size:18px;margin:0}.research-private-board p{font-size:12px;color:var(--ink-soft);margin:10px 0}.research-private-board a{font-size:12px;color:var(--brand)}.research-public-summary>summary{cursor:pointer;color:var(--ink-soft);padding:15px 0;font-size:13px}@media(max-width:620px){.research-private-board{padding:10px}.research-private-board .research-section-head{align-items:flex-start}.research-private-board h3{font-size:16px}}
   .research-hero{padding:18px 20px;background:linear-gradient(110deg,#eef0ff,#eff9f8);border:1px solid var(--line);border-radius:14px;display:flex;align-items:center;justify-content:space-between;gap:18px;}
   .research-kicker{font-size:12px;color:var(--brand);letter-spacing:.07em}.research-hero h2{font-size:27px;margin:4px 0}.research-hero p{font-size:14px;color:var(--ink-soft);margin:6px 0}.research-refresh{border:1px solid #c9cfef;border-radius:10px;background:white;color:var(--brand);padding:10px 16px;white-space:nowrap;min-height:44px;cursor:pointer}.research-refresh:disabled{opacity:.6;cursor:wait}
   .research-sync{font-size:12px;color:var(--ink-soft);margin:9px 0 15px;overflow-wrap:anywhere}.research-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0 0 16px}.research-stat{text-align:left;background:white;border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;color:var(--ink);min-width:0}.research-stat span,.research-stat small{display:block;font-size:12px}.research-stat small{color:var(--ink-soft);margin-top:3px}.research-stat strong{display:block;font-size:27px;line-height:1.35;margin-top:6px}.research-stat.selected{border-color:var(--brand)}
@@ -449,7 +449,6 @@
       <div class="brand">AI 情报站 <small class="brand-summary">日报 · 排名 · 学习</small><small class="nav-hint">栏目可左右滑动 →</small></div>
       <nav class="tabs" role="tablist" aria-label="主导航">
         <button class="tab active" id="tab-daily" role="tab" aria-selected="true" aria-controls="view-daily" data-tab="daily">📰 每日日报</button>
-        <button class="tab" id="tab-research" role="tab" aria-selected="false" aria-controls="view-research" data-tab="research">🔬 科研</button>
         <button class="tab" id="tab-rank" role="tab" aria-selected="false" aria-controls="view-rank" data-tab="rank">🏆 实力排行榜</button>
         <button class="tab" id="tab-comp" role="tab" aria-selected="false" aria-controls="view-comp" data-tab="comp">🏁 可报名比赛</button>
         <button class="tab" id="tab-learn" role="tab" aria-selected="false" aria-controls="view-learn" data-tab="learn">📚 AI 上手</button>
@@ -458,6 +457,7 @@
         <button class="tab" id="tab-magazines" role="tab" aria-selected="false" aria-controls="view-magazines" data-tab="magazines">🗞 期刊精选</button>
     <button class="tab" id="tab-cqut" role="tab" aria-selected="false" aria-controls="view-cqut" data-tab="cqut">🏫 重庆理工</button>
     <button class="tab" id="tab-funds" role="tab" aria-selected="false" aria-controls="view-funds" data-tab="funds">📈 基金看板</button>
+    <button class="tab" id="tab-research" role="tab" aria-selected="false" aria-controls="view-research" data-tab="research">🔬 科研</button>
       </nav>
     </div>
   </div>
@@ -1008,7 +1008,7 @@
   <div id="view-research" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-research">
     <header class="research-hero"><div><span class="research-kicker" id="research-date">我的科研 · 北京时间</span><h2>🔬 科研 · 今日安排</h2><p id="research-focus">正在读取科研展示摘要…</p></div><div class="research-hero-actions"><a class="research-detail-link" href="https://luohao-research-desk.easyroot8192.chatgpt.site/?view=journal" target="_top" rel="noopener">实验记录 · 私有</a><button type="button" class="research-refresh" id="research-refresh">刷新任务</button></div></header>
     <p id="research-sync-status" class="research-sync" role="status">正在核对发布数据…</p>
-    <section class="research-private-board" aria-label="完整科研任务"><div class="research-section-head"><h3>完整任务 · 直接在这里看</h3><a href="https://luohao-research-desk.easyroot8192.chatgpt.site/" target="_top" rel="noopener">首次登录 / 单独打开</a></div><p>登录本人账号后，下方直接显示任务正文、完成标准、当前进展和实验记录。首次登录可能需要打开一次私有页，再返回这里刷新。</p><iframe id="research-private-frame" title="仅本人可见的完整科研任务与实验记录" src="https://luohao-research-desk.easyroot8192.chatgpt.site/?embed=1" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></section>
+    <section class="research-private-board" aria-label="完整科研任务"><div class="research-section-head"><h3>完整任务与实验记录</h3><a id="research-open-private" class="research-detail-link" href="https://luohao-research-desk.easyroot8192.chatgpt.site/" target="_top" rel="noopener">打开完整科研清单 ↗</a></div><p>进入后直接显示任务正文、完成标准和当前进展，无需逐项点开详情。需要登录时，请在打开的完整页面中使用本人账号继续；手机和电脑都可访问。</p></section>
     <details class="research-public-summary"><summary>查看公开任务摘要 · 登录暂不可用时参考</summary>
     <div class="research-stats" id="research-stats" aria-label="任务与工时概览"></div>
     <section id="research-completed-panel" class="research-completed-panel" hidden aria-labelledby="research-completed-heading"><div class="research-section-head"><h3 id="research-completed-heading">✓ 已完成事项</h3><button type="button" data-rscope="done">查看全部已完成</button></div><div id="research-completed-list"></div><small>已完成事项退出待办；实验条件与证据验收继续单独核对。</small></section>
@@ -1024,7 +1024,7 @@
 实际日期 / 希望调整到：
 实际主动工时（可选）：
 需要协调的事：</textarea><button type="button" class="research-refresh" id="research-copy">复制反馈内容</button></section>
-    <p class="research-result">完整任务正文直接显示在上方私有清单。电脑和手机均可查看，首次需本人账号登录。</p><footer class="research-source"><details><summary>数据来源、隐私与更新方式</summary><p id="research-meta"></p><p>本页展示 Google 科研展示表审核后的6列摘要；上方私有清单显示本人可见的执行内容。完整科研总表、实验原始数据、配方和证据路径保持私有；风险提醒仅依据公开状态、日期和工时生成。</p><p>工作流：你看网站执行 → 在本对话反馈 → 我更新展示表并同步发布网站。网页刷新读取最新发布的摘要；不会绕过授权实时读取私有表。file:// 是电脑本地文件地址，其他设备请使用在线网站。</p></details></footer>
+    <p class="research-result">点击上方“打开完整科研清单”，一次进入全部任务与实验记录；登录在完整页面中进行。</p><footer class="research-source"><details><summary>数据来源、隐私与更新方式</summary><p id="research-meta"></p><p>本页展示 Google 科研展示表审核后的6列摘要；完整科研清单显示本人可见的执行内容。完整科研总表、实验原始数据、配方和证据路径保持私有；风险提醒仅依据公开状态、日期和工时生成。</p><p>工作流：你看网站执行 → 在本对话反馈 → 我更新展示表并同步发布网站。网页刷新读取最新发布的摘要；不会绕过授权实时读取私有表。file:// 是电脑本地文件地址，其他设备请使用在线网站。</p></details></footer>
     </details>
   </div>
 

@@ -91,7 +91,8 @@ module.exports = async function ({html, inline, sandbox, ok}) {
   base.ctx.window.location.hash='#research'; route.sync();
   ok(base.elements['view-research'].style.display==='' && base.elements['view-funds'].style.display==='none' && route.hash('research')==='#research', '科研独立链接切换栏目且隐藏前一栏目');
   const researchMarkup=html.split('id="view-research"')[1].split('id="view-funds"')[0];
-  ok(researchMarkup.includes('id="research-list"') && researchMarkup.includes('id="research-private-frame"') && researchMarkup.includes('https://luohao-research-desk.easyroot8192.chatgpt.site/?embed=1') && researchMarkup.includes('research-public-summary'), '原科研栏目内显示既有私有站的完整清单，保留六字段摘要回退和本人权限');
+  ok(researchMarkup.includes('id="research-list"') && !researchMarkup.includes('<iframe') && researchMarkup.includes('id="research-open-private"') && researchMarkup.includes('target="_top"') && researchMarkup.includes('research-public-summary'), '科研登录通过完整页面打开，禁止把登录页嵌在iframe中；保留公开摘要回退');
+  ok((html.match(/id="tab-[^"]+"/g)||[]).at(-1)==='id="tab-research"', '科研导航位于最后一栏，键盘顺序随DOM保持一致');
   ok(!html.includes('1-dfc8ry6ARxWM071wltd-LSZq30FtxxQwPoKD9zMuFw'), '科研公开页面不包含完整总表ID');
   ok(researchMarkup.includes('实验记录 · 私有') && researchMarkup.includes('?view=journal') && !html.includes('LOG-20261021-001') && !html.includes('journal-data.json'), '科研提供私有实验记录入口，实际记录未进入公开页面');
   ok(researchMarkup.includes('保持私有') && researchMarkup.includes('展示表') && researchMarkup.includes('工时'), '科研说明明确展示来源、工时性质和私有边界');
