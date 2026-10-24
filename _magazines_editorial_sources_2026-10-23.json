@@ -1,0 +1,69 @@
+{
+  "checkedAt": "2026-10-23",
+  "scope": "73 independent Chinese reading guides and5 editorial candidates; no repo writes.",
+  "editorialEvidence": [
+    {
+      "source": "https://www.scientificamerican.com/platform/syndication/rss/",
+      "checkedAt": "2026-10-23",
+      "observation": "官方RSS说明为USB大小的装置，已在小鼠中测试，目标是帮助管理葡萄糖水平；导语未给出完整电极材料或长期结果。",
+      "title": "This implant burns up excess blood sugar with electricity",
+      "url": "https://www.scientificamerican.com/article/this-implant-burns-up-excess-blood-sugar-with-electricity/"
+    },
+    {
+      "source": "https://www.scientificamerican.com/platform/syndication/rss/",
+      "checkedAt": "2026-10-23",
+      "observation": "官方RSS导语介绍将聚变数据送入新芯片，以查看其能否识别高温等离子体失稳前的信号。",
+      "title": "New superconducting chip aims to help tame fusion plasma",
+      "url": "https://www.scientificamerican.com/article/new-superconducting-chip-aims-to-help-tame-fusion-plasma/"
+    },
+    {
+      "source": "https://www.quantamagazine.org/in-hilbert-space-all-things-are-quantumly-possible-20260826/",
+      "checkedAt": "2026-10-23",
+      "observation": "原页公开导语与正文介绍以希尔伯特空间刻画量子可能性，并讨论向量、基与内积；页眉明确August26,2026。",
+      "title": "In Hilbert Space, All Things Are Quantumly Possible",
+      "url": "https://www.quantamagazine.org/in-hilbert-space-all-things-are-quantumly-possible-20260826/"
+    },
+    {
+      "source": "https://www.smithsonianmag.com/smart-news/researchers-claimed-a-blurry-object-on-apple-maps-was-very-likely-amelia-earharts-missing-plane-it-turned-out-to-be-a-collection-of-large-trees-180989734/",
+      "checkedAt": "2026-10-23",
+      "observation": "官方原文说明17人团队现场调查影像异常，研究者随后宣布未发现飞机的确证，影像形状可能来自大型树木。",
+      "title": "Researchers Claimed a Blurry Object on Apple Maps Was 'Very Likely' Amelia Earhart's Missing Plane. It Turned Out to Be a 'Collection of Large Trees'",
+      "url": "https://www.smithsonianmag.com/smart-news/researchers-claimed-a-blurry-object-on-apple-maps-was-very-likely-amelia-earharts-missing-plane-it-turned-out-to-be-a-collection-of-large-trees-180989734/"
+    },
+    {
+      "source": "https://www.economist.com/business/rss.xml",
+      "checkedAt": "2026-10-23",
+      "observation": "官方RSS导语强调工作除了提供收入，还有其他价值；未取得受限正文的详细论证。",
+      "title": "If AI displaces human workers, they will lose more than just pay",
+      "url": "https://www.economist.com/business/2026/10/22/if-ai-displaces-human-workers-they-will-lose-more-than-just-pay"
+    }
+  ],
+  "dateCorrectionsForParentReview": [
+    {
+      "url": "https://www.quantamagazine.org/in-hilbert-space-all-things-are-quantumly-possible-20260826/",
+      "title": "In Hilbert Space, All Things Are Quantumly Possible",
+      "publication": "quanta",
+      "publishedAt": "2026-08-26",
+      "source": "https://www.quantamagazine.org/in-hilbert-space-all-things-are-quantumly-possible-20260826/",
+      "basis": "Official article page explicitly gives August26,2026 at header and author/date sections; not inferred from URL."
+    }
+  ],
+  "failedAttempts": [
+    {
+      "url": "https://www.nature.com/articles/s41586-026-11312-x",
+      "error": "Nature direct article and research-articles index redirected to idp.nature.com access protection; abstract not obtained. Title-only guide retained; not selected as a verified-abstract editorial."
+    },
+    {
+      "url": "https://www.nature.com/articles/d41586-026-03389-1",
+      "error": "Nature direct article redirected to access protection; public abstract not obtained; title-only guide retained."
+    },
+    {
+      "url": "https://www.scientificamerican.com/platform/syndication/rss/",
+      "note": "RSS complete HTTP200/exit0; direct article access failures retained in candidate evidence boundaries."
+    },
+    {
+      "url": "https://www.nature.com/nature.rss",
+      "error": "RSS download HTTP200butcurl28/partial31383of121036bytes; not parsed as a successful complete feed. Web tool separately rejectedRSScontenttype."
+    }
+  ]
+}

@@ -27,11 +27,11 @@
   - `ted.js`（40 条演讲，含 cover 封面图 / views 官网播放量）
   - `funds.js`（4 只基金持仓 + 深度档案 + 11 A股/4 美股重点个股）
   - `forum.js`（讲坛：25 系列 / 205 B站视频，bvid+play）
-- `matches.js`（当前报名线索 6 条，其中1条校内截止年份待核实，另7条保留完整退役证据；受阻来源不冒充全量报名核验，不得丢身份）
+- `matches.js`（当前报名线索 5 条，其中1条校内截止年份待核实，另8条保留完整退役证据；受阻来源不冒充全量报名核验，不得丢身份）
   - `competitions.js`（全国比赛资源库 183 条）
   - `cqut.js`（重庆理工通知）
   - `rank.js`（排行榜：models/tools/combos/tables）
-- `magazines.js`（19 本期刊的官方入口、文章元数据、核查状态；当前743篇，43篇编辑精选）
+- `magazines.js`（19 本期刊的官方入口、文章元数据、核查状态；当前848篇，48篇编辑精选）
 
 **构建 / 校验 / 抓取脚本**
 - `_build.py` — 读 index.src.html + 各 .js，内联生成 `index.html` / `gh-pages/index.html` / `ai_intel_station_standalone.html`

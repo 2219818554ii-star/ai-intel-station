@@ -1,0 +1,126 @@
+{
+  "checkedAt": "2026-10-24",
+  "method": "Independent official web extraction read during current run; prior scores retained only with their separate dated proof.",
+  "sources": [
+    {
+      "url": "https://artificialanalysis.ai/leaderboards/models",
+      "observedModel": "Kimi K3.1 Pro",
+      "score": 55,
+      "context": "1M"
+    },
+    {
+      "url": "https://artificialanalysis.ai/articles/kimi-k3-1-pro-launch-benchmarks",
+      "publishedAt": "2026-10-23",
+      "observedModel": "Kimi K3.1 Pro",
+      "score": 55,
+      "tb4": 67,
+      "weights": "not yet published as stated in the October23 bulletin"
+    }
+  ],
+  "newModel": {
+    "name": "Kimi K3.1 Pro",
+    "vendor": "Moonshot / 月之暗面（中国）",
+    "price": "具体API价格与可用性请核对厂商官网",
+    "iaa": 55,
+    "tb": null,
+    "t": {
+      "综合": "—",
+      "推理": "—",
+      "代码": "—",
+      "多模态": "—",
+      "长上下文": "—",
+      "中文": "—",
+      "性价比": "—",
+      "开源": "—"
+    },
+    "note": "10月24日核对AA当前榜与10月23日官方评测公告：智能指数55，1M上下文；公告另列TB4.0为67%，不能填入本页TB2.1列。该公告称权重尚未发布，不能把未来开放计划写成已经开源。价格、产品可用性与主观等级本次不作推断。"
+  },
+  "aaApplied": [
+    [
+      "Claude Opus 5.5 (max with fallback)",
+      58
+    ],
+    [
+      "Claude Sonnet 5.5 (max with fallback)",
+      56
+    ],
+    [
+      "Muse Wonder Full (max)",
+      56
+    ],
+    [
+      "Kimi K3.1 Pro",
+      55
+    ],
+    [
+      "Claude Fable 5.1 (max with fallback)",
+      53
+    ],
+    [
+      "GPT-6 Astra (max)",
+      53
+    ],
+    [
+      "Gemini 4 Argon (high)",
+      53
+    ],
+    [
+      "GPT-6.1 Sol (max)",
+      52
+    ],
+    [
+      "Muse Wonder (max)",
+      52
+    ],
+    [
+      "Muse Spark 1.3 (max) · 10/23历史值",
+      48
+    ],
+    [
+      "Grok 4.7 (xhigh)",
+      46
+    ],
+    [
+      "MiMo-V2.6-Pro",
+      46
+    ],
+    [
+      "Qwen3.8 Max (0902)",
+      45
+    ],
+    [
+      "DeepSeek V4.1 Flash 1017 (max)",
+      45
+    ],
+    [
+      "GLM-5.3 (max)",
+      45
+    ],
+    [
+      "Ling 3.1 Flash 1019",
+      44
+    ],
+    [
+      "Step 5 Preview",
+      44
+    ],
+    [
+      "Kimi K3 (max) · 10/23历史值",
+      44
+    ],
+    [
+      "Claude Haiku 5.5 (max)",
+      43
+    ],
+    [
+      "MiniMax-M3.1-Flash",
+      43
+    ]
+  ],
+  "preservedHistoricalRows": [
+    "Muse Spark 1.3 (max)",
+    "Kimi K3 (max)"
+  ],
+  "previousEvidence": "_rank_review_2026-10-23.json",
+  "written": true
+}
