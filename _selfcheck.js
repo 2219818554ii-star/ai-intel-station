@@ -372,8 +372,10 @@ const retirementSourceAllowed=(x,u)=>{
     (additionalRetirementHosts.has(host)&&review.retirementAllowedHosts?.includes(host)&&
      review.officialExtracts?.some(e=>e.url===u&&e.checkedAt===x.retiredAt&&e.finding));
 };
-ok(retired.every(x=>retirementReviews[x.retiredAt].removedMatches.some(r=>sameMatch(r.snapshot,x)&&r.reason===x.reason&&r.evidenceExcerpt===x.evidenceExcerpt&&JSON.stringify(r.sourceEvidence)===JSON.stringify(x.sourceEvidence))&&x.retiredAt&&x.reason&&x.evidenceExcerpt&&Array.isArray(x.sourceEvidence)&&x.sourceEvidence.length>0&&x.sourceEvidence.every(u=>retirementSourceAllowed(x,u))&&
-   ((x.reasonCode==='eligibility'&&/本科/.test(x.evidenceExcerpt))||(['deadline','deadline_and_eligibility'].includes(x.reasonCode)&&/^\d{4}-\d{2}-\d{2}$/.test(x.deadline)&&Date.parse(x.deadline+'T23:59:59+08:00')<Date.now()))), '每项退役均有匹配原始身份、官网证据和已过截止/本科资格依据');
+const evidenceDeadline=require('./_evidence_deadline.js');
+ok(retired.every(x=>x.retiredAt&&x.reason&&x.evidenceExcerpt&&Array.isArray(x.sourceEvidence)&&x.sourceEvidence.length>0&&x.sourceEvidence.every(u=>retirementSourceAllowed(x,u))&&
+   retirementReviews[x.retiredAt].removedMatches.some(r=>sameMatch(r.snapshot,x)&&r.reason===x.reason&&r.evidenceExcerpt===x.evidenceExcerpt&&JSON.stringify(r.sourceEvidence)===JSON.stringify(x.sourceEvidence)&&
+     ((x.reasonCode==='eligibility'&&/本科/.test(x.evidenceExcerpt))||(['deadline','deadline_and_eligibility'].includes(x.reasonCode)&&evidenceDeadline(x,r)<Date.now())))), '每项退役均有匹配原始身份、官网证据和已过截止/本科资格依据');
 
 /* ① 喜报必须一条不剩 */
 const xibaoN = count(mHtml, /\[喜讯\]/g) + count(html, /\[喜讯\]/g);

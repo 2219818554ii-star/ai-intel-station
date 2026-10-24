@@ -1,6 +1,6 @@
 /* AI 情报站 - 实力排行榜数据（每日自动更新） */
-window.RANK_UPDATED = "2026-10-20";
-window.RANK_CHECKED = "2026-10-22";
+window.RANK_UPDATED = "2026-10-23";
+window.RANK_CHECKED = "2026-10-23";
 window.RANK = {
     models: [
       {name:"Claude Opus 5.5", vendor:"Anthropic（美国）", price:"API $4/$20 每百万", iaa:58, tb:null,
@@ -93,6 +93,9 @@ window.RANK = {
       {name:"MiniMax M3", vendor:"MiniMax（中国）", price:"开源权重 / API", iaa:29, tb:null,
        t:{综合:"B",推理:"B",代码:"B",多模态:"B",长上下文:"B",中文:"A",性价比:"B",开源:"A"},
        note:"10月19日核对AA官方当前榜：MiniMax-M3智能指数29，补入原空值。该分只代表AA综合评测；开放权重与产品价格需另查厂商，不能由分数推断。"},
+      {name:"Ling 3.1 Flash 1019", vendor:"InclusionAI（中国）", price:"API/权重开放与价格待核实", iaa:44, tb:null,
+       t:{},
+       note:"10月23日核对AA官方当前榜与10月22日评测更新：1019独立版本智能指数44、上下文1.05M。旧Ling3.1模型卡不能证明1019权重已开放；本次未核实该版本API开放、价格、TB2.1及专项分级，均不猜填。"},
       {name:"MiMo V2.6 Pro", vendor:"小米 Xiaomi（中国）", price:"开放权重（可自部署）", iaa:46, tb:null,
        t:{综合:"A",推理:"A",代码:"A",多模态:"B",长上下文:"B",中文:"B",性价比:"A",开源:"S"},
        note:"10月19日直接核对AA官方当前榜：MiMo-V2.6-Pro智能指数46，已取得一手来源，撤去原“单一报道待复核”说明。tb列为TB2.1旧口径，尚无本次核实成绩，留空。"},
@@ -149,7 +152,7 @@ window.RANK = {
        note:"适合已在GitHub上管理代码、issues与PR的团队。具体模型、代理功能和免费资格依账号及组织策略，不作跨产品最低价承诺。"}
     ],
     tables: {
-      aa: {title:"Artificial Analysis 智能指数 v4.3.2 · 当前模型选录18项（保留版本与推理档位，2026-10-20核对）", unit:"分", rows:[["Claude Opus 5.5 (max with fallback)", 58], ["Claude Sonnet 5.5 (max with fallback)", 56], ["Muse Wonder Full (max)", 56], ["Claude Fable 5.1 (max with fallback)", 53], ["GPT-6 Astra (max)", 53], ["Gemini 4 Argon (high)", 53], ["GPT-6.1 Sol (max)", 52], ["Muse Wonder (max)", 52], ["Muse Spark 1.3 (max)", 48], ["Grok 4.7 (xhigh)", 46], ["MiMo-V2.6-Pro", 46], ["Qwen3.8 Max (0902)", 45], ["DeepSeek V4.1 Flash 1017 (max)", 45], ["GLM-5.3 (max)", 45], ["Step 5 Preview", 44], ["Kimi K3 (max)", 44], ["Claude Haiku 5.5 (max)", 43], ["MiniMax-M3.1-Flash", 43]]},
+      aa: {title:"Artificial Analysis 智能指数 v4.3.2 · 当前模型选录19项（保留版本与推理档位，2026-10-23核对）", unit:"分", rows:[["Claude Opus 5.5 (max with fallback)", 58], ["Claude Sonnet 5.5 (max with fallback)", 56], ["Muse Wonder Full (max)", 56], ["Claude Fable 5.1 (max with fallback)", 53], ["GPT-6 Astra (max)", 53], ["Gemini 4 Argon (high)", 53], ["GPT-6.1 Sol (max)", 52], ["Muse Wonder (max)", 52], ["Muse Spark 1.3 (max)", 48], ["Grok 4.7 (xhigh)", 46], ["MiMo-V2.6-Pro", 46], ["Qwen3.8 Max (0902)", 45], ["DeepSeek V4.1 Flash 1017 (max)", 45], ["GLM-5.3 (max)", 45], ["Ling 3.1 Flash 1019", 44], ["Step 5 Preview", 44], ["Kimi K3 (max)", 44], ["Claude Haiku 5.5 (max)", 43], ["MiniMax-M3.1-Flash", 43]]},
       tb: {title:"Terminal-Bench 2.1 · 历史收录Top10（2026-09；官方当前为4.0，本次未刷新旧分）", capturedAt:"2026-09", unit:"%", rows:[
         ["Claude Fable 5.1",91.4],["GPT-6 Astra",89.9],["GPT-5.6 Sol",89.5],["Claude Opus 5",89.1],
         ["Grok 4.6",88.4],["GPT-5.6 Terra",88.0],["Gemini 3.8 Flash",87.6],["Kimi K3",85.0],
@@ -161,4 +164,4 @@ window.RANK = {
   };
 
 /* 局部核验边界：AA日期不代表旧TB/SWE/订阅价格全部重新核验。 */
-window.RANK_CHECK_NOTE = "10月22日已核对AA官方榜及精确型号对比页，18个选录型号、推理档位与分数均无变化，内容更新仍为10月20日；Muse Spark 1.3的max档48分由官方对比页单独复核。9个工具官方文档入口已复核。TB当前官方为4.0，本站TB2.1保留2026年9月历史收录；SWE Verified与Pro保留2026年8月历史收录。工具历史成绩未重测，全体模型价格及主观等级未全部复核。";
+window.RANK_CHECK_NOTE = "10月23日实核AA官方当前榜与10月22日评测公告，新收录Ling3.1 Flash1019=44；现19个选录型号，原18个型号与推理档位分数不变，Muse Spark1.3 max48仍由精确对比页复核。9个工具官方文档入口已复核。新型号的API/权重开放与价格待核实。TB2.1及SWE保留原历史日期与成绩；旧工具成绩未重测，全体旧型号价格与主观等级未全部复核。";

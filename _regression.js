@@ -24,6 +24,12 @@ module.exports = async function ({html, inline, sandbox, ok}) {
     return {ctx,elements,listeners,documentEvents};
   }
   const base = run();
+  const evidenceDeadline=require('./_evidence_deadline.js');
+  const noon={deadline:'2026-10-23',deadlineTime:'12:00'};
+  const noonProof={deadline:'2026-10-23',deadlineTime:'12:00',snapshot:{deadlineTime:'12:00'},evidenceExcerpt:'报名及培养单位审核截止时间为2026年10月23日12：00。'};
+  const noonAt=Date.parse('2026-10-23T12:00:00+08:00');
+  ok(evidenceDeadline(noon,noonProof)===noonAt && !(evidenceDeadline(noon,noonProof)<noonAt) && evidenceDeadline(noon,noonProof)<noonAt+1 && evidenceDeadline({deadline:'2026-10-23'}, {})===Date.parse('2026-10-23T23:59:59+08:00'), '退役精确时刻须实际已过，未明示时刻仍按北京日末');
+  ok([null,{...noonProof,deadlineTime:'13:00'},{...noonProof,deadline:'2026-10-24'},{...noonProof,snapshot:{}},{...noonProof,evidenceExcerpt:'作品提交12:30'}].every(r=>Number.isNaN(evidenceDeadline(noon,r))) && ['24:00','12:60','12','00:0',''].every(t=>Number.isNaN(evidenceDeadline({...noon,deadlineTime:t},noonProof))) && Number.isNaN(evidenceDeadline({deadline:'2026-02-30'},{})), '精确退役拒绝独立证据缺失、时分不一致、无原文时间及非法日期');
   const forumVideos=base.ctx.window.FORUM_SERIES.flatMap(s=>s.vids);
   const forumMetadataReports={};
   function forumProof(day){

@@ -1,5 +1,5 @@
 // 仅官方渠道元数据与独立导读；证据见 _magazines_sources_a/b.json。
-window.MAGAZINES_CHECKED = "2026-10-22";
+window.MAGAZINES_CHECKED = "2026-10-23";
 window.MAGAZINES = [
   {
     "id": "shangjie",
@@ -14,10 +14,10 @@ window.MAGAZINES = [
     "feedUrl": "https://www.pedaily.cn/media/m439",
     "note": "官方账号入驻投资界；目前可核实列表以往期文章为主，以下保留原发布日期。",
     "accent": "#9f272b",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "status": "ok",
     "sourceNote": "官方账号入驻投资界；目前可核实列表以往期文章为主，以下保留原发布日期。",
-    "lastSuccessAt": "2026-10-22",
+    "lastSuccessAt": "2026-10-23",
     "language": "zh"
   },
   {
@@ -32,11 +32,11 @@ window.MAGAZINES = [
     "feedUrl": "https://www.lifeweek.com.cn/magazine?magazineid=1",
     "note": "单篇未明确发布日期时留空，不以期刊出版日代填。数字刊可看导读，全文可能需要订阅。",
     "accent": "#be312f",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "status": "ok",
     "sourceNote": "单篇未明确发布日期时留空，不以期刊出版日代填。数字刊可看导读，全文可能需要订阅。",
     "language": "zh",
-    "lastSuccessAt": "2026-10-22"
+    "lastSuccessAt": "2026-10-23"
   },
   {
     "id": "yimagazine",
@@ -50,10 +50,10 @@ window.MAGAZINES = [
     "feedUrl": "https://www.yicai.com/api/ajax/getlistbypid?page=1&pagesize=30&id=55&type=3",
     "note": "原《第一财经周刊》，现名《第一财经》YiMagazine，为月刊。可看导读，全文依官方提示订阅。",
     "accent": "#153f75",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "status": "ok",
     "sourceNote": "原《第一财经周刊》，现名《第一财经》YiMagazine，为月刊。可看导读，全文依官方提示订阅。",
-    "lastSuccessAt": "2026-10-22",
+    "lastSuccessAt": "2026-10-23",
     "language": "zh"
   },
   {
@@ -69,7 +69,7 @@ window.MAGAZINES = [
     "feedUrl": "https://boyamedia.com/category-rw/",
     "note": "来自博雅天下官方频道。自动核查遇到空页面时保留已核实内容；不同网络访问情况可能不同。 本次自动核查未成功，保留已核实文章。",
     "accent": "#383e49",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "status": "unavailable",
     "sourceNote": "来自博雅天下官方频道。自动核查遇到空页面时保留已核实内容；不同网络访问情况可能不同。",
     "language": "zh"
@@ -87,7 +87,7 @@ window.MAGAZINES = [
     "feedUrl": "https://boyamedia.com/category-bk/",
     "note": "来自博雅天下官方频道。自动核查遇到空页面时保留已核实内容；不同网络访问情况可能不同。 本次自动核查未成功，保留已核实文章。",
     "accent": "#be6a26",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "status": "unavailable",
     "sourceNote": "来自博雅天下官方频道。自动核查遇到空页面时保留已核实内容；不同网络访问情况可能不同。",
     "language": "zh"
@@ -104,7 +104,7 @@ window.MAGAZINES = [
     "feedUrl": "https://www.globalpeople.com.cn/",
     "note": "正式刊名《环球人物》。标题与日期已通过官方索引核实，原站直接访问可能受限。 本次自动核查未成功，保留已核实文章。",
     "accent": "#297274",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "status": "unavailable",
     "sourceNote": "正式刊名《环球人物》。标题与日期已通过官方索引核实，原站直接访问可能受限。",
     "language": "zh"
@@ -123,9 +123,9 @@ window.MAGAZINES = [
     "accent": "#b92836",
     "language": "zh",
     "parser": "cn",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "status": "ok",
-    "lastSuccessAt": "2026-10-22",
+    "lastSuccessAt": "2026-10-23",
     "sourceNote": "仅收官方新闻频道；品牌观察推广稿不纳入。"
   },
   {
@@ -142,9 +142,9 @@ window.MAGAZINES = [
     "accent": "#e44052",
     "language": "zh",
     "parser": "cn",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "status": "ok",
-    "lastSuccessAt": "2026-10-22",
+    "lastSuccessAt": "2026-10-23",
     "sourceNote": "官方 apex 站点可访问；专栏含历史精选，日期按原发布时间。"
   },
   {
@@ -161,9 +161,9 @@ window.MAGAZINES = [
     "accent": "#c54733",
     "language": "zh",
     "parser": "cn",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "status": "ok",
-    "lastSuccessAt": "2026-10-22",
+    "lastSuccessAt": "2026-10-23",
     "sourceNote": "从官网提取题名和文章页明确日期。"
   },
   {
@@ -180,9 +180,9 @@ window.MAGAZINES = [
     "accent": "#194988",
     "language": "zh",
     "parser": "cn",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "status": "ok",
-    "lastSuccessAt": "2026-10-22",
+    "lastSuccessAt": "2026-10-23",
     "sourceNote": "部分原文需订阅；仅显示元数据并链接官网。"
   },
   {
@@ -195,13 +195,13 @@ window.MAGAZINES = [
       "weekly.caixin.com"
     ],
     "feedUrl": "https://weekly.caixin.com/",
-    "note": "原文可能需要财新订阅；不绕过付费墙。 本次自动核查未成功，保留已核实文章。",
+    "note": "原文可能需要财新订阅；不绕过付费墙。",
     "accent": "#287084",
     "language": "zh",
     "parser": "cn",
-    "checkedAt": "2026-10-22",
-    "status": "unavailable",
-    "lastSuccessAt": "2026-10-20",
+    "checkedAt": "2026-10-23",
+    "status": "ok",
+    "lastSuccessAt": "2026-10-23",
     "sourceNote": "原文可能需要财新订阅；不绕过付费墙。"
   },
   {
@@ -214,12 +214,12 @@ window.MAGAZINES = [
       "www.infzm.com"
     ],
     "feedUrl": "https://www.infzm.com/",
-    "note": "新闻周报；部分文章有会员阅读限制。",
+    "note": "新闻周报；部分文章有会员阅读限制。 本次自动核查未成功，保留已核实文章。",
     "accent": "#296d52",
     "language": "zh",
     "parser": "cn",
-    "checkedAt": "2026-10-22",
-    "status": "ok",
+    "checkedAt": "2026-10-23",
+    "status": "unavailable",
     "lastSuccessAt": "2026-10-22",
     "sourceNote": "新闻周报；部分文章有会员阅读限制。"
   },
@@ -236,9 +236,9 @@ window.MAGAZINES = [
     "note": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "accent": "#a93329",
     "language": "en",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "status": "ok",
-    "lastSuccessAt": "2026-10-22",
+    "lastSuccessAt": "2026-10-23",
     "sourceNote": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "parser": "rss",
     "feedUrls": [
@@ -258,9 +258,9 @@ window.MAGAZINES = [
     "note": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "accent": "#d2222a",
     "language": "en",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "status": "ok",
-    "lastSuccessAt": "2026-10-22",
+    "lastSuccessAt": "2026-10-23",
     "sourceNote": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "parser": "rss",
     "feedUrls": [
@@ -280,9 +280,9 @@ window.MAGAZINES = [
     "note": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "accent": "#267e9a",
     "language": "en",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "status": "ok",
-    "lastSuccessAt": "2026-10-22",
+    "lastSuccessAt": "2026-10-23",
     "sourceNote": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "parser": "rss",
     "feedUrls": [
@@ -300,12 +300,12 @@ window.MAGAZINES = [
       "www.theatlantic.com"
     ],
     "feedUrl": "https://www.theatlantic.com/feed/all/",
-    "note": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。 本次自动核查未成功，保留已核实文章。",
+    "note": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "accent": "#c33229",
     "language": "en",
-    "checkedAt": "2026-10-22",
-    "status": "unavailable",
-    "lastSuccessAt": "2026-10-21",
+    "checkedAt": "2026-10-23",
+    "status": "ok",
+    "lastSuccessAt": "2026-10-23",
     "sourceNote": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "parser": "rss",
     "feedUrls": [
@@ -325,9 +325,9 @@ window.MAGAZINES = [
     "note": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "accent": "#d02a25",
     "language": "en",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "status": "ok",
-    "lastSuccessAt": "2026-10-22",
+    "lastSuccessAt": "2026-10-23",
     "sourceNote": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "parser": "rss",
     "feedUrls": [
@@ -348,9 +348,9 @@ window.MAGAZINES = [
     "note": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "accent": "#aa6c22",
     "language": "en",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "status": "ok",
-    "lastSuccessAt": "2026-10-22",
+    "lastSuccessAt": "2026-10-23",
     "sourceNote": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "parser": "rss",
     "feedUrls": [
@@ -372,9 +372,9 @@ window.MAGAZINES = [
     "note": "英文原文；官方说明提供免费可读的科学报道。热门依据官网过去一周 Most Read Articles，不代表全网热度。",
     "accent": "#286c8d",
     "language": "en",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "status": "ok",
-    "lastSuccessAt": "2026-10-22",
+    "lastSuccessAt": "2026-10-23",
     "sourceNote": "英文原文；官方说明提供免费可读的科学报道。热门依据官网过去一周 Most Read Articles，不代表全网热度。",
     "parser": "rss",
     "feedUrls": [
@@ -394,7 +394,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://news.pedaily.cn/202504/549033.shtml",
     "publishedAt": "2025-04-28",
     "summary": "从钢琴行业案例，观察需求变化与企业转型。",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "archive": true,
     "featuredReason": "以往期行业案例观察需求变化；先核对原日期，再思考哪些问题仍值得参考。",
     "featuredPriority": 33
@@ -405,7 +405,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://news.pedaily.cn/202405/534446.shtml",
     "publishedAt": "2024-05-24",
     "summary": "沿着折扣零售的选品与供应链，拆解一家企业的经营路径。",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "archive": true
   },
   {
@@ -414,7 +414,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://news.pedaily.cn/202403/531673.shtml",
     "publishedAt": "2024-03-27",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "shangjie",
@@ -422,7 +422,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://news.pedaily.cn/202403/530654.shtml",
     "publishedAt": "2024-03-05",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "shangjie",
@@ -430,7 +430,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://news.pedaily.cn/202402/530448.shtml",
     "publishedAt": "2024-02-29",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "shangjie",
@@ -438,7 +438,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://news.pedaily.cn/202402/530247.shtml",
     "publishedAt": "2024-02-26",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "shangjie",
@@ -446,7 +446,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://news.pedaily.cn/202402/530139.shtml",
     "publishedAt": "2024-02-23",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "shangjie",
@@ -454,7 +454,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://news.pedaily.cn/202307/517233.shtml",
     "publishedAt": "2023-07-10",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "lifeweek",
@@ -462,7 +462,15 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.lifeweek.com.cn/article/274568",
     "publishedAt": null,
     "summary": "从方言的日常使用与代际传递切入，想一想语言被保存下来和重新被人使用之间还隔着什么。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "lifeweek",
+    "title": "粤语脱口秀：找到自己的观众",
+    "url": "https://www.lifeweek.com.cn/article/274569",
+    "publishedAt": null,
+    "summary": "",
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "lifeweek",
@@ -470,7 +478,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.lifeweek.com.cn/article/274575",
     "publishedAt": null,
     "summary": "留意数学家进入公共视野时哪些工作被讲述、哪些训练被省略，尝试把人物光环还原为可理解的研究过程。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "lifeweek",
@@ -478,7 +486,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.lifeweek.com.cn/article/274576",
     "publishedAt": null,
     "summary": "读王虹的人物叙事时，把成长经历、数学训练与个人选择分开看，避免只用天赋解释研究者的形成。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "lifeweek",
@@ -528,7 +536,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394820.html",
     "publishedAt": "2026-10-15",
     "summary": "从媒介与渠道的分散，理解品牌争取消费者注意力的难题。",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "access": "导读 / 订阅全文",
     "featuredReason": "从消费和渠道的变化进入商业问题，练习把具体案例连回需求。",
     "featuredPriority": 22
@@ -539,7 +547,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394594.html",
     "publishedAt": "2026-10-15",
     "summary": "关注跨国公司的本地经营，比较“本土化”在不同阶段的含义。",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "access": "导读 / 订阅全文"
   },
   {
@@ -548,7 +556,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394573.html",
     "publishedAt": "2026-10-15",
     "summary": "围绕零售商自有品牌，审视品牌与渠道之间的竞争关系。",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "access": "导读 / 订阅全文"
   },
   {
@@ -557,7 +565,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394569.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "yimagazine",
@@ -565,7 +573,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394558.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "yimagazine",
@@ -573,7 +581,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394546.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "yimagazine",
@@ -581,7 +589,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394545.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "yimagazine",
@@ -589,7 +597,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394537.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "yimagazine",
@@ -597,7 +605,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394470.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "yimagazine",
@@ -605,7 +613,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394466.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "yimagazine",
@@ -613,7 +621,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394460.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "yimagazine",
@@ -621,7 +629,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393433.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "yimagazine",
@@ -629,7 +637,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393424.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "yimagazine",
@@ -637,7 +645,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393421.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "yimagazine",
@@ -645,7 +653,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393409.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "yimagazine",
@@ -653,7 +661,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393406.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "yimagazine",
@@ -661,7 +669,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393404.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "yimagazine",
@@ -669,7 +677,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393400.html",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "yimagazine",
@@ -677,7 +685,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393379.html",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "yimagazine",
@@ -685,7 +693,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393374.html",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "yimagazine",
@@ -693,7 +701,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393373.html",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "yimagazine",
@@ -701,7 +709,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393371.html",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "yimagazine",
@@ -709,7 +717,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393365.html",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "yimagazine",
@@ -717,7 +725,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393342.html",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "yimagazine",
@@ -725,7 +733,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393333.html",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "yimagazine",
@@ -733,7 +741,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393298.html",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "yimagazine",
@@ -741,7 +749,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393295.html",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "yimagazine",
@@ -749,7 +757,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393289.html",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "yimagazine",
@@ -757,7 +765,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393280.html",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "renwu",
@@ -843,11 +851,155 @@ window.MAGAZINE_ARTICLES = [
   },
   {
     "publication": "chinanewsweek",
+    "title": "知名餐饮品牌，紧急致歉",
+    "url": "https://www.inewsweek.cn/finance/2026-10-23/32675.shtml",
+    "publishedAt": "2026-10-23",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "“东莞前首富”，10亿算力故事烂尾？",
+    "url": "https://www.inewsweek.cn/finance/2026-10-23/32674.shtml",
+    "publishedAt": "2026-10-23",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "股价暴涨130%，行业大王却笑不出来",
+    "url": "https://www.inewsweek.cn/finance/2026-10-23/32673.shtml",
+    "publishedAt": "2026-10-23",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "今年最火的鞋诞生",
+    "url": "https://www.inewsweek.cn/finance/2026-10-23/32672.shtml",
+    "publishedAt": "2026-10-23",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "特朗普，突然送“大礼”",
+    "url": "https://www.inewsweek.cn/world/2026-10-22/32659.shtml",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "街头在燃烧，“总统在舞蹈”",
+    "url": "https://www.inewsweek.cn/world/2026-10-22/32647.shtml",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "银行办业务每天仅3.5小时？最新回应：“由上级决定”",
+    "url": "https://www.inewsweek.cn/society/2026-10-22/32663.shtml",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "小区被指出现大量“骨灰房”，官方深夜通报",
+    "url": "https://www.inewsweek.cn/society/2026-10-22/32654.shtml",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "49岁男子三小时内连杀三人，一审被判死刑",
+    "url": "https://www.inewsweek.cn/society/2026-10-22/32646.shtml",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "中国联通总经理调任掌舵，这家新央企什么来头？",
+    "url": "https://www.inewsweek.cn/politics/2026-10-22/32650.shtml",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "“顶流”换号复出，曾因虚假宣传被罚6千万",
+    "url": "https://www.inewsweek.cn/finance/2026-10-22/32662.shtml",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "全班44人39个用小天才，其他人都是“异类”？",
+    "url": "https://www.inewsweek.cn/finance/2026-10-22/32656.shtml",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "中国前首富，增持山西女首富",
+    "url": "https://www.inewsweek.cn/finance/2026-10-22/32655.shtml",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "性感巨头，也开始“纯过日子”了",
+    "url": "https://www.inewsweek.cn/finance/2026-10-22/32651.shtml",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "贾国龙的新项目再度遇挫",
+    "url": "https://www.inewsweek.cn/finance/2026-10-22/32649.shtml",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "国产冲锋衣，冲疯了",
+    "url": "https://www.inewsweek.cn/finance/2026-10-22/32648.shtml",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "巨头宣布：不消费，不能入座",
+    "url": "https://www.inewsweek.cn/finance/2026-10-22/32645.shtml",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "chinanewsweek",
     "title": "前总统，成了“总统大战”主角",
     "url": "https://www.inewsweek.cn/world/2026-10-21/32640.shtml",
     "publishedAt": "2026-10-21",
     "summary": "沿着报道梳理前总统与现任政治竞争的关系，把选举叙事、法律程序和各方说法分开判断。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "21岁驴友遇难，“家属拒付救援费”？目击者回应",
+    "url": "https://www.inewsweek.cn/society/2026-10-21/32633.shtml",
+    "publishedAt": "2026-10-21",
+    "summary": "",
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -855,6 +1007,38 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-21/32632.shtml",
     "publishedAt": "2026-10-21",
     "summary": "关注判决所依据的事实、程序与裁判理由，区分已经司法认定的内容和标题中的情绪性表述。",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "知名女星，深夜维权",
+    "url": "https://www.inewsweek.cn/finance/2026-10-21/32636.shtml",
+    "publishedAt": "2026-10-21",
+    "summary": "把明星维权事件拆成权利主张、可验证事实与处理进展，观察公众传播怎样影响纠纷讨论。",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "“一句话办事”，被拒了",
+    "url": "https://www.inewsweek.cn/finance/2026-10-21/32635.shtml",
+    "publishedAt": "2026-10-21",
+    "summary": "从具体办事流程看人情请求与制度规则的边界，留意拒绝理由及其对普通办事者意味着什么。",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "刚刚，宇树科技回应了",
+    "url": "https://www.inewsweek.cn/finance/2026-10-21/32634.shtml",
+    "publishedAt": "2026-10-21",
+    "summary": "对照宇树科技回应的原话与争议问题，区分企业已经确认的事实、解释和仍待核实的说法。",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "手机出货量，暴跌",
+    "url": "https://www.inewsweek.cn/finance/2026-10-21/32639.shtml",
+    "publishedAt": "2026-10-21",
+    "summary": "先辨认手机出货统计的地区、周期和比较基准，再判断下滑反映的是需求变化还是渠道调整。",
     "checkedAt": "2026-10-22"
   },
   {
@@ -867,43 +1051,11 @@ window.MAGAZINE_ARTICLES = [
   },
   {
     "publication": "chinanewsweek",
-    "title": "手机出货量，暴跌",
-    "url": "https://www.inewsweek.cn/finance/2026-10-21/32639.shtml",
-    "publishedAt": "2026-10-21",
-    "summary": "先辨认手机出货统计的地区、周期和比较基准，再判断下滑反映的是需求变化还是渠道调整。",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "知名女星，深夜维权",
-    "url": "https://www.inewsweek.cn/finance/2026-10-21/32636.shtml",
-    "publishedAt": "2026-10-21",
-    "summary": "把明星维权事件拆成权利主张、可验证事实与处理进展，观察公众传播怎样影响纠纷讨论。",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "“一句话办事”，被拒了",
-    "url": "https://www.inewsweek.cn/finance/2026-10-21/32635.shtml",
-    "publishedAt": "2026-10-21",
-    "summary": "从具体办事流程看人情请求与制度规则的边界，留意拒绝理由及其对普通办事者意味着什么。",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "刚刚，宇树科技回应了",
-    "url": "https://www.inewsweek.cn/finance/2026-10-21/32634.shtml",
-    "publishedAt": "2026-10-21",
-    "summary": "对照宇树科技回应的原话与争议问题，区分企业已经确认的事实、解释和仍待核实的说法。",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "chinanewsweek",
     "title": "金与正警告，“必将招致严重灾祸”",
     "url": "https://www.inewsweek.cn/world/2026-10-20/32610.shtml",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -911,7 +1063,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/wh/2026-10-20/32604.shtml",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -919,7 +1071,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-20/32613.shtml",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -935,7 +1087,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-19/32595.shtml",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -943,7 +1095,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-19/32590.shtml",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -951,7 +1103,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-19/32586.shtml",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -959,7 +1111,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-19/32584.shtml",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -967,7 +1119,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/wh/2026-10-19/32585.shtml",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -975,7 +1127,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/wh/2026-10-19/32574.shtml",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -983,7 +1135,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-19/32589.shtml",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -991,7 +1143,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-19/32583.shtml",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -999,7 +1151,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-19/32594.shtml",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -1007,7 +1159,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-19/32588.shtml",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -1015,7 +1167,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-19/32587.shtml",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -1043,11 +1195,19 @@ window.MAGAZINE_ARTICLES = [
   },
   {
     "publication": "chinanewsweek",
+    "title": "丑闻缠身的国王弟弟，打赢了官司",
+    "url": "https://www.inewsweek.cn/world/2026-10-16/32573.shtml",
+    "publishedAt": "2026-10-16",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "chinanewsweek",
     "title": "总统和副总统的“战争”，加速了",
     "url": "https://www.inewsweek.cn/world/2026-10-16/32559.shtml",
     "publishedAt": "2026-10-16",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -1055,7 +1215,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-16/32552.shtml",
     "publishedAt": "2026-10-16",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -1063,7 +1223,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/wh/2026-10-16/32569.shtml",
     "publishedAt": "2026-10-16",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -1071,7 +1231,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/wh/2026-10-16/32556.shtml",
     "publishedAt": "2026-10-16",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -1080,14 +1240,6 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-16",
     "summary": "",
     "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "丑闻缠身的国王弟弟，打赢了官司",
-    "url": "https://www.inewsweek.cn/world/2026-10-16/32573.shtml",
-    "publishedAt": "2026-10-16",
-    "summary": "",
-    "checkedAt": "2026-10-21"
   },
   {
     "publication": "chinanewsweek",
@@ -1119,7 +1271,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-15/32549.shtml",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -1127,7 +1279,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-15/32540.shtml",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -1135,7 +1287,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-15/32550.shtml",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -1143,7 +1295,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-15/32546.shtml",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -1159,7 +1311,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-14/32530.shtml",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -1167,7 +1319,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-14/32515.shtml",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -1175,7 +1327,15 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/wh/2026-10-14/32531.shtml",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "著名男星，和巨头闹翻了",
+    "url": "https://www.inewsweek.cn/wh/2026-10-14/32527.shtml",
+    "publishedAt": "2026-10-14",
+    "summary": "",
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -1183,7 +1343,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-14/32529.shtml",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -1191,7 +1351,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-14/32528.shtml",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -1199,7 +1359,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-14/32524.shtml",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -1219,19 +1379,11 @@ window.MAGAZINE_ARTICLES = [
   },
   {
     "publication": "chinanewsweek",
-    "title": "著名男星，和巨头闹翻了",
-    "url": "https://www.inewsweek.cn/wh/2026-10-14/32527.shtml",
-    "publishedAt": "2026-10-14",
-    "summary": "",
-    "checkedAt": "2026-10-21"
-  },
-  {
-    "publication": "chinanewsweek",
     "title": "沙特航空枢纽，接连被炸",
     "url": "https://www.inewsweek.cn/world/2026-10-13/32502.shtml",
     "publishedAt": "2026-10-13",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -1239,7 +1391,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/wh/2026-10-13/32501.shtml",
     "publishedAt": "2026-10-13",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -1247,7 +1399,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/wh/2026-10-13/32499.shtml",
     "publishedAt": "2026-10-13",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -1255,7 +1407,15 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/wh/2026-10-12/32495.shtml",
     "publishedAt": "2026-10-12",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "有偿旅拍，内地女生被抓",
+    "url": "https://www.inewsweek.cn/society/2026-10-12/32494.shtml",
+    "publishedAt": "2026-10-12",
+    "summary": "",
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -1263,7 +1423,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-12/32493.shtml",
     "publishedAt": "2026-10-12",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -1275,19 +1435,11 @@ window.MAGAZINE_ARTICLES = [
   },
   {
     "publication": "chinanewsweek",
-    "title": "有偿旅拍，内地女生被抓",
-    "url": "https://www.inewsweek.cn/society/2026-10-12/32494.shtml",
-    "publishedAt": "2026-10-12",
-    "summary": "",
-    "checkedAt": "2026-10-21"
-  },
-  {
-    "publication": "chinanewsweek",
     "title": "“没有牙齿的看门狗”，前情报首脑被捕",
     "url": "https://www.inewsweek.cn/world/2026-10-10/32478.shtml",
     "publishedAt": "2026-10-10",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -1295,7 +1447,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/wh/2026-10-10/32476.shtml",
     "publishedAt": "2026-10-10",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -1303,7 +1455,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/wh/2026-10-10/32458.shtml",
     "publishedAt": "2026-10-10",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -1311,7 +1463,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-10/32465.shtml",
     "publishedAt": "2026-10-10",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -1335,151 +1487,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/wh/2026-10-09/32456.shtml",
     "publishedAt": "2026-10-09",
     "summary": "",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "巨头突然合并，大裁员即将开始？",
-    "url": "https://www.inewsweek.cn/wh/2026-10-09/32454.shtml",
-    "publishedAt": "2026-10-09",
-    "summary": "",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "加油站办婚礼放烟花？官方回应",
-    "url": "https://www.inewsweek.cn/society/2026-10-09/32455.shtml",
-    "publishedAt": "2026-10-09",
-    "summary": "",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "王心凌“你没报批不能上来”，纯属误读？",
-    "url": "https://www.inewsweek.cn/society/2026-10-09/32450.shtml",
-    "publishedAt": "2026-10-09",
-    "summary": "",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "总统，打不过前总统的儿子？",
-    "url": "https://www.inewsweek.cn/world/2026-10-08/32432.shtml",
-    "publishedAt": "2026-10-08",
-    "summary": "",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "地雷风波升级，金与正发声：野兽都不能进进出出",
-    "url": "https://www.inewsweek.cn/world/2026-10-08/32431.shtml",
-    "publishedAt": "2026-10-08",
-    "summary": "",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "拿斧头砍机长的副驾驶身份披露，发了3000条“仇女”消息",
-    "url": "https://www.inewsweek.cn/world/2026-10-08/32428.shtml",
-    "publishedAt": "2026-10-08",
-    "summary": "",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "“赚更多钱的机会来了”",
-    "url": "https://www.inewsweek.cn/world/2026-10-08/32427.shtml",
-    "publishedAt": "2026-10-08",
-    "summary": "",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "万米高空斧头猛砍，一飞机人为何能全员生还？",
-    "url": "https://www.inewsweek.cn/world/2026-10-08/32426.shtml",
-    "publishedAt": "2026-10-08",
-    "summary": "",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "C罗，撂挑子了？",
-    "url": "https://www.inewsweek.cn/wh/2026-10-08/32430.shtml",
-    "publishedAt": "2026-10-08",
-    "summary": "",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "恐怖的，来了",
-    "url": "https://www.inewsweek.cn/wh/2026-10-08/32429.shtml",
-    "publishedAt": "2026-10-08",
-    "summary": "",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "“对孩子的内疚，会伴随我一辈子”",
-    "url": "https://www.inewsweek.cn/society/2026-10-08/32413.shtml",
-    "publishedAt": "2026-10-08",
-    "summary": "",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "“步行街霸主”，急了？",
-    "url": "https://www.inewsweek.cn/finance/2026-10-08/32421.shtml",
-    "publishedAt": "2026-10-08",
-    "summary": "",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "“E人”欧阳明高：我不特别在乎舆论",
-    "url": "https://www.inewsweek.cn/wh/2026-10-08/32433.shtml",
-    "publishedAt": "2026-10-08",
-    "summary": "",
-    "checkedAt": "2026-10-21"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "98％肺癌女性从不吸烟，罪魁祸首是谁？",
-    "url": "https://www.inewsweek.cn/society/2026-10-08/32415.shtml",
-    "publishedAt": "2026-10-08",
-    "summary": "",
-    "checkedAt": "2026-10-21"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "特朗普拿下了格陵兰岛？",
-    "url": "https://www.inewsweek.cn/world/2026-10-08/32425.shtml",
-    "publishedAt": "2026-10-08",
-    "summary": "",
-    "checkedAt": "2026-10-21"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "史上最严！网红集体退出这一行业？",
-    "url": "https://www.inewsweek.cn/finance/2026-10-08/32414.shtml",
-    "publishedAt": "2026-10-08",
-    "summary": "",
-    "checkedAt": "2026-10-21"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "副总统的兄弟，也被查了",
-    "url": "https://www.inewsweek.cn/world/2026-10-08/32424.shtml",
-    "publishedAt": "2026-10-08",
-    "summary": "",
-    "checkedAt": "2026-10-19"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "普京“大胜”",
-    "url": "https://www.inewsweek.cn/world/2026-10-08/32422.shtml",
-    "publishedAt": "2026-10-08",
-    "summary": "",
-    "checkedAt": "2026-10-19"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "chinanewsweek",
@@ -1493,11 +1501,27 @@ window.MAGAZINE_ARTICLES = [
   },
   {
     "publication": "neweekly",
+    "title": "逗笑过全国观众的人，想换一种演法丨专访乔杉",
+    "url": "https://neweekly.com.cn/article/shp1780873465",
+    "publishedAt": "2026-10-23",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "neweekly",
     "title": "13岁“老赖之女”出道，追不追K-POP的人都炸了",
     "url": "https://neweekly.com.cn/article/shp1850724027",
     "publishedAt": "2026-10-22",
     "summary": "把未成年艺人的职业机会、家庭债务争议与网络标签分开看，思考公众人物评价中责任应如何划分。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "neweekly",
+    "title": "中国最快高铁要更新了，普通人最操心的不光是票价",
+    "url": "https://neweekly.com.cn/article/shp0942861611",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "neweekly",
@@ -1505,7 +1529,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp1088048878",
     "publishedAt": "2026-10-21",
     "summary": "把防盗商品的安全感与实际防护能力分开比较，留意报道中的使用场景能否支撑营销承诺。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "neweekly",
@@ -1513,7 +1537,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp1053259513",
     "publishedAt": "2026-10-21",
     "summary": "从叙事节奏与观众需求理解短剧的吸引力，比较推理解谜和情绪投入怎样共同影响留存。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "neweekly",
@@ -1521,20 +1545,20 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp0525432293",
     "publishedAt": "2026-10-21",
     "summary": "观察品牌怎样调整性感叙事与日常消费定位，区分传播口号、产品变化和经营表现。",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "neweekly",
-    "title": "50元一斤的“人类猫条”，年轻人不愿啃了",
-    "url": "https://neweekly.com.cn/article/shp1667864789",
-    "publishedAt": "2026-10-20",
-    "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "neweekly",
     "title": "00后北漂患上“扔垃圾羞耻”：每个纸箱子都被邻居疯抢",
     "url": "https://neweekly.com.cn/article/shp0398202510",
+    "publishedAt": "2026-10-20",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "neweekly",
+    "title": "50元一斤的“人类猫条”，年轻人不愿啃了",
+    "url": "https://neweekly.com.cn/article/shp1667864789",
     "publishedAt": "2026-10-20",
     "summary": "",
     "checkedAt": "2026-10-22"
@@ -1613,7 +1637,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp1934294882",
     "publishedAt": "2026-09-15",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "neweekly",
@@ -1621,7 +1645,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp0981957709",
     "publishedAt": "2026-09-10",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "neweekly",
@@ -1669,7 +1693,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp0849948013",
     "publishedAt": "2026-06-23",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "neweekly",
@@ -1693,7 +1717,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp0971100706",
     "publishedAt": "2026-03-26",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "neweekly",
@@ -1701,7 +1725,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp0933852543",
     "publishedAt": "2026-03-08",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "neweekly",
@@ -1717,7 +1741,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp1985323427",
     "publishedAt": "2025-11-28",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "neweekly",
@@ -1725,7 +1749,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp1871871995",
     "publishedAt": "2025-11-07",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "neweekly",
@@ -1733,7 +1757,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp0621368846",
     "publishedAt": "2025-11-03",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "neweekly",
@@ -1741,7 +1765,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp0554301326",
     "publishedAt": "2025-10-28",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "neweekly",
@@ -1749,7 +1773,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp1871552011",
     "publishedAt": "2025-10-16",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "neweekly",
@@ -1757,7 +1781,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp0186469144",
     "publishedAt": "2025-09-23",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "neweekly",
@@ -1765,7 +1789,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp1962820666",
     "publishedAt": "2025-08-26",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "neweekly",
@@ -1773,7 +1797,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp0750839517",
     "publishedAt": "2025-07-22",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "neweekly",
@@ -1781,7 +1805,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp1020363549",
     "publishedAt": "2025-05-26",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "neweekly",
@@ -1789,7 +1813,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp1265701687",
     "publishedAt": "2025-02-18",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "neweekly",
@@ -1797,7 +1821,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp2063280335",
     "publishedAt": "2025-01-21",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "neweekly",
@@ -1805,7 +1829,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp0655033518",
     "publishedAt": "2024-12-31",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -1813,7 +1837,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14349",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -1821,7 +1845,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14348",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -1829,7 +1853,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14347",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -1837,7 +1861,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14346",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -1845,7 +1869,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14345",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "featuredReason": "以 AI 与数学家的关系为切口，思考研究训练中哪些工作能借助工具，哪些仍需自己理解。",
     "featuredPriority": 13
   },
@@ -1855,7 +1879,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14344",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -1863,7 +1887,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14343",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -1871,7 +1895,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14341",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -1879,7 +1903,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14340",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -1887,7 +1911,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14339",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -1895,7 +1919,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14338",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -1903,7 +1927,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14337",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -1911,7 +1935,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14336",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -1919,7 +1943,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14335",
     "publishedAt": "2026-10-05",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -1927,7 +1951,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14334",
     "publishedAt": "2026-10-05",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -1935,7 +1959,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14333",
     "publishedAt": "2026-10-05",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -1943,7 +1967,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14332",
     "publishedAt": "2026-10-05",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -1951,7 +1975,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14331",
     "publishedAt": "2026-10-05",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -1959,7 +1983,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14329",
     "publishedAt": "2026-10-05",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -1967,7 +1991,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14327",
     "publishedAt": "2026-10-05",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -2009,7 +2033,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14322",
     "publishedAt": "2026-09-28",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -2017,7 +2041,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14321",
     "publishedAt": "2026-09-28",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -2025,7 +2049,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14320",
     "publishedAt": "2026-09-28",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -2033,7 +2057,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14319",
     "publishedAt": "2026-09-28",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -2041,7 +2065,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14315",
     "publishedAt": "2026-09-28",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -2049,7 +2073,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14314",
     "publishedAt": "2026-09-28",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -2089,7 +2113,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14301",
     "publishedAt": "2026-09-21",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -2097,7 +2121,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14300",
     "publishedAt": "2026-09-21",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -2145,7 +2169,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/11026",
     "publishedAt": "2021-11-24",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -2153,7 +2177,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/10979",
     "publishedAt": "2021-11-05",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -2161,7 +2185,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/10917",
     "publishedAt": "2021-10-09",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -2169,7 +2193,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/10746",
     "publishedAt": "2021-06-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -2177,7 +2201,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/10703",
     "publishedAt": "2021-05-24",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -2185,7 +2209,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/10684",
     "publishedAt": "2021-05-21",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -2193,15 +2217,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/10674",
     "publishedAt": "2021-05-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "nfpeople",
-    "title": "眼界 | 法国",
-    "url": "https://www.nfpeople.com/article/6513",
-    "publishedAt": "2018-01-03",
-    "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -2209,15 +2225,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/6511",
     "publishedAt": "2018-01-03",
     "summary": "",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "nfpeople",
-    "title": "图片故事 | 住在上海的洋人",
-    "url": "https://www.nfpeople.com/article/6487",
-    "publishedAt": "2018-01-03",
-    "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -2225,7 +2233,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/6476",
     "publishedAt": "2018-01-03",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -2233,7 +2241,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/6475",
     "publishedAt": "2018-01-03",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -2241,7 +2249,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/6474",
     "publishedAt": "2018-01-03",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nfpeople",
@@ -2249,7 +2257,23 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/6473",
     "publishedAt": "2018-01-03",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "nfpeople",
+    "title": "眼界 | 法国",
+    "url": "https://www.nfpeople.com/article/6513",
+    "publishedAt": "2018-01-03",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "nfpeople",
+    "title": "图片故事 | 住在上海的洋人",
+    "url": "https://www.nfpeople.com/article/6487",
+    "publishedAt": "2018-01-03",
+    "summary": "",
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2257,7 +2281,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261012/5187292.shtml",
     "publishedAt": "2026-10-12",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2265,7 +2289,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261012/5187290.shtml",
     "publishedAt": "2026-10-12",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2273,7 +2297,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261012/5187289.shtml",
     "publishedAt": "2026-10-12",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2281,7 +2305,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261012/5187286.shtml",
     "publishedAt": "2026-10-12",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2289,7 +2313,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261012/5187285.shtml",
     "publishedAt": "2026-10-12",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2297,7 +2321,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261010/5187070.shtml",
     "publishedAt": "2026-10-10",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2305,7 +2329,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261010/5187069.shtml",
     "publishedAt": "2026-10-10",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2313,7 +2337,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261010/5187068.shtml",
     "publishedAt": "2026-10-10",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2321,7 +2345,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261010/5187067.shtml",
     "publishedAt": "2026-10-10",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2329,7 +2353,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261010/5187065.shtml",
     "publishedAt": "2026-10-10",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2337,7 +2361,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260914/5183335.shtml",
     "publishedAt": "2026-09-14",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2345,7 +2369,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260914/5183333.shtml",
     "publishedAt": "2026-09-14",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2353,7 +2377,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260914/5183332.shtml",
     "publishedAt": "2026-09-14",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2361,7 +2385,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260914/5183331.shtml",
     "publishedAt": "2026-09-14",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2369,7 +2393,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260914/5183330.shtml",
     "publishedAt": "2026-09-14",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2377,7 +2401,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260831/5180700.shtml",
     "publishedAt": "2026-08-31",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2385,7 +2409,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260831/5180698.shtml",
     "publishedAt": "2026-08-31",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2393,7 +2417,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260831/5180694.shtml",
     "publishedAt": "2026-08-31",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2401,7 +2425,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260831/5180692.shtml",
     "publishedAt": "2026-08-31",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2409,7 +2433,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260831/5180688.shtml",
     "publishedAt": "2026-08-31",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2417,7 +2441,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260818/5177724.shtml",
     "publishedAt": "2026-08-18",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2425,7 +2449,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260818/5177720.shtml",
     "publishedAt": "2026-08-18",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2433,7 +2457,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260818/5177719.shtml",
     "publishedAt": "2026-08-18",
     "summary": "",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "featuredReason": "从城市更新的资金与需求关系入手，理解一个长期议题。",
     "featuredPriority": 23
   },
@@ -2443,7 +2467,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260818/5177718.shtml",
     "publishedAt": "2026-08-18",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2451,7 +2475,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260818/5177717.shtml",
     "publishedAt": "2026-08-18",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2459,7 +2483,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260804/5175192.shtml",
     "publishedAt": "2026-08-04",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2467,7 +2491,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260804/5175190.shtml",
     "publishedAt": "2026-08-04",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2475,7 +2499,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260804/5175189.shtml",
     "publishedAt": "2026-08-04",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caijing",
@@ -2483,7 +2507,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260804/5175187.shtml",
     "publishedAt": "2026-08-04",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caixin",
@@ -2491,7 +2515,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-17/102494252.html",
     "publishedAt": "2026-10-17",
     "summary": "",
-    "checkedAt": "2026-10-20"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caixin",
@@ -2499,7 +2523,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-17/102494251.html",
     "publishedAt": "2026-10-17",
     "summary": "",
-    "checkedAt": "2026-10-20"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caixin",
@@ -2507,7 +2531,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-17/102494250.html",
     "publishedAt": "2026-10-17",
     "summary": "",
-    "checkedAt": "2026-10-20"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caixin",
@@ -2515,7 +2539,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-17/102494249.html",
     "publishedAt": "2026-10-17",
     "summary": "",
-    "checkedAt": "2026-10-20"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caixin",
@@ -2523,7 +2547,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-17/102494248.html",
     "publishedAt": "2026-10-17",
     "summary": "",
-    "checkedAt": "2026-10-20"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caixin",
@@ -2531,137 +2555,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-17/102494243.html",
     "publishedAt": "2026-10-17",
     "summary": "",
-    "checkedAt": "2026-10-20"
-  },
-  {
-    "publication": "caixin",
-    "title": "天眼｜热带风暴袭长滩",
-    "url": "https://weekly.caixin.com/2026-10-17/102494241.html",
-    "publishedAt": "2026-10-17",
-    "summary": "",
-    "checkedAt": "2026-10-20"
-  },
-  {
-    "publication": "caixin",
-    "title": "国风｜雅思连续三日大面积停考",
-    "url": "https://weekly.caixin.com/2026-10-17/102494240.html",
-    "publishedAt": "2026-10-17",
-    "summary": "",
-    "checkedAt": "2026-10-20"
-  },
-  {
-    "publication": "caixin",
-    "title": "逝者｜楼宇烈：人文立本，道艺并进",
-    "url": "https://weekly.caixin.com/2026-10-17/102494239.html",
-    "publishedAt": "2026-10-17",
-    "summary": "",
-    "checkedAt": "2026-10-20"
-  },
-  {
-    "publication": "caixin",
-    "title": "随笔｜不断更新评选标准的文学诺奖",
-    "url": "https://weekly.caixin.com/2026-10-17/102494238.html",
-    "publishedAt": "2026-10-17",
-    "summary": "",
-    "checkedAt": "2026-10-20"
-  },
-  {
-    "publication": "caixin",
-    "title": "随笔｜安妮·卡森：思接千载，独行绝境",
-    "url": "https://weekly.caixin.com/2026-10-17/102494237.html",
-    "publishedAt": "2026-10-17",
-    "summary": "",
-    "checkedAt": "2026-10-20"
-  },
-  {
-    "publication": "caixin",
-    "title": "最新财新周刊｜暂别“陪聊”智能体",
-    "url": "https://weekly.caixin.com/2026-10-17/102494236.html",
-    "publishedAt": "2026-10-17",
-    "summary": "",
-    "checkedAt": "2026-10-20"
-  },
-  {
-    "publication": "caixin",
-    "title": "最新财新周刊｜印尼跨境烟霾再起",
-    "url": "https://weekly.caixin.com/2026-10-17/102494235.html",
-    "publishedAt": "2026-10-17",
-    "summary": "",
-    "checkedAt": "2026-10-20"
-  },
-  {
-    "publication": "caixin",
-    "title": "最新财新周刊｜工商业土地进入续期时刻",
-    "url": "https://weekly.caixin.com/2026-10-17/102494234.html",
-    "publishedAt": "2026-10-17",
-    "summary": "",
-    "checkedAt": "2026-10-20",
-    "featuredReason": "聚焦制度变化如何影响企业与城市，适合梳理长期规则问题。",
-    "featuredPriority": 24
-  },
-  {
-    "publication": "caixin",
-    "title": "最新财新周刊｜锂电投资调节奏",
-    "url": "https://weekly.caixin.com/2026-10-17/102494233.html",
-    "publishedAt": "2026-10-17",
-    "summary": "",
-    "checkedAt": "2026-10-20"
-  },
-  {
-    "publication": "caixin",
-    "title": "最新财新周刊｜中欧汽车贸易再平衡",
-    "url": "https://weekly.caixin.com/2026-10-17/102494232.html",
-    "publishedAt": "2026-10-17",
-    "summary": "",
-    "checkedAt": "2026-10-20"
-  },
-  {
-    "publication": "caixin",
-    "title": "最新财新周刊｜险资权益投资进退",
-    "url": "https://weekly.caixin.com/2026-10-17/102494231.html",
-    "publishedAt": "2026-10-17",
-    "summary": "",
-    "checkedAt": "2026-10-20"
-  },
-  {
-    "publication": "caixin",
-    "title": "最新财新周刊｜银行股修复中分化",
-    "url": "https://weekly.caixin.com/2026-10-17/102494230.html",
-    "publishedAt": "2026-10-17",
-    "summary": "",
-    "checkedAt": "2026-10-20"
-  },
-  {
-    "publication": "caixin",
-    "title": "专栏｜美国社保欠账问题镜鉴",
-    "url": "https://weekly.caixin.com/2026-10-17/102494229.html",
-    "publishedAt": "2026-10-17",
-    "summary": "",
-    "checkedAt": "2026-10-20"
-  },
-  {
-    "publication": "caixin",
-    "title": "最新财新周刊｜巴西置身十字路口",
-    "url": "https://weekly.caixin.com/2026-10-17/102494227.html",
-    "publishedAt": "2026-10-17",
-    "summary": "",
-    "checkedAt": "2026-10-20"
-  },
-  {
-    "publication": "caixin",
-    "title": "最新财新周刊｜户外运动乱象待破局",
-    "url": "https://weekly.caixin.com/2026-10-17/102494226.html",
-    "publishedAt": "2026-10-17",
-    "summary": "",
-    "checkedAt": "2026-10-20"
-  },
-  {
-    "publication": "caixin",
-    "title": "财新观察｜以安全筑牢汽车产业高质量发展底座",
-    "url": "https://weekly.caixin.com/2026-10-17/102494225.html",
-    "publishedAt": "2026-10-17",
-    "summary": "",
-    "checkedAt": "2026-10-20"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caixin",
@@ -2669,23 +2563,151 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-17/102494242.html",
     "publishedAt": "2026-10-17",
     "summary": "",
-    "checkedAt": "2026-10-20"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caixin",
-    "title": "最新财新周刊｜2026年诺贝尔经济学奖：理解组成宏观的微观个体",
+    "title": "天眼｜热带风暴袭长滩",
+    "url": "https://weekly.caixin.com/2026-10-17/102494241.html",
+    "publishedAt": "2026-10-17",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "caixin",
+    "title": "国风｜雅思连续三日大面积停考",
+    "url": "https://weekly.caixin.com/2026-10-17/102494240.html",
+    "publishedAt": "2026-10-17",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "caixin",
+    "title": "逝者｜楼宇烈：人文立本，道艺并进",
+    "url": "https://weekly.caixin.com/2026-10-17/102494239.html",
+    "publishedAt": "2026-10-17",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "caixin",
+    "title": "随笔｜不断更新评选标准的文学诺奖",
+    "url": "https://weekly.caixin.com/2026-10-17/102494238.html",
+    "publishedAt": "2026-10-17",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "caixin",
+    "title": "随笔｜安妮·卡森：思接千载，独行绝境",
+    "url": "https://weekly.caixin.com/2026-10-17/102494237.html",
+    "publishedAt": "2026-10-17",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "caixin",
+    "title": "财新周刊｜暂别“陪聊”智能体",
+    "url": "https://weekly.caixin.com/2026-10-17/102494236.html",
+    "publishedAt": "2026-10-17",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "caixin",
+    "title": "财新周刊｜印尼跨境烟霾再起",
+    "url": "https://weekly.caixin.com/2026-10-17/102494235.html",
+    "publishedAt": "2026-10-17",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "caixin",
+    "title": "财新周刊｜工商业土地进入续期时刻",
+    "url": "https://weekly.caixin.com/2026-10-17/102494234.html",
+    "publishedAt": "2026-10-17",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "caixin",
+    "title": "财新周刊｜锂电投资调节奏",
+    "url": "https://weekly.caixin.com/2026-10-17/102494233.html",
+    "publishedAt": "2026-10-17",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "caixin",
+    "title": "财新周刊｜中欧汽车贸易再平衡",
+    "url": "https://weekly.caixin.com/2026-10-17/102494232.html",
+    "publishedAt": "2026-10-17",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "caixin",
+    "title": "财新周刊｜险资权益投资进退",
+    "url": "https://weekly.caixin.com/2026-10-17/102494231.html",
+    "publishedAt": "2026-10-17",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "caixin",
+    "title": "财新周刊｜银行股修复中分化",
+    "url": "https://weekly.caixin.com/2026-10-17/102494230.html",
+    "publishedAt": "2026-10-17",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "caixin",
+    "title": "专栏｜美国社保欠账问题镜鉴",
+    "url": "https://weekly.caixin.com/2026-10-17/102494229.html",
+    "publishedAt": "2026-10-17",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "caixin",
+    "title": "财新周刊｜2026年诺贝尔经济学奖：理解组成宏观的微观个体",
     "url": "https://weekly.caixin.com/2026-10-17/102494228.html",
     "publishedAt": "2026-10-17",
     "summary": "",
-    "checkedAt": "2026-10-20"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caixin",
-    "title": "最新封面报道｜售电巨亏谁埋单？",
+    "title": "财新周刊｜巴西置身十字路口",
+    "url": "https://weekly.caixin.com/2026-10-17/102494227.html",
+    "publishedAt": "2026-10-17",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "caixin",
+    "title": "财新周刊｜户外运动乱象待破局",
+    "url": "https://weekly.caixin.com/2026-10-17/102494226.html",
+    "publishedAt": "2026-10-17",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "caixin",
+    "title": "财新观察｜以安全筑牢汽车产业高质量发展底座",
+    "url": "https://weekly.caixin.com/2026-10-17/102494225.html",
+    "publishedAt": "2026-10-17",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "caixin",
+    "title": "封面报道｜售电巨亏谁埋单？",
     "url": "https://weekly.caixin.com/2026-10-16/102493974.html",
     "publishedAt": "2026-10-16",
     "summary": "",
-    "checkedAt": "2026-10-20"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "caixin",
@@ -2693,7 +2715,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-16/102493973.html",
     "publishedAt": null,
     "summary": "",
-    "checkedAt": "2026-10-20"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "infzm",
@@ -3115,11 +3137,75 @@ window.MAGAZINE_ARTICLES = [
   },
   {
     "publication": "scientificamerican",
+    "title": "Here’s what Moderna’s latest mRNA cancer vaccine data actually show",
+    "url": "https://www.scientificamerican.com/article/heres-what-modernas-latest-mrna-cancer-vaccine-data-actually-show/",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "RFK, Jr., adviser Calley Means announces his resignation from the Trump administration",
+    "url": "https://www.scientificamerican.com/article/rfk-jr-adviser-calley-means-announces-his-resignation-from-the-trump-administration/",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "This implant burns up excess blood sugar with electricity",
+    "url": "https://www.scientificamerican.com/article/this-implant-burns-up-excess-blood-sugar-with-electricity/",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Data centers are a target of modern warfare. How do we secure the infrastructure that runs our digital lives?",
+    "url": "https://www.scientificamerican.com/article/data-centers-are-a-target-of-modern-warfare-how-do-we-secure-the-infrastructure-that-runs-our-digital-lives/",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "The inside story behind OpenAI’s million-dollar math proof",
+    "url": "https://www.scientificamerican.com/article/the-inside-story-behind-openais-million-dollar-math-proof/",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Astronomers unlock a mystery hidden in van Gogh’s The Starry Night",
+    "url": "https://www.scientificamerican.com/article/astronomers-unlock-a-mystery-hidden-in-van-goghs-the-starry-night/",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "New superconducting chip aims to help tame fusion plasma",
+    "url": "https://www.scientificamerican.com/article/new-superconducting-chip-aims-to-help-tame-fusion-plasma/",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Ancient Egypt’s first female king revealed by long-lost royal seals",
+    "url": "https://www.scientificamerican.com/article/ancient-egypts-first-female-king-revealed-by-long-lost-royal-seals/",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "scientificamerican",
     "title": "National Science Foundation leader Brian Stone to retire with no clear replacement in sight",
     "url": "https://www.scientificamerican.com/article/national-science-foundation-leader-brian-stone-to-retire-with-no-clear-replacement-in-sight/",
     "publishedAt": "2026-10-21",
     "summary": "把科研机构负责人更替放进资助治理中阅读，关注继任安排不明会给项目连续性带来哪些不确定性。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3127,7 +3213,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/super-typhoon-champi-sets-the-record-for-strongest-storm-of-2026/",
     "publishedAt": "2026-10-21",
     "summary": "先弄清最强风暴采用的风速或气压指标及观测时点，再比较纪录表述与实际灾害风险。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3135,7 +3221,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/report-pinpoints-future-exploration-sites-on-the-moon/",
     "publishedAt": "2026-10-21",
     "summary": "从月球候选探索地点的选择标准切入，比较科学价值、工程可达性与任务资源如何相互制约。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3143,7 +3229,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/physicists-trap-a-single-antimatter-particle-for-a-month/",
     "publishedAt": "2026-10-21",
     "summary": "把反物质粒子的长时间囚禁看作精密测量条件的进展，留意储存时长本身与物理新发现之间的区别。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3151,7 +3237,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/podcast/episode/a-wall-is-also-a-road-explores-alien-consciousness-slime-mold-life-forms-and-pompeii/",
     "publishedAt": "2026-10-21",
     "summary": "循着播客中的科幻与历史话题，比较外星意识和非人生命的想象怎样拓宽我们对智能的定义。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3159,7 +3245,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/republican-congressional-candidate-tom-stalcup-on-how-both-parties-abuse-science-for-political-gain/",
     "publishedAt": "2026-10-21",
     "summary": "将候选人的个人立场与可核实的政策记录分开，观察科学证据怎样在不同党派的表达中被选择性使用。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3167,7 +3253,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/see-the-orionids-meteor-shower-at-its-peak-this-week/",
     "publishedAt": "2026-10-20",
     "summary": "阅读猎户座流星雨的观测窗口与天空条件时，先核对文章日期和所在地，避免把本周提示长期当作即时预报。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3175,7 +3261,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/christina-applegate-says-she-was-misdiagnosed-with-ms-how-could-that-happen/",
     "publishedAt": "2026-10-20",
     "summary": "以误诊报道为线索，留意诊断依据、相似疾病与复核证据的区别，不能从名人个案推断任何人的诊断。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3183,7 +3269,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/the-mathematical-impossibility-of-making-a-perfect-world-map/",
     "publishedAt": "2026-10-20",
     "summary": "带着“面积、角度与距离能否同时保真”这个问题阅读，看看地图选择怎样影响我们对世界的直觉。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3191,7 +3277,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/scientists-left-in-the-dark-by-national-science-foundation-grant-application-delays/",
     "publishedAt": "2026-10-20",
     "summary": "从科研资助申请的等待成本入手，带着“审批的不确定性怎样影响项目排期与职业选择”这个问题阅读。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3199,7 +3285,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/green-stars-do-exist-and-others-shine-pink-or-purple-too/",
     "publishedAt": "2026-10-20",
     "summary": "把恒星发出的光与观察者看到的颜色分开，留意光谱、观测条件和视觉感受各有什么作用。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3207,7 +3293,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/the-selfish-gene-at-50/",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3215,7 +3301,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/math-puzzle-baby-bottles/",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3223,7 +3309,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/the-provocative-new-theory-that-could-explain-aging-and-disease/",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3231,7 +3317,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/inside-the-bold-quixotic-quest-to-store-planet-warming-carbon-in-the-ocean/",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3239,7 +3325,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/were-addicted-to-social-media-how-do-we-get-sober/",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3247,7 +3333,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/why-we-probably-live-in-a-quantum-multiverse/",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3255,7 +3341,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/our-love-hate-relationship-with-social-media/",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3263,7 +3349,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/how-a-fusion-start-up-could-help-maintain-the-u-s-nuclear-arsenal/",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3271,7 +3357,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/why-data-centers-are-reviving-solid-state-transformers/",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3279,7 +3365,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/how-your-brain-learns-to-cope-with-uncertainty/",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3287,7 +3373,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/november-2026-science-history-from-50-100-and-150-years-ago/",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3295,7 +3381,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/poem-life-in-bilateral-wonder/",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3303,7 +3389,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/a-graphic-explainer-of-uranium-enrichment/",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3311,7 +3397,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/these-extreme-cosmic-explosions-are-breaking-physics/",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3319,7 +3405,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/science-crossword-scroll-bars/",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3327,7 +3413,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/what-actually-makes-ultraprocessed-foods-unhealthy/",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3335,7 +3421,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/readers-respond-to-the-june-2026-issue/",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3343,7 +3429,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/can-ai-predict-whether-youll-die-from-cancer-from-just-an-image-of-your-face/",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3351,7 +3437,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/japans-mission-to-collect-rocks-from-mars-moon-phobos-achieves-liftoff/",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3359,7 +3445,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/alarm-grows-over-russian-satellites-provocative-approach-to-u-s-owned-satellite/",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3367,7 +3453,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/how-what-we-see-and-hear-feed-together-to-help-us-understand-emotions/",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3375,7 +3461,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/the-first-mission-to-sample-marss-moons-launches-today/",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3383,7 +3469,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/biohackers-say-this-supplement-lets-you-drink-coffee-at-night-no-one-knows-if-its-safe/",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "scientificamerican",
@@ -3391,7 +3477,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/podcast/episode/the-mechanics-of-honeybee-stingers-microplastic-health-risks-and-new-findings-on-postmenopausal-ovaries/",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Plants move to get away from their decaying brethren",
@@ -3399,7 +3485,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-17",
     "summary": "",
     "publication": "scientificamerican",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Here’s what scientists think about Theranos a decade after it imploded",
@@ -3407,7 +3493,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-16",
     "summary": "",
     "publication": "scientificamerican",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Everything you need to know about flu season 2026",
@@ -3415,7 +3501,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-16",
     "summary": "",
     "publication": "scientificamerican",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "5 ways to make Halloween decorations friendlier to wildlife",
@@ -3423,7 +3509,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-16",
     "summary": "",
     "publication": "scientificamerican",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "How many planets could fit in the solar system?",
@@ -3431,7 +3517,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-16",
     "summary": "",
     "publication": "scientificamerican",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Are you addicted to your phone? What scientists say about screen time and social media",
@@ -3439,7 +3525,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-16",
     "summary": "",
     "publication": "scientificamerican",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Google’s quantum Willow chip may be able to grow ‘magic states’",
@@ -3447,7 +3533,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-15",
     "summary": "",
     "publication": "scientificamerican",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Scientists discover an ancient shipwreck dating to when the Great Pyramid was built",
@@ -3694,68 +3780,44 @@ window.MAGAZINE_ARTICLES = [
     "checkedAt": "2026-10-19"
   },
   {
-    "title": "Major earthquake strikes Panama—damage and injuries are expected",
-    "url": "https://www.scientificamerican.com/article/major-earthquake-strikes-panama-damage-and-injuries-are-expected/",
-    "publishedAt": "2026-10-09",
+    "publication": "nature",
+    "title": "Can a 'lullaby' save coral reefs from extinction?",
+    "url": "https://www.nature.com/articles/d41586-026-03414-3",
+    "publishedAt": "2026-10-22",
     "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-19"
+    "checkedAt": "2026-10-23"
   },
   {
-    "title": "How Hurricane Isaias got so dangerously strong so fast",
-    "url": "https://www.scientificamerican.com/article/how-hurricane-isaias-got-so-dangerously-strong-so-fast/",
-    "publishedAt": "2026-10-09",
+    "publication": "nature",
+    "title": "A first for CRISPR: powerful prime editing alters DNA directly in the human body",
+    "url": "https://www.nature.com/articles/d41586-026-03371-x",
+    "publishedAt": "2026-10-22",
     "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-19"
+    "checkedAt": "2026-10-23"
   },
   {
-    "title": "The Social Reckoning is a ‘surreal’ portrait of social media’s harms, scientist says",
-    "url": "https://www.scientificamerican.com/article/the-social-reckoning-is-a-surreal-portrait-of-social-medias-harms-scientist-says/",
-    "publishedAt": "2026-10-09",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-19"
+    "publication": "nature",
+    "title": "Teen depression and anxiety predicted by childhood brain development",
+    "url": "https://www.nature.com/articles/d41586-026-03357-9",
+    "publishedAt": "2026-10-22",
+    "summary": "把童年脑发育与青春期情绪问题的联系当作预测研究来读，重点看样本、随访和外部验证，而不推断个人诊断。",
+    "checkedAt": "2026-10-23"
   },
   {
-    "publication": "scientificamerican",
-    "title": "I gave Meta’s Muse and OpenAI’s Dots my passwords for a week",
-    "url": "https://www.scientificamerican.com/article/i-gave-metas-muse-and-openais-dots-my-passwords-for-a-week/",
-    "publishedAt": "2026-10-09",
+    "publication": "nature",
+    "title": "Can maths survive AI? Fields medallist Terence Tao calls for a ‘Maths 2.0’ world",
+    "url": "https://www.nature.com/articles/d41586-026-03389-1",
+    "publishedAt": "2026-10-22",
     "summary": "",
-    "checkedAt": "2026-10-19"
+    "checkedAt": "2026-10-23"
   },
   {
-    "publication": "scientificamerican",
-    "title": "Just how sunlike is the sun?",
-    "url": "https://www.scientificamerican.com/article/just-how-sunlike-is-the-sun/",
-    "publishedAt": "2026-10-09",
+    "publication": "nature",
+    "title": "Current-Driven Molecular Machine with Rotation-Enhanced Conductance",
+    "url": "https://www.nature.com/articles/s41586-026-11312-x",
+    "publishedAt": "2026-10-22",
     "summary": "",
-    "checkedAt": "2026-10-19"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "One doctor’s fight to make IUD placement better",
-    "url": "https://www.scientificamerican.com/podcast/episode/one-doctors-fight-to-make-iud-placement-better/",
-    "publishedAt": "2026-10-09",
-    "summary": "",
-    "checkedAt": "2026-10-19"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Feverish after a vaccine? The reason could be your gut microbiome",
-    "url": "https://www.scientificamerican.com/article/feverish-after-a-vaccine-the-reason-could-be-your-gut-microbiome/",
-    "publishedAt": "2026-10-09",
-    "summary": "",
-    "checkedAt": "2026-10-19"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "The most exciting claims from OpenAI’s heap of new proofs",
-    "url": "https://www.scientificamerican.com/article/the-most-exciting-claims-from-openais-heap-of-new-proofs/",
-    "publishedAt": "2026-10-08",
-    "summary": "",
-    "checkedAt": "2026-10-19"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3763,7 +3825,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11317-6",
     "publishedAt": "2026-10-21",
     "summary": "从蛋白骨架设计、定向进化到光谱证据追踪选择性如何建立，学习把催化表现与局部反应环境联系起来。",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "featuredReason": "适合训练催化研究的机制证据链：公开摘要将生成式蛋白骨架设计、定向进化和光谱研究联系起来，可据此列出选择性来源与催化性能分别需要哪些验证。",
     "featuredPriority": 1
   },
@@ -3773,7 +3835,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03376-6",
     "publishedAt": "2026-10-21",
     "summary": "把大型波浪水槽当作尺度放大的实验案例，关注盐沼减浪效果在受控条件与真实海岸之间如何转译。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3781,7 +3843,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11252-6",
     "publishedAt": "2026-10-21",
     "summary": "这是一则作者更正，宜先回看原论文与更正范围，不能把它当作废塑料转化的新实验结论。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3789,7 +3851,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03319-1",
     "publishedAt": "2026-10-21",
     "summary": "从白矮星颜色与光谱的关系切入，区分观测信号、成分解释和图像配色给人的直观印象。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3797,7 +3859,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03161-5",
     "publishedAt": "2026-10-21",
     "summary": "围绕城市健康问题，观察研究者的测量与居民的生活经验如何互相校正，并转化成可执行的公共行动。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3805,15 +3867,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03077-0",
     "publishedAt": "2026-10-21",
     "summary": "关注人工智能天气预报的提前量和验证区间，比较平均精度提升能否同样覆盖极端事件。",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "nature",
-    "title": "Teen depression and anxiety predicted by childhood brain development",
-    "url": "https://www.nature.com/articles/d41586-026-03357-9",
-    "publishedAt": "2026-10-21",
-    "summary": "把童年脑发育与青春期情绪问题的联系当作预测研究来读，重点看样本、随访和外部验证，而不推断个人诊断。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3821,7 +3875,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03065-4",
     "publishedAt": "2026-10-21",
     "summary": "从个性化健康AI的输入、评价与误差边界切入，区分研究演示、可靠性证据和临床使用要求。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3829,7 +3883,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03355-x",
     "publishedAt": "2026-10-21",
     "summary": "区分排放增速放缓、排放绝对量下降与温升路径，检查不同情景和时间尺度怎样影响结论。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3837,7 +3891,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03334-2",
     "publishedAt": "2026-10-21",
     "summary": "从身体感觉如何被脑活动映射切入，留意任务设计与信号解释之间的距离，避免把关联图直接当机制图。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3845,7 +3899,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03282-x",
     "publishedAt": "2026-10-21",
     "summary": "关注把酶嵌入塑料后材料性能与海洋降解的权衡，并区分样品失重、链断裂和最终矿化这些不同证据。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3853,7 +3907,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03110-2",
     "publishedAt": "2026-10-21",
     "summary": "把这篇作品作为想象力阅读，留意人物角色与叙事规则如何展开，先辨认文体再判断其中的科学设定。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3861,7 +3915,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03360-0",
     "publishedAt": "2026-10-21",
     "summary": "从丹尼索瓦人外貌重建的证据链切入，分清实际遗存、比较推断和面貌复原中的不确定部分。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3869,7 +3923,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03063-6",
     "publishedAt": "2026-10-21",
     "summary": "围绕植物能否保护海岸，比较平常波浪与极端风暴条件，注意生态工程效果的适用范围。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3877,7 +3931,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03066-3",
     "publishedAt": "2026-10-21",
     "summary": "把低温、肌肉来源分子与线虫寿命的关系拆开验证，不把模式生物结果直接迁移成人体抗衰老建议。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3885,7 +3939,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03285-8",
     "publishedAt": "2026-10-21",
     "summary": "从石笋记录如何转换成降雨历史切入，关注年代模型、代用指标与跨地区对照怎样共同约束解释。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3893,7 +3947,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03257-y",
     "publishedAt": "2026-10-21",
     "summary": "先了解逐层制造为何容易破坏单晶生长，再看热输入控制如何连接尺寸、组织与材料性能。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3901,7 +3955,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03342-2",
     "publishedAt": "2026-10-21",
     "summary": "从粒子囚禁和冷却如何改善测量条件切入，区分实验平台能力提升与尚未完成的基础物理检验。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3909,7 +3963,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03375-7",
     "publishedAt": "2026-10-21",
     "summary": "沿着基因定位工作理解Robert Williamson的研究贡献，留意实验技术、团队协作和临床问题怎样相互推动。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3917,7 +3971,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03064-5",
     "publishedAt": "2026-10-21",
     "summary": "把可穿戴织物界面当作器件可靠性案例，重点比较触控交互、穿着条件与机洗后性能的评价方式。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3925,7 +3979,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03311-9",
     "publishedAt": "2026-10-21",
     "summary": "从研究议题选择、资源分配与问责机制观察科技富豪进入生物医学，比较资助速度与公共科研目标。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3933,7 +3987,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03326-2",
     "publishedAt": "2026-10-21",
     "summary": "把科学慈善的影响拆成选题、长期投入与可评估结果，思考新资助方式如何补充既有研究体系。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3941,7 +3995,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11096-0",
     "publishedAt": "2026-10-21",
     "summary": "关注异种移植研究怎样整合多种诊断信号及其验证方式，明确有限临床证据不能替代普遍有效性结论。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3949,7 +4003,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11145-8",
     "publishedAt": "2026-10-21",
     "summary": "把盐沼平台与植被的作用分开分析，关注极端风暴下的损伤是否改变原本的减浪效果。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3957,7 +4011,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11183-2",
     "publishedAt": "2026-10-21",
     "summary": "从孔道限域如何影响烯烃羰基化切入，比较结构选择、反应条件与产物分布之间的证据链。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3965,7 +4019,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11152-9",
     "publishedAt": "2026-10-21",
     "summary": "沿着低温、BH2代谢网络与蛋白稳态的联系阅读，重点区分机制干预证据与寿命表型的解释边界。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3973,7 +4027,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11188-x",
     "publishedAt": "2026-10-21",
     "summary": "以细胞进入S期为时间轴，梳理WEE1和APC/CCDH1的相互作用，比较表达关联与功能干预证据。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3981,7 +4035,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11207-x",
     "publishedAt": "2026-10-21",
     "summary": "从单一古菌如何衔接长链脂肪酸氧化与产甲烷切入，关注代谢耦合所需的物质流与能量条件。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3989,7 +4043,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11179-y",
     "publishedAt": "2026-10-21",
     "summary": "比较环境条件改变前后的根部细胞谱系分化，思考细胞命运中内在程序与外部信号怎样区分。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -3997,7 +4051,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11186-z",
     "publishedAt": "2026-10-21",
     "summary": "把CD51作为区分星形胶质细胞亚型的线索，关注分类标记能否与神经环路中的功能差异相互印证。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4005,7 +4059,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11165-4",
     "publishedAt": "2026-10-21",
     "summary": "从持续应激信号与Angelman综合征表型的关系阅读，区分模型中的机制发现与尚需验证的临床意义。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4013,7 +4067,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11184-1",
     "publishedAt": "2026-10-21",
     "summary": "沿着病毒与原钙黏蛋白1的识别界面梳理结构证据，关注结合方式的解释如何经过功能实验验证。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4021,7 +4075,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-10733-y",
     "publishedAt": "2026-10-21",
     "summary": "围绕细胞器之间的质量控制，先厘清GRP75与SIMPA在文中的定义，再追踪其相互作用和因果证据。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4029,7 +4083,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11205-z",
     "publishedAt": "2026-10-21",
     "summary": "比较自然语言提出的蛋白功能目标与实验验证结果，注意可编程设计所覆盖的任务范围及失败情况。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4037,7 +4091,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11172-5",
     "publishedAt": "2026-10-21",
     "summary": "区分反铁磁隧穿结的电学读出与电流写入，观察八极矩驱动自旋转矩的机制解释怎样连接器件数据。",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "featuredReason": "适合材料与器件方向训练电学读写机制的区分：公开摘要同时讨论隧穿磁阻与八极矩驱动转矩，可据此检查器件数据、理论解释和应用展望的证据层级。",
     "featuredPriority": 4
   },
@@ -4047,7 +4101,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11168-1",
     "publishedAt": "2026-10-21",
     "summary": "将人类活动与干旱的贡献分开，关注亚马孙碳排放归因怎样处理相互放大与自然波动。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4055,7 +4109,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11132-z",
     "publishedAt": "2026-10-21",
     "summary": "从许家窑遗存的蛋白质组证据追踪丹尼索瓦形态推断，比较分子归属与形态比较能够回答的不同问题。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4063,7 +4117,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11175-2",
     "publishedAt": "2026-10-21",
     "summary": "以人脑岛叶功能分区为线索，关注研究如何连接空间结构、实验任务与身体感觉，而不把脑区标签当固定答案。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4071,7 +4125,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11128-9",
     "publishedAt": "2026-10-21",
     "summary": "把触觉数字像素纤维看作材料到界面的跨层设计，梳理感知单元、信号输出和服装交互怎样衔接。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4079,7 +4133,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11194-z",
     "publishedAt": "2026-10-21",
     "summary": "从干旱和疾病叠加的生态情境出发，比较顶级捕食者互动的变化是否能由单一压力解释。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4087,7 +4141,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11185-0",
     "publishedAt": "2026-10-21",
     "summary": "沿着交替脉冲热输入、单晶生长和蠕变表现追踪工艺—组织—性能链条，注意尺寸与材料体系的适用边界。",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "featuredReason": "适合作为材料研究组会的工艺—组织—性能案例：公开摘要报告用交替脉冲热输入控制单晶生长，并将组织层次与蠕变表现关联，可训练结构表征和性能归因的阅读方法。",
     "featuredPriority": 3
   },
@@ -4097,7 +4151,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11192-1",
     "publishedAt": "2026-10-21",
     "summary": "比较嵌酶聚酯的力学保持与海洋降解证据，特别区分实验室、近海和深海条件，避免把失重等同完全矿化。",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "featuredReason": "聚酯材料与环境降解直接相关，适合练习把材料服役性能、酶活性保持和环境测试条件放在同一评价框架，并区分聚合物断链、样品失重与矿化证据。",
     "featuredPriority": 2
   },
@@ -4107,7 +4161,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11161-8",
     "publishedAt": "2026-10-21",
     "summary": "将个人健康代理拆成数据输入、推理和结果评价，关注研究中的错误分析、隐私与临床验证边界。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4115,7 +4169,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-02975-7",
     "publishedAt": "2026-10-20",
     "summary": "从标题中对同一现象的两种命名入手，追踪每种解释依赖什么观察与证据。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4123,7 +4177,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03353-z",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4131,7 +4185,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03351-1",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4139,7 +4193,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03354-y",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4147,7 +4201,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03352-0",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4155,7 +4209,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03062-7",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4163,7 +4217,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03327-1",
     "publishedAt": "2026-10-20",
     "summary": "把科研满意度与工作地点放在一起看，重点留意调查样本、比较口径，以及地域差异能为个人选择提供多少参考。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4171,7 +4225,15 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03310-w",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "nature",
+    "title": "Daily Briefing: Tiny doses of LSD seem to boost cognition",
+    "url": "https://www.nature.com/articles/d41586-026-03374-8",
+    "publishedAt": "2026-10-20",
+    "summary": "",
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4179,7 +4241,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03358-8",
     "publishedAt": "2026-10-20",
     "summary": "把惊悚设定拆成空间、压力与生理条件等可检验问题，观察科学报道怎样划清影视想象的边界。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4187,7 +4249,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03200-1",
     "publishedAt": "2026-10-20",
     "summary": "尝试把同行评审拆成研究问题、方法、证据与表达四类检查，思考哪些判断需要训练而非只凭资历。",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "featuredReason": "把同行评审当作研究训练：在组会中练习核对对照条件、样本与统计依据，再写出可执行的修改意见。",
     "featuredPriority": 6
   },
@@ -4197,7 +4259,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03316-4",
     "publishedAt": "2026-10-20",
     "summary": "关注新增化石记录怎样改变样本覆盖与分类方式，比较“证据变多”和“旧解释被推翻”之间的距离。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4205,15 +4267,15 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03151-7",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
-    "title": "Body clock disruptions contribute to one in four cases of depression, suggests large study",
+    "title": "Body-clock disruptions contribute to one in four cases of depression, suggests large study",
     "url": "https://www.nature.com/articles/d41586-026-03359-7",
     "publishedAt": "2026-10-20",
     "summary": "重点核对研究设计、混杂因素与“四分之一”的统计含义，区分关联估计、因果解释和个体诊断。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4221,7 +4283,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03314-6",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4229,7 +4291,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03317-3",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4237,7 +4299,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03237-2",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4245,7 +4307,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03228-3",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "featuredReason": "围绕 AI 时代的批判性思维选读，对照自己的文献检索、出处核验和独立判断习惯。",
     "featuredPriority": 10
   },
@@ -4255,7 +4317,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03345-z",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4263,7 +4325,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03265-y",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4271,7 +4333,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03312-8",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4279,7 +4341,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03275-w",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4287,7 +4349,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03315-5",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4295,7 +4357,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03339-x",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4303,7 +4365,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03313-7",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4311,7 +4373,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11290-0",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4319,7 +4381,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03309-3",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "nature",
@@ -4327,7 +4389,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03328-0",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "featuredReason": "从科研中怎样谈论失败入手，思考实验记录如何容纳负结果，而不是只保留成功故事。",
     "featuredPriority": 11
   },
@@ -4370,30 +4432,6 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-16",
     "summary": "",
     "checkedAt": "2026-10-22"
-  },
-  {
-    "title": "IceCube just won a Nobel prize. Protect astroparticle physics projects with the same potential",
-    "url": "https://www.nature.com/articles/d41586-026-03308-4",
-    "publishedAt": "2026-10-16",
-    "summary": "",
-    "publication": "nature",
-    "checkedAt": "2026-10-21"
-  },
-  {
-    "title": "Memory stays strong in old age when this brain enzyme is active",
-    "url": "https://www.nature.com/articles/d41586-026-03303-9",
-    "publishedAt": "2026-10-16",
-    "summary": "",
-    "publication": "nature",
-    "checkedAt": "2026-10-21"
-  },
-  {
-    "title": "Unprecedented atlas explores mitochondria across the tree of life",
-    "url": "https://www.nature.com/articles/d41586-026-03195-9",
-    "publishedAt": "2026-10-16",
-    "summary": "",
-    "publication": "nature",
-    "checkedAt": "2026-10-21"
   },
   {
     "title": "PhD students who write dissertations with AI less likely to stay in academia",
@@ -4479,11 +4517,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/tiny-snakes-cartwheel-escape-video",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "hotRank": 2,
     "hotSource": "https://www.sciencenews.org/",
     "hotLabel": "Trending Stories",
-    "hotCheckedAt": "2026-10-22"
+    "hotCheckedAt": "2026-10-23"
   },
   {
     "publication": "sciencenews",
@@ -4549,11 +4587,11 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-14",
     "summary": "",
     "publication": "sciencenews",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "hotRank": 6,
     "hotSource": "https://www.sciencenews.org/",
     "hotLabel": "Trending Stories",
-    "hotCheckedAt": "2026-10-22"
+    "hotCheckedAt": "2026-10-23"
   },
   {
     "title": "Can math stay human in the age of AI?",
@@ -4667,11 +4705,11 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-29",
     "summary": "",
     "publication": "sciencenews",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "hotRank": 8,
     "hotSource": "https://www.sciencenews.org/",
     "hotLabel": "Trending Stories",
-    "hotCheckedAt": "2026-10-22"
+    "hotCheckedAt": "2026-10-23"
   },
   {
     "title": "Meet the newest living cat species, the first described in 100 years",
@@ -4679,11 +4717,11 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-24",
     "summary": "",
     "publication": "sciencenews",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "hotRank": 3,
     "hotSource": "https://www.sciencenews.org/",
     "hotLabel": "Trending Stories",
-    "hotCheckedAt": "2026-10-22"
+    "hotCheckedAt": "2026-10-23"
   },
   {
     "title": "This year’s El Niño just broke a record months before it’s expected to peak",
@@ -4691,11 +4729,11 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-24",
     "summary": "",
     "publication": "sciencenews",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "hotRank": 7,
     "hotSource": "https://www.sciencenews.org/",
     "hotLabel": "Trending Stories",
-    "hotCheckedAt": "2026-10-22"
+    "hotCheckedAt": "2026-10-23"
   },
   {
     "title": "First series of adult T. rex footprints hints at its walking speed",
@@ -4703,11 +4741,11 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-23",
     "summary": "",
     "publication": "sciencenews",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "hotRank": 1,
     "hotSource": "https://www.sciencenews.org/",
     "hotLabel": "Trending Stories",
-    "hotCheckedAt": "2026-10-22"
+    "hotCheckedAt": "2026-10-23"
   },
   {
     "title": "Finally, a true blue rose exists",
@@ -4715,11 +4753,11 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-23",
     "summary": "",
     "publication": "sciencenews",
-    "checkedAt": "2026-10-22",
-    "hotRank": 5,
+    "checkedAt": "2026-10-23",
+    "hotRank": 4,
     "hotSource": "https://www.sciencenews.org/",
     "hotLabel": "Trending Stories",
-    "hotCheckedAt": "2026-10-22"
+    "hotCheckedAt": "2026-10-23"
   },
   {
     "title": "Will the U.S. megadrought ever end?",
@@ -4735,11 +4773,11 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-16",
     "summary": "",
     "publication": "sciencenews",
-    "checkedAt": "2026-10-22",
-    "hotRank": 4,
+    "checkedAt": "2026-10-23",
+    "hotRank": 5,
     "hotSource": "https://www.sciencenews.org/",
     "hotLabel": "Trending Stories",
-    "hotCheckedAt": "2026-10-22"
+    "hotCheckedAt": "2026-10-23"
   },
   {
     "title": "An overlooked organ may help the ovary function",
@@ -4748,6 +4786,206 @@ window.MAGAZINE_ARTICLES = [
     "summary": "",
     "publication": "sciencenews",
     "checkedAt": "2026-10-21"
+  },
+  {
+    "publication": "atlantic",
+    "title": "‘If Anything Happens to This Guy … Everyone Is Screwed’",
+    "url": "https://www.theatlantic.com/technology/2026/10/man-who-saved-internet-php-vulnerability/689123/",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "atlantic",
+    "title": "Trump’s Gamble to End the Iran War",
+    "url": "https://www.theatlantic.com/national-security/2026/10/trump-iran-war-strikes-after-midterms/689121/",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "atlantic",
+    "title": "When Rivers Run Low in the American West",
+    "url": "https://www.theatlantic.com/newsletters/2026/10/the-one-resource-the-american-west-will-never-stop-fighting-over/689120/",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "atlantic",
+    "title": "The Myth of Safe AI",
+    "url": "https://www.theatlantic.com/technology/2026/10/false-promise-of-safe-ai/689114/",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "atlantic",
+    "title": "America Needs Its Indian Immigrants",
+    "url": "https://www.theatlantic.com/ideas/2026/10/america-anti-indian-bigotry/689107/",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "atlantic",
+    "title": "A Congressional District Where the Iran War Is Personal",
+    "url": "https://www.theatlantic.com/politics/2026/10/iran-war-virginia-midterms/688948/",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "atlantic",
+    "title": "The Limits of the Cinematic Universe",
+    "url": "https://www.theatlantic.com/newsletters/2026/10/clayface-dc-universe-james-gunn-video-village/689115/",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "atlantic",
+    "title": "Why So Many Men Aren’t Working",
+    "url": "https://www.theatlantic.com/ideas/2026/10/job-market-unemployment-men-screentime/689109/",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "atlantic",
+    "title": "China’s Economy Has a Huge Weakness",
+    "url": "https://www.theatlantic.com/international/2026/10/chinese-companies-profit-problem/689088/",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "atlantic",
+    "title": "A Forgotten Fix for American Racial Strife",
+    "url": "https://www.theatlantic.com/books/2026/10/harold-cruse-biography-racism-integration/689110/",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "atlantic",
+    "title": "Sending a Silly Meme Is an Act of Love",
+    "url": "https://www.theatlantic.com/family/2026/10/send-silly-memes/689077/",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "atlantic",
+    "title": "America Is About to See What Happens When Voters Turn to AI",
+    "url": "https://www.theatlantic.com/technology/2026/10/ai-midterm-election-voters-chatbots/689103/",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "atlantic",
+    "title": "The New Subterranean Front",
+    "url": "https://www.theatlantic.com/national-security/2026/10/ukraine-war-gas-pipelines-russia/689105/",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "atlantic",
+    "title": "Maria Bamford on OCD, Pugs, and Getting Paid",
+    "url": "https://www.theatlantic.com/podcasts/2026/10/maria-bamford-is-tough-as-nails/689076/",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "atlantic",
+    "title": "What the U.S. Is Really Doing in Venezuela",
+    "url": "https://www.theatlantic.com/magazine/2026/12/trump-oil-venezuela-exploitation/689033/",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "atlantic",
+    "title": "Vladimir Putin, the Humanitarian",
+    "url": "https://www.theatlantic.com/newsletters/2026/10/congratulations-great-humanitarian-vladimir-putin/689111/",
+    "publishedAt": "2026-10-21",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "atlantic",
+    "title": "Vivek Ramaswamy’s Appalling Campaign Ad",
+    "url": "https://www.theatlantic.com/newsletters/2026/10/vivek-ramaswamy-ohio-amy-acton-child-abuse/689108/",
+    "publishedAt": "2026-10-21",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "atlantic",
+    "title": "Read This Website While You Still Can",
+    "url": "https://www.theatlantic.com/technology/2026/10/ai-hacking-apocalypse-began-last-night/689106/",
+    "publishedAt": "2026-10-21",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "atlantic",
+    "title": "Why Is Everyone Avoiding the Biggest Issue Facing Voters?",
+    "url": "https://www.theatlantic.com/newsletters/2026/10/trump-golf-course-dc-potomac/689104/",
+    "publishedAt": "2026-10-21",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "atlantic",
+    "title": "Will the Tech Oligarchs Turn on Trump?",
+    "url": "https://www.theatlantic.com/podcasts/2026/10/david-frum-show-kara-swisher-tech-oligarchs-trump-ai/689101/",
+    "publishedAt": "2026-10-21",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "atlantic",
+    "title": "Like Ken Paxton, Without the Baggage",
+    "url": "https://www.theatlantic.com/ideas/2026/10/texas-attorney-general-race/689061/",
+    "publishedAt": "2026-10-21",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "atlantic",
+    "title": "The Data-Center Rebellion Is Just Beginning",
+    "url": "https://www.theatlantic.com/technology/2026/10/year-world-turned-data-centers/689081/",
+    "publishedAt": "2026-10-21",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "atlantic",
+    "title": "The Paradox of African Writing and AI",
+    "url": "https://www.theatlantic.com/books/2026/10/caine-prize-winner-tope-folarin-on-african-writing-and-ai/689098/",
+    "publishedAt": "2026-10-21",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "atlantic",
+    "title": "Photographing the Microscopic: Winners of Nikon Small World 2026",
+    "url": "https://www.theatlantic.com/photography/2026/10/microscopic-photography-competition-winners/689093/",
+    "publishedAt": "2026-10-21",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "atlantic",
+    "title": "The Atlantic Publishes List of “50 Unforgettable Love Stories”",
+    "url": "https://www.theatlantic.com/press-releases/2026/10/atlantics-list-50-unforgettable-love-stories/689099/",
+    "publishedAt": "2026-10-21",
+    "summary": "",
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "atlantic",
@@ -5185,11 +5423,51 @@ window.MAGAZINE_ARTICLES = [
   },
   {
     "publication": "economist",
+    "title": "Multinational businesses are losing confidence in Indonesia",
+    "url": "https://www.economist.com/business/2026/10/22/multinational-businesses-are-losing-confidence-in-indonesia",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "economist",
+    "title": "If AI displaces human workers, they will lose more than just pay",
+    "url": "https://www.economist.com/business/2026/10/22/if-ai-displaces-human-workers-they-will-lose-more-than-just-pay",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "economist",
+    "title": "Is the internet still safe?",
+    "url": "https://www.economist.com/science-and-technology/2026/10/22/is-the-internet-still-safe",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "economist",
+    "title": "Is Netflix losing the plot?",
+    "url": "https://www.economist.com/business/2026/10/21/is-netflix-losing-the-plot",
+    "publishedAt": "2026-10-21",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "economist",
+    "title": "How the 2010s remade business",
+    "url": "https://www.economist.com/business/2026/10/21/how-the-2010s-remade-business",
+    "publishedAt": "2026-10-21",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "economist",
     "title": "The second may soon be redefined",
     "url": "https://www.economist.com/science-and-technology/2026/10/21/the-second-may-soon-be-redefined",
     "publishedAt": "2026-10-21",
     "summary": "从时间单位如何被实验实现切入，比较重新定义秒所需的精密测量、跨实验室一致性与制度步骤。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5197,7 +5475,15 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/science-and-technology/2026/10/21/japans-mission-to-marss-moons-takes-off",
     "publishedAt": "2026-10-21",
     "summary": "围绕火星卫星探测的科学目标阅读，区分任务出发、获取样品与最终回答起源问题这些不同阶段。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "economist",
+    "title": "Personal AI assistants could soon reshape the digital economy",
+    "url": "https://www.economist.com/business/2026/10/20/personal-ai-assistants-could-soon-reshape-the-digital-economy",
+    "publishedAt": "2026-10-20",
+    "summary": "",
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5211,21 +5497,21 @@ window.MAGAZINE_ARTICLES = [
   },
   {
     "publication": "economist",
-    "title": "America’s new era of private science",
-    "url": "https://www.economist.com/science-and-technology/2026/10/19/americas-new-era-of-private-science",
-    "publishedAt": "2026-10-19",
-    "summary": "",
-    "checkedAt": "2026-10-22",
-    "featuredReason": "从私人科研资助切入，关注研究议题、成果开放与长期投入之间的关系。",
-    "featuredPriority": 14
-  },
-  {
-    "publication": "economist",
     "title": "Bartleby newsletter: Boomers, babies and bots",
     "url": "https://www.economist.com/business/2026/10/19/bartleby-newsletter-boomers-babies-and-bots",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "economist",
+    "title": "America’s new era of private science",
+    "url": "https://www.economist.com/science-and-technology/2026/10/19/americas-new-era-of-private-science",
+    "publishedAt": "2026-10-19",
+    "summary": "",
+    "checkedAt": "2026-10-23",
+    "featuredReason": "从私人科研资助切入，关注研究议题、成果开放与长期投入之间的关系。",
+    "featuredPriority": 14
   },
   {
     "publication": "economist",
@@ -5233,7 +5519,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/10/18/the-ai-industrys-gigantic-debts-are-making-investors-nervous",
     "publishedAt": "2026-10-18",
     "summary": "",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Can joggers outrun injury?",
@@ -5241,7 +5527,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-16",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "When AI agents take matters into their own hands",
@@ -5249,7 +5535,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-15",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-21",
+    "checkedAt": "2026-10-23",
     "featuredReason": "从AI代理进入现实商业场景时的行为和责任问题展开阅读。",
     "featuredPriority": 41
   },
@@ -5259,7 +5545,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-15",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "SpaceX’s Starlink expansion is a bold gamble on the future",
@@ -5267,7 +5553,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-15",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Is the semiconductor industry headed for an almighty crash?",
@@ -5275,31 +5561,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-15",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-21"
-  },
-  {
-    "title": "Could AI help scientists with their paperwork?",
-    "url": "https://www.economist.com/science-and-technology/2026/10/14/could-ai-help-scientists-with-their-paperwork",
-    "publishedAt": "2026-10-14",
-    "summary": "",
-    "publication": "economist",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "title": "AI will make it possible to design and build organisms from scratch",
-    "url": "https://www.economist.com/science-and-technology/2026/10/14/ai-will-make-it-possible-to-design-and-build-organisms-from-scratch",
-    "publishedAt": "2026-10-14",
-    "summary": "",
-    "publication": "economist",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "title": "AI companies want to become frontier scientific researchers",
-    "url": "https://www.economist.com/science-and-technology/2026/10/14/ai-companies-want-to-become-frontier-scientific-researchers",
-    "publishedAt": "2026-10-14",
-    "summary": "",
-    "publication": "economist",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "The AI boom is threatened by an epidemic of unreliable numbers",
@@ -5307,9 +5569,33 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-14",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-21",
+    "checkedAt": "2026-10-23",
     "featuredReason": "读AI产业数字时先问统计口径和来源，补上技术排行榜之外的商业视角。",
     "featuredPriority": 20
+  },
+  {
+    "title": "Could AI help scientists with their paperwork?",
+    "url": "https://www.economist.com/science-and-technology/2026/10/14/could-ai-help-scientists-with-their-paperwork",
+    "publishedAt": "2026-10-14",
+    "summary": "",
+    "publication": "economist",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "title": "AI will make it possible to design and build organisms from scratch",
+    "url": "https://www.economist.com/science-and-technology/2026/10/14/ai-will-make-it-possible-to-design-and-build-organisms-from-scratch",
+    "publishedAt": "2026-10-14",
+    "summary": "",
+    "publication": "economist",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "title": "AI companies want to become frontier scientific researchers",
+    "url": "https://www.economist.com/science-and-technology/2026/10/14/ai-companies-want-to-become-frontier-scientific-researchers",
+    "publishedAt": "2026-10-14",
+    "summary": "",
+    "publication": "economist",
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Elon Musk's foundation is opaque, miserly and self-serving",
@@ -5317,15 +5603,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-13",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-21"
-  },
-  {
-    "title": "AI’s transformation of mathematics is a turning point for science",
-    "url": "https://www.economist.com/science-and-technology/2026/10/12/ais-transformation-of-mathematics-is-a-turning-point-for-science",
-    "publishedAt": "2026-10-12",
-    "summary": "",
-    "publication": "economist",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Bartleby newsletter: Tiny workplace triumphs",
@@ -5333,7 +5611,15 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-12",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "title": "AI’s transformation of mathematics is a turning point for science",
+    "url": "https://www.economist.com/science-and-technology/2026/10/12/ais-transformation-of-mathematics-is-a-turning-point-for-science",
+    "publishedAt": "2026-10-12",
+    "summary": "",
+    "publication": "economist",
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Do you need to walk 10,000 steps a day?",
@@ -5341,15 +5627,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-09",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "title": "This year’s Nobel science prizes are real-life sci-fi",
-    "url": "https://www.economist.com/science-and-technology/2026/10/08/this-years-nobel-science-prizes-are-real-life-sci-fi",
-    "publishedAt": "2026-10-08",
-    "summary": "",
-    "publication": "economist",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "The rise of the AI marketplace",
@@ -5357,7 +5635,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-08",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Football’s latest scandal inspires apathy rather than anger",
@@ -5365,7 +5643,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-08",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Jaguar’s new car is its last shot at survival",
@@ -5373,7 +5651,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-08",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Why your snacks are chunkier and chewier than before",
@@ -5381,7 +5659,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-08",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Indian manufacturing’s moment may finally have arrived",
@@ -5389,7 +5667,15 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-08",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "title": "This year’s Nobel science prizes are real-life sci-fi",
+    "url": "https://www.economist.com/science-and-technology/2026/10/08/this-years-nobel-science-prizes-are-real-life-sci-fi",
+    "publishedAt": "2026-10-08",
+    "summary": "",
+    "publication": "economist",
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "OpenAI claims to have solved hundreds of long-standing maths problems",
@@ -5397,7 +5683,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-07",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Burglars could be identified from airborne DNA",
@@ -5405,7 +5691,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-07",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "A Nobel for illuminating life’s asymmetry",
@@ -5413,15 +5699,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-07",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "title": "A Nobel for the strangest telescope ever built",
-    "url": "https://www.economist.com/science-and-technology/2026/10/06/a-nobel-for-the-strangest-telescope-ever-built",
-    "publishedAt": "2026-10-06",
-    "summary": "",
-    "publication": "economist",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "China wants to get inside your head",
@@ -5429,15 +5707,15 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-06",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
-    "title": "The Nobel for medicine goes to lighting up the brain",
-    "url": "https://www.economist.com/science-and-technology/2026/10/05/the-nobel-for-medicine-goes-to-lighting-up-the-brain",
-    "publishedAt": "2026-10-05",
+    "title": "A Nobel for the strangest telescope ever built",
+    "url": "https://www.economist.com/science-and-technology/2026/10/06/a-nobel-for-the-strangest-telescope-ever-built",
+    "publishedAt": "2026-10-06",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Bartleby newsletter: How to fire a chicken into a jet engine",
@@ -5445,7 +5723,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-05",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Record labels are in a spin over AI music",
@@ -5453,7 +5731,15 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-05",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "title": "The Nobel for medicine goes to lighting up the brain",
+    "url": "https://www.economist.com/science-and-technology/2026/10/05/the-nobel-for-medicine-goes-to-lighting-up-the-brain",
+    "publishedAt": "2026-10-05",
+    "summary": "",
+    "publication": "economist",
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Should you be using a tongue-scraper?",
@@ -5461,7 +5747,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-02",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "You’re not sending an email. You’re training a model",
@@ -5469,7 +5755,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-01",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "The Swiss watch industry is shrinking—but getting swankier",
@@ -5477,7 +5763,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-01",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5485,23 +5771,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/10/01/a-rocket-shortage-gives-spacexs-competitors-an-opportunity",
     "publishedAt": "2026-10-01",
     "summary": "",
-    "checkedAt": "2026-10-21"
-  },
-  {
-    "publication": "economist",
-    "title": "Simulating death can reduce people’s fear of dying",
-    "url": "https://www.economist.com/science-and-technology/2026/09/30/simulating-death-can-reduce-peoples-fear-of-dying",
-    "publishedAt": "2026-09-30",
-    "summary": "",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "economist",
-    "title": "It may soon be possible to create “mirror life”",
-    "url": "https://www.economist.com/science-and-technology/2026/09/30/it-may-soon-be-possible-to-create-mirror-life",
-    "publishedAt": "2026-09-30",
-    "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5509,7 +5779,23 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/30/the-era-of-speedball-capitalism-has-dawned",
     "publishedAt": "2026-09-30",
     "summary": "",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "economist",
+    "title": "Simulating death can reduce people’s fear of dying",
+    "url": "https://www.economist.com/science-and-technology/2026/09/30/simulating-death-can-reduce-peoples-fear-of-dying",
+    "publishedAt": "2026-09-30",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "economist",
+    "title": "It may soon be possible to create “mirror life”",
+    "url": "https://www.economist.com/science-and-technology/2026/09/30/it-may-soon-be-possible-to-create-mirror-life",
+    "publishedAt": "2026-09-30",
+    "summary": "",
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5517,15 +5803,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/28/big-laws-century-old-business-model-is-being-transformed",
     "publishedAt": "2026-09-28",
     "summary": "",
-    "checkedAt": "2026-10-21"
-  },
-  {
-    "publication": "economist",
-    "title": "Alternatives to GPS are around the corner",
-    "url": "https://www.economist.com/science-and-technology/2026/09/27/alternatives-to-gps-are-around-the-corner",
-    "publishedAt": "2026-09-27",
-    "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5533,7 +5811,15 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/27/european-industry-is-doing-better-than-you-may-think",
     "publishedAt": "2026-09-27",
     "summary": "",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "economist",
+    "title": "Alternatives to GPS are around the corner",
+    "url": "https://www.economist.com/science-and-technology/2026/09/27/alternatives-to-gps-are-around-the-corner",
+    "publishedAt": "2026-09-27",
+    "summary": "",
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5541,7 +5827,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/science-and-technology/2026/09/25/are-weighted-blankets-really-beneficial",
     "publishedAt": "2026-09-25",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5549,7 +5835,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/24/the-greatest-advance-in-consulting-since-the-quadrant",
     "publishedAt": "2026-09-24",
     "summary": "",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5557,7 +5843,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/24/tanker-rates-are-on-the-crest-of-a-wave",
     "publishedAt": "2026-09-24",
     "summary": "",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5565,7 +5851,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/24/business-in-the-gulf-is-making-a-slow-recovery",
     "publishedAt": "2026-09-24",
     "summary": "",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5573,7 +5859,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/24/german-unions-are-fighting-to-defend-the-35-hour-week",
     "publishedAt": "2026-09-24",
     "summary": "",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5581,7 +5867,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/24/tata-goes-to-war-with-itself",
     "publishedAt": "2026-09-24",
     "summary": "",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5589,31 +5875,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/24/how-tech-firms-hope-to-beat-the-backlash-against-pervert-glasses",
     "publishedAt": "2026-09-24",
     "summary": "",
-    "checkedAt": "2026-10-21"
-  },
-  {
-    "publication": "economist",
-    "title": "Should you fear pesticide-resistant super-bed bugs?",
-    "url": "https://www.economist.com/science-and-technology/2026/09/23/should-you-fear-pesticide-resistant-super-bed-bugs",
-    "publishedAt": "2026-09-23",
-    "summary": "",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "economist",
-    "title": "Space-going mirrors could offer daylight on demand",
-    "url": "https://www.economist.com/science-and-technology/2026/09/23/space-going-mirrors-could-offer-daylight-on-demand",
-    "publishedAt": "2026-09-23",
-    "summary": "",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "economist",
-    "title": "Many surgical interventions are little better than placebo",
-    "url": "https://www.economist.com/science-and-technology/2026/09/23/many-surgical-interventions-are-little-better-than-placebo",
-    "publishedAt": "2026-09-23",
-    "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5621,7 +5883,31 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/23/agent-of-whom",
     "publishedAt": "2026-09-23",
     "summary": "",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "economist",
+    "title": "Should you fear pesticide-resistant super-bed bugs?",
+    "url": "https://www.economist.com/science-and-technology/2026/09/23/should-you-fear-pesticide-resistant-super-bed-bugs",
+    "publishedAt": "2026-09-23",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "economist",
+    "title": "Space-going mirrors could offer daylight on demand",
+    "url": "https://www.economist.com/science-and-technology/2026/09/23/space-going-mirrors-could-offer-daylight-on-demand",
+    "publishedAt": "2026-09-23",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "economist",
+    "title": "Many surgical interventions are little better than placebo",
+    "url": "https://www.economist.com/science-and-technology/2026/09/23/many-surgical-interventions-are-little-better-than-placebo",
+    "publishedAt": "2026-09-23",
+    "summary": "",
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5629,15 +5915,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/22/bartleby-newsletter-the-tandcs-of-the-ai-apocalypse",
     "publishedAt": "2026-09-22",
     "summary": "",
-    "checkedAt": "2026-10-21"
-  },
-  {
-    "publication": "economist",
-    "title": "A new battery could make edible electronics safer",
-    "url": "https://www.economist.com/science-and-technology/2026/09/21/a-new-battery-could-make-edible-electronics-safer",
-    "publishedAt": "2026-09-21",
-    "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5645,7 +5923,15 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/21/donald-trump-says-china-is-opening-up-american-bosses-disagree",
     "publishedAt": "2026-09-21",
     "summary": "",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "economist",
+    "title": "A new battery could make edible electronics safer",
+    "url": "https://www.economist.com/science-and-technology/2026/09/21/a-new-battery-could-make-edible-electronics-safer",
+    "publishedAt": "2026-09-21",
+    "summary": "",
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5653,7 +5939,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/science-and-technology/2026/09/18/consuming-extra-vitamin-d-is-less-good-than-it-sounds",
     "publishedAt": "2026-09-18",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5661,7 +5947,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/17/sleep-like-a-pro",
     "publishedAt": "2026-09-17",
     "summary": "",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5669,7 +5955,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/17/at-last-india-is-getting-serious-about-selling-state-assets",
     "publishedAt": "2026-09-17",
     "summary": "",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5677,31 +5963,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/17/alternatives-to-milk-are-losing-moomentum",
     "publishedAt": "2026-09-17",
     "summary": "",
-    "checkedAt": "2026-10-21"
-  },
-  {
-    "publication": "economist",
-    "title": "Researchers have created a mouse with a partly human brain",
-    "url": "https://www.economist.com/science-and-technology/2026/09/16/researchers-have-created-a-mouse-with-a-partly-human-brain",
-    "publishedAt": "2026-09-16",
-    "summary": "",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "economist",
-    "title": "Artificial intelligence now beats some of the best human forecasters",
-    "url": "https://www.economist.com/science-and-technology/2026/09/16/artificial-intelligence-now-beats-some-of-the-best-human-forecasters",
-    "publishedAt": "2026-09-16",
-    "summary": "",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "economist",
-    "title": "Sea cucumbers may help protect coral reefs",
-    "url": "https://www.economist.com/science-and-technology/2026/09/16/sea-cucumbers-may-help-protect-coral-reefs",
-    "publishedAt": "2026-09-16",
-    "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5709,7 +5971,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/16/olympiad-man-has-displaced-davos-man",
     "publishedAt": "2026-09-16",
     "summary": "",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5717,7 +5979,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/16/nannying-for-the-ultra-rich-is-increasingly-demanding-and-lucrative",
     "publishedAt": "2026-09-16",
     "summary": "",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5725,15 +5987,31 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/16/bartleby-newsletter-meetings-are-broccoli",
     "publishedAt": "2026-09-16",
     "summary": "",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
-    "title": "A new device helps severely paralysed patients communicate",
-    "url": "https://www.economist.com/science-and-technology/2026/09/14/a-new-device-helps-severely-paralysed-patients-communicate",
-    "publishedAt": "2026-09-14",
+    "title": "Researchers have created a mouse with a partly human brain",
+    "url": "https://www.economist.com/science-and-technology/2026/09/16/researchers-have-created-a-mouse-with-a-partly-human-brain",
+    "publishedAt": "2026-09-16",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "economist",
+    "title": "Artificial intelligence now beats some of the best human forecasters",
+    "url": "https://www.economist.com/science-and-technology/2026/09/16/artificial-intelligence-now-beats-some-of-the-best-human-forecasters",
+    "publishedAt": "2026-09-16",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "economist",
+    "title": "Sea cucumbers may help protect coral reefs",
+    "url": "https://www.economist.com/science-and-technology/2026/09/16/sea-cucumbers-may-help-protect-coral-reefs",
+    "publishedAt": "2026-09-16",
+    "summary": "",
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5741,7 +6019,15 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/14/should-anthropic-press-pause-on-a-potential-2trn-ipo",
     "publishedAt": "2026-09-14",
     "summary": "",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "economist",
+    "title": "A new device helps severely paralysed patients communicate",
+    "url": "https://www.economist.com/science-and-technology/2026/09/14/a-new-device-helps-severely-paralysed-patients-communicate",
+    "publishedAt": "2026-09-14",
+    "summary": "",
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5749,7 +6035,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/13/how-an-oil-supply-crisis-could-bring-about-an-investment-boom",
     "publishedAt": "2026-09-13",
     "summary": "",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5757,7 +6043,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/science-and-technology/2026/09/11/top-mathematicians-are-outraged-by-openais-methods",
     "publishedAt": "2026-09-11",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5765,7 +6051,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/science-and-technology/2026/09/11/hot-coffee-could-cause-oesophageal-cancer",
     "publishedAt": "2026-09-11",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5773,7 +6059,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/10/are-you-committed-to-your-company-or-your-team",
     "publishedAt": "2026-09-10",
     "summary": "",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "economist",
@@ -5781,55 +6067,63 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/10/beef-has-never-been-pricier-and-meatpackers-are-suffering",
     "publishedAt": "2026-09-10",
     "summary": "",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
-    "publication": "economist",
-    "title": "War has not halted the Gulf’s data-centre boom",
-    "url": "https://www.economist.com/business/2026/09/10/war-has-not-halted-the-gulfs-data-centre-boom",
-    "publishedAt": "2026-09-10",
+    "publication": "smithsonian",
+    "title": "This Mysterious Medieval Manuscript Has Stumped Scholars for Well Over a Century. Could Its Pages Have Been Bound Out of Order This Whole Time?",
+    "url": "https://www.smithsonianmag.com/smart-news/this-mysterious-medieval-manuscript-has-stumped-scholars-for-well-over-a-century-could-its-pages-have-been-bound-out-of-order-this-whole-time-180989737/",
+    "publishedAt": "2026-10-22",
     "summary": "",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
-    "publication": "economist",
-    "title": "A transplanted pig kidney buys time for a human one to become available",
-    "url": "https://www.economist.com/science-and-technology/2026/09/09/a-transplanted-pig-kidney-buys-time-for-a-human-one-to-become-available",
-    "publishedAt": "2026-09-09",
+    "publication": "smithsonian",
+    "title": "One in Four Cases of Depression Could Be Caused by a Dysregulated Body Clock, Study Says",
+    "url": "https://www.smithsonianmag.com/smart-news/one-in-four-cases-of-depression-could-be-caused-by-a-dysregulated-body-clock-study-says-180989736/",
+    "publishedAt": "2026-10-22",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
-    "publication": "economist",
-    "title": "OpenAI's apparent maths breakthrough raises profound questions",
-    "url": "https://www.economist.com/science-and-technology/2026/09/09/openais-apparent-maths-breakthrough-raises-profound-questions",
-    "publishedAt": "2026-09-09",
+    "publication": "smithsonian",
+    "title": "Researchers Claimed a Blurry Object on Apple Maps Was 'Very Likely' Amelia Earhart's Missing Plane. It Turned Out to Be a 'Collection of Large Trees'",
+    "url": "https://www.smithsonianmag.com/smart-news/researchers-claimed-a-blurry-object-on-apple-maps-was-very-likely-amelia-earharts-missing-plane-it-turned-out-to-be-a-collection-of-large-trees-180989734/",
+    "publishedAt": "2026-10-22",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
-    "publication": "economist",
-    "title": "The rise of retrofuturism",
-    "url": "https://www.economist.com/business/2026/09/09/the-rise-of-retrofuturism",
-    "publishedAt": "2026-09-09",
+    "publication": "smithsonian",
+    "title": "The Canadian Artist Jean Paul Riopelle Was 'Completely Absorbed by the Act of Painting.' His Abstract Works Finally Have Their Own Home in a Quebec Museum",
+    "url": "https://www.smithsonianmag.com/smart-news/the-canadian-artist-jean-paul-riopelle-was-completely-absorbed-by-the-act-of-painting-his-abstract-works-finally-have-their-own-home-in-a-quebec-museum-180989735/",
+    "publishedAt": "2026-10-22",
     "summary": "",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
-    "publication": "economist",
-    "title": "As booze sales fall, competition among drinks-makers intensifies",
-    "url": "https://www.economist.com/business/2026/09/09/as-booze-sales-fall-competition-among-drinks-makers-intensifies",
-    "publishedAt": "2026-09-09",
+    "publication": "smithsonian",
+    "title": "More Than 1,000 Birds Were Killed or Injured in Window Collisions Around Chicago Over the Weekend",
+    "url": "https://www.smithsonianmag.com/smart-news/more-than-1000-birds-were-killed-or-injured-around-chicago-during-a-single-weekend-180989729/",
+    "publishedAt": "2026-10-22",
     "summary": "",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
-    "publication": "economist",
-    "title": "How to cool buildings on the cheap",
-    "url": "https://www.economist.com/science-and-technology/2026/09/08/how-to-cool-buildings-on-the-cheap",
-    "publishedAt": "2026-09-08",
+    "publication": "smithsonian",
+    "title": "Arizona's Otherworldly 'Wonderland of Rocks' Is Now America's Newest National Park",
+    "url": "https://www.smithsonianmag.com/smart-news/arizona-otherworldly-wonderland-of-rocks-is-now-americas-newest-national-park-180989733/",
+    "publishedAt": "2026-10-22",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "smithsonian",
+    "title": "'Pretty Boy' Floyd, One of the Most Notorious Outlaws of the Great Depression, Was Shot and Killed in an FBI Raid 92 Years Ago",
+    "url": "https://www.smithsonianmag.com/history/pretty-boy-floyd-one-of-the-most-notorious-outlaws-of-the-great-depression-was-shot-and-killed-in-an-fbi-raid-92-years-ago-180989725/",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "smithsonian",
@@ -5837,7 +6131,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.smithsonianmag.com/smart-news/archaeologists-may-have-solved-the-mystery-of-a-roman-sarcophagus-excavated-at-westminster-abbey-in-1869-180989732/",
     "publishedAt": "2026-10-21",
     "summary": "把威斯敏斯特石棺之谜作为考古推理案例，核对物证、历史记录和身份判断各自能支撑到哪一步。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "smithsonian",
@@ -5845,7 +6139,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.smithsonianmag.com/science-nature/green-sea-turtles-are-making-a-remarkable-comeback-on-the-remote-aldabra-atoll-and-around-the-world-but-their-recovery-is-far-from-complete-180989710/",
     "publishedAt": "2026-10-21",
     "summary": "比较绿海龟局部种群恢复与全球保护现状，关注长期监测指标及仍未消除的威胁。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "smithsonian",
@@ -5853,7 +6147,15 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.smithsonianmag.com/smart-news/african-elephants-shape-the-savanna-ecosystem-and-continue-doing-so-long-after-theyve-died-study-suggests-180989718/",
     "publishedAt": "2026-10-21",
     "summary": "从大象死亡后的生态影响切入，思考生态系统工程作用怎样跨越个体生命，并用什么时间尺度衡量。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "smithsonian",
+    "title": "Were Two Ancient Chinese Astronomers Beheaded for Failing to Predict an Eclipse in 2134 B.C.E.? The Story May Be a Myth, but It Underscores the Real Risks of Interpreting Celestial Events",
+    "url": "https://www.smithsonianmag.com/history/were-two-chinese-astronomers-were-beheaded-for-failing-to-predict-an-eclipse-2134-bce-the-story-may-be-a-myth-but-it-underscores-the-real-risks-of-interpreting-celestial-events-180989715/",
+    "publishedAt": "2026-10-21",
+    "summary": "把日食预报失误受罚的故事放回史料脉络，区分传说真实性与天象解释在政治中的实际风险。",
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "smithsonian",
@@ -5901,14 +6203,6 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.smithsonianmag.com/smart-news/in-a-first-astronomers-identify-a-star-that-might-glow-green-new-research-highlights-the-strange-hues-white-dwarfs-can-take-on-180989719/",
     "publishedAt": "2026-10-21",
     "summary": "围绕可能呈绿色的白矮星，区分光谱特征、颜色模型和肉眼外观，保留研究标题中尚未确定的程度。",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "smithsonian",
-    "title": "Were Two Ancient Chinese Astronomers Beheaded for Failing to Predict an Eclipse in 2134 B.C.E.? The Story May Be a Myth, but It Underscores the Real Risks of Interpreting Celestial Events",
-    "url": "https://www.smithsonianmag.com/history/were-two-chinese-astronomers-were-beheaded-for-failing-to-predict-an-eclipse-2134-bce-the-story-may-be-a-myth-but-it-underscores-the-real-risks-of-interpreting-celestial-events-180989715/",
-    "publishedAt": "2026-10-21",
-    "summary": "把日食预报失误受罚的故事放回史料脉络，区分传说真实性与天象解释在政治中的实际风险。",
     "checkedAt": "2026-10-22"
   },
   {
@@ -6041,7 +6335,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-16",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Rembrandt Turned Ancient Myths Into 'Supremely Human' Works of Art. An Upcoming Exhibition Traces the Inspiration He Took From Antiquity",
@@ -6121,7 +6415,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-09",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "From Slasher Films to Vampire Flicks, Horror Movies Are More Popular Than Ever. Relive the Genre's Scariest Moments—if You Dare—at a New Exhibition",
@@ -6129,7 +6423,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-08",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "The Marquis de Lafayette's Brother-in-Law Participated in Three Revolutionary Wars, Supporting American Independence but Brutally Suppressing an Uprising by Enslaved Africans in Haiti",
@@ -6137,7 +6431,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-01",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Who Wrote Elizabeth I's Most Scathing Letters? New Research Suggests the Tudor Queen's Male Secretaries Revised Her Correspondence to Emphasize Her Temper",
@@ -6145,7 +6439,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-28",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "featuredReason": "从历史书信的作者与修订痕迹进入史料判断，区分记录与解释。",
     "featuredPriority": 32
   },
@@ -6155,7 +6449,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-24",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "This Social Worker Was Supposed to Help Orphans Find Homes. Instead, She Abducted Children Who Already Had Families and Sold Them for Profit",
@@ -6163,7 +6457,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-23",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "The Founders of the 'New York Times' Pledged to Cover 'Every Subject of Public Importance.' 175 Years Later, the Paper Continues to Publish 'All the News That's Fit to Print'",
@@ -6171,7 +6465,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-18",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Six Ways That People of the Past Used Magic to Protect Their Homes, From Witch Bottles to Mystical Symbols",
@@ -6179,7 +6473,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-15",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "The Real Story Behind 'The Uprising' and the 1381 Peasants' Revolt, When Thousands Marched on London to Demand a Fairer Society",
@@ -6187,7 +6481,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-09",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "How Did the Nation Get Its Name? Other Suggestions Included the United Colonies, Columbia and the United States of Alleghania",
@@ -6195,7 +6489,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-08",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "To Defeat the Royal Navy During the American Revolution, a Rebel Inventor Designed a Secret Weapon: a Bomb-Carrying Submarine",
@@ -6203,7 +6497,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-03",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Some of the Earliest Automobile Enthusiasts Signed Up to Help the Allies in WWI. They Also Ushered in the Mechanization of War",
@@ -6211,7 +6505,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-01",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "‘Rocky’ Is the Story of an Underdog, Created by an Underdog, That Has Spawned Box-Office Champions for Half a Century",
@@ -6219,7 +6513,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-08-31",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "This American Commando Parachuted Behind Enemy Lines in Both the European and Pacific Theaters of World War II",
@@ -6227,7 +6521,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-08-27",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "The Prehistoric Paintings on the Walls of Caves Have Always Been Moving. But With the Right Kind of Light, Some Actually Seem to Move",
@@ -6235,7 +6529,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-08-27",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "To Dismantle the Concept of Separate but Equal, Thurgood Marshall Methodically Devised a Winning Strategy: Divide and Conquer",
@@ -6243,7 +6537,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-08-26",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Dolly Parton Was One of the Biggest Stars in the History of Country Music. She Wanted to Be Remembered as a Songwriter",
@@ -6251,7 +6545,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-08-26",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "This 18th-Century British Queen Turned King Arthur Into a P.R. Strategy, Drawing on Myth to Promote Her Dynasty's Claim to the Throne",
@@ -6259,7 +6553,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-08-24",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "When a Carpenter in California Found a Nugget of Gold, It Started a Rush Toward Nothing Less Than the Modern World",
@@ -6283,7 +6577,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.quantamagazine.org/see-inside-cells-like-never-before-in-these-vivid-microscopic-images-20261021/",
     "publishedAt": "2026-10-21",
     "summary": "从新显微图像能显示哪些细胞结构切入，同时关注成像方法的分辨率与限制，避免把清晰图像等同完整机制。",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "quanta",
@@ -6291,11 +6585,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.quantamagazine.org/ai-proved-the-quasi-riemann-hypothesis-what-happens-now-20261019/",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-22",
-    "hotRank": 2,
+    "checkedAt": "2026-10-23",
+    "hotRank": 1,
     "hotSource": "https://www.quantamagazine.org/",
     "hotLabel": "Past Week · Most Read Articles",
-    "hotCheckedAt": "2026-10-22",
+    "hotCheckedAt": "2026-10-23",
     "featuredReason": "区分猜想的不同版本、形式化验证与人类理解，阅读时追踪每种结论的证据边界。",
     "featuredPriority": 12
   },
@@ -6305,11 +6599,11 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-16",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "hotRank": 4,
     "hotSource": "https://www.quantamagazine.org/",
     "hotLabel": "Past Week · Most Read Articles",
-    "hotCheckedAt": "2026-10-22",
+    "hotCheckedAt": "2026-10-23",
     "featuredReason": "从评测方法切入，关注模型排名背后的指标、复现和验证过程。",
     "featuredPriority": 17
   },
@@ -6319,11 +6613,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-15",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-22",
-    "hotRank": 6,
-    "hotSource": "https://www.quantamagazine.org/",
-    "hotLabel": "Past Week · Most Read Articles",
-    "hotCheckedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Triplet of ‘Ghostly’ Galaxies Hints at What Dark Matter Is — and Isn’t",
@@ -6331,11 +6621,11 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-14",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "hotRank": 3,
     "hotSource": "https://www.quantamagazine.org/",
     "hotLabel": "Past Week · Most Read Articles",
-    "hotCheckedAt": "2026-10-22"
+    "hotCheckedAt": "2026-10-23"
   },
   {
     "title": "Is ‘Attention’ the Essence of Intelligence?",
@@ -6343,11 +6633,11 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-12",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-22",
-    "hotRank": 1,
+    "checkedAt": "2026-10-23",
+    "hotRank": 2,
     "hotSource": "https://www.quantamagazine.org/",
     "hotLabel": "Past Week · Most Read Articles",
-    "hotCheckedAt": "2026-10-22",
+    "hotCheckedAt": "2026-10-23",
     "featuredReason": "借注意力机制的讨论，回到智能的定义与模型工作方式。",
     "featuredPriority": 34
   },
@@ -6357,7 +6647,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-09",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "As AI Closed In on ‘Unique Games’ Proof, Researchers Raced to Beat the Machines",
@@ -6365,7 +6655,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-07",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Is AI the End of Math As We Know It?",
@@ -6373,11 +6663,11 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-05",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-22",
+    "checkedAt": "2026-10-23",
     "hotRank": 5,
     "hotSource": "https://www.quantamagazine.org/",
     "hotLabel": "Past Week · Most Read Articles",
-    "hotCheckedAt": "2026-10-22",
+    "hotCheckedAt": "2026-10-23",
     "featuredReason": "从数学工作的问题与方法出发，思考AI怎样改变研究者的角色。",
     "featuredPriority": 35
   },
@@ -6387,7 +6677,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.quantamagazine.org/sea-monkeys-show-scientists-how-to-rewrite-a-rule-of-turbulence-20261002/",
     "publishedAt": "2026-10-02",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "quanta",
@@ -6395,7 +6685,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.quantamagazine.org/what-does-the-fourth-dimension-actually-look-like-20261001/",
     "publishedAt": "2026-10-01",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "publication": "quanta",
@@ -6403,7 +6693,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.quantamagazine.org/surprisingly-complex-waves-reveal-the-brains-inner-workings-20260930/",
     "publishedAt": "2026-09-30",
     "summary": "",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Mathematicians Harness Randomness To Crack a 55-Year-Old Conjecture",
@@ -6411,7 +6701,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-28",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Gravity Seems Holographic. What Does That Mean for Reality?",
@@ -6419,7 +6709,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-25",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Biology Might Not Be Quantum, but Its Math Is Quantumlike",
@@ -6427,7 +6717,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-23",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "How Virus-like ‘Jumping Genes’ Became Our Partners in Evolution",
@@ -6435,7 +6725,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-21",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Mathematicians Build Long-Awaited Graph Sandwich",
@@ -6443,7 +6733,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-18",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Where Does the Quantum World End and Ours Begin?",
@@ -6451,7 +6741,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-17",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Ctenophores Aren’t Just Beautiful. They’re Biological Wonders.",
@@ -6459,7 +6749,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-16",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Black Holes or Black Hole Stars? Astronomers Spar Over Webb Telescope’s ‘Little Red Dots.’",
@@ -6467,7 +6757,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-14",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Why Do These Fossil Shells Flip Their Spirals Every Few Millennia?",
@@ -6475,7 +6765,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-11",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "The Four-Color Theorem Gets a Rare New Proof",
@@ -6483,7 +6773,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-10",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "What Is Math’s Mysterious Langlands Program Really About?",
@@ -6491,7 +6781,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-09",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "AI Has Solved One of Math’s $1 Million Millennium Prize Problems",
@@ -6499,7 +6789,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-08",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "Live from ICM 2026: What Is Math For in the Age of AI?",
@@ -6507,7 +6797,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-03",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-22"
+    "checkedAt": "2026-10-23"
   },
   {
     "title": "In an Age of AI, a Physicist Seeks What Endures",
@@ -6524,5 +6814,17 @@ window.MAGAZINE_ARTICLES = [
     "summary": "",
     "publication": "quanta",
     "checkedAt": "2026-10-19"
+  },
+  {
+    "publication": "quanta",
+    "title": "In Hilbert Space, All Things Are Quantumly Possible",
+    "url": "https://www.quantamagazine.org/in-hilbert-space-all-things-are-quantumly-possible-20260826/",
+    "publishedAt": null,
+    "summary": "",
+    "checkedAt": "2026-10-23",
+    "hotRank": 6,
+    "hotSource": "https://www.quantamagazine.org/",
+    "hotLabel": "Past Week · Most Read Articles",
+    "hotCheckedAt": "2026-10-23"
   }
 ];
