@@ -12,18 +12,29 @@ module.exports = async function ({html, inline, sandbox, ok}) {
         querySelectorAll(){return [];},querySelector(){return null;},appendChild(){},focus(){}};
     }
     const documentEvents={};
-    const ctx = {...sandbox, window:{...sandbox.window,sessionStorage:{getItem(k){return saved[k]||null;},setItem(k,v){saved[k]=v;}}}, document:{...sandbox.document,getElementById:element,addEventListener(t,fn){documentEvents[t]=fn;}},
+    const ctx = {...sandbox, URL, window:{...sandbox.window,sessionStorage:{getItem(k){return saved[k]||null;},setItem(k,v){saved[k]=v;}}}, document:{...sandbox.document,getElementById:element,addEventListener(t,fn){documentEvents[t]=fn;}},
       fetch:()=>Promise.reject(new Error('offline test'))};
     let code = inline.replace('render(data.report, meta);', 'window.__renderedDate = date; render(data.report, meta);').replace('  function goto(date, pushHash){','  window.__loadDate = loadDate;\n  function goto(date, pushHash){')
       .replace("    var cb = document.getElementById('cqutMatchCount');", "    window.__deadline = {dlDay:dlDay,isOpen:isOpen,isSoon:isSoon};\n    var cb = document.getElementById('cqutMatchCount');")
       .replace('  function renderComp(){', '  window.__compUX={deadline:compDeadline,status:compStatus,set:function(list,q){COMP=list;COMP_SCOPE="all";COMP_FILTER="open";COMP_SORT="deadline";COMP_QUERY=q||"";COMP_PAGE=1;renderComp();}};\n  function renderComp(){')
       .replace('  function routeHash(tab){', '  window.__routeUX={show:showTab,hash:routeHash,sync:syncRoute};\n  function routeHash(tab){')
-      .replace('  function applyFilter(){', '  window.__applyDailyFilter=applyFilter;\n  function applyFilter(){');
+      .replace('  function applyFilter(){', '  window.__applyDailyFilter=applyFilter;\n  function applyFilter(){')
+      .replace('  function validateDailyReport(report,date){','  window.__dailyLinkUX={url:safeDailyURL,render:render};\n  function validateDailyReport(report,date){');
     vm.createContext(ctx);
     vm.runInContext(transform(code),ctx);
     return {ctx,elements,listeners,documentEvents};
   }
   const base = run();
+  const dailyLinks=base.ctx.window.__dailyLinkUX;
+  ok([undefined,null,{},[],0,'javascript:alert(1)','data:text/html,unsafe','//example.org/path','https://','https:///example.org/','https://user:pass@example.org/','https://user@example.org/','https://example.org/\nunsafe','https://example.org/has space','https://example.org\\@evil.org/'].every(u=>dailyLinks.url(u)===''), '日报外链拒绝危险协议、非字符串、畸形URL、凭据与控制字符');
+  ok(dailyLinks.url('https://example.org/article?x=1&y=2')==='https://example.org/article?x=1&y=2'&&dailyLinks.url('http://example.org/legacy')==='http://example.org/legacy', '日报保留有效HTTPS与历史HTTP原文链接，不凭协议替换原地址');
+  dailyLinks.render({date:'2026-10-25',links:{aihot:'javascript:alert(1)'},sections:[{label:'模型发布/更新',items:[
+    {title:'invalid pair',summary:'fixture',links:{aihot:'javascript:alert(1)',original:'data:text/html,unsafe'}},
+    {title:'safe fallback',summary:'fixture',links:{aihot:'https://aihot.news/safe',original:'https://user:pass@example.org/'}},
+    {title:'safe original',summary:'fixture',links:{aihot:{bad:'type'},original:'https://example.org/original'}}
+  ]}]},{});
+  const dailyLinkHTML=base.elements.main.innerHTML,footerLinkHTML=base.elements.footer.innerHTML;
+  ok(dailyLinkHTML.includes('原文入口暂不可用')&&!/href="(?:javascript:|data:|#"|https:\/\/user)/.test(dailyLinkHTML)&&!dailyLinkHTML.includes('[object Object]')&&dailyLinkHTML.includes('href="https://aihot.news/safe"')&&dailyLinkHTML.includes('href="https://example.org/original"')&&footerLinkHTML.includes('href="https://aihot.news/"')&&!footerLinkHTML.includes('javascript:'), '日报无效链接清楚显示不可用，有效原文或AIHOT继续可读，页脚来源同样安全回退');
   const evidenceDeadline=require('./_evidence_deadline.js');
   const noon={deadline:'2026-10-23',deadlineTime:'12:00'};
   const noonProof={deadline:'2026-10-23',deadlineTime:'12:00',snapshot:{deadlineTime:'12:00'},evidenceExcerpt:'报名及培养单位审核截止时间为2026年10月23日12：00。'};

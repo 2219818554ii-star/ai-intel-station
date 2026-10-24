@@ -945,7 +945,7 @@
     <p id="magazine-source-note" class="mag-notice"></p>
     <div id="magazine-list" class="mag-list"></div>
     <div style="text-align:center;margin-top:20px"><button id="magazine-more" type="button" class="top-btn" style="display:none">再看一些</button></div>
-    <p class="mag-notice" id="magazine-storage-note">收藏与已读保存在当前浏览器；打开原文后，可回来手动标记已读。</p>
+    <p class="mag-notice" id="magazine-storage-note">收藏会保留原文入口；记录仅保存在当前浏览器。打开原文后，可回来手动标记已读。</p>
     <details class="reader-note"><summary>关于来源与更新</summary><p class="mag-notice">这里只整理官方渠道的标题、日期和阅读入口。文章按原文发布日期排列，未明确日期的条目列在最后；最近核查日期不代表今天发布。部分原文可能需要登录或订阅，以原站提示为准。自动维护访问受限时保留已核实内容，不编造新文章。</p></details>
   </div>
 
@@ -1648,6 +1648,10 @@
     if(typeof date!=="string"||!/^\d{4}-\d{2}-\d{2}$/.test(date))return false;
     var d=new Date(date+"T00:00:00Z");return Number.isFinite(d.getTime())&&d.toISOString().slice(0,10)===date;
   }
+  function safeDailyURL(value){
+    if(typeof value!=="string"||!/^https?:\/\/[^/?#]/i.test(value)||/[\u0000-\u0020\u007f\\]/.test(value))return "";
+    try{var url=new URL(value);return /^(https?:)$/.test(url.protocol)&&url.hostname&&!url.username&&!url.password?url.href:"";}catch(e){return "";}
+  }
   function validateDailyReport(report,date){
     if(!report||typeof report!=="object"||!validDailyDate(report.date)||report.date!==date)throw new Error("返回的日报日期无效或与所选日期不符");
     if(!Array.isArray(report.sections)||report.sections.some(function(s){return !s||typeof s.label!=="string"||!Array.isArray(s.items)||s.items.some(function(it){return !it||typeof it.title!=="string"||(it.summary!=null&&typeof it.summary!=="string");});}))throw new Error("返回的日报版块或条目格式异常");
@@ -1680,10 +1684,10 @@
     var secs = SECTIONS.map(function(m){
       var items = (byLabel[m.label]||[]).map(function(it){
         globalN++;
-        var aihot = (it.links && it.links.aihot) || "";
-        var original = (it.links && it.links.original) || aihot || "#";
+        var aihot = safeDailyURL(it.links && it.links.aihot);
+        var original = safeDailyURL(it.links && it.links.original) || aihot;
         return { n: globalN, title: it.title||"", source: (it.source && it.source.name) || "未知来源",
-          summary: trunc(it.summary), full: it.summary||"", aihot: aihot, original: original };
+          summary: trunc(it.summary), full: it.summary||"", titleURL:aihot||original, original: original };
       });
       return {label:m.label, id:m.id, items:items};
     }).filter(function(s){ return s.items.length>0; });
@@ -1718,9 +1722,9 @@
             '<span class="num">'+("0"+it.n).slice(-2)+'</span>'+
             '<a class="source-chip" title="'+esc(it.source)+'">'+esc(it.source)+'</a>'+
           '</div>'+
-          '<h3 class="card-title"><a href="'+esc(it.aihot)+'" target="_blank" rel="noopener noreferrer">'+esc(it.title)+'</a></h3>'+
+          '<h3 class="card-title">'+(it.titleURL?'<a href="'+esc(it.titleURL)+'" target="_blank" rel="noopener noreferrer">'+esc(it.title)+'</a>':esc(it.title))+'</h3>'+
           '<p class="summary" title="'+esc(it.full)+'">'+esc(it.summary)+'</p>'+
-          '<a class="orig-link" href="'+esc(it.original)+'" target="_blank" rel="noopener noreferrer">阅读原文 →</a>'+
+          (it.original?'<a class="orig-link" href="'+esc(it.original)+'" target="_blank" rel="noopener noreferrer">阅读原文 →</a>':'<span class="orig-link">原文入口暂不可用</span>')+
         '</article>';
       }).join("");
       return ''+
@@ -1753,7 +1757,7 @@
     document.getElementById("daily-clear-search").addEventListener("click",clearDailySearch);
     document.getElementById("main").style.display = "";
 
-    var srcUrl = (report.links && report.links.aihot) || "https://aihot.news/";
+    var srcUrl = safeDailyURL(report.links && report.links.aihot) || "https://aihot.news/";
     document.getElementById("footer").style.display = "";
     document.getElementById("footer").innerHTML =
       '<div class="big">本期共 '+total+' 条 AI 动态</div>'+
@@ -1992,8 +1996,8 @@
     var cats = tedCatList();
     var fw = document.getElementById('tedFilters');
     if(fw){
-      var btns = ['<button class="filterbtn'+(TED_CAT==="全部"?" active":"")+'" data-c="全部">全部</button>'];
-      cats.forEach(function(c){ btns.push('<button class="filterbtn'+(TED_CAT===c?" active":"")+'" data-c="'+esc(c)+'">'+esc(c)+'</button>'); });
+      var btns = ['<button type="button" class="filterbtn'+(TED_CAT==="全部"?" active":"")+'" data-c="全部" aria-pressed="'+(TED_CAT==="全部")+'">全部</button>'];
+      cats.forEach(function(c){ btns.push('<button type="button" class="filterbtn'+(TED_CAT===c?" active":"")+'" data-c="'+esc(c)+'" aria-pressed="'+(TED_CAT===c)+'">'+esc(c)+'</button>'); });
       fw.innerHTML = btns.join("");
     }
     var list = TED.filter(function(t){ return TED_CAT==="全部" || t.cat===TED_CAT; });
@@ -2062,8 +2066,10 @@
     tf.addEventListener("click", function(ev){
       var b = ev.target.closest ? ev.target.closest(".filterbtn") : null;
       if(!b) return;
+      var keepFocus=document.activeElement===b;
       TED_CAT = b.getAttribute("data-c") || "全部";
       renderTED();
+      if(keepFocus&&tf.querySelector){var current=tf.querySelector('button[aria-pressed="true"]');if(current&&current.focus)current.focus({preventScroll:true});}
     });
   }
   renderTED();
@@ -2129,7 +2135,7 @@
       if(!fw) return;
       var all=["全部"].concat(CATS);
       fw.innerHTML=all.map(function(c){
-        return '<button class="filterbtn'+(FCAT===c?" active":"")+'" data-c="'+esc(c)+'">'+esc(c)+'</button>';
+        return '<button type="button" class="filterbtn'+(FCAT===c?" active":"")+'" data-c="'+esc(c)+'" aria-pressed="'+(FCAT===c)+'">'+esc(c)+'</button>';
       }).join("");
     }
 
@@ -2211,9 +2217,11 @@
       ff.addEventListener("click", function(ev){
         var b=ev.target.closest?ev.target.closest(".filterbtn"):null;
         if(!b) return;
+        var keepFocus=document.activeElement===b;
         FCAT=b.getAttribute("data-c")||"全部";
         FCUR=null;               // 切分类回系列列表
         render();
+        if(keepFocus&&ff.querySelector){var current=ff.querySelector('button[aria-pressed="true"]');if(current&&current.focus)current.focus({preventScroll:true});}
       });
     }
     /* 列表点击：系列卡片进清单 / 返回按钮回列表 / 视频卡片直达播放页（由链接与点卡片共同承担） */
@@ -2310,9 +2318,9 @@
     });
     if(CQUT_TAG!=="全部" && avail.indexOf(CQUT_TAG)<0) CQUT_TAG = "全部";
     if(avail.length<=1 && CQUT_TAG==="全部"){ tw.innerHTML=""; return; }
-    var hs = ['<button class="filterbtn'+(CQUT_TAG==="全部"?" active":"")+'" data-t="全部">全部分类</button>'];
+    var hs = ['<button type="button" class="filterbtn'+(CQUT_TAG==="全部"?" active":"")+'" data-t="全部" aria-pressed="'+(CQUT_TAG==="全部")+'">全部分类</button>'];
     avail.forEach(function(k){
-      hs.push('<button class="filterbtn'+(CQUT_TAG===k?" active":"")+'" data-t="'+k+'">'+TAGNAME[k]+'</button>');
+      hs.push('<button type="button" class="filterbtn'+(CQUT_TAG===k?" active":"")+'" data-t="'+k+'" aria-pressed="'+(CQUT_TAG===k)+'">'+TAGNAME[k]+'</button>');
     });
     tw.innerHTML = hs.join("");
   }
@@ -2323,9 +2331,9 @@
     document.getElementById("cqut-check-note").textContent=window.CQUT_CHECK_NOTE ? "最近核查 "+(window.CQUT_CHECKED||"未知")+"："+window.CQUT_CHECK_NOTE : "";
     var fw = document.getElementById('cqutFilters');
     if(fw){
-      var hs = ['<button class="filterbtn'+(CQUT_CAT==="全部"?" active":"")+'" data-c="全部">全部</button>'];
+      var hs = ['<button type="button" class="filterbtn'+(CQUT_CAT==="全部"?" active":"")+'" data-c="全部" aria-pressed="'+(CQUT_CAT==="全部")+'">全部</button>'];
       Object.keys(CAT).forEach(function(k){
-        hs.push('<button class="filterbtn'+(CQUT_CAT===k?" active":"")+'" data-c="'+k+'">'+CAT[k]+'</button>');
+        hs.push('<button type="button" class="filterbtn'+(CQUT_CAT===k?" active":"")+'" data-c="'+k+'" aria-pressed="'+(CQUT_CAT===k)+'">'+CAT[k]+'</button>');
       });
       fw.innerHTML = hs.join("");
     }
@@ -2387,10 +2395,12 @@
     f.addEventListener("click", function(ev){
       var b = ev.target.closest ? ev.target.closest(".filterbtn") : null;
       if(!b) return;
+      var keepFocus=document.activeElement===b;
       CQUT_CAT = b.getAttribute("data-c") || "全部";
       CQUT_TAG = "全部";
       CQUT_PAGE = 1;
       render();
+      if(keepFocus&&f.querySelector){var current=f.querySelector('button[aria-pressed="true"]');if(current&&current.focus)current.focus({preventScroll:true});}
     });
   }
   var tf = document.getElementById('cqutTagFilters');
@@ -2398,9 +2408,11 @@
     tf.addEventListener("click", function(ev){
       var b = ev.target.closest ? ev.target.closest(".filterbtn") : null;
       if(!b) return;
+      var keepFocus=document.activeElement===b;
       CQUT_TAG = b.getAttribute("data-t") || "全部";
       CQUT_PAGE = 1;
       render();
+      if(keepFocus&&tf.querySelector){var current=tf.querySelector('button[aria-pressed="true"]');if(current&&current.focus)current.focus({preventScroll:true});}
     });
   }
   render();
@@ -3023,6 +3035,7 @@
   "use strict";
   var root=document.getElementById("view-magazines");if(!root)return;
   var pubs=Array.isArray(window.MAGAZINES)?window.MAGAZINES:[], byId=Object.create(null), records=Object.create(null), canSave=true;
+  var unclassified={id:"saved-unclassified",name:"旧版官方收藏 · 刊物未保存",category:"未归类",language:"unknown",description:"仅保留已确认官方域的原文入口"};
   var KEY="ai-magazine-reading-v1", session=window.AI_SESSION.read("ai-magazine-filters"), limit=18;
   function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
   function safeURL(url,pub){var m=/^https:\/\/([a-z0-9.-]+)(?:[/?#]|$)/i.exec(String(url||""));return !!(m&&pub&&Array.isArray(pub.hosts)&&pub.hosts.indexOf(m[1].toLowerCase())>=0&&!/[\s<>"'\\]/.test(url));}
@@ -3031,9 +3044,27 @@
   var seen=Object.create(null), articles=(Array.isArray(window.MAGAZINE_ARTICLES)?window.MAGAZINE_ARTICLES:[]).filter(function(a){
     if(!a||!a.title||!byId[a.publication]||!safeURL(a.url,byId[a.publication])||seen[a.url])return false;seen[a.url]=true;return true;
   }).sort(function(a,b){return (validDate(b.publishedAt)?b.publishedAt:"").localeCompare(validDate(a.publishedAt)?a.publishedAt:"");});
-  function read(){records=Object.create(null);try{var list=JSON.parse(window.localStorage.getItem(KEY)||"[]");if(Array.isArray(list))list.slice(0,1000).forEach(function(x){if(x&&typeof x.url==="string"&&/^https:\/\//.test(x.url))records[x.url]={fav:x.fav===true,read:x.read===true,at:Number(x.at)||0};});}catch(e){}}
-  function save(){try{var list=Object.keys(records).filter(function(k){return records[k].fav||records[k].read;}).sort(function(a,b){return records[b].at-records[a].at;}).slice(0,1000).map(function(k){return {url:k,fav:records[k].fav,read:records[k].read,at:records[k].at};});window.localStorage.setItem(KEY,JSON.stringify(list));}catch(e){canSave=false;}}
+  function articleCopy(a){return {publication:a.publication,title:String(a.title).slice(0,600),publishedAt:validDate(a.publishedAt)&&a.publishedAt<=String(window.MAGAZINES_CHECKED||"")?a.publishedAt:null,summary:typeof a.summary==="string"?a.summary.slice(0,1200):""};}
+  function currentArticle(url){return articles.find(function(a){return a.url===url;});}
+  function savedArticle(url,r){
+    var copy=r.article,p=copy&&byId[copy.publication];
+    if(copy&&typeof copy.title==="string"&&copy.title.trim()&&safeURL(url,p))return Object.assign(articleCopy(copy),{url:url,savedCopy:true});
+    var owners=pubs.filter(function(pub){return safeURL(url,pub);});
+    if(owners.length)return {publication:owners.length===1?owners[0].id:"",url:url,title:"旧版保存的原文（标题未保存）",publishedAt:null,summary:"",savedCopy:true};
+    return null;
+  }
+  function read(){records=Object.create(null);try{var list=JSON.parse(window.localStorage.getItem(KEY)||"[]");if(Array.isArray(list))list.slice(0,1000).forEach(function(x){
+    if(!x||typeof x.url!=="string"||!pubs.some(function(p){return safeURL(x.url,p);}))return;
+    var r={fav:x.fav===true,read:x.read===true,at:Number.isFinite(x.at)&&x.at>=0?x.at:0},a=currentArticle(x.url);
+    if(a)r.article=articleCopy(a);
+    else if(x.article&&typeof x.article.title==="string"&&x.article.title.trim()&&safeURL(x.url,byId[x.article.publication]))r.article=articleCopy(x.article);
+    records[x.url]=r;
+  });}catch(e){}}
+  function save(){try{var list=Object.keys(records).filter(function(k){return records[k].fav||records[k].read;}).sort(function(a,b){return records[b].at-records[a].at;}).slice(0,1000).map(function(k){var r=records[k],row={url:k,fav:r.fav,read:r.read,at:r.at};if(r.article)row.article=r.article;return row;});window.localStorage.setItem(KEY,JSON.stringify(list));}catch(e){canSave=false;}}
   read();
+  // Enrich existing records while their verified metadata is still in this feed.
+  // Legacy records outside it retain a clearly labelled original link, not a guessed title/date.
+  if(Object.keys(records).length)save();
   var q=document.getElementById("magazine-query"), category=document.getElementById("magazine-category"), mode=document.getElementById("magazine-mode"), selected=byId[session.publication]?session.publication:"all";
   var publication=document.getElementById("magazine-publication"),language=document.getElementById("magazine-language"),order=["latest","hot","featured"].indexOf(session.order)>=0?session.order:"latest";
   publication.innerHTML='<option value="all">全部刊物</option>'+pubs.map(function(p){return '<option value="'+esc(p.id)+'">'+esc(p.name)+'</option>';}).join("");
@@ -3051,6 +3082,7 @@
   function byRank(a,b){var pa=byId[a.publication],pb=byId[b.publication];return ((pa.language==="en"?1:0)-(pb.language==="en"?1:0))||a.publication.localeCompare(b.publication)||a.hotRank-b.hotRank||byDate(a,b);}
   function articleNote(a,p){
     var parts=[];
+    if(a.savedCopy)parts.push("已移出本期列表 · 保留已保存的原文入口；文章信息可能已变化");
     if(a.archive||(validDate(a.publishedAt)&&Date.now()-Date.parse(a.publishedAt+"T00:00:00+08:00")>180*86400000))parts.push("往期阅读");
     if(a.issue)parts.push(a.issue);
     var access=a.access||(["lifeweek","yimagazine"].indexOf(p.id)>=0?"数字刊 · 可能需要订阅":"");
@@ -3066,13 +3098,17 @@
     document.getElementById("magazine-directory-summary").textContent="浏览全部 "+pubs.length+" 本刊物 · 点击展开分类书架";
     var shelf=pubs.filter(function(p){return (category.value==="all"||p.category===category.value)&&(language.value==="all"||(p.language||"zh")===language.value);});
     document.getElementById("magazine-publishers").innerHTML=shelf.map(function(p){return '<div class="mag-pub'+(selected===p.id?' selected':'')+'" style="--pub-accent:'+accent(p)+'"><button type="button" class="mag-pick" data-mag-pub="'+esc(p.id)+'" aria-pressed="'+(selected===p.id)+'"><small>'+esc(p.category)+(p.language==="en"?' · 英文原文':'')+'</small><strong>'+esc(p.name)+'</strong><small>'+esc(p.description||"")+'</small></button><div class="mag-pub-foot"><span>'+countFor(p.id)+' 篇'+(p.status==="unavailable"?' · 核查受限':'')+'</span><a href="'+esc(p.url)+'" target="_blank" rel="noopener noreferrer" aria-label="打开'+esc(p.name)+'官方阅读渠道">官方阅读 ↗</a></div></div>';}).join("")||'<p class="mag-notice">此分类暂未收录刊物，可清除筛选查看全部。</p>';
-    var words=q.value.toLowerCase().trim().split(/\s+/).filter(Boolean), filtered=articles.filter(function(a){var p=byId[a.publication],r=records[a.url]||{},hay=[a.title,a.summary,a.featuredReason,p.name,p.description,p.category].join(" ").toLowerCase();return (selected==="all"||a.publication===selected)&&(category.value==="all"||p.category===category.value)&&(language.value==="all"||(p.language||"zh")===language.value)&&(order==="latest"||order==="hot"&&isHot(a)||order==="featured"&&isFeatured(a))&&(mode.value==="all"||mode.value==="fav"&&r.fav||mode.value==="read"&&r.read||mode.value==="unread"&&!r.read)&&words.every(function(w){return hay.indexOf(w)>=0;});});
+    var candidates=articles;
+    if(mode.value==="fav"||mode.value==="read")candidates=articles.concat(Object.keys(records).filter(function(url){return !seen[url]&&(records[url].fav||records[url].read);}).map(function(url){return savedArticle(url,records[url]);}).filter(Boolean));
+    var words=q.value.toLowerCase().trim().split(/\s+/).filter(Boolean), filtered=candidates.filter(function(a){var p=byId[a.publication]||unclassified,r=records[a.url]||{},hay=[a.title,a.summary,a.featuredReason,p.name,p.description,p.category].join(" ").toLowerCase();return (selected==="all"||a.publication===selected)&&(category.value==="all"||p.category===category.value)&&(language.value==="all"||(p.language||"zh")===language.value)&&(order==="latest"||order==="hot"&&isHot(a)||order==="featured"&&isFeatured(a))&&(mode.value==="all"||mode.value==="fav"&&r.fav||mode.value==="read"&&r.read||mode.value==="unread"&&!r.read)&&words.every(function(w){return hay.indexOf(w)>=0;});});
     filtered.sort(order==="hot"?byRank:order==="featured"?function(a,b){var ap=Number.isFinite(a.featuredPriority)?a.featuredPriority:999,bp=Number.isFinite(b.featuredPriority)?b.featuredPriority:999;return ap-bp||byDate(a,b);}:byDate);
     var chosen=byId[selected];
     document.getElementById("magazine-heading").textContent=(chosen?chosen.name+" · ":"")+names[order];
     document.getElementById("magazine-source-note").textContent=chosen?(chosen.sourceNote||chosen.note||"")+(chosen.status==="unavailable"?' 最近自动核查未能获取新列表，保留上次已核实文章。':''):"只整理官方渠道元数据与独立导读；部分原文需要登录或订阅。";
+    if(order!=="latest"&&candidates.some(function(a){return a.savedCopy;}))document.getElementById("magazine-source-note").textContent+=" 已移出本期的保存项请切到“最新文章”查看。";
+    if((selected!=="all"||category.value!=="all"||language.value!=="all")&&candidates.some(function(a){return a.savedCopy&&!a.publication;}))document.getElementById("magazine-source-note").textContent+=" 有旧记录未保存刊物信息，请选全部主题、刊物和语言查看。";
     document.getElementById("magazine-count").textContent="共 "+filtered.length+" 篇 · 已显示 "+Math.min(limit,filtered.length)+" 篇";
-    document.getElementById("magazine-list").innerHTML=filtered.slice(0,limit).map(function(a){var p=byId[a.publication],r=records[a.url]||{};return '<article class="mag-article" data-publication="'+esc(p.id)+'" style="--pub-accent:'+accent(p)+'"><div class="mag-meta"><span>'+esc(p.name)+(p.language==="en"?' · 英文':'')+'</span><time'+(validDate(a.publishedAt)?' datetime="'+a.publishedAt+'"':'')+'>'+esc(validDate(a.publishedAt)?a.publishedAt:'原文未标日期')+'</time></div>'+(order==="hot"?'<a class="mag-hot" href="'+esc(a.hotSource)+'" target="_blank" rel="noopener noreferrer">'+esc(a.hotLabel||'官网热榜')+' · 第 '+a.hotRank+' 名 · 核查 '+esc(a.hotCheckedAt)+'</a>':'')+'<h4><a href="'+esc(a.url)+'" target="_blank" rel="noopener noreferrer">'+esc(a.title)+'</a></h4>'+(articleNote(a,p)?'<div class="mag-notice">'+esc(articleNote(a,p))+'</div>':'')+(order==="featured"?'<p class="mag-reason">选读理由：'+esc(a.featuredReason)+'</p>':a.summary?'<p>'+esc(a.summary)+'</p>':'')+'<div class="mag-actions"><a class="top-btn" href="'+esc(a.url)+'" target="_blank" rel="noopener noreferrer">读原文 ↗</a><button type="button" class="top-btn mag-save" data-mag-action="fav" data-mag-url="'+esc(a.url)+'" aria-pressed="'+!!r.fav+'" aria-label="'+(r.fav?'取消收藏：':'收藏：')+esc(a.title)+'">'+(r.fav?'已收藏':'收藏')+'</button><button type="button" class="top-btn" data-mag-action="read" data-mag-url="'+esc(a.url)+'" aria-pressed="'+!!r.read+'" aria-label="'+(r.read?'标为未读：':'标为已读：')+esc(a.title)+'">'+(r.read?'已读 ✓':'标记已读')+'</button></div></article>';}).join("")||'<div class="mag-empty">'+(articles.length?(order==="hot"?'当前条件下没有可核实的官方热榜文章，可切换“最新文章”或重置筛选。':'没有匹配的文章。试试其他刊物、关键词，或重置筛选。'):'文章列表暂不可用，可先展开刊物书架使用官方阅读入口。')+'</div>';
+    document.getElementById("magazine-list").innerHTML=filtered.slice(0,limit).map(function(a){var p=byId[a.publication]||unclassified,r=records[a.url]||{};return '<article class="mag-article" data-publication="'+esc(p.id)+'" style="--pub-accent:'+accent(p)+'"><div class="mag-meta"><span>'+esc(p.name)+(p.language==="en"?' · 英文':'')+'</span><time'+(validDate(a.publishedAt)?' datetime="'+a.publishedAt+'"':'')+'>'+esc(validDate(a.publishedAt)?a.publishedAt:(a.savedCopy?'日期未保存':'原文未标日期'))+'</time></div>'+(order==="hot"?'<a class="mag-hot" href="'+esc(a.hotSource)+'" target="_blank" rel="noopener noreferrer">'+esc(a.hotLabel||'官网热榜')+' · 第 '+a.hotRank+' 名 · 核查 '+esc(a.hotCheckedAt)+'</a>':'')+'<h4><a href="'+esc(a.url)+'" target="_blank" rel="noopener noreferrer">'+esc(a.title)+'</a></h4>'+(articleNote(a,p)?'<div class="mag-notice">'+esc(articleNote(a,p))+'</div>':'')+(order==="featured"?'<p class="mag-reason">选读理由：'+esc(a.featuredReason)+'</p>':a.summary?'<p>'+esc(a.summary)+'</p>':'')+'<div class="mag-actions"><a class="top-btn" href="'+esc(a.url)+'" target="_blank" rel="noopener noreferrer">读原文 ↗</a><button type="button" class="top-btn mag-save" data-mag-action="fav" data-mag-url="'+esc(a.url)+'" aria-pressed="'+!!r.fav+'" aria-label="'+(r.fav?'取消收藏：':'收藏：')+esc(a.title)+'">'+(r.fav?'已收藏':'收藏')+'</button><button type="button" class="top-btn" data-mag-action="read" data-mag-url="'+esc(a.url)+'" aria-pressed="'+!!r.read+'" aria-label="'+(r.read?'标为未读：':'标为已读：')+esc(a.title)+'">'+(r.read?'已读 ✓':'标记已读')+'</button></div></article>';}).join("")||'<div class="mag-empty">'+(articles.length?(order==="hot"?'当前条件下没有可核实的官方热榜文章，可切换“最新文章”或重置筛选。':'没有匹配的文章。试试其他刊物、关键词，或重置筛选。'):'文章列表暂不可用，可先展开刊物书架使用官方阅读入口。')+'</div>';
     document.getElementById("magazine-more").style.display=filtered.length>limit?"":"none";
     if(!canSave)document.getElementById("magazine-storage-note").textContent="浏览器未允许保存阅读记录，本次操作仅在当前页面有效。";
   }
@@ -3083,7 +3119,15 @@
   ["latest","hot","featured"].forEach(function(name){document.getElementById("magazine-order-"+name).addEventListener("click",function(){order=name;changed();});});
   document.getElementById("magazine-reset").addEventListener("click",function(){selected="all";q.value="";category.value="all";mode.value="all";language.value="all";publication.value="all";order="latest";changed();});
   document.getElementById("magazine-more").addEventListener("click",function(){var before=limit;limit+=18;render();var next=document.querySelectorAll("#magazine-list h4 a")[before];if(next)next.focus();});
-  root.addEventListener("click",function(e){var el=e.target.closest?e.target.closest("button[data-mag-pub],button[data-mag-action]"):null;if(!el)return;if(el.dataset.magPub){selected=selected===el.dataset.magPub?"all":el.dataset.magPub;publication.value=selected;category.value="all";language.value="all";changed();var pubFocus=document.querySelector('[data-mag-pub="'+el.dataset.magPub+'"]');if(pubFocus)pubFocus.focus({preventScroll:true});return;}var url=el.dataset.magUrl,action=el.dataset.magAction;if(!seen[url]||["fav","read"].indexOf(action)<0)return;var r=records[url]||(records[url]={fav:false,read:false,at:0});r[action]=!r[action];r.at=Date.now();save();render();var replacement=document.querySelector('[data-mag-action="'+action+'"][data-mag-url="'+url.replace(/\\/g,"\\\\").replace(/"/g,'\\"')+'"]');if(!replacement)replacement=document.querySelector('[data-mag-action="'+action+'"]')||document.getElementById("magazine-heading");if(replacement)replacement.focus({preventScroll:true});});
+  root.addEventListener("click",function(e){var el=e.target.closest?e.target.closest("button[data-mag-pub],button[data-mag-action]"):null;if(!el)return;if(el.dataset.magPub){selected=selected===el.dataset.magPub?"all":el.dataset.magPub;publication.value=selected;category.value="all";language.value="all";changed();var pubFocus=document.querySelector('[data-mag-pub="'+el.dataset.magPub+'"]');if(pubFocus)pubFocus.focus({preventScroll:true});return;}
+    var url=el.dataset.magUrl,action=el.dataset.magAction,a=currentArticle(url)||(records[url]&&savedArticle(url,records[url]));if(!a||["fav","read"].indexOf(action)<0)return;
+    var buttons=Array.prototype.slice.call(document.querySelectorAll('[data-mag-action="'+action+'"]')),index=buttons.indexOf(el),r=records[url]||(records[url]={fav:false,read:false,at:0});
+    if(!a.savedCopy)r.article=articleCopy(a);
+    r[action]=!r[action];r.at=Date.now();save();render();
+    var replacement=document.querySelector('[data-mag-action="'+action+'"][data-mag-url="'+url.replace(/\\/g,"\\\\").replace(/"/g,'\\"')+'"]');
+    if(!replacement){var remaining=document.querySelectorAll('[data-mag-action="'+action+'"]');replacement=remaining[Math.min(Math.max(index,0),remaining.length-1)]||document.getElementById("magazine-heading");}
+    if(replacement)replacement.focus({preventScroll:true});
+  });
   window.addEventListener("storage",function(e){if(e.key===KEY||e.key===null){read();render();}});
   render();
 })();

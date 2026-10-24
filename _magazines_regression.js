@@ -50,6 +50,33 @@ module.exports=async function({inline,sandbox,ok}){
   ok(base.elements['magazine-list'].innerHTML.includes(articles[0].title)&&base.elements['magazine-count'].textContent.includes('共 1 篇'),'收藏/已读真实存储并支持收藏筛选');
   const reloaded=run('',base.saved);
   ok(reloaded.elements['magazine-mode'].value==='fav'&&reloaded.elements['magazine-list'].innerHTML.includes('已读 ✓'),'重新执行后保留筛选、收藏与已读记录');
+  const stored=JSON.parse(base.saved['ai-magazine-reading-v1']).find(x=>x.url===url);
+  ok(stored.article.title===articles[0].title&&stored.article.publication===articles[0].publication&&stored.article.publishedAt===articles[0].publishedAt,'期刊收藏保存当时已核实的标题、刊物和单篇日期，供容量滚动后继续阅读');
+  const removed=run('window.MAGAZINE_ARTICLES=window.MAGAZINE_ARTICLES.filter(function(a){return a.url!=='+JSON.stringify(url)+';});',{...base.saved});
+  ok(removed.elements['magazine-list'].innerHTML.includes(articles[0].title)&&removed.elements['magazine-list'].innerHTML.includes(url)&&removed.elements['magazine-list'].innerHTML.includes('已移出本期列表'),'文章移出当天列表后收藏仍有原文入口，并明确保存信息可能已变化');
+  removed.events['magazine-order-hot'].click();
+  ok(!removed.elements['magazine-list'].innerHTML.includes('href="'+url+'"'),'历史收藏不借旧快照伪造当前热榜');
+  removed.events['magazine-order-featured'].click();
+  ok(!removed.elements['magazine-list'].innerHTML.includes('href="'+url+'"'),'历史收藏不凭旧快照冒充本期编辑精选');
+  removed.events['magazine-reset'].click();
+  ok(!removed.elements['magazine-list'].innerHTML.includes('href="'+url+'"'),'历史收藏不增加当前最新文章数量或回流默认列表');
+  const oldURL='https://www.inewsweek.cn/society/2026-10-12/32494.shtml';
+  const legacy=run('',{'ai-magazine-reading-v1':JSON.stringify([{url:oldURL,fav:true,read:true,at:1}]),'ai-magazine-filters':'{"mode":"fav"}'});
+  const legacyHTML=legacy.elements['magazine-list'].innerHTML;
+  ok(legacyHTML.includes('href="'+oldURL+'"')&&legacyHTML.includes('标题未保存')&&legacyHTML.includes('日期未保存')&&!/<time[^>]*datetime=|>2026-10-12<\/time>/.test(legacyHTML),'旧版只有URL的收藏保留官方入口，不从URL猜标题或文章日期');
+  legacy.events['view-magazines'].click({target:{closest(){return {dataset:{magAction:'fav',magUrl:oldURL}};}}});
+  ok(legacy.elements['magazine-list'].innerHTML.includes('没有匹配')&&!JSON.parse(legacy.saved['ai-magazine-reading-v1']).find(x=>x.url===oldURL).fav,'旧版历史收藏可以正常取消，不产生无法操作的残留卡片');
+  const sharedURL='https://boyamedia.com/sys-nd/200.html';
+  const shared=run('window.MAGAZINE_ARTICLES=window.MAGAZINE_ARTICLES.filter(function(a){return a.url!=='+JSON.stringify(sharedURL)+';});',{'ai-magazine-reading-v1':JSON.stringify([{url:sharedURL,fav:true,at:1}]),'ai-magazine-filters':'{"mode":"fav"}'});
+  ok(shared.elements['magazine-list'].innerHTML.includes('href="'+sharedURL+'"')&&shared.elements['magazine-list'].innerHTML.includes('刊物未保存')&&shared.elements['magazine-list'].innerHTML.includes('日期未保存'),'共用官网域的旧版收藏仍可读，不猜人物或博客天下的具体刊物归属');
+  shared.elements['magazine-publication'].value='renwu';shared.events['magazine-publication'].change();
+  ok(!shared.elements['magazine-list'].innerHTML.includes('href="'+sharedURL+'"'),'仅有共用域的历史收藏不会被猜归到某一具体刊物筛选');
+  const tainted=run('',{'ai-magazine-reading-v1':JSON.stringify([
+    {url:'javascript:alert(1)',fav:true},
+    {url:'https://www.inewsweek.cn.evil.test/a',fav:true},
+    {url:oldURL,fav:true,at:1,article:{publication:'chinanewsweek',title:'<img src=x onerror=alert(1)>',publishedAt:'2099-01-01',summary:'<script>bad</script>',hotRank:1,featuredReason:'伪造精选'}}
+  ]),'ai-magazine-filters':'{"mode":"fav"}'});
+  ok(tainted.elements['magazine-list'].innerHTML.includes('&lt;img')&&!/<img|<script|javascript:|evil\.test|2099-01-01|伪造精选/.test(tainted.elements['magazine-list'].innerHTML),'本地收藏快照按官方域校验并转义，拒绝未来日期和伪造热榜精选字段');
   const escaped=run('window.MAGAZINE_ARTICLES=[{publication:"renwu",title:"<img src=x onerror=alert(1)>",url:"https://boyamedia.com/sys-nd/test.html",summary:"<script>bad</scr"+"ipt>",publishedAt:null}];');
   ok(escaped.elements['magazine-list'].innerHTML.includes('&lt;img')&&!escaped.elements['magazine-list'].innerHTML.includes('<img')&&!escaped.elements['magazine-list'].innerHTML.includes('<script>'),'期刊标题与导读统一转义，不能注入HTML');
   const bad=run('window.MAGAZINE_ARTICLES=[null,{publication:"unknown",title:"bad",url:"https://boyamedia.com/a"},{publication:"renwu",title:"bad",url:"javascript:alert(1)"},{publication:"renwu",title:"bad",url:"https://boyamedia.com.evil.test/a"}];');
