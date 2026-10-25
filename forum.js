@@ -4,11 +4,12 @@
    2026-10-22：官方pagelist核验分P及总时长；view API/播放页受限，未刷新播放量。
    2026-10-23：完整响应的分P与总时长未变，保留原元数据采集日期；播放统计继续受限。
    2026-10-24：完整响应的分P与总时长未变，保留原元数据采集日期；播放统计继续受限。
-   整理证据见 _learning_review_2026-10-18.json；本次联网记录见 _learning_review_2026-10-23.json；没有为了凑数补入未经核实的视频。 */
-window.FORUM_CHECKED = "2026-10-24";
-window.FORUM_UPDATED = "2026-10-22";
+   2026-10-25：独立核实9个BV的新播放数并单列采集日期；未核实项仍为10月14日，元数据日期不变。
+   整理证据见 _learning_review_2026-10-18.json；本次联网记录见 _learning_review_2026-10-25.json；没有为了凑数补入未经核实的视频。 */
+window.FORUM_CHECKED = "2026-10-25";
+window.FORUM_UPDATED = "2026-10-25";
 window.FORUM_PLAY_CAPTURED_AT = "2026-10-14";
-window.FORUM_REVIEW_NOTE = "10月24日核查：已尝试全部194个独立BV，完整复核190个的官方分P与总时长，未发现变化，其余保留上次数据；view API及播放页受限，累计播放保留10月14日历史值。分P核验不等于全片可播。";
+window.FORUM_REVIEW_NOTE = "10月25日实际尝试全部194个独立BV的官方view统计，9个取得完整且BV/标题一致的新计数（涉及9条收录），逐条标注采集10月25日；其余仍保留10月14日快照，不能当作全量已刷新。另pagelist完整核实190个，分P与总时长未发现变化，元数据日期仍10月22日。分P核验不等于全片可播。";
 window.FORUM_CATS = ["名人与企业家","国学讲坛","阳明心学"];
 window.FORUM_SERIES = [
   {cat:"名人与企业家", who:"马云", desc:"创业经历、教育与经营主题的演讲和访谈。优先从完整演讲入手，再看短剪辑。", vids:[
@@ -28,8 +29,8 @@ window.FORUM_SERIES = [
     {"t":"【高能混剪】雷军年度演讲2024（金句版）","bvid":"BV1jE421w7By","up":"AndyTalk","dur":"6:06","play":370363,"pageCount":1,"durationSeconds":366,"metadataCheckedAt":"2026-10-22"},
     {"t":"【全程回放】2023雷军年度演讲","bvid":"BV12u4y1q7ns","up":"UplusTech","dur":"197:35","play":293038,"pageCount":1,"durationSeconds":11855,"metadataCheckedAt":"2026-10-22"},
     {"t":"雷军：成功并不取决于你多努力、多聪明 听完后醍醐灌顶","bvid":"BV1sk4y1R7Tj","up":"-1该用户已成仙1-","dur":"11:38","play":1617319,"pageCount":1,"durationSeconds":698,"metadataCheckedAt":"2026-10-22"},
-    {"t":"【短的发布会】雷军社恐求学回忆录？小米MIX Fold3怒怼友商你叠徕了！","bvid":"BV1zx4y1f7Zc","up":"短的发布会","dur":"3:57","play":1193573,"pageCount":1,"durationSeconds":237,"metadataCheckedAt":"2026-10-22"},
-    {"t":"雷军：相信自己，一往无前","bvid":"BV18f4y197P1","up":"雷军","dur":"95:28","play":1045705,"pageCount":1,"durationSeconds":5728,"metadataCheckedAt":"2026-10-22"},
+    {"t":"【短的发布会】雷军社恐求学回忆录？小米MIX Fold3怒怼友商你叠徕了！","bvid":"BV1zx4y1f7Zc","up":"短的发布会","dur":"3:57","play":1193617,"pageCount":1,"durationSeconds":237,"metadataCheckedAt":"2026-10-22","playCapturedAt":"2026-10-25"},
+    {"t":"雷军：相信自己，一往无前","bvid":"BV18f4y197P1","up":"雷军","dur":"95:28","play":1046681,"pageCount":1,"durationSeconds":5728,"metadataCheckedAt":"2026-10-22","playCapturedAt":"2026-10-25"},
     {"t":"雷军还是那个雷军，但是小米它变了【雪鸡观察局200】","bvid":"BV11r4y197qs","up":"动动枪DongDongGun","dur":"9:57","play":1026050,"pageCount":1,"durationSeconds":597,"metadataCheckedAt":"2026-10-22"}
   ]},
   {cat:"名人与企业家", who:"马斯克", desc:"科技创业、第一性原理与人工智能等话题的访谈，另含传记和第三方评论；字幕以视频页为准。", vids:[
@@ -79,7 +80,7 @@ window.FORUM_SERIES = [
   {cat:"名人与企业家", who:"张一鸣", desc:"字节跳动创始人反复强调「延迟满足感」：把眼光放长的人赢面更大。", vids:[
     {"t":"【张一鸣】₂₀₁₇｜趁年轻完成知识和信息的原始积累","bvid":"BV1qa4y1V7a7","up":"励志演说君","dur":"15:17","play":275659,"pageCount":1,"durationSeconds":917,"metadataCheckedAt":"2026-10-22"},
     {"t":"张一鸣的创业之路（合集）更新至2020","bvid":"BV1gp4y1B7wu","up":"羊驼FF","dur":"271:38","play":137184,"pageCount":13,"durationSeconds":16298,"metadataCheckedAt":"2026-10-22"},
-    {"t":"张一鸣早期最精彩的采访没有之一","bvid":"BV19m411q7Jp","up":"B站金融学院","dur":"24:01","play":126148,"pageCount":2,"durationSeconds":1441,"metadataCheckedAt":"2026-10-22"},
+    {"t":"张一鸣早期最精彩的采访没有之一","bvid":"BV19m411q7Jp","up":"B站金融学院","dur":"24:01","play":127686,"pageCount":2,"durationSeconds":1441,"metadataCheckedAt":"2026-10-22","playCapturedAt":"2026-10-25"},
     {"t":"【中国超经典名人演讲视频集】两弹元勋，科学家，企业家，大学教授，校长，艺人，经济学家-口才，励志，人生，挑战，落泪，勇气，智慧，野心，搞笑，牛人","bvid":"BV1ut411n7Yv","up":"向往诗和远方qq","dur":"263:00","play":119723,"pageCount":39,"durationSeconds":15780,"metadataCheckedAt":"2026-10-22"},
     {"t":"每个创业者至少看五遍以上的访谈，不是三遍！ （张一鸣）","bvid":"BV1z7T7zJE9c","up":"B站金融大学","dur":"11:45","play":109450,"pageCount":2,"durationSeconds":705,"metadataCheckedAt":"2026-10-22"},
     {"t":"【值得观看】张一鸣：字节跳动CEO深度专访 趁年轻完成知识的原始积累！！！","bvid":"BV16x4y1V7KJ","up":"万众创薪","dur":"60:23","play":97715,"pageCount":3,"durationSeconds":3623,"metadataCheckedAt":"2026-10-22"},
@@ -113,7 +114,7 @@ window.FORUM_SERIES = [
   ]},
   {cat:"名人与企业家", who:"曾毓群", desc:"动力电池与产业经营的本人访谈、主旨演讲，另含相关产业观察；第三方观点不代表讲者本人。", vids:[
     {"t":"【宁德时代】曾毓群 对话 【红杉资本】沈南鹏","bvid":"BV13M4y1V7Vw","up":"B站迷你股东","dur":"65:01","play":7730,"pageCount":1,"durationSeconds":3901,"metadataCheckedAt":"2026-10-22"},
-    {"t":"宁德时代 曾毓群 的主旨演讲 【2023世界动力电池大会 】 6月9日","bvid":"BV1fh4y1B7cU","up":"土豆丝彭talk","dur":"10:03","play":1671,"pageCount":1,"durationSeconds":603,"metadataCheckedAt":"2026-10-22"},
+    {"t":"宁德时代 曾毓群 的主旨演讲 【2023世界动力电池大会 】 6月9日","bvid":"BV1fh4y1B7cU","up":"土豆丝彭talk","dur":"10:03","play":1678,"pageCount":1,"durationSeconds":603,"metadataCheckedAt":"2026-10-22","playCapturedAt":"2026-10-25"},
     {"t":"曾毓群全英文专访，一口流利口语畅谈宁德时代的未来…","bvid":"BV19Ptpe2EaF","up":"精彩英语演讲","dur":"27:02","play":1387,"pageCount":1,"durationSeconds":1622,"metadataCheckedAt":"2026-10-22"},
     {"t":"宁德时代创始人曾毓群最新全英文访谈@尼古拉唐根播客","bvid":"BV12UsremEVm","up":"闹海商业知识库","dur":"27:02","play":865,"pageCount":1,"durationSeconds":1622,"metadataCheckedAt":"2026-10-22"},
     {"t":"【价投148】宁德时代中报，市值＝2迪的电池龙头，还能高速增长吗？","bvid":"BV1sgbM6zEEd","up":"努力学习的阿乐","dur":"20:32","play":2439,"pageCount":1,"durationSeconds":1232,"metadataCheckedAt":"2026-10-22"},
@@ -144,7 +145,7 @@ window.FORUM_SERIES = [
     {"t":"于丹品读《论语》《庄子》系列","bvid":"BV1g9H6e1ED4","up":"史海守望","dur":"929:30","play":86615,"pageCount":25,"durationSeconds":55770,"metadataCheckedAt":"2026-10-22"},
     {"t":"《论语》心得","bvid":"BV1jb411h7q2","up":"龙马乾坤","dur":"187:07","play":29895,"pageCount":5,"durationSeconds":11227,"metadataCheckedAt":"2026-10-22"},
     {"t":"于丹《论语心得 | 庄子心得》系列合集","bvid":"BV1YwkZBxEZh","up":"朱家小仙的跟班","dur":"672:45","play":8414,"pageCount":4,"durationSeconds":40365,"metadataCheckedAt":"2026-10-22"},
-    {"t":"于丹趣品人生第1集","bvid":"BV1zb41167SX","up":"赛斯Seth资料学习","dur":"39:17","play":4652,"pageCount":1,"durationSeconds":2357,"metadataCheckedAt":"2026-10-22"},
+    {"t":"于丹趣品人生第1集","bvid":"BV1zb41167SX","up":"赛斯Seth资料学习","dur":"39:17","play":4667,"pageCount":1,"durationSeconds":2357,"metadataCheckedAt":"2026-10-22","playCapturedAt":"2026-10-25"},
     {"t":"于丹讲座1","bvid":"BV16s41127ss","up":"嘻嘻哈哈打怪兽_","dur":"35:38","play":4346,"pageCount":8,"durationSeconds":2138,"metadataCheckedAt":"2026-10-22"},
     {"t":"【人生规划】于丹：从情绪中发现真自我","bvid":"BV1dW411t7QC","up":"筱思云呓","dur":"23:31","play":2778,"pageCount":1,"durationSeconds":1411,"metadataCheckedAt":"2026-10-22"},
     {"t":"于丹感悟人生第7集","bvid":"BV1zb41167Ru","up":"赛斯Seth资料学习","dur":"40:04","play":2500,"pageCount":1,"durationSeconds":2404,"metadataCheckedAt":"2026-10-22"}
@@ -183,7 +184,7 @@ window.FORUM_SERIES = [
     {"t":"百家讲坛的最感动的片段 郦波教授真情流露！#百家讲坛","bvid":"BV171bE6xEru","up":"百家大讲堂","dur":"3:20","play":16200,"pageCount":1,"durationSeconds":200,"metadataCheckedAt":"2026-10-22"}
   ]},
   {cat:"国学讲坛", who:"康震", desc:"北师大教授讲八大家的文章与人生，提文字表达与文学素养。", vids:[
-    {"t":"康震-唐宋八大家","bvid":"BV1mt41167J4","up":"一点零一的N次方","dur":"283:00","play":291813,"pageCount":7,"durationSeconds":16980,"metadataCheckedAt":"2026-10-22"},
+    {"t":"康震-唐宋八大家","bvid":"BV1mt41167J4","up":"一点零一的N次方","dur":"283:00","play":291882,"pageCount":7,"durationSeconds":16980,"metadataCheckedAt":"2026-10-22","playCapturedAt":"2026-10-25"},
     {"t":"【唐宋八大家】人见人爱苏东坡","bvid":"BV13F411K7Df","up":"始皇迷弟","dur":"660:43","play":223553,"pageCount":18,"durationSeconds":39643,"metadataCheckedAt":"2026-10-22"},
     {"t":"康震《唐宋八大家》视频全集","bvid":"BV1Ryp1zbEUM","up":"优视部落","dur":"3856:09","play":138615,"pageCount":17,"durationSeconds":231369,"metadataCheckedAt":"2026-10-22"},
     {"t":"唐宋八大家【王安石】（康震）","bvid":"BV1Nr4y1t7Gx","up":"始皇迷弟","dur":"752:51","play":124028,"pageCount":21,"durationSeconds":45171,"metadataCheckedAt":"2026-10-22"},
@@ -191,7 +192,7 @@ window.FORUM_SERIES = [
     {"t":"【康震】演讲：怎样做一名好老师","bvid":"BV1rx411k7Ds","up":"青春风采lucy","dur":"8:00","play":72935,"pageCount":1,"durationSeconds":480,"metadataCheckedAt":"2026-10-22"},
     {"t":"【康震】苏东坡的夜晚，藏着每个成年人的情绪解药","bvid":"BV1TiPKzoEjG","up":"人民文学出版社166","dur":"16:55","play":39374,"pageCount":1,"durationSeconds":1015,"metadataCheckedAt":"2026-10-22"},
     {"t":"康震老师2026跨年演讲：人人都爱苏东坡！","bvid":"BV1WUvfBtEGL","up":"有典有故","dur":"15:53","play":35990,"pageCount":1,"durationSeconds":953,"metadataCheckedAt":"2026-10-22"},
-    {"t":"【个人演讲】康震《诗词、境界、人生》专题讲座（上、下）","bvid":"BV1HW411B7DH","up":"不羁智士","dur":"77:39","play":15180,"pageCount":2,"durationSeconds":4659,"metadataCheckedAt":"2026-10-22"}
+    {"t":"【个人演讲】康震《诗词、境界、人生》专题讲座（上、下）","bvid":"BV1HW411B7DH","up":"不羁智士","dur":"77:39","play":15186,"pageCount":2,"durationSeconds":4659,"metadataCheckedAt":"2026-10-22","playCapturedAt":"2026-10-25"}
   ]},
   {cat:"国学讲坛", who:"阎崇年", desc:"百家讲坛开山级节目，讲清朝十二帝疑案，历史科普经典。", vids:[
     {"t":"【清十二帝·疑案】顺治·康熙·雍正·乾隆（阎崇年）","bvid":"BV1Ac411s7rM","up":"始皇迷弟","dur":"320:26","play":160426,"pageCount":8,"durationSeconds":19226,"metadataCheckedAt":"2026-10-22"},
@@ -236,7 +237,7 @@ window.FORUM_SERIES = [
   ]},
   {cat:"阳明心学", who:"典籍里的中国", desc:"央视节目合集与相关片段。学习传习录时可先找对应一期，再结合原典阅读。", vids:[
     {"t":"纪录片《典籍里的中国》央视（全22集）","bvid":"BV1B121BGEAf","up":"小仙爱听书","dur":"2125:15","play":744866,"pageCount":18,"durationSeconds":127515,"metadataCheckedAt":"2026-10-22"},
-    {"t":"【央视纪录片】《典籍里的中国 第一季》全11期 4K高码（2021）","bvid":"BV15xJzzqE2d","up":"YouTube全球速递","dur":"810:11","play":283238,"pageCount":9,"durationSeconds":48611,"metadataCheckedAt":"2026-10-22"},
+    {"t":"【央视纪录片】《典籍里的中国 第一季》全11期 4K高码（2021）","bvid":"BV15xJzzqE2d","up":"YouTube全球速递","dur":"810:11","play":285507,"pageCount":9,"durationSeconds":48611,"metadataCheckedAt":"2026-10-22","playCapturedAt":"2026-10-25"},
     {"t":"[典籍里的中国]第一季全1080P-更至第11期[传习录] 20211010","bvid":"BV1Mr4y1P7ua","up":"千古風流","dur":"1104:33","play":123711,"pageCount":12,"durationSeconds":66273,"metadataCheckedAt":"2026-10-22"},
     {"t":"【原版视频】一开口就是高分作文！央视节目里的宝藏文案（一）","bvid":"BV1UY41187oe","up":"央视网快看","dur":"5:13","play":591432,"pageCount":1,"durationSeconds":313,"metadataCheckedAt":"2026-10-22"},
     {"t":"典籍里的中国（下架），完整版央视频APP上见，辛苦了","bvid":"BV1if4y1s7sk","up":"油炸黄金","dur":"5:55","play":3716491,"pageCount":1,"durationSeconds":355,"metadataCheckedAt":"2026-10-22"},
@@ -264,7 +265,7 @@ window.FORUM_SERIES = [
     {"t":"王阳明&传习录","bvid":"BV1G4411L7w8","up":"WithEric","dur":"1205:30","play":2705775,"pageCount":48,"durationSeconds":72330,"metadataCheckedAt":"2026-10-22"},
     {"t":"五百年来王阳明~郦波","bvid":"BV1w7WVzQE3Z","up":"米道转化者","dur":"617:34","play":23039,"pageCount":17,"durationSeconds":37054,"metadataCheckedAt":"2026-10-22"},
     {"t":"弱者靠意志力硬撑，强者用“事上练”碾压。——王阳明","bvid":"BV1C1AuzWEwN","up":"砺心社TheSoulforge","dur":"31:26","play":14315,"pageCount":1,"durationSeconds":1886,"metadataCheckedAt":"2026-10-22"},
-    {"t":"人物-熊逸[王阳明：一切心法1+2]全72集,普通读者罕有知道，王阳明原是一个被翻案的奸佞。《明实录》里的王阳明不但奸邪，还很有几分色厉内荏的丑态，是一个墙头草","bvid":"BV1xo4y1T7cU","up":"听书时间","dur":"1116:45","play":5089,"pageCount":56,"durationSeconds":67005,"metadataCheckedAt":"2026-10-22"}
+    {"t":"人物-熊逸[王阳明：一切心法1+2]全72集,普通读者罕有知道，王阳明原是一个被翻案的奸佞。《明实录》里的王阳明不但奸邪，还很有几分色厉内荏的丑态，是一个墙头草","bvid":"BV1xo4y1T7cU","up":"听书时间","dur":"1116:45","play":5155,"pageCount":56,"durationSeconds":67005,"metadataCheckedAt":"2026-10-22","playCapturedAt":"2026-10-25"}
   ]}
 ];
 window.XINXUE_GUIDE = {

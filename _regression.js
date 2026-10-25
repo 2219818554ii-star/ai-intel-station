@@ -55,6 +55,19 @@ module.exports = async function ({html, inline, sandbox, ok}) {
     const proof=forumProof(v.metadataCheckedAt),r=proof&&proof[v.bvid];
     return r&&r.http===200&&r.curlExit===0&&r.apiCode===0&&r.url==='https://api.bilibili.com/x/player/pagelist?bvid='+v.bvid&&Array.isArray(r.officialData)&&r.officialData.length>0&&Number.isInteger(v.pageCount)&&v.pageCount===r.officialData.length&&r.officialData.every((p,i)=>p.page===i+1&&Number.isInteger(p.cid)&&Number.isInteger(p.duration)&&p.duration>=0)&&v.durationSeconds===r.officialData.reduce((n,p)=>n+p.duration,0)&&String(v.dur).split(':').reduce((n,p)=>n*60+Number(p),0)===v.durationSeconds;
   }), '讲坛每条分P数与总秒数均匹配同日完整官方响应，未拿元数据冒充播放统计');
+  const forumPlayReports={};
+  ok(forumVideos.filter(v=>v.playCapturedAt).every(v=>{
+    const day=v.playCapturedAt;if(!/^\d{4}-\d{2}-\d{2}$/.test(day)||day>base.ctx.window.FORUM_CHECKED)return false;
+    if(!forumPlayReports[day])forumPlayReports[day]=JSON.parse(fs.readFileSync(path.join(__dirname,'_forum_plays_'+day+'.json'),'utf8'));
+    const report=forumPlayReports[day],r=report.attempts.find(x=>x.bvid===v.bvid);
+    return report.reviewDate===day&&r&&r.http===200&&r.curlExit===0&&r.apiCode===0&&r.url==='https://api.bilibili.com/x/web-interface/view?bvid='+v.bvid&&r.officialData?.bvid===v.bvid&&r.officialData.title===v.t&&Number.isSafeInteger(r.officialData.view)&&r.officialData.view>=0&&r.officialData.view===v.play;
+  }), '逐视频新播放量均有同日完整官方BV、标题和计数证据，不以局部成功冒充全量刷新');
+  const fundCheckDay=base.ctx.window.FUNDS_CHECKED,fundCheck=JSON.parse(fs.readFileSync(path.join(__dirname,'_funds_review_'+fundCheckDay+'.json'),'utf8'));
+  ok(fundCheck.checkedAt.slice(0,10)===fundCheckDay&&base.elements['funds-checked'].textContent===fundCheckDay&&base.elements['funds-updated'].textContent===base.ctx.window.FUNDS_UPDATED&&base.elements['funds-check-note'].textContent===base.ctx.window.FUNDS_CHECK_NOTE, '基金独立展示实抓核查日和最近成功内容更新日，账户快照不随核查滚动');
+  ok(fundCheck.observations.length===4&&base.ctx.window.FUNDS_HOLD.every(f=>{
+    const r=fundCheck.observations.find(x=>x.code===f.code);
+    return r&&r.httpStatus==='200'&&!r.error&&r.bytes>0&&/^[a-f0-9]{64}$/.test(r.sha256)&&r.url==='https://fund.eastmoney.com/pingzhongdata/'+f.code+'.js'&&r.nav?.unit===f.unit&&r.nav.dayPct===f.dayPct&&r.nav.navDate===f.navDate;
+  }), '本次基金核查逐只匹配完整官方来源、身份和公开净值，不只检查报告日期');
   const compCheckDates=run(x=>x.replace('var COMP = window.COMP || [];','var COMP = window.COMP || [];window.COMP_CHECKED="2099-01-01";'));
   ok(compCheckDates.elements['comp-check-note'].textContent.includes('2099-01-01')&&!compCheckDates.elements['comp-updated'].textContent.includes('2099-01-01'), '比赛来源核查日与最近成功内容更新日独立显示');
   const focus = base.ctx.window.FUNDS_STOCKS.focus;

@@ -1030,7 +1030,8 @@
 
   <div id="view-funds" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-funds">
     <div class="view-head"><h2>📈 基金看板 · 我的持仓</h2>
-      <p>只记录不荐股。金额与盈亏来自你自己的持仓，配色按国内习惯：<b style="color:#e02424">涨红</b> / <b style="color:#16a34a">跌绿</b>。数据更新于 <span id="funds-updated"></span></p>
+      <p>只记录不荐股。金额与盈亏来自你自己的持仓，配色按国内习惯：<b style="color:#e02424">涨红</b> / <b style="color:#16a34a">跌绿</b>。公开数据最近成功更新于 <span id="funds-updated"></span>，最近核查 <span id="funds-checked"></span>。</p>
+      <p id="funds-check-note" class="library-storage-note"></p>
     </div>
 
     <div id="funds-stats" style="margin-bottom:16px"></div>
@@ -2106,6 +2107,7 @@
       return list;
     }
     function knownPlay(v){return v&&typeof v.play==="number"&&Number.isFinite(v.play)&&v.play>=0?v.play:-1;}
+    function playDate(v){var d=v&&v.playCapturedAt;return typeof d==="string"&&/^\d{4}-\d{2}-\d{2}$/.test(d)&&d<=String(window.FORUM_CHECKED||"")?d:(window.FORUM_PLAY_CAPTURED_AT||"未知日期");}
     function seriesPlay(s){var known=s.vids.filter(function(v){return knownPlay(v)>=0;});return known.length?known.reduce(function(n,v){return n+v.play;},0):-1;}
 
     function renderGuide(){
@@ -2191,6 +2193,7 @@
             '<span class="chip" style="border-color:var(--line)">⏱ '+esc(v.dur||"")+'</span>'+
             (Number.isInteger(v.pageCount)&&v.pageCount>0?'<span class="chip" style="border-color:var(--line)" title="'+esc('官方分P元数据核验于 '+(v.metadataCheckedAt||'未知日期')+'；不代表已验证全部可播')+'">官方分P '+v.pageCount+'</span>':'')+
             '<span class="chip" style="border-color:var(--line)">▶ '+fmtPlay(v.play)+' 播放</span>'+
+            (knownPlay(v)>=0?'<span class="chip" style="border-color:var(--line)">播放采集 '+esc(playDate(v))+'</span>':'')+
           '</div>'+
           '<div style="margin-top:10px">'+
             '<a class="top-btn" style="background:#fb7185;border-color:#fb7185;color:#fff" href="https://www.bilibili.com/video/'+esc(v.bvid)+'" target="_blank" rel="noopener noreferrer">▶ 在B站播放 ↗</a>'+
@@ -2203,7 +2206,8 @@
     function render(){
       window.AI_SESSION.write("ai-forum-state",{cat:FCAT,who:FCUR===null?null:(seriesOf(FCAT)[FCUR]||{}).who,sort:FSORT});
       document.getElementById("forum-sort").value=FSORT;
-      document.getElementById("forum-sort-note").textContent=(FSORT==="hot"?"系列按已收录视频累计播放合计排序（不去重观众），进入系列后按单条播放量排序。":"精选顺序优先保留完整课程与主题学习路径。")+"播放量采集于 "+(window.FORUM_PLAY_CAPTURED_AT||"未知日期")+"，为历史累计值，非实时热榜；无可靠发布日期，暂不提供最新榜。";
+      var captureDates=[];SERIES.forEach(function(s){if(s&&Array.isArray(s.vids))s.vids.forEach(function(v){var d=playDate(v);if(knownPlay(v)>=0&&captureDates.indexOf(d)<0)captureDates.push(d);});});captureDates.sort();
+      document.getElementById("forum-sort-note").textContent=(FSORT==="hot"?"系列按已收录视频累计播放合计排序（不去重观众），进入系列后按单条播放量排序。":"精选顺序优先保留完整课程与主题学习路径。")+(captureDates.length>1?"播放量为不同日期的累计快照（"+captureDates.join(" / ")+"），每条视频注明采集日；非同期采样，非实时热榜。":"播放量采集于 "+(captureDates[0]||window.FORUM_PLAY_CAPTURED_AT||"未知日期")+"，为历史累计值，非实时热榜。")+"无可靠发布日期，暂不提供最新榜。";
       renderFilters();
       if(FCUR===null) renderSeries(); else renderVids();
     }
@@ -2640,6 +2644,9 @@
   var UP = document.getElementById('funds-updated');
   var u = window.FUNDS_UPDATED || "—";
   if(UP) UP.textContent = u;
+  document.getElementById('funds-checked').textContent=window.FUNDS_CHECKED||u;
+  var fundCheckNote=document.getElementById('funds-check-note');
+  fundCheckNote.textContent=window.FUNDS_CHECK_NOTE||"";fundCheckNote.hidden=!fundCheckNote.textContent;
 
   /* 纯文本，颜色统一由渲染层根据正负给（涨红跌绿） */
   function moneyTxt(v){

@@ -40,9 +40,15 @@ module.exports=async function({inline,sandbox,ok}){
   const sum=s=>s.vids.reduce((n,v)=>n+Math.max(0,known(v.play)),0),series=w.FORUM_SERIES.slice().sort((a,b)=>sum(b)-sum(a));
   ok(ordered(base.elements['forum-list'].innerHTML,series.map(s=>'<article class="cmp" data-open="'+esc(s.who)+'"')),'成长讲坛系列按已收录视频的累计播放合计真实排序');
   ok(base.elements['forum-sort-note'].textContent.includes(w.FORUM_PLAY_CAPTURED_AT)&&base.elements['forum-sort-note'].textContent.includes('不去重观众')&&base.elements['forum-sort-note'].textContent.includes('非实时'),'讲坛热度标明历史采集日、合计范围和非去重口径');
+  const marked=w.FORUM_SERIES.flatMap(s=>s.vids).filter(v=>v.playCapturedAt);
+  const playDates=new Set(w.FORUM_SERIES.flatMap(s=>s.vids).filter(v=>known(v.play)>=0).map(v=>v.playCapturedAt||w.FORUM_PLAY_CAPTURED_AT));
+  ok((playDates.size<=1||base.elements['forum-sort-note'].textContent.includes('非同期采样'))&&marked.every(v=>base.elements['forum-sort-note'].textContent.includes(v.playCapturedAt)), '讲坛局部新播放与未更新的旧快照分开标日，存在混合日期时说明非同期采样');
+  const splitForumDates=run(x=>x.replace('var SERIES = window.FORUM_SERIES || [];','var SERIES = window.FORUM_SERIES || [];window.FORUM_UPDATED="2099-01-01";'));
+  ok(!splitForumDates.elements['forum-sort-note'].textContent.includes('2099-01-01')&&splitForumDates.elements['forum-sort-note'].textContent.includes(w.FORUM_PLAY_CAPTURED_AT),'讲坛内容更新日期不冒充播放采集日期');
   const selected=series.find(s=>s.vids.length>3),vids=selected.vids.slice().sort((a,b)=>known(b.play)-known(a.play));
   base.events['forum-list'].click({target:{closest(selector){return selector==='[data-open]'?{getAttribute(){return selected.who;}}:null;}}});
   ok(ordered(base.elements['forum-list'].innerHTML,vids.map(v=>'data-vid="'+v.bvid+'"')),'进入系列后按单条视频播放量排序');
+  ok(vids.every(v=>base.elements['forum-list'].innerHTML.includes('播放采集 '+(v.playCapturedAt||w.FORUM_PLAY_CAPTURED_AT))),'讲坛视频卡按逐条采集日显示，新数据与旧快照均能看见来源日期');
   change(base,'forum-sort','curated');
   ok(base.elements['forum-stat'].textContent.includes('「'+selected.who+'」')&&base.elements['forum-list'].innerHTML.includes('data-vid="'+selected.vids[0].bvid+'"'),'视频层切换排序保留当前讲者，恢复精选视频顺序');
   change(base,'forum-sort','hot');

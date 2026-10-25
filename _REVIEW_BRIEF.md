@@ -31,7 +31,7 @@
   - `competitions.js`（全国比赛资源库 183 条）
   - `cqut.js`（重庆理工通知）
   - `rank.js`（排行榜：models/tools/combos/tables）
-- `magazines.js`（19 本期刊的官方入口、文章元数据、核查状态；当前848篇，48篇编辑精选）
+- `magazines.js`（19 本期刊的官方入口、文章元数据、核查状态；当前853篇，48篇编辑精选）
 
 **构建 / 校验 / 抓取脚本**
 - `_build.py` — 读 index.src.html + 各 .js，内联生成 `index.html` / `gh-pages/index.html` / `ai_intel_station_standalone.html`
@@ -95,3 +95,4 @@
 - `_magazines_cn.py` / `_magazines_rss.py` 是官方HTML/SSR/API与RSS1/RDF/RSS2/Atom的独立解析器。刷新可用 `--workers 3 --timeout 6` 并行核查，失败保留旧文章与榜单原核查日；新榜成功时去掉落榜标记但保留原文。报告的独立旧证据会跨失败轮次延续，不能用数据自己认证数据。
 - `_magazines_catalog_baseline.json` 保留已核实刊物身份、域名和基础文章量；扩展证据在 `_magazines_expansion_cn.json` / `_magazines_expansion_world.json`。元数据、热榜来源与编辑精选均有额外回归，不能只把下拉控件做出来而不实际排序。
 - 其他栏目：TED按精选、真实累计播放量、演讲年份排序，播放采集日 `TED_VIEWS_CAPTURED_AT` 独立于内容更新；讲坛系列按已收录视频累计播放合计、进入系列后按单视频播放，不去重观众且非实时；通知按明确原文日期或研究生/奖助/考试分组优先；比赛推荐为已有适配建议，不能冒称报名热度。新增 `_section_rankings_regression.js` 已接入自检。
+- 10月25日新增逐视频 `playCapturedAt`：完整官方view响应核对BV、标题和计数后才能更新该条；无新证据的播放数和默认 `FORUM_PLAY_CAPTURED_AT` 保留。局部成功不能改称全量刷新，混合日期须显示非同期采样及逐卡日期，对应 `_forum_plays_日期.json` 独立证据受自检约束。基金 `FUNDS_CHECKED` 与 `FUNDS_UPDATED` 分开；净值未变时内容日及原应用证据不动，新的核查记录另存并在页面明确显示。

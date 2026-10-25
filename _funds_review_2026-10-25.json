@@ -1,0 +1,138 @@
+{
+  "checkedAt": "2026-10-25T12:38:35.508220+08:00",
+  "source": "Eastmoney Tiantian Fund published NAV feed",
+  "observations": [
+    {
+      "code": "012920",
+      "url": "https://fund.eastmoney.com/pingzhongdata/012920.js",
+      "httpStatus": "200",
+      "sha256": "54c0c2df92df5db0934543d63edea0b3c8001f2c0a7e84cba01b2d5db0109281",
+      "bytes": 179883,
+      "sourceName": "易方达全球成长精选混合(QDII)人民币A",
+      "rawLast": {
+        "x": 1792598400000,
+        "y": 3.2572,
+        "equityReturn": -3.74,
+        "unitMoney": ""
+      },
+      "nav": {
+        "unit": 3.2572,
+        "dayPct": -0.0374,
+        "navDate": "2026-10-22"
+      },
+      "previousPublished": {
+        "x": 1792512000000,
+        "y": 3.3838,
+        "equityReturn": 1.45,
+        "unitMoney": ""
+      },
+      "before": {
+        "unit": 3.2572,
+        "dayPct": -0.0374,
+        "navDate": "2026-10-22"
+      },
+      "changed": false
+    },
+    {
+      "code": "024480",
+      "url": "https://fund.eastmoney.com/pingzhongdata/024480.js",
+      "httpStatus": "200",
+      "sha256": "01d25d9b4de9991a44552b74ddbd9947ba2c9a3bf2a5126a0e74c43e1504ebea",
+      "bytes": 45571,
+      "sourceName": "财通品质甄选混合A",
+      "rawLast": {
+        "x": 1792684800000,
+        "y": 1.4198,
+        "equityReturn": 0.09,
+        "unitMoney": ""
+      },
+      "nav": {
+        "unit": 1.4198,
+        "dayPct": 0.0009,
+        "navDate": "2026-10-23"
+      },
+      "previousPublished": {
+        "x": 1792598400000,
+        "y": 1.4185,
+        "equityReturn": -5.83,
+        "unitMoney": ""
+      },
+      "before": {
+        "unit": 1.4198,
+        "dayPct": 0.0009,
+        "navDate": "2026-10-23"
+      },
+      "changed": false
+    },
+    {
+      "code": "022432",
+      "url": "https://fund.eastmoney.com/pingzhongdata/022432.js",
+      "httpStatus": "200",
+      "sha256": "1e2514416f2d0e06e3712938f52798865c987da7bd7c65896e72865470b79cba",
+      "bytes": 82823,
+      "sourceName": "中欧中证A500指数发起A",
+      "rawLast": {
+        "x": 1792684800000,
+        "y": 1.1269,
+        "equityReturn": 2.03,
+        "unitMoney": ""
+      },
+      "nav": {
+        "unit": 1.1269,
+        "dayPct": 0.0203,
+        "navDate": "2026-10-23"
+      },
+      "previousPublished": {
+        "x": 1792598400000,
+        "y": 1.1045,
+        "equityReturn": -1.96,
+        "unitMoney": ""
+      },
+      "before": {
+        "unit": 1.1269,
+        "dayPct": 0.0203,
+        "navDate": "2026-10-23"
+      },
+      "changed": false
+    },
+    {
+      "code": "016452",
+      "url": "https://fund.eastmoney.com/pingzhongdata/016452.js",
+      "httpStatus": "200",
+      "sha256": "91afd9ec327c663d42d684a5343bb33e651fc2e1a5111942d75ad420610769b8",
+      "bytes": 149975,
+      "sourceName": "南方纳斯达克100指数发起(QDII)A",
+      "rawLast": {
+        "x": 1792598400000,
+        "y": 2.2296,
+        "equityReturn": -2.77,
+        "unitMoney": ""
+      },
+      "nav": {
+        "unit": 2.2296,
+        "dayPct": -0.0277,
+        "navDate": "2026-10-22"
+      },
+      "previousPublished": {
+        "x": 1792512000000,
+        "y": 2.2932,
+        "equityReturn": 1.06,
+        "unitMoney": ""
+      },
+      "before": {
+        "unit": 2.2296,
+        "dayPct": -0.0277,
+        "navDate": "2026-10-22"
+      },
+      "changed": false
+    }
+  ],
+  "unchangedScope": "All account and cash data; stock quotes; manager, portfolio, performance and opinion archives retain their original dates/values.",
+  "written": false,
+  "publicNAVChanged": false,
+  "checkMetadataWritten": true,
+  "contentUpdatedAt": "2026-10-24",
+  "navAppliedEvidenceDate": "2026-10-24",
+  "snapshotFixtureComparison": "All protected account fields and entire cash snapshot match the fixed October15 fixture.",
+  "accountComparison": "All pre-existing globals, holdings, cash, stocks and deep archive equal before/after; only separate check globals added."
+}
