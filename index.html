@@ -3,9 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 情报站 · 日报 · 排行榜 · AI 上手</title>
+<title>今天 · 罗浩的工作台</title>
 <meta name="description" content="AI 情报站：每日 AI 晨报、大模型实力排行榜、可报名比赛、AI 学习资源与知名期刊精选。面向研究生与科研党的信息与阅读工具。">
-<meta name="theme-color" content="#4f46e5">
+<meta name="theme-color" content="#12634e">
+<meta name="robots" content="noindex,nofollow">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="workspace-icon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:title" content="AI 情报站 · 日报 · 排行榜 · AI 上手">
@@ -441,29 +444,85 @@
   }
   @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition:none!important;}}
 </style>
+<style id="workspace-style">
+/* Personal workbench: one navigation, one scrolling document, no external assets. */
+:root{--bg:#f5f6f2;--card-bg:#fff;--ink:#18312c;--ink-soft:#64736d;--line:#e2e7df;--brand:#12634e;--brand-soft:#e9f3ec;--accent:#217a64;--warn:#9a611c;--shadow:0 3px 18px rgba(27,57,44,.035);--sidebar-width:232px;--workspace-top:68px}
+body{background:var(--bg);font-size:15px;line-height:1.7;overflow-x:clip}
+button,input,select,textarea{font:inherit}button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}button{touch-action:manipulation}
+body.workspace-shell{padding-left:var(--sidebar-width)}
+.workspace-sidebar{position:fixed;inset:0 auto 0 0;width:var(--sidebar-width);z-index:100;background:#fff;border-right:1px solid var(--line);display:flex;flex-direction:column;padding:26px 16px 18px;overflow-y:auto}
+.workspace-brand{display:flex;gap:11px;align-items:center;padding:0 10px 25px;color:var(--ink)}.workspace-monogram{width:36px;height:36px;display:grid;place-items:center;background:var(--brand);color:#fff;font-size:12px;letter-spacing:1px;border-radius:11px;font-weight:800}.workspace-brand strong{display:block;font-size:16px;letter-spacing:.02em}.workspace-brand small{display:block;color:var(--ink-soft);font-size:11px}
+.workspace-sidebar .tabs{display:flex;flex-direction:column;flex-wrap:nowrap;overflow:visible;gap:5px;margin:0;padding:0;min-width:0}.workspace-sidebar .tab{border:0;border-radius:9px;text-align:left;padding:10px 13px;min-height:44px;background:transparent;color:#5c6b65;white-space:normal;font-size:14px;font-weight:550;line-height:1.4;display:flex;align-items:center;gap:10px;width:100%}.workspace-sidebar .tab:hover{background:#f2f6f0}.workspace-sidebar .tab.active{background:var(--brand-soft);color:var(--brand);font-weight:750;box-shadow:inset 3px 0 var(--brand)}.nav-group-label{margin:19px 13px 5px;font-size:10px;letter-spacing:.14em;font-weight:700;color:#8a968e;text-transform:uppercase;pointer-events:none}.nav-group-label:first-child{margin-top:0}.workspace-sidebar-foot{margin-top:auto;padding:24px 12px 0;font-size:11px;color:#8a968e}.workspace-sidebar-foot p{margin:5px 0}.workspace-sidebar-foot button{border:0;padding:0;background:none;color:var(--brand);font-size:12px;cursor:pointer;min-height:36px}.workspace-menu-close{display:none}
+.appbar{position:sticky;top:0;height:var(--workspace-top);z-index:60;background:rgba(245,246,242,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}.appbar-inner{height:100%;max-width:1320px;margin:auto;padding:0 36px;display:flex;gap:16px;align-items:center;flex-wrap:nowrap}.workspace-breadcrumb{font-size:12px;color:#8b958f}.workspace-breadcrumb strong{font-weight:650;color:var(--ink);padding-left:13px}.workspace-header-actions{margin-left:auto;display:flex;align-items:center;gap:16px}.workspace-header-date{font-size:12px;color:var(--ink-soft)}.workspace-search-button{min-height:36px;padding:5px 11px;border:1px solid var(--line);border-radius:8px;background:white;color:var(--ink-soft);font-size:12px;cursor:pointer}.workspace-search-button kbd{margin-left:16px;color:#909a94;font-size:10px}.workspace-menu-toggle{display:none}.workspace-menu-backdrop{display:none}
+#workspace-content{max-width:1392px;margin:0 auto;padding:0 34px 54px;min-height:calc(100vh - var(--workspace-top))}#workspace-content>.view,#view-daily{max-width:1180px;margin:0 auto;padding:30px 0}.view-head{margin-bottom:22px}.view-head h2{font-size:25px;line-height:1.35;font-weight:750;letter-spacing:-.025em}.view-head p{font-size:13px;max-width:850px;color:var(--ink-soft);line-height:1.8;margin:9px 0}.view-head p:empty{display:none}
+.hero{padding:10px 0 20px}.hero h1{font-size:31px;letter-spacing:-.035em}.hero .sub{font-size:13px}.topbar{padding:0;margin-bottom:8px}.autobar{font-size:11px;border-radius:7px}.toolbar{top:var(--appbar-height,68px);margin-top:12px;border-radius:12px;background:rgba(255,255,255,.97)}.tool-row{gap:7px}.toolbar .search,.toolbar select{min-height:39px}#main{padding-left:0;padding-right:0}.daily-summary{border-radius:14px}.hero .pill{box-shadow:none}
+.filterbar{gap:7px;margin:14px 0}.filterbtn{border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--ink-soft);padding:7px 12px;min-height:36px;font-size:12px}.filterbtn.active{background:var(--brand-soft);border-color:#c3d7ca;color:var(--brand);box-shadow:none}.filterbtn:hover{border-color:#a5c3b0}.top-btn{border-color:#c4d5c9;min-height:36px;border-radius:7px;color:var(--brand);padding:6px 12px;font-size:12px}.top-btn:hover{background:var(--brand);border-color:var(--brand);color:white}.reset-filter{color:var(--brand)}.library-tools{background:white;border:1px solid var(--line);border-radius:11px;padding:13px;margin:14px 0}.section-search,.library-select,.mag-tools select{border-color:var(--line);border-radius:7px;min-height:41px}.library-count,.library-storage-note,.mag-notice{font-size:12px;line-height:1.8;color:var(--ink-soft)}
+.cmp{box-shadow:none;border:1px solid var(--line);border-radius:12px;background:white}.cmp-head{padding:15px 17px}.cmp-name{line-height:1.65}.chip{border-radius:5px;font-size:11px}.cmp-detail{line-height:1.9}.cmp-list{gap:12px}.view-head+.lk-tip{font-size:12px;line-height:1.9;padding:12px 15px}.lk-tip{background:#f0f4ec;border-color:#d9e4d3;color:#4f6457}.matrix-wrap{box-shadow:none;border-radius:11px}.matrix-wrap th{background:#eef3ec}.rank-card{box-shadow:none}.tab:hover,.top-btn:hover,.filterbtn:hover{transition:background .14s,border-color .14s}
+.mag-hero{padding:4px 0 21px;min-height:0;gap:18px}.mag-kicker{font-size:10px;letter-spacing:.16em;color:var(--brand)}.mag-hero h2{font-size:30px;letter-spacing:-.04em;margin:9px 0;line-height:1.4}.mag-hero p{font-size:13px;line-height:1.8}.mag-stamp{font-size:11px}.mag-orders{margin-top:19px;gap:8px}.mag-orders button{padding:8px 16px;min-height:39px;font-size:12px;border-radius:7px}.mag-tools{border-radius:12px;padding:14px;box-shadow:none}.mag-directory{border-radius:10px}.mag-caption{margin-top:25px}.mag-caption h3{font-size:18px}.mag-article{border-radius:12px;box-shadow:none;padding:19px}.mag-article h4{font-size:16px;line-height:1.7;margin:11px 0}.mag-article p,.mag-reason{font-size:12px;line-height:1.9}.mag-actions .top-btn{min-height:36px}.mag-list{gap:13px}.mag-meta{font-size:10px}.mag-pub{border-radius:10px}
+.workbench-home{padding-top:31px!important}.home-heading{display:flex;gap:20px;align-items:flex-start;justify-content:space-between;margin-bottom:24px}.home-eyebrow{font-size:10px;letter-spacing:.18em;color:#7a8a7f;text-transform:uppercase;margin-bottom:8px}.home-heading h1{font-size:30px;letter-spacing:-.04em;line-height:1.35;margin:0 0 8px}.home-heading p{font-size:13px;color:var(--ink-soft);margin:0}.home-personal{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end;padding-top:6px}.home-personal span{font-size:10px;padding:5px 9px;border:1px solid #dce5d9;border-radius:6px;color:#6b7b6d;white-space:nowrap}
+.home-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin-bottom:24px}.home-metric{border:1px solid var(--line);border-radius:12px;background:#fff;padding:17px 20px;text-align:left;color:var(--ink);cursor:pointer;min-width:0}.home-metric strong{font-size:29px;line-height:1.3;font-weight:700;letter-spacing:-.04em}.home-metric>span{display:block;font-size:11px;color:var(--ink-soft);margin-bottom:5px}.home-metric small{font-size:11px;color:var(--ink-soft);margin-left:8px}.home-metric em{display:block;font-size:10px;color:#7b8980;font-style:normal;margin-top:6px}.home-metric:hover{border-color:#aac3af}.home-metric:first-child{background:var(--brand);color:#fff;border-color:var(--brand)}.home-metric:first-child>span,.home-metric:first-child small,.home-metric:first-child em{color:#cde5d7}
+.home-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,1fr);gap:19px;align-items:start}.home-column{display:grid;gap:19px;min-width:0}.home-panel{background:#fff;border:1px solid var(--line);border-radius:13px;padding:20px 22px;min-width:0}.home-panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}.home-panel-head h2{font-size:16px;line-height:1.5;margin:0;font-weight:750;letter-spacing:-.02em}.home-panel-head button,.home-panel-head a{background:none;border:0;padding:5px 0;font-size:11px;color:var(--brand);cursor:pointer;white-space:nowrap;min-height:32px}.home-panel-kicker{font-size:10px;letter-spacing:.09em;color:#849087;margin:0 0 5px}.home-task{padding:15px 0;border-top:1px solid #edf0e9}.home-task:first-child{padding-top:0;border-top:0}.home-task-meta{display:flex;gap:7px;align-items:center;flex-wrap:wrap;font-size:10px;color:#8b958d}.home-task h3{margin:7px 0 8px;font-size:17px;line-height:1.6;font-weight:700}.home-task p{margin:6px 0 12px;font-size:12px;color:var(--ink-soft);line-height:1.9}.home-task .top-btn{font-size:11px;min-height:35px}.home-task-state{color:var(--brand);background:var(--brand-soft);padding:2px 6px;border-radius:4px}.home-note{font-size:10px;line-height:1.8;color:#879288;margin:14px 0 0}.home-empty{padding:16px 0;color:var(--ink-soft);font-size:12px;line-height:1.9}.home-empty p{margin:0 0 10px}.home-attention{display:block;border:0;background:#fbf7ed;border-radius:8px;color:#8f6727;font-size:11px;line-height:1.8;padding:11px 13px;text-align:left;cursor:pointer;width:100%;margin-top:12px}.home-list{display:grid;gap:0}.home-list-item{display:block;border:0;border-top:1px solid #edf0e9;padding:12px 0;background:transparent;width:100%;text-align:left;color:var(--ink);cursor:pointer;min-width:0}.home-list-item:first-child{border:0;padding-top:0}.home-list-item strong{display:block;font-size:12px;line-height:1.8;font-weight:650;overflow-wrap:anywhere}.home-list-item small{display:block;color:#8a968c;font-size:10px;line-height:1.7;margin-top:4px}.home-list-item:hover strong{color:var(--brand)}.home-reading-item p{font-size:11px;line-height:1.9;color:var(--ink-soft);margin:6px 0}.home-resume{background:#edf3e9;border:1px solid #dfe8d8;border-radius:10px;padding:13px 15px;display:flex;gap:15px;align-items:center;justify-content:space-between;margin-bottom:21px}.home-resume small{font-size:10px;color:#7c8c7a}.home-resume strong{font-size:12px;display:block;line-height:1.8}.home-resume button{flex-shrink:0}.home-quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.home-quick-grid button{display:flex;align-items:center;gap:9px;min-height:43px;border:1px solid var(--line);border-radius:8px;background:#fafbf8;text-align:left;font-size:11px;padding:8px 10px;color:var(--ink);cursor:pointer}.home-footer{margin-top:22px;padding:12px 2px;display:flex;justify-content:space-between;gap:12px;color:#8b958e;font-size:10px;flex-wrap:wrap}
+.workspace-mobile-nav{display:none}.workspace-search-dialog{width:min(680px,calc(100vw - 24px));max-height:80dvh;padding:0;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);box-shadow:0 25px 100px #123a2940}.workspace-search-dialog::backdrop{background:#102b275a;backdrop-filter:blur(3px)}.workspace-search-head{padding:15px 17px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--line)}.workspace-search-head input{border:0;outline:none;width:100%;min-width:0;font-size:15px;min-height:36px;background:white;color:var(--ink)}.workspace-search-head button{border:1px solid var(--line);border-radius:5px;background:transparent;color:var(--ink-soft);font-size:10px;padding:6px 8px;cursor:pointer}.workspace-search-results{padding:10px;overflow-y:auto;max-height:calc(80dvh - 120px)}.workspace-search-result{display:block;width:100%;text-align:left;border:0;border-radius:8px;background:white;padding:10px 12px;cursor:pointer;color:var(--ink)}.workspace-search-result:hover,.workspace-search-result:focus{background:var(--brand-soft)}.workspace-search-result span{display:block;font-size:10px;color:#83917f;margin-bottom:3px}.workspace-search-result strong{font-size:13px;font-weight:650;line-height:1.7}.workspace-search-footer{font-size:10px;color:#8b958e;border-top:1px solid var(--line);padding:9px 18px}.workspace-search-empty{font-size:13px;color:var(--ink-soft);padding:20px}
+.research-hero{background:transparent;border:0;padding:0 0 17px;border-radius:0;gap:15px}.research-hero h2{font-size:27px}.research-hero p{font-size:13px}.research-workspace{padding:18px 20px;border-radius:12px}.research-stats{gap:10px}.research-stat{padding:13px 16px;box-shadow:none}.research-stat strong{font-size:25px}.research-task{border-radius:11px;box-shadow:none}.research-task h3{font-size:17px;line-height:1.8}.research-task-bottom{font-size:11px}.research-detail-section{font-size:13px;line-height:1.95;color:var(--ink-soft)}.research-detail-section h4{font-size:11px;color:var(--brand);margin:15px 0 4px}.research-detail-section p{white-space:pre-wrap;margin:0;overflow-wrap:anywhere}.research-secondary{margin-top:17px;border:1px solid var(--line);background:white;border-radius:11px;padding:14px 18px}.research-secondary>summary{cursor:pointer;font-size:13px;font-weight:650}.research-secondary .research-section-head{margin-top:14px}.research-result,.research-source{font-size:11px;color:var(--ink-soft)}.research-private-board{display:none}
+#toTop{bottom:24px;right:24px;width:38px;height:38px;border-radius:10px;background:var(--brand);box-shadow:none}
+@media(min-width:901px){.workspace-menu-close,.workspace-menu-toggle{display:none!important}.workspace-sidebar[aria-hidden="true"]{visibility:visible}.workspace-menu-backdrop{display:none!important}.workspace-sidebar .tabs .tab{justify-content:flex-start}.workspace-sidebar .tabs{max-height:none}.workspace-sidebar .tabs:before,.workspace-sidebar .tabs:after{display:none}.research-stats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(min-width:901px) and (max-width:1120px){:root{--sidebar-width:206px}#workspace-content{padding-left:24px;padding-right:24px}.appbar-inner{padding-left:25px;padding-right:25px}.home-grid{grid-template-columns:minmax(0,1fr) minmax(240px,.8fr)}.home-panel{padding:17px}.workspace-header-date{display:none}.home-personal{display:none}}
+@media(max-width:900px){:root{--workspace-top:60px}body.workspace-shell{padding-left:0;padding-bottom:calc(66px + env(safe-area-inset-bottom))}.appbar-inner{padding:0 17px;gap:10px}.workspace-breadcrumb>span{display:none}.workspace-breadcrumb strong{padding:0;font-size:14px}.workspace-header-actions{gap:8px}.workspace-header-date{display:none}.workspace-search-button{font-size:0;padding:6px 9px;min-width:34px;min-height:34px}.workspace-search-button:before{content:'⌕';font-size:22px;line-height:1}.workspace-search-button kbd{display:none}.workspace-menu-toggle{display:inline-flex;align-items:center;justify-content:center;border:0;background:transparent;color:var(--ink);font-size:20px;width:34px;height:36px;cursor:pointer}.workspace-sidebar{width:min(310px,86vw);padding:22px 16px;transform:translateX(-105%);visibility:hidden;transition:transform .18s ease,visibility .18s;height:100dvh;box-shadow:0 0 45px #18352b26}.workspace-menu-open .workspace-sidebar{transform:translateX(0);visibility:visible}.workspace-menu-close{display:block;position:absolute;right:15px;top:18px;width:34px;height:34px;background:#f3f6ef;border:0;border-radius:7px;color:var(--ink);font-size:21px;cursor:pointer}.workspace-menu-open .workspace-menu-backdrop{display:block;position:fixed;inset:0;background:#10292155;border:0;z-index:90;padding:0}.workspace-menu-open{overflow:hidden}.workspace-sidebar .tabs{overflow:visible;flex-direction:column;gap:3px}.workspace-sidebar .tab{padding:11px 14px;font-size:14px}.nav-group-label{margin-top:16px}.workspace-mobile-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));position:fixed;bottom:0;left:0;right:0;z-index:70;padding:6px 10px calc(6px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--line);backdrop-filter:blur(15px)}.workspace-mobile-nav button{display:flex;flex-direction:column;gap:0;align-items:center;justify-content:center;min-height:46px;border:0;border-radius:8px;background:transparent;color:#87908a;font-size:10px;cursor:pointer}.workspace-mobile-nav button>span{font-size:19px;line-height:1.3}.workspace-mobile-nav button[aria-current="page"]{color:var(--brand);background:#eff5eb;font-weight:700}.workspace-mobile-nav button[aria-expanded="true"]{color:var(--brand)}#workspace-content{padding:0 17px 25px}#workspace-content>.view,#view-daily{padding-top:22px}.view-head{margin-bottom:17px}.view-head h2{font-size:23px}.view-head p{font-size:12px}.hero{padding:4px 0 16px}.hero h1{font-size:27px}.toolbar{border-radius:10px}.home-heading{margin-bottom:19px}.home-heading h1{font-size:26px}.home-heading p{font-size:12px}.home-personal{display:none}.home-metrics{gap:8px;margin-bottom:18px}.home-metric{padding:13px 11px;border-radius:10px}.home-metric strong{font-size:24px}.home-metric>span{font-size:10px}.home-metric small{display:block;margin-left:0;font-size:10px}.home-metric em{display:none}.home-grid{grid-template-columns:1fr;gap:15px}.home-column{gap:15px}.home-panel{padding:17px 18px}.home-panel-head{margin-bottom:11px}.home-panel-head h2{font-size:15px}.home-task h3{font-size:17px}.home-footer{font-size:10px}.home-resume{margin-bottom:17px;padding:11px 13px}.home-resume strong{font-size:11px}.home-resume .top-btn{font-size:10px;min-height:34px;padding:5px 9px}.mag-hero h2{font-size:25px}.mag-hero p{font-size:12px}.mag-hero{padding-bottom:15px}.mag-article{padding:16px}.mag-article h4{font-size:16px}.mag-orders{margin-top:15px}.mag-orders button{min-height:38px;padding:7px 13px}.mag-tools .section-search{width:100%}.research-hero{flex-wrap:wrap}.research-hero h2{font-size:24px}.research-hero-actions{width:100%;justify-content:flex-start}.research-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.research-stat{padding:11px 13px}.research-stat strong{font-size:23px}.research-workspace{padding:15px}.research-secondary{padding:13px 15px}#toTop{bottom:calc(82px + env(safe-area-inset-bottom));right:15px;width:35px;height:35px}.mag-actions .top-btn{min-height:39px}.chip{font-size:10px}.cmp-head{padding:14px}.workspace-search-dialog{margin:80px auto auto}.workspace-search-results{max-height:60dvh}}
+@media(prefers-reduced-motion:reduce){.workspace-sidebar{transition:none}html{scroll-behavior:auto}}
+
+/* Native task text is the first content, rather than a second hero screen. */
+.research-task-details{margin-top:13px;padding-top:4px;border-top:1px solid var(--line)}.research-task-details h4{font-size:11px;color:var(--brand);margin:14px 0 4px}.research-task-details p{white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px;line-height:1.95;color:#52665c;margin:0}.research-record{padding:17px;border:1px solid var(--line);border-radius:11px;margin:12px 0;background:#fff}.research-record h4{font-size:16px;margin:0 0 8px}.research-record p{font-size:12px;line-height:1.9;white-space:pre-wrap;overflow-wrap:anywhere}.research-record-times{font-size:11px;color:var(--ink-soft)}.research-chart-box,.research-completed-panel{border:1px solid var(--line);border-radius:11px;background:white;padding:14px 18px;margin:17px 0}.research-chart-box>summary,.research-completed-panel>summary{cursor:pointer;font-size:13px;font-weight:650}.research-task-list{margin-top:13px}.research-filters{margin:14px 0}.research-risk-note{font-size:11px;line-height:1.8;padding:9px 11px;margin:10px 0 13px}.research-completed-list button{font:inherit}
+@media(max-width:900px){.research-hero{flex-wrap:nowrap;align-items:flex-start;gap:10px}.research-hero>div{flex:1;min-width:0}.research-hero>button{font-size:10px;padding:6px 9px;min-height:34px;white-space:nowrap;flex-shrink:0}.research-hero h2{font-size:22px;line-height:1.4}.research-hero p{font-size:11px;line-height:1.8}.research-kicker{font-size:10px}.research-sync{font-size:10px;line-height:1.8;margin:5px 0 11px}.research-stats{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-bottom:10px}.research-stat{padding:10px 8px;border-radius:9px}.research-stat span{font-size:10px}.research-stat strong{font-size:21px;margin-top:2px}.research-stat small{font-size:9px;line-height:1.5}.research-filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.research-filters input{grid-column:1/-1;min-width:0;width:100%;min-height:40px}.research-filters select{min-width:0;width:100%;min-height:37px;font-size:11px}.research-filters button{min-height:31px;grid-column:1/-1;justify-self:end;font-size:10px;padding:4px 9px}.research-risk-note{font-size:10px;margin:8px 0 12px;padding:8px 10px}.research-task{padding:15px}.research-section-head h3{font-size:16px}.research-task h3{font-size:16px}.research-task-details p{font-size:12px}.research-task-details h4{font-size:10px}.research-chart-box,.research-completed-panel{padding:12px 14px}}
+
+.research-task-details dl{margin:0}.research-task-details dt{font-size:11px;font-weight:700;color:var(--brand);margin:14px 0 5px}.research-task-details dd{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px;line-height:1.95;color:#52665c}.research-record dl{margin:0}.research-record dt{font-size:11px;font-weight:700;color:var(--brand);margin:12px 0 4px}.research-record dd{margin:0;font-size:12px;line-height:1.9;white-space:pre-wrap;overflow-wrap:anywhere}@media(max-width:900px){.research-task-details dt{font-size:10px}.research-task-details dd{font-size:12px}}
+
+</style>
 </head>
-<body>
-  <a class="skip-link" href="#main" id="skip-content">跳到正文</a>
-  <div class="appbar">
-    <div class="appbar-inner">
-      <div class="brand">AI 情报站 <small class="brand-summary">日报 · 排名 · 学习</small><small class="nav-hint">栏目可左右滑动 →</small></div>
-      <nav class="tabs" role="tablist" aria-label="主导航">
-        <button class="tab active" id="tab-daily" role="tab" aria-selected="true" aria-controls="view-daily" data-tab="daily">📰 每日日报</button>
-        <button class="tab" id="tab-rank" role="tab" aria-selected="false" aria-controls="view-rank" data-tab="rank">🏆 实力排行榜</button>
-        <button class="tab" id="tab-comp" role="tab" aria-selected="false" aria-controls="view-comp" data-tab="comp">🏁 可报名比赛</button>
-        <button class="tab" id="tab-learn" role="tab" aria-selected="false" aria-controls="view-learn" data-tab="learn">📚 AI 上手</button>
-        <button class="tab" id="tab-ted" role="tab" aria-selected="false" aria-controls="view-ted" data-tab="ted">🎓 TED 英语</button>
-        <button class="tab" id="tab-forum" role="tab" aria-selected="false" aria-controls="view-forum" data-tab="forum">🌱 成长讲坛</button>
-        <button class="tab" id="tab-magazines" role="tab" aria-selected="false" aria-controls="view-magazines" data-tab="magazines">🗞 期刊精选</button>
-    <button class="tab" id="tab-cqut" role="tab" aria-selected="false" aria-controls="view-cqut" data-tab="cqut">🏫 重庆理工</button>
-    <button class="tab" id="tab-funds" role="tab" aria-selected="false" aria-controls="view-funds" data-tab="funds">📈 基金看板</button>
-    <button class="tab" id="tab-research" role="tab" aria-selected="false" aria-controls="view-research" data-tab="research">🔬 科研</button>
-      </nav>
+<body class="workspace-shell">
+  <a class="skip-link" href="#workspace-content" id="skip-content">跳到正文</a>
+  <aside class="workspace-sidebar" id="workspace-menu" aria-label="全部栏目">
+    <div class="workspace-brand"><span class="workspace-monogram" aria-hidden="true">LH</span><div><strong>罗浩的工作台</strong><small>科研 · 机会 · 阅读</small></div></div>
+    <button type="button" id="workspace-menu-close" class="workspace-menu-close" aria-label="关闭全部栏目">×</button>
+    <nav class="tabs" role="tablist" aria-label="工作台栏目" aria-orientation="vertical">
+      <div class="nav-group-label" aria-hidden="true">日常 / Daily</div>
+      <button class="tab active" id="tab-home" role="tab" aria-selected="true" aria-controls="view-home" data-tab="home">⌂ 今天</button>
+      <button class="tab" id="tab-research" role="tab" aria-selected="false" aria-controls="view-research" data-tab="research">🔬 科研</button>
+      <button class="tab" id="tab-cqut" role="tab" aria-selected="false" aria-controls="view-cqut" data-tab="cqut">🏫 校园通知</button>
+      <button class="tab" id="tab-comp" role="tab" aria-selected="false" aria-controls="view-comp" data-tab="comp">🏁 赛事机会</button>
+      <div class="nav-group-label" aria-hidden="true">工具与学习 / Learn</div>
+      <button class="tab" id="tab-daily" role="tab" aria-selected="false" aria-controls="view-daily" data-tab="daily">📰 AI 日报</button>
+      <button class="tab" id="tab-rank" role="tab" aria-selected="false" aria-controls="view-rank" data-tab="rank">🏆 模型与工具</button>
+      <button class="tab" id="tab-learn" role="tab" aria-selected="false" aria-controls="view-learn" data-tab="learn">📚 AI 学习</button>
+      <div class="nav-group-label" aria-hidden="true">阅读与视野 / Read</div>
+      <button class="tab" id="tab-magazines" role="tab" aria-selected="false" aria-controls="view-magazines" data-tab="magazines">🗞 期刊阅读</button>
+      <button class="tab" id="tab-ted" role="tab" aria-selected="false" aria-controls="view-ted" data-tab="ted">🎓 TED 英语</button>
+      <button class="tab" id="tab-forum" role="tab" aria-selected="false" aria-controls="view-forum" data-tab="forum">🌱 成长讲坛</button>
+      <div class="nav-group-label" aria-hidden="true">个人 / Personal</div>
+      <button class="tab" id="tab-funds" role="tab" aria-selected="false" aria-controls="view-funds" data-tab="funds">📈 资产记录</button>
+    </nav>
+    <div class="workspace-sidebar-foot"><p id="workspace-network">个人资料与阅读放在同一处</p><button type="button" id="workspace-install" hidden>添加到桌面 ↗</button><p>内容有日期，记录有依据。</p></div>
+  </aside>
+  <button type="button" class="workspace-menu-backdrop" id="workspace-menu-backdrop" aria-label="关闭全部栏目" hidden></button>
+  <header class="appbar"><div class="appbar-inner"><button class="workspace-menu-toggle" id="workspace-menu-toggle" type="button" aria-label="打开全部栏目" aria-controls="workspace-menu" aria-expanded="false">☰</button><div class="workspace-breadcrumb"><span>我的工作台 /</span><strong id="workspace-current-title">今天</strong></div><div class="workspace-header-actions"><span class="workspace-header-date" id="workspace-header-date"></span><button type="button" class="workspace-search-button" id="workspace-search-open" aria-haspopup="dialog">搜索栏目与内容 <kbd>Ctrl K</kbd></button></div></div></header>
+  <div id="workspace-content">
+  <section id="view-home" class="view workbench-home" role="tabpanel" aria-labelledby="tab-home">
+    <div class="home-heading"><div><div class="home-eyebrow" id="home-date">MY DAILY WORKSPACE</div><h1>今天，从这里开始。</h1><p>先看科研安排，再挑值得投入的机会与阅读。</p></div><div class="home-personal"><span>化工 / 材料</span><span>电化学 / 储能</span></div></div>
+    <div id="home-resume" hidden></div>
+    <div class="home-metrics" id="home-metrics"></div>
+    <div class="home-grid">
+      <div class="home-column">
+        <section class="home-panel"><div class="home-panel-head"><h2>今天的科研</h2><button type="button" data-go="research">全部任务 ↗</button></div><div id="home-tasks"></div><div id="home-attention"></div><p id="home-research-stamp" class="home-note"></p></section>
+        <section class="home-panel"><div class="home-panel-head"><h2>校园事务</h2><button type="button" data-go="cqut">查看通知 ↗</button></div><div class="home-list" id="home-notices"></div><p class="home-note" id="home-notice-stamp"></p></section>
+        <section class="home-panel"><div class="home-panel-head"><h2>可继续了解的机会</h2><button type="button" data-go="comp">全部赛事 ↗</button></div><div class="home-list" id="home-opportunities"></div><p class="home-note">按已收录的明确截止排序；报名资格、费用与本校认定仍需核对。</p></section>
+      </div>
+      <div class="home-column">
+        <section class="home-panel"><div class="home-panel-head"><h2>今天读一点</h2><button type="button" data-go="magazines">期刊书架 ↗</button></div><div id="home-reading"></div><p class="home-note">按已有编辑精选挑选，不代表原刊热度，也不保证今天发表。</p></section>
+        <section class="home-panel"><div class="home-panel-head"><h2>常用工具</h2><button type="button" data-go="rank">比较模型 ↗</button></div><div class="home-quick-grid"><button type="button" data-go="daily">📰 今天的 AI 动态</button><button type="button" data-go="learn">📚 学习与实操</button><button type="button" data-go="ted">🎓 TED 练英语</button><button type="button" data-go="forum">🌱 系统听讲坛</button></div></section>
+        <section class="home-panel"><div class="home-panel-head"><h2>最近一次打开</h2></div><div id="home-opened" class="home-empty">打开过的文章或课程会出现在这里；打开不会自动标为已读。</div></section>
+      </div>
     </div>
-  </div>
-
-
-
+    <div class="home-footer"><span>先执行，再反馈，再同步；网页不会擅自替你确认任务完成。</span><span id="home-content-state">本地内容就绪</span></div>
+  </section>
   <!-- ================= DAILY VIEW ================= -->
   <div id="view-daily" role="tabpanel" aria-labelledby="tab-daily">
   <div class="autobar"><span id="autoBar">🔄 自动刷新初始化中…</span></div>
@@ -486,12 +545,12 @@
       <div class="matchinfo" id="matchInfo"></div>
       <nav class="nav" id="nav"></nav>
     </div>
-    <main id="main">
+    <div id="main">
       <div class="state" id="state">
         <div class="spinner"></div>
         <div>正在从 AI HOT 拉取日报…</div>
       </div>
-    </main>
+    </div>
     <footer id="footer" style="display:none"></footer>
   </div>
 
@@ -1006,26 +1065,23 @@
   </div>
 
   <div id="view-research" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-research">
-    <header class="research-hero"><div><span class="research-kicker" id="research-date">我的科研 · 北京时间</span><h2>🔬 科研 · 今日安排</h2><p id="research-focus">正在读取科研展示摘要…</p></div><div class="research-hero-actions"><a class="research-detail-link" href="https://luohao-research-desk.easyroot8192.chatgpt.site/?view=journal" target="_top" rel="noopener">实验记录 · 私有</a><button type="button" class="research-refresh" id="research-refresh">刷新任务</button></div></header>
-    <p id="research-sync-status" class="research-sync" role="status">正在核对发布数据…</p>
-    <section class="research-private-board" aria-label="完整科研任务"><div class="research-section-head"><h3>完整任务与实验记录</h3><a id="research-open-private" class="research-detail-link" href="https://luohao-research-desk.easyroot8192.chatgpt.site/" target="_top" rel="noopener">打开完整科研清单 ↗</a></div><p>进入后直接显示任务正文、完成标准和当前进展，无需逐项点开详情。需要登录时，请在打开的完整页面中使用本人账号继续；手机和电脑都可访问。</p></section>
-    <details class="research-public-summary"><summary>查看公开任务摘要 · 登录暂不可用时参考</summary>
-    <div class="research-stats" id="research-stats" aria-label="任务与工时概览"></div>
-    <section id="research-completed-panel" class="research-completed-panel" hidden aria-labelledby="research-completed-heading"><div class="research-section-head"><h3 id="research-completed-heading">✓ 已完成事项</h3><button type="button" data-rscope="done">查看全部已完成</button></div><div id="research-completed-list"></div><small>已完成事项退出待办；实验条件与证据验收继续单独核对。</small></section>
-    <aside class="research-risk-strip" aria-label="风险提醒"><p id="research-risk-note">正在核对风险…</p><button type="button" data-rscope="risk">查看</button></aside>
-    <section class="research-workspace" aria-labelledby="research-list-heading"><div class="research-section-head"><h3 id="research-list-heading">今日任务</h3><button type="button" id="research-reset" class="research-subtle">清除筛选</button></div>
-      <nav class="research-tabs" aria-label="科研任务视图"><button type="button" data-rscope="today" class="selected" aria-pressed="true">今天</button><button type="button" data-rscope="week" aria-pressed="false">未来7天</button><button type="button" data-rscope="risk" aria-pressed="false">风险待核对</button><button type="button" data-rscope="done" aria-pressed="false">已完成</button><button type="button" data-rscope="all" aria-pressed="false">全部任务</button></nav>
-      <div class="research-filters"><input type="search" id="research-search" aria-label="搜索科研任务" placeholder="搜索任务、编号、分类…"><select id="research-category" aria-label="筛选科研分类"><option value="all">全部分类</option></select><select id="research-state" aria-label="筛选任务状态"><option value="all">全部状态</option><option>计划中</option><option>进行中</option><option>待条件</option><option>待确认</option><option>已完成</option><option>已取消</option></select></div>
-      <p class="research-result" id="research-result-count" role="status"></p><div class="research-list" id="research-list" aria-live="polite"></div><button type="button" id="research-more" class="research-more" hidden>再看12项</button>
-    </section>
-    <details class="research-chart-box"><summary>未来7天 · 预计主动工时 <small>不含今天，点击日期查看当天计划</small></summary><div id="research-week-chart" class="research-week-chart" aria-label="未来7天预计工时图"></div><p class="research-chart-note">按未完成任务汇总；空工时标为待估。工时为计划估计，不含实验等待或设备占用时间，超过8小时以暖色提醒核对。</p><div class="research-progress-track" aria-hidden="true"><span id="research-progress-fill"></span></div><p id="research-progress" class="research-chart-note"></p></details>
-    <section class="research-feedback-box" id="research-feedback-box" aria-labelledby="research-feedback-heading"><h3 id="research-feedback-heading">有进展，在本对话里告诉我</h3><p>点击任务上的「反馈这项」，可带入编号。你反馈后，我核对并一起更新任务、实验记录与网站；可补充起止时间、实际工时、观察和证据。展示状态不等于实验已验收。</p><textarea id="research-feedback-text" aria-label="科研进展反馈内容">任务ID：
+    <header class="research-hero"><div><span class="research-kicker" id="research-date">我的科研 · 北京时间</span><h2>科研 · 把今天做清楚</h2><p id="research-focus">正在读取任务与执行内容…</p></div><button type="button" class="research-refresh" id="research-refresh">检查更新</button></header>
+    <p id="research-sync-status" class="research-sync" role="status"></p>
+    <div class="research-stats" id="research-stats" aria-label="任务与预计工时"></div>
+    <p id="research-risk-note" class="research-risk-note"></p>
+    <div class="research-filters"><input type="search" id="research-search" aria-label="搜索任务编号或完整执行内容" placeholder="搜任务、步骤、完成标准…"><select id="research-category" aria-label="任务分类"><option value="all">全部分类</option></select><select id="research-state" aria-label="任务状态"><option value="all">全部状态</option><option>计划中</option><option>进行中</option><option>待条件</option><option>待确认</option><option>已完成</option><option>已取消</option></select><button type="button" id="research-reset" class="research-refresh">清除筛选</button></div>
+    <div class="research-section-head"><h3 id="research-list-heading" tabindex="-1">今日任务</h3><span id="research-result-count" role="status"></span></div>
+    <div id="research-list" class="research-task-list"></div>
+    <button type="button" class="research-refresh" id="research-more" hidden>再看12项任务</button>
+    <details id="research-completed-panel" class="research-completed-panel" hidden><summary>已完成事项 · 执行完成与证据验收分别记录</summary><div id="research-completed-list"></div><button type="button" class="research-refresh" data-rscope="done">查看全部已完成</button></details>
+    <details class="research-chart-box"><summary>未来7天 · 预计主动工时</summary><div id="research-week-chart" class="research-week-chart" aria-label="未来7天预计主动工时图"></div><p class="research-chart-note">不含今天；工时是计划估计，等待、交通与实际工时分别记录。</p><div class="research-progress-track" aria-hidden="true"><span id="research-progress-fill"></span></div><p id="research-progress" class="research-chart-note"></p></details>
+    <section class="research-records" aria-labelledby="research-record-heading"><div class="research-section-head"><h3 id="research-record-heading" tabindex="-1">实验记录 · 原生只读</h3><span id="research-record-count" role="status"></span></div><p class="research-chart-note">这里只展示已经核对发布的记录。任务计划不会自动变成实做；未知起止时间与实际工时保持“待补充”。</p><div class="research-filters"><select id="research-record-task" aria-label="按任务筛选实验记录"><option value="all">全部关联任务</option></select><input type="search" id="research-record-query" aria-label="搜索实验记录" placeholder="搜索已记录的工作、观察或异常…"><button type="button" id="research-record-reset" class="research-refresh">清除记录筛选</button></div><div id="research-record-list"></div><button type="button" id="research-record-more" class="research-refresh" hidden>再看12条记录</button></section>
+    <section id="research-feedback-box" class="research-feedback"><h3>向本对话反馈进展</h3><p>在任务上点“反馈这项”，补好下面的文字后复制到本对话。网页不提交、不保存表单，也不会改任务状态。</p><label for="research-feedback-text">进展或调整内容</label><textarea id="research-feedback-text" rows="7">任务ID：
 进展 / 新情况：
 实际日期 / 希望调整到：
 实际主动工时（可选）：
 需要协调的事：</textarea><button type="button" class="research-refresh" id="research-copy">复制反馈内容</button></section>
-    <p class="research-result">点击上方“打开完整科研清单”，一次进入全部任务与实验记录；登录在完整页面中进行。</p><footer class="research-source"><details><summary>数据来源、隐私与更新方式</summary><p id="research-meta"></p><p>本页展示 Google 科研展示表审核后的6列摘要；完整科研清单显示本人可见的执行内容。完整科研总表、实验原始数据、配方和证据路径保持私有；风险提醒仅依据公开状态、日期和工时生成。</p><p>工作流：你看网站执行 → 在本对话反馈 → 我更新展示表并同步发布网站。网页刷新读取最新发布的摘要；不会绕过授权实时读取私有表。file:// 是电脑本地文件地址，其他设备请使用在线网站。</p></details></footer>
-    </details>
+    <footer class="research-source"><details><summary>来源、版本与事实边界</summary><p id="research-details-note" class="research-sync" role="status"></p><p id="research-meta"></p><p>日期、公开状态和预计工时来自原六字段摘要；执行正文及记录按已审核版本关联。完成标记不等于科学验证或证据验收通过。原始数据、凭据、联系人与本机证据路径未放入本页。</p></details></footer>
   </div>
 
   <div id="view-funds" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-funds">
@@ -1090,6 +1146,9 @@
     </div>
   </div>
 
+  </div><!-- workspace-content -->
+  <nav class="workspace-mobile-nav" aria-label="快捷入口"><button type="button" data-go="home"><span aria-hidden="true">⌂</span>今天</button><button type="button" data-go="research"><span aria-hidden="true">🔬</span>科研</button><button type="button" data-go="magazines"><span aria-hidden="true">▤</span>期刊</button><button type="button" data-menu-open aria-controls="workspace-menu" aria-expanded="false"><span aria-hidden="true">☰</span>全部</button></nav>
+  <dialog id="workspace-search" class="workspace-search-dialog" aria-label="搜索工作台"><div class="workspace-search-head"><input id="workspace-query" type="search" aria-label="搜索所有栏目" placeholder="搜索任务、文章、比赛或课程…" autocomplete="off"><button type="button" id="workspace-search-close">关闭</button></div><div id="workspace-search-results" class="workspace-search-results"></div><div class="workspace-search-footer" id="workspace-search-hint">输入关键词，跨栏目查找。任务进度仍以已同步记录为准。</div></dialog>
   <button id="toTop" title="回到顶部" aria-label="回到顶部">↑</button>
   <div id="copy-status" class="sr-only" role="status" aria-live="polite"></div>
   <dialog id="copy-dialog" aria-labelledby="copy-title" style="max-width:min(540px,calc(100vw - 32px));width:100%;border:1px solid var(--line);border-radius:14px;padding:20px;box-sizing:border-box">
@@ -1101,7 +1160,7 @@
 
   <script>
 /* AI 情报站 - 比赛数据（每日自动更新） */
-window.COMP_UPDATED = "2026-10-23";
+window.COMP_UPDATED = "2026-10-26";
 /* ============ COMPETITIONS (deadline review 2026-10-19; identities preserved) ============
    数据规则：走省赛/赛区选拔且官网赛区列表中没有重庆的赛事，一律不放 scope:"me"（挪 world 或不收）。
    已知案例：挑战杯 2026 报备页省赛仅 13 省，无重庆 → 挑战杯两条均为 world。 */
@@ -2020,8 +2079,8 @@ window.COMP_UPDATED = "2026-10-23";
      url:"http://aicx.52jingsai.com/"},
     {scope:"me", n:"2026 全国大学生人工智能应用实践大赛", type:"AI 应用/大模型", st:"open", ai:5, pri:2, team:"组队 / 单人可",
      org:"四川汇鑫创融大数据研究院主办；腾讯WorkBuddy为指定创作工具",
-     reg:"正文说明总报名至2026/12/27；列表显示10/25为第一场，三场任选，报名前再核对当场报名状态", run:"三场作品分别截至10/25、11/29、12/27当日23:59；按提交时间归入当场，各场独立评审，只需参加一场",
-     desc:"依托指定WorkBuddy工具制作并提交HTML作品，面向在校生（含研究生）及年满18周岁的其他人士。正文为三场任选，列表“周日截止”不等于全部赛事结束。", fit:"适合已有可演示AI工具作品的学生练习交付；先核对题目、费用和学院认定，不保证综测或评奖加分。", help:"可协助读题、制作原型、检查HTML导出和演示；成果须由本人审核。官网公示29元/人；报名列表与正文的截止范围有差异，第一场10/25 23:59前提交，后两场按原文安排核对，选定场次后以该场截止为准。",
+     reg:"正文总报名至2026/12/27；列表当前对应11/29场次，报名时再核对所选场次", run:"第一场10/25已结束；第二场10/26至11/29；第三场11/30至12/27，各场截止当日23:59、独立评审",
+     desc:"依托指定WorkBuddy工具制作并提交HTML作品，面向在校生（含研究生）及年满18周岁的其他人士。正文为三场任选，列表“周日截止”不等于全部赛事结束。", fit:"适合已有可演示AI工具作品的学生练习交付；先核对题目、费用和学院认定，不保证综测或评奖加分。", help:"可协助理解赛题、制作原型、核对HTML导出；成果须本人审核。官网公示29元/人，第二场现为10月26日至11月29日，第三场11月30日至12月27日；第一场结束不代表整个赛事结束。按所选场次交作品并核对当场报名状态。",
      url:"https://m.saikr.com/vse/AIPC26"},
     {scope:"me", n:"2026 全国大学生“人工智能+”创新创业大赛", type:"AI 应用/双创", st:"open", ai:5, pri:2, team:"初赛单人 / 决赛 1–3 人组队（可跨校跨专业）",
      org:"中国技术创业协会校企融合专业委员会（指导单位：中国技术创业协会）",
@@ -2058,9 +2117,9 @@ window.COMP_UPDATED = "2026-10-23";
      reg:"原公告报名至2026/10/18（已截止）；是否另开11/15场次报名须查官网，不能凭考试日期视为可报名", run:"四场任选其一：8/9、9/20、10/18、11/15（每场 9:00–23:00 任选 60 分钟线上客观题，云监考）；每场考后 5 个工作日出成绩",
      desc:"以人工智能领域知识为核心的线上客观题竞赛，聚焦基础概念、技术原理与应用场景，提供练习备赛，零基础友好。", fit:"AI 是你的核心加持，无论是否本专业都值得冲，我可代做选题/代码/论文。", help:"★ 低门槛镀金：研究生可报、专业不限、全程线上机考；客观题作答、有云监考系统，获奖发电子+纸质证书。适合作为 AI 知识『练手+镀金』一站，AI 帮你过知识点＋押题。",
      url:"https://new.saikr.com/vse/HZRGZN"},
-    {scope:"me", n:"2026大学生“麟创杯”创新数学竞赛", type:"数学知识赛/客观题", st:"open", ai:3, pri:3, team:"单人可",
+    {scope:"me", n:"2026大学生“麟创杯”创新数学竞赛", type:"数学知识赛/客观题", st:"closed", ai:3, pri:3, team:"单人可",
      org:"中国技术市场协会（指导单位）· 中国技术市场协会数智技术专业委员会 · 中创世技科技推广（北京）有限公司（赛氪承办）",
-     reg:"2026/4/29 – 2026/10/25 20:00（研究生可报；50元资料费）", run:"2026/10/24 10:00 – 10/25 23:00；考试期间任选一小时，一人一次机会",
+     reg:"2026/4/29 – 2026/10/25 20:00（报名已截止；原50元资料费）", run:"2026/10/24 10:00 – 10/25 23:00（本场考试已结束）",
      desc:"以数学分析与数学建模基础知识为核心的线上客观题机考（满分 100 分），提供免费练习知识库，按分数评一二三等/优秀奖，零基础友好。", fit:"适合愿意独立复习与答题的学生；先确认本校竞赛认定、50元费用和摄像头考试要求，不承诺加分或获奖。", help:"可协助赛前复习数学知识、讲解练习题。每人50元资料费且仅一次报名和考试机会；正式考试需摄像头与本人证件核验，禁止切屏和翻阅资料，必须独立完成。AI不得用于考试代答或实时外援，考试流程以组委会10/21指南为准。",
      url:"https://new.saikr.com/vse/LCBCXSX"},
     {scope:"me", n:"第七届中国人工智能大赛", type:"AI 安全/大模型/具身智能", st:"closed", ai:5, pri:1, team:"组队（高校/企业/科研院所可单独或联合组队）",
@@ -2073,8 +2132,8 @@ window.COMP_UPDATED = "2026-10-23";
   ];
 
 /* 本次实际请求全部已收录入口；访问受限不是来源已失效。 */
-window.COMP_CHECKED = "2026-10-25";
-window.COMP_CHECK_NOTE = "10月25日实际请求全部183项全国赛事、精选及退役原入口和官方备用源，共554个去重URL、120份可核查正文。另读发布者原页确认麟创杯10/25 20:00报名截止、23:00考试结束，未提前关闭；AIPC今天仅第一场交作品，后两场仍按原文区分。未发现足以新增退役的官方证据，保留原内容日期；受阻和404不等于整项赛事停办。";
+window.COMP_CHECKED = "2026-10-26";
+window.COMP_CHECK_NOTE = "10月26日实际请求全部183项全国赛事、精选、退役及学校通知/备用源，共554个去重入口，119份可核查正文。发布者原页确认麟创杯10/25 20:00报名、23:00考试均已截止，已关闭；AIPC仅第一场结束，第二场10/26开始、第三场仍开放计划，未误退整赛。受保护或超时不作死链结论。";
 
 </script>
   <script>
@@ -2723,11 +2782,11 @@ window.RANK_CHECK_NOTE = "10月25日实际重查AA当前榜、精确型号/推�
 </script>
   <script>
 /* AI 情报站 - 重庆理工大学通知（学校 / 各学院 / 各部门 / 学生会）
-   数据抓取于 2026-10-23，来源均为官网真实页面，URL 未编造。
+   数据抓取于 2026-10-26，来源均为官网真实页面，URL 未编造。
    cat: school=学校各部门 | college=各学院 | student=团委·学生会
    tag: 二级细分类，按「对研究生实际有影响的事」分，比 cat 更贴合筛选需求
    刷新后必须同步更新下面的 window.CQUT_UPDATED；_selfcheck.js 会卡住「超过 2 天未更新」的回退。 */
-window.CQUT_UPDATED = "2026-10-23";
+window.CQUT_UPDATED = "2026-10-26";
 
 /* 二级细分类（筛选按钮直接用它） */
 window.CQUT_TAGS = [
@@ -2742,6 +2801,15 @@ window.CQUT_TAGS = [
 ];
 
 window.CQUT_NOTICES = [
+  {
+    "t": "周末影院之“心随影动”经典电影赏析：《罗小黑战记2》",
+    "src": "学生工作部（处）",
+    "date": "2026-10-26",
+    "cat": "school",
+    "tag": "act",
+    "sum": "学校学生工作部（处）组织“周末影院之心随影动经典电影赏析”活动（我校心理健康教育经典活动，每周五晚相约），本期放映动画电影《罗小黑战记2》。面向全校学生（含研究生），免费参与，是课余放松的校园文化活动，无需报名。放映安排：花溪校区 2026年10月30日（周五）19:00，学生活动中心C108报告厅；两江校区 2026年10月31日（周六）19:00，汇文楼学术报告厅。罗浩按所在校区的时间地点前往即可；具体观影要求以正文为准。",
+    "url": "https://www.cqut.edu.cn/info/1106/72595.htm"
+  },
   {
     "t": "关于2026年国家助学金评定结果公示的更正通知",
     "src": "机械工程学院",
@@ -5764,8 +5832,8 @@ window.CQUT_SOURCES = {
 };
 
 /* 核查尝试与内容成功更新分开记录；反爬挑战不能冒充新通知。 */
-window.CQUT_CHECKED = "2026-10-25";
-window.CQUT_CHECK_NOTE = "10月25日实际请求全部322条已有通知与学校、部门、学院入口，共349个去重URL。本轮受访问保护、空响应或超时，未取得可核查正文；保留既有322条通知和原单篇日期，最新仍为10/23。受阻不代表官网没有新通知，办理事项及截止安排请以官网原文为准。";
+window.CQUT_CHECKED = "2026-10-26";
+window.CQUT_CHECK_NOTE = "10月26日实际请求全部322条已有通知与学校、学院、部门共349个去重入口，本轮均未取得可核查正文。普通Edge另查主站通知/部门通知、研究生院、化学化工和材料学院，仍超时；保留322条与原日期、最近内容更新10/23，不声称没有新通知。暂无法以真实新内容消除内容新鲜度告警。";
 
 </script>
   <script>
@@ -5790,10 +5858,10 @@ window.CQUT_CHECK_NOTE = "10月25日实际请求全部322条已有通知与学�
  *   intro 简介（这是什么）   help 我能帮你做啥（AI 代做）
  *   need 我需要做啥（自己动手那部分）   url 源地址
  * ========================================================================== */
-window.MATCH_UPDATED = "2026-10-23";
-window.MATCH_CHECKED = "2026-10-25";
+window.MATCH_UPDATED = "2026-10-26";
+window.MATCH_CHECKED = "2026-10-26";
 
-window.MATCH_NOTE = "10月25日实际重新核查全部精选、退役及官方入口；保留5项线索、8项有据退役。智慧城市报名已于10/23 12:00截止，不因10/25交作品回流。RoboMaster旧截止年份仍待核实；网络失败不代表已确认开放。";
+window.MATCH_NOTE = "10月26日实际复核全部精选及官方入口；新增两项计挑赛已核实的200元/队费用、1–3人组队、每天2次提交和CSV/模型要求，区分两赛评测指标。是站内补齐已有规则，不声称官网今天变更。5项线索/8项退役身份完整；RoboMaster当届截止年份仍待核实，化工技能赛的具体报名时刻仍须向组织方确认。";
 
 /* ---------------- 学校 / 单位分类 ---------------- */
 window.MATCH_SCHOOLS = [
@@ -5857,10 +5925,10 @@ window.MATCHES = [
     "st": "报名中",
     "dl": "2026-11-13",
     "fit": false,
-    "rego": "高校所有专业在校生；本研组；1–3 人，可跨校",
+    "rego": "高校所有专业在校生；本研组与高职组分别评奖；1–3人含队长，可跨校，可设1名指导教师",
     "intro": "针对胸部 X 光片进行多标签分类，使用主办方数据训练模型、提交预测结果；本研组与高职组分别评奖。",
-    "help": "协助理解数据格式、制定基线方案和检查预测文件；由参赛者核验模型结果和原创性。",
-    "need": "先评估训练设备、时间及报名费用，再组队报名；遵守数据使用限制，11 月 13 日前完成报名与阶段提交。",
+    "help": "协助理解规则、设计基线和核对提交文件。官方主指标为Macro-AUC，辅指标Macro-F1；每个Study_id须输出10类概率，初赛交UTF-8的submission.csv，复赛还需模型。最终结果由队伍独立验证，遵守原创性和数据使用限制。",
+    "need": "先确认本校竞赛认定与训练条件。区域赛报名、考试和评审费200元/队，由队长缴费，其他队员不重复缴费；国赛不另收费。11月13日23:59前交预测CSV，每天最多2次提交；11月18日晋级公示，国赛11月19日17:00至24日。仅使用主办方允许的数据，不擅自传播赛题数据。",
     "url": "https://www.ncccu.org.cn/index/Paper/case1.html"
   },
   {
@@ -5871,10 +5939,10 @@ window.MATCHES = [
     "st": "报名中",
     "dl": "2026-11-06",
     "fit": false,
-    "rego": "高校所有专业在校生；本研组；组队规则见赛项官网",
+    "rego": "高校所有专业在校生；本研组与高职组分别评奖；1–3人含队长，可跨校，可设1名指导教师",
     "intro": "本届题目围绕眼底图像的青光眼分类，重点处理样本不平衡；区域赛数据已于 10 月 13 日开放。",
-    "help": "协助整理数据、检查评测方法和实验记录；独立验证结果，按规则使用数据与代码。",
-    "need": "核对赛项规则及费用，评估设备条件后报名；11 月 6 日前报名，阶段作品提交以官网具体时刻为准。",
+    "help": "协助理解眼底图像二分类与不平衡数据评价。官方主指标为AUROC，辅指标AUPRC；初赛提交UTF-8的submission.csv，复赛还需模型，不把辅助指标误作主排名。最终由队伍核验模型、结果与原创性。",
+    "need": "先确认本校认定与训练资源。区域赛报名、考试和评审费200元/队，由队长缴费，其他队员不重复缴费；国赛不另收费。11月6日23:59前提交预测CSV，每天最多2次；11月12日晋级公示，国赛11月13日17:00至18日。核对字段与数据使用限制后再投入训练。",
     "url": "https://www.ncccu.org.cn/index/Paper/case2.html"
   }
 ];
@@ -13971,34 +14039,53 @@ window.MAGAZINE_ARTICLES = [
   document.getElementById("copy-close").addEventListener("click",function(){var d=document.getElementById("copy-dialog");if(d.close)d.close();else d.removeAttribute("open");});
   document.getElementById("copy-dialog").addEventListener("close",function(){var el=this._copyTrigger;if(el&&el.focus)el.focus({preventScroll:true});});
   /* ============ TAB SWITCHING ============ */
+  var NAV_TABS=["home","research","cqut","comp","daily","rank","learn","magazines","ted","forum","funds"];
+  var NAV_LABELS={home:"今天",research:"科研",cqut:"校园通知",comp:"赛事机会",daily:"AI日报",rank:"模型与工具",learn:"AI学习",magazines:"期刊阅读",ted:"TED英语",forum:"成长讲坛",funds:"资产记录"};
+  var NAV_RENDERED=false;
+  function exposeNavSelection(tab){
+    if(navigationMedia&&navigationMedia.matches&&!menuOpen)return;
+    var selected=document.getElementById("tab-"+tab);
+    if(selected&&selected.scrollIntoView)selected.scrollIntoView({block:"nearest",inline:"nearest",behavior:"instant"});
+  }
+  function announceRoute(tab){
+    var EventType=window.CustomEvent||(typeof CustomEvent==="function"?CustomEvent:null);
+    if(window.dispatchEvent&&EventType)window.dispatchEvent(new EventType("workspace:route",{detail:{tab:tab}}));
+  }
+  function focusViewHeading(tab){
+    var panel=document.getElementById("view-"+tab), target=panel&&panel.querySelector?panel.querySelector("h1,h2"):null;
+    target=target||panel;
+    if(target&&target.focus){if(target.setAttribute)target.setAttribute("tabindex","-1");target.focus({preventScroll:true});}
+  }
   function showTab(tab){
-    if(["daily","research","rank","comp","learn","ted","forum","magazines","cqut","funds"].indexOf(tab)<0) return;
+    if(NAV_TABS.indexOf(tab)<0) return;
     if(!RESTORE_PENDING) VIEW_SCROLL[ACTIVE_TAB] = window.scrollY || 0;
     if(DOM_READY) RESTORE_PENDING=false;
     ACTIVE_TAB = tab;
-    if(tab==="research"&&window.AI_RESEARCH)window.AI_RESEARCH.refresh();
+    if(tab==="research"&&window.AI_RESEARCH&&typeof window.AI_RESEARCH.refresh==="function")window.AI_RESEARCH.refresh();
     document.querySelectorAll(".tab").forEach(function(t){ var on=(t.dataset.tab===tab); t.classList.toggle("active", on); t.setAttribute("aria-selected", on?"true":"false");t.setAttribute("tabindex",on?"0":"-1"); });
-    ["daily","research","rank","comp","learn","ted","forum","magazines","cqut","funds"].forEach(function(v){
+    NAV_TABS.forEach(function(v){
       var el=document.getElementById("view-"+v);
       if(el){ el.style.display = (v===tab)?"":"none"; el.setAttribute("aria-hidden", v===tab?"false":"true"); }
     });
-    var selected=document.getElementById("tab-"+tab);
+    document.querySelectorAll("[data-go]").forEach(function(link){var on=link.getAttribute("data-go")===tab;link.classList.toggle("active",on);if(on)link.setAttribute("aria-current","page");else if(link.removeAttribute)link.removeAttribute("aria-current");});
     if(!RESTORE_PENDING){
-      if(selected.scrollIntoView) selected.scrollIntoView({block:"nearest",inline:"center",behavior:"instant"});
+      exposeNavSelection(tab);
       window.scrollTo({top:VIEW_SCROLL[tab] || 0,behavior:"instant"});
     }
-    document.title = document.getElementById("tab-"+tab).textContent.replace(/^\S+\s*/,"") + " · AI 情报站";
+    var title=document.getElementById("workspace-current-title");if(title)title.textContent=NAV_LABELS[tab];
+    document.title = NAV_LABELS[tab] + " · 罗浩的工作台";
+    NAV_RENDERED=true;
     saveViewState();
+    announceRoute(tab);
   }
-  var ACTIVE_TAB = "daily", VIEW_SCROLL = {}, DOM_READY=false, DAILY_READY=false, RESTORE_PENDING=true;
+  var ACTIVE_TAB = "home", VIEW_SCROLL = {}, DOM_READY=false, DAILY_READY=false, RESTORE_PENDING=true;
   if(typeof history!=="undefined" && "scrollRestoration" in history) history.scrollRestoration="manual";
   try{ VIEW_SCROLL=JSON.parse(window.sessionStorage.getItem("ai-view-scroll")||"{}"); if(!VIEW_SCROLL || typeof VIEW_SCROLL!=="object" || Array.isArray(VIEW_SCROLL)) VIEW_SCROLL={}; }catch(e){}
   Object.keys(VIEW_SCROLL).forEach(function(k){if(!Number.isFinite(VIEW_SCROLL[k])||VIEW_SCROLL[k]<0)delete VIEW_SCROLL[k];});
   function finishInitialRestore(){
     if(!RESTORE_PENDING || !DOM_READY || (ACTIVE_TAB==="daily"&&!DAILY_READY)) return;
     RESTORE_PENDING=false;
-    var selected=document.getElementById("tab-"+ACTIVE_TAB);
-    if(selected.scrollIntoView)selected.scrollIntoView({block:"nearest",inline:"center",behavior:"instant"});
+    exposeNavSelection(ACTIVE_TAB);
     window.scrollTo({top:VIEW_SCROLL[ACTIVE_TAB]||0,behavior:"instant"});
   }
   document.addEventListener("DOMContentLoaded",function(){DOM_READY=true;finishInitialRestore();});
@@ -14006,25 +14093,112 @@ window.MAGAZINE_ARTICLES = [
     try{ window.sessionStorage.setItem("ai-view-scroll",JSON.stringify(VIEW_SCROLL)); }catch(e){}
   }
   function routeHash(tab){ return tab==="daily" ? "#"+(CURRENT || "daily") : "#"+tab; }
+  function routeTab(hash){
+    var h=String(hash||"").replace(/^#/,"");
+    return NAV_TABS.indexOf(h)>=0?h:(/^\d{4}-\d{2}-\d{2}$/.test(h)?"daily":"home");
+  }
   function syncRoute(){
     var h=(window.location.hash||"").slice(1);
-    var tab=["research","rank","comp","learn","ted","forum","magazines","cqut","funds"].indexOf(h)>=0 ? h : "daily";
-    if(tab!==ACTIVE_TAB) showTab(tab);
+    var tab=routeTab(h);
+    if(tab!==ACTIVE_TAB||!NAV_RENDERED) showTab(tab);
+    if(menuOpen)closeMenu({restoreFocus:false});
     if(/^\d{4}-\d{2}-\d{2}$/.test(h) && indexOfDate(h)!==-1 && h!==CURRENT){ CURRENT=h; syncNavButtons(); loadDate(h); }
   }
+  var navigationMedia=window.matchMedia?window.matchMedia("(max-width:900px)"):{matches:false};
+  var menu=document.getElementById("workspace-menu"),menuToggle=document.getElementById("workspace-menu-toggle"),menuBackdrop=document.getElementById("workspace-menu-backdrop"),menuClose=document.getElementById("workspace-menu-close");
+  var menuOpen=false,lastMenuTrigger=null,previousBodyOverflow="",lastMobile=null;
+  function setNavAttribute(el,key,value){
+    if(!el||!el.setAttribute)return;
+    if(value===null){if(el.removeAttribute)el.removeAttribute(key);}
+    else el.setAttribute(key,String(value));
+  }
+  function menuFocusables(){
+    if(!menu||!menu.querySelectorAll)return[];
+    return Array.prototype.slice.call(menu.querySelectorAll('button:not([disabled]),a[href],input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]')).filter(function(el){return el.tabIndex>=0&&!el.hidden&&(!el.getClientRects||el.getClientRects().length>0);});
+  }
+  function setMenuState(open,trigger){
+    open=!!(open&&navigationMedia.matches&&menu);
+    if(open&&!menuOpen){lastMenuTrigger=trigger||menuToggle;previousBodyOverflow=(document.body&&document.body.style&&document.body.style.overflow)||"";}
+    if(document.body&&document.body.classList)document.body.classList.toggle("workspace-menu-open",open);
+    if(document.body&&document.body.style){if(open)document.body.style.overflow="hidden";else if(menuOpen)document.body.style.overflow=previousBodyOverflow;}
+    menuOpen=open;
+    if(menu){
+      menu.inert=!!(navigationMedia.matches&&!open);
+      setNavAttribute(menu,"inert",menu.inert?"":null);
+      setNavAttribute(menu,"aria-hidden",navigationMedia.matches&&!open?"true":"false");
+      setNavAttribute(menu,"role",open?"dialog":null);setNavAttribute(menu,"aria-modal",open?"true":null);
+    }
+    if(menuBackdrop)menuBackdrop.hidden=!open;
+    setNavAttribute(menuToggle,"aria-expanded",open?"true":"false");
+    document.querySelectorAll("[data-menu-open]").forEach(function(button){setNavAttribute(button,"aria-expanded",open?"true":"false");});
+  }
+  function openMenu(trigger){
+    if(!navigationMedia.matches)return;
+    setMenuState(true,trigger);
+    var selected=document.getElementById("tab-"+ACTIVE_TAB), first=menuFocusables()[0];
+    if(selected&&selected.focus)selected.focus({preventScroll:true});else if(first&&first.focus)first.focus({preventScroll:true});
+    exposeNavSelection(ACTIVE_TAB);
+  }
+  function closeMenu(options){
+    var wasOpen=menuOpen, trigger=lastMenuTrigger||menuToggle;
+    setMenuState(false);
+    if(wasOpen&&(!options||options.restoreFocus!==false)&&trigger&&trigger.focus)trigger.focus({preventScroll:true});
+  }
+  function go(tab,options){
+    if(NAV_TABS.indexOf(tab)<0)return false;
+    options=options||{};
+    var oldPanel=document.getElementById("view-"+ACTIVE_TAB), focused=document.activeElement;
+    var hidingFocus=(menuOpen&&menu&&menu.contains&&menu.contains(focused))||(oldPanel&&oldPanel.contains&&oldPanel.contains(focused)&&tab!==ACTIVE_TAB);
+    if(tab!==ACTIVE_TAB&&typeof history!=="undefined"&&history.pushState)history.pushState(null,"",routeHash(tab));
+    if(tab!==ACTIVE_TAB||!NAV_RENDERED)showTab(tab);
+    if(menuOpen&&!options.keepMenu)closeMenu({restoreFocus:false});
+    if(options.focus===true||(options.focus!==false&&hidingFocus&&!options.keepMenu))focusViewHeading(tab);
+    return true;
+  }
+  function syncMenuViewport(){
+    var mobile=!!navigationMedia.matches;
+    if(lastMobile===mobile)return;
+    var hidingFocus=mobile&&menu&&menu.contains&&menu.contains(document.activeElement);
+    lastMobile=mobile;setMenuState(false);
+    if(hidingFocus&&menuToggle&&menuToggle.focus)menuToggle.focus({preventScroll:true});
+  }
+  window.AI_NAV={go:go,current:function(){return ACTIVE_TAB;},openMenu:openMenu,closeMenu:closeMenu};
+  if(menuToggle&&menuToggle.addEventListener)menuToggle.addEventListener("click",function(){if(menuOpen)closeMenu();else openMenu(this);});
+  if(menuClose&&menuClose.addEventListener)menuClose.addEventListener("click",function(){closeMenu();});
+  if(menuBackdrop&&menuBackdrop.addEventListener)menuBackdrop.addEventListener("click",function(){closeMenu();});
+  document.addEventListener("click",function(e){
+    var opener=e.target.closest?e.target.closest("[data-menu-open]"):null;
+    if(opener){e.preventDefault();openMenu(opener);return;}
+    var link=e.target.closest?e.target.closest("[data-go]"):null;
+    if(!link||e.button>0||e.ctrlKey||e.metaKey||e.altKey||e.shiftKey)return;
+    if(go(link.getAttribute("data-go")))e.preventDefault();
+  });
+  document.addEventListener("keydown",function(e){
+    if(!menuOpen||e.defaultPrevented)return;
+    if(e.key==="Escape"){e.preventDefault();closeMenu();return;}
+    if(e.key!=="Tab")return;
+    var list=menuFocusables(), first=list[0],last=list[list.length-1],active=document.activeElement;
+    if(!first){e.preventDefault();return;}
+    if(e.shiftKey&&(active===first||list.indexOf(active)<0)){e.preventDefault();last.focus();}
+    else if(!e.shiftKey&&(active===last||list.indexOf(active)<0)){e.preventDefault();first.focus();}
+  });
+  var tablist=document.querySelector(".tabs");if(tablist)setNavAttribute(tablist,"aria-orientation","vertical");
+  syncMenuViewport();
+  if(navigationMedia.addEventListener)navigationMedia.addEventListener("change",syncMenuViewport);
+  else if(navigationMedia.addListener)navigationMedia.addListener(syncMenuViewport);
   document.querySelectorAll(".tab").forEach(function(t){
     t.setAttribute("tabindex",t.dataset.tab===ACTIVE_TAB?"0":"-1");
     t.addEventListener("click", function(){
-      if(t.dataset.tab!==ACTIVE_TAB){ history.pushState(null,"",routeHash(t.dataset.tab)); showTab(t.dataset.tab); }
+      go(t.dataset.tab);
     });
     t.addEventListener("keydown",function(e){
       var all=Array.prototype.slice.call(document.querySelectorAll(".tab")), i=all.indexOf(t), n;
-      if(e.key==="ArrowRight") n=(i+1)%all.length;
-      else if(e.key==="ArrowLeft") n=(i+all.length-1)%all.length;
+      if(e.key==="ArrowRight"||e.key==="ArrowDown") n=(i+1)%all.length;
+      else if(e.key==="ArrowLeft"||e.key==="ArrowUp") n=(i+all.length-1)%all.length;
       else if(e.key==="Home") n=0;
       else if(e.key==="End") n=all.length-1;
       else return;
-      e.preventDefault(); all[n].focus(); all[n].click();
+      e.preventDefault(); all[n].focus(); go(all[n].dataset.tab,{focus:false,keepMenu:menuOpen});
     });
   });
   var viewSaveTimer;
@@ -14044,14 +14218,11 @@ window.MAGAZINE_ARTICLES = [
     var app=document.querySelector(".appbar"), bar=document.querySelector(".toolbar");
     if(!app || !document.documentElement) return;
     var h=app.getBoundingClientRect().height;
-    var extra=window.matchMedia("(max-width:720px)").matches ? 12 : ((bar && bar.getBoundingClientRect().height)||110)+12;
+    var toolbarHeight=ACTIVE_TAB==="daily"&&bar&&bar.getBoundingClientRect?bar.getBoundingClientRect().height:0;
+    var extra=window.matchMedia("(max-width:720px)").matches ? 12 : toolbarHeight+12;
     document.documentElement.style.setProperty("--appbar-height",h+"px");
     document.documentElement.style.setProperty("--reading-offset",(h+extra)+"px");
-    var nav=document.querySelector(".tabs"), selected=document.getElementById("tab-"+ACTIVE_TAB);
-    if(nav&&selected&&selected.getBoundingClientRect){
-      var a=selected.getBoundingClientRect(),n=nav.getBoundingClientRect();
-      if(a.left<n.left||a.right>n.right)nav.scrollLeft+=a.left-n.left-(nav.clientWidth-a.width)/2;
-    }
+    syncMenuViewport();
   }
   if(typeof ResizeObserver!=="undefined"){
     var headerObserver=new ResizeObserver(measureHeader);
@@ -15960,9 +16131,10 @@ window.MAGAZINE_ARTICLES = [
 </script>
 <script>
 window.RESEARCH_SNAPSHOT={"schemaVersion":1,"sourceLabel":"Google 科研展示表","sourceUpdatedAt":"2026-10-22T14:39:45Z","syncedAt":"2026-10-22T14:39:45Z","revision":"f2be25b4ea08e78a","tasks":[{"id":"T001","date":"2026-10-23","title":"实验资源协调","status":"计划中","hours":2,"category":"实验资源"},{"id":"T002","date":"2026-10-21","title":"科研资料整理提交","status":"已完成","hours":3,"category":"科研整理"},{"id":"T003","date":"2026-10-23","title":"安全与接收审批","status":"已取消","hours":2,"category":"实验资源"},{"id":"T004","date":"2026-10-28","title":"实验材料盘点","status":"已完成","hours":2.5,"category":"科研整理"},{"id":"T005","date":"2026-10-23","title":"电池装配规范复核","status":"已完成","hours":1.5,"category":"安全与测试"},{"id":"T006","date":"2026-10-24","title":"极片质量核验","status":"计划中","hours":3.5,"category":"样品质量"},{"id":"T007","date":"2026-10-29","title":"科研记录与数据检查","status":"计划中","hours":2,"category":"科研整理"},{"id":"T008","date":null,"title":"实验资源协调","status":"待条件","hours":2.5,"category":"实验资源"},{"id":"T009","date":"2026-10-26","title":"样品编号与异常记录","status":"计划中","hours":2,"category":"项目管理"},{"id":"T010","date":null,"title":"实验资源协调","status":"待条件","hours":1.5,"category":"实验资源"},{"id":"T011","date":"2026-10-27","title":"科研阅读与论文撰写","status":"计划中","hours":1.5,"category":"写作"},{"id":"T012","date":null,"title":"实验资源协调","status":"待条件","hours":4,"category":"实验资源"},{"id":"T013","date":"2026-10-22","title":"设备连接与模式核验","status":"已完成","hours":3,"category":"安全与测试"},{"id":"T014","date":"2026-10-29","title":"实验资源协调","status":"计划中","hours":2.5,"category":"实验资源"},{"id":"T015","date":"2026-10-23","title":"历史测量数据溯源","status":"进行中","hours":2.5,"category":"安全与测试"},{"id":"T016","date":"2026-10-23","title":"合格样品测量验证","status":"计划中","hours":1.5,"category":"安全与测试"},{"id":"T017","date":"2026-10-31","title":"电极质量检查","status":"计划中","hours":2.5,"category":"样品质量"},{"id":"T018","date":"2026-11-01","title":"电极质量检查","status":"计划中","hours":5,"category":"样品质量"},{"id":"T019","date":"2026-11-02","title":"电化学测试与数据整理","status":"计划中","hours":2,"category":"电化学"},{"id":"T020","date":"2026-11-03","title":"计划复盘与科研协调","status":"计划中","hours":2,"category":"项目管理"},{"id":"T021","date":"2026-10-24","title":"极片工艺小试与质量排查","status":"计划中","hours":3,"category":"实验制备"},{"id":"T022","date":"2026-11-05","title":"实验样品制备","status":"计划中","hours":3,"category":"实验制备"},{"id":"T023","date":"2026-11-06","title":"实验样品制备","status":"计划中","hours":5,"category":"实验制备"},{"id":"T024","date":"2026-11-07","title":"电极质量检查","status":"计划中","hours":2,"category":"样品质量"},{"id":"T025","date":"2026-11-08","title":"电极质量检查","status":"计划中","hours":5.5,"category":"样品质量"},{"id":"T026","date":"2026-10-22","title":"样品编号与质量台账","status":"进行中","hours":2.5,"category":"科研整理"},{"id":"T027","date":"2026-11-10","title":"科研阅读与论文撰写","status":"计划中","hours":2,"category":"写作"},{"id":"T028","date":"2026-11-11","title":"实验样品制备","status":"计划中","hours":4.5,"category":"实验制备"},{"id":"T029","date":"2026-11-12","title":"实验样品制备","status":"计划中","hours":2,"category":"实验制备"},{"id":"T030","date":"2026-11-13","title":"电极质量检查","status":"计划中","hours":7,"category":"样品质量"},{"id":"T031","date":"2026-11-14","title":"电极质量检查","status":"计划中","hours":4,"category":"样品质量"},{"id":"T032","date":"2026-11-15","title":"电池装配与测试核验","status":"计划中","hours":5,"category":"安全与测试"},{"id":"T033","date":"2026-11-16","title":"科研记录与数据检查","status":"计划中","hours":2,"category":"科研整理"},{"id":"T034","date":"2026-11-17","title":"计划复盘与科研协调","status":"计划中","hours":1.5,"category":"项目管理"},{"id":"T035","date":"2026-11-18","title":"实验样品制备","status":"计划中","hours":4.5,"category":"实验制备"},{"id":"T036","date":"2026-11-19","title":"电化学测试与数据整理","status":"待条件","hours":4,"category":"电化学"},{"id":"T037","date":"2026-11-20","title":"实验样品制备","status":"计划中","hours":7,"category":"实验制备"},{"id":"T038","date":"2026-11-21","title":"实验表征与记录","status":"计划中","hours":3.5,"category":"实验表征"},{"id":"T039","date":"2026-11-22","title":"科研记录与数据检查","status":"待条件","hours":6,"category":"科研整理"},{"id":"T040","date":"2026-11-23","title":"科研记录与数据检查","status":"计划中","hours":2.5,"category":"科研整理"},{"id":"T041","date":"2026-11-24","title":"计划复盘与科研协调","status":"计划中","hours":1.5,"category":"项目管理"},{"id":"T042","date":"2026-11-25","title":"电化学测试与数据整理","status":"计划中","hours":4,"category":"电化学"},{"id":"T043","date":"2026-11-26","title":"电化学测试与数据整理","status":"计划中","hours":3,"category":"电化学"},{"id":"T044","date":"2026-11-27","title":"科研记录与数据检查","status":"计划中","hours":4,"category":"科研整理"},{"id":"T045","date":"2026-11-28","title":"计划复盘与科研协调","status":"计划中","hours":2.5,"category":"项目管理"},{"id":"T046","date":"2026-11-29","title":"实验表征与记录","status":"计划中","hours":4,"category":"实验表征"},{"id":"T047","date":"2026-11-30","title":"科研阅读与论文撰写","status":"计划中","hours":3,"category":"写作"},{"id":"T048","date":"2026-12-01","title":"计划复盘与科研协调","status":"计划中","hours":2,"category":"项目管理"},{"id":"T049","date":"2026-12-02","title":"科研记录与数据检查","status":"计划中","hours":3,"category":"科研整理"},{"id":"T050","date":"2026-12-03","title":"实验样品制备","status":"计划中","hours":4,"category":"实验制备"},{"id":"T051","date":"2026-12-04","title":"实验样品制备","status":"计划中","hours":7,"category":"实验制备"},{"id":"T052","date":"2026-12-05","title":"实验样品制备","status":"计划中","hours":4,"category":"实验制备"},{"id":"T053","date":"2026-12-06","title":"电池装配与测试核验","status":"计划中","hours":5,"category":"安全与测试"},{"id":"T054","date":"2026-12-07","title":"科研阅读与论文撰写","status":"计划中","hours":3,"category":"写作"},{"id":"T055","date":"2026-12-08","title":"计划复盘与科研协调","status":"计划中","hours":1.5,"category":"项目管理"},{"id":"T056","date":"2026-12-09","title":"科研记录与数据检查","status":"计划中","hours":4,"category":"科研整理"},{"id":"T057","date":"2026-12-10","title":"科研记录与数据检查","status":"计划中","hours":2.5,"category":"科研整理"},{"id":"T058","date":"2026-12-11","title":"实验表征与记录","status":"计划中","hours":4,"category":"实验表征"},{"id":"T059","date":"2026-12-12","title":"科研记录与数据检查","status":"计划中","hours":3,"category":"科研整理"},{"id":"T060","date":"2026-12-13","title":"电极质量检查","status":"计划中","hours":4,"category":"样品质量"},{"id":"T061","date":"2026-12-14","title":"科研阅读与论文撰写","status":"计划中","hours":4,"category":"写作"},{"id":"T062","date":"2026-12-15","title":"计划复盘与科研协调","status":"计划中","hours":2,"category":"项目管理"},{"id":"T063","date":"2026-12-16","title":"电化学测试与数据整理","status":"计划中","hours":3,"category":"电化学"},{"id":"T064","date":"2026-12-17","title":"实验样品制备","status":"计划中","hours":5,"category":"实验制备"},{"id":"T065","date":"2026-12-18","title":"实验样品制备","status":"计划中","hours":7,"category":"实验制备"},{"id":"T066","date":"2026-12-19","title":"电极质量检查","status":"计划中","hours":4,"category":"样品质量"},{"id":"T067","date":"2026-12-20","title":"电池装配与测试核验","status":"计划中","hours":6,"category":"安全与测试"},{"id":"T068","date":"2026-12-15","title":"科研记录与数据检查","status":"计划中","hours":3,"category":"科研整理"},{"id":"T069","date":"2026-12-22","title":"计划复盘与科研协调","status":"计划中","hours":2,"category":"项目管理"},{"id":"T070","date":"2026-12-23","title":"电化学测试与数据整理","status":"计划中","hours":3,"category":"电化学"},{"id":"T071","date":"2026-12-24","title":"实验样品制备","status":"计划中","hours":5,"category":"实验制备"},{"id":"T072","date":"2026-12-25","title":"电极质量检查","status":"计划中","hours":7,"category":"样品质量"},{"id":"T073","date":"2026-12-26","title":"实验表征与记录","status":"计划中","hours":2.5,"category":"实验表征"},{"id":"T074","date":"2026-12-27","title":"电池装配与测试核验","status":"计划中","hours":6,"category":"安全与测试"},{"id":"T075","date":"2026-12-28","title":"电极质量检查","status":"计划中","hours":3.5,"category":"样品质量"},{"id":"T076","date":"2026-12-29","title":"计划复盘与科研协调","status":"计划中","hours":2,"category":"项目管理"},{"id":"T077","date":"2026-12-30","title":"科研记录与数据检查","status":"计划中","hours":3,"category":"科研整理"},{"id":"T078","date":"2026-12-31","title":"实验样品制备","status":"计划中","hours":5,"category":"实验制备"},{"id":"T079","date":"2027-01-01","title":"电极质量检查","status":"计划中","hours":7,"category":"样品质量"},{"id":"T080","date":"2027-01-02","title":"电极质量检查","status":"计划中","hours":3,"category":"样品质量"},{"id":"T081","date":"2027-01-03","title":"电池装配与测试核验","status":"计划中","hours":6,"category":"安全与测试"},{"id":"T082","date":"2027-01-06","title":"电极质量检查","status":"计划中","hours":4,"category":"样品质量"},{"id":"T083","date":"2027-01-05","title":"计划复盘与科研协调","status":"计划中","hours":2,"category":"项目管理"},{"id":"T084","date":"2027-01-06","title":"实验样品制备","status":"计划中","hours":2,"category":"实验制备"},{"id":"T085","date":"2027-01-07","title":"科研记录与数据检查","status":"计划中","hours":5,"category":"科研整理"},{"id":"T086","date":"2027-01-08","title":"科研记录与数据检查","status":"计划中","hours":5,"category":"科研整理"},{"id":"T087","date":"2027-01-09","title":"电化学测试与数据整理","status":"计划中","hours":6,"category":"电化学"},{"id":"T088","date":"2027-01-10","title":"实验表征与记录","status":"计划中","hours":4,"category":"实验表征"},{"id":"T089","date":"2027-01-13","title":"科研阅读与论文撰写","status":"计划中","hours":3,"category":"写作"},{"id":"T090","date":"2027-01-12","title":"计划复盘与科研协调","status":"计划中","hours":2,"category":"项目管理"},{"id":"T091","date":"2027-01-13","title":"科研记录与数据检查","status":"计划中","hours":2,"category":"科研整理"},{"id":"T092","date":"2027-01-14","title":"科研记录与数据检查","status":"计划中","hours":2.5,"category":"科研整理"},{"id":"T093","date":"2027-01-15","title":"电极质量检查","status":"待条件","hours":5,"category":"样品质量"},{"id":"T094","date":"2027-01-16","title":"电极质量检查","status":"待条件","hours":3,"category":"样品质量"},{"id":"T095","date":"2027-01-17","title":"电化学测试与数据整理","status":"待条件","hours":3,"category":"电化学"},{"id":"T096","date":"2027-01-18","title":"科研阅读与论文撰写","status":"计划中","hours":4,"category":"写作"},{"id":"T097","date":"2027-01-19","title":"计划复盘与科研协调","status":"计划中","hours":1.5,"category":"项目管理"},{"id":"T098","date":"2027-01-20","title":"电化学测试与数据整理","status":"计划中","hours":3,"category":"电化学"},{"id":"T099","date":"2027-01-21","title":"实验表征与记录","status":"计划中","hours":4,"category":"实验表征"},{"id":"T100","date":"2027-01-22","title":"电极质量检查","status":"计划中","hours":5,"category":"样品质量"},{"id":"T101","date":"2027-01-23","title":"实验表征与记录","status":"计划中","hours":4,"category":"实验表征"},{"id":"T102","date":"2027-01-24","title":"科研记录与数据检查","status":"待条件","hours":6,"category":"科研整理"},{"id":"T103","date":"2027-01-25","title":"科研阅读与论文撰写","status":"计划中","hours":4,"category":"写作"},{"id":"T104","date":"2027-01-26","title":"电化学测试与数据整理","status":"计划中","hours":2,"category":"电化学"},{"id":"T105","date":"2027-01-27","title":"电化学测试与数据整理","status":"计划中","hours":4,"category":"电化学"},{"id":"T106","date":"2027-01-28","title":"电化学测试与数据整理","status":"计划中","hours":4,"category":"电化学"},{"id":"T107","date":"2027-01-29","title":"电化学测试与数据整理","status":"计划中","hours":4,"category":"电化学"},{"id":"T108","date":"2027-01-30","title":"科研记录与数据检查","status":"计划中","hours":3,"category":"科研整理"},{"id":"T109","date":"2027-01-31","title":"实验表征与记录","status":"计划中","hours":2,"category":"实验表征"},{"id":"T110","date":"2027-02-01","title":"科研阅读与论文撰写","status":"计划中","hours":5,"category":"写作"},{"id":"T111","date":"2027-02-02","title":"电化学测试与数据整理","status":"计划中","hours":2,"category":"电化学"},{"id":"T112","date":"2027-02-03","title":"电化学测试与数据整理","status":"待条件","hours":3,"category":"电化学"},{"id":"T113","date":"2027-02-04","title":"科研阅读与论文撰写","status":"计划中","hours":5,"category":"写作"},{"id":"T114","date":"2027-02-05","title":"科研阅读与论文撰写","status":"计划中","hours":5,"category":"写作"},{"id":"T115","date":"2027-02-06","title":"科研阅读与论文撰写","status":"计划中","hours":6,"category":"写作"},{"id":"T116","date":"2027-02-07","title":"科研阅读与论文撰写","status":"计划中","hours":2,"category":"写作"},{"id":"T117","date":"2027-02-08","title":"科研阅读与论文撰写","status":"计划中","hours":4,"category":"写作"},{"id":"T118","date":"2027-02-09","title":"科研阅读与论文撰写","status":"计划中","hours":2,"category":"写作"},{"id":"T119","date":"2027-02-10","title":"科研阅读与论文撰写","status":"计划中","hours":3,"category":"写作"},{"id":"T120","date":"2027-02-11","title":"科研阅读与论文撰写","status":"计划中","hours":4,"category":"写作"},{"id":"T121","date":"2027-02-12","title":"科研记录与数据检查","status":"计划中","hours":6,"category":"科研整理"},{"id":"T122","date":"2027-02-13","title":"科研记录与数据检查","status":"计划中","hours":4,"category":"科研整理"},{"id":"T123","date":"2027-02-14","title":"科研阅读与论文撰写","status":"计划中","hours":3,"category":"写作"},{"id":"T124","date":"2027-02-15","title":"科研阅读与论文撰写","status":"计划中","hours":1.5,"category":"写作"},{"id":"T125","date":"2027-02-16","title":"科研阅读与论文撰写","status":"计划中","hours":2,"category":"写作"},{"id":"T126","date":"2027-02-17","title":"科研阅读与论文撰写","status":"计划中","hours":6,"category":"写作"},{"id":"T127","date":"2027-02-18","title":"科研阅读与论文撰写","status":"计划中","hours":5,"category":"写作"},{"id":"T128","date":"2027-02-19","title":"科研阅读与论文撰写","status":"计划中","hours":5,"category":"写作"},{"id":"T129","date":"2027-02-20","title":"科研阅读与论文撰写","status":"计划中","hours":3.5,"category":"写作"},{"id":"T130","date":"2027-02-21","title":"科研阅读与论文撰写","status":"计划中","hours":4,"category":"写作"},{"id":"T131","date":"2027-02-22","title":"科研阅读与论文撰写","status":"计划中","hours":3,"category":"写作"},{"id":"T132","date":"2027-02-23","title":"科研阅读与论文撰写","status":"计划中","hours":2,"category":"写作"},{"id":"T133","date":"2027-02-24","title":"科研阅读与论文撰写","status":"计划中","hours":3,"category":"写作"},{"id":"T134","date":"2027-02-25","title":"科研阅读与论文撰写","status":"计划中","hours":3,"category":"写作"},{"id":"T135","date":"2027-02-26","title":"科研阅读与论文撰写","status":"计划中","hours":1.5,"category":"写作"},{"id":"T136","date":"2026-10-21","title":"电池装配记录","status":"已完成","hours":null,"category":"科研整理"}]};
+window.RESEARCH_DETAILS={"schemaVersion":1,"summaryRevision":"f2be25b4ea08e78a","sourceReleaseId":"86380836c1f21d31b4d1","sourceSyncedAt":"2026-10-22T14:43:07.995Z","contentDigest":"30ccba2cb25b7d2c7d7dcc56e97f0f1ebf2ff5dcb37ea495dbfc65e8cde28391","tasks":[{"id":"T001","title":"联系导师并落实职业学院到访、机时与样品运输接收安排","steps":"一次沟通中分两项落实：①接待联系人、到访日期与可用机时；②双方样品运输、接收和安全责任要求。未确认的具体条件记为待回复，不重复开两个协调任务。","acceptance":"联系人/到访日期/可用机时，以及运输接收要求的回复记录；明确已确认与待回复项。","progress":"用户计划10月22日上午找导师谈职业学院；截至当前只是计划，尚无确认访问日期、接待方、连续通道数及授权。\n2026-10-22更新：按用户意见，将T003并入本项，一次协调分两项落实，排到10月23日；仅合并任务，不假定导师已回复或运输已批准。","prerequisite":"无","gate":"需检查任务要求"},{"id":"T002","title":"整理并提交本次OCV文件、接线照片与仪器手册（资料归档）","steps":"原任务中的接线/软件模式核验由T013跟进，原机时间与电池—通道映射由T015跟进；尚未完成，不代表测试系统已放行。","acceptance":"本次7份OCV文件、8张接线照片与仪器手册的提交记录；提交完成与科学结论验收分开。","progress":"已拍DH7003面板/WE-SE-RE-CE-G标签与夹具照片；2026-10-21新RAR中7份TXT两两不同。仍缺原机采集时间戳、模式、线缆夹具导通和电池—通道映射核实。\n2026-10-21状态拆分：资料整理提交已完成。原任务“复核7份OCV在软件中的原始时间/通道/电池号；复核旧G04标记”中的剩余原机时间、接线/模式及映射复核移由T013/T015继续跟进；未改为验证通过。","prerequisite":"无（仅资料整理提交）","gate":"资料提交已完成；测试系统与数据溯源核验见T013/T015，尚未放行"},{"id":"T003","title":"确认跨校封装电池的合规运输方式与接收管理","steps":"未完成运输审批不转运金属锂实验半电池","acceptance":"运输/接收审核结论","progress":"预计10月22日上午和导师先讨论运输/接收审批责任，随后再与两校安全责任人落实；没有批准不得自行转运含金属锂实验电池。\n2026-10-22用户明确要求：本项推迟至10月23日，保持未开始；仅更改排期，不视作审批已完成。\n2026-10-22更新：合并至T001；保留本编号与既有23日改期记录供追溯，不再独立排期或重复计时。","prerequisite":"无","gate":"需检查任务要求"},{"id":"T004","title":"盘点材料SA/PAA/Si/SBR/PVDF与电解液批次、剩余量及有效期","steps":"把身份不清或失效材料标为HOLD；建立缺料单","acceptance":"物料放行清单、照片","progress":"完整的全部库存盘点挪到10月28日，以给10月21日已装23颗的记录工作和10月24日G03卷曲诊断留机动时间；若24日做小试，涉及的SA/Si/集流体/溶剂等原料身份与有效期须在动手前即时核实，不等待28日。\n2026-10-22更新：用户明确反馈完成、没什么问题。本项按执行完成退出待办；实际完成日期/工时未提供，未补造日期或实验数据；不据此代替后续测试与论文证据验收。","prerequisite":"按SOP","gate":"实验前须核对SOP"},{"id":"T005","title":"对照经审核的CR2032装配SOP逐项复核10月21日按“新方法”已装的23颗电池：壳体朝向、垫片弹片、密封圈、Si/Li接触关系与封装记录","steps":"装配已发生不代表SOP审核通过；保留21日原始照片/记录，先确认23颗真实标签及有无需隔离的异常电池","acceptance":"共同签认的装配草图","progress":"2026-10-21新方法已组装23颗，但尚未提供SOP版本、现场签认与逐颗极性/封装QC记录；本项依旧未开始验收，不能因数量多就标为通过。\n2026-10-22更新：用户明确反馈完成、没什么问题。本项按执行完成退出待办；实际完成日期/工时未提供，未补造日期或实验数据；不据此代替后续测试与论文证据验收。","prerequisite":"按SOP","gate":"实验前须核对SOP"},{"id":"T006","title":"汇总G01—G07极片QC及10月21日23颗电池的制片批次、面负载与片位；重点排查G03 SA卷曲，核实G02外观初检无明显问题","steps":"用户2026-10-22补充：此次G02已装6颗所用极片没什么问题；此前G02卷曲属于历史记录，须区分批次，不再默认本次6颗卷曲。G02仍需常规面负载/封口QC。","acceptance":"极片QC台账","progress":"2026-10-22用户确认：此次G02六颗所用极片外观基本正常、无明显影响装配的卷曲；撤销对本次G02须紧急返工的预设。保留历史G02卷曲记录并待批次映射；常规面负载、片位、密封QC尚未量化。G03仍严重卷曲待小试重做。","prerequisite":"按SOP","gate":"实验前须核对SOP"},{"id":"T007","title":"读2篇SA/PAA与PAA中和直接先例，摘出实验对照/差异","steps":"整理本周异常清单，安排下周仪器预约","acceptance":"文献卡片2份","progress":"读2篇文献从原10月25日顺延到10月29日：10月21日23颗装配已经发生，实际工时未知；将10月25日作为G03试片失败/仪器核验或休息缓冲，避免强行凑满本周。","prerequisite":"无","gate":"需检查任务要求"},{"id":"T008","title":"职业学校首次实地设备核验（日期待老师协调）","steps":"记录型号、实际空闲通道、可无人值守时间和安全人员","acceptance":"设备清单、负责人、照片","progress":"","prerequisite":"导师协调","gate":"HOLD：导师尚未确认"},{"id":"T009","title":"区分历史G04 OCV故障电池与2026-10-21新装G04五颗的真实编号、极片批次及封装记录；写异常闭环记录","steps":"轻量复盘，不拆电池；核对周一可用设备","acceptance":"实验日志1页","progress":"旧3颗诊断用G04电池与10月21日新装5颗G04独立建账；不得复制旧OCV或沿用模糊编号。","prerequisite":"无","gate":"需检查任务要求"},{"id":"T010","title":"核对职业学校电池测试仪测试能力、数据格式、连续运行规则","steps":"对比DH7003程序导出和电极接线，不直接上正式样","acceptance":"跨设备程序对照表","progress":"","prerequisite":"导师协调","gate":"HOLD：导师尚未确认"},{"id":"T011","title":"完成周复盘和次周三项关键目标；发导师简报草案","steps":"休息与备份，修改无法验证的假设表述","acceptance":"周报W01","progress":"","prerequisite":"证据","gate":"需核对原始证据"},{"id":"T012","title":"跨校小规模测试的启动判定（安全门全通过后）","steps":"必要时只查看仪器，不运输/测试样品","acceptance":"Go/No-go记录","progress":"","prerequisite":"G0+跨校","gate":"HOLD：G0/许可/运输/接线/SOP证据未齐"},{"id":"T013","title":"对照DH7003二电极手册及实物照片核查WE/SE/RE/CE/G端口、夹子与软件独立/双恒模式；由实验室熟悉人员复核","steps":"照片已拍齐，不等于已经放行。核验时先断开被测电池/停止测试，并检查夹具接触、导通、通道与模式","acceptance":"接线映射表＋软件模式截图＋现场共同核查记录","progress":"2026-10-22新G01排障：G01-1正极壳对应Si、负极壳对应Li；原来WE/SE与CE/RE方向相反时两颗G01读数约−2.7/−2.8 V。按Si接WE/SE、Li接CE/RE后，用户明确确认在DH7003【通道1】测得G01-1 +2.711 V且100秒稳定。CH1在此配置下能稳定读取OCV，之前负值强烈支持极性反向原因；仍未验证恒流功能、软件模式截图、原始TXT、装配QC和G0门禁，保持进行中。\n2026-10-22更新：用户明确反馈完成、没什么问题。本项按执行完成退出待办；实际完成日期/工时未提供，未补造日期或实验数据；不据此代替后续测试与论文证据验收。","prerequisite":"无","gate":"需检查任务要求"},{"id":"T014","title":"准备首批跨校测试及原始数据回收流程","steps":"避免临时集中装大量扣电池长期候测","acceptance":"首批电池/通道登记及备份方案","progress":"","prerequisite":"准备阶段（不上机）","gate":"需检查任务要求"},{"id":"T015","title":"核对10月21日新装23颗的OCV记录并形成异常清单","steps":"旧七份保留为装配错误排障历史，不纳入新23颗比较。新记录优先核对G02-2/G04-1/G04-3短记录近零现象及G05-5电位变化；需要复测的由T016跟进。","acceptance":"23个文件的摘要表、逐文件哈希、单位换算、曲线和异常列表；标清文件标签与实物映射限制。","progress":"7份重新导出OCV TXT互不重复已核对；属于旧G04三颗的历史排障数据，不得混同10月21日另外组装的23颗。继续核实原机时间、样品和通道的映射。\n2026-10-22更新：原任务“核验旧七份采集时间/通道映射并完成异常对比图”退出近期主线。用户确认旧七份来自装配错误电池；原始记录仍保留。已逐文件读取新23份（组别6/6/5/6，无重复SHA-256），20条300点、3条短记录；实际标签与通道映射仍须核对。","prerequisite":"无","gate":"需检查任务要求"},{"id":"T016","title":"复核新批次4条OCV重点记录：G02-2、G04-1、G04-3与G05-5","steps":"三条短记录为用户看到异常后主动暂停。先停测检查电池、夹具与连接，并请现场熟悉人员确认；有依据后再决定是否复测，保留原记录另存新文件。短路和通道损伤均未确诊。","acceptance":"4条记录的复核说明或独立复测文件；解释短记录与近零现象，记录G05-5变化是否复现。","progress":"2026-10-22最新用户补充：G02-2/G04-1/G04-3的低点数是主动暂停，担心电池短路或其他原因以及损伤通道。不能记为导出缺失或自动结束。先排查原因再决定复测；G05-5另核对电位上升是否复现。","prerequisite":"无","gate":"先检查电池、夹具与连接；由现场熟悉人员确认后决定是否复测，未推定短路或通道损伤"},{"id":"T017","title":"G02 CMC/SBR配方与干燥记录核对，划定排查变量","steps":"设计四时点卷曲拍照：预干/冷却/真空/入箱","acceptance":"卷曲试验单","progress":"","prerequisite":"按SOP","gate":"实验前须核对SOP"},{"id":"T018","title":"实施G02小试条及CMC鱼眼/分散问题分步检查","steps":"完成照片与干燥记录；不把压平片纳正式电池","acceptance":"G02故障矩阵","progress":"","prerequisite":"按SOP","gate":"实验前须核对SOP"},{"id":"T019","title":"评估有效机时：每通道200圈预计占用需先测算","steps":"在04工作簿填写现有极片与设备状态","acceptance":"通道可行性表v1","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T020","title":"阶段门G0：测量与制片是否放行？给出通过/未通过","steps":"若未通过，下周保持P0并顺延投稿节点","acceptance":"W02门禁决定","progress":"","prerequisite":"按SOP","gate":"实验前须核对SOP"},{"id":"T021","title":"G03 SA极片卷曲原因排查与小试：核胶液水化/混合、涂布、预干—真空—冷却过程及实际卷曲位置；确认SA配胶可加工性","steps":"先小面积试条与QC，记录工艺参数；QC达标后再按锁定SOP重新制备G03正式极片，未确认原因前不直接大量返工","acceptance":"G03卷曲排查记录＋试条照片＋面负载/缺陷质量检查；正式重制另记录批号","progress":"用户10月21日明确G03极片太卷、无法装配；优先于后续比例筛选处理。旧表中G02卷曲历史问题仍独立保留待核，不推定组名写错。","prerequisite":"无","gate":"需检查任务要求"},{"id":"T022","title":"统一润湿/配胶时序和温度记录，完善批次号","steps":"补物料采购缺口，预约SEM/FTIR/剥离/流变","acceptance":"配胶SOP v1","progress":"","prerequisite":"按SOP","gate":"实验前须核对SOP"},{"id":"T023","title":"阶段1 G05/G06/G07比例试验前共同浆料小试","steps":"核Si混浆是否起泡及安全泄压容器，发生异常停","acceptance":"浆料QC表","progress":"","prerequisite":"按SOP","gate":"实验前须核对SOP"},{"id":"T024","title":"复核G01 PVDF身份、G02 SBR固含与CMC分散","steps":"未放行的对照组独立列HOLD，不悄悄剔除","acceptance":"对照组放行表","progress":"","prerequisite":"按SOP","gate":"实验前须核对SOP"},{"id":"T025","title":"试涂并测面负载，统一操作并记录干燥条件","steps":"不合格条仅用于P0，不作正式性能结论","acceptance":"首批面负载分布","progress":"","prerequisite":"按SOP","gate":"实验前须核对SOP"},{"id":"T026","title":"先建立10月21日新装23颗的实际电池编号—极片片位—工艺批—mSi—面负载—封口QC映射；后续B1独立批继续维护","steps":"《10月21日装配台账》已设置23个占位记录，须填写真实电池标签/极片批次，不得将占位序号当作真实ID；英文Methods初稿仍可后续进行","acceptance":"23颗实际电池编号、组别、极片批次和QC状态的映射表","progress":"2026-10-21 G01×6、G02×6、G04×5、G05×6，总23颗；目前只有组别数量，真实电池号、片位、制片批、活性物质质量与装配SOP版本待补，不能用于正式独立重复统计。\n2026-10-22更新：已取得23个唯一文件标签G01-1…G05-6；文件标签与实物壳体、极片批次/质量的对应尚需用户核对，不能把文件名直接当全部追溯完成。","prerequisite":"无","gate":"需检查任务要求"},{"id":"T027","title":"W03复盘：共同方法是否锁定，提交导师核对","steps":"未满足面负载/卷曲规则则继续小试","acceptance":"阶段1放行决定","progress":"","prerequisite":"证据","gate":"需核对原始证据"},{"id":"T028","title":"按优先级配胶G04/G11和G05/G06/G07，分别编号B1","steps":"标记24h平衡与时间轴，避免无计划跨夜操作","acceptance":"B1配胶记录","progress":"","prerequisite":"按SOP","gate":"实验前须核对SOP"},{"id":"T029","title":"核混合时间、胶液固含/pH与计划质量","steps":"如材料或时间不足，仅执行已锁定的子批，不混批","acceptance":"胶液QC及待办","progress":"","prerequisite":"按SOP","gate":"实验前须核对SOP"},{"id":"T030","title":"制备B1浆料、试涂、按统一干燥SOP处理","steps":"同步安排独立基准组G03/G02/G01的放行与顺序","acceptance":"B1极片QC","progress":"","prerequisite":"按SOP","gate":"实验前须核对SOP"},{"id":"T031","title":"测带片面负载与缺陷率，记录无法压平的G02片","steps":"根据锁定阈值筛去不合格，不挑最好看片","acceptance":"B1片位表","progress":"","prerequisite":"按SOP","gate":"实验前须核对SOP"},{"id":"T032","title":"装配已放行的B1探索电池，核实每颗实际mSi","steps":"静置12h后独立核OCV及测试程序极性","acceptance":"B1电池索引","progress":"2026-10-21的23颗是提前装配、尚待QC与分批定义的样品，不能自动抵扣11月B1新制浆/涂布的独立工艺批次。","prerequisite":"无","gate":"需检查任务要求"},{"id":"T033","title":"备份电化学原始数据，提取首圈基础观察","steps":"英文Methods：cell assembly段落","acceptance":"原始数据日备份","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T034","title":"W04复盘：哪些组未装/未测？排次周B2","steps":"报告样品失效数量，不把缺失记为零","acceptance":"B1实验包","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T035","title":"新称量并配制G05/G06/G07 B2，检查独立工艺定义","steps":"安排G01/G02/G03/G04/G11补缺，不做假独立重复","acceptance":"B2配胶称量表","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T036","title":"整理B1首次循环数据，绘制ICE和容量—圈数图","steps":"逐颗核质量计算、测试符号、0.01–1.50V窗口","acceptance":"B1先导图v1","progress":"","prerequisite":"G0","gate":"HOLD：G0证据不足"},{"id":"T037","title":"B2混浆/涂布/烘干并按SOP验片","steps":"补一个异常组的工艺排障，但与正式批分开","acceptance":"B2极片QC","progress":"","prerequisite":"按SOP","gate":"实验前须核对SOP"},{"id":"T038","title":"初步剥离/流变申请与预约；整理新鲜SEM试片","steps":"计算实际面负载、批间差并标风险","acceptance":"预约单+QC对照","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T039","title":"装B2合格探索电池，上机按既定3圈活化方案","steps":"保留每颗程序截图，监测通道持续占用","acceptance":"B2电池/程序索引","progress":"","prerequisite":"G0","gate":"HOLD：G0证据不足"},{"id":"T040","title":"整理本周原始数据与失败电池登记","steps":"读2篇粘结剂对照文献并完成差异表","acceptance":"文献对照表","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T041","title":"W05复盘：判定是否具备比例预筛证据","steps":"不足时下周继续收集，不按日历强行选G05-G07","acceptance":"周报W05","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T042","title":"逐电池核阶段1原始容量/ICE/CE与失败标签","steps":"汇总涂布、剥离、浆料加工放行结果","acceptance":"比例证据表v1","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T043","title":"计算可用通道数量、利用率与单电池周期实测耗时","steps":"给出54颗模块需要的最早完成日期","acceptance":"通道容量模型","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T044","title":"补测唯一重要失效/异常组的可追溯试验","steps":"若无通道则做批次QC和预约，不挤占别人任务","acceptance":"异常闭环清单","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T045","title":"选定阶段2候选比例前核定盲选规则和偏差","steps":"优先用批均值与离散，不用单颗最好值","acceptance":"选组决策备忘录","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T046","title":"针对比值获胜候选做基础SEM/FTIR或样品预处理","steps":"保留所有失败片和SEM位置的选择记录","acceptance":"代表性图样索引","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T047","title":"撰写Introduction第1—2节：已有SA/PAA与PAA中和先例","steps":"提交导师确认投稿焦点和初步创新点","acceptance":"引言初稿A","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T048","title":"W06门禁G1：胜出比例能否冻结？","steps":"无法冻结则将后续步骤顺延，通知导师期限风险","acceptance":"比例锁定/继续筛选","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T049","title":"核已确认SA:PAA比例；计算DN0/25/50/75配方","steps":"按01版统一方法核NaOH标定值，不复制旧目标值","acceptance":"DN配方审批表","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T050","title":"配G08/G09/G10和DN50桥接胶液","steps":"记录24h平衡pH，异常产气采取SOP停机","acceptance":"阶段2胶液原始表","progress":"","prerequisite":"按SOP","gate":"实验前须核对SOP"},{"id":"T051","title":"进行阶段2统一浆料/刮涂和干燥","steps":"同日安排纯PAA对应DN的对照可行性","acceptance":"阶段2极片QC","progress":"","prerequisite":"按SOP","gate":"实验前须核对SOP"},{"id":"T052","title":"对比各DN浆料加工性、气泡、pH与表观黏度","steps":"单独安排Si混浆t=0/2/4h工艺混杂小试","acceptance":"pH过程表","progress":"","prerequisite":"按SOP","gate":"实验前须核对SOP"},{"id":"T053","title":"装阶段2合格电池，复核电极极性和mSi","steps":"检查各电池程序无错误、不误报测试完成","acceptance":"装配批与raw清单","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T054","title":"文献：PAA中和相关两篇阅读全文/方法段核对","steps":"整理图1（设计矩阵）与图2（工艺概况）","acceptance":"方案示意图草案","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T055","title":"W07复盘：DN样品是否可比；若不合格延长P0","steps":"计划下一周DN数据与关键过程验证","acceptance":"W07总结","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T056","title":"统计不同DN初期电化学与加工质控","steps":"纳入DN50 bridge，检查跨阶段系统误差","acceptance":"DN趋势图v1","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T057","title":"核纯PAA匹配DN对照是否准备齐全（G04/G11/G12）","steps":"若候选DN25/75，确认G12材料/工艺范围","acceptance":"匹配对照清单","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T058","title":"安排第一组FTIR/流变/剥离表征或样品预约","steps":"保存原始光谱与测量方法锁定表","acceptance":"表征原始索引","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T059","title":"建立四组C1—C4同批随机化与工艺块顺序","steps":"计算每批最少2颗、3独立批的物料与通道","acceptance":"C1—C4排程v1","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T060","title":"只对关键异常进行验证；核G02是否进入正式比较","steps":"提出资源缺口和设备通道需求给导师","acceptance":"资源确认单","progress":"","prerequisite":"按SOP","gate":"实验前须核对SOP"},{"id":"T061","title":"撰写论文Materials/Methods，引用SOP锁定版本","steps":"不写未经测得的优势机制","acceptance":"Methods初稿B","progress":"","prerequisite":"证据","gate":"需核对原始证据"},{"id":"T062","title":"W08门禁G2：d_c与确认设计是否可冻结","steps":"证据不足顺延同期四组确认，启用风险计划","acceptance":"d_c冻结/推迟决定","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T063","title":"确认C1—C4四组定义、随机顺序、通道计划","steps":"检查确认块标签与Si分数公式","acceptance":"Block1预登记","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T064","title":"配四组各自胶液，记录批次与DN真实值","steps":"安排初始流变/剥离样品，不占电化学正式样","acceptance":"四组胶液原始表","progress":"","prerequisite":"按SOP","gate":"实验前须核对SOP"},{"id":"T065","title":"涂布/干燥C1—C4，记录每条片负载和干膜","steps":"同块统一方法，G02卷曲片继续HOLD","acceptance":"Block1极片QC","progress":"","prerequisite":"按SOP","gate":"实验前须核对SOP"},{"id":"T066","title":"核面负载与变异，筛出合格片位","steps":"确认足够有效面积用于新鲜与放置挑战","acceptance":"合格片位清单","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T067","title":"按通道能力装配Block1电池，至少两颗/组为目标","steps":"若通道不足，保留一致的储存与延迟记录","acceptance":"Block1电池索引","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T068","title":"整理确认研究设计与统计层级图","steps":"引言第三节写直接先例与本研究差别","acceptance":"设计图＋引言B","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T069","title":"W09复盘：一块C1—C4是否有效？","steps":"不合格工艺块必须新建重复，不能用补片伪装","acceptance":"Block1签收表","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T070","title":"整理Block1活化曲线/CE与原始文件，标异常","steps":"进行第2块预登记、随机化涂布顺序","acceptance":"Block1趋势图","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T071","title":"Block2四组重新配胶，核环境温湿度与批号","steps":"如产气/沉降超标，触发工艺异常记录","acceptance":"Block2配胶表","progress":"","prerequisite":"按SOP","gate":"实验前须核对SOP"},{"id":"T072","title":"制浆/涂布/烘干，做极片QC","steps":"核各组面负载匹配；禁止偏倚剔样","acceptance":"Block2极片表","progress":"","prerequisite":"按SOP","gate":"实验前须核对SOP"},{"id":"T073","title":"预约假期前可获得的SEM/FTIR/流变机时","steps":"准备同批独立标准化剥离试样","acceptance":"表征样品盒","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T074","title":"Block2电池装配及校验程序；确认测量链路","steps":"不占用其他同学正在测试的通道","acceptance":"Block2上机表","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T075","title":"画图：面负载、初期ICE、剥离散点并注明批次","steps":"导师阶段汇报：未完成200圈需显著标出","acceptance":"阶段汇报PPT草稿","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T076","title":"W10复盘：两个独立工艺块可比性及失效统计","steps":"规划第三块；设备不足则报告最早完工时间","acceptance":"W10确认汇总","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T077","title":"核Block1-2的QC差异，锁定Block3不变参数","steps":"如已发生SOP变更，不得与前两块静默并表","acceptance":"方法偏差台账","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T078","title":"Block3四组独立配胶、检查固含/pH","steps":"收集所有批次制备照片和水氧记录","acceptance":"Block3胶液记录","progress":"","prerequisite":"按SOP","gate":"实验前须核对SOP"},{"id":"T079","title":"Block3混浆、涂布、真空干燥与厚度记录","steps":"落实可用机时和上机队列","acceptance":"Block3极片QC","progress":"","prerequisite":"按SOP","gate":"实验前须核对SOP"},{"id":"T080","title":"核三块的温度/面积/厚度/负载/水氧是否可比","steps":"确定需补做的非破坏性样品","acceptance":"三块方法对比表","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T081","title":"Block3合格电池装配与OCV检查；先读程序","steps":"将24颗C1—C4上机状态逐一登记","acceptance":"确认样品完整度","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T082","title":"开始Results：极片外观/流变/剥离结果的图谱","steps":"无数据段落保留占位，不写数值","acceptance":"Results草稿A","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T083","title":"W11门禁G3：3块是否完成且24颗进入合规队列","steps":"不足时保留任务未完，重算投稿可能性","acceptance":"Block1-3总体核查","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T084","title":"复核01版15.3节：新鲜/4h分样必须同一浆料批","steps":"核原确认块是否已有预先分样，不能事后伪配对","acceptance":"配对资格判定","progress":"","prerequisite":"按SOP","gate":"实验前须核对SOP"},{"id":"T085","title":"为具备条件的组开展t0与t4同步配对小试","steps":"记录25±2℃、蒸发失重、气泡、pH和时刻","acceptance":"配对P0记录","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T086","title":"配对挑战合格后，制备规定四小时试条及QC","steps":"若确认块未预留配对材料，重新新批做配对","acceptance":"t0/t4 QC图片","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T087","title":"在可用通道确认后装4h新增电池并记录","steps":"按01版目标共12颗，不能牺牲同期确认样","acceptance":"放置挑战电池清单","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T088","title":"优先完成剥离/表观面积等工艺端点检测","steps":"比较时以配对差异为分析单位","acceptance":"配对工艺图","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T089","title":"补充Methods：材料老化挑战/统计方法","steps":"核图中单位、批次和实际时间","acceptance":"Methods草稿C","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T090","title":"W12复盘：挑战是否发现可复现差异；下一周调整","steps":"尚未启动的4h验证需如实列风险，不伪报","acceptance":"挑战进度卡","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T091","title":"评估已有确认数据能否回答核心问题，决定是否触发14节","steps":"与导师讨论投稿贡献是否需要高负载分支","acceptance":"分支启动批准/不启动","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T092","title":"核Si:SuperP:粘结剂=80:10:10与目标1.5–2.0mg/cm²","steps":"比对合格CMC/SBR、匹配DN纯PAA与复配三组","acceptance":"小试设计冻结","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T093","title":"若批准，开展三组牺牲性试涂，仅用于检验可加工性","steps":"记录裂纹、卷曲、涂层面积、剥离、实际负载","acceptance":"低非活性P0表","progress":"","prerequisite":"条件分支","gate":"HOLD：条件分支未批准"},{"id":"T094","title":"分析试涂的失败方式，判断共同工艺是否存在","steps":"若无法共同试涂，保留阴性结论并暂停18颗","acceptance":"工艺可行性判定","progress":"","prerequisite":"条件分支","gate":"HOLD：条件分支未批准"},{"id":"T095","title":"在共同工艺锁定且通道可用时预定正式3批窗口","steps":"未获批准则转为关键确认批的FTIR/SEM任务","acceptance":"模块决策单","progress":"","prerequisite":"条件分支","gate":"HOLD：条件分支未批准"},{"id":"T096","title":"修订图表：机制证据矩阵 vs 已做实验","steps":"研究讨论禁止强写共价交联","acceptance":"图表目录v2","progress":"","prerequisite":"证据","gate":"需核对原始证据"},{"id":"T097","title":"W13复盘：明确低非活性分支做/不做/顺延","steps":"若要求完整模块却资源不足，预测投稿延期","acceptance":"分支闸门结论","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T098","title":"核三块确认电池的200圈进度与通道异常率","steps":"统计失效时点，保留未完终点","acceptance":"长循环审计v1","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T099","title":"安排FTIR关键胶膜与原料对照样检测","steps":"未核试样以待测标记，不编频移结果","acceptance":"FTIR文件索引","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T100","title":"SEM新鲜极片与均一状态的关键表面/截面图","steps":"记录倍率、采样位置与样品批次","acceptance":"SEM图v1","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T101","title":"拉伸剥离/流变的方法锁定与批次重测核查","steps":"用独立批均值，不以同批5条当n=5批","acceptance":"力学流变结果v1","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T102","title":"若存在合规条件，启动条件分支正式电池首块","steps":"否则优先把200圈确认数据完成","acceptance":"机时占用日志","progress":"","prerequisite":"条件分支","gate":"HOLD：条件分支未批准"},{"id":"T103","title":"编制Results：工艺—电极完整性—电化学链条","steps":"写每项结论旁的证据来源和不足","acceptance":"Results B","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T104","title":"W14复盘：更新长循环预计完工日与论文缺口","steps":"若200圈未能赶上2月，早向导师预警","acceptance":"缺口优先级表","progress":"","prerequisite":"证据","gate":"需核对原始证据"},{"id":"T105","title":"盘点C1—C4已达到200圈的独立批次与缺失值","steps":"对失效电池作失败时间/原因记录","acceptance":"终点完成率","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T106","title":"核面容量与第6圈保持率定义、Si质量修正","steps":"锁数据清洗脚本/版本与异常处理","acceptance":"统计分析v1","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T107","title":"输出C1—C4面容量与ICE/CE散点、均值/区间","steps":"可画趋势但未完成端点必须显著标注","acceptance":"Figure 1-3草稿","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T108","title":"汇总4h挑战数据与低非活性分支状态","steps":"非因果相关只写相关，区别同期与跨期","acceptance":"Figure 4计划","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T109","title":"关键SEI XPS如有真实样/经费可选预约","steps":"无XPS不写化学组成结论","acceptance":"分析边界表","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T110","title":"形成英文初稿完整章节骨架+现有结果","steps":"全部缺数据保留TODO，不填假数字","acceptance":"初稿v0.7","progress":"","prerequisite":"证据","gate":"需核对原始证据"},{"id":"T111","title":"W15门禁G4：有无支撑投稿的200圈和独立批证据","steps":"若不足，申请延后而非伪造完成","acceptance":"导师风险报告","progress":"","prerequisite":"证据","gate":"需核对原始证据"},{"id":"T112","title":"核对最新真实长循环结果和图注中的n定义","steps":"清楚区分独立工艺批、技术重复","acceptance":"所有图注v1","progress":"","prerequisite":"G0","gate":"HOLD：G0证据不足"},{"id":"T113","title":"撰写Results中中和度/比例/匹配对照效应","steps":"核对直接先例R01/R03/R05/R06差异","acceptance":"Discussion A","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T114","title":"图像与统计全面QA：曲线、标尺、批次、同态比较","steps":"任何异常修正保存原图与更正日志","acceptance":"图表审查单","progress":"","prerequisite":"证据","gate":"需核对原始证据"},{"id":"T115","title":"按证据组织引言、方法、结果和讨论全文","steps":"不夸称首次复配/严格隔离SA变量","acceptance":"英文全文v1","progress":"","prerequisite":"证据","gate":"需核对原始证据"},{"id":"T116","title":"与导师讨论投稿目标、可用图、未完成模块","steps":"期刊选择需复核非OA/混合OA与分区","acceptance":"导师讨论记录","progress":"","prerequisite":"证据","gate":"需核对原始证据"},{"id":"T117","title":"整理补充信息SI：方法锁定、原始图、失败记录","steps":"备份图原始数据与统计脚本","acceptance":"SI目录v1","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T118","title":"W16复盘：投稿条件初评，是否保留2月目标","steps":"若未完成核心证据，将时间表调为补实验","acceptance":"Go/No-go 初评","progress":"","prerequisite":"证据","gate":"需核对原始证据"},{"id":"T119","title":"提交完整稿v1、图表和证据缺口给导师","steps":"注明尚待200圈或表征的真实状态","acceptance":"导师审阅包","progress":"","prerequisite":"证据","gate":"需核对原始证据"},{"id":"T120","title":"处理可立即完成的文字/单位/引用修改","steps":"约导师反馈窗口；如不便则变更计划","acceptance":"修订记录v1","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T121","title":"仅补关键证据：缺失批次/图尺度/方法细节","steps":"没有可用通道不临时改实验主终点","acceptance":"证据补齐清单","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T122","title":"检查数据库中是否还有未披露重复文件或误命名","steps":"逐图核raw—表—图—正文一一对应","acceptance":"追溯QA单","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T123","title":"写Cover Letter核心段、Highlights初稿","steps":"期刊拟投需与导师确认，非OA偏好保留","acceptance":"投稿材料草稿","progress":"","prerequisite":"证据","gate":"需核对原始证据"},{"id":"T124","title":"休整和轻量文献校对，保留假期缓冲","steps":"若导师未回复，做可逆格式工作，不假设批准","acceptance":"资料整理包","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T125","title":"W17周报：导师反馈完成度/剩余主终点","steps":"确定是否启动延期及重排实验","acceptance":"W17决策","progress":"","prerequisite":"证据","gate":"需核对原始证据"},{"id":"T126","title":"根据导师意见逐段修稿，标注全部改动","steps":"核对统计表述、物料身份、论文贡献限度","acceptance":"英文稿v2","progress":"","prerequisite":"证据","gate":"需核对原始证据"},{"id":"T127","title":"检查图像分辨率、重复数据、SI引用一致性","steps":"与原始文件匹配每一个数字与误差线","acceptance":"图像与数值核对表","progress":"","prerequisite":"证据","gate":"需核对原始证据"},{"id":"T128","title":"处理导师提出的必补实验或数据争议","steps":"不可无依据删除失效电池或隐藏负面结果","acceptance":"争议闭环表","progress":"","prerequisite":"证据","gate":"需核对原始证据"},{"id":"T129","title":"期刊最新投稿指南逐项核查：篇幅/模板/开放方式","steps":"核中科院分区年度口径；不提前承诺二区","acceptance":"期刊符合性表","progress":"","prerequisite":"证据","gate":"需核对原始证据"},{"id":"T130","title":"完成Cover Letter/Highlights/声明/作者确认","steps":"核数据可用性、利益冲突、AI使用披露","acceptance":"投稿包v1","progress":"","prerequisite":"无","gate":"需检查任务要求"},{"id":"T131","title":"将全部附件整理到投稿结构并双重备份","steps":"仍无导师准许时不得擅自投稿","acceptance":"提交前完整性清单","progress":"","prerequisite":"证据","gate":"需核对原始证据"},{"id":"T132","title":"W18最终Go/No-go：所有必要证据齐全且导师批准？","steps":"否→发布延期实验表；是→进入提交周","acceptance":"正式投稿决定","progress":"","prerequisite":"证据","gate":"需核对原始证据"},{"id":"T133","title":"核投稿系统所有字段与作者排序、附件版本","steps":"未过Go/No-go则制作延期里程碑","acceptance":"系统预检查/延期表","progress":"","prerequisite":"证据","gate":"需核对原始证据"},{"id":"T134","title":"导师最终签字或明确书面批准后上传/提交","steps":"保存提交截图和最终PDF，不重复点击","acceptance":"投稿回执或待提交记录","progress":"","prerequisite":"证据","gate":"需核对原始证据"},{"id":"T135","title":"2月26日截止：保存稿件ID、时间与文件快照","steps":"如仍无完整结果，发出准确状态报告并重新排期","acceptance":"回执与归档／延期说明","progress":"","prerequisite":"证据","gate":"需核对原始证据"},{"id":"T136","title":"完成10月21日新方法电池装配（仅物理装配完成）","steps":"G03因极片严重卷曲未装，返工/小试由T021跟进；逐颗编号与QC由T026/T005/T006跟进","acceptance":"用户本对话装配数量反馈；真实样品标签、SOP版本及逐颗QC记录待补","progress":"用户确认10月21日按新方法已装23颗：G01×6、G02×6、G04×5、G05×6，合计23；G03未装。此项只记录装配执行完成，不等同新方法验证、有效样本数或测试通过。","prerequisite":"无","gate":"需检查任务要求"}],"records":[{"id":"LOG-20261021-001","date":"2026-10-21","taskIds":["T002","T015"],"work":"已拍DH7003正面端子、线缆标识、鳄鱼夹及夹具连接；上传7份重新导出的OCV TXT（7份互不重复）；提供DH7003操作手册","issues":"G04-3-1-1在100秒内下降0.3692V；CH1与CH2测值差异未查明；旧重复TXT说法不适用于新压缩包\n2026-10-22更正/分类：用户确认旧七份来自装配错误电池；仅保留排障历史，不纳入新23颗组间比较。","conditions":"用户现场口述原文：在实验室；红、黑、蓝都没连，黄和绿连在一起；红连红鳄鱼夹，绿连黑鳄鱼夹；红鳄鱼夹接扣电池正极。按用户原话留存，端口对应与导通仍待现场复核。","observations":"用户反馈两通道接线相同，怀疑通道1不能测，但真实原因不清楚；后续明确“没测”。“取了”的对象在当前可读上下文中不明确，暂不据此确认电池处置状态。","next":"10月22日复核二电极接线及独立/双恒工作模式；10月23日整理7份曲线对照与测量映射","replan":"已重排T013至10月22日，T015至10月23日；本次将T002资料提交记为已完成，T013/T015继续核验。","status":"已更正","updatedAt":"2026-10-22T14:36:09.484Z","start":null,"end":null,"activeHours":null,"waitingHours":null,"travelHours":null,"breakMinutes":null},{"id":"LOG-20261021-002","date":"2026-10-21","taskIds":["T001","T005","T006","T013","T016","T021","T026","T136"],"work":"补记：按用户描述的新装配方法制作23颗CR2032：G01×6、G02×6、G04×5、G05×6，G03因极片卷曲未装；与旧G04 OCV排障3颗分开","issues":"G03 SA极片严重卷曲待重制；旧台账也有G02卷曲问题，需核验两组各自极片QC；新装23颗真实样品标签、质量/封口和测试状态未提供","conditions":"","observations":"","next":"10/22上午与导师谈职业学院；建立23颗真实标签映射并复核G03/G02极片；接线系统不放行前不急于批量测试","replan":"是，新增批次台账并前移编号整理与G03小试","status":"待核对","updatedAt":"2026-10-22T14:13:09.100Z","start":null,"end":null,"activeHours":null,"waitingHours":null,"travelHours":null,"breakMinutes":null},{"id":"LOG-20261022-001","date":"2026-10-22","taskIds":["T006","T021"],"work":"确认此次G02已装6颗所用极片没什么明显问题，之前G02卷曲记录不应默认套用本次样品","issues":"G03仍卷曲严重，需小试与重做；G02尚未提供定量面负载/片位/封口数据","conditions":"","observations":"","next":"优先G03卷曲排查；G02正常按QC建账，不额外加紧急返工","replan":"无须因G02单独改期","status":"待核对","updatedAt":"2026-10-22T14:13:09.100Z","start":null,"end":null,"activeHours":null,"waitingHours":null,"travelHours":null,"breakMinutes":null},{"id":"LOG-20261022-002","date":"2026-10-22","taskIds":["T013"],"work":"现场对照电池壳体材料修正两电极夹具方向：确认G01正极壳Si对应WE+SE、负极壳Li对应CE+RE；首颗G01用户口述OCV稳定+2.711 V达100秒","issues":"修正前另有G01 OCV约−2.7和−2.8 V；支持测量方向接反但尚未做仪器恒流功能和封装QC放行；2.711 V为OCV、不可当作循环通过","conditions":"","observations":"","next":"保存首测原始OCV并映射实物电池编号；先核对封装SOP/程序极性及截止电压再讨论正式充放电","replan":"无需因为数值稳定而提前放行G0","status":"待核对","updatedAt":"2026-10-22T14:13:09.100Z","start":null,"end":null,"activeHours":null,"waitingHours":null,"travelHours":null,"breakMinutes":null},{"id":"LOG-20261022-003","date":"2026-10-22","taskIds":["T001","T003","T004","T005","T013","T015","T016","T026"],"work":"用户确认T004材料盘点、T005装配SOP核对、T013接线与模式核查已完成；提供新装23颗OCV文件供读取","issues":"G02-2 68点、G04-1 24点、G04-3 8点且接近0V。用户明确补充：观察异常后主动暂停，怀疑短路或其他原因，担心影响通道；原因及通道影响均未确认。G05-5 300点首尾变化约124mV待复核。","conditions":"低点数原因由用户确认为主动暂停，非导出缺失。混合科学计数和mV已统一换算V；IRand字段不作为实际施加电流。文件修改时间不冒充采集时间。","observations":"23份均可解析，20份300点、3份不足300点；23份原始文件哈希互不重复。只描述OCV记录，不判定循环性能或有效样本数。","next":"10/23优先复核4条重点记录；T001合并两项职业学院沟通，落实到访与运输接收要求","replan":"T003并入T001不重复计时；T015转为新23颗记录核对；T016转为重点复测","status":"待核对","updatedAt":"2026-10-22T14:36:09.484Z","start":null,"end":null,"activeHours":null,"waitingHours":null,"travelHours":null,"breakMinutes":null}]};
 </script>
 <script>
-/* 科研展示摘要：只接收六个已审核字段，不读取完整科研总表。 */
+/* 科研原生阅读：六字段摘要保持原护栏；正文与只读记录仅接收独立审核导出的同版字段。 */
 (function(root,factory){
   var api=factory();
   if(typeof module==='object'&&module.exports)module.exports=api;
@@ -16008,86 +16180,207 @@ window.RESEARCH_SNAPSHOT={"schemaVersion":1,"sourceLabel":"Google 科研展示�
     groups.days=Array.from({length:7},function(_,i){var date=addDays(today,i+1),list=groups.week.filter(function(t){return t.date===date;});return{date:date,tasks:list,hours:hours(list)};});
     return groups;
   }
+  var detailTaskKeys=['id','title','steps','acceptance','progress','prerequisite','gate'];
+  var recordKeys=['id','date','taskIds','work','issues','conditions','observations','next','replan','status','updatedAt','start','end','activeHours','waitingHours','travelHours','breakMinutes'];
+  function safeText(v,required){return typeof v==='string'&&v.length<=2400&&(!required||v.trim().length>0)&&!/[A-Za-z]:[\\/]|file:|https?:\/\/|api[_ -]?key|access[_ -]?token|refresh[_ -]?token|client[_ -]?secret|password|passwd|private[_ -]?key|authorization|bearer\s|密码|验证码|(?:^|\D)1[3-9]\d{9}(?!\d)|[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}/i.test(v);}
+  function validStamp(v){return typeof v==='string'&&Number.isFinite(Date.parse(v));}
+  function validateDetails(b,summary){
+    validate(summary);
+    if(!exact(b,['schemaVersion','summaryRevision','sourceReleaseId','sourceSyncedAt','contentDigest','tasks','records'])||b.schemaVersion!==1||b.summaryRevision!==summary.revision||!/^[a-f0-9]{20}$/.test(b.sourceReleaseId)||!/^[a-f0-9]{64}$/.test(b.contentDigest)||!validStamp(b.sourceSyncedAt)||!Array.isArray(b.tasks)||!Array.isArray(b.records)||b.records.length>2000)throw Error('执行正文与任务摘要版本不一致');
+    var ids=Object.create(null),expected=Object.create(null);summary.tasks.forEach(function(t){expected[t.id]=true;});
+    b.tasks.forEach(function(t){if(!exact(t,detailTaskKeys)||!expected[t.id]||ids[t.id]||detailTaskKeys.slice(1).some(function(k){return!safeText(t[k],['title','steps','acceptance'].indexOf(k)>=0);}))throw Error('执行正文含未审核字段');ids[t.id]=true;});
+    if(Object.keys(ids).length!==summary.tasks.length)throw Error('执行正文任务编号不完整');
+    var records=Object.create(null);
+    b.records.forEach(function(r){
+      if(!exact(r,recordKeys)||!/^LOG-\d{8}-\d{3}$/.test(r.id)||records[r.id]||!day(r.date)||!Array.isArray(r.taskIds)||new Set(r.taskIds).size!==r.taskIds.length||r.taskIds.some(function(id){return!ids[id];})||['待核对','已核对','需补充','已更正'].indexOf(r.status)<0)throw Error('实验记录编号、关联或状态异常');
+      records[r.id]=true;
+      if(['work','issues','conditions','observations','next','replan'].some(function(k){return!safeText(r[k],k==='work');})||['updatedAt','start','end'].some(function(k){return r[k]!==null&&!validStamp(r[k]);})||r.start&&r.end&&r.end<r.start)throw Error('实验记录文字或时间异常');
+      ['activeHours','waitingHours','travelHours','breakMinutes'].forEach(function(k){var n=r[k],max=k==='waitingHours'?744:k==='breakMinutes'?1440:24;if(n!==null&&(typeof n!=='number'||!Number.isFinite(n)||n<0||n>max))throw Error('实验记录工时异常');});
+    });return b;
+  }
+  function copy(value){return value==null?value:JSON.parse(JSON.stringify(value));}
+  function digestText(b){return JSON.stringify([b.tasks.map(function(t){var r={};detailTaskKeys.forEach(function(k){r[k]=t[k];});return r;}),b.records.map(function(t){var r={};recordKeys.forEach(function(k){r[k]=t[k];});return r;})]);}
   function mount(w,doc,opts){
-
-    opts=opts||{};var $=function(id){return doc.getElementById(id);},data=null,currentDay=opts.today||beijingDay(),groups=null,scope='today',limit=12,selectedDay='',query='',category='all',state='all',request=0,controller=null,lastCheck=0;
+    opts=opts||{};var $=function(id){return doc.getElementById(id);},data=null,details=null,detailMap=Object.create(null),currentDay=opts.today||beijingDay(),groups=null,scope='today',limit=12,selectedDay='',query='',category='all',state='all',request=0,controller=null,lastCheck=0,recordTask='all',recordQuery='',recordLimit=12,focusId='';
     var fetcher=opts.fetcher||(typeof fetch==='function'?fetch:null),refreshButton=$('research-refresh');
     function stamp(value){return new Date(value).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',hour12:false});}
-    function riskBox(){
-      var undated=groups.risk.filter(function(t){return !t.date;}).length,held=groups.risk.filter(function(t){return t.status==='待条件';}).length,overdue=groups.risk.filter(function(t){return t.date&&t.date<currentDay;}).length;
-      $('research-risk-note').textContent=groups.risk.length?groups.risk.length+' 项条件或排期待核对'+(undated?'，含 '+undated+' 项日期未定':'')+(overdue?'、'+overdue+' 项逾期':'')+'。':'展示摘要中暂无已标记风险，执行条件仍须核对。';
-    }
+    function notify(){if(w.dispatchEvent&&typeof w.CustomEvent==='function')w.dispatchEvent(new w.CustomEvent('research-updated',{detail:{revision:data.revision}}));}
+    function title(t){return detailMap[t.id]?detailMap[t.id].title:t.title;}
+    function riskBox(){var undated=groups.risk.filter(function(t){return!t.date;}).length,overdue=groups.risk.filter(function(t){return t.date&&t.date<currentDay;}).length;$('research-risk-note').textContent=groups.risk.length?groups.risk.length+' 项条件或排期待核对'+(undated?'，含 '+undated+' 项日期未定':'')+(overdue?'、'+overdue+' 项已过建议日期':'')+'；网站不会自行改期或批准实验。':'当前摘要暂无已标记风险，执行条件仍须核对。';}
     function renderSummary(){
       var complete=groups.done.length,pct=data.tasks.length?Math.round(100*complete/data.tasks.length):0;
       $('research-date').textContent=currentDay+' · 北京时间';
-      $('research-focus').textContent=groups.today.length?'今天 '+groups.today.length+' 项待办，预计主动工时 '+hours(groups.today).text+'；已完成事项 '+complete+' 项。':'今天没有已排定的待办；已完成事项 '+complete+' 项，可以查看已完成和未来7天。';
-      $('research-stats').innerHTML=[['today','今日待办',groups.today.length,hours(groups.today).text],['week','未来7天',groups.week.length,hours(groups.week).text],['risk','风险待核对',groups.risk.length,'条件 / 日期 / 工时'],['done','已标记完成',complete,'共 '+data.tasks.length+' 项']].map(function(x){return '<button type="button" class="research-stat" data-rscope="'+x[0]+'"><span>'+x[1]+'</span><strong>'+x[2]+'</strong><small>'+esc(x[3])+'</small></button>';}).join('');
-      $('research-progress').textContent='已标记完成 '+complete+' / '+data.tasks.length+' 项（'+pct+'%）；此处不表示实验已验收。';
-      $('research-progress-fill').style.width=pct+'%';
+      $('research-focus').textContent=groups.today.length?'今天 '+groups.today.length+' 项待办，预计主动工时 '+hours(groups.today).text+'。步骤与完成标准直接在下面读。':'今天没有已排定待办；可以查看未来7天、全部任务或待协调事项。';
+      $('research-stats').innerHTML=[['today','今日待办',groups.today.length,hours(groups.today).text],['week','未来7天',groups.week.length,hours(groups.week).text],['risk','待协调',groups.risk.length,'条件 / 日期 / 工时'],['all','全部任务',data.tasks.length,'含已完成与已取消']].map(function(x){return '<button type="button" class="research-stat" data-rscope="'+x[0]+'"><span>'+x[1]+'</span><strong>'+x[2]+'</strong><small>'+esc(x[3])+'</small></button>';}).join('');
+      $('research-progress').textContent='已标记完成 '+complete+' / '+data.tasks.length+' 项（'+pct+'%）；执行完成不等于实验验收通过。';$('research-progress-fill').style.width=pct+'%';
       $('research-completed-panel').hidden=complete===0;
-      $('research-completed-list').innerHTML=groups.done.slice(0,3).map(function(t){return '<a href="https://luohao-research-desk.easyroot8192.chatgpt.site/?task='+encodeURIComponent(t.id)+'" target="_top" rel="noopener"><span>✓ 已完成</span> '+esc(t.id)+' · '+esc(t.title)+'</a>';}).join('');
-      $('research-meta').textContent='来源：Google 科研展示表 · 表格更新时间 '+stamp(data.sourceUpdatedAt)+' · 网站同步时间 '+stamp(data.syncedAt)+' · 版本 '+data.revision.slice(0,8);
+      $('research-completed-list').innerHTML=groups.done.slice(0,3).map(function(t){return '<button type="button" data-ropen="'+t.id+'"><span>✓ 已完成</span> '+esc(t.id)+' · '+esc(title(t))+'</button>';}).join('');
+      $('research-meta').textContent='摘要源更新时间 '+stamp(data.sourceUpdatedAt)+' · 网站同步 '+stamp(data.syncedAt)+' · 摘要版本 '+data.revision.slice(0,8)+(details?' · 正文与记录源时间 '+stamp(details.sourceSyncedAt)+' · 同版 '+details.sourceReleaseId:' · 正文暂未载入');
+      $('research-details-note').textContent=details?'完整执行内容与 '+details.records.length+' 条只读记录已载入；来源核对时间 '+stamp(details.sourceSyncedAt)+(Date.now()-Date.parse(details.sourceSyncedAt)>48*3600000?'。源快照已超过48小时，执行前核对近期反馈，未知进展不自动补写。':'。'):'完整正文暂未载入，当前仅显示已核对摘要；请检查更新。';
       var max=Math.max.apply(null,[8].concat(groups.days.map(function(d){return d.hours.known;})));
-      $('research-week-chart').innerHTML=groups.days.map(function(d){return '<button type="button" class="research-day'+(d.hours.known>8?' overload':'')+'" data-rday="'+d.date+'" aria-label="'+d.date+'，'+d.tasks.length+'项，'+esc(d.hours.text)+'"><span>'+d.date.slice(5).replace('-','/')+'</span><span class="research-day-track"><i style="height:'+Math.max(d.hours.known?5:0,100*d.hours.known/max)+'%"></i></span><b>'+d.hours.known+' h</b><small>'+d.tasks.length+'项'+(d.hours.missing?' · 待估':'')+'</small></button>';}).join('');
-      riskBox();
+      $('research-week-chart').innerHTML=groups.days.map(function(d){return '<button type="button" class="research-day'+(d.hours.known>8?' overload':'')+'" data-rday="'+d.date+'" aria-label="'+d.date+'，'+d.tasks.length+'项，'+esc(d.hours.text)+'"><span>'+d.date.slice(5).replace('-','/')+'</span><span class="research-day-track"><i style="height:'+Math.max(d.hours.known?5:0,100*d.hours.known/max)+'%"></i></span><b>'+d.hours.known+' h</b><small>'+d.tasks.length+'项'+(d.hours.missing?' · 待估':'')+'</small></button>';}).join('');riskBox();
     }
-    function filtered(){
-      var q=query.trim().toLowerCase();
-      return(groups[scope]||[]).filter(function(t){return (!selectedDay||t.date===selectedDay)&&(category==='all'||t.category===category)&&(state==='all'||t.status===state)&&(!q||[t.id,t.title,t.category,t.status].join(' ').toLowerCase().includes(q));}).slice().sort(function(a,b){return(a.date||'9999').localeCompare(b.date||'9999')||a.id.localeCompare(b.id);});
-    }
+    function filtered(){var words=query.trim().toLowerCase().split(/\s+/).filter(Boolean);return(groups[scope]||[]).filter(function(t){var d=detailMap[t.id]||{},text=[t.id,t.title,t.category,t.status,d.title,d.steps,d.acceptance,d.progress,d.prerequisite,d.gate].join(' ').toLowerCase();return(!focusId||t.id===focusId)&&(!selectedDay||t.date===selectedDay)&&(category==='all'||t.category===category)&&(state==='all'||t.status===state)&&words.every(function(word){return text.includes(word);});}).slice().sort(function(a,b){return(a.date||'9999').localeCompare(b.date||'9999')||a.id.localeCompare(b.id);});}
     function render(){
-      if(!data)return;
-      var list=filtered(),labels={today:'今日任务',week:'未来7天',risk:'风险待核对',all:'全部任务',done:'已标记完成'};
-      doc.querySelectorAll('#view-research [data-rscope]').forEach(function(el){var on=el.dataset.rscope===scope;el.classList.toggle('selected',on);el.setAttribute('aria-pressed',on?'true':'false');});
-      $('research-list-heading').textContent=selectedDay?selectedDay+' 的安排':labels[scope];
-      $('research-result-count').textContent=list.length+' 项 · '+hours(list).text+(scope==='week'?' · 不含今天':'')+(list.length>limit?' · 已显示 '+limit+' 项':'');
-      $('research-list').innerHTML=list.slice(0,limit).map(function(t){var warnings=risks(t,currentDay);return '<article class="research-task'+(warnings.length?' has-risk':'')+'"><div class="research-task-top"><span>'+esc(t.category)+'</span><small>'+esc(t.id)+'</small></div><h3>'+esc(t.title)+'</h3><div class="research-task-tags"><span class="research-state '+(t.status==='已完成'?'done':t.status==='待条件'?'hold':'')+'">'+esc(t.status)+'</span><span>'+esc(t.date||'日期待确认')+'</span><span>预计 '+(t.hours===null?'待估':t.hours+' h')+'</span></div>'+(warnings.length?'<p class="research-task-risk">'+esc(warnings.join('；'))+'</p>':'')+'<div class="research-task-bottom"><small>具体工作见完整科研清单</small><button type="button" data-rfeedback="'+t.id+'">反馈这项</button></div></article>';}).join('')||'<div class="research-empty"><strong>没有匹配的任务</strong><p>可以清除筛选，或查看未来7天和风险待核对。</p></div>';
-      $('research-more').hidden=list.length<=limit;
+      if(!data)return;var list=filtered(),labels={today:'今日任务',week:'未来7天',risk:'待协调与风险',all:'全部任务',done:'已标记完成'};
+      doc.querySelectorAll('#view-research [data-rscope]').forEach(function(el){var on=el.dataset.rscope===scope;el.classList.toggle('selected',on);el.setAttribute('aria-pressed',String(on));});
+      $('research-list-heading').textContent=selectedDay?selectedDay+' 的安排':labels[scope];$('research-result-count').textContent=list.length+' 项 · '+hours(list).text+(scope==='week'?' · 不含今天':'')+(list.length>limit?' · 已显示 '+limit+' 项':'');
+      $('research-list').innerHTML=list.slice(0,limit).map(function(t){var d=detailMap[t.id],warnings=risks(t,currentDay),recordCount=details?details.records.filter(function(r){return r.taskIds.includes(t.id);}).length:0;
+        var body=d?'<dl class="research-task-details"><dt>怎么推进</dt><dd>'+esc(d.steps)+'</dd><dt>做到什么算完成</dt><dd>'+esc(d.acceptance)+'</dd>'+(d.progress?'<dt>已发布进展</dt><dd>'+esc(d.progress)+'</dd>':'')+(d.prerequisite&&d.prerequisite!=='无'?'<dt>前置条件</dt><dd>'+esc(d.prerequisite)+'</dd>':'')+(d.gate.startsWith('HOLD')?'<dt>安全与条件限制</dt><dd>'+esc(d.gate)+'</dd>':'')+'</dl>':'<p class="research-chart-note">执行正文暂未载入，当前为摘要。</p>';
+        return '<article id="research-task-'+t.id+'" tabindex="-1" class="research-task'+(warnings.length?' has-risk':'')+'"><div class="research-task-top"><span>'+esc(t.category)+'</span><small>'+esc(t.id)+'</small></div><h3>'+esc(title(t))+'</h3><div class="research-task-tags"><span class="research-state '+(t.status==='已完成'?'done':t.status==='待条件'?'hold':'')+'">'+esc(t.status)+'</span><span>建议日期 '+esc(t.date||'待确认')+'</span><span>预计 '+(t.hours===null?'待估':t.hours+' h')+'</span></div>'+(warnings.length?'<p class="research-task-risk">'+esc(warnings.join('；'))+'</p>':'')+body+'<div class="research-task-bottom">'+(recordCount?'<button type="button" data-rrecords="'+t.id+'">本项记录 · '+recordCount+'</button>':'')+'<button type="button" data-rfeedback="'+t.id+'">反馈这项</button></div></article>';
+      }).join('')||'<div class="research-empty"><strong>没有匹配的任务</strong><p>可以清除筛选，或查看未来7天、全部任务和已完成。</p></div>';$('research-more').hidden=list.length<=limit;
     }
-    function setScope(next){scope=['today','week','risk','all','done'].indexOf(next)>=0?next:'today';limit=12;selectedDay='';render();}
-    function apply(next){
-      data=validate(next);currentDay=opts.today||beijingDay();groups=model(data.tasks,currentDay);
-      var cs=categories.filter(function(c){return data.tasks.some(function(t){return t.category===c;});});if(category!=='all'&&cs.indexOf(category)<0)category='all';
-      $('research-category').innerHTML='<option value="all">全部分类</option>'+cs.map(function(c){return '<option value="'+esc(c)+'">'+esc(c)+'</option>';}).join('');$('research-category').value=category;
-      renderSummary();render();
+    function renderRecords(){
+      var records=details?details.records:[],words=recordQuery.trim().toLowerCase().split(/\s+/).filter(Boolean),list=records.filter(function(r){return(recordTask==='all'||r.taskIds.includes(recordTask))&&words.every(function(q){return[r.id,r.work,r.issues,r.conditions,r.observations,r.next,r.replan].join(' ').toLowerCase().includes(q);});}).slice().sort(function(a,b){return b.date.localeCompare(a.date)||b.id.localeCompare(a.id);});
+      $('research-record-count').textContent=list.length+' 条已发布记录'+(recordTask!=='all'?' · '+recordTask:'');
+      function duration(v,unit){return v===null?'待补充':v+' '+unit;}
+      $('research-record-list').innerHTML=list.slice(0,recordLimit).map(function(r){var fields=[['条件与操作补充',r.conditions],['观察结果',r.observations],['异常与边界',r.issues],['当时记录的下一步',r.next],['当时的排期说明',r.replan]].filter(function(x){return x[1];});return '<article class="research-record"><div class="research-task-top"><time>'+esc(r.date)+'</time><small>'+esc(r.id)+' · '+esc(r.status)+'</small></div><h4>'+esc(r.work)+'</h4><div class="research-task-tags">'+r.taskIds.map(function(id){return '<button type="button" data-ropen="'+id+'">'+id+' · 查看任务</button>';}).join('')+'</div><p class="research-record-times">开始 '+esc(r.start?r.start.replace('T',' '):'未记录')+' · 结束 '+esc(r.end?r.end.replace('T',' '):'未记录')+'<br>主动 '+duration(r.activeHours,'h')+' · 等待 '+duration(r.waitingHours,'h')+' · 交通 '+duration(r.travelHours,'h')+' · 休息 '+duration(r.breakMinutes,'分钟')+'</p><dl class="research-task-details">'+fields.map(function(f){return '<dt>'+f[0]+'</dt><dd>'+esc(f[1])+'</dd>';}).join('')+'</dl></article>';}).join('')||'<div class="research-empty">'+(details?'暂无匹配的已发布记录。任务安排不会自动生成实际记录。':'记录正文暂未载入。')+'</div>';$('research-record-more').hidden=list.length<=recordLimit;
+    }
+    function setScope(next){focusId='';scope=['today','week','risk','all','done'].includes(next)?next:'today';limit=12;selectedDay='';render();}
+    function focusTask(id){if(!data||!data.tasks.some(function(t){return t.id===id;}))return false;focusId=id;scope='all';query=id;category='all';state='all';selectedDay='';limit=12;$('research-search').value=id;$('research-category').value='all';$('research-state').value='all';render();var target=$('research-task-'+id)||$('research-list-heading');if(target&&target.scrollIntoView)target.scrollIntoView({block:'start',behavior:'auto'});if(target&&target.focus)target.focus({preventScroll:true});return true;}
+    function showRecords(id){recordTask=id;recordQuery='';recordLimit=12;$('research-record-task').value=id;$('research-record-query').value='';renderRecords();var el=$('research-record-heading');if(el&&el.scrollIntoView)el.scrollIntoView({block:'start',behavior:'auto'});if(el&&el.focus)el.focus({preventScroll:true});}
+    function apply(next,bundle){
+      var candidate=validate(next),native=bundle?validateDetails(bundle,candidate):details&&details.summaryRevision===candidate.revision?details:null;
+      data=candidate;details=native;detailMap=Object.create(null);if(details)details.tasks.forEach(function(t){detailMap[t.id]=t;});currentDay=opts.today||beijingDay();groups=model(data.tasks,currentDay);
+      var cs=categories.filter(function(c){return data.tasks.some(function(t){return t.category===c;});});if(category!=='all'&&!cs.includes(category))category='all';$('research-category').innerHTML='<option value="all">全部分类</option>'+cs.map(function(c){return '<option value="'+esc(c)+'">'+esc(c)+'</option>';}).join('');$('research-category').value=category;
+      var linked=details?data.tasks.filter(function(t){return details.records.some(function(r){return r.taskIds.includes(t.id);});}):[];
+      $('research-record-task').innerHTML='<option value="all">全部关联任务</option>'+linked.map(function(t){return '<option value="'+t.id+'">'+t.id+' · '+esc(title(t))+'</option>';}).join('');if(recordTask!=='all'&&!linked.some(function(t){return t.id===recordTask;}))recordTask='all';$('research-record-task').value=recordTask;renderSummary();render();renderRecords();notify();
+    }
+    async function verifyNative(bundle,summary){
+      validateDetails(bundle,summary);if(!w.crypto||!w.crypto.subtle||typeof TextEncoder==='undefined')throw Error('无法校验正文发布版本');
+      var bytes=await w.crypto.subtle.digest('SHA-256',new TextEncoder().encode(digestText(bundle))),hex=Array.from(new Uint8Array(bytes)).map(function(b){return b.toString(16).padStart(2,'0');}).join('');if(hex!==bundle.contentDigest)throw Error('正文校验值不一致');return bundle;
     }
     async function refresh(){
-      var loc=w.location||{};
-      if(loc.protocol==='file:'){$('research-sync-status').textContent='当前为本地网页摘要。请打开在线网站读取最新发布数据；本地路径不能供其他设备访问。';return;}
-      if(!fetcher)return;
-      var mine=++request;if(controller)controller.abort();controller=typeof AbortController!=='undefined'?new AbortController():null;
-      var localController=controller,timeout=setTimeout(function(){if(localController)localController.abort();},15000);
-      refreshButton.disabled=true;$('research-sync-status').textContent='正在检查最新发布数据…';
+      if((w.location||{}).protocol==='file:'){$('research-sync-status').textContent='当前为本地打包的任务、正文与记录；在线检查请打开主站。';return;}if(!fetcher)return;
+      var mine=++request;if(controller)controller.abort();controller=typeof AbortController!=='undefined'?new AbortController():null;var ctrl=controller,timeout=setTimeout(function(){if(ctrl)ctrl.abort();},15000);refreshButton.disabled=true;$('research-sync-status').textContent='正在检查任务与正文的同版发布…';
       try{
-        var response=await fetcher('research-data.json?t='+Date.now(),{cache:'no-store',credentials:'same-origin',signal:controller?controller.signal:undefined});
-        if(!response.ok)throw new Error('数据读取失败');var next=validate(await response.json());if(mine!==request)return;
-        if(data&&Date.parse(next.syncedAt)<Date.parse(data.syncedAt)){$('research-sync-status').textContent='服务器返回了较旧的摘要，已保留较新版本。请稍后重试。';return;}
-        apply(next);lastCheck=Date.now();$('research-sync-status').textContent='已读取最新发布摘要。表格修改后由我同步发布。';
-      }catch(e){if(mine!==request)return;$('research-sync-status').textContent=data?'更新检查失败，保留上次有效摘要。请稍后重试；当前不代表已同步。':'任务暂时无法读取，请稍后重试。读取失败不代表没有任务。';}
+        var options={cache:'no-store',credentials:'same-origin',signal:ctrl?ctrl.signal:undefined},suffix='?t='+Date.now(),responses=await Promise.all([fetcher('research-data.json'+suffix,options),fetcher('research-details.json'+suffix,options)]);if(mine!==request)return;if(responses.some(function(r){return!r.ok;}))throw Error('数据读取失败');
+        var payload=await Promise.all(responses.map(function(r){return r.json();}));if(mine!==request)return;var next=validate(payload[0]);if(data&&Date.parse(next.syncedAt)<Date.parse(data.syncedAt)){$('research-sync-status').textContent='服务器返回了较旧的摘要，已保留较新版本。';return;}
+        var bundle=await verifyNative(payload[1],next);if(mine!==request)return;if(details&&Date.parse(bundle.sourceSyncedAt)<Date.parse(details.sourceSyncedAt)){$('research-sync-status').textContent='服务器返回了较旧的正文，已保留较新版本。';return;}apply(next,bundle);lastCheck=Date.now();$('research-sync-status').textContent='已读取同域最新发布任务、执行正文与只读记录。';
+      }catch(e){if(mine!==request)return;$('research-sync-status').textContent=data?'更新检查失败，保留上次有效任务和正文；当前不代表已同步。':'任务暂时无法读取。读取失败不代表没有任务。';}
       finally{clearTimeout(timeout);if(mine===request)refreshButton.disabled=false;}
     }
-    $('view-research').addEventListener('click',function(e){
-      var b=e.target.closest?e.target.closest('button[data-rscope],button[data-rday],button[data-rfeedback]'):null;if(!b)return;
-      if(b.dataset.rscope){setScope(b.dataset.rscope);return;}
-      if(b.dataset.rday){scope='week';selectedDay=b.dataset.rday;limit=12;render();$('research-list-heading').scrollIntoView({block:'start',behavior:'auto'});return;}
-      var t=data&&data.tasks.find(function(t){return t.id===b.dataset.rfeedback;});if(!t)return;
-      $('research-feedback-text').value='任务ID：'+t.id+'\n任务：'+t.title+'\n进展 / 新情况：\n实际日期 / 希望调整到：\n实际主动工时（可选）：\n需要协调的事：';
-      $('research-feedback-box').scrollIntoView({block:'start',behavior:'auto'});$('research-feedback-text').focus();
+    $('view-research').addEventListener('click',function(e){var b=e.target.closest?e.target.closest('button[data-rscope],button[data-rday],button[data-rfeedback],button[data-ropen],button[data-rrecords]'):null;if(!b)return;
+      if(b.dataset.rscope){setScope(b.dataset.rscope);return;}if(b.dataset.ropen){focusTask(b.dataset.ropen);return;}if(b.dataset.rrecords){showRecords(b.dataset.rrecords);return;}
+      if(b.dataset.rday){focusId='';scope='week';selectedDay=b.dataset.rday;limit=12;render();if($('research-list-heading').scrollIntoView)$('research-list-heading').scrollIntoView({block:'start',behavior:'auto'});return;}
+      var t=data&&data.tasks.find(function(t){return t.id===b.dataset.rfeedback;});if(!t)return;$('research-feedback-text').value='任务ID：'+t.id+'\n任务：'+title(t)+'\n进展 / 新情况：\n实际日期 / 希望调整到：\n实际主动工时（可选）：\n需要协调的事：';if($('research-feedback-box').scrollIntoView)$('research-feedback-box').scrollIntoView({block:'start',behavior:'auto'});$('research-feedback-text').focus();
     });
     refreshButton.addEventListener('click',refresh);
-    $('research-search').addEventListener('input',function(){query=this.value;limit=12;render();});
-    $('research-category').addEventListener('change',function(){category=this.value;limit=12;render();});
-    $('research-state').addEventListener('change',function(){state=this.value;limit=12;render();});
-    $('research-reset').addEventListener('click',function(){query='';category='all';state='all';selectedDay='';limit=12;$('research-search').value='';$('research-category').value='all';$('research-state').value='all';render();});
-    $('research-more').addEventListener('click',function(){limit+=12;render();});
+    $('research-search').addEventListener('input',function(){focusId='';query=this.value;limit=12;render();});$('research-category').addEventListener('change',function(){focusId='';category=this.value;limit=12;render();});$('research-state').addEventListener('change',function(){focusId='';state=this.value;limit=12;render();});
+    $('research-reset').addEventListener('click',function(){focusId='';query='';category='all';state='all';selectedDay='';limit=12;$('research-search').value='';$('research-category').value='all';$('research-state').value='all';render();});$('research-more').addEventListener('click',function(){var before=limit;limit+=12;render();var cards=doc.querySelectorAll('#research-list article');if(cards[before]&&cards[before].focus)cards[before].focus();});
+    $('research-record-task').addEventListener('change',function(){recordTask=this.value;recordLimit=12;renderRecords();});$('research-record-query').addEventListener('input',function(){recordQuery=this.value;recordLimit=12;renderRecords();});$('research-record-reset').addEventListener('click',function(){recordTask='all';recordQuery='';recordLimit=12;$('research-record-task').value='all';$('research-record-query').value='';renderRecords();});$('research-record-more').addEventListener('click',function(){recordLimit+=12;renderRecords();});
     $('research-copy').addEventListener('click',function(){if(w.AI_COPY)w.AI_COPY($('research-feedback-text').value,this);});
-    try{apply(w.RESEARCH_SNAPSHOT);$('research-sync-status').textContent='当前展示随网页发布的摘要；打开科研栏目时会检查更新。';}catch(e){$('research-sync-status').textContent='展示摘要校验失败，未加载任务。请稍后刷新。';}
-    if((w.location||{}).hash==='#research')refresh();
-    if(w.addEventListener)w.addEventListener('focus',function(){if($('view-research').style.display!=='none'&&Date.now()-lastCheck>30000)refresh();});
-    setInterval(function(){if($('view-research').style.display==='none'||!data)return;var today=opts.today||beijingDay();if(today!==currentDay){apply(data);refresh();}else if(Date.now()-lastCheck>300000)refresh();},60000);
-    return{refresh:refresh,apply:apply,setScope:setScope,state:function(){return{data:data,scope:scope,day:currentDay};}};
+    try{apply(w.RESEARCH_SNAPSHOT,w.RESEARCH_DETAILS);$('research-sync-status').textContent=details?'当前展示随网页发布的完整执行内容与记录；打开栏目时检查同域更新。':'当前仅展示已核对摘要，正文暂未载入。';}catch(e){try{apply(w.RESEARCH_SNAPSHOT,null);$('research-sync-status').textContent='正文版本校验失败，暂保留有效摘要；请检查更新。';}catch(ignore){$('research-sync-status').textContent='任务摘要校验失败，未加载任务。';}}
+    if((w.location||{}).hash==='#research')refresh();if(w.addEventListener)w.addEventListener('focus',function(){if($('view-research').style.display!=='none'&&Date.now()-lastCheck>30000)refresh();});
+    setInterval(function(){if($('view-research').style.display==='none'||!data)return;var today=opts.today||beijingDay();if(today!==currentDay){apply(data,details);refresh();}else if(Date.now()-lastCheck>300000)refresh();},60000);
+    return{refresh:refresh,apply:apply,setScope:setScope,focusTask:focusTask,getDetail:function(id){return copy(detailMap[id]||null);},getModel:function(){return copy(groups);},state:function(){return{data:copy(data),details:copy(details),scope:scope,day:currentDay};}};
   }
-  return{validate:validate,model:model,risks:risks,hours:hours,day:day,addDays:addDays,beijingDay:beijingDay,esc:esc,mount:mount};
+
+  return{validate:validate,validateDetails:validateDetails,model:model,risks:risks,hours:hours,day:day,addDays:addDays,beijingDay:beijingDay,esc:esc,mount:mount};
+});
+
+</script>
+<script>
+/* Personal dashboard and cross-section finding. Everything here uses published data. */
+(function(root,factory){var api=factory();if(typeof module==='object'&&module.exports)module.exports=api;if(root&&typeof document!=='undefined')root.AI_WORKSPACE=api.mount(root,document);})(typeof window==='undefined'?null:window,function(){
+  'use strict';
+  var routes={home:'今天',research:'科研',cqut:'校园通知',comp:'赛事机会',daily:'AI 日报',rank:'模型与工具',learn:'AI 学习',magazines:'期刊阅读',ted:'TED 英语',forum:'成长讲坛',funds:'资产记录'};
+  function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  function day(){var p=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date()),d={};p.forEach(function(x){d[x.type]=x.value;});return d.year+'-'+d.month+'-'+d.day;}
+  function safeURL(value){if(typeof value!=='string'||!/^https?:\/\//i.test(value)||/[\u0000-\u0020\u007f\\]/.test(value))return '';try{var u=new URL(value);return u.hostname&&!u.username&&!u.password?u.href:'';}catch(e){return '';}}
+  function list(value){return Array.isArray(value)?value.filter(function(x){return x&&typeof x==='object'&&!Array.isArray(x);}):[];}
+  function words(value){return String(value||'').toLowerCase().trim().split(/\s+/).filter(Boolean);}
+  function personalNotice(t){
+    var title=String(t.t||''),body=String(t.sum||''),source=String(t.src||'');
+    if(t.cat==='college'&&!/化学化工/.test(source)&&!/全校研究生|全校学生/.test(body))return false;
+    if(/对其他学院无直接影响|仅影响该院|面向出题教师|不必处理收卷|该场次已于|错过可关注|学科交叉分中心|优势特色学科群/.test(title+' '+body))return false;
+    return ['grad','money','exam'].indexOf(t.tag)>=0||/研究生.*(?:奖励|申报|培养|学位|毕业)/.test(title);
+  }
+  function deadline(t){
+    var m=/^(\d{4}-\d\d-\d\d)(?: (\d\d:\d\d))?$/.exec(String(t.dl||''));
+    if(!m||t.deadlineUnverified||t.st!=='报名中'||m[2]&&t.deadlineTime&&m[2]!==t.deadlineTime)return null;
+    var explicit=m[2]||t.deadlineTime,clock=explicit||'23:59',stamp=Date.parse(m[1]+'T00:00:00Z');
+    if(!Number.isFinite(stamp)||new Date(stamp).toISOString().slice(0,10)!==m[1]||!/^([01]\d|2[0-3]):[0-5]\d$/.test(clock))return null;
+    var at=Date.parse(m[1]+'T'+clock+':'+(explicit?'00':'59')+'+08:00');return {t:t,at:at,date:m[1]+(explicit?' '+clock:'')};
+  }
+  function search(entries,query,limit){var terms=words(query);return entries.filter(function(e){return terms.every(function(t){return e.hay.indexOf(t)>=0;});}).slice(0,limit||25);}
+  function index(data,details){
+    var result=[];
+    function add(e){e.hay=[e.title,e.group,e.text,e.key].filter(Boolean).join(' ').toLowerCase();result.push(e);}
+    Object.keys(routes).forEach(function(route){add({route:route,title:routes[route],group:'栏目',text:route});});
+    list(data.RESEARCH_SNAPSHOT&&data.RESEARCH_SNAPSHOT.tasks).forEach(function(t){var d=details&&details(t.id)||{};add({route:'research',key:t.id,title:d.title||t.title,group:'科研任务 · '+t.id,text:[t.title,t.category,t.status,d.steps,d.acceptance,d.progress,d.prerequisite,d.gate].join(' ')});});
+    list(data.CQUT_NOTICES).forEach(function(t){add({route:'cqut',title:t.t,key:t.t,group:'校园通知 · '+t.date,text:[t.src,t.sum].join(' ')});});
+    list(data.COMP).forEach(function(t){add({route:'comp',title:t.n,key:t.n,group:'赛事库',text:[t.type,t.reg,t.org,t.fit].join(' ')});});
+    list(data.MAGAZINE_ARTICLES).forEach(function(t){var p=list(data.MAGAZINES).find(function(p){return p.id===t.publication;});add({route:'magazines',title:t.title,key:t.title,group:'期刊 · '+(p?p.name:t.publication),text:[t.summary,t.featuredReason].join(' ')});});
+    list(data.TED).forEach(function(t){add({route:'ted',title:t.en,key:t.en,group:'TED · '+(t.sp||''),text:[t.cn,t.cat,t.why].join(' ')});});
+    list(data.FORUM_SERIES).forEach(function(s){list(s.vids).forEach(function(v){add({route:'forum',title:v.t,key:v.t,who:s.who,group:'讲坛 · '+s.who,text:[v.up,s.cat].join(' ')});});});
+    list(data.RANK&&data.RANK.models).forEach(function(t){add({route:'rank',title:t.name,group:'模型与工具',text:t.note});});
+    return result;
+  }
+  function mount(w,doc){
+    var home=doc.getElementById('home-metrics');if(!home)return null;
+    var dialog=doc.getElementById('workspace-search'),query=doc.getElementById('workspace-query'),results=doc.getElementById('workspace-search-results'),searchEntries=[],currentResults=[],trigger=null,KEY='ai-workspace-opened-v1';
+    function go(route,opts){if(w.AI_NAV)w.AI_NAV.go(route,opts||{});else{var tab=doc.getElementById('tab-'+route);if(tab&&tab.click)tab.click();}}
+    function input(id,value,type){var e=doc.getElementById(id);if(e){e.value=value;if(typeof Event!=='undefined')e.dispatchEvent(new Event(type||'input',{bubbles:true}));}}
+    function clickButton(id,attribute,value){var box=doc.getElementById(id);if(!box)return;var el=Array.prototype.find.call(box.querySelectorAll('button'),function(b){return b.getAttribute(attribute)===value;});if(el)el.click();}
+    function openEntry(e){
+      if(dialog&&dialog.open)dialog.close();go(e.route,{focus:true});
+      if(e.route==='research'&&e.key&&w.AI_RESEARCH&&w.AI_RESEARCH.focusTask){w.AI_RESEARCH.focusTask(e.key);return;}
+      if(!e.key)return;
+      if(e.route==='cqut'){var reset=doc.getElementById('cqut-reset');if(reset)reset.click();input('cqut-search',e.key);}
+      if(e.route==='comp'){clickButton('compScope','data-s','all');clickButton('compFilters','data-f','all');input('comp-search',e.key);}
+      if(e.route==='magazines'){doc.getElementById('magazine-reset').click();input('magazine-query',e.key);}
+      if(e.route==='ted'||e.route==='forum'){
+        var view=doc.getElementById('view-'+e.route),resetLibrary=view&&view.querySelector('[data-library-reset]');if(resetLibrary)resetLibrary.click();
+        if(e.route==='forum'){clickButton('forumFilters','data-c','全部');var list=doc.getElementById('forum-list'),series=Array.prototype.find.call(list.querySelectorAll('[data-open]'),function(x){return x.getAttribute('data-open')===e.who;});if(series)series.click();}
+        var field=view&&view.querySelector('.library-tools input[type="search"]');if(field){field.value=e.key;field.dispatchEvent(new Event('input',{bubbles:true}));}
+      }
+    }
+    function readRecent(){try{var r=JSON.parse(w.localStorage.getItem(KEY)||'null');if(r&&routes[r.route]&&typeof r.title==='string'&&safeURL(r.url)&&Number.isFinite(r.at))return r;}catch(e){}return null;}
+    function renderRecent(){var r=readRecent(),el=doc.getElementById('home-opened');if(!r){el.textContent='打开过的文章或课程会出现在这里；打开不会自动标为已读。';return;}
+      el.className='home-list';el.innerHTML='<a class="home-list-item" href="'+esc(r.url)+'" target="_blank" rel="noopener noreferrer"><strong>'+esc(r.title)+'</strong><small>'+esc(routes[r.route])+' · 仅记录打开，不代表读完</small></a>';
+    }
+    function renderResume(){var e=doc.getElementById('home-resume'),route='';try{route=w.sessionStorage.getItem('ai-workspace-last-view')||'';}catch(error){}e.hidden=!routes[route]||route==='home';if(!e.hidden){e.className='home-resume';e.innerHTML='<div><small>接着上次的位置</small><strong>'+esc(routes[route])+' · 保留这个窗口的阅读位置</strong></div><button class="top-btn" type="button" data-go="'+esc(route)+'">继续 ↗</button>';}}
+    function renderHome(){
+      var now=day(),app=w.AI_RESEARCH,raw=app&&app.state?app.state().data:w.RESEARCH_SNAPSHOT;
+      var tasks=raw&&Array.isArray(raw.tasks)?raw.tasks:[],active=tasks.filter(function(t){return t.status!=='已完成'&&t.status!=='已取消';}),overdue=active.filter(function(t){return t.date&&t.date<now;}),model=app&&app.getModel?app.getModel():null;
+      var today=model?model.today:active.filter(function(t){return t.date===now;}),week=model?model.week:active.filter(function(t){return t.date>now&&t.date<=new Date(Date.parse(now+'T00:00:00Z')+7*86400000).toISOString().slice(0,10);}),risk=model?model.risk:active.filter(function(t){return !t.date||t.date<now||t.status==='待条件'||t.status==='待确认'||t.hours===null||t.hours>8;});
+      function hrs(list){var n=0,missing=0;list.forEach(function(t){if(t.hours===null)missing++;else if(Number.isFinite(t.hours))n+=t.hours;});return(missing?'已知 ':'')+(Math.round(n*10)/10)+' h'+(missing?' · 含待估':'');}
+      var dateLabel=new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'long',day:'numeric',weekday:'long'}).format(new Date());
+      doc.getElementById('home-date').textContent=now+' · '+dateLabel;doc.getElementById('workspace-header-date').textContent=dateLabel;
+      home.innerHTML=[['today','今天待办',today.length,'预计 '+hrs(today),'任务来自已同步的科研安排'],['week','未来7天',week.length,'预计 '+hrs(week),'不包含今天'],['risk','需要核对',risk.length,'条件 / 排期 / 工时','待核对不等于实际未完成']].map(function(x){return '<button type="button" class="home-metric" data-home-scope="'+x[0]+'"><span>'+x[1]+'</span><strong>'+x[2]+'</strong><small>'+esc(x[3])+'</small><em>'+x[4]+'</em></button>';}).join('');
+      doc.getElementById('home-tasks').innerHTML=today.length?today.slice(0,3).map(function(t){var d=app&&app.getDetail?app.getDetail(t.id):null;return '<article class="home-task"><div class="home-task-meta"><span>'+esc(t.id)+'</span><span>'+esc(t.category)+'</span><span class="home-task-state">'+esc(t.status)+'</span><span>预计 '+(t.hours===null?'待估':t.hours+' h')+'</span></div><h3>'+esc(d&&d.title||t.title)+'</h3><p>'+esc(d&&d.steps?d.steps.slice(0,165)+(d.steps.length>165?'…':''):'查看执行步骤与完成标准，按已核对安排推进。')+'</p><button type="button" class="top-btn" data-home-task="'+t.id+'">查看完整执行内容 →</button></article>';}).join(''):'<div class="home-empty"><p>今天没有已排定的待办。可以先核对未来7天和待确认事项，不自动把旧计划顺延到今天。</p><button type="button" class="top-btn" data-go="research">查看科研安排 →</button></div>';
+      doc.getElementById('home-attention').innerHTML=overdue.length?'<button type="button" class="home-attention" data-home-scope="risk">'+overdue.length+' 项建议日期已过，等待你复核排期；不代表任务实际未完成。 →</button>':'';
+      doc.getElementById('home-research-stamp').textContent=raw?'任务版本 '+raw.revision.slice(0,8)+' · 原记录同步 '+raw.syncedAt.slice(0,10)+'；实际进展在本对话反馈。':'任务暂不可读，其他栏目仍可使用。';
+      var notices=list(w.CQUT_NOTICES).filter(personalNotice).slice().sort(function(a,b){return String(b.date).localeCompare(String(a.date));}).slice(0,3);
+      doc.getElementById('home-notices').innerHTML=notices.map(function(t){return '<button type="button" class="home-list-item" data-home-notice="'+esc(t.t)+'"><strong>'+esc(t.t)+'</strong><small>'+esc(t.date)+' · '+esc(t.src||'学校原文')+'</small></button>';}).join('')||'<div class="home-empty">暂无已收录的相关通知，仍可直接查看学校官方入口。</div>';
+      doc.getElementById('home-notice-stamp').textContent='最近成功内容 '+(w.CQUT_UPDATED||'待核对')+' · 来源核查 '+(w.CQUT_CHECKED||'待核对')+'；通知是否与你有关仍需看原文。';
+      var matches=list(w.MATCHES).map(deadline).filter(function(x){return x&&x.at>=Date.now();}).sort(function(a,b){return a.at-b.at;}).slice(0,3);
+      doc.getElementById('home-opportunities').innerHTML=matches.map(function(x){return '<button type="button" class="home-list-item" data-home-opportunity="'+esc(x.t.n)+'"><strong>'+esc(x.t.n)+'</strong><small>已收录报名截止 '+esc(x.date)+' · '+(x.t.fit?'专业适配推荐':'资格与投入待核对')+'</small></button>';}).join('')||'<div class="home-empty">当前没有能按明确截止排列的精选报名线索；可到赛事库查看其他方向。</div>';
+      var chosen=list(w.MAGAZINE_ARTICLES).filter(function(a){return typeof a.featuredReason==='string'&&a.featuredReason;}).slice().sort(function(a,b){return(a.featuredPriority||999)-(b.featuredPriority||999);}).slice(0,2);
+      doc.getElementById('home-reading').innerHTML=chosen.map(function(a){var p=list(w.MAGAZINES).find(function(p){return p.id===a.publication;});return '<div class="home-task home-reading-item"><div class="home-task-meta">'+esc(p?p.name:a.publication)+' · '+esc(a.publishedAt||'原文未标日期')+'</div><button class="home-list-item" type="button" data-home-article="'+esc(a.title)+'"><strong>'+esc(a.title)+'</strong></button><p>'+esc(a.featuredReason)+'</p></div>';}).join('');
+      doc.getElementById('home-content-state').textContent='期刊 '+(w.MAGAZINES_CHECKED||'待核对')+'核查 · '+list(w.MAGAZINE_ARTICLES).length+'篇选读';
+      searchEntries=index({RESEARCH_SNAPSHOT:raw,CQUT_NOTICES:w.CQUT_NOTICES,COMP:w.COMP,MAGAZINE_ARTICLES:w.MAGAZINE_ARTICLES,MAGAZINES:w.MAGAZINES,TED:w.TED,FORUM_SERIES:w.FORUM_SERIES,RANK:w.RANK},app&&app.getDetail?app.getDetail:null);renderRecent();renderResume();
+    }
+    function renderSearch(){currentResults=search(searchEntries,query.value,30);results.innerHTML=currentResults.length?currentResults.map(function(e,i){return '<button type="button" class="workspace-search-result" data-search-result="'+i+'"><span>'+esc(e.group)+'</span><strong>'+esc(e.title)+'</strong></button>';}).join(''):'<div class="workspace-search-empty">没有找到。可以用任务编号、刊物名、研究方向或更短的关键词重试。</div>';}
+    function openSearch(button){trigger=button||doc.activeElement;var menu=doc.getElementById('workspace-menu');if(menu&&menu.contains&&menu.contains(trigger))trigger=doc.getElementById('workspace-search-open');if(w.AI_NAV&&w.AI_NAV.closeMenu)w.AI_NAV.closeMenu({restoreFocus:false});query.value='';renderSearch();if(dialog.showModal&&!dialog.open)dialog.showModal();else if(!dialog.open)dialog.setAttribute('open','');query.focus();}
+    if(dialog){doc.getElementById('workspace-search-open').addEventListener('click',function(){openSearch(this);});doc.getElementById('workspace-search-close').addEventListener('click',function(){dialog.close();});query.addEventListener('input',renderSearch);results.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-search-result]');if(b&&currentResults[Number(b.dataset.searchResult)])openEntry(currentResults[Number(b.dataset.searchResult)]);});dialog.addEventListener('close',function(){if(trigger&&trigger.focus)trigger.focus({preventScroll:true});});query.addEventListener('keydown',function(e){if(e.key==='ArrowDown'){var first=results.querySelector('button');if(first){e.preventDefault();first.focus();}}if(e.key==='Enter'&&currentResults[0]){e.preventDefault();openEntry(currentResults[0]);}});}
+    doc.addEventListener('keydown',function(e){var tag=(e.target&&e.target.tagName||'').toLowerCase();if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openSearch(doc.activeElement);}else if(e.key==='/'&&!['input','textarea','select'].includes(tag)&&!e.altKey&&!e.ctrlKey&&!e.metaKey){e.preventDefault();openSearch(doc.activeElement);}});
+    doc.addEventListener('click',function(e){
+      var el=e.target.closest&&e.target.closest('[data-home-task],[data-home-scope],[data-home-notice],[data-home-opportunity],[data-home-article]');
+      if(el){if(el.dataset.homeTask)openEntry({route:'research',key:el.dataset.homeTask});if(el.dataset.homeScope){go('research',{focus:true});if(w.AI_RESEARCH)w.AI_RESEARCH.setScope(el.dataset.homeScope);}if(el.dataset.homeNotice)openEntry({route:'cqut',key:el.dataset.homeNotice});if(el.dataset.homeOpportunity)openEntry({route:'comp',key:el.dataset.homeOpportunity});if(el.dataset.homeArticle)openEntry({route:'magazines',key:el.dataset.homeArticle});}
+      var a=e.target.closest&&e.target.closest('a[href]');if(!a||!safeURL(a.href))return;var view=a.closest&&a.closest('#view-magazines,#view-ted,#view-forum,#view-learn');if(!view)return;var article=a.closest('article'),title=article&&article.querySelector('h4,h3,.cmp-name'),record={route:view.id.slice(5),url:a.href,title:(title?title.textContent:a.textContent).trim().slice(0,400),at:Date.now()};if(!record.title)return;try{w.localStorage.setItem(KEY,JSON.stringify(record));}catch(error){}renderRecent();
+    });
+    if(w.addEventListener){w.addEventListener('research-updated',renderHome);w.addEventListener('workspace:route',function(e){var route=e.detail&&e.detail.tab;if(route&&route!=='home')try{w.sessionStorage.setItem('ai-workspace-last-view',route);}catch(error){}if(route==='home')renderHome();});}
+    var installPrompt=null,install=doc.getElementById('workspace-install');
+    if(w.addEventListener&&install)w.addEventListener('beforeinstallprompt',function(e){e.preventDefault();installPrompt=e;install.hidden=false;});
+    if(install)install.addEventListener('click',function(){if(installPrompt){installPrompt.prompt();installPrompt=null;install.hidden=true;}});
+    if(w.navigator&&w.navigator.serviceWorker&&/^https?:$/.test(w.location.protocol))w.navigator.serviceWorker.register('sw.js',{updateViaCache:'none'}).catch(function(){});
+    function network(){var el=doc.getElementById('workspace-network');if(el)el.textContent=w.navigator&&w.navigator.onLine===false?'离线：显示已保存内容':'访问后可保留离线副本';}
+    if(w.addEventListener){w.addEventListener('offline',network);w.addEventListener('online',network);}network();renderHome();
+    return{render:renderHome,search:function(q){return search(searchEntries,q,30);},go:go};
+  }
+  return{mount:mount,index:index,search:search,day:day,safeURL:safeURL,deadline:deadline,personalNotice:personalNotice};
 });
 
 </script>
