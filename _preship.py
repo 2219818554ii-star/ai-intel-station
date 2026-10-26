@@ -199,7 +199,7 @@ if missing:
     bad("产物里找不到：%s" % "、".join(missing),
         "改了 index.src.html 但没构建 / 或改动本身有 bug")
 else:
-    ok(PASS, "%d 项关键结构全部存在（9 栏目及各栏关键组件）"
+    ok(PASS, "%d 项关键结构全部存在（11 栏目及各栏关键组件）"
        % len(MUST_CONTAIN))
 
 # 反向：这些必须一条不剩（获奖喜报、已结束条目、旧字段）
