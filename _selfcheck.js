@@ -9,9 +9,10 @@ const count = (s, re) => (s.match(re) || []).length;
 
 console.log('\n[1] 静态结构');
 const tabs = [...html.matchAll(/data-tab="([^"]+)"/g)].map(m => m[1]);
-ok(tabs.length === 10, `tab 数量 = ${tabs.length}（期望 10）: ${tabs.join(', ')}`);
-ok(['daily','research','rank','comp','learn','ted','forum','magazines','cqut','funds'].every(v => html.includes(`id="view-${v}"`)), 'view 区块 = 10/10');
-ok(html.includes('["daily","research","rank","comp","learn","ted","forum","magazines","cqut","funds"]'), 'showTab 数组含全部 10 个视图');
+const expectedTabs=['home','research','cqut','comp','daily','rank','learn','magazines','ted','forum','funds'];
+ok(tabs.length === 11 && new Set(tabs).size===11 && expectedTabs.every(v=>tabs.includes(v)), `唯一导航保留原10栏目并新增home，共${tabs.length}项: ${tabs.join(', ')}`);
+ok(expectedTabs.every(v => count(html,new RegExp('id="view-'+v+'"','g'))===1 && count(html,new RegExp('id="tab-'+v+'"','g'))===1), '11个视图与规范导航ID逐项唯一，不复制手机快捷导航ID');
+ok(html.includes('var NAV_TABS=["home","research","cqut","comp","daily","rank","learn","magazines","ted","forum","funds"]') && html.includes('NAV_TABS.forEach(function(v)'), '路由白名单保留原10栏目并让home、科研与执行事项优先');
 ok(!/<script src="(competitions|ted|forum|rank|cqut|matches|funds|magazines|research)\.js"/.test(html), '八个数据脚本与科研逻辑均已内联（无外链脚本）');
 const httpLeft = count(html, /href="http:\/\//g);
 ok(httpLeft === 0, `无 http:// 明文链接（剩余 ${httpLeft}）`);
@@ -206,20 +207,47 @@ ok(srcHtml.includes('校团委') && srcHtml.includes('研究生会'), '理工信
 const cqUpdatedShown = (store['cqut-updated']||{}).textContent || '';
 const cqUpdatedData = sandbox.window.CQUT_UPDATED || '';
 ok(cqUpdatedShown === cqUpdatedData, `理工更新日期与数据一致（页面渲染 ${cqUpdatedShown} / 数据 ${cqUpdatedData}）`);
+// 2026-10-26 user choice 1: retain CQUT's real content date only with fresh,
+// complete blocked-source evidence and visible disclosure. Other columns keep
+// their existing thresholds. Git supplies a pre-check-day independent baseline,
+// so editing today's report and data together cannot certify a new fake date.
+const sourceFreshness=require('./_source_freshness.js');
+const cqFreshnessNow=new Date(),cqFreshnessToday=sourceFreshness.beijingDay(cqFreshnessNow);
+let cqSourceReport=null,cqCommittedBaseline=null,cqSourceEvidenceError='';
+if(sandbox.window.CQUT_SOURCE_STATUS==='blocked'||sandbox.window.CQUT_SOURCE_STATE!=null){
+  const checked=sandbox.window.CQUT_CHECKED;
+  try{
+    if(!Number.isFinite(sourceFreshness.dayNumber(checked)))throw Error('Invalid CQUT evidence date');
+    cqSourceReport=JSON.parse(fs.readFileSync(B+'_content_review_'+checked+'.json','utf8'));
+    const cp=require('child_process'),gits=process.env.GIT_EXE?[process.env.GIT_EXE]:['git','D:/Git/cmd/git.EXE'];
+    for(const git of gits){
+      try{
+        const proof=cp.execFileSync(git,['log','-1','--format=%H%x09%cI','--before='+checked+'T00:00:00+08:00','--','cqut.js'],{cwd:__dirname,encoding:'utf8',timeout:5000}).trim().split('\t');
+        if(!/^[a-f0-9]{40}$/.test(proof[0]||''))throw Error('No CQUT commit before evidence day');
+        const original=cp.execFileSync(git,['show',proof[0]+':cqut.js'],{cwd:__dirname,encoding:'utf8',timeout:5000,maxBuffer:64*1024*1024}),ctx={window:{}};
+        vm.runInNewContext(original,ctx,{timeout:2000});
+        cqCommittedBaseline={commit:proof[0],committedAt:proof[1],updated:ctx.window.CQUT_UPDATED,notices:ctx.window.CQUT_NOTICES,sources:ctx.window.CQUT_SOURCES};break;
+      }catch(e){cqSourceEvidenceError=e.message;}
+    }
+    if(!cqCommittedBaseline)throw Error(cqSourceEvidenceError||'Independent CQUT baseline unavailable');
+  }catch(e){cqSourceEvidenceError=e.message;}
+}
+const cqStateElement=store['cqut-source-state']||{},cqStateTag=(html.match(/<[^>]+\bid="cqut-source-state"[^>]*>/)||[])[0]||'';
+const cqSourceFreshness=sourceFreshness.validateCQUTFreshness({key:'CQUT_UPDATED',today:cqFreshnessToday,now:cqFreshnessNow,
+  data:{updated:cqUpdatedData,checked:sandbox.window.CQUT_CHECKED,status:sandbox.window.CQUT_SOURCE_STATUS,state:sandbox.window.CQUT_SOURCE_STATE,notices:sandbox.window.CQUT_NOTICES,sources:sandbox.window.CQUT_SOURCES},
+  report:cqSourceReport,baseline:cqCommittedBaseline,disclosure:{text:cqStateElement.textContent||'',visible:!!cqStateTag&&!/\shidden(?:\s|=|>)/i.test(cqStateTag)&&!/display\s*:\s*none/i.test(cqStateTag)&&cqStateElement.hidden!==true&&(cqStateElement.style||{}).display!=='none'}});
 (function(){
   const ud = String(cqUpdatedData);
   const m = /(\d{4})-(\d{2})-(\d{2})/.exec(ud);
-  const today = new Date();
   if(!m){
     ok(false, `理工更新日期格式异常：${ud}`);
     return;
   }
   /* 用「日期(去时分秒)」相减，避免同日内晚些时刻导致 floor 成 -1 的误判 */
-  const today0 = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-  const d0 = new Date(+m[1], +m[2] - 1, +m[3]);
-  const days = Math.round((today0 - d0) / 86400000);
+  const days=sourceFreshness.dayNumber(cqFreshnessToday)-sourceFreshness.dayNumber(ud);
   ok(days >= 0, `理工更新日期不是未来日期（差 ${days} 天）`);
-  ok(days <= 2, `理工数据未过期：抓取于 ${ud}，距今天 ${days} 天（> 2 天即判定停更，须重新抓取后再 commit）`);
+  ok(cqSourceFreshness.ok,cqSourceFreshness.mode==='blocked-retained'?`理工官网受阻有据保留旧内容：原内容${ud}（${days}天），核查${sandbox.window.CQUT_CHECKED}；完整通知/入口与独立提交基线一致，页面明确披露`:
+    `理工数据未过期：内容${ud}，距今天${days}天（原阈值2天）；${cqSourceFreshness.reason}${cqSourceEvidenceError?'；'+cqSourceEvidenceError:''}`);
 })();
 /* 分类体系是固定 8 个枚举，新通知必须归入其一，不能自创也不能漏填 */
 const cqTags = sandbox.window.CQUT_TAGS || [];
@@ -324,7 +352,9 @@ const cqNotices = sandbox.window.CQUT_NOTICES || [];
     const max = policy[key] !== undefined ? policy[key] : 2;
     checked++;
     ok(days >= 0, `栏目 ${key} 更新日期非未来（${ud}，差 ${days} 天）`);
-    ok(days <= max, `栏目 ${key} 未过期：更新于 ${ud}，距今 ${days} 天（阈值 ${max} 天，超期=停更须重抓后再 commit）`);
+    const cqRetained=key==='CQUT_UPDATED'&&cqSourceFreshness.ok&&cqSourceFreshness.mode==='blocked-retained';
+    ok(key==='CQUT_UPDATED'?cqSourceFreshness.ok:days<=max,cqRetained?`栏目CQUT_UPDATED保留原${ud}内容，${sandbox.window.CQUT_CHECKED}完整受阻证据与可见披露已核验；未冒称内容新鲜`:
+      `栏目 ${key} 未过期：更新于 ${ud}，距今 ${days} 天（阈值 ${max} 天，超期=停更须重抓后再 commit）${key==='CQUT_UPDATED'?'；'+cqSourceFreshness.reason:''}`);
   }
   ok(checked >= 6, `全局新鲜度门已覆盖 ${checked} 个栏目（期望 >=6）`);
 })();

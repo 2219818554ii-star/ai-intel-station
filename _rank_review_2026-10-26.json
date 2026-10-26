@@ -1,0 +1,438 @@
+{
+  "checkedAt": "2026-10-26",
+  "attemptedAt": "2026-10-26T20:22:59.190927+08:00",
+  "completedAt": "2026-10-26T20:23:31.405938+08:00",
+  "independentOfficialWebRead": true,
+  "method": "Official primary pages independently read with the web tool during this run; current table transcribed above before comparing rank.js. Curl completeness is recorded separately, not inferred from HTTP200.",
+  "officialObservations": [
+    {
+      "url": "https://artificialanalysis.ai/leaderboards/models",
+      "filter": "Status:Current",
+      "observedSelectedRows": [
+        [
+          "Claude Opus 5.5 (max with fallback)",
+          58
+        ],
+        [
+          "Claude Sonnet 5.5 (max with fallback)",
+          56
+        ],
+        [
+          "Muse Wonder Full (max)",
+          56
+        ],
+        [
+          "Kimi K3.1 Pro",
+          55
+        ],
+        [
+          "Claude Fable 5.1 (max with fallback)",
+          53
+        ],
+        [
+          "GPT-6 Astra (max)",
+          53
+        ],
+        [
+          "Gemini 4 Argon (high)",
+          53
+        ],
+        [
+          "Muse Wonder (max)",
+          52
+        ],
+        [
+          "GPT-6.1 Sol (max)",
+          52
+        ],
+        [
+          "Grok 4.7 (xhigh)",
+          46
+        ],
+        [
+          "MiMo-V2.6-Pro",
+          46
+        ],
+        [
+          "Qwen3.8 Max (0902)",
+          45
+        ],
+        [
+          "DeepSeek V4.1 Flash 1017 (max)",
+          45
+        ],
+        [
+          "GLM-5.3 (max)",
+          45
+        ],
+        [
+          "Ling 3.1 Flash 1019",
+          44
+        ],
+        [
+          "Step 5 Preview",
+          44
+        ],
+        [
+          "Claude Haiku 5.5 (max)",
+          43
+        ],
+        [
+          "MiniMax-M3.1-Flash",
+          43
+        ]
+      ]
+    },
+    {
+      "url": "https://artificialanalysis.ai/changelog",
+      "latestDisplayedDatedSection": "2026-10-23",
+      "finding": "Latest visible model additions remain Kimi K3.1 Pro and Nemotron3.5 Bolt E4B 4GB(Reasoning); no changed selected score found."
+    },
+    {
+      "url": "https://artificialanalysis.ai/models/comparisons/muse-spark-1-3-vs-muse-spark-1-3-xhigh",
+      "finding": "Exact comparison still shows max48 versus xhigh45; historical row kept with original date and not promoted to the current board."
+    },
+    {
+      "url": "https://artificialanalysis.ai/articles/kimi-k3-1-pro-launch-benchmarks",
+      "publishedAt": "2026-10-23",
+      "finding": "AA bulletin still gives K3.1Pro55, K3(max)44 and TB4.0=67%; its weights statement is as of the bulletin, not a newly verified release."
+    },
+    {
+      "url": "https://www.tbench.ai/leaderboard",
+      "finding": "Official endpoint redirects toTB4.0; no new same-basis TB2.1 source obtained."
+    },
+    {
+      "url": "https://www.swebench.com/",
+      "finding": "Official site separates Verified/BashOnly and other tracks; no same-tool/model/environment update obtained for retained historic entries."
+    }
+  ],
+  "tools": [
+    {
+      "name": "Claude Code",
+      "url": "https://code.claude.com/docs/en/overview",
+      "finding": "官方概览描述读写项目、运行命令及终端、IDE、桌面、网页入口；未据此更改默认模型、价格或旧成绩。"
+    },
+    {
+      "name": "OpenAI Codex",
+      "url": "https://learn.chatgpt.com/docs/quickstart?setup=app",
+      "finding": "官方quickstart含应用、CLI、IDE和云端工作流；产品与权限依当前账号/环境，不据入口推断某项方案免费。"
+    },
+    {
+      "name": "opencode",
+      "url": "https://opencode.ai/v2/docs/",
+      "finding": "官方V2文档列终端、桌面、网页与供应商配置；迁移页明确V1/V2同用opencode命令，默认不能并排安装，未给网站加入安装指令。"
+    },
+    {
+      "name": "Cursor",
+      "url": "https://cursor.com/docs",
+      "finding": "官方文档列Agent、规则、技能、子代理、hooks、MCP、CLI等工作流；不据文档导航虚构并行上限或新实测成绩。"
+    },
+    {
+      "name": "Gemini CLI",
+      "url": "https://geminicli.com/docs/",
+      "finding": "官方文档提供文件、shell、网页获取、MCP、会话与模型认证配置；没有假定固定免费请求额度。"
+    },
+    {
+      "name": "GitHub Copilot",
+      "url": "https://docs.github.com/en/copilot/get-started/about-github-copilot",
+      "finding": "官方概览描述代码建议、问答、评审及issue/PR任务代理；计划与组织控制分别适用，不重标旧SWE。"
+    },
+    {
+      "name": "Google Antigravity",
+      "url": "https://antigravity.google/docs/overview",
+      "finding": "官方文档包含应用、CLI、IDE扩展、子代理与权限；本轮未取得同环境速度/质量对照。"
+    },
+    {
+      "name": "Cline",
+      "url": "https://docs.cline.bot/cline-overview",
+      "finding": "官方概览列桌面、CLI、编辑器、SDK与模型接入选择，并说明人工审批；没有把开源客户端等同免费模型。"
+    },
+    {
+      "name": "Aider",
+      "url": "https://aider.chat/docs/",
+      "finding": "官方文档提供终端结对编程、模型连接和Git工作流；无新的统一可比SWE/TB成绩。"
+    }
+  ],
+  "transport": [
+    {
+      "url": "https://artificialanalysis.ai/leaderboards/models",
+      "httpStatus": 200,
+      "curlExit": 28,
+      "bytes": 1837292,
+      "sha256": "73f5a813ae4b60312c43c5c6b2766e5416c5aa23e2f33c1760744eb0e8917a51",
+      "finalURL": "https://artificialanalysis.ai/leaderboards/models",
+      "complete": false,
+      "error": "curl: (28) Operation timed out after 16001 milliseconds with 151546 bytes received",
+      "responseTitle": "LLM Leaderboard - Comparison of AI models from OpenAI, Anthropic, Google, SpaceXAI &amp; others | Artificial Analysis",
+      "usableText": false
+    },
+    {
+      "url": "https://artificialanalysis.ai/changelog",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "bytes": 462968,
+      "sha256": "078fc97658dc62ef70d7e3a2b38a6cad7c6679025cc941256f7bbe2ed7154f20",
+      "finalURL": "https://artificialanalysis.ai/changelog",
+      "complete": true,
+      "error": null,
+      "responseTitle": "Changelog | Artificial Analysis",
+      "usableText": true
+    },
+    {
+      "url": "https://artificialanalysis.ai/models/comparisons/muse-spark-1-3-vs-muse-spark-1-3-xhigh",
+      "httpStatus": 200,
+      "curlExit": 28,
+      "bytes": 870334,
+      "sha256": "a61059fae6ef51ad3785d3c6ae113208ed4a651e4ef44577f6c1ace2ff30be83",
+      "finalURL": "https://artificialanalysis.ai/models/comparisons/muse-spark-1-3-vs-muse-spark-1-3-xhigh",
+      "complete": false,
+      "error": "curl: (28) Operation timed out after 16000 milliseconds with 86010 bytes received",
+      "responseTitle": "Muse Spark 1.3 (Max) vs Muse Spark 1.3 (Xhigh): Model Comparison | Artificial Analysis",
+      "usableText": false
+    },
+    {
+      "url": "https://artificialanalysis.ai/articles/kimi-k3-1-pro-launch-benchmarks",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "bytes": 364164,
+      "sha256": "183ace43eecd3953420b78c2a7579fbc3eaabbc59f16e871770ed44b375dc577",
+      "finalURL": "https://artificialanalysis.ai/articles/kimi-k3-1-pro-launch-benchmarks",
+      "complete": true,
+      "error": null,
+      "responseTitle": "Kimi K3.1 Pro launches at 4th on the Intelligence Index and will lead open weights models | Artificial Analysis",
+      "usableText": true
+    },
+    {
+      "url": "https://opencode.ai/v2/docs/migrate-v1/",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "bytes": 79591,
+      "sha256": "2d904ef0c5eb0234a0dea3563ae6f6342df39a3cb858b2fd0cba036eff0ecc1f",
+      "finalURL": "https://opencode.ai/v2/docs/migrate-v1/",
+      "complete": true,
+      "error": null,
+      "responseTitle": "Migrate from V1 | OpenCode",
+      "usableText": true
+    },
+    {
+      "url": "https://www.tbench.ai/leaderboard",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "bytes": 145344,
+      "sha256": "eee5e47ddd7bb78504165805a78aab9b9736618f38b7ee5ddff46e81a0ff9187",
+      "finalURL": "https://www.tbench.ai/",
+      "complete": true,
+      "error": null,
+      "responseTitle": "TERMINAL-BENCH",
+      "usableText": true
+    },
+    {
+      "url": "https://www.swebench.com/",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "bytes": 2392125,
+      "sha256": "c862011a4ee1d1a7199fad6ca0905fa5c64f58216f7217ac1eddf37f28788433",
+      "finalURL": "https://www.swebench.com/",
+      "complete": true,
+      "error": null,
+      "responseTitle": "SWE-bench Leaderboards",
+      "usableText": true
+    },
+    {
+      "url": "https://code.claude.com/docs/en/overview",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "bytes": 534413,
+      "sha256": "903ef04708c7bac7ce71c98d5839a6a205f74a8eb46f2c3288d6c12be302f739",
+      "finalURL": "https://code.claude.com/docs/en/overview",
+      "complete": true,
+      "error": null,
+      "responseTitle": "Overview - Claude Code Docs",
+      "usableText": true
+    },
+    {
+      "url": "https://learn.chatgpt.com/docs/quickstart?setup=app",
+      "httpStatus": 200,
+      "curlExit": 28,
+      "bytes": 350842,
+      "sha256": "228deec1b6cec69b2543c21a76c66c8819b89a969d9fd5cf01c3c73b9ebdd8e5",
+      "finalURL": "https://learn.chatgpt.com/docs/quickstart?setup=app",
+      "complete": false,
+      "error": "curl: (28) Operation timed out after 16009 milliseconds with 49152 bytes received",
+      "responseTitle": "Quickstart | ChatGPT Learn",
+      "usableText": false
+    },
+    {
+      "url": "https://opencode.ai/v2/docs/",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "bytes": 22649,
+      "sha256": "c759e465135df4712628a54c89f0877c1a250afa9e90ecbda42e48830a03651a",
+      "finalURL": "https://opencode.ai/v2/docs/",
+      "complete": true,
+      "error": null,
+      "responseTitle": "Intro | OpenCode",
+      "usableText": true
+    },
+    {
+      "url": "https://cursor.com/docs",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "bytes": 603611,
+      "sha256": "7d1060770f486db6db53bea02e5d4b6f4e7387734837c7a6c61ca76b9adc054a",
+      "finalURL": "https://cursor.com/docs",
+      "complete": true,
+      "error": null,
+      "responseTitle": "Cursor Docs — Agent, Rules, MCP, Skills &amp; CLI",
+      "usableText": true
+    },
+    {
+      "url": "https://geminicli.com/docs/",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "bytes": 111011,
+      "sha256": "8a4b728f42049b68b1725dc1477f9bbbf2cc44c35c657845a1a5dc3fc223eba9",
+      "finalURL": "https://geminicli.com/docs/",
+      "complete": true,
+      "error": null,
+      "responseTitle": "Gemini CLI documentation | Gemini CLI",
+      "usableText": true
+    },
+    {
+      "url": "https://docs.github.com/en/copilot/get-started/about-github-copilot",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "bytes": 586079,
+      "sha256": "83148f7a44aa60c7036c126e18815f56422c037d7a395b2c73477b2299138386",
+      "finalURL": "https://docs.github.com/en/copilot/get-started/about-github-copilot",
+      "complete": true,
+      "error": null,
+      "responseTitle": "About GitHub Copilot - GitHub Docs",
+      "usableText": true
+    },
+    {
+      "url": "https://antigravity.google/docs/overview",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "bytes": 289415,
+      "sha256": "3bbcd1cf9cc059a065a77a8e758aeffb1c58aa166eec47b371502fa91561702c",
+      "finalURL": "https://antigravity.google/docs/overview",
+      "complete": true,
+      "error": null,
+      "responseTitle": "Choose your Antigravity | Google Antigravity Docs",
+      "usableText": true
+    },
+    {
+      "url": "https://docs.cline.bot/cline-overview",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "bytes": 173100,
+      "sha256": "0d042ebfd01aac7671523f074389f7c30fcf31177ba338bdd9b0e46713e4500c",
+      "finalURL": "https://docs.cline.bot/cline-overview",
+      "complete": true,
+      "error": null,
+      "responseTitle": "Cline Overview - Cline",
+      "usableText": true
+    },
+    {
+      "url": "https://aider.chat/docs/",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "bytes": 49153,
+      "sha256": "3e8a0546effca7f1cd7d69e3b634da35073bbc154c839738405b9d75b7ef856a",
+      "finalURL": "https://aider.chat/docs/",
+      "complete": true,
+      "error": null,
+      "responseTitle": "Aider Documentation | aider",
+      "usableText": true
+    }
+  ],
+  "aaScoresChanged": false,
+  "modelCardsChanged": false,
+  "historicalLabelsAndDatesPreserved": true,
+  "contentUpdatedAt": "2026-10-24",
+  "aaApplied": [
+    [
+      "Claude Opus 5.5 (max with fallback)",
+      58
+    ],
+    [
+      "Claude Sonnet 5.5 (max with fallback)",
+      56
+    ],
+    [
+      "Muse Wonder Full (max)",
+      56
+    ],
+    [
+      "Kimi K3.1 Pro",
+      55
+    ],
+    [
+      "Claude Fable 5.1 (max with fallback)",
+      53
+    ],
+    [
+      "GPT-6 Astra (max)",
+      53
+    ],
+    [
+      "Gemini 4 Argon (high)",
+      53
+    ],
+    [
+      "GPT-6.1 Sol (max)",
+      52
+    ],
+    [
+      "Muse Wonder (max)",
+      52
+    ],
+    [
+      "Muse Spark 1.3 (max) · 10/23历史值",
+      48
+    ],
+    [
+      "Grok 4.7 (xhigh)",
+      46
+    ],
+    [
+      "MiMo-V2.6-Pro",
+      46
+    ],
+    [
+      "Qwen3.8 Max (0902)",
+      45
+    ],
+    [
+      "DeepSeek V4.1 Flash 1017 (max)",
+      45
+    ],
+    [
+      "GLM-5.3 (max)",
+      45
+    ],
+    [
+      "Ling 3.1 Flash 1019",
+      44
+    ],
+    [
+      "Step 5 Preview",
+      44
+    ],
+    [
+      "Kimi K3 (max) · 10/23历史值",
+      44
+    ],
+    [
+      "Claude Haiku 5.5 (max)",
+      43
+    ],
+    [
+      "MiniMax-M3.1-Flash",
+      43
+    ]
+  ],
+  "scopeLimitation": "Existing model prices, subjective grades, historical model-card scores and old TB/SWE pairings were not re-measured; no availability or speed claim inferred from documentation reachability.",
+  "protectedComparison": "Entire RANK object including all36 model cards, tools, combinations,20 AA rows and historic TB/SWE tables equal before/after; RANK_UPDATED preserved."
+}

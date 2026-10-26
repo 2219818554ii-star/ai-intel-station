@@ -1,0 +1,11 @@
+{
+  "name": "罗浩的工作台",
+  "short_name": "我的工作台",
+  "lang": "zh-CN",
+  "start_url": "./#home",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f6f2",
+  "theme_color": "#12634e",
+  "icons": [{"src":"workspace-icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}

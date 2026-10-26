@@ -1,5 +1,5 @@
 // 仅官方渠道元数据与独立导读；证据见 _magazines_sources_a/b.json。
-window.MAGAZINES_CHECKED = "2026-10-25";
+window.MAGAZINES_CHECKED = "2026-10-26";
 window.MAGAZINES = [
   {
     "id": "shangjie",
@@ -14,10 +14,10 @@ window.MAGAZINES = [
     "feedUrl": "https://www.pedaily.cn/media/m439",
     "note": "官方账号入驻投资界；目前可核实列表以往期文章为主，以下保留原发布日期。",
     "accent": "#9f272b",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "status": "ok",
     "sourceNote": "官方账号入驻投资界；目前可核实列表以往期文章为主，以下保留原发布日期。",
-    "lastSuccessAt": "2026-10-25",
+    "lastSuccessAt": "2026-10-26",
     "language": "zh"
   },
   {
@@ -30,13 +30,13 @@ window.MAGAZINES = [
       "www.lifeweek.com.cn"
     ],
     "feedUrl": "https://www.lifeweek.com.cn/magazine?magazineid=1",
-    "note": "单篇未明确发布日期时留空，不以期刊出版日代填。数字刊可看导读，全文可能需要订阅。 本次自动核查未成功，保留已核实文章。",
+    "note": "单篇未明确发布日期时留空，不以期刊出版日代填。数字刊可看导读，全文可能需要订阅。",
     "accent": "#be312f",
-    "checkedAt": "2026-10-25",
-    "status": "unavailable",
+    "checkedAt": "2026-10-26",
+    "status": "ok",
     "sourceNote": "单篇未明确发布日期时留空，不以期刊出版日代填。数字刊可看导读，全文可能需要订阅。",
     "language": "zh",
-    "lastSuccessAt": "2026-10-24"
+    "lastSuccessAt": "2026-10-26"
   },
   {
     "id": "yimagazine",
@@ -50,10 +50,10 @@ window.MAGAZINES = [
     "feedUrl": "https://www.yicai.com/api/ajax/getlistbypid?page=1&pagesize=30&id=55&type=3",
     "note": "原《第一财经周刊》，现名《第一财经》YiMagazine，为月刊。可看导读，全文依官方提示订阅。",
     "accent": "#153f75",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "status": "ok",
     "sourceNote": "原《第一财经周刊》，现名《第一财经》YiMagazine，为月刊。可看导读，全文依官方提示订阅。",
-    "lastSuccessAt": "2026-10-25",
+    "lastSuccessAt": "2026-10-26",
     "language": "zh"
   },
   {
@@ -69,7 +69,7 @@ window.MAGAZINES = [
     "feedUrl": "https://boyamedia.com/category-rw/",
     "note": "来自博雅天下官方频道。自动核查遇到空页面时保留已核实内容；不同网络访问情况可能不同。 本次自动核查未成功，保留已核实文章。",
     "accent": "#383e49",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "status": "unavailable",
     "sourceNote": "来自博雅天下官方频道。自动核查遇到空页面时保留已核实内容；不同网络访问情况可能不同。",
     "language": "zh"
@@ -87,7 +87,7 @@ window.MAGAZINES = [
     "feedUrl": "https://boyamedia.com/category-bk/",
     "note": "来自博雅天下官方频道。自动核查遇到空页面时保留已核实内容；不同网络访问情况可能不同。 本次自动核查未成功，保留已核实文章。",
     "accent": "#be6a26",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "status": "unavailable",
     "sourceNote": "来自博雅天下官方频道。自动核查遇到空页面时保留已核实内容；不同网络访问情况可能不同。",
     "language": "zh"
@@ -104,7 +104,7 @@ window.MAGAZINES = [
     "feedUrl": "https://www.globalpeople.com.cn/",
     "note": "正式刊名《环球人物》。标题与日期已通过官方索引核实，原站直接访问可能受限。 本次自动核查未成功，保留已核实文章。",
     "accent": "#297274",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "status": "unavailable",
     "sourceNote": "正式刊名《环球人物》。标题与日期已通过官方索引核实，原站直接访问可能受限。",
     "language": "zh"
@@ -123,9 +123,9 @@ window.MAGAZINES = [
     "accent": "#b92836",
     "language": "zh",
     "parser": "cn",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "status": "ok",
-    "lastSuccessAt": "2026-10-25",
+    "lastSuccessAt": "2026-10-26",
     "sourceNote": "仅收官方新闻频道；品牌观察推广稿不纳入。"
   },
   {
@@ -142,9 +142,9 @@ window.MAGAZINES = [
     "accent": "#e44052",
     "language": "zh",
     "parser": "cn",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "status": "ok",
-    "lastSuccessAt": "2026-10-25",
+    "lastSuccessAt": "2026-10-26",
     "sourceNote": "官方 apex 站点可访问；专栏含历史精选，日期按原发布时间。"
   },
   {
@@ -161,9 +161,9 @@ window.MAGAZINES = [
     "accent": "#c54733",
     "language": "zh",
     "parser": "cn",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "status": "ok",
-    "lastSuccessAt": "2026-10-25",
+    "lastSuccessAt": "2026-10-26",
     "sourceNote": "从官网提取题名和文章页明确日期。"
   },
   {
@@ -180,9 +180,9 @@ window.MAGAZINES = [
     "accent": "#194988",
     "language": "zh",
     "parser": "cn",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "status": "ok",
-    "lastSuccessAt": "2026-10-25",
+    "lastSuccessAt": "2026-10-26",
     "sourceNote": "部分原文需订阅；仅显示元数据并链接官网。"
   },
   {
@@ -199,9 +199,9 @@ window.MAGAZINES = [
     "accent": "#287084",
     "language": "zh",
     "parser": "cn",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "status": "ok",
-    "lastSuccessAt": "2026-10-25",
+    "lastSuccessAt": "2026-10-26",
     "sourceNote": "原文可能需要财新订阅；不绕过付费墙。"
   },
   {
@@ -218,9 +218,9 @@ window.MAGAZINES = [
     "accent": "#296d52",
     "language": "zh",
     "parser": "cn",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "status": "ok",
-    "lastSuccessAt": "2026-10-25",
+    "lastSuccessAt": "2026-10-26",
     "sourceNote": "新闻周报；部分文章有会员阅读限制。"
   },
   {
@@ -236,9 +236,9 @@ window.MAGAZINES = [
     "note": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "accent": "#a93329",
     "language": "en",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "status": "ok",
-    "lastSuccessAt": "2026-10-25",
+    "lastSuccessAt": "2026-10-26",
     "sourceNote": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "parser": "rss",
     "feedUrls": [
@@ -258,9 +258,9 @@ window.MAGAZINES = [
     "note": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "accent": "#d2222a",
     "language": "en",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "status": "ok",
-    "lastSuccessAt": "2026-10-25",
+    "lastSuccessAt": "2026-10-26",
     "sourceNote": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "parser": "rss",
     "feedUrls": [
@@ -280,9 +280,9 @@ window.MAGAZINES = [
     "note": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "accent": "#267e9a",
     "language": "en",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "status": "ok",
-    "lastSuccessAt": "2026-10-25",
+    "lastSuccessAt": "2026-10-26",
     "sourceNote": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "parser": "rss",
     "feedUrls": [
@@ -303,9 +303,9 @@ window.MAGAZINES = [
     "note": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "accent": "#c33229",
     "language": "en",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "status": "ok",
-    "lastSuccessAt": "2026-10-25",
+    "lastSuccessAt": "2026-10-26",
     "sourceNote": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "parser": "rss",
     "feedUrls": [
@@ -325,9 +325,9 @@ window.MAGAZINES = [
     "note": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "accent": "#d02a25",
     "language": "en",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "status": "ok",
-    "lastSuccessAt": "2026-10-25",
+    "lastSuccessAt": "2026-10-26",
     "sourceNote": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "parser": "rss",
     "feedUrls": [
@@ -348,9 +348,9 @@ window.MAGAZINES = [
     "note": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "accent": "#aa6c22",
     "language": "en",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "status": "ok",
-    "lastSuccessAt": "2026-10-25",
+    "lastSuccessAt": "2026-10-26",
     "sourceNote": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "parser": "rss",
     "feedUrls": [
@@ -372,9 +372,9 @@ window.MAGAZINES = [
     "note": "英文原文；官方说明提供免费可读的科学报道。热门依据官网过去一周 Most Read Articles，不代表全网热度。",
     "accent": "#286c8d",
     "language": "en",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "status": "ok",
-    "lastSuccessAt": "2026-10-25",
+    "lastSuccessAt": "2026-10-26",
     "sourceNote": "英文原文；官方说明提供免费可读的科学报道。热门依据官网过去一周 Most Read Articles，不代表全网热度。",
     "parser": "rss",
     "feedUrls": [
@@ -394,10 +394,10 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://news.pedaily.cn/202504/549033.shtml",
     "publishedAt": "2025-04-28",
     "summary": "从钢琴行业案例，观察需求变化与企业转型。",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "archive": true,
     "featuredReason": "以往期行业案例观察需求变化；先核对原日期，再思考哪些问题仍值得参考。",
-    "featuredPriority": 38
+    "featuredPriority": 43
   },
   {
     "publication": "shangjie",
@@ -405,7 +405,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://news.pedaily.cn/202405/534446.shtml",
     "publishedAt": "2024-05-24",
     "summary": "沿着折扣零售的选品与供应链，拆解一家企业的经营路径。",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "archive": true
   },
   {
@@ -414,7 +414,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://news.pedaily.cn/202403/531673.shtml",
     "publishedAt": "2024-03-27",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "shangjie",
@@ -422,7 +422,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://news.pedaily.cn/202403/530654.shtml",
     "publishedAt": "2024-03-05",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "shangjie",
@@ -438,7 +438,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://news.pedaily.cn/202402/530247.shtml",
     "publishedAt": "2024-02-26",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "shangjie",
@@ -446,7 +446,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://news.pedaily.cn/202402/530139.shtml",
     "publishedAt": "2024-02-23",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "shangjie",
@@ -454,7 +454,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://news.pedaily.cn/202307/517233.shtml",
     "publishedAt": "2023-07-10",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "lifeweek",
@@ -462,7 +462,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.lifeweek.com.cn/article/274568",
     "publishedAt": null,
     "summary": "从方言的日常使用与代际传递切入，想一想语言被保存下来和重新被人使用之间还隔着什么。",
-    "checkedAt": "2026-10-24"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "lifeweek",
@@ -470,15 +470,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.lifeweek.com.cn/article/274575",
     "publishedAt": null,
     "summary": "留意数学家进入公共视野时哪些工作被讲述、哪些训练被省略，尝试把人物光环还原为可理解的研究过程。",
-    "checkedAt": "2026-10-24"
-  },
-  {
-    "publication": "lifeweek",
-    "title": "粤语脱口秀：找到自己的观众",
-    "url": "https://www.lifeweek.com.cn/article/274569",
-    "publishedAt": null,
-    "summary": "按题目选读：粤语笑点怎样越过语言门槛，演员又如何判断自己的观众？可留意地域经验与现场互动的关系。",
-    "checkedAt": "2026-10-23"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "lifeweek",
@@ -486,6 +478,14 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.lifeweek.com.cn/article/274576",
     "publishedAt": null,
     "summary": "读王虹的人物叙事时，把成长经历、数学训练与个人选择分开看，避免只用天赋解释研究者的形成。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "lifeweek",
+    "title": "粤语脱口秀：找到自己的观众",
+    "url": "https://www.lifeweek.com.cn/article/274569",
+    "publishedAt": null,
+    "summary": "按题目选读：粤语笑点怎样越过语言门槛，演员又如何判断自己的观众？可留意地域经验与现场互动的关系。",
     "checkedAt": "2026-10-23"
   },
   {
@@ -498,7 +498,7 @@ window.MAGAZINE_ARTICLES = [
     "issue": "2026年第42期",
     "access": "导读 / 订阅全文",
     "featuredReason": "围绕认识自然与干预自然的关系，思考科学问题如何被提出。",
-    "featuredPriority": 41
+    "featuredPriority": 46
   },
   {
     "publication": "lifeweek",
@@ -510,7 +510,7 @@ window.MAGAZINE_ARTICLES = [
     "issue": "2026年第42期",
     "access": "导读 / 订阅全文",
     "featuredReason": "围绕研究价值提出问题，适合思考课题选择时怎样兼顾意义与证据。",
-    "featuredPriority": 23
+    "featuredPriority": 28
   },
   {
     "publication": "lifeweek",
@@ -536,10 +536,10 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394820.html",
     "publishedAt": "2026-10-15",
     "summary": "从媒介与渠道的分散，理解品牌争取消费者注意力的难题。",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "access": "导读 / 订阅全文",
     "featuredReason": "从消费和渠道的变化进入商业问题，练习把具体案例连回需求。",
-    "featuredPriority": 27
+    "featuredPriority": 32
   },
   {
     "publication": "yimagazine",
@@ -547,7 +547,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394594.html",
     "publishedAt": "2026-10-15",
     "summary": "关注跨国公司的本地经营，比较“本土化”在不同阶段的含义。",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "access": "导读 / 订阅全文"
   },
   {
@@ -556,7 +556,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394573.html",
     "publishedAt": "2026-10-15",
     "summary": "围绕零售商自有品牌，审视品牌与渠道之间的竞争关系。",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "access": "导读 / 订阅全文"
   },
   {
@@ -565,7 +565,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394569.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "yimagazine",
@@ -573,7 +573,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394558.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "yimagazine",
@@ -581,7 +581,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394546.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "yimagazine",
@@ -589,7 +589,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394545.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "yimagazine",
@@ -597,7 +597,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394537.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "yimagazine",
@@ -605,7 +605,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394470.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "yimagazine",
@@ -613,7 +613,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394466.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "yimagazine",
@@ -621,7 +621,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394460.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "yimagazine",
@@ -629,7 +629,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393433.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "yimagazine",
@@ -637,7 +637,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393424.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "yimagazine",
@@ -645,7 +645,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393421.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "yimagazine",
@@ -653,7 +653,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393409.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "yimagazine",
@@ -661,7 +661,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393406.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "yimagazine",
@@ -669,7 +669,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393404.html",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "yimagazine",
@@ -677,7 +677,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393400.html",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "yimagazine",
@@ -685,7 +685,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393379.html",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "yimagazine",
@@ -693,7 +693,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393374.html",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "yimagazine",
@@ -701,7 +701,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393373.html",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "yimagazine",
@@ -709,7 +709,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393371.html",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "yimagazine",
@@ -717,7 +717,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393365.html",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "yimagazine",
@@ -725,7 +725,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393342.html",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "yimagazine",
@@ -733,7 +733,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393333.html",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "yimagazine",
@@ -741,7 +741,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393298.html",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "yimagazine",
@@ -749,7 +749,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393295.html",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "yimagazine",
@@ -757,7 +757,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393289.html",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "yimagazine",
@@ -765,89 +765,55 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393280.html",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
-    "publication": "renwu",
-    "title": "37万元，在北京买一套两居室",
-    "url": "https://boyamedia.com/sys-nd/200.html",
-    "publishedAt": "2026-10-18",
-    "summary": "从京郊低总价住房的购买者出发，观察落户、教育与居住需求怎样交织。",
-    "checkedAt": "2026-10-19",
-    "featuredReason": "从具体居住选择进入城市生活，比较价格之外的教育、通勤与家庭需求。",
-    "featuredPriority": 32
+    "publication": "chinanewsweek",
+    "title": "村上龙，突然去世",
+    "url": "https://www.inewsweek.cn/wh/2026-10-26/32709.shtml",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：先核对报道确认的消息来源和人物生平，再看作品评价如何展开；不把标题中的突发信息扩写为未经核实的细节。",
+    "checkedAt": "2026-10-26"
   },
   {
-    "publication": "renwu",
-    "title": "最有可能拿诺奖的德国女作家，在历史的废墟上写作",
-    "url": "https://boyamedia.com/sys-nd/199.html",
-    "publishedAt": "2026-10-17",
-    "summary": "通过作家燕妮·埃彭贝克的访谈，思考历史巨变与个人经验如何进入文学。",
-    "checkedAt": "2026-10-19",
-    "featuredReason": "通过文学与个人经验的关系，给技术和商业阅读之外留一个人文入口。",
-    "featuredPriority": 42
+    "publication": "chinanewsweek",
+    "title": "“×女下海赚外快”：顺风车订单里，还有多少招嫖暗语？",
+    "url": "https://www.inewsweek.cn/society/2026-10-26/32710.shtml",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：关注平台如何识别异常订单、如何保留证据与处理申诉，区分记者调查的个案和能够支持普遍判断的统计。",
+    "checkedAt": "2026-10-26"
   },
   {
-    "publication": "renwu",
-    "title": "朱之文，脱下大衣",
-    "url": "https://boyamedia.com/sys-nd/196.html",
-    "publishedAt": "2026-10-15",
-    "summary": "借一次连续跟访，观察成名十五年后的乡土歌手与流量、商演及日常生活。",
-    "checkedAt": "2026-10-19"
+    "publication": "chinanewsweek",
+    "title": "客服群发黄色链接，充电宝巨头怎么了？",
+    "url": "https://www.inewsweek.cn/finance/2026-10-26/32713.shtml",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：沿事件时间线核对用户反馈、企业回应和处置结果，再看客服权限与信息安全责任如何划分。",
+    "checkedAt": "2026-10-26"
   },
   {
-    "publication": "blogweekly",
-    "title": "前三季度销量下滑，大众汽车在华加速变革",
-    "url": "https://boyamedia.com/sys-nd/198.html",
-    "publishedAt": "2026-10-16",
-    "summary": "从大众在华业务变化，阅读合资车企面对新能源转型时的产品与组织选择。",
-    "checkedAt": "2026-10-19"
+    "publication": "chinanewsweek",
+    "title": "年轻人正在抛弃帆布鞋",
+    "url": "https://www.inewsweek.cn/finance/2026-10-26/32711.shtml",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：留意所谓消费转向依据销售、品牌经营还是受访者感受；把样本范围、价格变化与审美变化分别看。",
+    "checkedAt": "2026-10-26"
   },
   {
-    "publication": "blogweekly",
-    "title": "“不烧心”的红果，开始烧内娱的心了",
-    "url": "https://boyamedia.com/sys-nd/197.html",
-    "publishedAt": "2026-10-15",
-    "summary": "围绕红果短剧的内容生态，了解 AI 制作、分发渠道与商业竞争的关联。",
-    "checkedAt": "2026-10-19",
-    "featuredReason": "把AI制作、内容分发与商业竞争联系起来，观察内容产业的变化。",
-    "featuredPriority": 33
+    "publication": "chinanewsweek",
+    "title": "1000亿，“砸”向梁文锋",
+    "url": "https://www.inewsweek.cn/finance/2026-10-26/32706.shtml",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：先厘清标题金额对应投资、估值还是其他口径，再区分已经落地的资金与意向，避免把数字热度当成经营结果。",
+    "checkedAt": "2026-10-26"
   },
   {
-    "publication": "blogweekly",
-    "title": "从大众点评到“小众点评”，真实口碑逃得过生意吗？",
-    "url": "https://boyamedia.com/sys-nd/194.html",
-    "publishedAt": "2026-10-13",
-    "summary": "从寻找餐厅的日常经验，追问口碑平台商业化后真实评价如何保留价值。",
-    "checkedAt": "2026-10-19",
-    "featuredReason": "从寻找餐厅的日常经验，追问口碑平台商业化后怎样保留真实评价。",
-    "featuredPriority": 43
-  },
-  {
-    "publication": "globalpeople",
-    "title": "一场“思享者的盛宴”",
-    "url": "https://www.globalpeople.com.cn/n4/2026/1017/c306726-21655863.html",
-    "publishedAt": "2026-10-17",
-    "summary": "从年度盛典的对话现场，了解科技产业与文化实践如何相互启发。",
-    "checkedAt": "2026-10-19"
-  },
-  {
-    "publication": "globalpeople",
-    "title": "专访耶鲁教授马松：中国AI产业 不做“鲨鱼”做“鲇鱼”",
-    "url": "https://www.globalpeople.com.cn/n4/2026/1012/c305917-21655680.html",
-    "publishedAt": "2026-10-12",
-    "summary": "沿着金融学者的访谈，思考开源 AI、产业竞争与知识普惠之间的关系。",
-    "checkedAt": "2026-10-19",
-    "featuredReason": "沿着访谈观察开源AI、产业竞争与知识普惠的关系，留意不同立场的论据。",
-    "featuredPriority": 34
-  },
-  {
-    "publication": "globalpeople",
-    "title": "被寻找120 年，一位普通华工改写美国汉学历史",
-    "url": "https://www.globalpeople.com.cn/n4/2026/0929/c306717-21655284.html",
-    "publishedAt": "2026-09-25",
-    "summary": "从华工丁龙身世的考证线索，回看一段跨越太平洋的教育与文化交流往事。",
-    "checkedAt": "2026-10-19"
+    "publication": "chinanewsweek",
+    "title": "中国国际新能源和智能网联汽车展览会在北京亦庄圆满收官",
+    "url": "https://www.inewsweek.cn/auto/2026-10-26/32700.shtml",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：把展会中的技术展示、量产进度和可验证性能分开记录；关注电池材料、补能条件及数据出处，不把展品等同成熟应用。",
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -855,7 +821,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-23/32680.shtml",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：人物去留的争议依据是什么？把原话、相关回应与报道判断分开。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -863,7 +829,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-23/32683.shtml",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：震中现场、震级和受灾信息来自哪些部门？区分已核实情况与后续通报。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -871,7 +837,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-23/32682.shtml",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：先查人体试验的阶段、样本和终点；“返老还童”标题不能替代疗效证据。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -879,7 +845,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-23/32681.shtml",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：关注救援时间线和已确认的事件信息，区分现场叙述与死因推测；不据标题给个人急救判断。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -887,7 +853,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-23/32678.shtml",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：礼金上限由谁提出、怎样执行？留意倡议、习俗和强制规则的差别。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -895,7 +861,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-23/32696.shtml",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：行情反转对应什么时段和数据？把交易事实与原因推测分开，不据标题追涨。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -903,7 +869,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-23/32695.shtml",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：金币激励停止后，用户和创作者分别失去什么？留意平台规则与收入结构。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -911,7 +877,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-23/32679.shtml",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：先确认卖的是什么、成交口径是什么；热销案例不能代表整体需求。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -919,7 +885,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-23/32677.shtml",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：县城承接游客需要哪些交通、接待和公共服务？把流量与实际收益分开。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -927,7 +893,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-23/32675.shtml",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：致歉针对什么问题，品牌承诺能否逐项对应消费者诉求？把声明、处置进度和已核实事实分开看。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -935,7 +901,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-23/32674.shtml",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：算力项目的投资叙事怎样落到建设、客户与现金流？先区分投资额、已投入金额和真正交付的能力。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -943,7 +909,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-23/32673.shtml",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：股价上涨为何可能与经营压力并存？核对利润、成本和行业需求，避免把价格表现当作业务改善。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -951,7 +917,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-23/32672.shtml",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：一款鞋如何从产品变成流行符号？可比较设计、渠道和社交传播，留意“最火”是否有明确衡量口径。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -967,7 +933,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-22/32659.shtml",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：标题中的“大礼”具体指哪项政策或承诺，谁可能受益？先还原对象与生效条件，再判断政治修辞。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -975,7 +941,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-22/32647.shtml",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：街头抗议与领导人公开形象为何形成反差？阅读时核对事件时间线、现场消息和各方解释。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -983,7 +949,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-22/32663.shtml",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：柜面服务时段由谁决定，受影响的用户有哪些替代渠道？可从规则依据、实际执行和反馈机制三层读。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -991,7 +957,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-22/32654.shtml",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：传言与官方通报各自能证明什么？先核实空间用途、调查范围和后续措施，不把标题当成完整事实。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -999,7 +965,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-22/32646.shtml",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：一审判决认定了哪些事实，裁判理由与后续程序是什么？避免用情绪化细节替代司法信息核对。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1007,7 +973,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-22/32662.shtml",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：换账号能否改变过去的宣传责任？关注处罚依据、复出后的商业模式与平台核验机制。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1015,7 +981,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-22/32656.shtml",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：儿童手表如何成为同伴社交的门槛？留意互联规则、家长选择和校园环境，区分个案与普遍趋势。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1023,7 +989,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-22/32655.shtml",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：增持是资本配置还是业务协同的信号？先确认交易主体、规模和资金来源，避免仅凭富豪称谓推断。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1031,7 +997,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-22/32653.shtml",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：展览如何呈现七十年的变化？留意选品、叙事和时代背景之间的关系。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1039,7 +1005,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-22/32651.shtml",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：品牌风格转向怎样回应消费者和渠道变化？可将广告形象、产品组合与销售表现分开比较。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1047,7 +1013,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-22/32649.shtml",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：新项目在哪个环节受阻，原有品牌资源能否真正迁移？适合用需求、成本与执行三项检视创业叙事。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1055,7 +1021,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-22/32648.shtml",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：冲锋衣热潮由功能需求、生活方式还是渠道推动？材料方向读者可额外核对面料性能与营销词的差别。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1063,7 +1029,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-22/32645.shtml",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：座位使用条件如何在经营成本与公共体验之间取舍？核实适用门店、具体规则及消费者反馈。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1079,7 +1045,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-21/32640.shtml",
     "publishedAt": "2026-10-21",
     "summary": "沿着报道梳理前总统与现任政治竞争的关系，把选举叙事、法律程序和各方说法分开判断。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1087,7 +1053,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-21/32633.shtml",
     "publishedAt": "2026-10-21",
     "summary": "按题目选读：救援费用争议有哪些当事人说法与正式规则？先梳理证据来源，避免未经核实就对家属作道德判断。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1095,7 +1061,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-21/32632.shtml",
     "publishedAt": "2026-10-21",
     "summary": "关注判决所依据的事实、程序与裁判理由，区分已经司法认定的内容和标题中的情绪性表述。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1103,7 +1069,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-21/32639.shtml",
     "publishedAt": "2026-10-21",
     "summary": "先辨认手机出货统计的地区、周期和比较基准，再判断下滑反映的是需求变化还是渠道调整。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1143,7 +1109,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-20/32610.shtml",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1151,7 +1117,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/wh/2026-10-20/32604.shtml",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1175,7 +1141,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-19/32595.shtml",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1183,7 +1149,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-19/32590.shtml",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1191,7 +1157,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-19/32586.shtml",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1199,7 +1165,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-19/32584.shtml",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1207,7 +1173,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/wh/2026-10-19/32585.shtml",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1215,7 +1181,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/wh/2026-10-19/32574.shtml",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1223,7 +1189,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-19/32589.shtml",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1231,7 +1197,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-19/32583.shtml",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1287,7 +1253,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-16/32573.shtml",
     "publishedAt": "2026-10-16",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1295,7 +1261,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-16/32559.shtml",
     "publishedAt": "2026-10-16",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1303,7 +1269,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-16/32552.shtml",
     "publishedAt": "2026-10-16",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1311,7 +1277,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/wh/2026-10-16/32569.shtml",
     "publishedAt": "2026-10-16",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1319,7 +1285,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/wh/2026-10-16/32556.shtml",
     "publishedAt": "2026-10-16",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1327,7 +1293,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-16/32553.shtml",
     "publishedAt": "2026-10-16",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1359,7 +1325,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-15/32549.shtml",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1367,7 +1333,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-15/32540.shtml",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1375,7 +1341,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-15/32550.shtml",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1383,7 +1349,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-15/32546.shtml",
     "publishedAt": "2026-10-15",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1395,19 +1361,11 @@ window.MAGAZINE_ARTICLES = [
   },
   {
     "publication": "chinanewsweek",
-    "title": "45岁外祖父，枪杀了怀孕的女儿、年幼的外孙和外孙女",
-    "url": "https://www.inewsweek.cn/world/2026-10-14/32530.shtml",
-    "publishedAt": "2026-10-14",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "chinanewsweek",
     "title": "CIA前官员地下室里，搜出近300根金条",
     "url": "https://www.inewsweek.cn/world/2026-10-14/32515.shtml",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1415,7 +1373,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/wh/2026-10-14/32531.shtml",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1423,7 +1381,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/wh/2026-10-14/32527.shtml",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1431,7 +1389,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-14/32529.shtml",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
@@ -1439,53 +1397,13 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-14/32528.shtml",
     "publishedAt": "2026-10-14",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "chinanewsweek",
-    "title": "“黑客杀死了我的一缸鱼？”",
-    "url": "https://www.inewsweek.cn/society/2026-10-14/32524.shtml",
+    "title": "45岁外祖父，枪杀了怀孕的女儿、年幼的外孙和外孙女",
+    "url": "https://www.inewsweek.cn/world/2026-10-14/32530.shtml",
     "publishedAt": "2026-10-14",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "“白天没人，晚上爆满！”景区年薪千万抢人",
-    "url": "https://www.inewsweek.cn/finance/2026-10-14/32526.shtml",
-    "publishedAt": "2026-10-14",
-    "summary": "",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "装修公司试水“电子榨菜”，狂“赚”16.53亿",
-    "url": "https://www.inewsweek.cn/finance/2026-10-14/32522.shtml",
-    "publishedAt": "2026-10-14",
-    "summary": "",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "沙特航空枢纽，接连被炸",
-    "url": "https://www.inewsweek.cn/world/2026-10-13/32502.shtml",
-    "publishedAt": "2026-10-13",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "传奇歌手突然去世，家人为钱闹翻了",
-    "url": "https://www.inewsweek.cn/wh/2026-10-13/32501.shtml",
-    "publishedAt": "2026-10-13",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "长假刚过，就吃土了？",
-    "url": "https://www.inewsweek.cn/wh/2026-10-13/32499.shtml",
-    "publishedAt": "2026-10-13",
     "summary": "",
     "checkedAt": "2026-10-25"
   },
@@ -1497,371 +1415,7 @@ window.MAGAZINE_ARTICLES = [
     "summary": "",
     "checkedAt": "2026-10-21",
     "featuredReason": "把注意力放在基层工作与流量指标之间的关系，观察组织行为的变化。",
-    "featuredPriority": 30
-  },
-  {
-    "publication": "neweekly",
-    "title": "开到县城的奥乐齐，迎来了比上海人更懂它的顾客",
-    "url": "https://neweekly.com.cn/article/shp1602690024",
-    "publishedAt": "2026-10-24",
-    "summary": "按题目选读：折扣零售到了县城，价格、选品和购物习惯怎样重新匹配？",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "neweekly",
-    "title": "最有“素人感”的女演员，其实不想被归类",
-    "url": "https://neweekly.com.cn/article/shp1312412293",
-    "publishedAt": "2026-10-24",
-    "summary": "按题目选读：“素人感”是谁赋予的标签？看看演员怎样描述自己的工作和表达选择。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "neweekly",
-    "title": "逗笑过全国观众的人，想换一种演法丨专访乔杉",
-    "url": "https://neweekly.com.cn/article/shp1780873465",
-    "publishedAt": "2026-10-23",
-    "summary": "按题目选读：喜剧演员想改变演法时，既有角色期待会带来什么限制？可留意作品选择与创作者自我叙述的张力。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "neweekly",
-    "title": "打砸商店、烧毁百年建筑，法国为何失控？",
-    "url": "https://neweekly.com.cn/article/shp1237866856",
-    "publishedAt": "2026-10-23",
-    "summary": "按题目选读：法国冲突的直接触发与长期背景分别是什么？核对时间线和不同来源。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "neweekly",
-    "title": "被卖进电诈园区的“王星们”，永远还不清身上的“贷款” | 专访何袜皮",
-    "url": "https://neweekly.com.cn/article/shp0359582955",
-    "publishedAt": "2026-10-23",
-    "summary": "按题目选读：关注受害者被债务控制的机制、采访证据和脱离后的支持，不把个案经历泛化。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "neweekly",
-    "title": "13岁“老赖之女”出道，追不追K-POP的人都炸了",
-    "url": "https://neweekly.com.cn/article/shp1850724027",
-    "publishedAt": "2026-10-22",
-    "summary": "把未成年艺人的职业机会、家庭债务争议与网络标签分开看，思考公众人物评价中责任应如何划分。",
-    "checkedAt": "2026-10-24"
-  },
-  {
-    "publication": "neweekly",
-    "title": "中国最快高铁要更新了，普通人最操心的不光是票价",
-    "url": "https://neweekly.com.cn/article/shp0942861611",
-    "publishedAt": "2026-10-22",
-    "summary": "按题目选读：更快高铁除票价外还会改变哪些出行环节？把速度指标与班次、接驳、舒适度及实际旅程放在一起看。",
-    "checkedAt": "2026-10-23"
-  },
-  {
-    "publication": "neweekly",
-    "title": "烧脑不烧心，这些短剧留住了谁",
-    "url": "https://neweekly.com.cn/article/shp1053259513",
-    "publishedAt": "2026-10-21",
-    "summary": "从叙事节奏与观众需求理解短剧的吸引力，比较推理解谜和情绪投入怎样共同影响留存。",
-    "checkedAt": "2026-10-24"
-  },
-  {
-    "publication": "neweekly",
-    "title": "花30块买欧洲防盗套装的年轻人，真让小偷没招了？",
-    "url": "https://neweekly.com.cn/article/shp1088048878",
-    "publishedAt": "2026-10-21",
-    "summary": "把防盗商品的安全感与实际防护能力分开比较，留意报道中的使用场景能否支撑营销承诺。",
-    "checkedAt": "2026-10-23"
-  },
-  {
-    "publication": "neweekly",
-    "title": "“性感巨头”，也开始当过日子人了",
-    "url": "https://neweekly.com.cn/article/shp0525432293",
-    "publishedAt": "2026-10-21",
-    "summary": "观察品牌怎样调整性感叙事与日常消费定位，区分传播口号、产品变化和经营表现。",
-    "checkedAt": "2026-10-23"
-  },
-  {
-    "publication": "neweekly",
-    "title": "00后北漂患上“扔垃圾羞耻”：每个纸箱子都被邻居疯抢",
-    "url": "https://neweekly.com.cn/article/shp0398202510",
-    "publishedAt": "2026-10-20",
-    "summary": "",
-    "checkedAt": "2026-10-23"
-  },
-  {
-    "publication": "neweekly",
-    "title": "50元一斤的“人类猫条”，年轻人不愿啃了",
-    "url": "https://neweekly.com.cn/article/shp1667864789",
-    "publishedAt": "2026-10-20",
-    "summary": "",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "neweekly",
-    "title": "近期最火的8.3分港剧，不靠抓马和算计",
-    "url": "https://neweekly.com.cn/article/shp0982504162",
-    "publishedAt": "2026-10-19",
-    "summary": "",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "neweekly",
-    "title": "如果有人打破我的纪录，我会再破回来｜专访越野跑者赵家驹",
-    "url": "https://neweekly.com.cn/article/shp0738912692",
-    "publishedAt": "2026-10-19",
-    "summary": "",
-    "checkedAt": "2026-10-21"
-  },
-  {
-    "publication": "neweekly",
-    "title": "时隔23年又翻红的《大长今》，到底往剧里放了什么？",
-    "url": "https://neweekly.com.cn/article/shp1559356774",
-    "publishedAt": "2026-10-18",
-    "summary": "",
-    "checkedAt": "2026-10-21"
-  },
-  {
-    "publication": "neweekly",
-    "title": "被封杀的“大结果之母”，靠AI卷土重来赚了三百万",
-    "url": "https://neweekly.com.cn/article/shp0073460960",
-    "publishedAt": "2026-10-18",
-    "summary": "",
-    "checkedAt": "2026-10-21"
-  },
-  {
-    "publication": "neweekly",
-    "title": "北上广深杭最拉胯的dating，在大厂园区排队打饭",
-    "url": "https://neweekly.com.cn/article/shp1036864549",
-    "publishedAt": "2026-10-17",
-    "summary": "",
-    "checkedAt": "2026-10-19"
-  },
-  {
-    "publication": "neweekly",
-    "title": "创业者骊沣：去非洲卖菜，看见另一种可能",
-    "url": "https://neweekly.com.cn/article/shp1603517972",
-    "publishedAt": "2026-10-16",
-    "summary": "",
-    "checkedAt": "2026-10-19"
-  },
-  {
-    "publication": "neweekly",
-    "title": "冲上热搜的怀孕AI偶像，把全网都“耍了”",
-    "url": "https://neweekly.com.cn/article/shp1401557461",
-    "publishedAt": "2026-10-16",
-    "summary": "",
-    "checkedAt": "2026-10-19",
-    "featuredReason": "从虚拟人物与公众反应切入，观察AI内容、注意力和信任之间的关系。",
-    "featuredPriority": 48
-  },
-  {
-    "publication": "neweekly",
-    "title": "月入5000但没有KPI，景区npc真是年轻人理想工作？",
-    "url": "https://neweekly.com.cn/article/shp1219293684",
-    "publishedAt": "2026-10-16",
-    "summary": "",
-    "checkedAt": "2026-10-19",
-    "featuredReason": "从新职业观察就业选择和工作评价，带着真实工作条件的问题去读。",
-    "featuredPriority": 31
-  },
-  {
-    "publication": "neweekly",
-    "title": "有的环保主义者，只是在cosplay｜专访罗伯特·麦克法伦",
-    "url": "https://neweekly.com.cn/article/shp1934294882",
-    "publishedAt": "2026-09-15",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "neweekly",
-    "title": "在标准时代，做一个反思标准的人|专访艺术家高孝午",
-    "url": "https://neweekly.com.cn/article/shp0981957709",
-    "publishedAt": "2026-09-10",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "neweekly",
-    "title": "安妮宝贝到庆山的26年｜专访庆山",
-    "url": "https://neweekly.com.cn/article/shp1303778613",
-    "publishedAt": "2026-08-23",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "neweekly",
-    "title": "李现都沦陷了，观鸟为何让人如此“上头”？",
-    "url": "https://neweekly.com.cn/article/shp1975407750",
-    "publishedAt": "2026-08-22",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "neweekly",
-    "title": "陈丹青：AI这事儿，我根本没资格有意见",
-    "url": "https://neweekly.com.cn/article/shp0364599521",
-    "publishedAt": "2026-08-21",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "neweekly",
-    "title": "许知远：我们对具体经验的提问变少了",
-    "url": "https://neweekly.com.cn/article/shp0419494440",
-    "publishedAt": "2026-08-20",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "neweekly",
-    "title": "采访诺兰火遍外网后，她说自己随时准备退网 | 专访仲树",
-    "url": "https://neweekly.com.cn/article/shp0302116189",
-    "publishedAt": "2026-08-08",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "neweekly",
-    "title": "一夜爆红后潇洒“退圈”，30年前的顶流女星如今怎样了?",
-    "url": "https://neweekly.com.cn/article/shp0849948013",
-    "publishedAt": "2026-06-23",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "neweekly",
-    "title": "拍出《无名之辈》的他，成了“最佳演员”",
-    "url": "https://neweekly.com.cn/article/shp1568390836",
-    "publishedAt": "2026-06-05",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "neweekly",
-    "title": "王朔：我不是一个人，只不过室友不是人",
-    "url": "https://neweekly.com.cn/article/shp0482480332",
-    "publishedAt": "2026-04-24",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "neweekly",
-    "title": "一个70岁走红的女人，拒绝被浪漫化",
-    "url": "https://neweekly.com.cn/article/shp0971100706",
-    "publishedAt": "2026-03-26",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "neweekly",
-    "title": "10个消失在家谱里的女人，秘密终于被她拆开了",
-    "url": "https://neweekly.com.cn/article/shp0933852543",
-    "publishedAt": "2026-03-08",
-    "summary": "",
-    "checkedAt": "2026-10-24"
-  },
-  {
-    "publication": "neweekly",
-    "title": "不会再有第二个侯孝贤，也不会再有第二个朱天文｜专访朱天文",
-    "url": "https://neweekly.com.cn/article/shp2077773423",
-    "publishedAt": "2026-01-18",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "neweekly",
-    "title": "屈雨瑜：用行动打破偏见，女性照样颠大勺 | 极限女性第二季第9期",
-    "url": "https://neweekly.com.cn/article/shp1985323427",
-    "publishedAt": "2025-11-28",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "neweekly",
-    "title": "中国父母的空心病，正在传给孩子丨专访梁鸿",
-    "url": "https://neweekly.com.cn/article/shp1871871995",
-    "publishedAt": "2025-11-07",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "neweekly",
-    "title": "专访舒淇：不会撒娇的女孩，从小就学着长大",
-    "url": "https://neweekly.com.cn/article/shp0621368846",
-    "publishedAt": "2025-11-03",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "neweekly",
-    "title": "真人秀结束一年，李行亮们还在被网暴",
-    "url": "https://neweekly.com.cn/article/shp0554301326",
-    "publishedAt": "2025-10-28",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "neweekly",
-    "title": "99.99%的普通人，不该从历史中消失｜专访王笛",
-    "url": "https://neweekly.com.cn/article/shp1871552011",
-    "publishedAt": "2025-10-16",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "neweekly",
-    "title": "她，不仅仅是“蔡磊的妻子” | 极限女性第二季第7期",
-    "url": "https://neweekly.com.cn/article/shp0186469144",
-    "publishedAt": "2025-09-23",
-    "summary": "",
-    "checkedAt": "2026-10-24"
-  },
-  {
-    "publication": "neweekly",
-    "title": "房主任：我没有退路，所以才努力爬上岸 | 极限女性第二季第6期",
-    "url": "https://neweekly.com.cn/article/shp1962820666",
-    "publishedAt": "2025-08-26",
-    "summary": "",
-    "checkedAt": "2026-10-24"
-  },
-  {
-    "publication": "neweekly",
-    "title": "龚琳娜：50岁，我开始真正的叛逆期 | 极限女性第二季第5期",
-    "url": "https://neweekly.com.cn/article/shp0750839517",
-    "publishedAt": "2025-07-22",
-    "summary": "",
-    "checkedAt": "2026-10-24"
-  },
-  {
-    "publication": "neweekly",
-    "title": "马静芬：过去我叫褚马氏，现在我叫马静芬｜极限女性第二季第 4 期",
-    "url": "https://neweekly.com.cn/article/shp1020363549",
-    "publishedAt": "2025-05-26",
-    "summary": "",
-    "checkedAt": "2026-10-24"
-  },
-  {
-    "publication": "neweekly",
-    "title": "颜怡颜悦：我们要写自己也会被“骂到”的东西｜极限女性第二季",
-    "url": "https://neweekly.com.cn/article/shp1265701687",
-    "publishedAt": "2025-02-18",
-    "summary": "",
-    "checkedAt": "2026-10-24"
-  },
-  {
-    "publication": "neweekly",
-    "title": "张越：进入和离开个体生命，是让人生更丰富和宽广的过程｜极限女性第二季",
-    "url": "https://neweekly.com.cn/article/shp2063280335",
-    "publishedAt": "2025-01-21",
-    "summary": "",
-    "checkedAt": "2026-10-24"
-  },
-  {
-    "publication": "neweekly",
-    "title": "“在我追求的极致中，不能有任何灰度”｜极限女性第八期",
-    "url": "https://neweekly.com.cn/article/shp0655033518",
-    "publishedAt": "2024-12-31",
-    "summary": "",
-    "checkedAt": "2026-10-24"
+    "featuredPriority": 35
   },
   {
     "publication": "nfpeople",
@@ -1869,7 +1423,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14349",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -1877,7 +1431,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14348",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -1885,7 +1439,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14347",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -1893,7 +1447,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14346",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -1901,9 +1455,9 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14345",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "featuredReason": "以 AI 与数学家的关系为切口，思考研究训练中哪些工作能借助工具，哪些仍需自己理解。",
-    "featuredPriority": 18
+    "featuredPriority": 23
   },
   {
     "publication": "nfpeople",
@@ -1911,7 +1465,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14344",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -1919,7 +1473,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14343",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -1927,7 +1481,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14341",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -1935,7 +1489,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14340",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -1943,7 +1497,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14339",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -1951,7 +1505,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14338",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -1959,7 +1513,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14337",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -1967,7 +1521,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14336",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -1975,7 +1529,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14335",
     "publishedAt": "2026-10-05",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -1983,7 +1537,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14334",
     "publishedAt": "2026-10-05",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -1991,7 +1545,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14333",
     "publishedAt": "2026-10-05",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -1999,7 +1553,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14332",
     "publishedAt": "2026-10-05",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -2007,7 +1561,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14331",
     "publishedAt": "2026-10-05",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -2015,7 +1569,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14329",
     "publishedAt": "2026-10-05",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -2023,7 +1577,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14327",
     "publishedAt": "2026-10-05",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -2041,7 +1595,7 @@ window.MAGAZINE_ARTICLES = [
     "summary": "",
     "checkedAt": "2026-10-19",
     "featuredReason": "与你的研究生阶段直接相关：带着学科选择和能力结构的问题去读。",
-    "featuredPriority": 20
+    "featuredPriority": 25
   },
   {
     "publication": "nfpeople",
@@ -2065,7 +1619,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14322",
     "publishedAt": "2026-09-28",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -2073,7 +1627,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14321",
     "publishedAt": "2026-09-28",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -2081,7 +1635,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14320",
     "publishedAt": "2026-09-28",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -2089,7 +1643,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14319",
     "publishedAt": "2026-09-28",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -2097,7 +1651,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14315",
     "publishedAt": "2026-09-28",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -2105,7 +1659,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14314",
     "publishedAt": "2026-09-28",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -2145,7 +1699,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14301",
     "publishedAt": "2026-09-21",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -2153,7 +1707,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14300",
     "publishedAt": "2026-09-21",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -2201,7 +1755,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/11026",
     "publishedAt": "2021-11-24",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -2209,7 +1763,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/10979",
     "publishedAt": "2021-11-05",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -2217,7 +1771,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/10917",
     "publishedAt": "2021-10-09",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -2225,7 +1779,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/10746",
     "publishedAt": "2021-06-19",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -2233,7 +1787,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/10703",
     "publishedAt": "2021-05-24",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -2241,7 +1795,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/10684",
     "publishedAt": "2021-05-21",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -2249,7 +1803,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/10674",
     "publishedAt": "2021-05-20",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -2257,7 +1811,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/6513",
     "publishedAt": "2018-01-03",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -2265,7 +1819,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/6511",
     "publishedAt": "2018-01-03",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -2273,7 +1827,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/6487",
     "publishedAt": "2018-01-03",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -2281,7 +1835,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/6476",
     "publishedAt": "2018-01-03",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -2289,15 +1843,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/6475",
     "publishedAt": "2018-01-03",
     "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "nfpeople",
-    "title": "眼界 | 俄罗斯",
-    "url": "https://www.nfpeople.com/article/6473",
-    "publishedAt": "2018-01-03",
-    "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nfpeople",
@@ -2305,7 +1851,57 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/6474",
     "publishedAt": "2018-01-03",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "nfpeople",
+    "title": "眼界 | 俄罗斯",
+    "url": "https://www.nfpeople.com/article/6473",
+    "publishedAt": "2018-01-03",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "caijing",
+    "title": "解锁西非超级铁矿",
+    "url": "https://magazine.caijing.com.cn/20261026/5189745.shtml",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：从材料产业链角度追问矿石品位、基础设施、运输成本与投产节奏各起什么作用；标题本身不能证明供应规模或经济性。",
+    "checkedAt": "2026-10-26",
+    "featuredReason": "从材料产业链读资源、运输与成本：可把报道里的矿石指标和基础设施条件逐项列证据，再判断“储量”与“可稳定供应”之间还缺什么。",
+    "featuredPriority": 3
+  },
+  {
+    "publication": "caijing",
+    "title": "肺癌大药海外遇挫",
+    "url": "https://magazine.caijing.com.cn/20261026/5189744.shtml",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：先查受挫对应临床、审批还是商业环节，再看具体试验终点与适用人群；不能由新闻标题推断个体用药选择。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "caijing",
+    "title": "银行卡清算：Visa独资入局",
+    "url": "https://magazine.caijing.com.cn/20261026/5189743.shtml",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：厘清发卡、收单与清算三个环节，关注准入事件对支付成本和竞争的实际影响；将获准入局与形成市场份额区分。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "caijing",
+    "title": "寻找增长底力",
+    "url": "https://magazine.caijing.com.cn/20261026/5189742.shtml",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：把文章提出的增长来源逐项对应可观察指标，区分需求、供给与政策预期；不把宏观判断直接当成个人投资结论。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "caijing",
+    "title": "中美AI互投",
+    "url": "https://magazine.caijing.com.cn/20261026/5189741.shtml",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：区分直接投资、财务投资与产业合作，核对资金流向的时间和统计范围，再看技术限制如何影响交易。",
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caijing",
@@ -2313,7 +1909,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261012/5187292.shtml",
     "publishedAt": "2026-10-12",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caijing",
@@ -2321,7 +1917,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261012/5187290.shtml",
     "publishedAt": "2026-10-12",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caijing",
@@ -2329,7 +1925,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261012/5187289.shtml",
     "publishedAt": "2026-10-12",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caijing",
@@ -2337,7 +1933,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261012/5187286.shtml",
     "publishedAt": "2026-10-12",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caijing",
@@ -2345,7 +1941,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261012/5187285.shtml",
     "publishedAt": "2026-10-12",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caijing",
@@ -2353,7 +1949,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261010/5187070.shtml",
     "publishedAt": "2026-10-10",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caijing",
@@ -2361,7 +1957,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261010/5187069.shtml",
     "publishedAt": "2026-10-10",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caijing",
@@ -2369,7 +1965,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261010/5187068.shtml",
     "publishedAt": "2026-10-10",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caijing",
@@ -2377,7 +1973,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261010/5187067.shtml",
     "publishedAt": "2026-10-10",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caijing",
@@ -2385,7 +1981,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261010/5187065.shtml",
     "publishedAt": "2026-10-10",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caijing",
@@ -2393,7 +1989,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260914/5183335.shtml",
     "publishedAt": "2026-09-14",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caijing",
@@ -2401,7 +1997,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260914/5183333.shtml",
     "publishedAt": "2026-09-14",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caijing",
@@ -2409,7 +2005,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260914/5183332.shtml",
     "publishedAt": "2026-09-14",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caijing",
@@ -2417,7 +2013,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260914/5183331.shtml",
     "publishedAt": "2026-09-14",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caijing",
@@ -2425,7 +2021,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260914/5183330.shtml",
     "publishedAt": "2026-09-14",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caijing",
@@ -2433,7 +2029,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260831/5180700.shtml",
     "publishedAt": "2026-08-31",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caijing",
@@ -2441,7 +2037,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260831/5180698.shtml",
     "publishedAt": "2026-08-31",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caijing",
@@ -2449,7 +2045,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260831/5180694.shtml",
     "publishedAt": "2026-08-31",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caijing",
@@ -2457,7 +2053,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260831/5180692.shtml",
     "publishedAt": "2026-08-31",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caijing",
@@ -2465,7 +2061,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260831/5180688.shtml",
     "publishedAt": "2026-08-31",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caijing",
@@ -2473,7 +2069,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260818/5177724.shtml",
     "publishedAt": "2026-08-18",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caijing",
@@ -2481,7 +2077,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260818/5177720.shtml",
     "publishedAt": "2026-08-18",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caijing",
@@ -2489,9 +2085,9 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260818/5177719.shtml",
     "publishedAt": "2026-08-18",
     "summary": "",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "featuredReason": "从城市更新的资金与需求关系入手，理解一个长期议题。",
-    "featuredPriority": 28
+    "featuredPriority": 33
   },
   {
     "publication": "caijing",
@@ -2499,7 +2095,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260818/5177718.shtml",
     "publishedAt": "2026-08-18",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caijing",
@@ -2507,7 +2103,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260818/5177717.shtml",
     "publishedAt": "2026-08-18",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caijing",
@@ -2543,11 +2139,19 @@ window.MAGAZINE_ARTICLES = [
   },
   {
     "publication": "caixin",
+    "title": "周刊导播｜动荡法兰西、长聘不稳了、人民币升值之后",
+    "url": "https://weekly.caixin.com/2026-10-25/102497136.html",
+    "publishedAt": "2026-10-25",
+    "summary": "按题目选读：这是一份多主题导播，可先按学术职业、国际政治或汇率选择原文；导播标题不替代每篇报道的证据与结论。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "caixin",
     "title": "编辑更正（《财新周刊》2026年第41期）",
     "url": "https://weekly.caixin.com/2026-10-24/102496797.html",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：这是编辑更正，先找被更正的原文与具体改动；不要把更正当作全新研究。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caixin",
@@ -2555,7 +2159,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-24/102496777.html",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：答疑回应了哪些原文疑问？对照提问、解释与仍未解决的分歧。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caixin",
@@ -2563,7 +2167,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-24/102496774.html",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：从本期融媒目录选一个主题，继续回到对应原文核对信息和日期。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caixin",
@@ -2571,7 +2175,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-24/102496773.html",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：先看视频入口对应哪些报道；视听摘要不能替代完整报道的证据与上下文。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caixin",
@@ -2579,7 +2183,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-24/102496772.html",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：这是读者回应，区分个人意见、编辑答复和原报道已确认的事实。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caixin",
@@ -2587,15 +2191,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-24/102496771.html",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：照片怎样呈现选举前夕的社会气氛？留意拍摄地点、时间与图注。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "caixin",
-    "title": "心智｜越连接，越孤独",
-    "url": "https://weekly.caixin.com/2026-10-24/102496770.html",
-    "publishedAt": "2026-10-24",
-    "summary": "按题目选读：连接数量为何可能与孤独感并存？区分个人叙述、调查和因果解释。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caixin",
@@ -2603,7 +2199,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-24/102496769.html",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：健康税的对象、税基和预期效果是什么？注意政策讨论与已实施规则的区别。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caixin",
@@ -2611,7 +2207,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-24/102496762.html",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：选情判断用的是民调、资金还是选区资料？关注采样日期和不确定性。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caixin",
@@ -2619,7 +2215,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-24/102496759.html",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：用回溯建立本周事件时间线，再对重要条目查原报道和后续更正。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caixin",
@@ -2627,7 +2223,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-24/102496758.html",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：人物生平由哪件事串联？把纪念性评价与可核对经历分开读。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caixin",
@@ -2635,7 +2231,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-24/102496757.html",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：专栏提出哪些关系判断？把作者立场、法律事实与个体处境分开考虑。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caixin",
@@ -2643,7 +2239,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-24/102496756.html",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：这些声音如何表达对未来的期待？关注发言者的处境与选择，而非抽象口号。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caixin",
@@ -2651,7 +2247,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-24/102496755.html",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：先了解作品与人物的历史背景，再看评论怎样解释其中的变化。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caixin",
@@ -2659,7 +2255,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-24/102496754.html",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：长聘制度的不稳定来自合同、考核还是经费？适合研究生了解学术职业风险。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caixin",
@@ -2667,7 +2263,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-24/102496753.html",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：汽车企业进入竞争激烈的市场靠什么？对照销量、定价和盈利口径。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caixin",
@@ -2675,7 +2271,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-24/102496752.html",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：中小企业赴非洲面对哪些本地需求与经营约束？留意案例的适用范围。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caixin",
@@ -2683,7 +2279,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-24/102496751.html",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：全球市场“淘汰赛”用了哪些判断标准？区分专栏观点和已经发生的经营变化。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caixin",
@@ -2691,7 +2287,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-24/102496750.html",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：并购对赌留下哪些合同与治理问题？核对案例时间、责任安排和适用规则。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caixin",
@@ -2699,7 +2295,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-24/102496749.html",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：人民币升值的9%以哪段时间、哪种汇率衡量？不要据报道推演个人买卖结论。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caixin",
@@ -2707,7 +2303,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-24/102496748.html",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：作者怎样把政策选择与制度激励联系起来？分别检查事实依据和解释链条。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caixin",
@@ -2715,7 +2311,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-24/102496747.html",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：增速回升是否转化为更广泛的收入和就业改善？留意总量与分布指标。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caixin",
@@ -2723,7 +2319,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-24/102496746.html",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：中欧贸易再平衡讨论哪些产业和政策条件？分清谈判目标与已生效安排。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caixin",
@@ -2731,7 +2327,15 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-24/102496745.html",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：中小投资者权益具体落在哪些信息披露与救济环节？政策主张需回到正式文件。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "caixin",
+    "title": "心智｜越连接，越孤独",
+    "url": "https://weekly.caixin.com/2026-10-24/102496770.html",
+    "publishedAt": "2026-10-24",
+    "summary": "按题目选读：连接数量为何可能与孤独感并存？区分个人叙述、调查和因果解释。",
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caixin",
@@ -2739,7 +2343,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-23/102496284.html",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：用封面报道梳理法国动荡的事件顺序，再比较不同群体的解释。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caixin",
@@ -2861,7 +2465,7 @@ window.MAGAZINE_ARTICLES = [
     "summary": "",
     "checkedAt": "2026-10-23",
     "featuredReason": "聚焦制度变化如何影响企业与城市，适合梳理长期规则问题。",
-    "featuredPriority": 29
+    "featuredPriority": 34
   },
   {
     "publication": "caixin",
@@ -2945,11 +2549,11 @@ window.MAGAZINE_ARTICLES = [
   },
   {
     "publication": "caixin",
-    "title": "显影｜退休生活策划师",
+    "title": "显影｜为70后退休“姐姐”们策划退休生活 银发生意的理想与现实",
     "url": "https://weekly.caixin.com/2026-10-23/102496293.html",
     "publishedAt": null,
     "summary": "按题目选读：退休生活策划师提供什么服务、怎样收费？留意需求、资质与客户差异。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "caixin",
@@ -2958,6 +2562,90 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": null,
     "summary": "",
     "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "infzm",
+    "title": "首提严打“公考围岗”，国考连续两年缩招",
+    "url": "https://www.infzm.com/contents/343419",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：以正式招录公告核对岗位数与限制条件，再看报道如何解释变化；全国总量不能直接代表个人专业的机会。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "infzm",
+    "title": "9·30新规关闸：基金“大V”营销带货时代落幕",
+    "url": "https://www.infzm.com/contents/343399",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：找出新规原文、适用对象和实施时间，区分内容解读与持牌销售责任；不据媒体标题调整基金账户。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "infzm",
+    "title": "成为女帝 影游融合的造梦空间",
+    "url": "https://www.infzm.com/contents/343366",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：观察互动选择怎样影响叙事与角色代入，区分作品体验、平台经营和行业规模判断，留意评论使用的具体案例。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "infzm",
+    "title": "闯过祸的AI，成为网络安全“吹哨人” | 科创要闻",
+    "url": "https://www.infzm.com/contents/343362",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：追问AI发现风险后如何复核、误报怎样处理、是否需要人工授权；把演示能力与真实系统中的可靠防护区分。",
+    "checkedAt": "2026-10-26",
+    "featuredReason": "把AI安全新闻当成可靠性分析练习：寻找复核流程、误报率和人工权限边界，再问这些条件是否适用于自己的科研工具。",
+    "featuredPriority": 5
+  },
+  {
+    "publication": "infzm",
+    "title": "巨额资金已经冲进AI，宏观账还没算清",
+    "url": "https://www.infzm.com/contents/343350",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：把资本开支、收入、生产率与能源需求分开核算，留意时间跨度和重复计数；融资规模不能直接证明社会净收益。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "infzm",
+    "title": "电动汽车遍地开花，军队为何不大规模使用？丨军事",
+    "url": "https://www.infzm.com/contents/343251",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：从储能应用场景比较续航、补能、温度、维修与供应保障要求；民用与特殊场景的需求差异不能简化为单一电池优劣。",
+    "checkedAt": "2026-10-26",
+    "featuredReason": "适合储能方向练习按场景选技术：围绕能量密度、补能、温度与维修保障读文，避免用民用车体验直接外推特殊场景。",
+    "featuredPriority": 4
+  },
+  {
+    "publication": "infzm",
+    "title": "和《绝命毒师》一同长大的小沃尔特去世，他的死令人悲痛丨逝者",
+    "url": "https://www.infzm.com/contents/343241",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：区分已经确认的生平事实、采访回忆与评论者感受；有关死亡原因的信息应回到明确来源，避免扩写推测。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "infzm",
+    "title": "抑郁症笼罩下，一个家庭日复一日的生活",
+    "url": "https://www.infzm.com/contents/343235",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：关注家庭成员如何描述日常照护与求助困难，同时把个体叙事与医学证据分开；不能据报道为读者或他人作诊断。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "infzm",
+    "title": "卖惨的“苦命孙子”，正在疯狂掏空姨姨妈妈们的钱包",
+    "url": "https://www.infzm.com/contents/343179",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：沿话术、交易与平台处置梳理证据，关注受影响者如何核验信息与追索；不要把被报道的个案扩大为对群体的标签。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "infzm",
+    "title": "失语的皇后：“每一位权臣都借她之口诉说野心”",
+    "url": "https://www.infzm.com/contents/343324",
+    "publishedAt": "2026-10-25",
+    "summary": "按题目选读：留意历史叙述使用哪些史料，哪些是作者的权力关系解释；把可核实记载与对人物动机的推断分别标记。",
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "infzm",
@@ -2989,7 +2677,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.infzm.com/contents/343330",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：慢速行车的治理涉及哪些道路条件和规则？把个体不满、交通数据与执法依据分别核对。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26",
+    "hotRank": 5,
+    "hotSource": "https://www.infzm.com/hot_contents?format=json",
+    "hotLabel": "南方周末热门文章",
+    "hotCheckedAt": "2026-10-26"
   },
   {
     "publication": "infzm",
@@ -3093,11 +2785,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.infzm.com/contents/343217",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：示威人数和商铺受损数字来自何处？核对统计时段，避免把估计当定论。",
-    "checkedAt": "2026-10-25",
-    "hotRank": 5,
+    "checkedAt": "2026-10-26",
+    "hotRank": 6,
     "hotSource": "https://www.infzm.com/hot_contents?format=json",
     "hotLabel": "南方周末热门文章",
-    "hotCheckedAt": "2026-10-25"
+    "hotCheckedAt": "2026-10-26"
   },
   {
     "publication": "infzm",
@@ -3121,11 +2813,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.infzm.com/contents/343106",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：吃播劳动如何受平台激励影响？区分已确认事件、健康讨论与原因推测。",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "hotRank": 4,
     "hotSource": "https://www.infzm.com/hot_contents?format=json",
     "hotLabel": "南方周末热门文章",
-    "hotCheckedAt": "2026-10-25"
+    "hotCheckedAt": "2026-10-26"
   },
   {
     "publication": "infzm",
@@ -3133,11 +2825,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.infzm.com/contents/343092",
     "publishedAt": "2026-10-21",
     "summary": "按题目选读：平台劳动者的“新”权益落在哪些保障环节？先确认8400万人的统计口径。",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "hotRank": 2,
     "hotSource": "https://www.infzm.com/hot_contents?format=json",
     "hotLabel": "南方周末热门文章",
-    "hotCheckedAt": "2026-10-25"
+    "hotCheckedAt": "2026-10-26"
   },
   {
     "publication": "infzm",
@@ -3161,11 +2853,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.infzm.com/contents/343038",
     "publishedAt": "2026-10-20",
     "summary": "把夜间配送拆成道路、调度和应急三个问题，看看无人车进入日常服务需要哪些可靠性证据。",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "hotRank": 3,
     "hotSource": "https://www.infzm.com/hot_contents?format=json",
     "hotLabel": "南方周末热门文章",
-    "hotCheckedAt": "2026-10-25"
+    "hotCheckedAt": "2026-10-26"
   },
   {
     "publication": "infzm",
@@ -3173,11 +2865,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.infzm.com/contents/342998",
     "publishedAt": "2026-10-20",
     "summary": "留意经开区数量调整与人事安排之间的关系，区分行政摘牌、机构变化和产业实际表现。",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "hotRank": 10,
     "hotSource": "https://www.infzm.com/hot_contents?format=json",
     "hotLabel": "南方周末热门文章",
-    "hotCheckedAt": "2026-10-25"
+    "hotCheckedAt": "2026-10-26"
   },
   {
     "publication": "infzm",
@@ -3185,11 +2877,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.infzm.com/contents/342992",
     "publishedAt": "2026-10-20",
     "summary": "先看榜单如何评分、谁提供资料及是否收费，再判断专业声誉与营销曝光能否混为一谈。",
-    "checkedAt": "2026-10-25",
-    "hotRank": 8,
+    "checkedAt": "2026-10-26",
+    "hotRank": 9,
     "hotSource": "https://www.infzm.com/hot_contents?format=json",
     "hotLabel": "南方周末热门文章",
-    "hotCheckedAt": "2026-10-25"
+    "hotCheckedAt": "2026-10-26"
   },
   {
     "publication": "infzm",
@@ -3197,11 +2889,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.infzm.com/contents/342964",
     "publishedAt": "2026-10-20",
     "summary": "以个人经历为入口，分开理解生育选择、跨境制度与这则报道能够证实的信息范围。",
-    "checkedAt": "2026-10-25",
-    "hotRank": 7,
+    "checkedAt": "2026-10-26",
+    "hotRank": 8,
     "hotSource": "https://www.infzm.com/hot_contents?format=json",
     "hotLabel": "南方周末热门文章",
-    "hotCheckedAt": "2026-10-25"
+    "hotCheckedAt": "2026-10-26"
   },
   {
     "publication": "infzm",
@@ -3209,11 +2901,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.infzm.com/contents/342714",
     "publishedAt": "2026-10-20",
     "summary": "把这次活动当作阅读习惯实验：先核对参与规则，再想清楚记录天数与真正理解一本书有何区别。",
-    "checkedAt": "2026-10-25",
-    "hotRank": 6,
+    "checkedAt": "2026-10-26",
+    "hotRank": 7,
     "hotSource": "https://www.infzm.com/hot_contents?format=json",
     "hotLabel": "南方周末热门文章",
-    "hotCheckedAt": "2026-10-25"
+    "hotCheckedAt": "2026-10-26"
   },
   {
     "publication": "infzm",
@@ -3301,11 +2993,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.infzm.com/contents/342956",
     "publishedAt": "2026-10-19",
     "summary": "可从信任怎样被利用、求助为何困难切入，避免把受害者的处境简化成一句“不够警惕”。",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "hotRank": 1,
     "hotSource": "https://www.infzm.com/hot_contents?format=json",
     "hotLabel": "南方周末热门文章",
-    "hotCheckedAt": "2026-10-25"
+    "hotCheckedAt": "2026-10-26"
   },
   {
     "publication": "infzm",
@@ -3315,7 +3007,7 @@ window.MAGAZINE_ARTICLES = [
     "summary": "",
     "checkedAt": "2026-10-19",
     "featuredReason": "把热门技术放回企业经营与退出风险中观察，补充产业叙事的另一面。",
-    "featuredPriority": 26
+    "featuredPriority": 31
   },
   {
     "publication": "infzm",
@@ -3323,11 +3015,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.infzm.com/contents/342823",
     "publishedAt": "2026-10-18",
     "summary": "按题目选读：生活中的具体问题怎样被转成AI工具需求？留意谁参与设计、谁承担局限。",
-    "checkedAt": "2026-10-25",
-    "hotRank": 9,
-    "hotSource": "https://www.infzm.com/hot_contents?format=json",
-    "hotLabel": "南方周末热门文章",
-    "hotCheckedAt": "2026-10-25"
+    "checkedAt": "2026-10-25"
   },
   {
     "publication": "infzm",
@@ -3554,652 +3242,30 @@ window.MAGAZINE_ARTICLES = [
     "checkedAt": "2026-10-19"
   },
   {
-    "publication": "scientificamerican",
-    "title": "Meet the original 'Ghost Busters'—the 17th century scientists who investigated hauntings",
-    "url": "https://www.scientificamerican.com/article/meet-the-original-ghost-busters-the-17th-century-scientists-who-investigated-hauntings/",
-    "publishedAt": "2026-10-24",
-    "summary": "按题目选读：十七世纪研究者怎样调查所谓闹鬼？可从观察记录和替代解释学习证据方法。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "NASA lays out a packed 14-day schedule for 2027’s Artemis III moon mission",
-    "url": "https://www.scientificamerican.com/article/nasa-lays-out-a-packed-14-day-schedule-for-2027s-artemis-iii-moon-mission/",
-    "publishedAt": "2026-10-23",
-    "summary": "按题目选读：十四天登月任务有哪些关键节点和约束？规划中的安排不等于任务已经完成。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Warhound wants to engineer and clone military superdogs—can they do it?",
-    "url": "https://www.scientificamerican.com/article/warhound-wants-to-engineer-and-clone-military-super-dogs-can-they-do-it/",
-    "publishedAt": "2026-10-23",
-    "summary": "按题目选读：工程化与克隆军用犬的设想需要哪些技术及伦理验证？区分公司计划和实测能力。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Strange triangular craft reported in new U.S. government UFO release",
-    "url": "https://www.scientificamerican.com/article/strange-triangular-craft-reported-in-new-u-s-government-ufo-release/",
-    "publishedAt": "2026-10-23",
-    "summary": "按题目选读：先查UFO材料的记录方式与可用数据；形状描述不能直接证明物体来源。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "The Trump administration is considering a ‘heat ray’ weapon for the border—here’s what to know",
-    "url": "https://www.scientificamerican.com/article/the-trump-administration-is-considering-a-heat-ray-weapon-for-the-border-heres-what-to-know/",
-    "publishedAt": "2026-10-23",
-    "summary": "按题目选读：热射线装置的工作原理、适用条件和风险证据是什么？区分拟议用途与实际部署。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "How exposing yourself to your fears can tame your anxiety",
-    "url": "https://www.scientificamerican.com/article/how-exposing-yourself-to-your-fears-can-tame-your-anxiety/",
-    "publishedAt": "2026-10-23",
-    "summary": "按题目选读：暴露于恐惧刺激怎样与焦虑干预联系？留意研究对象，不能把阅读当治疗建议。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Japan’s MMX mission will reveal the origins of weird Martian moons",
-    "url": "https://www.scientificamerican.com/article/japans-mmx-mission-will-reveal-the-origins-of-weird-martian-moons/",
-    "publishedAt": "2026-10-23",
-    "summary": "按题目选读：火星卫星起源有哪些竞争假说？看看MMX计划中的测量如何区分它们。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "How the brain handles uncertainty, and why resilience matters",
-    "url": "https://www.scientificamerican.com/podcast/episode/how-the-brain-handles-uncertainty-and-why-resilience-matters/",
-    "publishedAt": "2026-10-23",
-    "summary": "按题目选读：大脑处理不确定性的证据来自哪些任务？区分机制解释和日常韧性建议。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "RFK Jr. promised to define ‘ultraprocessed’ food. What's taking so long?",
-    "url": "https://www.scientificamerican.com/article/rfk-jr-promised-to-define-ultraprocessed-food-whats-taking-so-long/",
-    "publishedAt": "2026-10-23",
-    "summary": "按题目选读：“超加工”定义涉及哪些分类标准与政策争议？留意研究概念和监管口径的区别。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Here’s what the new Merck-Moderna mRNA cancer vaccine data actually show",
-    "url": "https://www.scientificamerican.com/article/heres-what-modernas-latest-mrna-cancer-vaccine-data-actually-show/",
-    "publishedAt": "2026-10-22",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "RFK, Jr., adviser Calley Means announces his resignation from the Trump administration",
-    "url": "https://www.scientificamerican.com/article/rfk-jr-adviser-calley-means-announces-his-resignation-from-the-trump-administration/",
-    "publishedAt": "2026-10-22",
-    "summary": "按题目选读：卫生政策顾问离任的背景与职权范围是什么？把人事消息、公开表态和已经实施的政策区分开。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "This implant burns up excess blood sugar with electricity",
-    "url": "https://www.scientificamerican.com/article/this-implant-burns-up-excess-blood-sugar-with-electricity/",
-    "publishedAt": "2026-10-22",
-    "summary": "从官方导语选读：装置已在小鼠中测试。可继续追问电极界面、供能与生物相容性怎样验证，并区分动物试验与人体应用。",
-    "checkedAt": "2026-10-25",
-    "featuredReason": "适合材料与电化学方向练习从器件概念走到验证层级：官方导语明确装置已在小鼠中测试，可带着电极界面、生物相容性、能耗和作用机制的问题继续读。",
-    "featuredPriority": 1
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Data centers are a target of modern warfare. How do we secure the infrastructure that runs our digital lives?",
-    "url": "https://www.scientificamerican.com/article/data-centers-are-a-target-of-modern-warfare-how-do-we-secure-the-infrastructure-that-runs-our-digital-lives/",
-    "publishedAt": "2026-10-22",
-    "summary": "按题目选读：数据中心遭受攻击会影响哪些依赖服务？从供电、通信与冗余设计看基础设施安全，避免只关注机房本身。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "The inside story behind OpenAI’s million-dollar math proof",
-    "url": "https://www.scientificamerican.com/article/the-inside-story-behind-openais-million-dollar-math-proof/",
-    "publishedAt": "2026-10-22",
-    "summary": "按题目选读：一项奖金级数学证明怎样经过发现、验证与署名？阅读时追问机器输出、人类理解和独立核验各承担什么。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Astronomers unlock a mystery hidden in van Gogh’s The Starry Night",
-    "url": "https://www.scientificamerican.com/article/astronomers-unlock-a-mystery-hidden-in-van-goghs-the-starry-night/",
-    "publishedAt": "2026-10-22",
-    "summary": "按题目选读：如何从画作推断天文现象？可检查创作时间、天空模型和其他史料能否形成相互约束的证据。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "New superconducting chip aims to help tame fusion plasma",
-    "url": "https://www.scientificamerican.com/article/new-superconducting-chip-aims-to-help-tame-fusion-plasma/",
-    "publishedAt": "2026-10-22",
-    "summary": "从官方导语选读：研究者把聚变数据输入芯片，尝试识别等离子体失稳信号。可比较离线预测任务与真正闭环控制各需哪些证据。",
-    "checkedAt": "2026-10-25",
-    "featuredReason": "把超导器件、数据分析与聚变能源放在同一案例里读：官方导语聚焦从聚变数据辨识等离子体失稳征兆，可练习区分预测任务、验证集表现与实际闭环控制。",
-    "featuredPriority": 2
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Ancient Egypt’s first female king revealed by long-lost royal seals",
-    "url": "https://www.scientificamerican.com/article/ancient-egypts-first-female-king-revealed-by-long-lost-royal-seals/",
-    "publishedAt": "2026-10-22",
-    "summary": "按题目选读：王室印章怎样支持古代统治者身份的推断？关注出处、年代测定与其他文献是否一致。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "National Science Foundation leader Brian Stone to retire with no clear replacement in sight",
-    "url": "https://www.scientificamerican.com/article/national-science-foundation-leader-brian-stone-to-retire-with-no-clear-replacement-in-sight/",
-    "publishedAt": "2026-10-21",
-    "summary": "把科研机构负责人更替放进资助治理中阅读，关注继任安排不明会给项目连续性带来哪些不确定性。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Super Typhoon Champi sets the record for strongest storm of 2026",
-    "url": "https://www.scientificamerican.com/article/super-typhoon-champi-sets-the-record-for-strongest-storm-of-2026/",
-    "publishedAt": "2026-10-21",
-    "summary": "先弄清最强风暴采用的风速或气压指标及观测时点，再比较纪录表述与实际灾害风险。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Report pinpoints future exploration sites on the moon",
-    "url": "https://www.scientificamerican.com/article/report-pinpoints-future-exploration-sites-on-the-moon/",
-    "publishedAt": "2026-10-21",
-    "summary": "从月球候选探索地点的选择标准切入，比较科学价值、工程可达性与任务资源如何相互制约。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Physicists trap a single antimatter particle for a month",
-    "url": "https://www.scientificamerican.com/article/physicists-trap-a-single-antimatter-particle-for-a-month/",
-    "publishedAt": "2026-10-21",
-    "summary": "把反物质粒子的长时间囚禁看作精密测量条件的进展，留意储存时长本身与物理新发现之间的区别。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "A Wall Is Also a Road explores alien consciousness, slime mold life-forms and Pompeii",
-    "url": "https://www.scientificamerican.com/podcast/episode/a-wall-is-also-a-road-explores-alien-consciousness-slime-mold-life-forms-and-pompeii/",
-    "publishedAt": "2026-10-21",
-    "summary": "循着播客中的科幻与历史话题，比较外星意识和非人生命的想象怎样拓宽我们对智能的定义。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Republican congressional candidate Tom Stalcup on how both parties abuse science for political gain",
-    "url": "https://www.scientificamerican.com/article/republican-congressional-candidate-tom-stalcup-on-how-both-parties-abuse-science-for-political-gain/",
-    "publishedAt": "2026-10-21",
-    "summary": "将候选人的个人立场与可核实的政策记录分开，观察科学证据怎样在不同党派的表达中被选择性使用。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "See the Orionids meteor shower at its peak this week",
-    "url": "https://www.scientificamerican.com/article/see-the-orionids-meteor-shower-at-its-peak-this-week/",
-    "publishedAt": "2026-10-20",
-    "summary": "阅读猎户座流星雨的观测窗口与天空条件时，先核对文章日期和所在地，避免把本周提示长期当作即时预报。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Christina Applegate says she was misdiagnosed with MS—how could that happen?",
-    "url": "https://www.scientificamerican.com/article/christina-applegate-says-she-was-misdiagnosed-with-ms-how-could-that-happen/",
-    "publishedAt": "2026-10-20",
-    "summary": "以误诊报道为线索，留意诊断依据、相似疾病与复核证据的区别，不能从名人个案推断任何人的诊断。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "The mathematical impossibility of making a perfect world map",
-    "url": "https://www.scientificamerican.com/article/the-mathematical-impossibility-of-making-a-perfect-world-map/",
-    "publishedAt": "2026-10-20",
-    "summary": "带着“面积、角度与距离能否同时保真”这个问题阅读，看看地图选择怎样影响我们对世界的直觉。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Scientists left in the dark by National Science Foundation grant application delays",
-    "url": "https://www.scientificamerican.com/article/scientists-left-in-the-dark-by-national-science-foundation-grant-application-delays/",
-    "publishedAt": "2026-10-20",
-    "summary": "从科研资助申请的等待成本入手，带着“审批的不确定性怎样影响项目排期与职业选择”这个问题阅读。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Green stars do exist—and others shine pink or purple, too",
-    "url": "https://www.scientificamerican.com/article/green-stars-do-exist-and-others-shine-pink-or-purple-too/",
-    "publishedAt": "2026-10-20",
-    "summary": "把恒星发出的光与观察者看到的颜色分开，留意光谱、观测条件和视觉感受各有什么作用。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "The Selfish Gene at 50",
-    "url": "https://www.scientificamerican.com/article/the-selfish-gene-at-50/",
-    "publishedAt": "2026-10-20",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Math Puzzle: Baby bottle mix-up",
-    "url": "https://www.scientificamerican.com/article/math-puzzle-baby-bottles/",
-    "publishedAt": "2026-10-20",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "The provocative new theory that could explain aging and disease",
-    "url": "https://www.scientificamerican.com/article/the-provocative-new-theory-that-could-explain-aging-and-disease/",
-    "publishedAt": "2026-10-20",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Inside the bold, quixotic quest to store planet-warming carbon in the ocean",
-    "url": "https://www.scientificamerican.com/article/inside-the-bold-quixotic-quest-to-store-planet-warming-carbon-in-the-ocean/",
-    "publishedAt": "2026-10-20",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "We’re addicted to social media. How do we get sober?",
-    "url": "https://www.scientificamerican.com/article/were-addicted-to-social-media-how-do-we-get-sober/",
-    "publishedAt": "2026-10-20",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Our love-hate relationship with social media",
-    "url": "https://www.scientificamerican.com/article/our-love-hate-relationship-with-social-media/",
-    "publishedAt": "2026-10-20",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "How a fusion start-up could help maintain the U.S. nuclear arsenal",
-    "url": "https://www.scientificamerican.com/article/how-a-fusion-start-up-could-help-maintain-the-u-s-nuclear-arsenal/",
-    "publishedAt": "2026-10-20",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Why data centers are reviving solid-state transformers",
-    "url": "https://www.scientificamerican.com/article/why-data-centers-are-reviving-solid-state-transformers/",
-    "publishedAt": "2026-10-20",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "How your brain learns to cope with uncertainty",
-    "url": "https://www.scientificamerican.com/article/how-your-brain-learns-to-cope-with-uncertainty/",
-    "publishedAt": "2026-10-20",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "November 2026: Science history from 50, 100 and 150 years ago",
-    "url": "https://www.scientificamerican.com/article/november-2026-science-history-from-50-100-and-150-years-ago/",
-    "publishedAt": "2026-10-20",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Poem: ‘Life in Bilateral Wonder’",
-    "url": "https://www.scientificamerican.com/article/poem-life-in-bilateral-wonder/",
-    "publishedAt": "2026-10-20",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "A graphic explainer of uranium enrichment",
-    "url": "https://www.scientificamerican.com/article/a-graphic-explainer-of-uranium-enrichment/",
-    "publishedAt": "2026-10-20",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "These extreme cosmic explosions are breaking physics",
-    "url": "https://www.scientificamerican.com/article/these-extreme-cosmic-explosions-are-breaking-physics/",
-    "publishedAt": "2026-10-20",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Science crossword: Scroll bars",
-    "url": "https://www.scientificamerican.com/article/science-crossword-scroll-bars/",
-    "publishedAt": "2026-10-20",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "What actually makes ultraprocessed foods unhealthy?",
-    "url": "https://www.scientificamerican.com/article/what-actually-makes-ultraprocessed-foods-unhealthy/",
-    "publishedAt": "2026-10-20",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Readers respond to the June 2026 issue",
-    "url": "https://www.scientificamerican.com/article/readers-respond-to-the-june-2026-issue/",
-    "publishedAt": "2026-10-20",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Why we probably live in a quantum multiverse",
-    "url": "https://www.scientificamerican.com/article/why-we-probably-live-in-a-quantum-multiverse/",
-    "publishedAt": "2026-10-20",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Can AI predict whether you’ll die from cancer from just an image of your face?",
-    "url": "https://www.scientificamerican.com/article/can-ai-predict-whether-youll-die-from-cancer-from-just-an-image-of-your-face/",
-    "publishedAt": "2026-10-19",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Japan launches a probe to collect rocks from Mars’s moon Phobos",
-    "url": "https://www.scientificamerican.com/article/japans-mission-to-collect-rocks-from-mars-moon-phobos-achieves-liftoff/",
-    "publishedAt": "2026-10-19",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Alarm grows over Russian satellite’s provocative approach to U.S.-owned satellite",
-    "url": "https://www.scientificamerican.com/article/alarm-grows-over-russian-satellites-provocative-approach-to-u-s-owned-satellite/",
-    "publishedAt": "2026-10-19",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "How what we see and hear feed together to help us understand emotions",
-    "url": "https://www.scientificamerican.com/article/how-what-we-see-and-hear-feed-together-to-help-us-understand-emotions/",
-    "publishedAt": "2026-10-19",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "The first mission to sample Mars’s moons launches today",
-    "url": "https://www.scientificamerican.com/article/the-first-mission-to-sample-marss-moons-launches-today/",
-    "publishedAt": "2026-10-19",
-    "summary": "",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Biohackers say this supplement lets you drink coffee at night. No one knows if it’s safe",
-    "url": "https://www.scientificamerican.com/article/biohackers-say-this-supplement-lets-you-drink-coffee-at-night-no-one-knows-if-its-safe/",
-    "publishedAt": "2026-10-19",
-    "summary": "",
-    "checkedAt": "2026-10-23"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "The mechanics of honeybee stingers, microplastic health risks and new findings on postmenopausal ovaries",
-    "url": "https://www.scientificamerican.com/podcast/episode/the-mechanics-of-honeybee-stingers-microplastic-health-risks-and-new-findings-on-postmenopausal-ovaries/",
-    "publishedAt": "2026-10-19",
-    "summary": "",
-    "checkedAt": "2026-10-23"
-  },
-  {
-    "title": "Plants move to get away from their decaying brethren",
-    "url": "https://www.scientificamerican.com/article/plants-move-to-get-away-from-their-decaying-brethren/",
-    "publishedAt": "2026-10-17",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-23"
-  },
-  {
-    "title": "Here’s what scientists think about Theranos a decade after it imploded",
-    "url": "https://www.scientificamerican.com/article/heres-what-scientists-think-about-theranos-a-decade-after-it-imploded/",
-    "publishedAt": "2026-10-16",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-23"
-  },
-  {
-    "title": "Everything you need to know about flu season 2026",
-    "url": "https://www.scientificamerican.com/article/everything-you-need-to-know-about-flu-season-2026/",
-    "publishedAt": "2026-10-16",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-23"
-  },
-  {
-    "title": "5 ways to make Halloween decorations friendlier to wildlife",
-    "url": "https://www.scientificamerican.com/article/5-ways-to-make-halloween-decorations-friendlier-to-wildlife/",
-    "publishedAt": "2026-10-16",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-23"
-  },
-  {
-    "title": "How many planets could fit in the solar system?",
-    "url": "https://www.scientificamerican.com/article/how-many-planets-could-fit-in-the-solar-system/",
-    "publishedAt": "2026-10-16",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-23"
-  },
-  {
-    "title": "Are you addicted to your phone? What scientists say about screen time and social media",
-    "url": "https://www.scientificamerican.com/podcast/episode/are-you-addicted-to-your-phone-what-scientists-say-about-screen-time-and-social-media/",
-    "publishedAt": "2026-10-16",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-23"
-  },
-  {
-    "title": "Google’s quantum Willow chip may be able to grow ‘magic states’",
-    "url": "https://www.scientificamerican.com/article/googles-quantum-willow-chip-may-be-able-to-grow-magic-states/",
-    "publishedAt": "2026-10-15",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-23"
-  },
-  {
-    "title": "Scientists discover an ancient shipwreck dating to when the Great Pyramid was built",
-    "url": "https://www.scientificamerican.com/article/scientists-discover-an-ancient-shipwreck-dating-to-when-the-great-pyramid-was-built/",
-    "publishedAt": "2026-10-15",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "title": "Can AI break encryption? OpenAI’s new math has cryptographers divided",
-    "url": "https://www.scientificamerican.com/article/can-ai-break-encryption-openai-new-math-has-cryptographers-divided/",
-    "publishedAt": "2026-10-15",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-22",
-    "featuredReason": "把AI能力讨论放进密码学场景，留意不同判断使用了什么证据。",
-    "featuredPriority": 44
-  },
-  {
-    "title": "Scientists vote to end leap seconds, redefining how the world keeps time",
-    "url": "https://www.scientificamerican.com/article/scientists-vote-to-end-leap-seconds-redefining-how-the-world-keeps-time/",
-    "publishedAt": "2026-10-15",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "title": "What would it take to terraform Mars? Erika DeBenedictis has ideas",
-    "url": "https://www.scientificamerican.com/article/what-would-it-take-to-terraform-mars-erika-debenedictis-has-ideas/",
-    "publishedAt": "2026-10-15",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "title": "Anthropic’s AI worm research raises new fears about smart device security",
-    "url": "https://www.scientificamerican.com/article/anthropics-ai-worm-research-raises-new-fears-about-smart-device-security/",
-    "publishedAt": "2026-10-15",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "title": "Honeybees deemphasize potential ‘misinformation’ in their waggle dances",
-    "url": "https://www.scientificamerican.com/article/honeybees-deemphasize-potential-misinformation-in-their-waggle-dances/",
-    "publishedAt": "2026-10-15",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "title": "New ‘First Proof’ exam reveals how AI-powered math is a pay-to-play sport",
-    "url": "https://www.scientificamerican.com/article/new-first-proof-exam-reveals-how-ai-powered-math-is-a-pay-for-play-sport/",
-    "publishedAt": "2026-10-14",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-22",
-    "featuredReason": "从评测条件与使用门槛切入，留意模型能力比较是否建立在相同条件上。",
-    "featuredPriority": 24
-  },
-  {
-    "title": "NIH appears to shut down public comments on science peer-review rule change ahead of schedule",
-    "url": "https://www.scientificamerican.com/article/nih-appears-to-shut-down-public-comments-on-science-peer-review-rule-change-ahead-of-schedule/",
-    "publishedAt": "2026-10-14",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "title": "Microplastics are linked to inflammation—scientists might have finally worked out why",
-    "url": "https://www.scientificamerican.com/article/microplastics-are-linked-to-inflammation-scientists-might-have-finally-worked-out-why/",
-    "publishedAt": "2026-10-14",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-21"
-  },
-  {
-    "title": "Stunning video reveals the year-round dance of the sun’s corona",
-    "url": "https://www.scientificamerican.com/article/stunning-video-reveals-the-year-round-dance-of-the-suns-corona/",
-    "publishedAt": "2026-10-14",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-21"
-  },
-  {
-    "title": "How a year of extreme weather and a ‘Super El Niño’ will affect fall foliage",
-    "url": "https://www.scientificamerican.com/article/how-a-year-of-extreme-weather-and-a-super-el-nino-will-affect-fall-foliage/",
-    "publishedAt": "2026-10-14",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-21"
-  },
-  {
-    "title": "An ancient Chinese math puzzle shows how to win at cards, horse races and gerrymandering",
-    "url": "https://www.scientificamerican.com/article/an-ancient-chinese-math-puzzle-shows-how-to-win-at-cards-horse-races-and-gerrymandering/",
-    "publishedAt": "2026-10-14",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-21"
-  },
-  {
-    "title": "Climate scientists issue a sobering diagnosis about Earth's 'vital signs'",
-    "url": "https://www.scientificamerican.com/article/climate-scientists-issue-a-sobering-diagnosis-about-earths-vital-signs/",
-    "publishedAt": "2026-10-14",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-21"
-  },
-  {
-    "title": "Amateur astronomer harnesses AI to find a possible hidden exoplanet",
-    "url": "https://www.scientificamerican.com/article/amateur-astronomer-harnesses-ai-to-find-a-possible-hidden-exoplanet/",
-    "publishedAt": "2026-10-14",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-21"
-  },
-  {
-    "title": "Are Blue Zones real? One researcher finds the data deeply flawed",
-    "url": "https://www.scientificamerican.com/podcast/episode/are-blue-zones-real-one-researcher-finds-the-data-deeply-flawed/",
-    "publishedAt": "2026-10-14",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-21"
-  },
-  {
-    "title": "Claude just found a CRISPR-like DNA pattern, but even Anthropic's scientists aren't sure what it does",
-    "url": "https://www.scientificamerican.com/article/claude-just-found-a-crispr-like-dna-pattern-but-even-anthropics-scientists-arent-sure-what-it-does/",
-    "publishedAt": "2026-10-14",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-20"
-  },
-  {
-    "title": "Hurricane Isaias shows ‘it only takes one’ to wreak havoc after historically calm Atlantic hurricane season",
-    "url": "https://www.scientificamerican.com/article/hurricane-isaias-shows-it-only-takes-one-to-wreak-havoc-after-historically-calm-atlantic-hurricane-season/",
-    "publishedAt": "2026-10-13",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-20"
-  },
-  {
-    "title": "Latest Trump administration proposal to change NIH research grant system draws scientists’ ire",
-    "url": "https://www.scientificamerican.com/article/latest-trump-administration-proposal-to-change-nih-research-grant-system-draws-scientists-ire/",
-    "publishedAt": "2026-10-13",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-20"
-  },
-  {
-    "title": "The mathematical secret behind why rose petals curl",
-    "url": "https://www.scientificamerican.com/article/the-mathematical-secret-behind-why-rose-petals-curl/",
-    "publishedAt": "2026-10-13",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-20"
-  },
-  {
-    "title": "OpenAI’s blockbuster Navier-Stokes proof isn’t what we thought it was",
-    "url": "https://www.scientificamerican.com/article/openais-blockbuster-navier-stokes-proof-isnt-what-we-thought-it-was/",
-    "publishedAt": "2026-10-13",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-19"
-  },
-  {
-    "title": "What happens to the body during menopause? New research hints at a biological ‘cliff’",
-    "url": "https://www.scientificamerican.com/article/what-happens-to-the-body-during-menopause-new-research-hints-at-a-biological-cliff/",
-    "publishedAt": "2026-10-13",
-    "summary": "",
-    "publication": "scientificamerican",
-    "checkedAt": "2026-10-19"
+    "publication": "nature",
+    "title": "Are salaries getting worse? Many scientists think so",
+    "url": "https://www.nature.com/articles/d41586-026-03398-0",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：关注科学家薪酬感受对应的地区、职业阶段和调查样本，区分名义收入、生活成本与职业预期；不能由标题推算自己的待遇。",
+    "checkedAt": "2026-10-26",
+    "featuredReason": "适合研究生把职业感受转成可比较的问题：关注地区、职位阶段、样本与生活成本，区分收入变化和对职业前景的感受。",
+    "featuredPriority": 6
+  },
+  {
+    "publication": "nature",
+    "title": "The Selfish Gene, 50 years on — it’s time for an update",
+    "url": "https://www.nature.com/articles/d41586-026-03393-5",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：对照原有概念与作者认为需要更新的部分，区分理论解释、后续证据和评论立场；适合练习追踪经典论述的适用边界。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "nature",
+    "title": "ctDNA clearance and outcomes for resectable lung cancer from NeoCOAST-2",
+    "url": "https://www.nature.com/articles/s41586-026-11328-3",
+    "publishedAt": "2026-10-25",
+    "summary": "按题目选读：先确认研究设计、ctDNA清除的定义和临床终点，再看相关性与预测价值的验证；不由题目推出治疗有效性或个体预后。",
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4207,7 +3273,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11303-y",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：这是作者更正，应先对照原论文与改动范围；更正标题不代表出现新的实验结论。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4215,7 +3281,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03395-3",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：短书评怎样串联雪豹与粒子等主题？可以从选书问题进入，再查书籍本身。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4223,7 +3289,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03318-2",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：通电与睡眠变化如何被观察？注意同期生活方式变化和因果识别的限制。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4231,7 +3297,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03418-z",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：反物质粒子的囚禁用了哪些装置与观测指标？播客概述需要回到实验报告核对。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4239,15 +3305,15 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03416-1",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：首例感染报道有哪些已知资料？留意病例、传播证据和仍未知之处，避免风险外推。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
-    "title": "Elizabeth Holmes film enthralls — but her legacy haunts science",
+    "title": "Elizabeth Holmes film enthrals — but her legacy haunts science",
     "url": "https://www.nature.com/articles/d41586-026-03383-7",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：电影如何再现科学欺诈事件？把戏剧表达与可核对的研究诚信问题分开。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4255,7 +3321,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03108-w",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：先确认这是虚构作品还是科学报道，再留意身体与身份主题的叙事方式。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4263,7 +3329,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03417-0",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：“风险几乎减半”指相对风险还是绝对风险？先看人群、随访与试验阶段。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4271,7 +3337,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-02582-6",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：实验室超时工作与残障披露涉及哪些支持途径？区分个人建议和机构正式政策。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4279,7 +3345,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03414-3",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：珊瑚对声音的响应怎样转化为修复措施？先核对试验范围、持续时间和生态条件，避免把局部现象外推。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4287,7 +3353,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03371-x",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：体内先导编辑的靶点、递送方式和安全性怎样分别验证？先区分早期试验与已经成熟的临床治疗。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4295,7 +3361,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03357-9",
     "publishedAt": "2026-10-22",
     "summary": "把童年脑发育与青春期情绪问题的联系当作预测研究来读，重点看样本、随访和外部验证，而不推断个人诊断。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4303,7 +3369,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03389-1",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：当AI能大量产出解答，研究训练还应重视什么？可把正确性、可解释性和形成个人理解分别列成阅读问题。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4311,7 +3377,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03438-9",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：哪些形态特征被用来识别丹尼索瓦人？对照标本、比较样本和判别不确定性。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4319,7 +3385,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11312-x",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：电流、分子转动与电导如何耦合，证据能否排除热效应或接触变化？适合先画机制图，再核对原文对照。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4327,9 +3393,9 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11317-6",
     "publishedAt": "2026-10-21",
     "summary": "从蛋白骨架设计、定向进化到光谱证据追踪选择性如何建立，学习把催化表现与局部反应环境联系起来。",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "featuredReason": "适合训练催化研究的机制证据链：公开摘要将生成式蛋白骨架设计、定向进化和光谱研究联系起来，可据此列出选择性来源与催化性能分别需要哪些验证。",
-    "featuredPriority": 6
+    "featuredPriority": 11
   },
   {
     "publication": "nature",
@@ -4337,7 +3403,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03376-6",
     "publishedAt": "2026-10-21",
     "summary": "把大型波浪水槽当作尺度放大的实验案例，关注盐沼减浪效果在受控条件与真实海岸之间如何转译。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4345,7 +3411,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11252-6",
     "publishedAt": "2026-10-21",
     "summary": "这是一则作者更正，宜先回看原论文与更正范围，不能把它当作废塑料转化的新实验结论。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4353,7 +3419,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03320-8",
     "publishedAt": "2026-10-21",
     "summary": "按题目选读：AI医疗服务的费用由哪些环节组成？区分账单、支付安排与临床效果。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4361,7 +3427,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03319-1",
     "publishedAt": "2026-10-21",
     "summary": "从白矮星颜色与光谱的关系切入，区分观测信号、成分解释和图像配色给人的直观印象。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4369,7 +3435,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03161-5",
     "publishedAt": "2026-10-21",
     "summary": "围绕城市健康问题，观察研究者的测量与居民的生活经验如何互相校正，并转化成可执行的公共行动。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4377,7 +3443,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03077-0",
     "publishedAt": "2026-10-21",
     "summary": "关注人工智能天气预报的提前量和验证区间，比较平均精度提升能否同样覆盖极端事件。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4385,7 +3451,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03065-4",
     "publishedAt": "2026-10-21",
     "summary": "从个性化健康AI的输入、评价与误差边界切入，区分研究演示、可靠性证据和临床使用要求。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4393,7 +3459,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03355-x",
     "publishedAt": "2026-10-21",
     "summary": "区分排放增速放缓、排放绝对量下降与温升路径，检查不同情景和时间尺度怎样影响结论。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4401,7 +3467,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03334-2",
     "publishedAt": "2026-10-21",
     "summary": "从身体感觉如何被脑活动映射切入，留意任务设计与信号解释之间的距离，避免把关联图直接当机制图。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4409,7 +3475,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03282-x",
     "publishedAt": "2026-10-21",
     "summary": "关注把酶嵌入塑料后材料性能与海洋降解的权衡，并区分样品失重、链断裂和最终矿化这些不同证据。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4417,7 +3483,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03110-2",
     "publishedAt": "2026-10-21",
     "summary": "把这篇作品作为想象力阅读，留意人物角色与叙事规则如何展开，先辨认文体再判断其中的科学设定。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4425,7 +3491,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03360-0",
     "publishedAt": "2026-10-21",
     "summary": "从丹尼索瓦人外貌重建的证据链切入，分清实际遗存、比较推断和面貌复原中的不确定部分。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4433,7 +3499,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03063-6",
     "publishedAt": "2026-10-21",
     "summary": "围绕植物能否保护海岸，比较平常波浪与极端风暴条件，注意生态工程效果的适用范围。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4441,7 +3507,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03066-3",
     "publishedAt": "2026-10-21",
     "summary": "把低温、肌肉来源分子与线虫寿命的关系拆开验证，不把模式生物结果直接迁移成人体抗衰老建议。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4449,7 +3515,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03400-9",
     "publishedAt": "2026-10-21",
     "summary": "按题目选读：科技富豪如何影响科研资助方向？关注资金规模、治理与研究者自主性。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4457,7 +3523,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03285-8",
     "publishedAt": "2026-10-21",
     "summary": "从石笋记录如何转换成降雨历史切入，关注年代模型、代用指标与跨地区对照怎样共同约束解释。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4465,7 +3531,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03257-y",
     "publishedAt": "2026-10-21",
     "summary": "先了解逐层制造为何容易破坏单晶生长，再看热输入控制如何连接尺寸、组织与材料性能。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4473,7 +3539,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03342-2",
     "publishedAt": "2026-10-21",
     "summary": "从粒子囚禁和冷却如何改善测量条件切入，区分实验平台能力提升与尚未完成的基础物理检验。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4481,7 +3547,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03375-7",
     "publishedAt": "2026-10-21",
     "summary": "沿着基因定位工作理解Robert Williamson的研究贡献，留意实验技术、团队协作和临床问题怎样相互推动。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4489,7 +3555,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03064-5",
     "publishedAt": "2026-10-21",
     "summary": "把可穿戴织物界面当作器件可靠性案例，重点比较触控交互、穿着条件与机洗后性能的评价方式。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4497,7 +3563,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03311-9",
     "publishedAt": "2026-10-21",
     "summary": "从研究议题选择、资源分配与问责机制观察科技富豪进入生物医学，比较资助速度与公共科研目标。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4505,7 +3571,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03326-2",
     "publishedAt": "2026-10-21",
     "summary": "把科学慈善的影响拆成选题、长期投入与可评估结果，思考新资助方式如何补充既有研究体系。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4513,7 +3579,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11096-0",
     "publishedAt": "2026-10-21",
     "summary": "关注异种移植研究怎样整合多种诊断信号及其验证方式，明确有限临床证据不能替代普遍有效性结论。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4521,7 +3587,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11145-8",
     "publishedAt": "2026-10-21",
     "summary": "把盐沼平台与植被的作用分开分析，关注极端风暴下的损伤是否改变原本的减浪效果。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4529,7 +3595,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11183-2",
     "publishedAt": "2026-10-21",
     "summary": "从孔道限域如何影响烯烃羰基化切入，比较结构选择、反应条件与产物分布之间的证据链。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4537,7 +3603,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11152-9",
     "publishedAt": "2026-10-21",
     "summary": "沿着低温、BH2代谢网络与蛋白稳态的联系阅读，重点区分机制干预证据与寿命表型的解释边界。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4545,7 +3611,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11188-x",
     "publishedAt": "2026-10-21",
     "summary": "以细胞进入S期为时间轴，梳理WEE1和APC/CCDH1的相互作用，比较表达关联与功能干预证据。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4553,7 +3619,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11207-x",
     "publishedAt": "2026-10-21",
     "summary": "从单一古菌如何衔接长链脂肪酸氧化与产甲烷切入，关注代谢耦合所需的物质流与能量条件。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4561,7 +3627,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11179-y",
     "publishedAt": "2026-10-21",
     "summary": "比较环境条件改变前后的根部细胞谱系分化，思考细胞命运中内在程序与外部信号怎样区分。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4569,7 +3635,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11186-z",
     "publishedAt": "2026-10-21",
     "summary": "把CD51作为区分星形胶质细胞亚型的线索，关注分类标记能否与神经环路中的功能差异相互印证。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4577,7 +3643,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11165-4",
     "publishedAt": "2026-10-21",
     "summary": "从持续应激信号与Angelman综合征表型的关系阅读，区分模型中的机制发现与尚需验证的临床意义。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4585,7 +3651,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11184-1",
     "publishedAt": "2026-10-21",
     "summary": "沿着病毒与原钙黏蛋白1的识别界面梳理结构证据，关注结合方式的解释如何经过功能实验验证。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4593,7 +3659,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-10733-y",
     "publishedAt": "2026-10-21",
     "summary": "围绕细胞器之间的质量控制，先厘清GRP75与SIMPA在文中的定义，再追踪其相互作用和因果证据。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4601,7 +3667,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11205-z",
     "publishedAt": "2026-10-21",
     "summary": "比较自然语言提出的蛋白功能目标与实验验证结果，注意可编程设计所覆盖的任务范围及失败情况。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4609,9 +3675,9 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11172-5",
     "publishedAt": "2026-10-21",
     "summary": "区分反铁磁隧穿结的电学读出与电流写入，观察八极矩驱动自旋转矩的机制解释怎样连接器件数据。",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "featuredReason": "适合材料与器件方向训练电学读写机制的区分：公开摘要同时讨论隧穿磁阻与八极矩驱动转矩，可据此检查器件数据、理论解释和应用展望的证据层级。",
-    "featuredPriority": 9
+    "featuredPriority": 14
   },
   {
     "publication": "nature",
@@ -4619,7 +3685,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11168-1",
     "publishedAt": "2026-10-21",
     "summary": "将人类活动与干旱的贡献分开，关注亚马孙碳排放归因怎样处理相互放大与自然波动。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4627,7 +3693,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11132-z",
     "publishedAt": "2026-10-21",
     "summary": "从许家窑遗存的蛋白质组证据追踪丹尼索瓦形态推断，比较分子归属与形态比较能够回答的不同问题。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4635,7 +3701,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11175-2",
     "publishedAt": "2026-10-21",
     "summary": "以人脑岛叶功能分区为线索，关注研究如何连接空间结构、实验任务与身体感觉，而不把脑区标签当固定答案。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4643,7 +3709,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11128-9",
     "publishedAt": "2026-10-21",
     "summary": "把触觉数字像素纤维看作材料到界面的跨层设计，梳理感知单元、信号输出和服装交互怎样衔接。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4651,7 +3717,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11194-z",
     "publishedAt": "2026-10-21",
     "summary": "从干旱和疾病叠加的生态情境出发，比较顶级捕食者互动的变化是否能由单一压力解释。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4659,9 +3725,9 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11185-0",
     "publishedAt": "2026-10-21",
     "summary": "沿着交替脉冲热输入、单晶生长和蠕变表现追踪工艺—组织—性能链条，注意尺寸与材料体系的适用边界。",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "featuredReason": "适合作为材料研究组会的工艺—组织—性能案例：公开摘要报告用交替脉冲热输入控制单晶生长，并将组织层次与蠕变表现关联，可训练结构表征和性能归因的阅读方法。",
-    "featuredPriority": 8
+    "featuredPriority": 13
   },
   {
     "publication": "nature",
@@ -4669,9 +3735,9 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11192-1",
     "publishedAt": "2026-10-21",
     "summary": "比较嵌酶聚酯的力学保持与海洋降解证据，特别区分实验室、近海和深海条件，避免把失重等同完全矿化。",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "featuredReason": "聚酯材料与环境降解直接相关，适合练习把材料服役性能、酶活性保持和环境测试条件放在同一评价框架，并区分聚合物断链、样品失重与矿化证据。",
-    "featuredPriority": 7
+    "featuredPriority": 12
   },
   {
     "publication": "nature",
@@ -4679,7 +3745,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11161-8",
     "publishedAt": "2026-10-21",
     "summary": "将个人健康代理拆成数据输入、推理和结果评价，关注研究中的错误分析、隐私与临床验证边界。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4687,7 +3753,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-02975-7",
     "publishedAt": "2026-10-20",
     "summary": "从标题中对同一现象的两种命名入手，追踪每种解释依赖什么观察与证据。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4695,7 +3761,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03353-z",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4703,7 +3769,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03351-1",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4711,7 +3777,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03354-y",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4719,7 +3785,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03352-0",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4727,7 +3793,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03062-7",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4735,7 +3801,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03327-1",
     "publishedAt": "2026-10-20",
     "summary": "把科研满意度与工作地点放在一起看，重点留意调查样本、比较口径，以及地域差异能为个人选择提供多少参考。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4743,7 +3809,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03310-w",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4751,7 +3817,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03374-8",
     "publishedAt": "2026-10-20",
     "summary": "按题目选读：“似乎改善认知”来自什么样的研究和测量？留意剂量、样本与对照，不能将新闻提示当成自行用药依据。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4759,7 +3825,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03358-8",
     "publishedAt": "2026-10-20",
     "summary": "把惊悚设定拆成空间、压力与生理条件等可检验问题，观察科学报道怎样划清影视想象的边界。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4767,9 +3833,9 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03200-1",
     "publishedAt": "2026-10-20",
     "summary": "尝试把同行评审拆成研究问题、方法、证据与表达四类检查，思考哪些判断需要训练而非只凭资历。",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "featuredReason": "把同行评审当作研究训练：在组会中练习核对对照条件、样本与统计依据，再写出可执行的修改意见。",
-    "featuredPriority": 11
+    "featuredPriority": 16
   },
   {
     "publication": "nature",
@@ -4777,7 +3843,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03316-4",
     "publishedAt": "2026-10-20",
     "summary": "关注新增化石记录怎样改变样本覆盖与分类方式，比较“证据变多”和“旧解释被推翻”之间的距离。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4785,7 +3851,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03151-7",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -4827,31 +3893,7 @@ window.MAGAZINE_ARTICLES = [
     "summary": "",
     "checkedAt": "2026-10-23",
     "featuredReason": "围绕 AI 时代的批判性思维选读，对照自己的文献检索、出处核验和独立判断习惯。",
-    "featuredPriority": 15
-  },
-  {
-    "publication": "nature",
-    "title": "US government probe into postdoc visas worries scientists",
-    "url": "https://www.nature.com/articles/d41586-026-03345-z",
-    "publishedAt": "2026-10-19",
-    "summary": "",
-    "checkedAt": "2026-10-23"
-  },
-  {
-    "publication": "nature",
-    "title": "Microdosing LSD shows some cognitive benefits — but only for women",
-    "url": "https://www.nature.com/articles/d41586-026-03265-y",
-    "publishedAt": "2026-10-19",
-    "summary": "",
-    "checkedAt": "2026-10-23"
-  },
-  {
-    "publication": "nature",
-    "title": "How pregnancy reshapes the brain throughout life",
-    "url": "https://www.nature.com/articles/d41586-026-03312-8",
-    "publishedAt": "2026-10-19",
-    "summary": "",
-    "checkedAt": "2026-10-23"
+    "featuredPriority": 20
   },
   {
     "publication": "nature",
@@ -4861,7 +3903,7 @@ window.MAGAZINE_ARTICLES = [
     "summary": "",
     "checkedAt": "2026-10-23",
     "featuredReason": "从科研中怎样谈论失败入手，思考实验记录如何容纳负结果，而不是只保留成功故事。",
-    "featuredPriority": 16
+    "featuredPriority": 21
   },
   {
     "title": "PhD students who write dissertations with AI less likely to stay in academia",
@@ -4871,7 +3913,7 @@ window.MAGAZINE_ARTICLES = [
     "publication": "nature",
     "checkedAt": "2026-10-21",
     "featuredReason": "把论文写作中的工具使用与学术训练放在一起思考，留意证据与因果的区别。",
-    "featuredPriority": 21
+    "featuredPriority": 26
   },
   {
     "title": "History’s long-secret codes are being cracked by amateurs using AI",
@@ -4881,7 +3923,7 @@ window.MAGAZINE_ARTICLES = [
     "publication": "nature",
     "checkedAt": "2026-10-21",
     "featuredReason": "从跨领域解题的故事观察工具如何改变问题的可解性。",
-    "featuredPriority": 45
+    "featuredPriority": 50
   },
   {
     "publication": "sciencenews",
@@ -4889,7 +3931,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/ed-note-november-2026",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：这篇编者文字如何定义“人的声音”？留意它与本期报道的编辑联系。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "sciencenews",
@@ -4897,7 +3939,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/human-chimp-brains-different-virus-dna",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：病毒相关DNA与脑演化的联系怎样研究？区分遗传关联、功能实验和宏观叙事。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "sciencenews",
@@ -4905,7 +3947,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/sugar-antibiotics-squash-gut-bacteria",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：糖摄入与抗生素对肠道菌的影响在哪种体系观察？不要直接外推到个人用药。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "sciencenews",
@@ -4913,7 +3955,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/asthma-symptoms-electric-stove-gas",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：更换炉具与哮喘症状的研究怎样排除其他因素？区分室内暴露和临床结局。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "sciencenews",
@@ -4921,7 +3963,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/nanoparticle-tiny-impact-gas-atom",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：单个气体原子的碰撞怎样被纳米粒子测量？重点看信号、噪声和校准边界。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "sciencenews",
@@ -4929,7 +3971,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/van-gogh-starry-night-real-sky-stars",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：《星月夜》的天空能否对应真实观测？比较天文重建与艺术加工的解释。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "sciencenews",
@@ -4937,7 +3979,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/car-t-cell-therapy-autoimmune-diseases",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：细胞疗法用于自身免疫病处在哪个验证阶段？疗效、安全性和随访需分别阅读。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "sciencenews",
@@ -4945,9 +3987,9 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/ai-scientific-papers-research-assistant",
     "publishedAt": "2026-10-21",
     "summary": "从论文代码和数据怎样被封装成可测试工具切入，学习复现验证的组织方式，而不把论文代理当作作者本人。",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "featuredReason": "直接服务研究生的方法训练：报道介绍将论文附带代码、方法和数据整理为经过参考输出测试的工具，可据此为自己的文献复现建立依赖、测试与结果核对清单。",
-    "featuredPriority": 10
+    "featuredPriority": 15
   },
   {
     "publication": "sciencenews",
@@ -4955,7 +3997,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/opioid-overdose-deaths-naloxone",
     "publishedAt": "2026-10-21",
     "summary": "把过量用药死亡趋势的解释与具体药物的救命作用分开，关注人群层面的归因依据，避免据此自行改变用药。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "sciencenews",
@@ -4963,7 +4005,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/nikon-small-world-contest-2026-photos",
     "publishedAt": "2026-10-21",
     "summary": "欣赏显微摄影时同时辨认尺度、样本处理与成像方式，比较视觉冲击和科学信息分别来自哪里。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "sciencenews",
@@ -4971,7 +4013,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/minerals-earth-geology-gabriela-farfan",
     "publishedAt": "2026-10-21",
     "summary": "跟随矿物学研究者的问题意识，观察一块矿物如何成为地球历史的线索，以及成分测量怎样约束过去环境。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "sciencenews",
@@ -4979,7 +4021,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/rule-breaking-can-be-contagious",
     "publishedAt": "2026-10-20",
     "summary": "留意研究怎样界定违规及其传播，比较实验情境、真实群体和个人责任之间的边界。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "sciencenews",
@@ -4987,7 +4029,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/quantum-computer-megaquops-error-correction",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "sciencenews",
@@ -4995,7 +4037,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/ai-voice-restore-identity-the-deep-end",
     "publishedAt": "2026-10-20",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "sciencenews",
@@ -5003,11 +4045,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/tiny-snakes-cartwheel-escape-video",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "hotRank": 1,
     "hotSource": "https://www.sciencenews.org/",
     "hotLabel": "Trending Stories",
-    "hotCheckedAt": "2026-10-25"
+    "hotCheckedAt": "2026-10-26"
   },
   {
     "publication": "sciencenews",
@@ -5015,7 +4057,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/japan-mission-mars-moon",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Horned dinosaurs’ weapons evolved to handle the forces of combat",
@@ -5023,7 +4065,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-16",
     "summary": "",
     "publication": "sciencenews",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Artemis II results show how much science people can do at the moon",
@@ -5031,9 +4073,9 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-16",
     "summary": "",
     "publication": "sciencenews",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "featuredReason": "给日常阅读补一个航天科学视角，关注探索任务究竟能做哪些研究。",
-    "featuredPriority": 47
+    "featuredPriority": 52
   },
   {
     "title": "Crossword: Time lines",
@@ -5041,7 +4083,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-16",
     "summary": "",
     "publication": "sciencenews",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Many American diets may not include enough of this essential nutrient",
@@ -5049,7 +4091,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-15",
     "summary": "",
     "publication": "sciencenews",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "A telling hole in a Neandertal bone hints at a bitter end",
@@ -5073,11 +4115,11 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-14",
     "summary": "",
     "publication": "sciencenews",
-    "checkedAt": "2026-10-25",
-    "hotRank": 5,
+    "checkedAt": "2026-10-26",
+    "hotRank": 3,
     "hotSource": "https://www.sciencenews.org/",
     "hotLabel": "Trending Stories",
-    "hotCheckedAt": "2026-10-25"
+    "hotCheckedAt": "2026-10-26"
   },
   {
     "title": "Can math stay human in the age of AI?",
@@ -5087,7 +4129,7 @@ window.MAGAZINE_ARTICLES = [
     "publication": "sciencenews",
     "checkedAt": "2026-10-22",
     "featuredReason": "把数学研究与AI工具的边界作为阅读问题，关注过程而不只看结论。",
-    "featuredPriority": 35
+    "featuredPriority": 40
   },
   {
     "title": "Tiny implants can use the body itself to talk to each other",
@@ -5191,11 +4233,11 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-29",
     "summary": "",
     "publication": "sciencenews",
-    "checkedAt": "2026-10-25",
-    "hotRank": 7,
+    "checkedAt": "2026-10-26",
+    "hotRank": 5,
     "hotSource": "https://www.sciencenews.org/",
     "hotLabel": "Trending Stories",
-    "hotCheckedAt": "2026-10-25"
+    "hotCheckedAt": "2026-10-26"
   },
   {
     "title": "Meet the newest living cat species, the first described in 100 years",
@@ -5203,11 +4245,11 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-24",
     "summary": "",
     "publication": "sciencenews",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "hotRank": 2,
     "hotSource": "https://www.sciencenews.org/",
     "hotLabel": "Trending Stories",
-    "hotCheckedAt": "2026-10-25"
+    "hotCheckedAt": "2026-10-26"
   },
   {
     "title": "This year’s El Niño just broke a record months before it’s expected to peak",
@@ -5215,23 +4257,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-24",
     "summary": "",
     "publication": "sciencenews",
-    "checkedAt": "2026-10-25",
-    "hotRank": 8,
-    "hotSource": "https://www.sciencenews.org/",
-    "hotLabel": "Trending Stories",
-    "hotCheckedAt": "2026-10-25"
-  },
-  {
-    "title": "First series of adult T. rex footprints hints at its walking speed",
-    "url": "https://www.sciencenews.org/article/t-rex-preserved-footprints-speed-first",
-    "publishedAt": "2026-09-23",
-    "summary": "",
-    "publication": "sciencenews",
-    "checkedAt": "2026-10-25",
-    "hotRank": 3,
-    "hotSource": "https://www.sciencenews.org/",
-    "hotLabel": "Trending Stories",
-    "hotCheckedAt": "2026-10-25"
+    "checkedAt": "2026-10-25"
   },
   {
     "title": "Finally, a true blue rose exists",
@@ -5239,11 +4265,23 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-23",
     "summary": "",
     "publication": "sciencenews",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "hotRank": 6,
     "hotSource": "https://www.sciencenews.org/",
     "hotLabel": "Trending Stories",
-    "hotCheckedAt": "2026-10-25"
+    "hotCheckedAt": "2026-10-26"
+  },
+  {
+    "title": "First series of adult T. rex footprints hints at its walking speed",
+    "url": "https://www.sciencenews.org/article/t-rex-preserved-footprints-speed-first",
+    "publishedAt": "2026-09-23",
+    "summary": "",
+    "publication": "sciencenews",
+    "checkedAt": "2026-10-26",
+    "hotRank": 7,
+    "hotSource": "https://www.sciencenews.org/",
+    "hotLabel": "Trending Stories",
+    "hotCheckedAt": "2026-10-26"
   },
   {
     "title": "Will the U.S. megadrought ever end?",
@@ -5259,11 +4297,11 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-16",
     "summary": "",
     "publication": "sciencenews",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "hotRank": 4,
     "hotSource": "https://www.sciencenews.org/",
     "hotLabel": "Trending Stories",
-    "hotCheckedAt": "2026-10-25"
+    "hotCheckedAt": "2026-10-26"
   },
   {
     "title": "An overlooked organ may help the ovary function",
@@ -5271,7 +4309,85 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2025-04-11",
     "summary": "",
     "publication": "sciencenews",
-    "checkedAt": "2026-10-21"
+    "checkedAt": "2026-10-26",
+    "hotRank": 8,
+    "hotSource": "https://www.sciencenews.org/",
+    "hotLabel": "Trending Stories",
+    "hotCheckedAt": "2026-10-26"
+  },
+  {
+    "publication": "atlantic",
+    "title": "Sugar Doesn’t Make Kids Hyper",
+    "url": "https://www.theatlantic.com/family/2026/10/sugar-hyperactivity-behavior-halloween/689119/",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：先核对文章讨论的行为指标、研究设计和适用年龄，再区分糖摄入、场景与期待效应；标题不等于完整营养建议。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "atlantic",
+    "title": "A Public Option for … Groceries?",
+    "url": "https://www.theatlantic.com/ideas/2026/10/grocery-prices-public-option/689132/",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：留意公共方案针对价格、供给还是竞争问题，比较成本由谁承担与效果如何评估；把政策设想与已经验证的结果区分。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "atlantic",
+    "title": "Some Parents Are Rejecting Trump’s Free Money",
+    "url": "https://www.theatlantic.com/politics/2026/10/opt-out-trump-accounts-savings/689112/",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：先核对政策对象、领取条件与限制，再看受访家庭的顾虑；个别选择不等于所有家长的态度或政策总体效果。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "atlantic",
+    "title": "The ‘Big-Ass Truck’ Vote",
+    "url": "https://www.theatlantic.com/politics/2026/10/hispanic-latino-voters-texas-senate/689125/",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：追问报道如何从生活方式或消费符号讨论投票，关注调查范围与替代解释，避免把选民群体归成单一画像。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "atlantic",
+    "title": "Peeling the Orange",
+    "url": "https://www.theatlantic.com/books/2026/10/poem-howard-altmann-peeling/689127/",
+    "publishedAt": "2026-10-25",
+    "summary": "按题目选读：以意象、节奏和视角为线索慢读，留意普通动作如何承载情绪；这里提供阅读切入点，不代替诗作本身。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "atlantic",
+    "title": "Do Miracles Really Happen?",
+    "url": "https://www.theatlantic.com/podcasts/2026/10/do-miracles-really-happen/689116/",
+    "publishedAt": "2026-10-25",
+    "summary": "按题目选读：辨认播客如何界定奇迹以及使用何种证据，区分个人经历、宗教解释与可重复检验的判断。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "atlantic",
+    "title": "A Mathematician Reads the AI Future",
+    "url": "https://www.theatlantic.com/ideas/2026/10/ai-math-human-future/689133/",
+    "publishedAt": "2026-10-25",
+    "summary": "按题目选读：关注数学家的专业经验如何支持其AI判断，区分形式化结果、能力演示与未来预测，并寻找作者主动承认的边界。",
+    "checkedAt": "2026-10-26",
+    "featuredReason": "适合与站内AI数学报道对照阅读：分别记下已证明的结果、当前工具能力与作者的未来预测，训练判断论证跨度。",
+    "featuredPriority": 7
+  },
+  {
+    "publication": "atlantic",
+    "title": "The Greek Island That Taught Me the Art of Living",
+    "url": "https://www.theatlantic.com/books/2026/10/platon-paros-photography-book-greece/689083/",
+    "publishedAt": "2026-10-25",
+    "summary": "按题目选读：从场景描写、摄影或叙述视角理解作者的生活观察；把个人经验与适用于所有人的生活建议区分。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "atlantic",
+    "title": "Six of the Greatest Movie Soundtracks From This Century",
+    "url": "https://www.theatlantic.com/newsletters/2026/10/six-greatest-movie-soundtracks-21st-century/689135/",
+    "publishedAt": "2026-10-25",
+    "summary": "按题目选读：把配乐与具体电影场景对应，比较主题旋律、音色和叙事作用；这是作者的选单，不是统一的客观排名。",
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "atlantic",
@@ -5279,7 +4395,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.theatlantic.com/books/2026/10/who-weekly-book-i-want-to-be-famous-review/689139/",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：名人经济怎样把知名度转成工作机会？区分书评观点、行业案例和就业规模数据。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "atlantic",
@@ -5287,7 +4403,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.theatlantic.com/newsletters/2026/10/the-secret-to-a-good-conversation/689141/",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：一次愉快对话有哪些条件，又为什么短暂？留意作者经验与可验证心理研究的区别。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "atlantic",
@@ -5295,7 +4411,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.theatlantic.com/national/2026/10/what-shifting-us-support-may-mean-ukraine/689140/",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：美国支持的变化会怎样影响乌克兰？把已宣布政策、实际执行和情景推演分开。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "atlantic",
@@ -5303,7 +4419,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.theatlantic.com/ideas/2026/10/ai-terrorism-technology/689137/",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：作者怎样定义AI与恐怖活动之间的关系？区分技术能力、实际事件和政策观点。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "atlantic",
@@ -5311,7 +4427,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.theatlantic.com/ideas/2026/10/fbi-prosecution/689138/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：起诉程序引发哪些质疑？对照正式指控、回应和作者的政治判断。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "atlantic",
@@ -5319,7 +4435,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.theatlantic.com/newsletters/2026/10/midterm-fundraising-republican-money-advantages/689136/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：竞选资金优势在什么条件下难以转化为选票？留意资金统计与选区差异。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "atlantic",
@@ -5327,7 +4443,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.theatlantic.com/technology/2026/10/the-safe-internet-is-shrinking/689130/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：安全上网的空间为何被认为缩小？关注具体产品变化、威胁模型和用户选择。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "atlantic",
@@ -5335,7 +4451,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.theatlantic.com/newsletters/2026/10/democrats-race-dei-hiring-edward-markey/689131/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：DEI话语被批评的对象是什么？区分措辞争论、招聘政策与实际效果证据。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "atlantic",
@@ -5343,7 +4459,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.theatlantic.com/podcasts/2026/10/zealousness-new-tech-right/689124/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：播客怎样联系新技术与政治经济想象？把访谈观点和已验证趋势分别记录。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "atlantic",
@@ -5351,7 +4467,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.theatlantic.com/culture/2026/10/wicker-movie-marriage-olivia-colman/689122/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：电影用什么方式讨论婚姻？可比较人物关系、类型风格与评论者的价值判断。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "atlantic",
@@ -5359,7 +4475,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.theatlantic.com/photography/2026/10/photos-of-the-week-foam-fight-santa-dance-orangutan-escape/689117/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：图片周选中的每张照片都应回到图注，确认地点、时间及拍摄背景。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "atlantic",
@@ -5367,7 +4483,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.theatlantic.com/international/2026/10/trump-putin-ukraine-nato/689118/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：外交交易的阻力来自哪些参与者和承诺？区分公开事实与战略推测。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "atlantic",
@@ -5375,7 +4491,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.theatlantic.com/politics/2026/10/sherrod-brown-ohio-senate-midterms/689094/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：政治人物为什么回避党派标签？结合选区、竞选表达与报道日期阅读。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "atlantic",
@@ -5383,7 +4499,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.theatlantic.com/national-security/2026/10/ukraine-russia-trump-john-ratcliffe/689090/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：乌克兰政策中不同角色的权限和立场怎样交织？避免把人物描写等同官方政策。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "atlantic",
@@ -5391,7 +4507,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.theatlantic.com/technology/2026/10/man-who-saved-internet-php-vulnerability/689123/",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：互联网为何会依赖少数维护者？从PHP漏洞这条线索追问开源维护的资金、交接和风险分担。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "atlantic",
@@ -5399,7 +4515,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.theatlantic.com/national-security/2026/10/trump-iran-war-strikes-after-midterms/689121/",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：结束战争的政治押注有哪些明确目标和现实约束？区分军事行动、谈判方案与作者对局势的判断。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "atlantic",
@@ -5842,78 +4958,6 @@ window.MAGAZINE_ARTICLES = [
     "checkedAt": "2026-10-20"
   },
   {
-    "title": "America Has a Police Shortage",
-    "url": "https://www.theatlantic.com/ideas/2026/10/police-officers-usa-europe/689006/",
-    "publishedAt": "2026-10-18",
-    "summary": "",
-    "publication": "atlantic",
-    "checkedAt": "2026-10-20"
-  },
-  {
-    "title": "Theranos-Style Fraud Has Become the Norm",
-    "url": "https://www.theatlantic.com/ideas/2026/10/theranos-trump-nathan-fielder/689001/",
-    "publishedAt": "2026-10-18",
-    "summary": "",
-    "publication": "atlantic",
-    "checkedAt": "2026-10-20"
-  },
-  {
-    "title": "Are We Too Political?",
-    "url": "https://www.theatlantic.com/podcasts/2026/10/are-we-too-political/689011/",
-    "publishedAt": "2026-10-18",
-    "summary": "",
-    "publication": "atlantic",
-    "checkedAt": "2026-10-19"
-  },
-  {
-    "title": "The Fight to Control Congress",
-    "url": "https://www.theatlantic.com/national/2026/10/fight-to-control-congress-washington-week/689050/",
-    "publishedAt": "2026-10-17",
-    "summary": "",
-    "publication": "atlantic",
-    "checkedAt": "2026-10-20"
-  },
-  {
-    "title": "The Final Defenders",
-    "url": "https://www.theatlantic.com/ideas/2026/10/capital-punishment-mitigators/688995/",
-    "publishedAt": "2026-10-17",
-    "summary": "",
-    "publication": "atlantic",
-    "checkedAt": "2026-10-19"
-  },
-  {
-    "title": "Another Battle Between the Catholic Church and the Trump Administration",
-    "url": "https://www.theatlantic.com/culture/2026/10/catholic-church-sacraments/689063/",
-    "publishedAt": "2026-10-17",
-    "summary": "",
-    "publication": "atlantic",
-    "checkedAt": "2026-10-19"
-  },
-  {
-    "title": "The Flying Car Must Never Be Built",
-    "url": "https://www.theatlantic.com/ideas/2026/10/tesla-elon-musk-roadster/689059/",
-    "publishedAt": "2026-10-17",
-    "summary": "",
-    "publication": "atlantic",
-    "checkedAt": "2026-10-19"
-  },
-  {
-    "title": "How to Indulge in Fall",
-    "url": "https://www.theatlantic.com/newsletters/2026/10/comforts-of-fall/689056/",
-    "publishedAt": "2026-10-17",
-    "summary": "",
-    "publication": "atlantic",
-    "checkedAt": "2026-10-19"
-  },
-  {
-    "title": "Iran’s ‘Anti-Imperialism’ Is a Dead End",
-    "url": "https://www.theatlantic.com/international/2026/10/west-iran-economy-us/689039/",
-    "publishedAt": "2026-10-17",
-    "summary": "",
-    "publication": "atlantic",
-    "checkedAt": "2026-10-19"
-  },
-  {
     "title": "What Newsrooms Should Know Before They Take Money From OpenAI",
     "url": "https://www.theatlantic.com/ideas/2026/10/newsrooms-journalism-openai-funding/689043/",
     "publishedAt": "2026-10-16",
@@ -5921,7 +4965,15 @@ window.MAGAZINE_ARTICLES = [
     "publication": "atlantic",
     "checkedAt": "2026-10-19",
     "featuredReason": "从媒体与技术公司的关系观察报道独立性，练习辨别信息来源。",
-    "featuredPriority": 36
+    "featuredPriority": 41
+  },
+  {
+    "publication": "economist",
+    "title": "China increasingly depends on copying American AI",
+    "url": "https://www.economist.com/science-and-technology/2026/10/25/china-increasingly-depends-on-copying-american-ai",
+    "publishedAt": "2026-10-25",
+    "summary": "按题目选读：先核对作者如何定义复制及所举技术证据，再区分模型借鉴、蒸馏、开源使用和独立创新；不要直接接受标题的概括。",
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -5929,7 +4981,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/science-and-technology/2026/10/24/ai-models-may-not-be-so-opaque-after-all",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：AI模型的可解释性改善用什么标准判断？关注内部表征、实验干预和可复现验证，不能由局部解释能力推断整个模型已经透明。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -5937,7 +4989,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/science-and-technology/2026/10/23/are-some-protein-powders-better-than-others",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：比较蛋白粉时作者采用哪些营养与质量标准？适用人群和证据层级需先分清。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -5945,7 +4997,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/10/22/multinational-businesses-are-losing-confidence-in-indonesia",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：跨国企业对印尼的信心如何测量？把调查感受、实际投资与政策变动分开，留意行业和样本范围。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -5953,9 +5005,9 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/10/22/if-ai-displaces-human-workers-they-will-lose-more-than-just-pay",
     "publishedAt": "2026-10-22",
     "summary": "从官方导语选读：工作的价值超出工资。可围绕身份、协作和技能积累思考AI替代工作的影响，避免把职业选择简化为薪酬比较。",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "featuredReason": "适合研究生思考AI时代的职业训练：官方导语把工作的价值扩展到收入之外，可围绕技能积累、身份认同和协作关系提出问题，反思哪些能力需要自己持续练习。",
-    "featuredPriority": 5
+    "featuredPriority": 10
   },
   {
     "publication": "economist",
@@ -5963,7 +5015,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/science-and-technology/2026/10/22/is-the-internet-still-safe",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：“互联网是否安全”包含哪些不同威胁？阅读时分别检查漏洞修补、身份认证与软件依赖带来的风险。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -5971,7 +5023,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/10/21/is-netflix-losing-the-plot",
     "publishedAt": "2026-10-21",
     "summary": "按题目选读：流媒体平台的经营逻辑与内容创作发生了什么矛盾？可比较订阅、广告和作品策略，避免只看爆款数量。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -5979,7 +5031,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/10/21/how-the-2010s-remade-business",
     "publishedAt": "2026-10-21",
     "summary": "按题目选读：2010年代的哪些变化重塑了商业？带着技术、融资与组织方式三类问题读，区分当时条件与可持续机制。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -5987,7 +5039,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/science-and-technology/2026/10/21/the-second-may-soon-be-redefined",
     "publishedAt": "2026-10-21",
     "summary": "从时间单位如何被实验实现切入，比较重新定义秒所需的精密测量、跨实验室一致性与制度步骤。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -5995,7 +5047,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/science-and-technology/2026/10/21/japans-mission-to-marss-moons-takes-off",
     "publishedAt": "2026-10-21",
     "summary": "围绕火星卫星探测的科学目标阅读，区分任务出发、获取样品与最终回答起源问题这些不同阶段。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6003,7 +5055,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/10/20/personal-ai-assistants-could-soon-reshape-the-digital-economy",
     "publishedAt": "2026-10-20",
     "summary": "按题目选读：个人AI助手会怎样改变信息发现和交易入口？关注委托权限、平台利益和退出成本，对照自己的工具使用。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6013,7 +5065,7 @@ window.MAGAZINE_ARTICLES = [
     "summary": "把AI助手放进用户、平台与商家的关系中，追问谁掌握入口和数据，以及便利是否会改变竞争方式。",
     "checkedAt": "2026-10-21",
     "featuredReason": "带着信息推荐、行动权限和平台利益三个问题读，思考把查文献、整理资料交给AI助手时还要掌握哪些决定。",
-    "featuredPriority": 12
+    "featuredPriority": 17
   },
   {
     "publication": "economist",
@@ -6021,7 +5073,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/10/19/bartleby-newsletter-boomers-babies-and-bots",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6029,9 +5081,9 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/science-and-technology/2026/10/19/americas-new-era-of-private-science",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "featuredReason": "从私人科研资助切入，关注研究议题、成果开放与长期投入之间的关系。",
-    "featuredPriority": 19
+    "featuredPriority": 24
   },
   {
     "publication": "economist",
@@ -6039,7 +5091,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/10/18/the-ai-industrys-gigantic-debts-are-making-investors-nervous",
     "publishedAt": "2026-10-18",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Can joggers outrun injury?",
@@ -6047,7 +5099,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-16",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "When AI agents take matters into their own hands",
@@ -6055,9 +5107,9 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-15",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "featuredReason": "从AI代理进入现实商业场景时的行为和责任问题展开阅读。",
-    "featuredPriority": 46
+    "featuredPriority": 51
   },
   {
     "title": "AI neolabs are raising huge sums. Most have little to show for it",
@@ -6065,7 +5117,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-15",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "SpaceX’s Starlink expansion is a bold gamble on the future",
@@ -6073,7 +5125,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-15",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Is the semiconductor industry headed for an almighty crash?",
@@ -6081,7 +5133,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-15",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "The AI boom is threatened by an epidemic of unreliable numbers",
@@ -6089,9 +5141,9 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-14",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "featuredReason": "读AI产业数字时先问统计口径和来源，补上技术排行榜之外的商业视角。",
-    "featuredPriority": 25
+    "featuredPriority": 30
   },
   {
     "title": "Could AI help scientists with their paperwork?",
@@ -6099,7 +5151,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-14",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "AI will make it possible to design and build organisms from scratch",
@@ -6107,7 +5159,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-14",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "AI companies want to become frontier scientific researchers",
@@ -6115,7 +5167,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-14",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Elon Musk's foundation is opaque, miserly and self-serving",
@@ -6123,7 +5175,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-13",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Bartleby newsletter: Tiny workplace triumphs",
@@ -6131,7 +5183,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-12",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "AI’s transformation of mathematics is a turning point for science",
@@ -6139,7 +5191,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-12",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Do you need to walk 10,000 steps a day?",
@@ -6147,7 +5199,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-09",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "The rise of the AI marketplace",
@@ -6155,7 +5207,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-08",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Football’s latest scandal inspires apathy rather than anger",
@@ -6163,7 +5215,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-08",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Jaguar’s new car is its last shot at survival",
@@ -6171,7 +5223,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-08",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Why your snacks are chunkier and chewier than before",
@@ -6179,7 +5231,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-08",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Indian manufacturing’s moment may finally have arrived",
@@ -6187,7 +5239,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-08",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "This year’s Nobel science prizes are real-life sci-fi",
@@ -6195,7 +5247,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-08",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "OpenAI claims to have solved hundreds of long-standing maths problems",
@@ -6203,7 +5255,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-07",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Burglars could be identified from airborne DNA",
@@ -6211,7 +5263,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-07",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "A Nobel for illuminating life’s asymmetry",
@@ -6219,7 +5271,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-07",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "China wants to get inside your head",
@@ -6227,7 +5279,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-06",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "A Nobel for the strangest telescope ever built",
@@ -6235,7 +5287,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-06",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Bartleby newsletter: How to fire a chicken into a jet engine",
@@ -6243,7 +5295,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-05",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Record labels are in a spin over AI music",
@@ -6251,7 +5303,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-05",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "The Nobel for medicine goes to lighting up the brain",
@@ -6259,7 +5311,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-05",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Should you be using a tongue-scraper?",
@@ -6267,7 +5319,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-02",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "You’re not sending an email. You’re training a model",
@@ -6275,7 +5327,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-01",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "The Swiss watch industry is shrinking—but getting swankier",
@@ -6283,7 +5335,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-01",
     "summary": "",
     "publication": "economist",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6291,7 +5343,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/10/01/a-rocket-shortage-gives-spacexs-competitors-an-opportunity",
     "publishedAt": "2026-10-01",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6299,7 +5351,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/30/the-era-of-speedball-capitalism-has-dawned",
     "publishedAt": "2026-09-30",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6307,7 +5359,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/science-and-technology/2026/09/30/simulating-death-can-reduce-peoples-fear-of-dying",
     "publishedAt": "2026-09-30",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6315,7 +5367,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/science-and-technology/2026/09/30/it-may-soon-be-possible-to-create-mirror-life",
     "publishedAt": "2026-09-30",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6323,7 +5375,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/28/big-laws-century-old-business-model-is-being-transformed",
     "publishedAt": "2026-09-28",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6331,7 +5383,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/27/european-industry-is-doing-better-than-you-may-think",
     "publishedAt": "2026-09-27",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6339,7 +5391,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/science-and-technology/2026/09/27/alternatives-to-gps-are-around-the-corner",
     "publishedAt": "2026-09-27",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6347,7 +5399,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/science-and-technology/2026/09/25/are-weighted-blankets-really-beneficial",
     "publishedAt": "2026-09-25",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6355,7 +5407,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/24/the-greatest-advance-in-consulting-since-the-quadrant",
     "publishedAt": "2026-09-24",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6363,7 +5415,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/24/tanker-rates-are-on-the-crest-of-a-wave",
     "publishedAt": "2026-09-24",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6371,7 +5423,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/24/business-in-the-gulf-is-making-a-slow-recovery",
     "publishedAt": "2026-09-24",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6379,7 +5431,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/24/german-unions-are-fighting-to-defend-the-35-hour-week",
     "publishedAt": "2026-09-24",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6387,7 +5439,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/24/tata-goes-to-war-with-itself",
     "publishedAt": "2026-09-24",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6395,7 +5447,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/24/how-tech-firms-hope-to-beat-the-backlash-against-pervert-glasses",
     "publishedAt": "2026-09-24",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6403,7 +5455,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/23/agent-of-whom",
     "publishedAt": "2026-09-23",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6411,7 +5463,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/science-and-technology/2026/09/23/should-you-fear-pesticide-resistant-super-bed-bugs",
     "publishedAt": "2026-09-23",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6419,7 +5471,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/science-and-technology/2026/09/23/space-going-mirrors-could-offer-daylight-on-demand",
     "publishedAt": "2026-09-23",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6427,7 +5479,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/science-and-technology/2026/09/23/many-surgical-interventions-are-little-better-than-placebo",
     "publishedAt": "2026-09-23",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6435,7 +5487,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/22/bartleby-newsletter-the-tandcs-of-the-ai-apocalypse",
     "publishedAt": "2026-09-22",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6443,7 +5495,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/21/donald-trump-says-china-is-opening-up-american-bosses-disagree",
     "publishedAt": "2026-09-21",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6451,7 +5503,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/science-and-technology/2026/09/21/a-new-battery-could-make-edible-electronics-safer",
     "publishedAt": "2026-09-21",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6459,7 +5511,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/science-and-technology/2026/09/18/consuming-extra-vitamin-d-is-less-good-than-it-sounds",
     "publishedAt": "2026-09-18",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6467,7 +5519,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/17/sleep-like-a-pro",
     "publishedAt": "2026-09-17",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6475,7 +5527,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/17/at-last-india-is-getting-serious-about-selling-state-assets",
     "publishedAt": "2026-09-17",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6483,7 +5535,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/17/alternatives-to-milk-are-losing-moomentum",
     "publishedAt": "2026-09-17",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6491,7 +5543,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/16/olympiad-man-has-displaced-davos-man",
     "publishedAt": "2026-09-16",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6499,7 +5551,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/16/nannying-for-the-ultra-rich-is-increasingly-demanding-and-lucrative",
     "publishedAt": "2026-09-16",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6507,7 +5559,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/16/bartleby-newsletter-meetings-are-broccoli",
     "publishedAt": "2026-09-16",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6515,7 +5567,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/science-and-technology/2026/09/16/researchers-have-created-a-mouse-with-a-partly-human-brain",
     "publishedAt": "2026-09-16",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6523,7 +5575,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/science-and-technology/2026/09/16/artificial-intelligence-now-beats-some-of-the-best-human-forecasters",
     "publishedAt": "2026-09-16",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6531,7 +5583,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/science-and-technology/2026/09/16/sea-cucumbers-may-help-protect-coral-reefs",
     "publishedAt": "2026-09-16",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6539,7 +5591,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/14/should-anthropic-press-pause-on-a-potential-2trn-ipo",
     "publishedAt": "2026-09-14",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6547,7 +5599,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/science-and-technology/2026/09/14/a-new-device-helps-severely-paralysed-patients-communicate",
     "publishedAt": "2026-09-14",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6555,7 +5607,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/business/2026/09/13/how-an-oil-supply-crisis-could-bring-about-an-investment-boom",
     "publishedAt": "2026-09-13",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "economist",
@@ -6563,15 +5615,31 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.economist.com/science-and-technology/2026/09/11/top-mathematicians-are-outraged-by-openais-methods",
     "publishedAt": "2026-09-11",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
-    "publication": "economist",
-    "title": "Hot coffee could cause oesophageal cancer",
-    "url": "https://www.economist.com/science-and-technology/2026/09/11/hot-coffee-could-cause-oesophageal-cancer",
-    "publishedAt": "2026-09-11",
-    "summary": "",
-    "checkedAt": "2026-10-25"
+    "publication": "smithsonian",
+    "title": "This Massive, 'Mega-Rare' Monet Painting Is Now the Most Expensive Artwork Ever Sold at Auction in France",
+    "url": "https://www.smithsonianmag.com/smart-news/this-massive-mega-rare-monet-painting-is-now-the-most-expensive-artwork-ever-sold-at-auction-in-france-180989749/",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：核对拍卖纪录的地区、币种、费用口径与作品来源，再看稀缺性如何被描述；单次成交价不代表艺术价值的统一尺度。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "smithsonian",
+    "title": "A Soldier in Vietnam Recorded His Letter Home Because He Thought It Was Easier Than Writing. It’s a 43-Minute Splice of History",
+    "url": "https://www.smithsonianmag.com/smithsonian-institution/soldier-vietnam-recorded-letter-home-thought-it-was-easier-writing-43-minute-splice-history-180989646/",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：关注录音如何保存声音、环境与个人记忆，核对档案来源和整理方法；一份私人记录不能替代完整的历史图景。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "smithsonian",
+    "title": "Archaeologists at This Ancient Maya Metropolis in the Forest of Belize Are Debunking Long-Held Myths About the Mesoamerican Civilization",
+    "url": "https://www.smithsonianmag.com/history/archaeologists-ancient-maya-metropolist-forest-belize-debunking-long-held-myth-about-mesoamerican-civilization-180989648/",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：把考古发现、年代测定和作者要修正的旧说逐一对应，留意证据覆盖范围；标题中的去神话不意味着所有争议都已解决。",
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "smithsonian",
@@ -6579,7 +5647,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.smithsonianmag.com/smart-news/a-team-of-astronomers-thinks-they-have-identified-the-exact-night-sky-that-inspired-vincent-van-gogh-starry-Night-not-everyone-is-convinced-180989744/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：天文学家如何重建梵高画中的夜空，反对意见又针对哪些假设？",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "smithsonian",
@@ -6587,7 +5655,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.smithsonianmag.com/smart-news/for-the-first-time-scientists-trapped-an-elusive-antimatter-particle-and-contained-it-for-months-it-could-allow-them-to-test-an-enduring-physics-theory-180989738/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：反物质粒子被困数月怎样得到验证？观测精度与未来理论检验能力应分开。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "smithsonian",
@@ -6595,7 +5663,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.smithsonianmag.com/smart-news/immerse-yourself-in-the-cosmos-at-frank-lloyd-wrights-only-planetarium-recently-restored-to-its-former-glory-in-florida-180989743/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：修复后的天文馆怎样结合建筑设计与公众科学体验？留意修复证据和历史背景。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "smithsonian",
@@ -6603,7 +5671,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.smithsonianmag.com/smart-news/astronomers-detect-the-oldest-fast-radio-burst-spewed-from-an-ancient-galaxy-just-three-billion-years-after-the-big-bang-180989730/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：快速射电暴的年龄如何从宿主星系推算？把观测量、模型与误差来源连起来。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "smithsonian",
@@ -6611,7 +5679,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.smithsonianmag.com/arts-culture/wildwood-is-the-longest-stop-motion-animated-film-ever-each-frame-of-the-movie-is-a-marvel-of-handcrafted-world-building-180989742/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：逐帧动画的手工世界怎样建成？留意制作尺度、镜头安排与工艺取舍。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "smithsonian",
@@ -6619,7 +5687,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.smithsonianmag.com/smart-news/conservationists-in-australia-celebrate-the-arrival-of-two-southern-cassowary-eggsthe-first-at-adelaide-zoo-in-34-years-180989739/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：动物园中的繁育记录说明什么？区分一次产卵、成功孵化和长期保育成效。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "smithsonian",
@@ -6627,7 +5695,15 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.smithsonianmag.com/travel/these-15-photos-perfectly-capture-the-beautiful-red-rocks-of-sedona-arizona-180989728/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：摄影怎样呈现塞多纳红岩的尺度和色彩？结合拍摄条件看风景表达。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "smithsonian",
+    "title": "Ivan the Terrible Wanted to Marry Elizabeth I. How Did England's 'Virgin Queen' Reject the Russian Czar Without Souring Trade Relations?",
+    "url": "https://www.smithsonianmag.com/history/ivan-the-terrible-wanted-to-marry-elizabeth-i-how-did-englands-virgin-queen-reject-the-russian-czar-without-souring-trade-relations-180989656/",
+    "publishedAt": "2026-10-23",
+    "summary": "按题目选读：婚姻外交与贸易关系怎样相互牵制？对照书信、历史记录和后世解释。",
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "smithsonian",
@@ -6639,11 +5715,11 @@ window.MAGAZINE_ARTICLES = [
   },
   {
     "publication": "smithsonian",
-    "title": "Ivan the Terrible Wanted to Marry Elizabeth I. How Did England's 'Virgin Queen' Reject the Russian Czar Without Souring Trade Relations?",
-    "url": "https://www.smithsonianmag.com/history/ivan-the-terrible-wanted-to-marry-elizabeth-i-how-did-englands-virgin-queen-reject-the-russian-czar-without-souring-trade-relations-180989656/",
-    "publishedAt": "2026-10-23",
-    "summary": "按题目选读：婚姻外交与贸易关系怎样相互牵制？对照书信、历史记录和后世解释。",
-    "checkedAt": "2026-10-25"
+    "title": "'Pretty Boy' Floyd, One of the Most Notorious Outlaws of the Great Depression, Was Shot and Killed in an FBI Raid 92 Years Ago",
+    "url": "https://www.smithsonianmag.com/history/pretty-boy-floyd-one-of-the-most-notorious-outlaws-of-the-great-depression-was-shot-and-killed-in-an-fbi-raid-92-years-ago-180989725/",
+    "publishedAt": "2026-10-22",
+    "summary": "按题目选读：怎样在历史人物的传奇和档案记录之间建立距离？关注执法过程、时代背景与公众形象的形成。",
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "smithsonian",
@@ -6651,14 +5727,6 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.smithsonianmag.com/smart-news/this-mysterious-medieval-manuscript-has-stumped-scholars-for-well-over-a-century-could-its-pages-have-been-bound-out-of-order-this-whole-time-180989737/",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：古抄本的装订顺序怎样影响释读？适合练习替代假设：在尝试破译内容前，先核对载体和编排是否可靠。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "smithsonian",
-    "title": "'Pretty Boy' Floyd, One of the Most Notorious Outlaws of the Great Depression, Was Shot and Killed in an FBI Raid 92 Years Ago",
-    "url": "https://www.smithsonianmag.com/history/pretty-boy-floyd-one-of-the-most-notorious-outlaws-of-the-great-depression-was-shot-and-killed-in-an-fbi-raid-92-years-ago-180989725/",
-    "publishedAt": "2026-10-22",
-    "summary": "按题目选读：怎样在历史人物的传奇和档案记录之间建立距离？关注执法过程、时代背景与公众形象的形成。",
     "checkedAt": "2026-10-25"
   },
   {
@@ -6677,7 +5745,7 @@ window.MAGAZINE_ARTICLES = [
     "summary": "从公开原文选读：模糊影像支持的飞机假说经历现场勘测后没有获得确证。可用它练习区分“看起来像”、独立探测与可重复验证。",
     "checkedAt": "2026-10-23",
     "featuredReason": "适合所有研究生训练反证意识：报道从模糊影像提出飞机假说，再到现场勘测未取得确证，可对照自己的显微图像判读，练习列出替代解释及独立验证办法。",
-    "featuredPriority": 4
+    "featuredPriority": 9
   },
   {
     "publication": "smithsonian",
@@ -6709,7 +5777,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.smithsonianmag.com/history/were-two-chinese-astronomers-were-beheaded-for-failing-to-predict-an-eclipse-2134-bce-the-story-may-be-a-myth-but-it-underscores-the-real-risks-of-interpreting-celestial-events-180989715/",
     "publishedAt": "2026-10-21",
     "summary": "把日食预报失误受罚的故事放回史料脉络，区分传说真实性与天象解释在政治中的实际风险。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "smithsonian",
@@ -6807,7 +5875,7 @@ window.MAGAZINE_ARTICLES = [
     "summary": "以煤炭等货物为线索，看看历史记录如何变成可查询的贸易网络，并留意AI转录后仍需人工核验的环节。",
     "checkedAt": "2026-10-21",
     "featuredReason": "从手写港口记录到可查询数据库，关注AI抽取与人工复核怎样衔接，可对照自己的文献数据表或实验台账。",
-    "featuredPriority": 13
+    "featuredPriority": 18
   },
   {
     "publication": "smithsonian",
@@ -6833,7 +5901,7 @@ window.MAGAZINE_ARTICLES = [
     "summary": "",
     "checkedAt": "2026-10-21",
     "featuredReason": "从天然氢的勘探切入能源议题：带着资源形成、可获取性和成本这三个问题阅读。",
-    "featuredPriority": 14
+    "featuredPriority": 19
   },
   {
     "publication": "smithsonian",
@@ -6913,7 +5981,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-16",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Rembrandt Turned Ancient Myths Into 'Supremely Human' Works of Art. An Upcoming Exhibition Traces the Inspiration He Took From Antiquity",
@@ -6993,7 +6061,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-09",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "From Slasher Films to Vampire Flicks, Horror Movies Are More Popular Than Ever. Relive the Genre's Scariest Moments—if You Dare—at a New Exhibition",
@@ -7001,7 +6069,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-08",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "The Marquis de Lafayette's Brother-in-Law Participated in Three Revolutionary Wars, Supporting American Independence but Brutally Suppressing an Uprising by Enslaved Africans in Haiti",
@@ -7009,7 +6077,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-01",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Who Wrote Elizabeth I's Most Scathing Letters? New Research Suggests the Tudor Queen's Male Secretaries Revised Her Correspondence to Emphasize Her Temper",
@@ -7017,9 +6085,9 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-28",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "featuredReason": "从历史书信的作者与修订痕迹进入史料判断，区分记录与解释。",
-    "featuredPriority": 37
+    "featuredPriority": 42
   },
   {
     "title": "During the American Revolution, the City of Lancaster, Pennsylvania, Served as the United States' Capital for Just One Day",
@@ -7027,7 +6095,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-24",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "This Social Worker Was Supposed to Help Orphans Find Homes. Instead, She Abducted Children Who Already Had Families and Sold Them for Profit",
@@ -7035,7 +6103,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-23",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "The Founders of the 'New York Times' Pledged to Cover 'Every Subject of Public Importance.' 175 Years Later, the Paper Continues to Publish 'All the News That's Fit to Print'",
@@ -7043,7 +6111,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-18",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Six Ways That People of the Past Used Magic to Protect Their Homes, From Witch Bottles to Mystical Symbols",
@@ -7051,7 +6119,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-15",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "The Real Story Behind 'The Uprising' and the 1381 Peasants' Revolt, When Thousands Marched on London to Demand a Fairer Society",
@@ -7059,7 +6127,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-09",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "How Did the Nation Get Its Name? Other Suggestions Included the United Colonies, Columbia and the United States of Alleghania",
@@ -7067,7 +6135,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-08",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "To Defeat the Royal Navy During the American Revolution, a Rebel Inventor Designed a Secret Weapon: a Bomb-Carrying Submarine",
@@ -7075,7 +6143,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-03",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Some of the Earliest Automobile Enthusiasts Signed Up to Help the Allies in WWI. They Also Ushered in the Mechanization of War",
@@ -7083,7 +6151,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-01",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "‘Rocky’ Is the Story of an Underdog, Created by an Underdog, That Has Spawned Box-Office Champions for Half a Century",
@@ -7091,7 +6159,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-08-31",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "This American Commando Parachuted Behind Enemy Lines in Both the European and Pacific Theaters of World War II",
@@ -7099,7 +6167,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-08-27",
     "summary": "",
     "publication": "smithsonian",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "The Prehistoric Paintings on the Walls of Caves Have Always Been Moving. But With the Right Kind of Light, Some Actually Seem to Move",
@@ -7155,7 +6223,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.quantamagazine.org/malaria-parasite-caught-in-the-act-of-breaking-and-entering-20261023/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：疟原虫侵入细胞的过程如何被捕捉？重点看时间分辨率、模型体系和可重复观察。",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "quanta",
@@ -7163,11 +6231,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.quantamagazine.org/see-inside-cells-like-never-before-in-these-vivid-microscopic-images-20261021/",
     "publishedAt": "2026-10-21",
     "summary": "从新显微图像能显示哪些细胞结构切入，同时关注成像方法的分辨率与限制，避免把清晰图像等同完整机制。",
-    "checkedAt": "2026-10-25",
-    "hotRank": 4,
+    "checkedAt": "2026-10-26",
+    "hotRank": 2,
     "hotSource": "https://www.quantamagazine.org/",
     "hotLabel": "Past Week · Most Read Articles",
-    "hotCheckedAt": "2026-10-25"
+    "hotCheckedAt": "2026-10-26"
   },
   {
     "publication": "quanta",
@@ -7175,13 +6243,13 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.quantamagazine.org/ai-proved-the-quasi-riemann-hypothesis-what-happens-now-20261019/",
     "publishedAt": "2026-10-19",
     "summary": "",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "hotRank": 1,
     "hotSource": "https://www.quantamagazine.org/",
     "hotLabel": "Past Week · Most Read Articles",
-    "hotCheckedAt": "2026-10-25",
+    "hotCheckedAt": "2026-10-26",
     "featuredReason": "区分猜想的不同版本、形式化验证与人类理解，阅读时追踪每种结论的证据边界。",
-    "featuredPriority": 17
+    "featuredPriority": 22
   },
   {
     "title": "He Wants AI Benchmarking To Be a Science, Not a Dark Art",
@@ -7189,13 +6257,13 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-16",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-25",
-    "hotRank": 5,
+    "checkedAt": "2026-10-26",
+    "hotRank": 6,
     "hotSource": "https://www.quantamagazine.org/",
     "hotLabel": "Past Week · Most Read Articles",
-    "hotCheckedAt": "2026-10-25",
+    "hotCheckedAt": "2026-10-26",
     "featuredReason": "从评测方法切入，关注模型排名背后的指标、复现和验证过程。",
-    "featuredPriority": 22
+    "featuredPriority": 27
   },
   {
     "title": "How Do Fungi Keep the Planet Healthy?",
@@ -7203,7 +6271,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-15",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Triplet of ‘Ghostly’ Galaxies Hints at What Dark Matter Is — and Isn’t",
@@ -7211,11 +6279,11 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-14",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-25",
-    "hotRank": 3,
+    "checkedAt": "2026-10-26",
+    "hotRank": 4,
     "hotSource": "https://www.quantamagazine.org/",
     "hotLabel": "Past Week · Most Read Articles",
-    "hotCheckedAt": "2026-10-25"
+    "hotCheckedAt": "2026-10-26"
   },
   {
     "title": "Is ‘Attention’ the Essence of Intelligence?",
@@ -7223,13 +6291,13 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-12",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-25",
-    "hotRank": 2,
+    "checkedAt": "2026-10-26",
+    "hotRank": 3,
     "hotSource": "https://www.quantamagazine.org/",
     "hotLabel": "Past Week · Most Read Articles",
-    "hotCheckedAt": "2026-10-25",
+    "hotCheckedAt": "2026-10-26",
     "featuredReason": "借注意力机制的讨论，回到智能的定义与模型工作方式。",
-    "featuredPriority": 39
+    "featuredPriority": 44
   },
   {
     "title": "How Does Life Unfold? A Landscape Metaphor Comes Into Its Own.",
@@ -7237,7 +6305,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-09",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "As AI Closed In on ‘Unique Games’ Proof, Researchers Raced to Beat the Machines",
@@ -7245,7 +6313,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-07",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Is AI the End of Math As We Know It?",
@@ -7253,9 +6321,9 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-05",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "featuredReason": "从数学工作的问题与方法出发，思考AI怎样改变研究者的角色。",
-    "featuredPriority": 40
+    "featuredPriority": 45
   },
   {
     "publication": "quanta",
@@ -7263,7 +6331,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.quantamagazine.org/sea-monkeys-show-scientists-how-to-rewrite-a-rule-of-turbulence-20261002/",
     "publishedAt": "2026-10-02",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "quanta",
@@ -7271,7 +6339,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.quantamagazine.org/what-does-the-fourth-dimension-actually-look-like-20261001/",
     "publishedAt": "2026-10-01",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "publication": "quanta",
@@ -7279,7 +6347,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.quantamagazine.org/surprisingly-complex-waves-reveal-the-brains-inner-workings-20260930/",
     "publishedAt": "2026-09-30",
     "summary": "",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Mathematicians Harness Randomness To Crack a 55-Year-Old Conjecture",
@@ -7287,7 +6355,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-28",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Gravity Seems Holographic. What Does That Mean for Reality?",
@@ -7295,7 +6363,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-25",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Biology Might Not Be Quantum, but Its Math Is Quantumlike",
@@ -7303,7 +6371,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-23",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "How Virus-like ‘Jumping Genes’ Became Our Partners in Evolution",
@@ -7311,7 +6379,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-21",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Mathematicians Build Long-Awaited Graph Sandwich",
@@ -7319,7 +6387,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-18",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Where Does the Quantum World End and Ours Begin?",
@@ -7327,7 +6395,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-17",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Ctenophores Aren’t Just Beautiful. They’re Biological Wonders.",
@@ -7335,7 +6403,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-16",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Black Holes or Black Hole Stars? Astronomers Spar Over Webb Telescope’s ‘Little Red Dots.’",
@@ -7343,7 +6411,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-14",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Why Do These Fossil Shells Flip Their Spirals Every Few Millennia?",
@@ -7351,7 +6419,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-11",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "The Four-Color Theorem Gets a Rare New Proof",
@@ -7359,7 +6427,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-10",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "What Is Math’s Mysterious Langlands Program Really About?",
@@ -7367,7 +6435,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-09",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "AI Has Solved One of Math’s $1 Million Millennium Prize Problems",
@@ -7375,7 +6443,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-08",
     "summary": "",
     "publication": "quanta",
-    "checkedAt": "2026-10-25"
+    "checkedAt": "2026-10-26"
   },
   {
     "title": "Live from ICM 2026: What Is Math For in the Age of AI?",
@@ -7407,12 +6475,1138 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.quantamagazine.org/in-hilbert-space-all-things-are-quantumly-possible-20260826/",
     "publishedAt": null,
     "summary": "从公开原文选读：以向量、内积和测量基理解量子态，留意希尔伯特空间与日常三维空间的区别；适合作为材料物理的数学概念入口。",
-    "checkedAt": "2026-10-25",
-    "hotRank": 6,
+    "checkedAt": "2026-10-26",
+    "hotRank": 5,
     "hotSource": "https://www.quantamagazine.org/",
     "hotLabel": "Past Week · Most Read Articles",
-    "hotCheckedAt": "2026-10-25",
+    "hotCheckedAt": "2026-10-26",
     "featuredReason": "适合材料物理与计算方向补基础：公开文章用向量、内积和测量基解释量子态，可先把这些概念与自己学过的线性代数对应，再进入更专业的模型。",
-    "featuredPriority": 3
+    "featuredPriority": 8
+  },
+  {
+    "publication": "renwu",
+    "title": "37万元，在北京买一套两居室",
+    "url": "https://boyamedia.com/sys-nd/200.html",
+    "publishedAt": "2026-10-18",
+    "summary": "从京郊低总价住房的购买者出发，观察落户、教育与居住需求怎样交织。",
+    "checkedAt": "2026-10-19",
+    "featuredReason": "从具体居住选择进入城市生活，比较价格之外的教育、通勤与家庭需求。",
+    "featuredPriority": 37
+  },
+  {
+    "publication": "renwu",
+    "title": "最有可能拿诺奖的德国女作家，在历史的废墟上写作",
+    "url": "https://boyamedia.com/sys-nd/199.html",
+    "publishedAt": "2026-10-17",
+    "summary": "通过作家燕妮·埃彭贝克的访谈，思考历史巨变与个人经验如何进入文学。",
+    "checkedAt": "2026-10-19",
+    "featuredReason": "通过文学与个人经验的关系，给技术和商业阅读之外留一个人文入口。",
+    "featuredPriority": 47
+  },
+  {
+    "publication": "renwu",
+    "title": "朱之文，脱下大衣",
+    "url": "https://boyamedia.com/sys-nd/196.html",
+    "publishedAt": "2026-10-15",
+    "summary": "借一次连续跟访，观察成名十五年后的乡土歌手与流量、商演及日常生活。",
+    "checkedAt": "2026-10-19"
+  },
+  {
+    "publication": "blogweekly",
+    "title": "前三季度销量下滑，大众汽车在华加速变革",
+    "url": "https://boyamedia.com/sys-nd/198.html",
+    "publishedAt": "2026-10-16",
+    "summary": "从大众在华业务变化，阅读合资车企面对新能源转型时的产品与组织选择。",
+    "checkedAt": "2026-10-19"
+  },
+  {
+    "publication": "blogweekly",
+    "title": "“不烧心”的红果，开始烧内娱的心了",
+    "url": "https://boyamedia.com/sys-nd/197.html",
+    "publishedAt": "2026-10-15",
+    "summary": "围绕红果短剧的内容生态，了解 AI 制作、分发渠道与商业竞争的关联。",
+    "checkedAt": "2026-10-19",
+    "featuredReason": "把AI制作、内容分发与商业竞争联系起来，观察内容产业的变化。",
+    "featuredPriority": 38
+  },
+  {
+    "publication": "blogweekly",
+    "title": "从大众点评到“小众点评”，真实口碑逃得过生意吗？",
+    "url": "https://boyamedia.com/sys-nd/194.html",
+    "publishedAt": "2026-10-13",
+    "summary": "从寻找餐厅的日常经验，追问口碑平台商业化后真实评价如何保留价值。",
+    "checkedAt": "2026-10-19",
+    "featuredReason": "从寻找餐厅的日常经验，追问口碑平台商业化后怎样保留真实评价。",
+    "featuredPriority": 48
+  },
+  {
+    "publication": "globalpeople",
+    "title": "一场“思享者的盛宴”",
+    "url": "https://www.globalpeople.com.cn/n4/2026/1017/c306726-21655863.html",
+    "publishedAt": "2026-10-17",
+    "summary": "从年度盛典的对话现场，了解科技产业与文化实践如何相互启发。",
+    "checkedAt": "2026-10-19"
+  },
+  {
+    "publication": "globalpeople",
+    "title": "专访耶鲁教授马松：中国AI产业 不做“鲨鱼”做“鲇鱼”",
+    "url": "https://www.globalpeople.com.cn/n4/2026/1012/c305917-21655680.html",
+    "publishedAt": "2026-10-12",
+    "summary": "沿着金融学者的访谈，思考开源 AI、产业竞争与知识普惠之间的关系。",
+    "checkedAt": "2026-10-19",
+    "featuredReason": "沿着访谈观察开源AI、产业竞争与知识普惠的关系，留意不同立场的论据。",
+    "featuredPriority": 39
+  },
+  {
+    "publication": "globalpeople",
+    "title": "被寻找120 年，一位普通华工改写美国汉学历史",
+    "url": "https://www.globalpeople.com.cn/n4/2026/0929/c306717-21655284.html",
+    "publishedAt": "2026-09-25",
+    "summary": "从华工丁龙身世的考证线索，回看一段跨越太平洋的教育与文化交流往事。",
+    "checkedAt": "2026-10-19"
+  },
+  {
+    "publication": "neweekly",
+    "title": "十年铸一剑，15000名跑者竹海共赴凯乐石莫干山跑山赛",
+    "url": "https://neweekly.com.cn/article/shp1293435313",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：区分赛事报道、参与人数口径与品牌传播内容，关注赛道补给和安全保障的实际信息；不把宣传描述当成报名适配建议。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "A3人士如何放肆吃沙县？网友捧红的大理论没人当真",
+    "url": "https://neweekly.com.cn/article/shp0866335175",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：先弄清网络标签在何种语境下流行，再看它如何把消费选择变成身份叙事；不要由流行梗推断真实社会分层。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "杜甫、刘邦和孙悟空的rap刷屏，唱哭全网年轻人",
+    "url": "https://neweekly.com.cn/article/shp1102878573",
+    "publishedAt": "2026-10-25",
+    "summary": "按题目选读：关注历史或文学人物如何被改写进当代音乐，区分作品表达、传播数据与受访观众感受；标题中的全网并非代表性调查。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "熬夜成瘾的年轻人，花大价钱吃中药零食养生",
+    "url": "https://neweekly.com.cn/article/shp0978480935",
+    "publishedAt": "2026-10-25",
+    "summary": "按题目选读：把消费现象、产品成分和疗效证据分开看，核对报道是否提供研究或监管依据；不能把零食营销当成改善睡眠的医学建议。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "开到县城的奥乐齐，迎来了比上海人更懂它的顾客",
+    "url": "https://neweekly.com.cn/article/shp1602690024",
+    "publishedAt": "2026-10-24",
+    "summary": "按题目选读：折扣零售到了县城，价格、选品和购物习惯怎样重新匹配？",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "最有“素人感”的女演员，其实不想被归类",
+    "url": "https://neweekly.com.cn/article/shp1312412293",
+    "publishedAt": "2026-10-24",
+    "summary": "按题目选读：“素人感”是谁赋予的标签？看看演员怎样描述自己的工作和表达选择。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "逗笑过全国观众的人，想换一种演法丨专访乔杉",
+    "url": "https://neweekly.com.cn/article/shp1780873465",
+    "publishedAt": "2026-10-23",
+    "summary": "按题目选读：喜剧演员想改变演法时，既有角色期待会带来什么限制？可留意作品选择与创作者自我叙述的张力。",
+    "checkedAt": "2026-10-25"
+  },
+  {
+    "publication": "neweekly",
+    "title": "打砸商店、烧毁百年建筑，法国为何失控？",
+    "url": "https://neweekly.com.cn/article/shp1237866856",
+    "publishedAt": "2026-10-23",
+    "summary": "按题目选读：法国冲突的直接触发与长期背景分别是什么？核对时间线和不同来源。",
+    "checkedAt": "2026-10-25"
+  },
+  {
+    "publication": "neweekly",
+    "title": "被卖进电诈园区的“王星们”，永远还不清身上的“贷款” | 专访何袜皮",
+    "url": "https://neweekly.com.cn/article/shp0359582955",
+    "publishedAt": "2026-10-23",
+    "summary": "按题目选读：关注受害者被债务控制的机制、采访证据和脱离后的支持，不把个案经历泛化。",
+    "checkedAt": "2026-10-25"
+  },
+  {
+    "publication": "neweekly",
+    "title": "13岁“老赖之女”出道，追不追K-POP的人都炸了",
+    "url": "https://neweekly.com.cn/article/shp1850724027",
+    "publishedAt": "2026-10-22",
+    "summary": "把未成年艺人的职业机会、家庭债务争议与网络标签分开看，思考公众人物评价中责任应如何划分。",
+    "checkedAt": "2026-10-24"
+  },
+  {
+    "publication": "neweekly",
+    "title": "中国最快高铁要更新了，普通人最操心的不光是票价",
+    "url": "https://neweekly.com.cn/article/shp0942861611",
+    "publishedAt": "2026-10-22",
+    "summary": "按题目选读：更快高铁除票价外还会改变哪些出行环节？把速度指标与班次、接驳、舒适度及实际旅程放在一起看。",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "neweekly",
+    "title": "烧脑不烧心，这些短剧留住了谁",
+    "url": "https://neweekly.com.cn/article/shp1053259513",
+    "publishedAt": "2026-10-21",
+    "summary": "从叙事节奏与观众需求理解短剧的吸引力，比较推理解谜和情绪投入怎样共同影响留存。",
+    "checkedAt": "2026-10-24"
+  },
+  {
+    "publication": "neweekly",
+    "title": "花30块买欧洲防盗套装的年轻人，真让小偷没招了？",
+    "url": "https://neweekly.com.cn/article/shp1088048878",
+    "publishedAt": "2026-10-21",
+    "summary": "把防盗商品的安全感与实际防护能力分开比较，留意报道中的使用场景能否支撑营销承诺。",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "neweekly",
+    "title": "“性感巨头”，也开始当过日子人了",
+    "url": "https://neweekly.com.cn/article/shp0525432293",
+    "publishedAt": "2026-10-21",
+    "summary": "观察品牌怎样调整性感叙事与日常消费定位，区分传播口号、产品变化和经营表现。",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "neweekly",
+    "title": "00后北漂患上“扔垃圾羞耻”：每个纸箱子都被邻居疯抢",
+    "url": "https://neweekly.com.cn/article/shp0398202510",
+    "publishedAt": "2026-10-20",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "neweekly",
+    "title": "50元一斤的“人类猫条”，年轻人不愿啃了",
+    "url": "https://neweekly.com.cn/article/shp1667864789",
+    "publishedAt": "2026-10-20",
+    "summary": "",
+    "checkedAt": "2026-10-22"
+  },
+  {
+    "publication": "neweekly",
+    "title": "近期最火的8.3分港剧，不靠抓马和算计",
+    "url": "https://neweekly.com.cn/article/shp0982504162",
+    "publishedAt": "2026-10-19",
+    "summary": "",
+    "checkedAt": "2026-10-22"
+  },
+  {
+    "publication": "neweekly",
+    "title": "如果有人打破我的纪录，我会再破回来｜专访越野跑者赵家驹",
+    "url": "https://neweekly.com.cn/article/shp0738912692",
+    "publishedAt": "2026-10-19",
+    "summary": "",
+    "checkedAt": "2026-10-21"
+  },
+  {
+    "publication": "neweekly",
+    "title": "时隔23年又翻红的《大长今》，到底往剧里放了什么？",
+    "url": "https://neweekly.com.cn/article/shp1559356774",
+    "publishedAt": "2026-10-18",
+    "summary": "",
+    "checkedAt": "2026-10-21"
+  },
+  {
+    "publication": "neweekly",
+    "title": "被封杀的“大结果之母”，靠AI卷土重来赚了三百万",
+    "url": "https://neweekly.com.cn/article/shp0073460960",
+    "publishedAt": "2026-10-18",
+    "summary": "",
+    "checkedAt": "2026-10-21"
+  },
+  {
+    "publication": "neweekly",
+    "title": "北上广深杭最拉胯的dating，在大厂园区排队打饭",
+    "url": "https://neweekly.com.cn/article/shp1036864549",
+    "publishedAt": "2026-10-17",
+    "summary": "",
+    "checkedAt": "2026-10-19"
+  },
+  {
+    "publication": "neweekly",
+    "title": "创业者骊沣：去非洲卖菜，看见另一种可能",
+    "url": "https://neweekly.com.cn/article/shp1603517972",
+    "publishedAt": "2026-10-16",
+    "summary": "",
+    "checkedAt": "2026-10-19"
+  },
+  {
+    "publication": "neweekly",
+    "title": "冲上热搜的怀孕AI偶像，把全网都“耍了”",
+    "url": "https://neweekly.com.cn/article/shp1401557461",
+    "publishedAt": "2026-10-16",
+    "summary": "",
+    "checkedAt": "2026-10-19",
+    "featuredReason": "从虚拟人物与公众反应切入，观察AI内容、注意力和信任之间的关系。",
+    "featuredPriority": 53
+  },
+  {
+    "publication": "neweekly",
+    "title": "月入5000但没有KPI，景区npc真是年轻人理想工作？",
+    "url": "https://neweekly.com.cn/article/shp1219293684",
+    "publishedAt": "2026-10-16",
+    "summary": "",
+    "checkedAt": "2026-10-19",
+    "featuredReason": "从新职业观察就业选择和工作评价，带着真实工作条件的问题去读。",
+    "featuredPriority": 36
+  },
+  {
+    "publication": "neweekly",
+    "title": "有的环保主义者，只是在cosplay｜专访罗伯特·麦克法伦",
+    "url": "https://neweekly.com.cn/article/shp1934294882",
+    "publishedAt": "2026-09-15",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "在标准时代，做一个反思标准的人|专访艺术家高孝午",
+    "url": "https://neweekly.com.cn/article/shp0981957709",
+    "publishedAt": "2026-09-10",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "安妮宝贝到庆山的26年｜专访庆山",
+    "url": "https://neweekly.com.cn/article/shp1303778613",
+    "publishedAt": "2026-08-23",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "李现都沦陷了，观鸟为何让人如此“上头”？",
+    "url": "https://neweekly.com.cn/article/shp1975407750",
+    "publishedAt": "2026-08-22",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "陈丹青：AI这事儿，我根本没资格有意见",
+    "url": "https://neweekly.com.cn/article/shp0364599521",
+    "publishedAt": "2026-08-21",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "许知远：我们对具体经验的提问变少了",
+    "url": "https://neweekly.com.cn/article/shp0419494440",
+    "publishedAt": "2026-08-20",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "采访诺兰火遍外网后，她说自己随时准备退网 | 专访仲树",
+    "url": "https://neweekly.com.cn/article/shp0302116189",
+    "publishedAt": "2026-08-08",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "一夜爆红后潇洒“退圈”，30年前的顶流女星如今怎样了?",
+    "url": "https://neweekly.com.cn/article/shp0849948013",
+    "publishedAt": "2026-06-23",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "拍出《无名之辈》的他，成了“最佳演员”",
+    "url": "https://neweekly.com.cn/article/shp1568390836",
+    "publishedAt": "2026-06-05",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "王朔：我不是一个人，只不过室友不是人",
+    "url": "https://neweekly.com.cn/article/shp0482480332",
+    "publishedAt": "2026-04-24",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "一个70岁走红的女人，拒绝被浪漫化",
+    "url": "https://neweekly.com.cn/article/shp0971100706",
+    "publishedAt": "2026-03-26",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "10个消失在家谱里的女人，秘密终于被她拆开了",
+    "url": "https://neweekly.com.cn/article/shp0933852543",
+    "publishedAt": "2026-03-08",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "不会再有第二个侯孝贤，也不会再有第二个朱天文｜专访朱天文",
+    "url": "https://neweekly.com.cn/article/shp2077773423",
+    "publishedAt": "2026-01-18",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "屈雨瑜：用行动打破偏见，女性照样颠大勺 | 极限女性第二季第9期",
+    "url": "https://neweekly.com.cn/article/shp1985323427",
+    "publishedAt": "2025-11-28",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "中国父母的空心病，正在传给孩子丨专访梁鸿",
+    "url": "https://neweekly.com.cn/article/shp1871871995",
+    "publishedAt": "2025-11-07",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "专访舒淇：不会撒娇的女孩，从小就学着长大",
+    "url": "https://neweekly.com.cn/article/shp0621368846",
+    "publishedAt": "2025-11-03",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "真人秀结束一年，李行亮们还在被网暴",
+    "url": "https://neweekly.com.cn/article/shp0554301326",
+    "publishedAt": "2025-10-28",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "99.99%的普通人，不该从历史中消失｜专访王笛",
+    "url": "https://neweekly.com.cn/article/shp1871552011",
+    "publishedAt": "2025-10-16",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "她，不仅仅是“蔡磊的妻子” | 极限女性第二季第7期",
+    "url": "https://neweekly.com.cn/article/shp0186469144",
+    "publishedAt": "2025-09-23",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "房主任：我没有退路，所以才努力爬上岸 | 极限女性第二季第6期",
+    "url": "https://neweekly.com.cn/article/shp1962820666",
+    "publishedAt": "2025-08-26",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "龚琳娜：50岁，我开始真正的叛逆期 | 极限女性第二季第5期",
+    "url": "https://neweekly.com.cn/article/shp0750839517",
+    "publishedAt": "2025-07-22",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "马静芬：过去我叫褚马氏，现在我叫马静芬｜极限女性第二季第 4 期",
+    "url": "https://neweekly.com.cn/article/shp1020363549",
+    "publishedAt": "2025-05-26",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "颜怡颜悦：我们要写自己也会被“骂到”的东西｜极限女性第二季",
+    "url": "https://neweekly.com.cn/article/shp1265701687",
+    "publishedAt": "2025-02-18",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "张越：进入和离开个体生命，是让人生更丰富和宽广的过程｜极限女性第二季",
+    "url": "https://neweekly.com.cn/article/shp2063280335",
+    "publishedAt": "2025-01-21",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "neweekly",
+    "title": "“在我追求的极致中，不能有任何灰度”｜极限女性第八期",
+    "url": "https://neweekly.com.cn/article/shp0655033518",
+    "publishedAt": "2024-12-31",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Snakes that cartwheel, vultures that groan, a mysterious Martian moon, and more",
+    "url": "https://www.scientificamerican.com/podcast/episode/snakes-that-cartwheel-vultures-that-groan-a-mysterious-martian-moon-and-more/",
+    "publishedAt": "2026-10-26",
+    "summary": "按题目选读：这是一组跨主题科学播客，可按动物行为或行星科学选择片段，再沿每项原始研究找方法与证据；趣闻标题不替代研究结论。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Why partisan politics may be changing people's accents",
+    "url": "https://www.scientificamerican.com/article/why-partisan-politics-may-be-changing-peoples-accents/",
+    "publishedAt": "2026-10-25",
+    "summary": "按题目选读：留意语言变化怎样测量、政治认同如何定义，以及地区和社交环境等替代解释；标题中的may提示仍需区分关联与因果。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Meet the original 'Ghost Busters'—the 17th century scientists who investigated hauntings",
+    "url": "https://www.scientificamerican.com/article/meet-the-original-ghost-busters-the-17th-century-scientists-who-investigated-hauntings/",
+    "publishedAt": "2026-10-24",
+    "summary": "按题目选读：十七世纪研究者怎样调查所谓闹鬼？可从观察记录和替代解释学习证据方法。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "NASA lays out a packed 14-day schedule for 2027’s Artemis III moon mission",
+    "url": "https://www.scientificamerican.com/article/nasa-lays-out-a-packed-14-day-schedule-for-2027s-artemis-iii-moon-mission/",
+    "publishedAt": "2026-10-23",
+    "summary": "按题目选读：十四天登月任务有哪些关键节点和约束？规划中的安排不等于任务已经完成。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Warhound wants to engineer and clone military superdogs—can they do it?",
+    "url": "https://www.scientificamerican.com/article/warhound-wants-to-engineer-and-clone-military-super-dogs-can-they-do-it/",
+    "publishedAt": "2026-10-23",
+    "summary": "按题目选读：工程化与克隆军用犬的设想需要哪些技术及伦理验证？区分公司计划和实测能力。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Strange triangular craft reported in new U.S. government UFO release",
+    "url": "https://www.scientificamerican.com/article/strange-triangular-craft-reported-in-new-u-s-government-ufo-release/",
+    "publishedAt": "2026-10-23",
+    "summary": "按题目选读：先查UFO材料的记录方式与可用数据；形状描述不能直接证明物体来源。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "The Trump administration is considering a ‘heat ray’ weapon for the border—here’s what to know",
+    "url": "https://www.scientificamerican.com/article/the-trump-administration-is-considering-a-heat-ray-weapon-for-the-border-heres-what-to-know/",
+    "publishedAt": "2026-10-23",
+    "summary": "按题目选读：热射线装置的工作原理、适用条件和风险证据是什么？区分拟议用途与实际部署。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "How exposing yourself to your fears can tame your anxiety",
+    "url": "https://www.scientificamerican.com/article/how-exposing-yourself-to-your-fears-can-tame-your-anxiety/",
+    "publishedAt": "2026-10-23",
+    "summary": "按题目选读：暴露于恐惧刺激怎样与焦虑干预联系？留意研究对象，不能把阅读当治疗建议。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Japan’s MMX mission will reveal the origins of weird Martian moons",
+    "url": "https://www.scientificamerican.com/article/japans-mmx-mission-will-reveal-the-origins-of-weird-martian-moons/",
+    "publishedAt": "2026-10-23",
+    "summary": "按题目选读：火星卫星起源有哪些竞争假说？看看MMX计划中的测量如何区分它们。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "How the brain handles uncertainty, and why resilience matters",
+    "url": "https://www.scientificamerican.com/podcast/episode/how-the-brain-handles-uncertainty-and-why-resilience-matters/",
+    "publishedAt": "2026-10-23",
+    "summary": "按题目选读：大脑处理不确定性的证据来自哪些任务？区分机制解释和日常韧性建议。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "RFK Jr. promised to define ‘ultraprocessed’ food. What's taking so long?",
+    "url": "https://www.scientificamerican.com/article/rfk-jr-promised-to-define-ultraprocessed-food-whats-taking-so-long/",
+    "publishedAt": "2026-10-23",
+    "summary": "按题目选读：“超加工”定义涉及哪些分类标准与政策争议？留意研究概念和监管口径的区别。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Here’s what the new Merck-Moderna mRNA cancer vaccine data actually show",
+    "url": "https://www.scientificamerican.com/article/heres-what-modernas-latest-mrna-cancer-vaccine-data-actually-show/",
+    "publishedAt": "2026-10-22",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "RFK, Jr., adviser Calley Means announces his resignation from the Trump administration",
+    "url": "https://www.scientificamerican.com/article/rfk-jr-adviser-calley-means-announces-his-resignation-from-the-trump-administration/",
+    "publishedAt": "2026-10-22",
+    "summary": "按题目选读：卫生政策顾问离任的背景与职权范围是什么？把人事消息、公开表态和已经实施的政策区分开。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "This implant burns up excess blood sugar with electricity",
+    "url": "https://www.scientificamerican.com/article/this-implant-burns-up-excess-blood-sugar-with-electricity/",
+    "publishedAt": "2026-10-22",
+    "summary": "从官方导语选读：装置已在小鼠中测试。可继续追问电极界面、供能与生物相容性怎样验证，并区分动物试验与人体应用。",
+    "checkedAt": "2026-10-26",
+    "featuredReason": "适合材料与电化学方向练习从器件概念走到验证层级：官方导语明确装置已在小鼠中测试，可带着电极界面、生物相容性、能耗和作用机制的问题继续读。",
+    "featuredPriority": 1
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Data centers are a target of modern warfare. How do we secure the infrastructure that runs our digital lives?",
+    "url": "https://www.scientificamerican.com/article/data-centers-are-a-target-of-modern-warfare-how-do-we-secure-the-infrastructure-that-runs-our-digital-lives/",
+    "publishedAt": "2026-10-22",
+    "summary": "按题目选读：数据中心遭受攻击会影响哪些依赖服务？从供电、通信与冗余设计看基础设施安全，避免只关注机房本身。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "The inside story behind OpenAI’s million-dollar math proof",
+    "url": "https://www.scientificamerican.com/article/the-inside-story-behind-openais-million-dollar-math-proof/",
+    "publishedAt": "2026-10-22",
+    "summary": "按题目选读：一项奖金级数学证明怎样经过发现、验证与署名？阅读时追问机器输出、人类理解和独立核验各承担什么。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Astronomers unlock a mystery hidden in van Gogh’s The Starry Night",
+    "url": "https://www.scientificamerican.com/article/astronomers-unlock-a-mystery-hidden-in-van-goghs-the-starry-night/",
+    "publishedAt": "2026-10-22",
+    "summary": "按题目选读：如何从画作推断天文现象？可检查创作时间、天空模型和其他史料能否形成相互约束的证据。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "New superconducting chip aims to help tame fusion plasma",
+    "url": "https://www.scientificamerican.com/article/new-superconducting-chip-aims-to-help-tame-fusion-plasma/",
+    "publishedAt": "2026-10-22",
+    "summary": "从官方导语选读：研究者把聚变数据输入芯片，尝试识别等离子体失稳信号。可比较离线预测任务与真正闭环控制各需哪些证据。",
+    "checkedAt": "2026-10-26",
+    "featuredReason": "把超导器件、数据分析与聚变能源放在同一案例里读：官方导语聚焦从聚变数据辨识等离子体失稳征兆，可练习区分预测任务、验证集表现与实际闭环控制。",
+    "featuredPriority": 2
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Ancient Egypt’s first female king revealed by long-lost royal seals",
+    "url": "https://www.scientificamerican.com/article/ancient-egypts-first-female-king-revealed-by-long-lost-royal-seals/",
+    "publishedAt": "2026-10-22",
+    "summary": "按题目选读：王室印章怎样支持古代统治者身份的推断？关注出处、年代测定与其他文献是否一致。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "National Science Foundation leader Brian Stone to retire with no clear replacement in sight",
+    "url": "https://www.scientificamerican.com/article/national-science-foundation-leader-brian-stone-to-retire-with-no-clear-replacement-in-sight/",
+    "publishedAt": "2026-10-21",
+    "summary": "把科研机构负责人更替放进资助治理中阅读，关注继任安排不明会给项目连续性带来哪些不确定性。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Super Typhoon Champi sets the record for strongest storm of 2026",
+    "url": "https://www.scientificamerican.com/article/super-typhoon-champi-sets-the-record-for-strongest-storm-of-2026/",
+    "publishedAt": "2026-10-21",
+    "summary": "先弄清最强风暴采用的风速或气压指标及观测时点，再比较纪录表述与实际灾害风险。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Report pinpoints future exploration sites on the moon",
+    "url": "https://www.scientificamerican.com/article/report-pinpoints-future-exploration-sites-on-the-moon/",
+    "publishedAt": "2026-10-21",
+    "summary": "从月球候选探索地点的选择标准切入，比较科学价值、工程可达性与任务资源如何相互制约。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Physicists trap a single antimatter particle for a month",
+    "url": "https://www.scientificamerican.com/article/physicists-trap-a-single-antimatter-particle-for-a-month/",
+    "publishedAt": "2026-10-21",
+    "summary": "把反物质粒子的长时间囚禁看作精密测量条件的进展，留意储存时长本身与物理新发现之间的区别。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "A Wall Is Also a Road explores alien consciousness, slime mold life-forms and Pompeii",
+    "url": "https://www.scientificamerican.com/podcast/episode/a-wall-is-also-a-road-explores-alien-consciousness-slime-mold-life-forms-and-pompeii/",
+    "publishedAt": "2026-10-21",
+    "summary": "循着播客中的科幻与历史话题，比较外星意识和非人生命的想象怎样拓宽我们对智能的定义。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Republican congressional candidate Tom Stalcup on how both parties abuse science for political gain",
+    "url": "https://www.scientificamerican.com/article/republican-congressional-candidate-tom-stalcup-on-how-both-parties-abuse-science-for-political-gain/",
+    "publishedAt": "2026-10-21",
+    "summary": "将候选人的个人立场与可核实的政策记录分开，观察科学证据怎样在不同党派的表达中被选择性使用。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "See the Orionids meteor shower at its peak this week",
+    "url": "https://www.scientificamerican.com/article/see-the-orionids-meteor-shower-at-its-peak-this-week/",
+    "publishedAt": "2026-10-20",
+    "summary": "阅读猎户座流星雨的观测窗口与天空条件时，先核对文章日期和所在地，避免把本周提示长期当作即时预报。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Christina Applegate says she was misdiagnosed with MS—how could that happen?",
+    "url": "https://www.scientificamerican.com/article/christina-applegate-says-she-was-misdiagnosed-with-ms-how-could-that-happen/",
+    "publishedAt": "2026-10-20",
+    "summary": "以误诊报道为线索，留意诊断依据、相似疾病与复核证据的区别，不能从名人个案推断任何人的诊断。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "The mathematical impossibility of making a perfect world map",
+    "url": "https://www.scientificamerican.com/article/the-mathematical-impossibility-of-making-a-perfect-world-map/",
+    "publishedAt": "2026-10-20",
+    "summary": "带着“面积、角度与距离能否同时保真”这个问题阅读，看看地图选择怎样影响我们对世界的直觉。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Scientists left in the dark by National Science Foundation grant application delays",
+    "url": "https://www.scientificamerican.com/article/scientists-left-in-the-dark-by-national-science-foundation-grant-application-delays/",
+    "publishedAt": "2026-10-20",
+    "summary": "从科研资助申请的等待成本入手，带着“审批的不确定性怎样影响项目排期与职业选择”这个问题阅读。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Green stars do exist—and others shine pink or purple, too",
+    "url": "https://www.scientificamerican.com/article/green-stars-do-exist-and-others-shine-pink-or-purple-too/",
+    "publishedAt": "2026-10-20",
+    "summary": "把恒星发出的光与观察者看到的颜色分开，留意光谱、观测条件和视觉感受各有什么作用。",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "The Selfish Gene at 50",
+    "url": "https://www.scientificamerican.com/article/the-selfish-gene-at-50/",
+    "publishedAt": "2026-10-20",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Math Puzzle: Baby bottle mix-up",
+    "url": "https://www.scientificamerican.com/article/math-puzzle-baby-bottles/",
+    "publishedAt": "2026-10-20",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "The provocative new theory that could explain aging and disease",
+    "url": "https://www.scientificamerican.com/article/the-provocative-new-theory-that-could-explain-aging-and-disease/",
+    "publishedAt": "2026-10-20",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Inside the bold, quixotic quest to store planet-warming carbon in the ocean",
+    "url": "https://www.scientificamerican.com/article/inside-the-bold-quixotic-quest-to-store-planet-warming-carbon-in-the-ocean/",
+    "publishedAt": "2026-10-20",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "We’re addicted to social media. How do we get sober?",
+    "url": "https://www.scientificamerican.com/article/were-addicted-to-social-media-how-do-we-get-sober/",
+    "publishedAt": "2026-10-20",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Our love-hate relationship with social media",
+    "url": "https://www.scientificamerican.com/article/our-love-hate-relationship-with-social-media/",
+    "publishedAt": "2026-10-20",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "How a fusion start-up could help maintain the U.S. nuclear arsenal",
+    "url": "https://www.scientificamerican.com/article/how-a-fusion-start-up-could-help-maintain-the-u-s-nuclear-arsenal/",
+    "publishedAt": "2026-10-20",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Why data centers are reviving solid-state transformers",
+    "url": "https://www.scientificamerican.com/article/why-data-centers-are-reviving-solid-state-transformers/",
+    "publishedAt": "2026-10-20",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "How your brain learns to cope with uncertainty",
+    "url": "https://www.scientificamerican.com/article/how-your-brain-learns-to-cope-with-uncertainty/",
+    "publishedAt": "2026-10-20",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "November 2026: Science history from 50, 100 and 150 years ago",
+    "url": "https://www.scientificamerican.com/article/november-2026-science-history-from-50-100-and-150-years-ago/",
+    "publishedAt": "2026-10-20",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Poem: ‘Life in Bilateral Wonder’",
+    "url": "https://www.scientificamerican.com/article/poem-life-in-bilateral-wonder/",
+    "publishedAt": "2026-10-20",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "A graphic explainer of uranium enrichment",
+    "url": "https://www.scientificamerican.com/article/a-graphic-explainer-of-uranium-enrichment/",
+    "publishedAt": "2026-10-20",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "These extreme cosmic explosions are breaking physics",
+    "url": "https://www.scientificamerican.com/article/these-extreme-cosmic-explosions-are-breaking-physics/",
+    "publishedAt": "2026-10-20",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Science crossword: Scroll bars",
+    "url": "https://www.scientificamerican.com/article/science-crossword-scroll-bars/",
+    "publishedAt": "2026-10-20",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "What actually makes ultraprocessed foods unhealthy?",
+    "url": "https://www.scientificamerican.com/article/what-actually-makes-ultraprocessed-foods-unhealthy/",
+    "publishedAt": "2026-10-20",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Readers respond to the June 2026 issue",
+    "url": "https://www.scientificamerican.com/article/readers-respond-to-the-june-2026-issue/",
+    "publishedAt": "2026-10-20",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Why we probably live in a quantum multiverse",
+    "url": "https://www.scientificamerican.com/article/why-we-probably-live-in-a-quantum-multiverse/",
+    "publishedAt": "2026-10-20",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Can AI predict whether you’ll die from cancer from just an image of your face?",
+    "url": "https://www.scientificamerican.com/article/can-ai-predict-whether-youll-die-from-cancer-from-just-an-image-of-your-face/",
+    "publishedAt": "2026-10-19",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Japan launches a probe to collect rocks from Mars’s moon Phobos",
+    "url": "https://www.scientificamerican.com/article/japans-mission-to-collect-rocks-from-mars-moon-phobos-achieves-liftoff/",
+    "publishedAt": "2026-10-19",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Alarm grows over Russian satellite’s provocative approach to U.S.-owned satellite",
+    "url": "https://www.scientificamerican.com/article/alarm-grows-over-russian-satellites-provocative-approach-to-u-s-owned-satellite/",
+    "publishedAt": "2026-10-19",
+    "summary": "",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "How what we see and hear feed together to help us understand emotions",
+    "url": "https://www.scientificamerican.com/article/how-what-we-see-and-hear-feed-together-to-help-us-understand-emotions/",
+    "publishedAt": "2026-10-19",
+    "summary": "",
+    "checkedAt": "2026-10-25"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "The first mission to sample Mars’s moons launches today",
+    "url": "https://www.scientificamerican.com/article/the-first-mission-to-sample-marss-moons-launches-today/",
+    "publishedAt": "2026-10-19",
+    "summary": "",
+    "checkedAt": "2026-10-25"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Biohackers say this supplement lets you drink coffee at night. No one knows if it’s safe",
+    "url": "https://www.scientificamerican.com/article/biohackers-say-this-supplement-lets-you-drink-coffee-at-night-no-one-knows-if-its-safe/",
+    "publishedAt": "2026-10-19",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "The mechanics of honeybee stingers, microplastic health risks and new findings on postmenopausal ovaries",
+    "url": "https://www.scientificamerican.com/podcast/episode/the-mechanics-of-honeybee-stingers-microplastic-health-risks-and-new-findings-on-postmenopausal-ovaries/",
+    "publishedAt": "2026-10-19",
+    "summary": "",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "title": "Plants move to get away from their decaying brethren",
+    "url": "https://www.scientificamerican.com/article/plants-move-to-get-away-from-their-decaying-brethren/",
+    "publishedAt": "2026-10-17",
+    "summary": "",
+    "publication": "scientificamerican",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "title": "Here’s what scientists think about Theranos a decade after it imploded",
+    "url": "https://www.scientificamerican.com/article/heres-what-scientists-think-about-theranos-a-decade-after-it-imploded/",
+    "publishedAt": "2026-10-16",
+    "summary": "",
+    "publication": "scientificamerican",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "title": "Everything you need to know about flu season 2026",
+    "url": "https://www.scientificamerican.com/article/everything-you-need-to-know-about-flu-season-2026/",
+    "publishedAt": "2026-10-16",
+    "summary": "",
+    "publication": "scientificamerican",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "title": "5 ways to make Halloween decorations friendlier to wildlife",
+    "url": "https://www.scientificamerican.com/article/5-ways-to-make-halloween-decorations-friendlier-to-wildlife/",
+    "publishedAt": "2026-10-16",
+    "summary": "",
+    "publication": "scientificamerican",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "title": "How many planets could fit in the solar system?",
+    "url": "https://www.scientificamerican.com/article/how-many-planets-could-fit-in-the-solar-system/",
+    "publishedAt": "2026-10-16",
+    "summary": "",
+    "publication": "scientificamerican",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "title": "Are you addicted to your phone? What scientists say about screen time and social media",
+    "url": "https://www.scientificamerican.com/podcast/episode/are-you-addicted-to-your-phone-what-scientists-say-about-screen-time-and-social-media/",
+    "publishedAt": "2026-10-16",
+    "summary": "",
+    "publication": "scientificamerican",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "title": "Google’s quantum Willow chip may be able to grow ‘magic states’",
+    "url": "https://www.scientificamerican.com/article/googles-quantum-willow-chip-may-be-able-to-grow-magic-states/",
+    "publishedAt": "2026-10-15",
+    "summary": "",
+    "publication": "scientificamerican",
+    "checkedAt": "2026-10-23"
+  },
+  {
+    "title": "Scientists discover an ancient shipwreck dating to when the Great Pyramid was built",
+    "url": "https://www.scientificamerican.com/article/scientists-discover-an-ancient-shipwreck-dating-to-when-the-great-pyramid-was-built/",
+    "publishedAt": "2026-10-15",
+    "summary": "",
+    "publication": "scientificamerican",
+    "checkedAt": "2026-10-22"
+  },
+  {
+    "title": "Can AI break encryption? OpenAI’s new math has cryptographers divided",
+    "url": "https://www.scientificamerican.com/article/can-ai-break-encryption-openai-new-math-has-cryptographers-divided/",
+    "publishedAt": "2026-10-15",
+    "summary": "",
+    "publication": "scientificamerican",
+    "checkedAt": "2026-10-22",
+    "featuredReason": "把AI能力讨论放进密码学场景，留意不同判断使用了什么证据。",
+    "featuredPriority": 49
+  },
+  {
+    "title": "Scientists vote to end leap seconds, redefining how the world keeps time",
+    "url": "https://www.scientificamerican.com/article/scientists-vote-to-end-leap-seconds-redefining-how-the-world-keeps-time/",
+    "publishedAt": "2026-10-15",
+    "summary": "",
+    "publication": "scientificamerican",
+    "checkedAt": "2026-10-22"
+  },
+  {
+    "title": "What would it take to terraform Mars? Erika DeBenedictis has ideas",
+    "url": "https://www.scientificamerican.com/article/what-would-it-take-to-terraform-mars-erika-debenedictis-has-ideas/",
+    "publishedAt": "2026-10-15",
+    "summary": "",
+    "publication": "scientificamerican",
+    "checkedAt": "2026-10-22"
+  },
+  {
+    "title": "Anthropic’s AI worm research raises new fears about smart device security",
+    "url": "https://www.scientificamerican.com/article/anthropics-ai-worm-research-raises-new-fears-about-smart-device-security/",
+    "publishedAt": "2026-10-15",
+    "summary": "",
+    "publication": "scientificamerican",
+    "checkedAt": "2026-10-22"
+  },
+  {
+    "title": "Honeybees deemphasize potential ‘misinformation’ in their waggle dances",
+    "url": "https://www.scientificamerican.com/article/honeybees-deemphasize-potential-misinformation-in-their-waggle-dances/",
+    "publishedAt": "2026-10-15",
+    "summary": "",
+    "publication": "scientificamerican",
+    "checkedAt": "2026-10-22"
+  },
+  {
+    "title": "New ‘First Proof’ exam reveals how AI-powered math is a pay-to-play sport",
+    "url": "https://www.scientificamerican.com/article/new-first-proof-exam-reveals-how-ai-powered-math-is-a-pay-for-play-sport/",
+    "publishedAt": "2026-10-14",
+    "summary": "",
+    "publication": "scientificamerican",
+    "checkedAt": "2026-10-22",
+    "featuredReason": "从评测条件与使用门槛切入，留意模型能力比较是否建立在相同条件上。",
+    "featuredPriority": 29
+  },
+  {
+    "title": "NIH appears to shut down public comments on science peer-review rule change ahead of schedule",
+    "url": "https://www.scientificamerican.com/article/nih-appears-to-shut-down-public-comments-on-science-peer-review-rule-change-ahead-of-schedule/",
+    "publishedAt": "2026-10-14",
+    "summary": "",
+    "publication": "scientificamerican",
+    "checkedAt": "2026-10-22"
+  },
+  {
+    "title": "Microplastics are linked to inflammation—scientists might have finally worked out why",
+    "url": "https://www.scientificamerican.com/article/microplastics-are-linked-to-inflammation-scientists-might-have-finally-worked-out-why/",
+    "publishedAt": "2026-10-14",
+    "summary": "",
+    "publication": "scientificamerican",
+    "checkedAt": "2026-10-21"
+  },
+  {
+    "title": "Stunning video reveals the year-round dance of the sun’s corona",
+    "url": "https://www.scientificamerican.com/article/stunning-video-reveals-the-year-round-dance-of-the-suns-corona/",
+    "publishedAt": "2026-10-14",
+    "summary": "",
+    "publication": "scientificamerican",
+    "checkedAt": "2026-10-21"
+  },
+  {
+    "title": "How a year of extreme weather and a ‘Super El Niño’ will affect fall foliage",
+    "url": "https://www.scientificamerican.com/article/how-a-year-of-extreme-weather-and-a-super-el-nino-will-affect-fall-foliage/",
+    "publishedAt": "2026-10-14",
+    "summary": "",
+    "publication": "scientificamerican",
+    "checkedAt": "2026-10-21"
+  },
+  {
+    "title": "An ancient Chinese math puzzle shows how to win at cards, horse races and gerrymandering",
+    "url": "https://www.scientificamerican.com/article/an-ancient-chinese-math-puzzle-shows-how-to-win-at-cards-horse-races-and-gerrymandering/",
+    "publishedAt": "2026-10-14",
+    "summary": "",
+    "publication": "scientificamerican",
+    "checkedAt": "2026-10-21"
+  },
+  {
+    "title": "Climate scientists issue a sobering diagnosis about Earth's 'vital signs'",
+    "url": "https://www.scientificamerican.com/article/climate-scientists-issue-a-sobering-diagnosis-about-earths-vital-signs/",
+    "publishedAt": "2026-10-14",
+    "summary": "",
+    "publication": "scientificamerican",
+    "checkedAt": "2026-10-21"
+  },
+  {
+    "title": "Amateur astronomer harnesses AI to find a possible hidden exoplanet",
+    "url": "https://www.scientificamerican.com/article/amateur-astronomer-harnesses-ai-to-find-a-possible-hidden-exoplanet/",
+    "publishedAt": "2026-10-14",
+    "summary": "",
+    "publication": "scientificamerican",
+    "checkedAt": "2026-10-21"
+  },
+  {
+    "title": "Are Blue Zones real? One researcher finds the data deeply flawed",
+    "url": "https://www.scientificamerican.com/podcast/episode/are-blue-zones-real-one-researcher-finds-the-data-deeply-flawed/",
+    "publishedAt": "2026-10-14",
+    "summary": "",
+    "publication": "scientificamerican",
+    "checkedAt": "2026-10-21"
+  },
+  {
+    "title": "Claude just found a CRISPR-like DNA pattern, but even Anthropic's scientists aren't sure what it does",
+    "url": "https://www.scientificamerican.com/article/claude-just-found-a-crispr-like-dna-pattern-but-even-anthropics-scientists-arent-sure-what-it-does/",
+    "publishedAt": "2026-10-14",
+    "summary": "",
+    "publication": "scientificamerican",
+    "checkedAt": "2026-10-20"
+  },
+  {
+    "title": "Hurricane Isaias shows ‘it only takes one’ to wreak havoc after historically calm Atlantic hurricane season",
+    "url": "https://www.scientificamerican.com/article/hurricane-isaias-shows-it-only-takes-one-to-wreak-havoc-after-historically-calm-atlantic-hurricane-season/",
+    "publishedAt": "2026-10-13",
+    "summary": "",
+    "publication": "scientificamerican",
+    "checkedAt": "2026-10-20"
+  },
+  {
+    "title": "Latest Trump administration proposal to change NIH research grant system draws scientists’ ire",
+    "url": "https://www.scientificamerican.com/article/latest-trump-administration-proposal-to-change-nih-research-grant-system-draws-scientists-ire/",
+    "publishedAt": "2026-10-13",
+    "summary": "",
+    "publication": "scientificamerican",
+    "checkedAt": "2026-10-20"
+  },
+  {
+    "title": "The mathematical secret behind why rose petals curl",
+    "url": "https://www.scientificamerican.com/article/the-mathematical-secret-behind-why-rose-petals-curl/",
+    "publishedAt": "2026-10-13",
+    "summary": "",
+    "publication": "scientificamerican",
+    "checkedAt": "2026-10-20"
   }
 ];

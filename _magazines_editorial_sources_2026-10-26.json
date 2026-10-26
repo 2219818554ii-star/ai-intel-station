@@ -1,0 +1,81 @@
+{
+  "checkedAt": "2026-10-26",
+  "policy": "Independent editorial reading questions based on verified official title/URL/individual article dates. No full-text or experiment verification claimed.",
+  "articles": [
+    {
+      "publication": "caijing",
+      "title": "解锁西非超级铁矿",
+      "url": "https://magazine.caijing.com.cn/20261026/5189745.shtml",
+      "reason": "从材料产业链读资源、运输与成本：可把报道里的矿石指标和基础设施条件逐项列证据，再判断“储量”与“可稳定供应”之间还缺什么。",
+      "evidenceBoundary": "标题与单篇日期经《财经》官方文章页和期刊目录核实；推荐理由仅提出阅读问题，未核实全文中的储量、品位、成本或投产预测。",
+      "priority": 3,
+      "sourceEvidence": {
+        "source": "https://magazine.caijing.com.cn/",
+        "checkedAt": "2026-10-26",
+        "articleUrl": "https://magazine.caijing.com.cn/20261026/5189745.shtml",
+        "publishedAt": "2026-10-26",
+        "observation": "本次官方源标题、URL、单篇日期与_magazines_refresh.json逐条一致；选读角度来自本站作者，未冒称读取受限全文。"
+      }
+    },
+    {
+      "publication": "infzm",
+      "title": "电动汽车遍地开花，军队为何不大规模使用？丨军事",
+      "url": "https://www.infzm.com/contents/343251",
+      "reason": "适合储能方向练习按场景选技术：围绕能量密度、补能、温度与维修保障读文，避免用民用车体验直接外推特殊场景。",
+      "evidenceBoundary": "标题与单篇日期经南方周末官方接口核实；这里只提出应用场景比较问题，未确认全文的技术数据、军用采购情况或结论。",
+      "priority": 4,
+      "sourceEvidence": {
+        "source": "https://www.infzm.com/",
+        "checkedAt": "2026-10-26",
+        "articleUrl": "https://www.infzm.com/contents/343251",
+        "publishedAt": "2026-10-26",
+        "observation": "本次官方源标题、URL、单篇日期与_magazines_refresh.json逐条一致；选读角度来自本站作者，未冒称读取受限全文。"
+      }
+    },
+    {
+      "publication": "infzm",
+      "title": "闯过祸的AI，成为网络安全“吹哨人” | 科创要闻",
+      "url": "https://www.infzm.com/contents/343362",
+      "reason": "把AI安全新闻当成可靠性分析练习：寻找复核流程、误报率和人工权限边界，再问这些条件是否适用于自己的科研工具。",
+      "evidenceBoundary": "标题与单篇日期经南方周末官方接口核实；推荐基于题目提出验证问题，未声称系统已达到某种检测性能或可无人值守使用。",
+      "priority": 5,
+      "sourceEvidence": {
+        "source": "https://www.infzm.com/",
+        "checkedAt": "2026-10-26",
+        "articleUrl": "https://www.infzm.com/contents/343362",
+        "publishedAt": "2026-10-26",
+        "observation": "本次官方源标题、URL、单篇日期与_magazines_refresh.json逐条一致；选读角度来自本站作者，未冒称读取受限全文。"
+      }
+    },
+    {
+      "publication": "nature",
+      "title": "Are salaries getting worse? Many scientists think so",
+      "url": "https://www.nature.com/articles/d41586-026-03398-0",
+      "reason": "适合研究生把职业感受转成可比较的问题：关注地区、职位阶段、样本与生活成本，区分收入变化和对职业前景的感受。",
+      "evidenceBoundary": "只核对Nature官方RSS提供的原题与单篇日期；未审阅调查全文及样本方法，不将标题里的许多科学家外推为所有地区或用户本人。",
+      "priority": 6,
+      "sourceEvidence": {
+        "source": "https://www.nature.com/nature.rss",
+        "checkedAt": "2026-10-26",
+        "articleUrl": "https://www.nature.com/articles/d41586-026-03398-0",
+        "publishedAt": "2026-10-26",
+        "observation": "本次官方源标题、URL、单篇日期与_magazines_refresh.json逐条一致；选读角度来自本站作者，未冒称读取受限全文。"
+      }
+    },
+    {
+      "publication": "atlantic",
+      "title": "A Mathematician Reads the AI Future",
+      "url": "https://www.theatlantic.com/ideas/2026/10/ai-math-human-future/689133/",
+      "reason": "适合与站内AI数学报道对照阅读：分别记下已证明的结果、当前工具能力与作者的未来预测，训练判断论证跨度。",
+      "evidenceBoundary": "只核对The Atlantic官方RSS提供的标题和单篇日期；推荐为独立阅读角度，未把专栏观点视为数学定理或经过验证的AI预测。",
+      "priority": 7,
+      "sourceEvidence": {
+        "source": "https://www.theatlantic.com/feed/all/",
+        "checkedAt": "2026-10-26",
+        "articleUrl": "https://www.theatlantic.com/ideas/2026/10/ai-math-human-future/689133/",
+        "publishedAt": "2026-10-25",
+        "observation": "本次官方源标题、URL、单篇日期与_magazines_refresh.json逐条一致；选读角度来自本站作者，未冒称读取受限全文。"
+      }
+    }
+  ]
+}

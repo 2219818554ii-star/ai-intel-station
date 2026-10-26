@@ -3,6 +3,7 @@
 import os
 import json
 from _sync_research import validate as validate_research
+from _sync_research_details import validate_bundle as validate_research_details
 
 base = os.path.dirname(os.path.abspath(__file__))
 src = os.path.join(base, "index.src.html")      # 模块化源（可编辑）
@@ -19,6 +20,9 @@ out_gh     = os.path.join(base, "gh-pages", "index.html")
 out_local  = os.path.join(base, "ai_intel_station_standalone.html")
 
 html = open(src, encoding="utf-8").read()
+workspace_style = '<style id="workspace-style"></style>'
+assert workspace_style in html, 'workspace style marker missing'
+html = html.replace(workspace_style, '<style id="workspace-style">\n' + open(os.path.join(base, 'workspace.css'), encoding='utf-8').read() + '\n</style>', 1)
 data = open(js, encoding="utf-8").read()
 ted_data = open(ted, encoding="utf-8").read()
 
@@ -62,12 +66,22 @@ standalone = standalone.replace(magazines_marker, "<script>\n" + magazines_data 
 
 # 只允许已审核的六字段展示摘要；网页含回退副本，在线时另取最新JSON。
 research_data = validate_research(json.load(open(os.path.join(base, "research-data.json"), encoding="utf-8")))
+research_details = validate_research_details(json.load(open(os.path.join(base, "research-details.json"), encoding="utf-8")), research_data)
 research_snapshot = '<script id="research-data-snapshot"></script>'
 research_marker = '<script src="research.js"></script>'
 assert research_snapshot in standalone and research_marker in standalone, "research markers missing"
 research_json = json.dumps(research_data, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
-standalone = standalone.replace(research_snapshot, "<script>\nwindow.RESEARCH_SNAPSHOT=" + research_json + ";\n</script>", 1)
+details_json = json.dumps(research_details, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
+standalone = standalone.replace(research_snapshot, "<script>\nwindow.RESEARCH_SNAPSHOT=" + research_json + ";\nwindow.RESEARCH_DETAILS=" + details_json + ";\n</script>", 1)
 standalone = standalone.replace(research_marker, "<script>\n" + open(os.path.join(base,"research.js"), encoding="utf-8").read() + "\n</script>", 1)
+
+workspace_marker = '<script src="workspace.js"></script>'
+assert workspace_marker in standalone, 'workspace script marker missing'
+standalone = standalone.replace(workspace_marker, '<script>\n' + open(os.path.join(base, 'workspace.js'), encoding='utf-8').read() + '\n</script>', 1)
+
+cloud_marker = '<script src="cloud.js"></script>'
+assert cloud_marker in standalone, 'cloud script marker missing'
+standalone = standalone.replace(cloud_marker, '<script>\n' + open(os.path.join(base, 'cloud.js'), encoding='utf-8').read() + '\n</script>', 1)
 
 for p in (out_deploy, out_gh, out_local):
     os.makedirs(os.path.dirname(p), exist_ok=True)

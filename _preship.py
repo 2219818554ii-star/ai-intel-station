@@ -123,7 +123,8 @@ prod = readtxt(PROD)
 # ---------- [1] 产物是否过期 ----------
 print("[1] 产物新鲜度")
 src_files = ["index.src.html", "competitions.js", "matches.js", "ted.js", "forum.js",
-             "rank.js", "cqut.js", "funds.js", "magazines.js", "research.js", "research-data.json"]
+             "rank.js", "cqut.js", "funds.js", "magazines.js", "research.js", "research-data.json",
+             "research-details.json", "workspace.js", "workspace.css", "cloud.js"]
 pm = os.path.getmtime(os.path.join(BASE, PROD))
 fresh = []
 for f in src_files:
@@ -162,7 +163,10 @@ MUST_CONTAIN = [
     ("AI 上手 tab 文案", "📚"),
     ("TED 英语 tab 文案", "🎓"),
     ("成长讲坛 tab 文案", "🌱"),
-    ("期刊精选 tab 文案", "🗞 期刊精选"),
+    ("期刊阅读 tab 文案", 'data-tab="magazines">🗞 期刊阅读'),
+    ("今天工作台", 'id="view-home"'),
+    ("科研执行正文", 'window.RESEARCH_DETAILS='),
+    ("设备同步设置", 'id="cloud-settings"'),
     ("期刊阅读架", 'id="magazine-publishers"'),
     ("期刊文章列表", 'id="magazine-list"'),
     ("期刊关键词搜索", 'id="magazine-query"'),

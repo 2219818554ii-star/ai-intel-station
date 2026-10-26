@@ -1,0 +1,1356 @@
+{
+  "schemaVersion": 1,
+  "summaryRevision": "f2be25b4ea08e78a",
+  "sourceReleaseId": "86380836c1f21d31b4d1",
+  "sourceSyncedAt": "2026-10-22T14:43:07.995Z",
+  "contentDigest": "30ccba2cb25b7d2c7d7dcc56e97f0f1ebf2ff5dcb37ea495dbfc65e8cde28391",
+  "tasks": [
+    {
+      "id": "T001",
+      "title": "联系导师并落实职业学院到访、机时与样品运输接收安排",
+      "steps": "一次沟通中分两项落实：①接待联系人、到访日期与可用机时；②双方样品运输、接收和安全责任要求。未确认的具体条件记为待回复，不重复开两个协调任务。",
+      "acceptance": "联系人/到访日期/可用机时，以及运输接收要求的回复记录；明确已确认与待回复项。",
+      "progress": "用户计划10月22日上午找导师谈职业学院；截至当前只是计划，尚无确认访问日期、接待方、连续通道数及授权。\n2026-10-22更新：按用户意见，将T003并入本项，一次协调分两项落实，排到10月23日；仅合并任务，不假定导师已回复或运输已批准。",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T002",
+      "title": "整理并提交本次OCV文件、接线照片与仪器手册（资料归档）",
+      "steps": "原任务中的接线/软件模式核验由T013跟进，原机时间与电池—通道映射由T015跟进；尚未完成，不代表测试系统已放行。",
+      "acceptance": "本次7份OCV文件、8张接线照片与仪器手册的提交记录；提交完成与科学结论验收分开。",
+      "progress": "已拍DH7003面板/WE-SE-RE-CE-G标签与夹具照片；2026-10-21新RAR中7份TXT两两不同。仍缺原机采集时间戳、模式、线缆夹具导通和电池—通道映射核实。\n2026-10-21状态拆分：资料整理提交已完成。原任务“复核7份OCV在软件中的原始时间/通道/电池号；复核旧G04标记”中的剩余原机时间、接线/模式及映射复核移由T013/T015继续跟进；未改为验证通过。",
+      "prerequisite": "无（仅资料整理提交）",
+      "gate": "资料提交已完成；测试系统与数据溯源核验见T013/T015，尚未放行"
+    },
+    {
+      "id": "T003",
+      "title": "确认跨校封装电池的合规运输方式与接收管理",
+      "steps": "未完成运输审批不转运金属锂实验半电池",
+      "acceptance": "运输/接收审核结论",
+      "progress": "预计10月22日上午和导师先讨论运输/接收审批责任，随后再与两校安全责任人落实；没有批准不得自行转运含金属锂实验电池。\n2026-10-22用户明确要求：本项推迟至10月23日，保持未开始；仅更改排期，不视作审批已完成。\n2026-10-22更新：合并至T001；保留本编号与既有23日改期记录供追溯，不再独立排期或重复计时。",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T004",
+      "title": "盘点材料SA/PAA/Si/SBR/PVDF与电解液批次、剩余量及有效期",
+      "steps": "把身份不清或失效材料标为HOLD；建立缺料单",
+      "acceptance": "物料放行清单、照片",
+      "progress": "完整的全部库存盘点挪到10月28日，以给10月21日已装23颗的记录工作和10月24日G03卷曲诊断留机动时间；若24日做小试，涉及的SA/Si/集流体/溶剂等原料身份与有效期须在动手前即时核实，不等待28日。\n2026-10-22更新：用户明确反馈完成、没什么问题。本项按执行完成退出待办；实际完成日期/工时未提供，未补造日期或实验数据；不据此代替后续测试与论文证据验收。",
+      "prerequisite": "按SOP",
+      "gate": "实验前须核对SOP"
+    },
+    {
+      "id": "T005",
+      "title": "对照经审核的CR2032装配SOP逐项复核10月21日按“新方法”已装的23颗电池：壳体朝向、垫片弹片、密封圈、Si/Li接触关系与封装记录",
+      "steps": "装配已发生不代表SOP审核通过；保留21日原始照片/记录，先确认23颗真实标签及有无需隔离的异常电池",
+      "acceptance": "共同签认的装配草图",
+      "progress": "2026-10-21新方法已组装23颗，但尚未提供SOP版本、现场签认与逐颗极性/封装QC记录；本项依旧未开始验收，不能因数量多就标为通过。\n2026-10-22更新：用户明确反馈完成、没什么问题。本项按执行完成退出待办；实际完成日期/工时未提供，未补造日期或实验数据；不据此代替后续测试与论文证据验收。",
+      "prerequisite": "按SOP",
+      "gate": "实验前须核对SOP"
+    },
+    {
+      "id": "T006",
+      "title": "汇总G01—G07极片QC及10月21日23颗电池的制片批次、面负载与片位；重点排查G03 SA卷曲，核实G02外观初检无明显问题",
+      "steps": "用户2026-10-22补充：此次G02已装6颗所用极片没什么问题；此前G02卷曲属于历史记录，须区分批次，不再默认本次6颗卷曲。G02仍需常规面负载/封口QC。",
+      "acceptance": "极片QC台账",
+      "progress": "2026-10-22用户确认：此次G02六颗所用极片外观基本正常、无明显影响装配的卷曲；撤销对本次G02须紧急返工的预设。保留历史G02卷曲记录并待批次映射；常规面负载、片位、密封QC尚未量化。G03仍严重卷曲待小试重做。",
+      "prerequisite": "按SOP",
+      "gate": "实验前须核对SOP"
+    },
+    {
+      "id": "T007",
+      "title": "读2篇SA/PAA与PAA中和直接先例，摘出实验对照/差异",
+      "steps": "整理本周异常清单，安排下周仪器预约",
+      "acceptance": "文献卡片2份",
+      "progress": "读2篇文献从原10月25日顺延到10月29日：10月21日23颗装配已经发生，实际工时未知；将10月25日作为G03试片失败/仪器核验或休息缓冲，避免强行凑满本周。",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T008",
+      "title": "职业学校首次实地设备核验（日期待老师协调）",
+      "steps": "记录型号、实际空闲通道、可无人值守时间和安全人员",
+      "acceptance": "设备清单、负责人、照片",
+      "progress": "",
+      "prerequisite": "导师协调",
+      "gate": "HOLD：导师尚未确认"
+    },
+    {
+      "id": "T009",
+      "title": "区分历史G04 OCV故障电池与2026-10-21新装G04五颗的真实编号、极片批次及封装记录；写异常闭环记录",
+      "steps": "轻量复盘，不拆电池；核对周一可用设备",
+      "acceptance": "实验日志1页",
+      "progress": "旧3颗诊断用G04电池与10月21日新装5颗G04独立建账；不得复制旧OCV或沿用模糊编号。",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T010",
+      "title": "核对职业学校电池测试仪测试能力、数据格式、连续运行规则",
+      "steps": "对比DH7003程序导出和电极接线，不直接上正式样",
+      "acceptance": "跨设备程序对照表",
+      "progress": "",
+      "prerequisite": "导师协调",
+      "gate": "HOLD：导师尚未确认"
+    },
+    {
+      "id": "T011",
+      "title": "完成周复盘和次周三项关键目标；发导师简报草案",
+      "steps": "休息与备份，修改无法验证的假设表述",
+      "acceptance": "周报W01",
+      "progress": "",
+      "prerequisite": "证据",
+      "gate": "需核对原始证据"
+    },
+    {
+      "id": "T012",
+      "title": "跨校小规模测试的启动判定（安全门全通过后）",
+      "steps": "必要时只查看仪器，不运输/测试样品",
+      "acceptance": "Go/No-go记录",
+      "progress": "",
+      "prerequisite": "G0+跨校",
+      "gate": "HOLD：G0/许可/运输/接线/SOP证据未齐"
+    },
+    {
+      "id": "T013",
+      "title": "对照DH7003二电极手册及实物照片核查WE/SE/RE/CE/G端口、夹子与软件独立/双恒模式；由实验室熟悉人员复核",
+      "steps": "照片已拍齐，不等于已经放行。核验时先断开被测电池/停止测试，并检查夹具接触、导通、通道与模式",
+      "acceptance": "接线映射表＋软件模式截图＋现场共同核查记录",
+      "progress": "2026-10-22新G01排障：G01-1正极壳对应Si、负极壳对应Li；原来WE/SE与CE/RE方向相反时两颗G01读数约−2.7/−2.8 V。按Si接WE/SE、Li接CE/RE后，用户明确确认在DH7003【通道1】测得G01-1 +2.711 V且100秒稳定。CH1在此配置下能稳定读取OCV，之前负值强烈支持极性反向原因；仍未验证恒流功能、软件模式截图、原始TXT、装配QC和G0门禁，保持进行中。\n2026-10-22更新：用户明确反馈完成、没什么问题。本项按执行完成退出待办；实际完成日期/工时未提供，未补造日期或实验数据；不据此代替后续测试与论文证据验收。",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T014",
+      "title": "准备首批跨校测试及原始数据回收流程",
+      "steps": "避免临时集中装大量扣电池长期候测",
+      "acceptance": "首批电池/通道登记及备份方案",
+      "progress": "",
+      "prerequisite": "准备阶段（不上机）",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T015",
+      "title": "核对10月21日新装23颗的OCV记录并形成异常清单",
+      "steps": "旧七份保留为装配错误排障历史，不纳入新23颗比较。新记录优先核对G02-2/G04-1/G04-3短记录近零现象及G05-5电位变化；需要复测的由T016跟进。",
+      "acceptance": "23个文件的摘要表、逐文件哈希、单位换算、曲线和异常列表；标清文件标签与实物映射限制。",
+      "progress": "7份重新导出OCV TXT互不重复已核对；属于旧G04三颗的历史排障数据，不得混同10月21日另外组装的23颗。继续核实原机时间、样品和通道的映射。\n2026-10-22更新：原任务“核验旧七份采集时间/通道映射并完成异常对比图”退出近期主线。用户确认旧七份来自装配错误电池；原始记录仍保留。已逐文件读取新23份（组别6/6/5/6，无重复SHA-256），20条300点、3条短记录；实际标签与通道映射仍须核对。",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T016",
+      "title": "复核新批次4条OCV重点记录：G02-2、G04-1、G04-3与G05-5",
+      "steps": "三条短记录为用户看到异常后主动暂停。先停测检查电池、夹具与连接，并请现场熟悉人员确认；有依据后再决定是否复测，保留原记录另存新文件。短路和通道损伤均未确诊。",
+      "acceptance": "4条记录的复核说明或独立复测文件；解释短记录与近零现象，记录G05-5变化是否复现。",
+      "progress": "2026-10-22最新用户补充：G02-2/G04-1/G04-3的低点数是主动暂停，担心电池短路或其他原因以及损伤通道。不能记为导出缺失或自动结束。先排查原因再决定复测；G05-5另核对电位上升是否复现。",
+      "prerequisite": "无",
+      "gate": "先检查电池、夹具与连接；由现场熟悉人员确认后决定是否复测，未推定短路或通道损伤"
+    },
+    {
+      "id": "T017",
+      "title": "G02 CMC/SBR配方与干燥记录核对，划定排查变量",
+      "steps": "设计四时点卷曲拍照：预干/冷却/真空/入箱",
+      "acceptance": "卷曲试验单",
+      "progress": "",
+      "prerequisite": "按SOP",
+      "gate": "实验前须核对SOP"
+    },
+    {
+      "id": "T018",
+      "title": "实施G02小试条及CMC鱼眼/分散问题分步检查",
+      "steps": "完成照片与干燥记录；不把压平片纳正式电池",
+      "acceptance": "G02故障矩阵",
+      "progress": "",
+      "prerequisite": "按SOP",
+      "gate": "实验前须核对SOP"
+    },
+    {
+      "id": "T019",
+      "title": "评估有效机时：每通道200圈预计占用需先测算",
+      "steps": "在04工作簿填写现有极片与设备状态",
+      "acceptance": "通道可行性表v1",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T020",
+      "title": "阶段门G0：测量与制片是否放行？给出通过/未通过",
+      "steps": "若未通过，下周保持P0并顺延投稿节点",
+      "acceptance": "W02门禁决定",
+      "progress": "",
+      "prerequisite": "按SOP",
+      "gate": "实验前须核对SOP"
+    },
+    {
+      "id": "T021",
+      "title": "G03 SA极片卷曲原因排查与小试：核胶液水化/混合、涂布、预干—真空—冷却过程及实际卷曲位置；确认SA配胶可加工性",
+      "steps": "先小面积试条与QC，记录工艺参数；QC达标后再按锁定SOP重新制备G03正式极片，未确认原因前不直接大量返工",
+      "acceptance": "G03卷曲排查记录＋试条照片＋面负载/缺陷质量检查；正式重制另记录批号",
+      "progress": "用户10月21日明确G03极片太卷、无法装配；优先于后续比例筛选处理。旧表中G02卷曲历史问题仍独立保留待核，不推定组名写错。",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T022",
+      "title": "统一润湿/配胶时序和温度记录，完善批次号",
+      "steps": "补物料采购缺口，预约SEM/FTIR/剥离/流变",
+      "acceptance": "配胶SOP v1",
+      "progress": "",
+      "prerequisite": "按SOP",
+      "gate": "实验前须核对SOP"
+    },
+    {
+      "id": "T023",
+      "title": "阶段1 G05/G06/G07比例试验前共同浆料小试",
+      "steps": "核Si混浆是否起泡及安全泄压容器，发生异常停",
+      "acceptance": "浆料QC表",
+      "progress": "",
+      "prerequisite": "按SOP",
+      "gate": "实验前须核对SOP"
+    },
+    {
+      "id": "T024",
+      "title": "复核G01 PVDF身份、G02 SBR固含与CMC分散",
+      "steps": "未放行的对照组独立列HOLD，不悄悄剔除",
+      "acceptance": "对照组放行表",
+      "progress": "",
+      "prerequisite": "按SOP",
+      "gate": "实验前须核对SOP"
+    },
+    {
+      "id": "T025",
+      "title": "试涂并测面负载，统一操作并记录干燥条件",
+      "steps": "不合格条仅用于P0，不作正式性能结论",
+      "acceptance": "首批面负载分布",
+      "progress": "",
+      "prerequisite": "按SOP",
+      "gate": "实验前须核对SOP"
+    },
+    {
+      "id": "T026",
+      "title": "先建立10月21日新装23颗的实际电池编号—极片片位—工艺批—mSi—面负载—封口QC映射；后续B1独立批继续维护",
+      "steps": "《10月21日装配台账》已设置23个占位记录，须填写真实电池标签/极片批次，不得将占位序号当作真实ID；英文Methods初稿仍可后续进行",
+      "acceptance": "23颗实际电池编号、组别、极片批次和QC状态的映射表",
+      "progress": "2026-10-21 G01×6、G02×6、G04×5、G05×6，总23颗；目前只有组别数量，真实电池号、片位、制片批、活性物质质量与装配SOP版本待补，不能用于正式独立重复统计。\n2026-10-22更新：已取得23个唯一文件标签G01-1…G05-6；文件标签与实物壳体、极片批次/质量的对应尚需用户核对，不能把文件名直接当全部追溯完成。",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T027",
+      "title": "W03复盘：共同方法是否锁定，提交导师核对",
+      "steps": "未满足面负载/卷曲规则则继续小试",
+      "acceptance": "阶段1放行决定",
+      "progress": "",
+      "prerequisite": "证据",
+      "gate": "需核对原始证据"
+    },
+    {
+      "id": "T028",
+      "title": "按优先级配胶G04/G11和G05/G06/G07，分别编号B1",
+      "steps": "标记24h平衡与时间轴，避免无计划跨夜操作",
+      "acceptance": "B1配胶记录",
+      "progress": "",
+      "prerequisite": "按SOP",
+      "gate": "实验前须核对SOP"
+    },
+    {
+      "id": "T029",
+      "title": "核混合时间、胶液固含/pH与计划质量",
+      "steps": "如材料或时间不足，仅执行已锁定的子批，不混批",
+      "acceptance": "胶液QC及待办",
+      "progress": "",
+      "prerequisite": "按SOP",
+      "gate": "实验前须核对SOP"
+    },
+    {
+      "id": "T030",
+      "title": "制备B1浆料、试涂、按统一干燥SOP处理",
+      "steps": "同步安排独立基准组G03/G02/G01的放行与顺序",
+      "acceptance": "B1极片QC",
+      "progress": "",
+      "prerequisite": "按SOP",
+      "gate": "实验前须核对SOP"
+    },
+    {
+      "id": "T031",
+      "title": "测带片面负载与缺陷率，记录无法压平的G02片",
+      "steps": "根据锁定阈值筛去不合格，不挑最好看片",
+      "acceptance": "B1片位表",
+      "progress": "",
+      "prerequisite": "按SOP",
+      "gate": "实验前须核对SOP"
+    },
+    {
+      "id": "T032",
+      "title": "装配已放行的B1探索电池，核实每颗实际mSi",
+      "steps": "静置12h后独立核OCV及测试程序极性",
+      "acceptance": "B1电池索引",
+      "progress": "2026-10-21的23颗是提前装配、尚待QC与分批定义的样品，不能自动抵扣11月B1新制浆/涂布的独立工艺批次。",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T033",
+      "title": "备份电化学原始数据，提取首圈基础观察",
+      "steps": "英文Methods：cell assembly段落",
+      "acceptance": "原始数据日备份",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T034",
+      "title": "W04复盘：哪些组未装/未测？排次周B2",
+      "steps": "报告样品失效数量，不把缺失记为零",
+      "acceptance": "B1实验包",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T035",
+      "title": "新称量并配制G05/G06/G07 B2，检查独立工艺定义",
+      "steps": "安排G01/G02/G03/G04/G11补缺，不做假独立重复",
+      "acceptance": "B2配胶称量表",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T036",
+      "title": "整理B1首次循环数据，绘制ICE和容量—圈数图",
+      "steps": "逐颗核质量计算、测试符号、0.01–1.50V窗口",
+      "acceptance": "B1先导图v1",
+      "progress": "",
+      "prerequisite": "G0",
+      "gate": "HOLD：G0证据不足"
+    },
+    {
+      "id": "T037",
+      "title": "B2混浆/涂布/烘干并按SOP验片",
+      "steps": "补一个异常组的工艺排障，但与正式批分开",
+      "acceptance": "B2极片QC",
+      "progress": "",
+      "prerequisite": "按SOP",
+      "gate": "实验前须核对SOP"
+    },
+    {
+      "id": "T038",
+      "title": "初步剥离/流变申请与预约；整理新鲜SEM试片",
+      "steps": "计算实际面负载、批间差并标风险",
+      "acceptance": "预约单+QC对照",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T039",
+      "title": "装B2合格探索电池，上机按既定3圈活化方案",
+      "steps": "保留每颗程序截图，监测通道持续占用",
+      "acceptance": "B2电池/程序索引",
+      "progress": "",
+      "prerequisite": "G0",
+      "gate": "HOLD：G0证据不足"
+    },
+    {
+      "id": "T040",
+      "title": "整理本周原始数据与失败电池登记",
+      "steps": "读2篇粘结剂对照文献并完成差异表",
+      "acceptance": "文献对照表",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T041",
+      "title": "W05复盘：判定是否具备比例预筛证据",
+      "steps": "不足时下周继续收集，不按日历强行选G05-G07",
+      "acceptance": "周报W05",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T042",
+      "title": "逐电池核阶段1原始容量/ICE/CE与失败标签",
+      "steps": "汇总涂布、剥离、浆料加工放行结果",
+      "acceptance": "比例证据表v1",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T043",
+      "title": "计算可用通道数量、利用率与单电池周期实测耗时",
+      "steps": "给出54颗模块需要的最早完成日期",
+      "acceptance": "通道容量模型",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T044",
+      "title": "补测唯一重要失效/异常组的可追溯试验",
+      "steps": "若无通道则做批次QC和预约，不挤占别人任务",
+      "acceptance": "异常闭环清单",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T045",
+      "title": "选定阶段2候选比例前核定盲选规则和偏差",
+      "steps": "优先用批均值与离散，不用单颗最好值",
+      "acceptance": "选组决策备忘录",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T046",
+      "title": "针对比值获胜候选做基础SEM/FTIR或样品预处理",
+      "steps": "保留所有失败片和SEM位置的选择记录",
+      "acceptance": "代表性图样索引",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T047",
+      "title": "撰写Introduction第1—2节：已有SA/PAA与PAA中和先例",
+      "steps": "提交导师确认投稿焦点和初步创新点",
+      "acceptance": "引言初稿A",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T048",
+      "title": "W06门禁G1：胜出比例能否冻结？",
+      "steps": "无法冻结则将后续步骤顺延，通知导师期限风险",
+      "acceptance": "比例锁定/继续筛选",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T049",
+      "title": "核已确认SA:PAA比例；计算DN0/25/50/75配方",
+      "steps": "按01版统一方法核NaOH标定值，不复制旧目标值",
+      "acceptance": "DN配方审批表",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T050",
+      "title": "配G08/G09/G10和DN50桥接胶液",
+      "steps": "记录24h平衡pH，异常产气采取SOP停机",
+      "acceptance": "阶段2胶液原始表",
+      "progress": "",
+      "prerequisite": "按SOP",
+      "gate": "实验前须核对SOP"
+    },
+    {
+      "id": "T051",
+      "title": "进行阶段2统一浆料/刮涂和干燥",
+      "steps": "同日安排纯PAA对应DN的对照可行性",
+      "acceptance": "阶段2极片QC",
+      "progress": "",
+      "prerequisite": "按SOP",
+      "gate": "实验前须核对SOP"
+    },
+    {
+      "id": "T052",
+      "title": "对比各DN浆料加工性、气泡、pH与表观黏度",
+      "steps": "单独安排Si混浆t=0/2/4h工艺混杂小试",
+      "acceptance": "pH过程表",
+      "progress": "",
+      "prerequisite": "按SOP",
+      "gate": "实验前须核对SOP"
+    },
+    {
+      "id": "T053",
+      "title": "装阶段2合格电池，复核电极极性和mSi",
+      "steps": "检查各电池程序无错误、不误报测试完成",
+      "acceptance": "装配批与raw清单",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T054",
+      "title": "文献：PAA中和相关两篇阅读全文/方法段核对",
+      "steps": "整理图1（设计矩阵）与图2（工艺概况）",
+      "acceptance": "方案示意图草案",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T055",
+      "title": "W07复盘：DN样品是否可比；若不合格延长P0",
+      "steps": "计划下一周DN数据与关键过程验证",
+      "acceptance": "W07总结",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T056",
+      "title": "统计不同DN初期电化学与加工质控",
+      "steps": "纳入DN50 bridge，检查跨阶段系统误差",
+      "acceptance": "DN趋势图v1",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T057",
+      "title": "核纯PAA匹配DN对照是否准备齐全（G04/G11/G12）",
+      "steps": "若候选DN25/75，确认G12材料/工艺范围",
+      "acceptance": "匹配对照清单",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T058",
+      "title": "安排第一组FTIR/流变/剥离表征或样品预约",
+      "steps": "保存原始光谱与测量方法锁定表",
+      "acceptance": "表征原始索引",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T059",
+      "title": "建立四组C1—C4同批随机化与工艺块顺序",
+      "steps": "计算每批最少2颗、3独立批的物料与通道",
+      "acceptance": "C1—C4排程v1",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T060",
+      "title": "只对关键异常进行验证；核G02是否进入正式比较",
+      "steps": "提出资源缺口和设备通道需求给导师",
+      "acceptance": "资源确认单",
+      "progress": "",
+      "prerequisite": "按SOP",
+      "gate": "实验前须核对SOP"
+    },
+    {
+      "id": "T061",
+      "title": "撰写论文Materials/Methods，引用SOP锁定版本",
+      "steps": "不写未经测得的优势机制",
+      "acceptance": "Methods初稿B",
+      "progress": "",
+      "prerequisite": "证据",
+      "gate": "需核对原始证据"
+    },
+    {
+      "id": "T062",
+      "title": "W08门禁G2：d_c与确认设计是否可冻结",
+      "steps": "证据不足顺延同期四组确认，启用风险计划",
+      "acceptance": "d_c冻结/推迟决定",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T063",
+      "title": "确认C1—C4四组定义、随机顺序、通道计划",
+      "steps": "检查确认块标签与Si分数公式",
+      "acceptance": "Block1预登记",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T064",
+      "title": "配四组各自胶液，记录批次与DN真实值",
+      "steps": "安排初始流变/剥离样品，不占电化学正式样",
+      "acceptance": "四组胶液原始表",
+      "progress": "",
+      "prerequisite": "按SOP",
+      "gate": "实验前须核对SOP"
+    },
+    {
+      "id": "T065",
+      "title": "涂布/干燥C1—C4，记录每条片负载和干膜",
+      "steps": "同块统一方法，G02卷曲片继续HOLD",
+      "acceptance": "Block1极片QC",
+      "progress": "",
+      "prerequisite": "按SOP",
+      "gate": "实验前须核对SOP"
+    },
+    {
+      "id": "T066",
+      "title": "核面负载与变异，筛出合格片位",
+      "steps": "确认足够有效面积用于新鲜与放置挑战",
+      "acceptance": "合格片位清单",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T067",
+      "title": "按通道能力装配Block1电池，至少两颗/组为目标",
+      "steps": "若通道不足，保留一致的储存与延迟记录",
+      "acceptance": "Block1电池索引",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T068",
+      "title": "整理确认研究设计与统计层级图",
+      "steps": "引言第三节写直接先例与本研究差别",
+      "acceptance": "设计图＋引言B",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T069",
+      "title": "W09复盘：一块C1—C4是否有效？",
+      "steps": "不合格工艺块必须新建重复，不能用补片伪装",
+      "acceptance": "Block1签收表",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T070",
+      "title": "整理Block1活化曲线/CE与原始文件，标异常",
+      "steps": "进行第2块预登记、随机化涂布顺序",
+      "acceptance": "Block1趋势图",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T071",
+      "title": "Block2四组重新配胶，核环境温湿度与批号",
+      "steps": "如产气/沉降超标，触发工艺异常记录",
+      "acceptance": "Block2配胶表",
+      "progress": "",
+      "prerequisite": "按SOP",
+      "gate": "实验前须核对SOP"
+    },
+    {
+      "id": "T072",
+      "title": "制浆/涂布/烘干，做极片QC",
+      "steps": "核各组面负载匹配；禁止偏倚剔样",
+      "acceptance": "Block2极片表",
+      "progress": "",
+      "prerequisite": "按SOP",
+      "gate": "实验前须核对SOP"
+    },
+    {
+      "id": "T073",
+      "title": "预约假期前可获得的SEM/FTIR/流变机时",
+      "steps": "准备同批独立标准化剥离试样",
+      "acceptance": "表征样品盒",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T074",
+      "title": "Block2电池装配及校验程序；确认测量链路",
+      "steps": "不占用其他同学正在测试的通道",
+      "acceptance": "Block2上机表",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T075",
+      "title": "画图：面负载、初期ICE、剥离散点并注明批次",
+      "steps": "导师阶段汇报：未完成200圈需显著标出",
+      "acceptance": "阶段汇报PPT草稿",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T076",
+      "title": "W10复盘：两个独立工艺块可比性及失效统计",
+      "steps": "规划第三块；设备不足则报告最早完工时间",
+      "acceptance": "W10确认汇总",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T077",
+      "title": "核Block1-2的QC差异，锁定Block3不变参数",
+      "steps": "如已发生SOP变更，不得与前两块静默并表",
+      "acceptance": "方法偏差台账",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T078",
+      "title": "Block3四组独立配胶、检查固含/pH",
+      "steps": "收集所有批次制备照片和水氧记录",
+      "acceptance": "Block3胶液记录",
+      "progress": "",
+      "prerequisite": "按SOP",
+      "gate": "实验前须核对SOP"
+    },
+    {
+      "id": "T079",
+      "title": "Block3混浆、涂布、真空干燥与厚度记录",
+      "steps": "落实可用机时和上机队列",
+      "acceptance": "Block3极片QC",
+      "progress": "",
+      "prerequisite": "按SOP",
+      "gate": "实验前须核对SOP"
+    },
+    {
+      "id": "T080",
+      "title": "核三块的温度/面积/厚度/负载/水氧是否可比",
+      "steps": "确定需补做的非破坏性样品",
+      "acceptance": "三块方法对比表",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T081",
+      "title": "Block3合格电池装配与OCV检查；先读程序",
+      "steps": "将24颗C1—C4上机状态逐一登记",
+      "acceptance": "确认样品完整度",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T082",
+      "title": "开始Results：极片外观/流变/剥离结果的图谱",
+      "steps": "无数据段落保留占位，不写数值",
+      "acceptance": "Results草稿A",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T083",
+      "title": "W11门禁G3：3块是否完成且24颗进入合规队列",
+      "steps": "不足时保留任务未完，重算投稿可能性",
+      "acceptance": "Block1-3总体核查",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T084",
+      "title": "复核01版15.3节：新鲜/4h分样必须同一浆料批",
+      "steps": "核原确认块是否已有预先分样，不能事后伪配对",
+      "acceptance": "配对资格判定",
+      "progress": "",
+      "prerequisite": "按SOP",
+      "gate": "实验前须核对SOP"
+    },
+    {
+      "id": "T085",
+      "title": "为具备条件的组开展t0与t4同步配对小试",
+      "steps": "记录25±2℃、蒸发失重、气泡、pH和时刻",
+      "acceptance": "配对P0记录",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T086",
+      "title": "配对挑战合格后，制备规定四小时试条及QC",
+      "steps": "若确认块未预留配对材料，重新新批做配对",
+      "acceptance": "t0/t4 QC图片",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T087",
+      "title": "在可用通道确认后装4h新增电池并记录",
+      "steps": "按01版目标共12颗，不能牺牲同期确认样",
+      "acceptance": "放置挑战电池清单",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T088",
+      "title": "优先完成剥离/表观面积等工艺端点检测",
+      "steps": "比较时以配对差异为分析单位",
+      "acceptance": "配对工艺图",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T089",
+      "title": "补充Methods：材料老化挑战/统计方法",
+      "steps": "核图中单位、批次和实际时间",
+      "acceptance": "Methods草稿C",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T090",
+      "title": "W12复盘：挑战是否发现可复现差异；下一周调整",
+      "steps": "尚未启动的4h验证需如实列风险，不伪报",
+      "acceptance": "挑战进度卡",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T091",
+      "title": "评估已有确认数据能否回答核心问题，决定是否触发14节",
+      "steps": "与导师讨论投稿贡献是否需要高负载分支",
+      "acceptance": "分支启动批准/不启动",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T092",
+      "title": "核Si:SuperP:粘结剂=80:10:10与目标1.5–2.0mg/cm²",
+      "steps": "比对合格CMC/SBR、匹配DN纯PAA与复配三组",
+      "acceptance": "小试设计冻结",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T093",
+      "title": "若批准，开展三组牺牲性试涂，仅用于检验可加工性",
+      "steps": "记录裂纹、卷曲、涂层面积、剥离、实际负载",
+      "acceptance": "低非活性P0表",
+      "progress": "",
+      "prerequisite": "条件分支",
+      "gate": "HOLD：条件分支未批准"
+    },
+    {
+      "id": "T094",
+      "title": "分析试涂的失败方式，判断共同工艺是否存在",
+      "steps": "若无法共同试涂，保留阴性结论并暂停18颗",
+      "acceptance": "工艺可行性判定",
+      "progress": "",
+      "prerequisite": "条件分支",
+      "gate": "HOLD：条件分支未批准"
+    },
+    {
+      "id": "T095",
+      "title": "在共同工艺锁定且通道可用时预定正式3批窗口",
+      "steps": "未获批准则转为关键确认批的FTIR/SEM任务",
+      "acceptance": "模块决策单",
+      "progress": "",
+      "prerequisite": "条件分支",
+      "gate": "HOLD：条件分支未批准"
+    },
+    {
+      "id": "T096",
+      "title": "修订图表：机制证据矩阵 vs 已做实验",
+      "steps": "研究讨论禁止强写共价交联",
+      "acceptance": "图表目录v2",
+      "progress": "",
+      "prerequisite": "证据",
+      "gate": "需核对原始证据"
+    },
+    {
+      "id": "T097",
+      "title": "W13复盘：明确低非活性分支做/不做/顺延",
+      "steps": "若要求完整模块却资源不足，预测投稿延期",
+      "acceptance": "分支闸门结论",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T098",
+      "title": "核三块确认电池的200圈进度与通道异常率",
+      "steps": "统计失效时点，保留未完终点",
+      "acceptance": "长循环审计v1",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T099",
+      "title": "安排FTIR关键胶膜与原料对照样检测",
+      "steps": "未核试样以待测标记，不编频移结果",
+      "acceptance": "FTIR文件索引",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T100",
+      "title": "SEM新鲜极片与均一状态的关键表面/截面图",
+      "steps": "记录倍率、采样位置与样品批次",
+      "acceptance": "SEM图v1",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T101",
+      "title": "拉伸剥离/流变的方法锁定与批次重测核查",
+      "steps": "用独立批均值，不以同批5条当n=5批",
+      "acceptance": "力学流变结果v1",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T102",
+      "title": "若存在合规条件，启动条件分支正式电池首块",
+      "steps": "否则优先把200圈确认数据完成",
+      "acceptance": "机时占用日志",
+      "progress": "",
+      "prerequisite": "条件分支",
+      "gate": "HOLD：条件分支未批准"
+    },
+    {
+      "id": "T103",
+      "title": "编制Results：工艺—电极完整性—电化学链条",
+      "steps": "写每项结论旁的证据来源和不足",
+      "acceptance": "Results B",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T104",
+      "title": "W14复盘：更新长循环预计完工日与论文缺口",
+      "steps": "若200圈未能赶上2月，早向导师预警",
+      "acceptance": "缺口优先级表",
+      "progress": "",
+      "prerequisite": "证据",
+      "gate": "需核对原始证据"
+    },
+    {
+      "id": "T105",
+      "title": "盘点C1—C4已达到200圈的独立批次与缺失值",
+      "steps": "对失效电池作失败时间/原因记录",
+      "acceptance": "终点完成率",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T106",
+      "title": "核面容量与第6圈保持率定义、Si质量修正",
+      "steps": "锁数据清洗脚本/版本与异常处理",
+      "acceptance": "统计分析v1",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T107",
+      "title": "输出C1—C4面容量与ICE/CE散点、均值/区间",
+      "steps": "可画趋势但未完成端点必须显著标注",
+      "acceptance": "Figure 1-3草稿",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T108",
+      "title": "汇总4h挑战数据与低非活性分支状态",
+      "steps": "非因果相关只写相关，区别同期与跨期",
+      "acceptance": "Figure 4计划",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T109",
+      "title": "关键SEI XPS如有真实样/经费可选预约",
+      "steps": "无XPS不写化学组成结论",
+      "acceptance": "分析边界表",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T110",
+      "title": "形成英文初稿完整章节骨架+现有结果",
+      "steps": "全部缺数据保留TODO，不填假数字",
+      "acceptance": "初稿v0.7",
+      "progress": "",
+      "prerequisite": "证据",
+      "gate": "需核对原始证据"
+    },
+    {
+      "id": "T111",
+      "title": "W15门禁G4：有无支撑投稿的200圈和独立批证据",
+      "steps": "若不足，申请延后而非伪造完成",
+      "acceptance": "导师风险报告",
+      "progress": "",
+      "prerequisite": "证据",
+      "gate": "需核对原始证据"
+    },
+    {
+      "id": "T112",
+      "title": "核对最新真实长循环结果和图注中的n定义",
+      "steps": "清楚区分独立工艺批、技术重复",
+      "acceptance": "所有图注v1",
+      "progress": "",
+      "prerequisite": "G0",
+      "gate": "HOLD：G0证据不足"
+    },
+    {
+      "id": "T113",
+      "title": "撰写Results中中和度/比例/匹配对照效应",
+      "steps": "核对直接先例R01/R03/R05/R06差异",
+      "acceptance": "Discussion A",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T114",
+      "title": "图像与统计全面QA：曲线、标尺、批次、同态比较",
+      "steps": "任何异常修正保存原图与更正日志",
+      "acceptance": "图表审查单",
+      "progress": "",
+      "prerequisite": "证据",
+      "gate": "需核对原始证据"
+    },
+    {
+      "id": "T115",
+      "title": "按证据组织引言、方法、结果和讨论全文",
+      "steps": "不夸称首次复配/严格隔离SA变量",
+      "acceptance": "英文全文v1",
+      "progress": "",
+      "prerequisite": "证据",
+      "gate": "需核对原始证据"
+    },
+    {
+      "id": "T116",
+      "title": "与导师讨论投稿目标、可用图、未完成模块",
+      "steps": "期刊选择需复核非OA/混合OA与分区",
+      "acceptance": "导师讨论记录",
+      "progress": "",
+      "prerequisite": "证据",
+      "gate": "需核对原始证据"
+    },
+    {
+      "id": "T117",
+      "title": "整理补充信息SI：方法锁定、原始图、失败记录",
+      "steps": "备份图原始数据与统计脚本",
+      "acceptance": "SI目录v1",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T118",
+      "title": "W16复盘：投稿条件初评，是否保留2月目标",
+      "steps": "若未完成核心证据，将时间表调为补实验",
+      "acceptance": "Go/No-go 初评",
+      "progress": "",
+      "prerequisite": "证据",
+      "gate": "需核对原始证据"
+    },
+    {
+      "id": "T119",
+      "title": "提交完整稿v1、图表和证据缺口给导师",
+      "steps": "注明尚待200圈或表征的真实状态",
+      "acceptance": "导师审阅包",
+      "progress": "",
+      "prerequisite": "证据",
+      "gate": "需核对原始证据"
+    },
+    {
+      "id": "T120",
+      "title": "处理可立即完成的文字/单位/引用修改",
+      "steps": "约导师反馈窗口；如不便则变更计划",
+      "acceptance": "修订记录v1",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T121",
+      "title": "仅补关键证据：缺失批次/图尺度/方法细节",
+      "steps": "没有可用通道不临时改实验主终点",
+      "acceptance": "证据补齐清单",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T122",
+      "title": "检查数据库中是否还有未披露重复文件或误命名",
+      "steps": "逐图核raw—表—图—正文一一对应",
+      "acceptance": "追溯QA单",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T123",
+      "title": "写Cover Letter核心段、Highlights初稿",
+      "steps": "期刊拟投需与导师确认，非OA偏好保留",
+      "acceptance": "投稿材料草稿",
+      "progress": "",
+      "prerequisite": "证据",
+      "gate": "需核对原始证据"
+    },
+    {
+      "id": "T124",
+      "title": "休整和轻量文献校对，保留假期缓冲",
+      "steps": "若导师未回复，做可逆格式工作，不假设批准",
+      "acceptance": "资料整理包",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T125",
+      "title": "W17周报：导师反馈完成度/剩余主终点",
+      "steps": "确定是否启动延期及重排实验",
+      "acceptance": "W17决策",
+      "progress": "",
+      "prerequisite": "证据",
+      "gate": "需核对原始证据"
+    },
+    {
+      "id": "T126",
+      "title": "根据导师意见逐段修稿，标注全部改动",
+      "steps": "核对统计表述、物料身份、论文贡献限度",
+      "acceptance": "英文稿v2",
+      "progress": "",
+      "prerequisite": "证据",
+      "gate": "需核对原始证据"
+    },
+    {
+      "id": "T127",
+      "title": "检查图像分辨率、重复数据、SI引用一致性",
+      "steps": "与原始文件匹配每一个数字与误差线",
+      "acceptance": "图像与数值核对表",
+      "progress": "",
+      "prerequisite": "证据",
+      "gate": "需核对原始证据"
+    },
+    {
+      "id": "T128",
+      "title": "处理导师提出的必补实验或数据争议",
+      "steps": "不可无依据删除失效电池或隐藏负面结果",
+      "acceptance": "争议闭环表",
+      "progress": "",
+      "prerequisite": "证据",
+      "gate": "需核对原始证据"
+    },
+    {
+      "id": "T129",
+      "title": "期刊最新投稿指南逐项核查：篇幅/模板/开放方式",
+      "steps": "核中科院分区年度口径；不提前承诺二区",
+      "acceptance": "期刊符合性表",
+      "progress": "",
+      "prerequisite": "证据",
+      "gate": "需核对原始证据"
+    },
+    {
+      "id": "T130",
+      "title": "完成Cover Letter/Highlights/声明/作者确认",
+      "steps": "核数据可用性、利益冲突、AI使用披露",
+      "acceptance": "投稿包v1",
+      "progress": "",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    },
+    {
+      "id": "T131",
+      "title": "将全部附件整理到投稿结构并双重备份",
+      "steps": "仍无导师准许时不得擅自投稿",
+      "acceptance": "提交前完整性清单",
+      "progress": "",
+      "prerequisite": "证据",
+      "gate": "需核对原始证据"
+    },
+    {
+      "id": "T132",
+      "title": "W18最终Go/No-go：所有必要证据齐全且导师批准？",
+      "steps": "否→发布延期实验表；是→进入提交周",
+      "acceptance": "正式投稿决定",
+      "progress": "",
+      "prerequisite": "证据",
+      "gate": "需核对原始证据"
+    },
+    {
+      "id": "T133",
+      "title": "核投稿系统所有字段与作者排序、附件版本",
+      "steps": "未过Go/No-go则制作延期里程碑",
+      "acceptance": "系统预检查/延期表",
+      "progress": "",
+      "prerequisite": "证据",
+      "gate": "需核对原始证据"
+    },
+    {
+      "id": "T134",
+      "title": "导师最终签字或明确书面批准后上传/提交",
+      "steps": "保存提交截图和最终PDF，不重复点击",
+      "acceptance": "投稿回执或待提交记录",
+      "progress": "",
+      "prerequisite": "证据",
+      "gate": "需核对原始证据"
+    },
+    {
+      "id": "T135",
+      "title": "2月26日截止：保存稿件ID、时间与文件快照",
+      "steps": "如仍无完整结果，发出准确状态报告并重新排期",
+      "acceptance": "回执与归档／延期说明",
+      "progress": "",
+      "prerequisite": "证据",
+      "gate": "需核对原始证据"
+    },
+    {
+      "id": "T136",
+      "title": "完成10月21日新方法电池装配（仅物理装配完成）",
+      "steps": "G03因极片严重卷曲未装，返工/小试由T021跟进；逐颗编号与QC由T026/T005/T006跟进",
+      "acceptance": "用户本对话装配数量反馈；真实样品标签、SOP版本及逐颗QC记录待补",
+      "progress": "用户确认10月21日按新方法已装23颗：G01×6、G02×6、G04×5、G05×6，合计23；G03未装。此项只记录装配执行完成，不等同新方法验证、有效样本数或测试通过。",
+      "prerequisite": "无",
+      "gate": "需检查任务要求"
+    }
+  ],
+  "records": [
+    {
+      "id": "LOG-20261021-001",
+      "date": "2026-10-21",
+      "taskIds": [
+        "T002",
+        "T015"
+      ],
+      "work": "已拍DH7003正面端子、线缆标识、鳄鱼夹及夹具连接；上传7份重新导出的OCV TXT（7份互不重复）；提供DH7003操作手册",
+      "issues": "G04-3-1-1在100秒内下降0.3692V；CH1与CH2测值差异未查明；旧重复TXT说法不适用于新压缩包\n2026-10-22更正/分类：用户确认旧七份来自装配错误电池；仅保留排障历史，不纳入新23颗组间比较。",
+      "conditions": "用户现场口述原文：在实验室；红、黑、蓝都没连，黄和绿连在一起；红连红鳄鱼夹，绿连黑鳄鱼夹；红鳄鱼夹接扣电池正极。按用户原话留存，端口对应与导通仍待现场复核。",
+      "observations": "用户反馈两通道接线相同，怀疑通道1不能测，但真实原因不清楚；后续明确“没测”。“取了”的对象在当前可读上下文中不明确，暂不据此确认电池处置状态。",
+      "next": "10月22日复核二电极接线及独立/双恒工作模式；10月23日整理7份曲线对照与测量映射",
+      "replan": "已重排T013至10月22日，T015至10月23日；本次将T002资料提交记为已完成，T013/T015继续核验。",
+      "status": "已更正",
+      "updatedAt": "2026-10-22T14:36:09.484Z",
+      "start": null,
+      "end": null,
+      "activeHours": null,
+      "waitingHours": null,
+      "travelHours": null,
+      "breakMinutes": null
+    },
+    {
+      "id": "LOG-20261021-002",
+      "date": "2026-10-21",
+      "taskIds": [
+        "T001",
+        "T005",
+        "T006",
+        "T013",
+        "T016",
+        "T021",
+        "T026",
+        "T136"
+      ],
+      "work": "补记：按用户描述的新装配方法制作23颗CR2032：G01×6、G02×6、G04×5、G05×6，G03因极片卷曲未装；与旧G04 OCV排障3颗分开",
+      "issues": "G03 SA极片严重卷曲待重制；旧台账也有G02卷曲问题，需核验两组各自极片QC；新装23颗真实样品标签、质量/封口和测试状态未提供",
+      "conditions": "",
+      "observations": "",
+      "next": "10/22上午与导师谈职业学院；建立23颗真实标签映射并复核G03/G02极片；接线系统不放行前不急于批量测试",
+      "replan": "是，新增批次台账并前移编号整理与G03小试",
+      "status": "待核对",
+      "updatedAt": "2026-10-22T14:13:09.100Z",
+      "start": null,
+      "end": null,
+      "activeHours": null,
+      "waitingHours": null,
+      "travelHours": null,
+      "breakMinutes": null
+    },
+    {
+      "id": "LOG-20261022-001",
+      "date": "2026-10-22",
+      "taskIds": [
+        "T006",
+        "T021"
+      ],
+      "work": "确认此次G02已装6颗所用极片没什么明显问题，之前G02卷曲记录不应默认套用本次样品",
+      "issues": "G03仍卷曲严重，需小试与重做；G02尚未提供定量面负载/片位/封口数据",
+      "conditions": "",
+      "observations": "",
+      "next": "优先G03卷曲排查；G02正常按QC建账，不额外加紧急返工",
+      "replan": "无须因G02单独改期",
+      "status": "待核对",
+      "updatedAt": "2026-10-22T14:13:09.100Z",
+      "start": null,
+      "end": null,
+      "activeHours": null,
+      "waitingHours": null,
+      "travelHours": null,
+      "breakMinutes": null
+    },
+    {
+      "id": "LOG-20261022-002",
+      "date": "2026-10-22",
+      "taskIds": [
+        "T013"
+      ],
+      "work": "现场对照电池壳体材料修正两电极夹具方向：确认G01正极壳Si对应WE+SE、负极壳Li对应CE+RE；首颗G01用户口述OCV稳定+2.711 V达100秒",
+      "issues": "修正前另有G01 OCV约−2.7和−2.8 V；支持测量方向接反但尚未做仪器恒流功能和封装QC放行；2.711 V为OCV、不可当作循环通过",
+      "conditions": "",
+      "observations": "",
+      "next": "保存首测原始OCV并映射实物电池编号；先核对封装SOP/程序极性及截止电压再讨论正式充放电",
+      "replan": "无需因为数值稳定而提前放行G0",
+      "status": "待核对",
+      "updatedAt": "2026-10-22T14:13:09.100Z",
+      "start": null,
+      "end": null,
+      "activeHours": null,
+      "waitingHours": null,
+      "travelHours": null,
+      "breakMinutes": null
+    },
+    {
+      "id": "LOG-20261022-003",
+      "date": "2026-10-22",
+      "taskIds": [
+        "T001",
+        "T003",
+        "T004",
+        "T005",
+        "T013",
+        "T015",
+        "T016",
+        "T026"
+      ],
+      "work": "用户确认T004材料盘点、T005装配SOP核对、T013接线与模式核查已完成；提供新装23颗OCV文件供读取",
+      "issues": "G02-2 68点、G04-1 24点、G04-3 8点且接近0V。用户明确补充：观察异常后主动暂停，怀疑短路或其他原因，担心影响通道；原因及通道影响均未确认。G05-5 300点首尾变化约124mV待复核。",
+      "conditions": "低点数原因由用户确认为主动暂停，非导出缺失。混合科学计数和mV已统一换算V；IRand字段不作为实际施加电流。文件修改时间不冒充采集时间。",
+      "observations": "23份均可解析，20份300点、3份不足300点；23份原始文件哈希互不重复。只描述OCV记录，不判定循环性能或有效样本数。",
+      "next": "10/23优先复核4条重点记录；T001合并两项职业学院沟通，落实到访与运输接收要求",
+      "replan": "T003并入T001不重复计时；T015转为新23颗记录核对；T016转为重点复测",
+      "status": "待核对",
+      "updatedAt": "2026-10-22T14:36:09.484Z",
+      "start": null,
+      "end": null,
+      "activeHours": null,
+      "waitingHours": null,
+      "travelHours": null,
+      "breakMinutes": null
+    }
+  ]
+}
