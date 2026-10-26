@@ -3273,7 +3273,36 @@
 </script>
 <script id="research-data-snapshot"></script>
 <script src="research.js"></script>
-<dialog id="cloud-settings" class="cloud-dialog" aria-labelledby="cloud-settings-title"><div class="cloud-dialog-head"><h2 id="cloud-settings-title">设备与模型</h2><button id="cloud-close" type="button" aria-label="关闭设备与模型设置">×</button></div><p id="cloud-status" role="status"></p><section id="cloud-connection"><h3>连接这台设备</h3><p>首次使用填初始化码；另一台已连接设备可以生成一次性配对码。配对后收藏、已读、已看与任务调整会同步。</p><label>设备名称<input id="cloud-device-label" maxlength="50" placeholder="例如：我的手机" autocomplete="off"></label><label>连接方式<select id="cloud-code-type"><option value="pair">设备配对码</option><option value="bootstrap">首次初始化码</option><option value="recovery">恢复设备（本机恢复码）</option></select></label><label>连接码<input type="password" id="cloud-code" autocomplete="off"></label><button type="button" id="cloud-connect">连接设备</button></section><section id="cloud-connected" hidden><div class="cloud-actions"><button type="button" id="cloud-sync-now">立即同步</button><button type="button" id="cloud-pair">连接另一台设备</button><button type="button" id="cloud-disconnect">断开此设备</button></div><p id="cloud-pair-code" class="cloud-code" aria-live="polite"></p><details><summary>同步冲突</summary><p>旧设备与新设备同时改了同一项时，会保留云端值。重试会再次提交你在这台设备的选择。</p><button type="button" id="cloud-conflict-retry">重试冲突的本机选择</button></details><details><summary>已连接设备</summary><button type="button" id="cloud-devices-refresh">查看已连接设备</button><div id="cloud-devices"></div></details><h3>科研任务助手</h3><p>密钥只发送到个人同步服务加密保存。DeepSeek作为国内访问优先入口；OpenAI需另有API密钥和额度。未设置时仍能正常查看任务。</p><label>提供方<select id="cloud-provider"><option value="deepseek">DeepSeek</option><option value="openai">OpenAI</option></select></label><label>模型名称<input id="cloud-model" value="deepseek-flash" maxlength="100" autocomplete="off"></label><label>API Key<input id="cloud-api-key" type="password" autocomplete="new-password" spellcheck="false"></label><button type="button" id="cloud-model-save">加密保存模型设置</button><p id="cloud-model-note"></p></section></dialog>
+<dialog id="cloud-settings" class="cloud-dialog" aria-labelledby="cloud-settings-title">
+  <div class="cloud-dialog-head"><h2 id="cloud-settings-title">设备与模型</h2><button id="cloud-close" type="button" aria-label="关闭设备与模型设置">×</button></div>
+  <p id="cloud-status" role="status" aria-live="polite"></p>
+  <section id="cloud-connection">
+    <h3>连接我的设备</h3>
+    <p>这台电脑首次连接，请选择桌面的《工作台连接说明.txt》。手机和平板可使用已连接设备生成的8位配对码。</p>
+    <input id="cloud-note-file" type="file" accept=".txt,text/plain" hidden>
+    <button type="button" id="cloud-import-note" class="cloud-connect-primary">选择桌面说明并连接</button>
+    <p class="cloud-import-help">文件只在本机读取，连接时仅发送其中的恢复码。</p>
+    <label>设备名称（可不填）<input id="cloud-device-label" maxlength="50" placeholder="自动填写，也可以改名" autocomplete="off"></label>
+    <details class="cloud-manual-connect"><summary>粘贴恢复码或配对码</summary>
+      <label>连接方式（按输入自动识别）<select id="cloud-code-type"><option value="recovery">恢复码：连接本人设备</option><option value="pair">8位配对码：连接另一台设备</option></select></label>
+      <label>恢复码 / 配对码<input type="password" id="cloud-code" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="粘贴恢复码，或8位配对码"></label>
+      <button type="button" id="cloud-connect">连接这台设备</button>
+    </details>
+    <p class="cloud-import-help">DeepSeek / OpenAI 的 API Key 请在连接成功后填写到模型设置。</p>
+  </section>
+  <section id="cloud-connected" hidden>
+    <div class="cloud-actions"><button type="button" id="cloud-sync-now">立即同步</button><button type="button" id="cloud-pair">连接另一台设备</button><button type="button" id="cloud-disconnect">断开此设备</button></div>
+    <p id="cloud-pair-code" class="cloud-code" aria-live="polite"></p>
+    <details><summary>同步冲突</summary><p>旧设备与新设备同时改了同一项时，会保留云端值。重试会再次提交你在这台设备的选择。</p><button type="button" id="cloud-conflict-retry">重试冲突的本机选择</button></details>
+    <details><summary>已连接设备</summary><button type="button" id="cloud-devices-refresh">查看已连接设备</button><div id="cloud-devices"></div></details>
+    <h3>科研任务助手</h3>
+    <p>密钥只发送到个人同步服务加密保存。DeepSeek作为国内访问优先入口；OpenAI需另有API密钥和额度。未设置时仍能正常查看任务。</p>
+    <label>提供方<select id="cloud-provider"><option value="deepseek">DeepSeek</option><option value="openai">OpenAI</option></select></label>
+    <label>模型名称<input id="cloud-model" value="deepseek-flash" maxlength="100" autocomplete="off"></label>
+    <label>API Key<input id="cloud-api-key" type="password" autocomplete="new-password" spellcheck="false"></label>
+    <button type="button" id="cloud-model-save">加密保存模型设置</button><p id="cloud-model-note"></p>
+  </section>
+</dialog>
 <script src="workspace.js"></script>
 <script src="cloud.js"></script>
 </body>

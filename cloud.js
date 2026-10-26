@@ -4,6 +4,20 @@
 /* Client storage and synchronization engine, included in the same cloud factory. */
   var KEY='luohao-cloud-v1',AUTH='luohao-cloud-connection-v1',CLIENT='luohao-cloud-client-v1';
   var EVENT='luohao-cloud-event-v1:',ACK='luohao-cloud-ack-v1:',RESOLVED='luohao-cloud-resolved-v1:';
+  function compactConnectionText(value){return String(value==null?'':value).normalize('NFKC').replace(/[\s\u200B-\u200D\u2060\uFEFF]/g,'');}
+  function normalizeConnectionCode(value){
+    var code=compactConnectionText(value),labelled=/^配对码:([A-Za-z0-9]{8})(?:\(有效至[^)]*\))?$/.exec(code);
+    if(labelled)code=labelled[1];return /^[A-Za-z0-9]{8}$/.test(code)?code.toUpperCase():code;
+  }
+  function parseConnectionNote(value){
+    var codes=String(value==null?'':value).split(/\r\n?|\n/).map(compactConnectionText).filter(function(line){return /^[A-Za-z0-9_-]{43}$/.test(line);});
+    if(codes.length!==1)throw Error(codes.length?'说明中有多行恢复码，为避免选错，请选择只含一个恢复码的原始桌面说明。':'未找到单独一行的恢复码，请选择原始桌面说明文件。');return codes[0];
+  }
+  function defaultDeviceLabel(nav){
+    nav=nav||{};var ua=typeof nav==='string'?nav:String(nav.userAgent||''),platform=String(nav.platform||'');
+    if(/iPad|Tablet/i.test(ua)||/Android/i.test(ua)&&!/Mobile/i.test(ua)||/Mac/i.test(platform)&&Number(nav.maxTouchPoints)>1)return'我的平板';
+    if(/Mobile|iPhone|iPod|Android/i.test(ua)||nav.userAgentData&&nav.userAgentData.mobile)return'我的手机';return'我的电脑';
+  }
   function fieldKey(e){return e.namespace+'\n'+e.key+'\n'+e.field;}
   function allowedField(ns,field){return ns==='magazine'?['fav','read'].includes(field):ns==='learning'&&['fav','done'].includes(field);}
   function webURL(value,httpsOnly){try{var u=new URL(value);return typeof value==='string'&&value.length<=2100&&!/[\s<>"'\\]/.test(value)&&!u.username&&!u.password&&(u.protocol==='https:'||!httpsOnly&&u.protocol==='http:');}catch(e){return false;}}
@@ -29,7 +43,7 @@
   }
   function mount(w,doc){
     var state={token:'',versions:{},outbox:[],conflicts:[]},running=null,again=false,connected=false,proposal=null,modelConfigs=[];
-    var epoch=0,sequence=0,memoryEvents=Object.create(null),memoryAcks=Object.create(null),storageProblem=false;
+    var epoch=0,sequence=0,memoryEvents=Object.create(null),memoryAcks=Object.create(null),storageProblem=false,connecting=false,noteGeneration=0;
     function id(){return w.crypto.randomUUID();}
     function readJSON(key){try{return JSON.parse(w.localStorage.getItem(key)||'null');}catch(e){return null;}}
     function writeJSON(key,value){try{w.localStorage.setItem(key,JSON.stringify(value));return true;}catch(e){storageProblem=true;return false;}}
@@ -48,6 +62,8 @@
     function guard(ctx){if(!isCurrent(ctx))throw stale();}
     function status(s){if(s==='__cloud_stale_response__')return;var el=doc.getElementById('cloud-status');if(el)el.textContent=s;doc.querySelectorAll('[data-cloud-status]').forEach(function(e){e.textContent=s;});}
     function setAuth(token){epoch++;auth={token:token,generation:id()};state.token=token;writeJSON(AUTH,auth);connected=false;proposal=null;}
+    function showConnection(){doc.getElementById('cloud-connection').hidden=false;doc.getElementById('cloud-connected').hidden=true;doc.getElementById('cloud-pair-code').textContent='';}
+    function expireConnection(){setAuth('');persist();if(w.AI_RESEARCH)w.AI_RESEARCH.clearCloud();showConnection();status('连接已失效，请重新连接；本机阅读记录和待同步操作已保留。');}
     function keys(prefix){var result=[];try{for(var i=0;i<w.localStorage.length;i++){var k=w.localStorage.key(i);if(k&&k.startsWith(prefix))result.push(k);}}catch(e){storageProblem=true;}return result;}
     var dateFormatter=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai'});
     function today(){return dateFormatter.format(new Date());}
@@ -89,9 +105,17 @@
       ctx=ctx||current();guard(ctx);
       try{
         var r=await w.fetch(ENDPOINT,{method:'POST',mode:'cors',cache:'no-store',headers:Object.assign({'Content-Type':'application/json'},!anonymous&&ctx.token?{Authorization:'Bearer '+ctx.token}:{}),body:JSON.stringify(Object.assign({action:action},data||{})),signal:AbortSignal.timeout(action==='research.propose'?65000:15000)});
-        guard(ctx);var body;try{body=await r.json();}catch(e){guard(ctx);throw Error('同步服务未返回有效响应');}guard(ctx);
-        if(!r.ok||body.error)throw Error((body.error&&body.error.message)||body.message||(typeof body.error==='string'?body.error:'')||('服务响应 '+r.status));return body;
-      }catch(e){guard(ctx);throw e;}
+        guard(ctx);
+        if(r.status===401&&!anonymous&&ctx.token){expireConnection();var expired=Error('连接已失效，请重新连接；本机阅读记录和待同步操作已保留。');expired.connectionExpired=true;throw expired;}
+        var body;try{body=await r.json();}catch(e){guard(ctx);throw Error('同步服务未返回有效响应，请稍后重试。');}guard(ctx);
+        if(!r.ok||!body||typeof body!=='object'||body.error){
+          var message=r.status>=500?'连接服务暂时异常，请稍后重试。':r.status===429?'请求过于频繁，请稍后重试。':r.status===409?'云端已有新改动，请重新同步后再操作。':'服务未能完成操作，请核对设置后重试。';
+          if(anonymous&&action==='recovery'&&r.status===401)message='码不匹配，建议选择桌面说明自动连接。';
+          else if(anonymous&&action==='pair'&&[400,401,404,410].includes(r.status))message='配对码无效或已过期，请在已连接设备重新生成，或选择桌面说明自动连接。';
+          else if(action==='settings.save'&&r.status===400)message='模型设置未通过校验，请核对提供方、模型名称和密钥。';
+          throw Error(message);
+        }return body;
+      }catch(e){if(e.connectionExpired)throw e;guard(ctx);if(e.name==='TimeoutError'||e.name==='AbortError')throw Error('连接服务响应超时，请稍后重试。');if(e.name==='TypeError')throw Error('连接服务暂时无法访问，请检查网络后重试。');throw e;}
     }
     function localList(namespace){
       var rows=readJSON(namespace==='magazine'?'ai-magazine-reading-v1':'ai-learning-v1');
@@ -146,11 +170,27 @@
       finally{if(running===ctx){running=null;if(again&&isCurrent(ctx)){again=false;w.setTimeout(function(){if(isCurrent(ctx))sync();},600);}}}
     }
 
-    function open(){var panel=doc.getElementById('cloud-settings');if(!panel)return;panel.showModal();doc.getElementById('cloud-connection').hidden=!!state.token;doc.getElementById('cloud-connected').hidden=!state.token;if(state.token){sync();request('settings.get').then(function(data){var el=doc.getElementById('cloud-model-note');modelConfigs=data.providers||[];modelChoice();el.textContent=modelConfigs.map(function(p){return p.provider+'：'+(p.hasKey?'已设置':'未设置')+' '+(p.model||'');}).join('；')||'尚未设置模型密钥。';}).catch(function(e){status(e.message);});}}
+    async function connect(raw){
+      if(connecting)return false;var input=doc.getElementById('cloud-code'),code=normalizeConnectionCode(raw===undefined?input.value:raw),type='';
+      if(/^[A-Za-z0-9]{8}$/.test(code))type='pair';else if(/^[A-Za-z0-9_-]{43}$/.test(code))type='recovery';
+      else if(/^(?:sk[-_]|Bearer|API[_-]?Key[:=])/i.test(code)){status('这里需要设备连接码，不是模型API Key；请把API Key填到模型设置，或选择桌面说明自动连接。');return false;}
+      else if(/[\r\n]/.test(String(raw===undefined?input.value:raw))){try{code=parseConnectionNote(raw===undefined?input.value:raw);type='recovery';}catch(e){status(e.message);return false;}}
+      if(!type){status(/^sk[-_]|^Bearer/i.test(code)?'这里需要设备连接码，不是模型API Key；请把API Key填到模型设置，或选择桌面说明自动连接。':'连接码格式不正确：可选择桌面说明自动连接，或填写8位配对码。');return false;}
+      var labelInput=doc.getElementById('cloud-device-label'),label=labelInput.value.trim()||defaultDeviceLabel(w.navigator);labelInput.value=label;doc.getElementById('cloud-code-type').value=type;
+      var button=doc.getElementById('cloud-connect'),importButton=doc.getElementById('cloud-import-note');connecting=true;button.disabled=true;if(importButton)importButton.disabled=true;
+      try{
+        var result=await request(type,type==='pair'?{code:code,label:label}:{secret:code,label:label},true);
+        if(typeof result.token!=='string'||!result.token)throw Error('连接服务未返回有效凭证，请稍后重试。');setAuth(result.token);var ctx=current();input.value='';var file=doc.getElementById('cloud-note-file');if(file)file.value='';importLegacy();persist();doc.getElementById('cloud-connection').hidden=true;doc.getElementById('cloud-connected').hidden=false;await sync();guard(ctx);return true;
+      }catch(e){if(!e.stale)status(e.message);return false;}finally{connecting=false;button.disabled=false;if(importButton)importButton.disabled=false;}
+    }
+    function open(){var panel=doc.getElementById('cloud-settings');if(!panel)return;panel.showModal();var token=current().token;doc.getElementById('cloud-connection').hidden=!!token;doc.getElementById('cloud-connected').hidden=!token;if(token){sync();request('settings.get').then(function(data){var el=doc.getElementById('cloud-model-note');modelConfigs=data.providers||[];modelChoice();el.textContent=modelConfigs.map(function(p){return p.provider+'：'+(p.hasKey?'已设置':'未设置')+' '+(p.model||'');}).join('；')||'尚未设置模型密钥。';}).catch(function(e){status(e.message);});}}
     function modelChoice(){var provider=doc.getElementById('cloud-provider').value,config=modelConfigs.find(function(p){return p.provider===provider;}),field=doc.getElementById('cloud-model');field.value=config&&config.model?config.model:(provider==='deepseek'?'deepseek-flash':'');field.placeholder=provider==='deepseek'?'DeepSeek模型名称':'填写你可用的OpenAI模型名称';}
     async function devices(){var list=doc.getElementById('cloud-devices');try{var result=await request('devices.list');list.replaceChildren();(result.devices||[]).filter(function(d){return!d.revoked;}).forEach(function(d){var row=doc.createElement('p'),label=doc.createElement('span');label.textContent=d.label+(d.current?'（本设备）':'')+' · 最近 '+new Date(d.lastSeenAt).toLocaleString('zh-CN');row.appendChild(label);if(!d.current){var b=doc.createElement('button');b.type='button';b.textContent='撤销连接';b.onclick=async function(){try{await request('devices.revoke',{deviceId:d.deviceId});devices();}catch(e){status(e.message);}};row.appendChild(b);}list.appendChild(row);});}catch(e){status(e.message);}}
-    function init(){var panel=doc.getElementById('cloud-settings');if(!panel)return;doc.querySelectorAll('[data-cloud-open]').forEach(function(b){b.addEventListener('click',open);});doc.getElementById('cloud-close').onclick=function(){panel.close();};panel.addEventListener('close',function(){doc.getElementById('cloud-api-key').value='';doc.getElementById('cloud-code').value='';});doc.getElementById('cloud-provider').onchange=modelChoice;doc.getElementById('cloud-devices-refresh').onclick=devices;panel.addEventListener('keydown',function(e){if(e.key==='Escape'){e.preventDefault();panel.close();}});
-      doc.getElementById('cloud-connect').onclick=async function(){var secret=doc.getElementById('cloud-code'),button=this;button.disabled=true;try{var type=doc.getElementById('cloud-code-type').value,result=await request(type,type==='bootstrap'||type==='recovery'?{secret:secret.value.trim(),label:doc.getElementById('cloud-device-label').value.trim()}:{code:secret.value.trim(),label:doc.getElementById('cloud-device-label').value.trim()},true);setAuth(result.token);secret.value='';importLegacy();persist();doc.getElementById('cloud-connection').hidden=true;doc.getElementById('cloud-connected').hidden=false;await sync();}catch(e){status(e.message);}finally{button.disabled=false;}};
+    function init(){var panel=doc.getElementById('cloud-settings');if(!panel)return;doc.querySelectorAll('[data-cloud-open]').forEach(function(b){b.addEventListener('click',open);});doc.getElementById('cloud-close').onclick=function(){panel.close();};panel.addEventListener('close',function(){noteGeneration++;doc.getElementById('cloud-api-key').value='';doc.getElementById('cloud-code').value='';var file=doc.getElementById('cloud-note-file');if(file)file.value='';});doc.getElementById('cloud-provider').onchange=modelChoice;doc.getElementById('cloud-devices-refresh').onclick=devices;panel.addEventListener('keydown',function(e){if(e.key==='Escape'){e.preventDefault();panel.close();}});
+      doc.getElementById('cloud-connect').onclick=function(){return connect();};
+      doc.getElementById('cloud-code').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();connect();}});
+      var noteFile=doc.getElementById('cloud-note-file'),importNote=doc.getElementById('cloud-import-note');
+      if(noteFile&&importNote){importNote.onclick=function(){noteFile.value='';noteFile.click();};noteFile.addEventListener('change',async function(){var file=noteFile.files&&noteFile.files[0],mine=noteGeneration,ctx=current();if(!file)return;try{if(file.size>65536)throw Error('说明文件过大，请选择原始桌面说明文本。');var text=await file.text();guard(ctx);if(mine!==noteGeneration)return;var code=parseConnectionNote(text);doc.getElementById('cloud-code').value=code;await connect(code);}catch(e){if(!e.stale)status(e.message);}finally{noteFile.value='';}});}
       doc.getElementById('cloud-sync-now').onclick=sync;
       doc.getElementById('cloud-pair').onclick=async function(){try{var result=await request('pairing.create');doc.getElementById('cloud-pair-code').textContent='配对码：'+result.code+'（有效至 '+new Date(result.expiresAt).toLocaleTimeString('zh-CN')+'，仅用一次）';}catch(e){status(e.message);}};
       doc.getElementById('cloud-disconnect').onclick=function(){setAuth('');persist();if(w.AI_RESEARCH)w.AI_RESEARCH.clearCloud();connected=false;doc.getElementById('cloud-pair-code').textContent='';doc.getElementById('cloud-connection').hidden=false;doc.getElementById('cloud-connected').hidden=true;status('此设备已断开；本机阅读记录仍保留。');};
@@ -172,5 +212,5 @@
     w.AI_CLOUD={change:change,sync:sync,open:open,isConnected:function(){return connected&&!!current().token;}};
     if(doc.readyState==='loading')doc.addEventListener('DOMContentLoaded',init);else init();w.addEventListener('online',sync);w.addEventListener('focus',function(){if(current().token)sync();});w.addEventListener('storage',function(e){if(e.key===AUTH||e.key===null){var before=auth.generation;current();if(before!==auth.generation){if(w.AI_RESEARCH)w.AI_RESEARCH.clearCloud();doc.getElementById('cloud-connection').hidden=!!auth.token;doc.getElementById('cloud-connected').hidden=!auth.token;if(auth.token)sync();else status('此设备已断开；本机阅读记录仍保留。');}}else if(e.key&&e.key.startsWith(EVENT)&&current().token)sync();});w.setInterval(function(){if(current().token&&!doc.hidden)sync();},60000);
   }
-  return{fieldKey:fieldKey,validRow:validRow,safeMetadata:safeMetadata,mount:mount};
+  return{fieldKey:fieldKey,validRow:validRow,safeMetadata:safeMetadata,normalizeConnectionCode:normalizeConnectionCode,parseConnectionNote:parseConnectionNote,defaultDeviceLabel:defaultDeviceLabel,mount:mount};
 });
