@@ -1,6 +1,6 @@
 /* AI 情报站 - 实力排行榜数据（每日自动更新） */
-window.RANK_UPDATED = "2026-10-24";
-window.RANK_CHECKED = "2026-10-26";
+window.RANK_UPDATED = "2026-10-27";
+window.RANK_CHECKED = "2026-10-27";
 window.RANK = {
     models: [
       {"name": "Kimi K3.1 Pro", "vendor": "Moonshot / 月之暗面（中国）", "price": "具体API价格与可用性请核对厂商官网", "iaa": 55, "tb": null, "t": {"综合": "—", "推理": "—", "代码": "—", "多模态": "—", "长上下文": "—", "中文": "—", "性价比": "—", "开源": "—"}, "note": "10月24日核对AA当前榜与10月23日官方评测公告：智能指数55，1M上下文；公告另列TB4.0为67%，不能填入本页TB2.1列。该公告称权重尚未发布，不能把未来开放计划写成已经开源。价格、产品可用性与主观等级本次不作推断。"},
@@ -70,12 +70,8 @@ window.RANK = {
       {name:"Qwen3.8-Max", vendor:"阿里巴巴（中国）", price:"闭源顶配 / Qwen3.8-Flash-Next 开源", iaa:45, tb:null,
        t:{综合:"A",推理:"A",代码:"A",多模态:"B",长上下文:"A",中文:"A",性价比:"A",开源:"A"},
        note:"10月19日核对AA官方当前榜：Qwen3.8 Max (0902)智能指数45，原收录40混淆了Max与Flash-Next等不同型号。tb列仍为Terminal-Bench2.1，未核得该型号旧版成绩，留空。"},
-      {name:"DeepSeek V4.1 Flash 1017 (max)", vendor:"DeepSeek（中国）", price:"API（本次未核价）", iaa:45, tb:null,
-       t:{},
-       note:"10月20日核对AA官方榜及10月18日评测更新：1017版max档智能指数45、1M上下文。它是独立版本，不覆盖下方旧版39分；本次未取得同口径TB2.1或完整分维度评测，留空，不由综合分推断专项等级。"},
-      {name:"DeepSeek V4.1-Flash", vendor:"DeepSeek（中国）", price:"限时 API 预览 / 低价", iaa:39, tb:null,
-       t:{综合:"B",推理:"B",代码:"A",多模态:"B",长上下文:"B",中文:"A",性价比:"A",开源:"—"},
-       note:"10月19日核对AA官方当前榜：DeepSeek V4.1 Flash (max)智能指数39，修正原收录40。分数对应max推理档，不能与non-reasoning混用；TB2.1暂无同口径核实结果，留空。"},
+      {"name": "DeepSeek V4.1 Flash 1017 (max)", "vendor": "DeepSeek（中国）", "price": "API每百万token（错峰/高峰）：输入未命中$0.15/$0.30、命中$0.003/$0.006；输出$0.60/$1.20", "iaa": 45, "tb": null, "t": {}, "note": "10月27日核对DeepSeek官方API：调用名deepseek-flash当前指向V4.1-Flash-1017，1M上下文，支持思考与非思考；默认思考high，也可显式关闭。AA45仍是1017的max档评测，不能套给本站JSON任务调整的非思考调用。需要本人API Key与账户额度；官方文档api-docs.deepseek.com，控制台platform.deepseek.com。价格依峰谷和缓存命中区分，本次未重测TB2.1或专项等级。"},
+      {"name": "DeepSeek V4.1-Flash", "vendor": "DeepSeek（中国）", "price": "旧版历史快照；现行Flash API按量付费，价格见1017卡", "iaa": 39, "tb": null, "t": {"综合": "B", "推理": "B", "代码": "A", "多模态": "B", "长上下文": "B", "中文": "A", "性价比": "A", "开源": "—"}, "note": "本卡保留旧版V4.1 Flash的AA max=39历史值，不代表当前官方API版本。10月27日官方文档说明deepseek-v4-flash与deepseek-v4-flash-vision-exp所对应原型号已退役，兼容请求由V4.1-Flash-1017承接并按Flash价格计费；新接入使用deepseek-flash。旧39分及专项等级保持原记录，不因兼容别名改成45分；原“限时预览”不再作为现行API状态。"},
       {name:"DeepSeek V4 Pro", vendor:"DeepSeek（中国）", price:"开源免费 / API 低价", iaa:36, tb:78.7,
        t:{综合:"B",推理:"B",代码:"A",多模态:"B",长上下文:"B",中文:"A",性价比:"S",开源:"S"},
        note:"DeepSWE 1.1 80.6%（开源权重最高）；性价比/开源双 S，可完全自部署。综合与英文稍弱。"},
@@ -153,7 +149,7 @@ window.RANK = {
        note:"适合已在GitHub上管理代码、issues与PR的团队。具体模型、代理功能和免费资格依账号及组织策略，不作跨产品最低价承诺。"}
     ],
     tables: {
-      aa: {"title": "Artificial Analysis 智能指数 · 选录20项（18项当前榜，2项10/23历史值；10/24核查）", "unit": "分", "rows": [["Claude Opus 5.5 (max with fallback)", 58], ["Claude Sonnet 5.5 (max with fallback)", 56], ["Muse Wonder Full (max)", 56], ["Kimi K3.1 Pro", 55], ["Claude Fable 5.1 (max with fallback)", 53], ["GPT-6 Astra (max)", 53], ["Gemini 4 Argon (high)", 53], ["GPT-6.1 Sol (max)", 52], ["Muse Wonder (max)", 52], ["Muse Spark 1.3 (max) · 10/23历史值", 48], ["Grok 4.7 (xhigh)", 46], ["MiMo-V2.6-Pro", 46], ["Qwen3.8 Max (0902)", 45], ["DeepSeek V4.1 Flash 1017 (max)", 45], ["GLM-5.3 (max)", 45], ["Ling 3.1 Flash 1019", 44], ["Step 5 Preview", 44], ["Kimi K3 (max) · 10/23历史值", 44], ["Claude Haiku 5.5 (max)", 43], ["MiniMax-M3.1-Flash", 43]]},
+      aa: {"title": "Artificial Analysis 智能指数 · 选录20项（18项当前榜，2项10/23历史值；10/27核查）", "unit": "分", "rows": [["Claude Opus 5.5 (max with fallback)", 58], ["Claude Sonnet 5.5 (max with fallback)", 56], ["Muse Wonder Full (max)", 56], ["Kimi K3.1 Pro", 55], ["Claude Fable 5.1 (max with fallback)", 53], ["GPT-6 Astra (max)", 53], ["Gemini 4 Argon (high)", 53], ["GPT-6.1 Sol (max)", 52], ["Muse Wonder (max)", 52], ["Muse Spark 1.3 (max) · 10/23历史值", 48], ["Grok 4.7 (xhigh)", 46], ["MiMo-V2.6-Pro", 46], ["Qwen3.8 Max (0902)", 45], ["DeepSeek V4.1 Flash 1017 (max)", 45], ["GLM-5.3 (max)", 45], ["Ling 3.1 Flash 1019", 44], ["Step 5 Preview", 44], ["Kimi K3 (max) · 10/23历史值", 44], ["Claude Haiku 5.5 (max)", 43], ["MiniMax-M3.1-Flash", 43]]},
       tb: {title:"Terminal-Bench 2.1 · 历史收录Top10（2026-09；官方当前为4.0，本次未刷新旧分）", capturedAt:"2026-09", unit:"%", rows:[
         ["Claude Fable 5.1",91.4],["GPT-6 Astra",89.9],["GPT-5.6 Sol",89.5],["Claude Opus 5",89.1],
         ["Grok 4.6",88.4],["GPT-5.6 Terra",88.0],["Gemini 3.8 Flash",87.6],["Kimi K3",85.0],
@@ -165,4 +161,4 @@ window.RANK = {
   };
 
 /* 局部核验边界：AA日期不代表旧TB/SWE/订阅价格全部重新核验。 */
-window.RANK_CHECK_NOTE = "10月26日实际重查AA当前榜、精确型号/推理档位及官方公告：18项当前选录分数均未变；2项历史记录仍保留10/23日期，内容更新日保持10/24。9个工具官方文档入口与公开说明已重查，网络不完整请求另行保留。TB2.1/SWE旧同口径成绩、旧型号价格与主观等级未全部复核，不把文档可达性写成性能重测。";
+window.RANK_CHECK_NOTE = "10月27日真实核对AA当前榜：18项当前选录分数未变，2条10/23历史值及全部旧TB/SWE分数保留。实质内容修正为两张DeepSeek Flash卡：现行调用别名、退役兼容型号、已核实峰谷/缓存价格，以及AA max快照与本站非思考JSON任务调用的区别。未声称价格核查等同模型实调或国内全网可达，其他旧型号价格与主观等级未全部复核。";

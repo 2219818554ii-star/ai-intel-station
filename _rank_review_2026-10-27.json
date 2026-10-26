@@ -1,0 +1,370 @@
+{
+  "checkedAt": "2026-10-27",
+  "attemptedAt": "2026-10-27T02:14:09.567648+08:00",
+  "completedAt": "2026-10-27T02:14:16.839525+08:00",
+  "independentOfficialWebRead": true,
+  "method": "Independently read the official AA current board and DeepSeek first-call/pricing/thinking docs with the web tool before comparing source data. Readable official web extraction and direct transport completeness are distinct evidence.",
+  "officialObservations": [
+    {
+      "url": "https://artificialanalysis.ai/leaderboards/models",
+      "filter": "Status:Current",
+      "observedSelectedRows": [
+        [
+          "Claude Opus 5.5 (max with fallback)",
+          58
+        ],
+        [
+          "Claude Sonnet 5.5 (max with fallback)",
+          56
+        ],
+        [
+          "Muse Wonder Full (max)",
+          56
+        ],
+        [
+          "Kimi K3.1 Pro",
+          55
+        ],
+        [
+          "Claude Fable 5.1 (max with fallback)",
+          53
+        ],
+        [
+          "GPT-6 Astra (max)",
+          53
+        ],
+        [
+          "Gemini 4 Argon (high)",
+          53
+        ],
+        [
+          "Muse Wonder (max)",
+          52
+        ],
+        [
+          "GPT-6.1 Sol (max)",
+          52
+        ],
+        [
+          "Grok 4.7 (xhigh)",
+          46
+        ],
+        [
+          "MiMo-V2.6-Pro",
+          46
+        ],
+        [
+          "Qwen3.8 Max (0902)",
+          45
+        ],
+        [
+          "DeepSeek V4.1 Flash 1017 (max)",
+          45
+        ],
+        [
+          "GLM-5.3 (max)",
+          45
+        ],
+        [
+          "Ling 3.1 Flash 1019",
+          44
+        ],
+        [
+          "Step 5 Preview",
+          44
+        ],
+        [
+          "Claude Haiku 5.5 (max)",
+          43
+        ],
+        [
+          "MiniMax-M3.1-Flash",
+          43
+        ]
+      ],
+      "finding": "All18 selected current scores unchanged; two explicit10/23 historical rows remain historical."
+    },
+    {
+      "url": "https://artificialanalysis.ai/changelog",
+      "latestDisplayedDatedSection": "2026-10-23",
+      "finding": "No newer selected-model score change found."
+    },
+    {
+      "url": "https://api-docs.deepseek.com/",
+      "finding": "Current rolling API model name and retired compatibility aliases are distinct from fixed benchmark snapshots."
+    },
+    {
+      "url": "https://api-docs.deepseek.com/quick_start/pricing/",
+      "observedFlash": {
+        "apiModel": "deepseek-flash",
+        "servedVersion": "DeepSeek-V4.1-Flash-1017",
+        "context": "1M",
+        "legacyAliases": [
+          "deepseek-v4-flash",
+          "deepseek-v4-flash-vision-exp"
+        ],
+        "legacyModelState": "Original corresponding models retired; aliases now served by Flash 1017 and billed at Flash rates.",
+        "usdPerMillionTokens": {
+          "offPeak": {
+            "inputCacheMiss": 0.15,
+            "inputCacheHit": 0.003,
+            "output": 0.6
+          },
+          "peak": {
+            "inputCacheMiss": 0.3,
+            "inputCacheHit": 0.006,
+            "output": 1.2
+          }
+        },
+        "defaultThinking": true,
+        "defaultEffort": "high",
+        "explicitNonThinking": {
+          "thinking": {
+            "type": "disabled"
+          }
+        },
+        "boundary": "AA 45 is the fixed 1017/max evaluation, not a score for every API effort or a benchmark of this workspace JSON task adjustment."
+      }
+    },
+    {
+      "url": "https://api-docs.deepseek.com/guides/thinking_mode/",
+      "finding": "Thinking enabled by default at high effort; explicitly disabled for non-thinking. AA max is a different setting."
+    },
+    {
+      "url": "https://platform.deepseek.com/api_keys",
+      "finding": "Official key-console entry linked by API docs; web fetch403 is access limitation, not a dead-link finding or a login/balance validation."
+    }
+  ],
+  "transport": [
+    {
+      "url": "https://artificialanalysis.ai/leaderboards/models",
+      "finalURL": "https://artificialanalysis.ai/leaderboards/models",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "complete": true,
+      "bytes": 1914480,
+      "sha256": "9110e24fdac114419bcd545f7c5c14a50f9d7e8974719215c79665c9850e1083",
+      "usableText": true,
+      "error": null
+    },
+    {
+      "url": "https://artificialanalysis.ai/changelog",
+      "finalURL": "https://artificialanalysis.ai/changelog",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "complete": true,
+      "bytes": 463464,
+      "sha256": "b69d08d3bf3e18899928b8f4384531964bec412f90bda4a5801fc014fd622b6f",
+      "usableText": true,
+      "error": null
+    },
+    {
+      "url": "https://api-docs.deepseek.com/",
+      "finalURL": "https://api-docs.deepseek.com/",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "complete": true,
+      "bytes": 49316,
+      "sha256": "50490e85b6a47700cef1c847cfb505afb136a0d45ce48f519255960c7f63b9f3",
+      "usableText": true,
+      "error": null
+    },
+    {
+      "url": "https://api-docs.deepseek.com/quick_start/pricing/",
+      "finalURL": "https://api-docs.deepseek.com/quick_start/pricing/",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "complete": true,
+      "bytes": 26043,
+      "sha256": "b856a6e93fa4793ecc8f3fd03a01bb7d8f7572f78a4739da8ce6dbdb09328d66",
+      "usableText": true,
+      "error": null
+    },
+    {
+      "url": "https://api-docs.deepseek.com/guides/thinking_mode/",
+      "finalURL": "https://api-docs.deepseek.com/guides/thinking_mode/",
+      "httpStatus": 200,
+      "curlExit": 0,
+      "complete": true,
+      "bytes": 115902,
+      "sha256": "7d9762238e92a7391173ba1726778e46ec11c7bc599e3e395265488f196618b7",
+      "usableText": true,
+      "error": null
+    },
+    {
+      "url": "https://platform.deepseek.com/api_keys",
+      "finalURL": "https://platform.deepseek.com/api_keys",
+      "httpStatus": 403,
+      "curlExit": 0,
+      "complete": false,
+      "bytes": 919,
+      "sha256": "3beda5717492a4dc5136630aea8155b6ee5f27582f20b6bc4bc55d114dd7c917",
+      "usableText": false,
+      "error": null
+    }
+  ],
+  "aaScoresChanged": false,
+  "modelCardsChanged": true,
+  "modelCardChanges": [
+    {
+      "name": "DeepSeek V4.1 Flash 1017 (max)",
+      "before": {
+        "name": "DeepSeek V4.1 Flash 1017 (max)",
+        "vendor": "DeepSeek（中国）",
+        "price": "API（本次未核价）",
+        "iaa": 45,
+        "tb": null,
+        "t": {},
+        "note": "10月20日核对AA官方榜及10月18日评测更新：1017版max档智能指数45、1M上下文。它是独立版本，不覆盖下方旧版39分；本次未取得同口径TB2.1或完整分维度评测，留空，不由综合分推断专项等级。"
+      },
+      "after": {
+        "name": "DeepSeek V4.1 Flash 1017 (max)",
+        "vendor": "DeepSeek（中国）",
+        "price": "API每百万token（错峰/高峰）：输入未命中$0.15/$0.30、命中$0.003/$0.006；输出$0.60/$1.20",
+        "iaa": 45,
+        "tb": null,
+        "t": {},
+        "note": "10月27日核对DeepSeek官方API：调用名deepseek-flash当前指向V4.1-Flash-1017，1M上下文，支持思考与非思考；默认思考high，也可显式关闭。AA45仍是1017的max档评测，不能套给本站JSON任务调整的非思考调用。需要本人API Key与账户额度；官方文档api-docs.deepseek.com，控制台platform.deepseek.com。价格依峰谷和缓存命中区分，本次未重测TB2.1或专项等级。"
+      },
+      "changedFields": [
+        "price",
+        "note"
+      ]
+    },
+    {
+      "name": "DeepSeek V4.1-Flash",
+      "before": {
+        "name": "DeepSeek V4.1-Flash",
+        "vendor": "DeepSeek（中国）",
+        "price": "限时 API 预览 / 低价",
+        "iaa": 39,
+        "tb": null,
+        "t": {
+          "综合": "B",
+          "推理": "B",
+          "代码": "A",
+          "多模态": "B",
+          "长上下文": "B",
+          "中文": "A",
+          "性价比": "A",
+          "开源": "—"
+        },
+        "note": "10月19日核对AA官方当前榜：DeepSeek V4.1 Flash (max)智能指数39，修正原收录40。分数对应max推理档，不能与non-reasoning混用；TB2.1暂无同口径核实结果，留空。"
+      },
+      "after": {
+        "name": "DeepSeek V4.1-Flash",
+        "vendor": "DeepSeek（中国）",
+        "price": "旧版历史快照；现行Flash API按量付费，价格见1017卡",
+        "iaa": 39,
+        "tb": null,
+        "t": {
+          "综合": "B",
+          "推理": "B",
+          "代码": "A",
+          "多模态": "B",
+          "长上下文": "B",
+          "中文": "A",
+          "性价比": "A",
+          "开源": "—"
+        },
+        "note": "本卡保留旧版V4.1 Flash的AA max=39历史值，不代表当前官方API版本。10月27日官方文档说明deepseek-v4-flash与deepseek-v4-flash-vision-exp所对应原型号已退役，兼容请求由V4.1-Flash-1017承接并按Flash价格计费；新接入使用deepseek-flash。旧39分及专项等级保持原记录，不因兼容别名改成45分；原“限时预览”不再作为现行API状态。"
+      },
+      "changedFields": [
+        "price",
+        "note"
+      ]
+    }
+  ],
+  "aaApplied": [
+    [
+      "Claude Opus 5.5 (max with fallback)",
+      58
+    ],
+    [
+      "Claude Sonnet 5.5 (max with fallback)",
+      56
+    ],
+    [
+      "Muse Wonder Full (max)",
+      56
+    ],
+    [
+      "Kimi K3.1 Pro",
+      55
+    ],
+    [
+      "Claude Fable 5.1 (max with fallback)",
+      53
+    ],
+    [
+      "GPT-6 Astra (max)",
+      53
+    ],
+    [
+      "Gemini 4 Argon (high)",
+      53
+    ],
+    [
+      "GPT-6.1 Sol (max)",
+      52
+    ],
+    [
+      "Muse Wonder (max)",
+      52
+    ],
+    [
+      "Muse Spark 1.3 (max) · 10/23历史值",
+      48
+    ],
+    [
+      "Grok 4.7 (xhigh)",
+      46
+    ],
+    [
+      "MiMo-V2.6-Pro",
+      46
+    ],
+    [
+      "Qwen3.8 Max (0902)",
+      45
+    ],
+    [
+      "DeepSeek V4.1 Flash 1017 (max)",
+      45
+    ],
+    [
+      "GLM-5.3 (max)",
+      45
+    ],
+    [
+      "Ling 3.1 Flash 1019",
+      44
+    ],
+    [
+      "Step 5 Preview",
+      44
+    ],
+    [
+      "Kimi K3 (max) · 10/23历史值",
+      44
+    ],
+    [
+      "Claude Haiku 5.5 (max)",
+      43
+    ],
+    [
+      "MiniMax-M3.1-Flash",
+      43
+    ]
+  ],
+  "contentUpdatedAt": "2026-10-27",
+  "previousContentUpdatedAt": "2026-10-24",
+  "previousEvidence": "_rank_review_2026-10-26.json",
+  "preservedHistoricalRows": [
+    "Muse Spark 1.3 (max) · 10/23历史值",
+    "Kimi K3 (max) · 10/23历史值"
+  ],
+  "protectedComparison": "All model identities, scores, TB values and subjective grades unchanged; other34 cards, tools, combinations and historical TB/SWE tables unchanged. Only two Flash price/note fields and independently rechecked AA title change.",
+  "scopeLimitation": "No model API inference call, key/login validation, balance access, nationwide-network availability promise, new performance measurement or unverified weight-release claim. Existing subjective grades and unrelated prices are not recertified.",
+  "written": true
+}
