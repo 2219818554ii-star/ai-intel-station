@@ -1045,11 +1045,11 @@
     <details id="research-completed-panel" class="research-completed-panel" hidden><summary>已完成事项 · 执行完成与证据验收分别记录</summary><div id="research-completed-list"></div><button type="button" class="research-refresh" data-rscope="done">查看全部已完成</button></details>
     <details class="research-chart-box"><summary>未来7天 · 预计主动工时</summary><div id="research-week-chart" class="research-week-chart" aria-label="未来7天预计主动工时图"></div><p class="research-chart-note">不含今天；工时是计划估计，等待、交通与实际工时分别记录。</p><div class="research-progress-track" aria-hidden="true"><span id="research-progress-fill"></span></div><p id="research-progress" class="research-chart-note"></p></details>
     <section class="research-records" aria-labelledby="research-record-heading"><div class="research-section-head"><h3 id="research-record-heading" tabindex="-1">实验记录 · 原生只读</h3><span id="research-record-count" role="status"></span></div><p class="research-chart-note">这里只展示已经核对发布的记录。任务计划不会自动变成实做；未知起止时间与实际工时保持“待补充”。</p><div class="research-filters"><select id="research-record-task" aria-label="按任务筛选实验记录"><option value="all">全部关联任务</option></select><input type="search" id="research-record-query" aria-label="搜索实验记录" placeholder="搜索已记录的工作、观察或异常…"><button type="button" id="research-record-reset" class="research-refresh">清除记录筛选</button></div><div id="research-record-list"></div><button type="button" id="research-record-more" class="research-refresh" hidden>再看12条记录</button></section>
-    <section id="research-feedback-box" class="research-feedback"><h3>记录进展，调整安排</h3><p>写下实际完成的内容或新的安排。AI先给调整建议，应用后同步到已连接设备，可撤销；实际工时和实验结果按你的原话记录。</p><label for="research-feedback-text">进展或调整内容</label><textarea id="research-feedback-text" rows="7">任务ID：
+    <section id="research-feedback-box" class="research-feedback"><h3>记录进展，调整安排</h3><p>写下实际完成的内容或新的安排。草稿先保存在这台设备；点AI整理才发送，核对后应用到任务。实际工时和实验结果按你的原话记录。</p><div class="cloud-actions research-draft-actions"><button type="button" id="research-draft-new">切到通用反馈</button><button type="button" id="research-draft-clear">清空当前草稿</button><button type="button" id="research-draft-undo" hidden>恢复刚清空的草稿</button></div><label for="research-feedback-text">进展或调整内容</label><textarea id="research-feedback-text" rows="7" aria-describedby="research-draft-status">任务ID：
 进展 / 新情况：
 实际日期 / 希望调整到：
 实际主动工时（可选）：
-需要协调的事：</textarea><div class="cloud-actions"><select id="research-ai-provider" aria-label="任务助手模型"><option value="deepseek">DeepSeek</option><option value="openai">OpenAI</option></select><button type="button" class="research-refresh" id="research-ai-propose">AI 整理调整建议</button><button type="button" id="research-copy">复制反馈内容</button><button type="button" data-cloud-open>设备与模型设置</button></div><pre id="research-ai-preview" class="cloud-preview" aria-live="polite"></pre><div class="cloud-actions"><button type="button" id="research-ai-apply" hidden>应用这些调整</button><button type="button" id="research-ai-undo">撤销上次调整</button></div><p data-cloud-status></p></section>
+需要协调的事：</textarea><p id="research-draft-status" class="research-draft-status" role="status" aria-live="polite">草稿仅保存在这台设备；保存不会自动发送或应用任务。</p><div class="cloud-actions"><select id="research-ai-provider" aria-label="任务助手模型"><option value="deepseek">DeepSeek</option><option value="openai">OpenAI</option></select><button type="button" class="research-refresh" id="research-ai-propose">AI 整理调整建议</button><button type="button" id="research-copy">复制反馈内容</button><button type="button" data-cloud-open>设备与模型设置</button></div><pre id="research-ai-preview" class="cloud-preview" aria-live="polite"></pre><div class="cloud-actions"><button type="button" id="research-ai-apply" hidden>应用这些调整</button><button type="button" id="research-ai-undo">撤销上次调整</button></div><p data-cloud-status></p></section>
     <footer class="research-source"><details><summary>来源、版本与事实边界</summary><p id="research-details-note" class="research-sync" role="status"></p><p id="research-meta"></p><p>日期、公开状态和预计工时来自原六字段摘要；执行正文及记录按已审核版本关联。完成标记不等于科学验证或证据验收通过。原始数据、凭据、联系人与本机证据路径未放入本页。</p></details></footer>
   </div>
 
@@ -1247,7 +1247,8 @@
   }
   var navigationMedia=window.matchMedia?window.matchMedia("(max-width:900px)"):{matches:false};
   var menu=document.getElementById("workspace-menu"),menuToggle=document.getElementById("workspace-menu-toggle"),menuBackdrop=document.getElementById("workspace-menu-backdrop"),menuClose=document.getElementById("workspace-menu-close");
-  var menuOpen=false,lastMenuTrigger=null,previousBodyOverflow="",lastMobile=null;
+  var menuOpen=false,lastMenuTrigger=null,previousBodyOverflow="",lastMobile=null,focusWasInMenu=false;
+  document.addEventListener("focusin",function(e){focusWasInMenu=!!(menu&&menu.contains&&menu.contains(e.target));});
   function setNavAttribute(el,key,value){
     if(!el||!el.setAttribute)return;
     if(value===null){if(el.removeAttribute)el.removeAttribute(key);}
@@ -1299,7 +1300,7 @@
   function syncMenuViewport(){
     var mobile=!!navigationMedia.matches;
     if(lastMobile===mobile)return;
-    var hidingFocus=mobile&&menu&&menu.contains&&menu.contains(document.activeElement);
+    var hidingFocus=mobile&&menu&&menu.contains&&(menu.contains(document.activeElement)||(document.activeElement===document.body&&focusWasInMenu));
     lastMobile=mobile;setMenuState(false);
     if(hidingFocus&&menuToggle&&menuToggle.focus)menuToggle.focus({preventScroll:true});
   }
@@ -3300,7 +3301,7 @@
     <label>提供方<select id="cloud-provider"><option value="deepseek">DeepSeek</option><option value="openai">OpenAI</option></select></label>
     <label>模型名称<input id="cloud-model" value="deepseek-flash" maxlength="100" autocomplete="off"></label>
     <label>API Key<input id="cloud-api-key" type="password" autocomplete="new-password" spellcheck="false"></label>
-    <button type="button" id="cloud-model-save">加密保存模型设置</button><p id="cloud-model-note"></p>
+    <button type="button" id="cloud-model-save">加密保存模型设置</button><p id="cloud-model-note" role="status" aria-live="polite"></p>
   </section>
 </dialog>
 <script src="workspace.js"></script>

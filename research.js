@@ -46,7 +46,7 @@
   }
   var detailTaskKeys=['id','title','steps','acceptance','progress','prerequisite','gate'];
   var recordKeys=['id','date','taskIds','work','issues','conditions','observations','next','replan','status','updatedAt','start','end','activeHours','waitingHours','travelHours','breakMinutes'];
-  function safeText(v,required){return typeof v==='string'&&v.length<=2400&&(!required||v.trim().length>0)&&!/[A-Za-z]:[\\/]|file:|https?:\/\/|api[_ -]?key|access[_ -]?token|refresh[_ -]?token|client[_ -]?secret|password|passwd|private[_ -]?key|authorization|bearer\s|密码|验证码|(?:^|\D)1[3-9]\d{9}(?!\d)|[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}/i.test(v);}
+  function safeText(v,required,max){return typeof v==='string'&&v.length<=(max===undefined?2400:max)&&(!required||v.trim().length>0)&&!/[A-Za-z]:[\\/]|file:|https?:\/\/|api[_ -]?key|access[_ -]?token|refresh[_ -]?token|client[_ -]?secret|password|passwd|private[_ -]?key|authorization|bearer\s|密码|验证码|(?:^|\D)1[3-9]\d{9}(?!\d)|[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}/i.test(v);}
   function validStamp(v){return typeof v==='string'&&Number.isFinite(Date.parse(v));}
   function validateDetails(b,summary){
     validate(summary);
@@ -78,9 +78,57 @@
   function mount(w,doc,opts){
     opts=opts||{};var $=function(id){return doc.getElementById(id);},data=null,baseData=null,details=null,detailMap=Object.create(null),cloud=null,cloudMap=Object.create(null),currentDay=opts.today||beijingDay(),groups=null,scope='today',limit=12,selectedDay='',query='',category='all',state='all',request=0,controller=null,lastCheck=0,recordTask='all',recordQuery='',recordLimit=12,focusId='';
     var fetcher=opts.fetcher||(typeof fetch==='function'?fetch:null),refreshButton=$('research-refresh');
+    var draftKey='ai-research-feedback-drafts-v1',draftReady=false,draftActive='general',draftIds=Object.create(null),draftMemory=Object.create(null),draftCleared=null,draftIssue='',feedback=$('research-feedback-text');
+    var generalTemplate=feedback.value||'任务ID：\n进展 / 新情况：\n实际日期 / 希望调整到：\n实际主动工时（可选）：\n需要协调的事：';
     function stamp(value){return new Date(value).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',hour12:false});}
     function notify(action){if(w.dispatchEvent&&typeof w.CustomEvent==='function')w.dispatchEvent(new w.CustomEvent('research-updated',{detail:{revision:baseData.revision,cloudRevision:cloud?cloud.revision:null,action:action||'base'}}));}
     function title(t){return detailMap[t.id]?detailMap[t.id].title:t.title;}
+    function draftTemplate(id){var t=baseData&&baseData.tasks.find(function(t){return t.id===id;});return t?'任务ID：'+t.id+'\n任务：'+title(t)+'\n进展 / 新情况：\n实际日期 / 希望调整到：\n实际主动工时（可选）：\n需要协调的事：':generalTemplate;}
+    function draftStamp(v){return typeof v==='string'&&/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d\.\d{3}Z$/.test(v)&&Number.isFinite(Date.parse(v))&&new Date(v).toISOString()===v;}
+    function persistableDraft(v){return safeText(v,false,6000)&&!/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/.test(v);}
+    function readDraftStore(){
+      try{
+        var raw=w.localStorage.getItem(draftKey);if(raw===null){draftIssue='';return null;}var saved=JSON.parse(raw);
+        if(!exact(saved,['version','summaryRevision','activeId','updatedAt','entries'])||saved.version!==1||!draftIds[saved.activeId]||!/^[a-f0-9]{16}$/.test(saved.summaryRevision)||!draftStamp(saved.updatedAt)||!saved.entries||typeof saved.entries!=='object'||Array.isArray(saved.entries)||Object.keys(saved.entries).length>Object.keys(draftIds).length)throw Error('invalid');
+        Object.keys(saved.entries).forEach(function(id){var entry=saved.entries[id];if(!draftIds[id]||!exact(entry,['text','updatedAt'])||!persistableDraft(entry.text)||!draftStamp(entry.updatedAt))throw Error('invalid');});draftIssue='';return saved;
+      }catch(e){draftIssue=e&&e.message==='invalid'||e instanceof SyntaxError?'本机草稿格式异常，原存储未覆盖':'浏览器暂不允许本机草稿存储';return false;}
+    }
+    function writeDraftStore(id,entry){
+      var saved=readDraftStore();if(saved===false)return false;if(!saved)saved={version:1,summaryRevision:baseData.revision,activeId:id,updatedAt:new Date().toISOString(),entries:{}};
+      saved.summaryRevision=baseData.revision;saved.activeId=id;saved.updatedAt=new Date().toISOString();if(entry)saved.entries[id]={text:entry.text,updatedAt:entry.updatedAt};else delete saved.entries[id];
+      try{w.localStorage.setItem(draftKey,JSON.stringify(saved));draftIssue='';return true;}catch(e){draftIssue='浏览器未能保存本机草稿';return false;}
+    }
+    function persistDraft(id){
+      var entry=draftMemory[id];if(!entry||!entry.dirty)return;entry.reason=entry.text.length>6000?'超过6000字':!persistableDraft(entry.text)?'含疑似凭据、链接、联系方式或本机路径':'';
+      if(entry.reason){entry.saved=false;return;}if(writeDraftStore(id,entry)){entry.dirty=false;entry.saved=true;}else entry.saved=false;
+    }
+    function draftStatus(prefix){
+      var node=$('research-draft-status'),entry=draftMemory[draftActive],count=feedback.value.length,label=draftActive==='general'?'通用反馈':draftActive,message='';
+      if(entry&&entry.reason)message=entry.reason+'；当前文字仅留本页，未覆盖上次已存草稿';
+      else if(entry&&entry.dirty)message=(draftIssue||'本次尚未保存')+'；当前文字仍留在本页';
+      else if(draftIssue)message=draftIssue+'；当前文字仍留在本页';
+      else message=entry&&entry.saved?'已保存到此浏览器':'空白模板尚未保存，编辑后才保存本机草稿';
+      if(node)node.textContent=(prefix?prefix+' · ':'')+label+' · '+count+' / 6000 字 · '+message+'。保存草稿不会自动发送或应用任务。';
+      var undo=$('research-draft-undo');if(undo){undo.hidden=!draftCleared;undo.textContent=draftCleared&&draftCleared.swap?'切回另一份草稿':'恢复刚清空的草稿';}var clear=$('research-draft-clear');if(clear)clear.disabled=!entry&&feedback.value===draftTemplate(draftActive);
+    }
+    function feedbackChanged(reason){if(w.dispatchEvent&&typeof w.CustomEvent==='function')w.dispatchEvent(new w.CustomEvent('research-feedback-changed',{detail:{taskId:draftActive,reason:reason}}));}
+    function rememberDraft(){var entry=draftMemory[draftActive];if(entry&&entry.text!==feedback.value){entry.text=feedback.value;entry.updatedAt=new Date().toISOString();entry.dirty=true;entry.saved=false;}persistDraft(draftActive);}
+    function selectDraft(id,reason,focus){
+      if(!draftIds[id])return false;rememberDraft();draftActive=id;var entry=draftMemory[id];feedback.value=entry?entry.text:draftTemplate(id);draftStatus(entry?(entry.saved?'已恢复本机草稿':'已恢复此页保留的文字'):'');feedbackChanged(reason);
+      if(focus){if($('research-feedback-box').scrollIntoView)$('research-feedback-box').scrollIntoView({block:'start',behavior:'auto'});feedback.focus();}return true;
+    }
+    function initDrafts(){
+      if(draftReady||!baseData)return;draftReady=true;draftIds.general=true;baseData.tasks.forEach(function(t){draftIds[t.id]=true;});var saved=readDraftStore();
+      if(saved){Object.keys(saved.entries).forEach(function(id){var entry=saved.entries[id];draftMemory[id]={text:entry.text,updatedAt:entry.updatedAt,dirty:false,saved:true};});draftActive=saved.activeId;feedback.value=draftMemory[draftActive]?draftMemory[draftActive].text:draftTemplate(draftActive);}
+      draftStatus(saved?'已恢复上次编辑项':'');feedbackChanged('restore');
+    }
+    function clearDraft(){
+      rememberDraft();draftCleared={id:draftActive,text:feedback.value,entry:copy(draftMemory[draftActive]||null)};delete draftMemory[draftActive];var cleared=writeDraftStore(draftActive,null);feedback.value=draftTemplate(draftActive);draftStatus(cleared?'已清空此项草稿，可恢复刚清空内容':'清空仅在当前页面生效，原存储未覆盖');feedbackChanged('clear');feedback.focus({preventScroll:true});
+    }
+    function undoDraft(){
+      if(!draftCleared)return;rememberDraft();var prior=draftCleared,displaced=draftMemory[prior.id];draftCleared=displaced&&displaced.text!==prior.text?{id:prior.id,text:displaced.text,entry:copy(displaced),swap:true}:null;draftActive=prior.id;feedback.value=prior.text;
+      if(prior.entry){draftMemory[draftActive]=prior.entry;draftMemory[draftActive].dirty=true;draftMemory[draftActive].saved=false;persistDraft(draftActive);}else delete draftMemory[draftActive];draftStatus(draftCleared?'已切回保留文字；另一份仍在此页可切回':'已恢复刚清空的文字');feedbackChanged('undo');feedback.focus({preventScroll:true});
+    }
     function riskBox(){var undated=groups.risk.filter(function(t){return!t.date;}).length,overdue=groups.risk.filter(function(t){return t.date&&t.date<currentDay;}).length;$('research-risk-note').textContent=groups.risk.length?groups.risk.length+' 项条件或排期待核对'+(undated?'，含 '+undated+' 项日期未定':'')+(overdue?'、'+overdue+' 项已过建议日期':'')+'；网站不会自行改期或批准实验。':'当前摘要暂无已标记风险，执行条件仍须核对。';}
     function renderSummary(){
       var complete=groups.done.length,pct=data.tasks.length?Math.round(100*complete/data.tasks.length):0;
@@ -132,7 +180,7 @@
     function apply(next,bundle){
       var candidate=copy(validate(next)),native=bundle?copy(validateDetails(bundle,candidate)):details&&details.summaryRevision===candidate.revision?details:null;
       if(baseData&&JSON.stringify(baseData)!==JSON.stringify(candidate))cloud=null;
-      baseData=candidate;details=native;detailMap=Object.create(null);if(details)details.tasks.forEach(function(t){detailMap[t.id]=t;});derive();paint('base');
+      baseData=candidate;details=native;detailMap=Object.create(null);if(details)details.tasks.forEach(function(t){detailMap[t.id]=t;});derive();paint('base');initDrafts();
     }
     function applyCloud(bundle){
       if(!baseData)throw Error('任务基线尚未载入');var candidate=copy(validateCloud(bundle,baseData));
@@ -159,13 +207,18 @@
     $('view-research').addEventListener('click',function(e){var b=e.target.closest?e.target.closest('button[data-rscope],button[data-rday],button[data-rfeedback],button[data-ropen],button[data-rrecords]'):null;if(!b)return;
       if(b.dataset.rscope){setScope(b.dataset.rscope);return;}if(b.dataset.ropen){focusTask(b.dataset.ropen);return;}if(b.dataset.rrecords){showRecords(b.dataset.rrecords);return;}
       if(b.dataset.rday){focusId='';scope='week';selectedDay=b.dataset.rday;limit=12;render();if($('research-list-heading').scrollIntoView)$('research-list-heading').scrollIntoView({block:'start',behavior:'auto'});return;}
-      var t=data&&data.tasks.find(function(t){return t.id===b.dataset.rfeedback;});if(!t)return;$('research-feedback-text').value='任务ID：'+t.id+'\n任务：'+title(t)+'\n进展 / 新情况：\n实际日期 / 希望调整到：\n实际主动工时（可选）：\n需要协调的事：';if($('research-feedback-box').scrollIntoView)$('research-feedback-box').scrollIntoView({block:'start',behavior:'auto'});$('research-feedback-text').focus();
+      var t=data&&data.tasks.find(function(t){return t.id===b.dataset.rfeedback;});if(t)selectDraft(t.id,'task',true);
     });
     refreshButton.addEventListener('click',refresh);
     $('research-search').addEventListener('input',function(){focusId='';query=this.value;limit=12;render();});$('research-category').addEventListener('change',function(){focusId='';category=this.value;limit=12;render();});$('research-state').addEventListener('change',function(){focusId='';state=this.value;limit=12;render();});
     $('research-reset').addEventListener('click',function(){focusId='';query='';category='all';state='all';selectedDay='';limit=12;$('research-search').value='';$('research-category').value='all';$('research-state').value='all';render();});$('research-more').addEventListener('click',function(){var before=limit;limit+=12;render();var cards=doc.querySelectorAll('#research-list article');if(cards[before]&&cards[before].focus)cards[before].focus();});
     $('research-record-task').addEventListener('change',function(){recordTask=this.value;recordLimit=12;renderRecords();});$('research-record-query').addEventListener('input',function(){recordQuery=this.value;recordLimit=12;renderRecords();});$('research-record-reset').addEventListener('click',function(){recordTask='all';recordQuery='';recordLimit=12;$('research-record-task').value='all';$('research-record-query').value='';renderRecords();});$('research-record-more').addEventListener('click',function(){recordLimit+=12;renderRecords();});
     $('research-copy').addEventListener('click',function(){if(w.AI_COPY)w.AI_COPY($('research-feedback-text').value,this);});
+    feedback.addEventListener('input',function(){if(!draftReady)return;draftMemory[draftActive]={text:feedback.value,updatedAt:new Date().toISOString(),dirty:true,saved:false};persistDraft(draftActive);draftStatus();});
+    if($('research-draft-new'))$('research-draft-new').addEventListener('click',function(){selectDraft('general','new',true);});
+    if($('research-draft-clear'))$('research-draft-clear').addEventListener('click',clearDraft);
+    if($('research-draft-undo'))$('research-draft-undo').addEventListener('click',undoDraft);
+    if(w.addEventListener)w.addEventListener('pagehide',rememberDraft);
     try{apply(w.RESEARCH_SNAPSHOT,w.RESEARCH_DETAILS);$('research-sync-status').textContent=details?'当前展示随网页发布的完整执行内容与记录；打开栏目时检查同域更新。':'当前仅展示已核对摘要，正文暂未载入。';}catch(e){try{apply(w.RESEARCH_SNAPSHOT,null);$('research-sync-status').textContent='正文版本校验失败，暂保留有效摘要；请检查更新。';}catch(ignore){$('research-sync-status').textContent='任务摘要校验失败，未加载任务。';}}
     if((w.location||{}).hash==='#research')refresh();if(w.addEventListener)w.addEventListener('focus',function(){if($('view-research').style.display!=='none'&&Date.now()-lastCheck>30000)refresh();});
     setInterval(function(){if($('view-research').style.display==='none'||!data)return;var today=opts.today||beijingDay();if(today!==currentDay){derive();paint('day');refresh();}else if(Date.now()-lastCheck>300000)refresh();},60000);
