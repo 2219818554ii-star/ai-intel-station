@@ -2427,7 +2427,7 @@
 /* ============ 重庆理工通知（学校 / 学院 / 部门 / 学生会）============ */
 (function(){
   "use strict";
-  function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+  function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;"); }
   var CAT = { school:"🏛 学校各部门", college:"🏫 各学院", student:"🎒 团委·学生会" };
   var TAGS = window.CQUT_TAGS || [];
   var TAGNAME = {};
@@ -2766,7 +2766,7 @@
 /* ============ 基金看板 ============ */
 (function(){
   "use strict";
-  function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+  function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;"); }
 
   var H = window.FUNDS_HOLD || [];
   var CASH = window.FUNDS_CASH || [];
@@ -2956,7 +2956,7 @@
 /* ============ 持仓股穿透 + 行业研判 ============ */
 (function(){
   "use strict";
-  function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+  function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;"); }
   var S = window.FUNDS_STOCKS || {};
   if(!S.holdings) return;
   function col(v){ return v>0 ? "#e02424" : (v<0 ? "#16a34a" : "#64748b"); }
