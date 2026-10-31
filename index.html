@@ -481,6 +481,8 @@ body.workspace-shell{padding-left:var(--sidebar-width)}
 .cloud-dialog .cloud-connect-primary{width:100%;background:#12634e;color:#fff;border-color:#12634e;font-weight:650;margin:4px 0 0}.cloud-dialog .cloud-import-help{font-size:12px;color:#5b6e64;margin:8px 0 14px}.cloud-manual-connect{border-top:1px solid #d9e3dc;padding-top:14px;margin-top:15px}.cloud-manual-connect summary{cursor:pointer;font-size:14px;min-height:36px;line-height:36px}
 .research-draft-actions{margin:12px 0}.research-draft-actions button{font-size:12px;min-height:36px}.research-draft-status{font-size:12px!important;color:#52665c;overflow-wrap:anywhere;margin:8px 0 13px!important}
 .workspace-sidebar .tab{transition:color .15s ease,background-color .15s ease,border-color .15s ease}
+.reading-modes{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0 15px}.reading-modes button{border:1px solid var(--line);background:#fff;color:var(--ink-soft);font:inherit;font-size:13px;border-radius:999px;padding:9px 15px;min-height:40px;cursor:pointer}.reading-modes button[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:#fff}.reading-tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:20px}.reading-tools input{flex:1;min-width:200px}.reading-tools select{font:inherit;font-size:13px;border:1px solid var(--line);border-radius:8px;padding:10px;background:white;min-height:42px;color:var(--ink)}.reading-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.reading-item{min-width:0;border:1px solid var(--line);border-radius:12px;background:#fff;padding:20px;display:flex;flex-direction:column}.reading-item-meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:5px;font-size:11px;line-height:1.8;color:var(--ink-soft)}.reading-item h3{font-size:17px;line-height:1.7;margin:12px 0;overflow-wrap:anywhere}.reading-item h3 a{color:var(--ink);text-decoration:none}.reading-item h3 a:hover{color:var(--brand);text-decoration:underline}.reading-summary{font-size:12px;color:var(--ink-soft);line-height:1.9;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden;margin:0 0 18px}.reading-archive{font-size:11px;color:#8f6727;line-height:1.8}.reading-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:8px}.reading-actions .top-btn{font-size:12px;min-height:40px}.reading-actions button[aria-pressed="true"]{background:var(--brand-soft);border-color:#acc6b7}.reading-empty{grid-column:1/-1;border:1px dashed var(--line);border-radius:12px;padding:24px;background:#fff;font-size:13px;line-height:1.9;color:var(--ink-soft)}.reading-load{text-align:center;margin:22px 0}.reading-list a:focus-visible,.reading-actions button:focus-visible,.reading-modes button:focus-visible{outline:3px solid #8cb89b;outline-offset:3px}
+@media(max-width:900px){.reading-list{grid-template-columns:1fr}.reading-item{padding:17px}.reading-item h3{font-size:16px}.reading-tools{gap:8px}.reading-tools input{width:100%;min-width:0;flex-basis:100%;font-size:16px}.reading-tools select{flex:1;min-width:0}.reading-modes{gap:6px}.reading-modes button{font-size:12px;padding:8px 12px}.reading-actions .top-btn{min-height:42px}}
 
 </style>
 </head>
@@ -504,6 +506,7 @@ body.workspace-shell{padding-left:var(--sidebar-width)}
       <button class="tab" id="tab-ted" role="tab" aria-selected="false" aria-controls="view-ted" data-tab="ted">🎓 TED 英语</button>
       <button class="tab" id="tab-forum" role="tab" aria-selected="false" aria-controls="view-forum" data-tab="forum">🌱 成长讲坛</button>
       <div class="nav-group-label" aria-hidden="true">个人 / Personal</div>
+      <button class="tab" id="tab-library" role="tab" aria-selected="false" aria-controls="view-library" data-tab="library">▤ 我的阅读</button>
       <button class="tab" id="tab-funds" role="tab" aria-selected="false" aria-controls="view-funds" data-tab="funds">📈 资产记录</button>
     </nav>
     <div class="workspace-sidebar-foot"><p id="workspace-network">个人资料与阅读放在同一处</p><button type="button" id="workspace-install" hidden>添加到桌面 ↗</button><p>内容有日期，记录有依据。</p></div>
@@ -522,12 +525,21 @@ body.workspace-shell{padding-left:var(--sidebar-width)}
         <section class="home-panel"><div class="home-panel-head"><h2>可继续了解的机会</h2><button type="button" data-go="comp">全部赛事 ↗</button></div><div class="home-list" id="home-opportunities"></div><p class="home-note">按已收录的明确截止排序；报名资格、费用与本校认定仍需核对。</p></section>
       </div>
       <div class="home-column">
-        <section class="home-panel"><div class="home-panel-head"><h2>今天读一点</h2><button type="button" data-go="magazines">期刊书架 ↗</button></div><div id="home-reading"></div><p class="home-note">按已有编辑精选挑选，不代表原刊热度，也不保证今天发表。</p></section>
+        <section class="home-panel"><div class="home-panel-head"><h2>今天读一点</h2><button type="button" data-go="magazines">期刊书架 ↗</button></div><div id="home-reading"></div><p class="home-note">从未读的编辑精选中挑选，读完后推荐下一篇；不代表原刊热度或今天发表。</p></section>
+        <section class="home-panel"><div class="home-panel-head"><h2>还没看过</h2><button type="button" data-go="library">我的阅读 ↗</button></div><div id="home-watching" class="home-list"></div><p class="home-note">按已收录的精选顺序挑选未看视频；标记已看后换下一条。</p></section>
         <section class="home-panel"><div class="home-panel-head"><h2>常用工具</h2><button type="button" data-go="rank">比较模型 ↗</button></div><div class="home-quick-grid"><button type="button" data-go="daily">📰 今天的 AI 动态</button><button type="button" data-go="learn">📚 学习与实操</button><button type="button" data-go="ted">🎓 TED 练英语</button><button type="button" data-go="forum">🌱 系统听讲坛</button></div></section>
-        <section class="home-panel"><div class="home-panel-head"><h2>最近一次打开</h2></div><div id="home-opened" class="home-empty">打开过的文章或课程会出现在这里；打开不会自动标为已读。</div></section>
+        <section class="home-panel"><div class="home-panel-head"><h2>接着上次看</h2><button type="button" data-go="library">收藏与记录 ↗</button></div><div id="home-opened" class="home-empty">打开过的文章或课程会出现在这里；打开不会自动标为已读。</div></section>
       </div>
     </div>
     <div class="home-footer"><span>先执行，再反馈，再同步；网页不会擅自替你确认任务完成。</span><span id="home-content-state">本地内容就绪</span></div>
+  </section>
+  <section id="view-library" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-library">
+    <div class="view-head"><div><h2>▤ 我的阅读</h2><p>收藏在这里，读过的也在这里。随时回顾，接着上次打开的内容继续看。</p></div></div>
+    <div class="reading-modes" role="group" aria-label="阅读记录状态"><button type="button" data-reading-mode="all" aria-pressed="true">全部记录</button><button type="button" data-reading-mode="continue" aria-pressed="false">继续阅读</button><button type="button" data-reading-mode="fav" aria-pressed="false">我的收藏</button><button type="button" data-reading-mode="done" aria-pressed="false">已读 / 已看</button></div>
+    <div class="reading-tools"><input type="search" id="reading-query" class="section-search" aria-label="搜索我的阅读" placeholder="搜索标题、刊物或讲者…"><select id="reading-kind" aria-label="阅读记录栏目"><option value="all">全部栏目</option><option value="magazines">期刊文章</option><option value="ted">TED</option><option value="forum">成长讲坛</option><option value="learn">AI 学习</option></select><button type="button" class="top-btn" id="reading-reset">清除筛选</button></div>
+    <div class="mag-caption"><h3 id="reading-heading" tabindex="-1">我的书签与足迹</h3><p id="reading-count" role="status" aria-live="polite"></p></div>
+    <div id="reading-list" class="reading-list"></div><div class="reading-load"><button type="button" id="reading-more" class="top-btn" hidden>再看一些记录</button></div>
+    <p id="reading-storage-note" class="mag-notice"></p><button type="button" class="top-btn" data-cloud-open>设备同步设置</button>
   </section>
   <!-- ================= DAILY VIEW ================= -->
   <div id="view-daily" role="tabpanel" aria-labelledby="tab-daily">
@@ -1154,7 +1166,7 @@ body.workspace-shell{padding-left:var(--sidebar-width)}
   </div>
 
   </div><!-- workspace-content -->
-  <nav class="workspace-mobile-nav" aria-label="快捷入口"><button type="button" data-go="home"><span aria-hidden="true">⌂</span>今天</button><button type="button" data-go="research"><span aria-hidden="true">🔬</span>科研</button><button type="button" data-go="magazines"><span aria-hidden="true">▤</span>期刊</button><button type="button" data-menu-open aria-controls="workspace-menu" aria-expanded="false"><span aria-hidden="true">☰</span>全部</button></nav>
+  <nav class="workspace-mobile-nav" aria-label="快捷入口"><button type="button" data-go="home"><span aria-hidden="true">⌂</span>今天</button><button type="button" data-go="research"><span aria-hidden="true">🔬</span>科研</button><button type="button" data-go="library"><span aria-hidden="true">▤</span>我的阅读</button><button type="button" data-menu-open aria-controls="workspace-menu" aria-expanded="false"><span aria-hidden="true">☰</span>全部</button></nav>
   <dialog id="workspace-search" class="workspace-search-dialog" aria-label="搜索工作台"><div class="workspace-search-head"><input id="workspace-query" type="search" aria-label="搜索所有栏目" placeholder="搜索任务、文章、比赛或课程…" autocomplete="off"><button type="button" id="workspace-search-close">关闭</button></div><div id="workspace-search-results" class="workspace-search-results"></div><div class="workspace-search-footer" id="workspace-search-hint">输入关键词，跨栏目查找。任务进度仍以已同步记录为准。</div></dialog>
   <button id="toTop" title="回到顶部" aria-label="回到顶部">↑</button>
   <div id="copy-status" class="sr-only" role="status" aria-live="polite"></div>
@@ -16729,8 +16741,8 @@ window.MAGAZINE_ARTICLES = [
   document.getElementById("copy-close").addEventListener("click",function(){var d=document.getElementById("copy-dialog");if(d.close)d.close();else d.removeAttribute("open");});
   document.getElementById("copy-dialog").addEventListener("close",function(){var el=this._copyTrigger;if(el&&el.focus)el.focus({preventScroll:true});});
   /* ============ TAB SWITCHING ============ */
-  var NAV_TABS=["home","research","cqut","comp","daily","rank","learn","magazines","ted","forum","funds"];
-  var NAV_LABELS={home:"今天",research:"科研",cqut:"校园通知",comp:"赛事机会",daily:"AI日报",rank:"模型与工具",learn:"AI学习",magazines:"期刊阅读",ted:"TED英语",forum:"成长讲坛",funds:"资产记录"};
+  var NAV_TABS=["home","research","cqut","comp","daily","rank","learn","magazines","ted","forum","library","funds"];
+  var NAV_LABELS={home:"今天",research:"科研",cqut:"校园通知",comp:"赛事机会",daily:"AI日报",rank:"模型与工具",learn:"AI学习",magazines:"期刊阅读",ted:"TED英语",forum:"成长讲坛",library:"我的阅读",funds:"资产记录"};
   var NAV_RENDERED=false;
   function exposeNavSelection(tab){
     if(navigationMedia&&navigationMedia.matches&&!menuOpen)return;
@@ -18590,6 +18602,96 @@ window.MAGAZINE_ARTICLES = [
 })();
 </script>
 <script>
+/* One reading shelf over the existing magazine/learning records. No private data in the build. */
+(function(root,factory){
+  var api=factory();if(typeof module==='object'&&module.exports)module.exports=api;
+  if(root&&root.document)root.AI_READING=api.mount(root,root.document);
+})(typeof window==='undefined'?null:window,function(){
+  'use strict';
+  var KEYS={magazine:'ai-magazine-reading-v1',learning:'ai-learning-v1',opened:'ai-reading-opened-v1'};
+  var LABELS={magazines:'期刊文章',ted:'TED',forum:'成长讲坛',learn:'AI 学习'};
+  function array(x){return Array.isArray(x)?x.filter(function(r){return r&&typeof r==='object'&&!Array.isArray(r);}):[];}
+  function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  function safeURL(s){try{var u=new URL(s);return typeof s==='string'&&s.length<=2100&&!/[\s<>"'\\]/.test(s)&&!u.username&&!u.password&&['http:','https:'].includes(u.protocol)?s:'';}catch(e){return '';}}
+  function stamp(n){return Number.isFinite(n)&&n>0?n:0;}
+  function catalog(w,doc){
+    var rows=[],seen=new Set(),pubs=array(w.MAGAZINES);
+    function add(kind,url,title,extra){if(!safeURL(url)||!title||seen.has(kind+':'+url))return;seen.add(kind+':'+url);rows.push(Object.assign({id:kind+':'+url,kind:kind,url:url,title:String(title).slice(0,600)},extra||{}));}
+    array(w.MAGAZINE_ARTICLES).forEach(function(a){var p=pubs.find(function(p){return p.id===a.publication;});if(p)add('magazines',a.url,a.title,{publication:p.id,source:p.name,publishedAt:a.publishedAt,summary:a.summary,article:{publication:p.id,title:a.title,publishedAt:a.publishedAt,summary:a.summary}});});
+    array(w.TED).forEach(function(t){add('ted',t.url,t.en||t.zh,{source:t.sp});});
+    array(w.FORUM_SERIES).forEach(function(s){array(s.vids).forEach(function(v){if(/^BV[0-9A-Za-z]{10}$/.test(v.bvid||''))add('forum','https://www.bilibili.com/video/'+v.bvid,v.t,{source:s.who});});});
+    if(doc&&doc.querySelectorAll)Array.from(doc.querySelectorAll('#view-learn .rsrc-item')).forEach(function(card){var a=card.querySelector('a.rsrc');if(a)add('learn',a.href,a.textContent.trim());});
+    return rows;
+  }
+  function collect(data,magazines,learning,opened,pubs){
+    var map=new Map(data.map(function(r){return[r.id,Object.assign({},r,{fav:false,done:false,at:0,openedAt:0})];}));
+    function row(kind,url,title){var id=kind+':'+url;if(!LABELS[kind]||!safeURL(url))return null;
+      if(kind==='magazines'){var u=new URL(url);if(u.protocol!=='https:'||!array(pubs).some(function(p){return Array.isArray(p.hosts)&&p.hosts.includes(u.hostname.toLowerCase());}))return null;}
+      if(!map.has(id))map.set(id,{id:id,kind:kind,url:url,title:String(title||'旧记录（标题未保存）').slice(0,600),fav:false,done:false,at:0,openedAt:0,archived:true});
+      return map.get(id);
+    }
+    array(magazines).forEach(function(r){var item=row('magazines',r.url,r.article&&r.article.title);if(!item)return;item.fav=r.fav===true;item.done=r.read===true;item.at=stamp(r.at);if(item.archived&&r.article){item.article=r.article;item.summary=typeof r.article.summary==='string'?r.article.summary:'';item.publishedAt=r.article.publishedAt;item.publication=r.article.publication;var p=array(pubs).find(function(p){return p.id===item.publication;});if(p)item.source=p.name;}});
+    array(learning).forEach(function(r){var item=row(r.kind,r.url,r.title);if(!item)return;item.fav=r.fav===true;item.done=r.done===true;item.at=stamp(r.at);});
+    array(opened).forEach(function(r){var item=row(r.kind,r.url,r.title);if(!item||!stamp(r.openedAt))return;if(r.openedAt>=item.openedAt){item.openedAt=r.openedAt;item.openURL=safeURL(r.openURL)||item.url;}});
+    return Array.from(map.values()).filter(function(r){return r.fav||r.done||r.openedAt;}).sort(function(a,b){return Math.max(b.at,b.openedAt)-Math.max(a.at,a.openedAt)||a.title.localeCompare(b.title);});
+  }
+  function select(rows,mode,kind,query){var terms=String(query||'').toLowerCase().trim().split(/\s+/).filter(Boolean);return rows.filter(function(r){return(kind==='all'||r.kind===kind)&&(mode==='all'||mode==='fav'&&r.fav||mode==='done'&&r.done||mode==='continue'&&r.openedAt>0&&!r.done)&&terms.every(function(t){return[r.title,r.source,r.summary].join(' ').toLowerCase().includes(t);});}).sort(function(a,b){return mode==='continue'?b.openedAt-a.openedAt:Math.max(b.at,b.openedAt)-Math.max(a.at,a.openedAt);});}
+  function mount(w,doc){
+    var root=doc.getElementById('view-library');if(!root)return null;
+    var list=doc.getElementById('reading-list'),query=doc.getElementById('reading-query'),kind=doc.getElementById('reading-kind'),more=doc.getElementById('reading-more'),notice=doc.getElementById('reading-storage-note');
+    var memory={},volatile=new Set(),problem=false,saved=w.AI_SESSION?w.AI_SESSION.read('ai-reading-shelf'):{},mode=['all','continue','fav','done'].includes(saved.mode)?saved.mode:'all',limit=Number.isInteger(saved.limit)&&saved.limit>=24&&saved.limit<=5000?saved.limit:24,visible=[],data=catalog(w,doc);
+    query.value=typeof saved.query==='string'?saved.query.slice(0,200):'';kind.value=LABELS[saved.kind]?saved.kind:'all';
+    function read(key){if(volatile.has(key))return memory[key]||[];try{var raw=w.localStorage.getItem(key);return raw===null?(memory[key]||[]):JSON.parse(raw);}catch(e){problem=true;return memory[key]||[];}}
+    function write(key,rows){memory[key]=rows;try{w.localStorage.setItem(key,JSON.stringify(rows));volatile.delete(key);return true;}catch(e){problem=true;volatile.add(key);return false;}}
+    function opened(){var rows=array(read(KEYS.opened)),legacy;try{legacy=JSON.parse(w.localStorage.getItem('ai-workspace-opened-v1')||'null');}catch(e){}
+      if(legacy&&LABELS[legacy.route]&&stamp(legacy.at)&&safeURL(legacy.url)&&!rows.some(function(r){return r.kind===legacy.route&&(r.url===legacy.url||r.openURL===legacy.url);}))rows.push({kind:legacy.route,url:legacy.url,title:legacy.title,openedAt:legacy.at});return rows;
+    }
+    function records(){return collect(data,read(KEYS.magazine),read(KEYS.learning),opened(),w.MAGAZINES);}
+    function notify(key){if(w.dispatchEvent&&w.CustomEvent)w.dispatchEvent(new w.CustomEvent('reading-records-changed',{detail:{key:key}}));}
+    function seen(kind,url){var rows=array(read(kind==='magazines'?KEYS.magazine:KEYS.learning));return rows.some(function(r){return r.url===url&&(kind==='magazines'||r.kind===kind)&&(kind==='magazines'?r.read===true:r.done===true);});}
+    function toggle(id,action){
+      var item=records().find(function(r){return r.id===id;});if(!item||!['fav','done'].includes(action))return false;
+      var mag=item.kind==='magazines',key=mag?KEYS.magazine:KEYS.learning,rows=array(read(key)),row=rows.find(function(r){return r.url===item.url&&(mag||r.kind===item.kind);});
+      if(!row){row=mag?{url:item.url,fav:false,read:false}:{kind:item.kind,url:item.url,title:item.title,fav:false,done:false};rows.push(row);}
+      var field=action==='done'&&mag?'read':action;row[field]=!item[action];row.at=Date.now();if(mag&&item.article)row.article=item.article;
+      var saved=write(key,rows);if(saved&&w.AI_CLOUD)w.AI_CLOUD.change(mag?'magazine':'learning',mag?item.url:item.kind+':'+item.url,field,row[field],row);notify(key);return true;
+    }
+    function remember(item,href){
+      if(!item||!safeURL(item.url)||!safeURL(href))return;
+      var rows=opened().filter(function(r){return !(r.kind===item.kind&&r.url===item.url);});rows.unshift({kind:item.kind,url:item.url,title:item.title,openURL:href,openedAt:Date.now()});write(KEYS.opened,rows.slice(0,200));render();
+    }
+    function render(){
+      if(w.AI_SESSION)w.AI_SESSION.write('ai-reading-shelf',{mode:mode,kind:kind.value,query:query.value.slice(0,200),limit:limit});
+      var rows=records();visible=select(rows,mode,kind.value||'all',query.value);
+      Array.from(root.querySelectorAll('[data-reading-mode]')).forEach(function(b){var m=b.getAttribute('data-reading-mode'),n=select(rows,m,'all','').length;b.setAttribute('aria-pressed',String(m===mode));b.textContent=({all:'全部记录',continue:'继续阅读',fav:'我的收藏',done:'已读 / 已看'})[m]+' · '+n;});
+      doc.getElementById('reading-count').textContent='共 '+visible.length+' 项 · 已显示 '+Math.min(limit,visible.length)+' 项';
+      list.innerHTML=visible.slice(0,limit).map(function(r){var doneLabel=r.kind==='magazines'?'已读':'已看';return '<article class="reading-item" data-reading-id="'+esc(r.id)+'"><div class="reading-item-meta"><span>'+esc(LABELS[r.kind])+(r.source?' · '+esc(r.source):'')+'</span><span>'+(r.done?doneLabel:(r.openedAt?'打开过 · 未标完成':'未标完成'))+(r.fav?' · 已收藏':'')+'</span></div><h3><a href="'+esc(r.openURL||r.url)+'" data-reading-open="'+esc(r.id)+'" target="_blank" rel="noopener noreferrer">'+esc(r.title)+'</a></h3>'+(r.archived?'<p class="reading-archive">已移出当前列表，保留原入口；原文信息可能变化。</p>':'')+(r.summary?'<p class="reading-summary">'+esc(r.summary)+'</p>':'')+'<div class="reading-actions"><a class="top-btn" href="'+esc(r.openURL||r.url)+'" data-reading-open="'+esc(r.id)+'" target="_blank" rel="noopener noreferrer">'+(r.done?'再看一次 ↗':r.openedAt?'继续打开 ↗':'打开原文 ↗')+'</a><button type="button" class="top-btn" data-reading-action="fav" data-reading-id="'+esc(r.id)+'" aria-label="'+(r.fav?'取消收藏：':'收藏：')+esc(r.title)+'" aria-pressed="'+r.fav+'">'+(r.fav?'已收藏':'收藏')+'</button><button type="button" class="top-btn" data-reading-action="done" data-reading-id="'+esc(r.id)+'" aria-label="'+(r.done?'标为未完成：':'标为'+doneLabel+'：')+esc(r.title)+'" aria-pressed="'+r.done+'">'+(r.done?doneLabel+' ✓':'标记'+doneLabel)+'</button></div></article>';}).join('')||'<div class="reading-empty"><p>'+(rows.length?'这个筛选下没有记录，可以切换其他状态。':'还没有阅读记录。在期刊、TED、讲坛或AI学习中收藏、标记完成或打开内容，就会汇集在这里。')+'</p><button type="button" class="top-btn" data-go="magazines">找一篇文章</button> <button type="button" class="top-btn" data-go="ted">挑一个视频</button></div>';
+      more.hidden=visible.length<=limit;
+      notice.textContent=problem?'浏览器暂时无法保存，新的操作仅本次有效。请保留当前页面。':'收藏、已读和已看沿用原记录，连接设备后可同步；最近打开保存在这台设备。外站的阅读位置和播放进度以原站为准。';
+    }
+    root.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-reading-mode],[data-reading-action]');if(!b)return;
+      if(b.hasAttribute('data-reading-mode')){mode=b.getAttribute('data-reading-mode');limit=24;render();return;}
+      var id=b.getAttribute('data-reading-id'),action=b.getAttribute('data-reading-action'),before=visible.findIndex(function(r){return r.id===id;});
+      if(toggle(id,action)){render();var buttons=Array.from(list.querySelectorAll('[data-reading-action="'+action+'"]')),focus=buttons.find(function(x){return x.getAttribute('data-reading-id')===id;})||buttons[Math.min(Math.max(before,0),buttons.length-1)]||doc.getElementById('reading-heading');if(focus)focus.focus({preventScroll:true});}
+    });
+    query.addEventListener('input',function(){limit=24;render();});kind.addEventListener('change',function(){limit=24;render();});
+    more.addEventListener('click',function(){var before=limit;limit+=24;render();var a=list.querySelectorAll('h3 a')[before];if(a)a.focus();});
+    doc.getElementById('reading-reset').addEventListener('click',function(){mode='all';query.value='';kind.value='all';limit=24;render();});
+    doc.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a||!safeURL(a.href))return;
+      var id=a.getAttribute('data-reading-open'),item=id&&(records().find(function(r){return r.id===id;})||data.find(function(r){return r.id===id;}));
+      if(!item){var view=a.closest('#view-magazines,#view-ted,#view-forum,#view-learn');if(!view)return;var card=a.closest('article,.rsrc-item');if(!card)return;var canonical=card.querySelector(view.id==='view-magazines'?'h4 a':view.id==='view-learn'?'a.rsrc':view.id==='view-ted'?'a.top-btn':"a[href*='bilibili.com/video/']");if(!canonical)return;item=data.find(function(r){return r.kind===view.id.slice(5)&&r.url===canonical.href;});}
+      if(item)remember(item,a.href);
+    });
+    w.addEventListener('storage',function(e){if(e.key===null||Object.values(KEYS).includes(e.key)||e.key==='ai-workspace-opened-v1')render();});
+    w.addEventListener('reading-records-changed',render);
+    w.addEventListener('workspace:route',function(e){if(e.detail&&e.detail.tab==='library')render();});
+    render();return{records:records,isDone:seen,notify:notify,render:render};
+  }
+  return{catalog:catalog,collect:collect,select:select,safeURL:safeURL,mount:mount};
+});
+
+</script>
+<script>
 /* Local learning records: opening a link never automatically marks a lesson as watched. */
 (function(){
   "use strict";
@@ -18632,7 +18734,7 @@ window.MAGAZINE_ARTICLES = [
   }
   function paint(m){
     var q=m.search.value.trim().toLowerCase(), mode=m.select.value, shown=0;
-    window.AI_SESSION.write("ai-library-"+m.kind,{query:m.search.value.slice(0,200),mode:mode});
+    window.AI_SESSION.write("ai-library-"+m.kind,{query:m.search.value.slice(0,200),mode:mode,unseenDefault:true});
     var cards=Array.from(m.root.querySelectorAll(m.kind==="learn"?".rsrc-item":"article.cmp"));
     var available=new Set();
     cards.forEach(function(card){
@@ -18682,7 +18784,7 @@ window.MAGAZINE_ARTICLES = [
       });
     }
     var recent=Object.values(entries).filter(function(x){return x.kind===m.kind&&x.at>0;}).sort(function(a,b){return b.at-a.at;})[0];
-    var html=recent?'上次打开：<a href="'+esc(recent.url)+'" target="_blank" rel="noopener noreferrer">'+esc(recent.title)+'</a>':"";
+    var html=recent?'最近记录：<a href="'+esc(recent.url)+'" target="_blank" rel="noopener noreferrer">'+esc(recent.title)+'</a>':"";
     if(m.recent.innerHTML!==html) m.recent.innerHTML=html;
     m.note.textContent=canSave?"收藏与已看先保存在本机；连接设备后可跨屏同步。打开视频不会自动标记已看。":"浏览器未允许保存，学习记录仅本次有效。";
   }
@@ -18699,7 +18801,7 @@ window.MAGAZINE_ARTICLES = [
     var m={kind:pair[0],root:root,search:tools.querySelector("input"),select:tools.querySelector("select"),count:tools.querySelector(".library-count"),recent:tools.querySelector(".library-recent"),note:tools.querySelector(".library-storage-note"),empty:empty,progress:tools.querySelector(".library-progress"),clear:tools.querySelector("[data-library-reset]")};
     var saved=window.AI_SESSION.read("ai-library-"+m.kind);
     m.search.value=typeof saved.query==="string"?saved.query.slice(0,200):"";
-    m.select.value=["all","fav","unseen","done"].indexOf(saved.mode)>=0?saved.mode:"all";
+    m.select.value=(["fav","done"].indexOf(saved.mode)>=0||saved.unseenDefault&&["all","unseen"].indexOf(saved.mode)>=0)?saved.mode:"unseen";
     m.clear.addEventListener("click",function(){m.search.value="";m.select.value="all";document.getElementById("view-"+m.kind).dispatchEvent(new Event("library-reset"));paint(m);});
     modules.push(m);
     m.search.addEventListener("input",function(){paint(m);});m.select.addEventListener("change",function(){paint(m);});
@@ -18713,7 +18815,9 @@ window.MAGAZINE_ARTICLES = [
       var card=action.closest("article.cmp,.rsrc-item"),m=modules.find(function(x){return x.root.contains(card);});
       if(!m) return;
       var meta=info(card,m.kind);if(!meta) return;
-      var record=item(meta),key=action.dataset.learnAction;record[key]=!record[key];save();if(window.AI_CLOUD)window.AI_CLOUD.change('learning',meta.id,key,record[key],{kind:record.kind,url:record.url,title:record.title,at:record.at});modules.forEach(paint);return;
+      var record=item(meta),key=action.dataset.learnAction;record[key]=!record[key];record.at=Date.now();save();if(window.AI_CLOUD)window.AI_CLOUD.change('learning',meta.id,key,record[key],{kind:record.kind,url:record.url,title:record.title,at:record.at});if(window.AI_READING)window.AI_READING.notify(KEY);modules.forEach(paint);
+      var allCards=Array.from(m.root.querySelectorAll(m.kind==="learn"?".rsrc-item":"article.cmp")),position=allCards.indexOf(card),nextCard=allCards.slice(position+1).concat(allCards.slice(0,position).reverse()).find(function(c){return !c.hidden;});
+      var replacement=!card.hidden?action:nextCard&&nextCard.querySelector('[data-learn-action="'+key+'"]')||m.select;if(replacement)replacement.focus({preventScroll:true});return;
     }
     var link=e.target.closest?e.target.closest("a[href]"):null;
     if(!link) return;
@@ -18725,6 +18829,7 @@ window.MAGAZINE_ARTICLES = [
     });
   },true);
   window.addEventListener("storage",function(e){if(e.key===KEY){entries=Object.create(null);read();modules.forEach(paint);}});
+  window.addEventListener("reading-records-changed",function(e){if(e.detail&&e.detail.key===KEY){entries=Object.create(null);read();modules.forEach(paint);}});
 })();
 </script>
 <script>
@@ -18770,7 +18875,7 @@ window.MAGAZINE_ARTICLES = [
   language.value=["zh","en"].indexOf(session.language)>=0?session.language:"all";
   q.value=typeof session.query==="string"?session.query.slice(0,300):"";
   category.value=["商业财经","生活人文","人物纪实","时事观察","科学新知"].indexOf(session.category)>=0?session.category:"all";
-  mode.value=["fav","unread","read"].indexOf(session.mode)>=0?session.mode:"all";
+  mode.value=(["fav","read"].indexOf(session.mode)>=0||session.unreadDefault&&["all","unread"].indexOf(session.mode)>=0)?session.mode:"unread";
   if(Number.isInteger(session.limit)&&session.limit>=18&&session.limit<=2000)limit=session.limit;
   function countFor(id){return articles.filter(function(a){return a.publication===id;}).length;}
   function accent(p){return /^#[a-f0-9]{6}$/i.test(p.accent||"")?p.accent:"#4f46e5";}
@@ -18788,7 +18893,7 @@ window.MAGAZINE_ARTICLES = [
     return parts.join(" · ");
   }
   function render(){
-    window.AI_SESSION.write("ai-magazine-filters",{publication:selected,query:q.value,category:category.value,mode:mode.value,language:language.value,order:order,limit:limit});
+    window.AI_SESSION.write("ai-magazine-filters",{publication:selected,query:q.value,category:category.value,mode:mode.value,language:language.value,order:order,limit:limit,unreadDefault:true});
     document.getElementById("magazine-stamp").textContent=pubs.length+" 本刊物 · "+articles.length+" 篇选读 · 最近核查 "+(window.MAGAZINES_CHECKED||"待核查");
     var names={latest:"最新文章",hot:"来源热榜",featured:"编辑精选"};
     ["latest","hot","featured"].forEach(function(name){document.getElementById("magazine-order-"+name).setAttribute("aria-pressed",String(name===order));});
@@ -18821,12 +18926,13 @@ window.MAGAZINE_ARTICLES = [
     var url=el.dataset.magUrl,action=el.dataset.magAction,a=currentArticle(url)||(records[url]&&savedArticle(url,records[url]));if(!a||["fav","read"].indexOf(action)<0)return;
     var buttons=Array.prototype.slice.call(document.querySelectorAll('[data-mag-action="'+action+'"]')),index=buttons.indexOf(el),r=records[url]||(records[url]={fav:false,read:false,at:0});
     if(!a.savedCopy)r.article=articleCopy(a);
-    r[action]=!r[action];r.at=Date.now();save();if(window.AI_CLOUD)window.AI_CLOUD.change('magazine',url,action,r[action],{url:url,at:r.at,article:r.article});render();
+    r[action]=!r[action];r.at=Date.now();save();if(window.AI_CLOUD)window.AI_CLOUD.change('magazine',url,action,r[action],{url:url,at:r.at,article:r.article});if(window.AI_READING)window.AI_READING.notify(KEY);render();
     var replacement=document.querySelector('[data-mag-action="'+action+'"][data-mag-url="'+url.replace(/\\/g,"\\\\").replace(/"/g,'\\"')+'"]');
     if(!replacement){var remaining=document.querySelectorAll('[data-mag-action="'+action+'"]');replacement=remaining[Math.min(Math.max(index,0),remaining.length-1)]||document.getElementById("magazine-heading");}
     if(replacement)replacement.focus({preventScroll:true});
   });
   window.addEventListener("storage",function(e){if(e.key===KEY||e.key===null){read();render();}});
+  window.addEventListener("reading-records-changed",function(e){if(e.detail&&e.detail.key===KEY){read();render();}});
   render();
 })();
 </script>
@@ -19100,7 +19206,7 @@ window.RESEARCH_DETAILS={"schemaVersion":1,"summaryRevision":"f2be25b4ea08e78a",
 /* Personal dashboard and cross-section finding. Everything here uses published data. */
 (function(root,factory){var api=factory();if(typeof module==='object'&&module.exports)module.exports=api;if(root&&typeof document!=='undefined')root.AI_WORKSPACE=api.mount(root,document);})(typeof window==='undefined'?null:window,function(){
   'use strict';
-  var routes={home:'今天',research:'科研',cqut:'校园通知',comp:'赛事机会',daily:'AI 日报',rank:'模型与工具',learn:'AI 学习',magazines:'期刊阅读',ted:'TED 英语',forum:'成长讲坛',funds:'资产记录'};
+  var routes={home:'今天',research:'科研',cqut:'校园通知',comp:'赛事机会',daily:'AI 日报',rank:'模型与工具',learn:'AI 学习',magazines:'期刊阅读',ted:'TED 英语',forum:'成长讲坛',library:'我的阅读',funds:'资产记录'};
   function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
   function day(){var p=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date()),d={};p.forEach(function(x){d[x.type]=x.value;});return d.year+'-'+d.month+'-'+d.day;}
   function safeURL(value){if(typeof value!=='string'||!/^https?:\/\//i.test(value)||/[\u0000-\u0020\u007f\\]/.test(value))return '';try{var u=new URL(value);return u.hostname&&!u.username&&!u.password?u.href:'';}catch(e){return '';}}
@@ -19170,7 +19276,9 @@ window.RESEARCH_DETAILS={"schemaVersion":1,"summaryRevision":"f2be25b4ea08e78a",
       }
     }
     function readRecent(){try{var r=JSON.parse(w.localStorage.getItem(KEY)||'null');if(r&&routes[r.route]&&typeof r.title==='string'&&safeURL(r.url)&&Number.isFinite(r.at))return r;}catch(e){}return null;}
-    function renderRecent(){var r=readRecent(),el=doc.getElementById('home-opened');if(!r){el.textContent='打开过的文章或课程会出现在这里；打开不会自动标为已读。';return;}
+    function renderRecent(){var pending=w.AI_READING?w.AI_READING.records().filter(function(r){return r.openedAt&&!r.done;}).sort(function(a,b){return b.openedAt-a.openedAt;}).slice(0,3):[],el=doc.getElementById('home-opened');
+      if(pending.length){el.className='home-list';el.innerHTML=pending.map(function(r){return '<a class="home-list-item" data-reading-open="'+esc(r.id)+'" href="'+esc(r.openURL||r.url)+'" target="_blank" rel="noopener noreferrer"><strong>'+esc(r.title)+'</strong><small>'+esc(routes[r.kind])+' · 打开过，尚未标记完成</small></a>';}).join('');return;}
+      var r=readRecent();if(!r||w.AI_READING&&w.AI_READING.isDone(r.route,r.url)){el.textContent='打开过的文章或课程会出现在这里；收藏和已完成内容可在“我的阅读”回顾。';return;}
       el.className='home-list';el.innerHTML='<a class="home-list-item" href="'+esc(r.url)+'" target="_blank" rel="noopener noreferrer"><strong>'+esc(r.title)+'</strong><small>'+esc(routes[r.route])+' · 仅记录打开，不代表读完</small></a>';
     }
     function renderResume(){var e=doc.getElementById('home-resume'),route='';try{route=w.sessionStorage.getItem('ai-workspace-last-view')||'';}catch(error){}e.hidden=!routes[route]||route==='home';if(!e.hidden){e.className='home-resume';e.innerHTML='<div><small>接着上次的位置</small><strong>'+esc(routes[route])+' · 保留这个窗口的阅读位置</strong></div><button class="top-btn" type="button" data-go="'+esc(route)+'">继续 ↗</button>';}}
@@ -19190,8 +19298,11 @@ window.RESEARCH_DETAILS={"schemaVersion":1,"summaryRevision":"f2be25b4ea08e78a",
       doc.getElementById('home-notice-stamp').textContent='最近成功内容 '+(w.CQUT_UPDATED||'待核对')+' · 来源核查 '+(w.CQUT_CHECKED||'待核对')+'；通知是否与你有关仍需看原文。';
       var matches=list(w.MATCHES).map(deadline).filter(function(x){return x&&x.at>=Date.now();}).sort(function(a,b){return a.at-b.at;}).slice(0,3);
       doc.getElementById('home-opportunities').innerHTML=matches.map(function(x){return '<button type="button" class="home-list-item" data-home-opportunity="'+esc(x.t.n)+'"><strong>'+esc(x.t.n)+'</strong><small>已收录报名截止 '+esc(x.date)+' · '+(x.t.fit?'专业适配推荐':'资格与投入待核对')+'</small></button>';}).join('')||'<div class="home-empty">当前没有能按明确截止排列的精选报名线索；可到赛事库查看其他方向。</div>';
-      var chosen=list(w.MAGAZINE_ARTICLES).filter(function(a){return typeof a.featuredReason==='string'&&a.featuredReason;}).slice().sort(function(a,b){return(a.featuredPriority||999)-(b.featuredPriority||999);}).slice(0,2);
-      doc.getElementById('home-reading').innerHTML=chosen.map(function(a){var p=list(w.MAGAZINES).find(function(p){return p.id===a.publication;});return '<div class="home-task home-reading-item"><div class="home-task-meta">'+esc(p?p.name:a.publication)+' · '+esc(a.publishedAt||'原文未标日期')+'</div><button class="home-list-item" type="button" data-home-article="'+esc(a.title)+'"><strong>'+esc(a.title)+'</strong></button><p>'+esc(a.featuredReason)+'</p></div>';}).join('');
+      var chosen=list(w.MAGAZINE_ARTICLES).filter(function(a){return typeof a.featuredReason==='string'&&a.featuredReason&&!(w.AI_READING&&w.AI_READING.isDone('magazines',a.url));}).slice().sort(function(a,b){return(a.featuredPriority||999)-(b.featuredPriority||999);}).slice(0,2);
+      doc.getElementById('home-reading').innerHTML=chosen.map(function(a){var p=list(w.MAGAZINES).find(function(p){return p.id===a.publication;});return '<div class="home-task home-reading-item"><div class="home-task-meta">'+esc(p?p.name:a.publication)+' · '+esc(a.publishedAt||'原文未标日期')+'</div><button class="home-list-item" type="button" data-home-article="'+esc(a.title)+'"><strong>'+esc(a.title)+'</strong></button><p>'+esc(a.featuredReason)+'</p></div>';}).join('')||'<div class="home-empty">已读完当前编辑精选，可到期刊书架找新文章，或在“我的阅读”回顾。</div>';
+      var videos=list(w.TED).filter(function(t){return !(w.AI_READING&&w.AI_READING.isDone('ted',t.url));}).slice(0,1).map(function(t){return {kind:'ted',url:t.url,title:t.en,label:'TED · '+t.sp};});
+      var lectures=[];list(w.FORUM_SERIES).forEach(function(s){list(s.vids).forEach(function(v){var url='https://www.bilibili.com/video/'+v.bvid;if(!(w.AI_READING&&w.AI_READING.isDone('forum',url)))lectures.push({kind:'forum',url:url,title:v.t,label:'讲坛 · '+s.who});});});
+      doc.getElementById('home-watching').innerHTML=videos.concat(lectures.slice(0,1)).map(function(v){return '<a class="home-list-item" data-reading-open="'+esc(v.kind+':'+v.url)+'" href="'+esc(v.url)+'" target="_blank" rel="noopener noreferrer"><strong>'+esc(v.title)+'</strong><small>'+esc(v.label)+' · 还没看</small></a>';}).join('')||'<div class="home-empty">已看完当前收录的视频，可到“我的阅读”重温。</div>';
       doc.getElementById('home-content-state').textContent='期刊 '+(w.MAGAZINES_CHECKED||'待核对')+'核查 · '+list(w.MAGAZINE_ARTICLES).length+'篇选读';
       searchEntries=index({RESEARCH_SNAPSHOT:raw,CQUT_NOTICES:w.CQUT_NOTICES,MATCHES:w.MATCHES,COMP:w.COMP,MAGAZINE_ARTICLES:w.MAGAZINE_ARTICLES,MAGAZINES:w.MAGAZINES,TED:w.TED,FORUM_SERIES:w.FORUM_SERIES,RANK:w.RANK},app&&app.getDetail?app.getDetail:null);renderRecent();renderResume();
     }
@@ -19209,7 +19320,7 @@ window.RESEARCH_DETAILS={"schemaVersion":1,"summaryRevision":"f2be25b4ea08e78a",
       if(el){if(el.dataset.homeTask)openEntry({route:'research',key:el.dataset.homeTask});if(el.dataset.homeScope){go('research',{focus:true});if(w.AI_RESEARCH)w.AI_RESEARCH.setScope(el.dataset.homeScope);}if(el.dataset.homeNotice)openEntry({route:'cqut',key:el.dataset.homeNotice});if(el.dataset.homeOpportunity)openEntry({route:'cqut',kind:'match',key:el.dataset.homeOpportunity});if(el.dataset.homeArticle)openEntry({route:'magazines',key:el.dataset.homeArticle});}
       var a=e.target.closest&&e.target.closest('a[href]');if(!a||!safeURL(a.href))return;var view=a.closest&&a.closest('#view-magazines,#view-ted,#view-forum,#view-learn');if(!view)return;var article=a.closest('article'),title=article&&article.querySelector('h4,h3,.cmp-name'),record={route:view.id.slice(5),url:a.href,title:(title?title.textContent:a.textContent).trim().slice(0,400),at:Date.now()};if(!record.title)return;try{w.localStorage.setItem(KEY,JSON.stringify(record));}catch(error){}renderRecent();
     });
-    if(w.addEventListener){w.addEventListener('research-updated',renderHome);w.addEventListener('workspace:route',function(e){var route=e.detail&&e.detail.tab;if(route&&route!=='home')try{w.sessionStorage.setItem('ai-workspace-last-view',route);}catch(error){}if(route==='home')renderHome();});}
+    if(w.addEventListener){w.addEventListener('research-updated',renderHome);w.addEventListener('reading-records-changed',renderHome);w.addEventListener('storage',function(e){if(e.key===null||e.key==='ai-magazine-reading-v1'||e.key==='ai-learning-v1')renderHome();});w.addEventListener('workspace:route',function(e){var route=e.detail&&e.detail.tab;if(route&&route!=='home')try{w.sessionStorage.setItem('ai-workspace-last-view',route);}catch(error){}if(route==='home')renderHome();});}
     var installPrompt=null,install=doc.getElementById('workspace-install');
     if(w.addEventListener&&install)w.addEventListener('beforeinstallprompt',function(e){e.preventDefault();installPrompt=e;install.hidden=false;});
     if(install)install.addEventListener('click',function(){if(installPrompt){installPrompt.prompt();installPrompt=null;install.hidden=true;}});

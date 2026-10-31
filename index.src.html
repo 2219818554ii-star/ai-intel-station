@@ -466,6 +466,7 @@
       <button class="tab" id="tab-ted" role="tab" aria-selected="false" aria-controls="view-ted" data-tab="ted">🎓 TED 英语</button>
       <button class="tab" id="tab-forum" role="tab" aria-selected="false" aria-controls="view-forum" data-tab="forum">🌱 成长讲坛</button>
       <div class="nav-group-label" aria-hidden="true">个人 / Personal</div>
+      <button class="tab" id="tab-library" role="tab" aria-selected="false" aria-controls="view-library" data-tab="library">▤ 我的阅读</button>
       <button class="tab" id="tab-funds" role="tab" aria-selected="false" aria-controls="view-funds" data-tab="funds">📈 资产记录</button>
     </nav>
     <div class="workspace-sidebar-foot"><p id="workspace-network">个人资料与阅读放在同一处</p><button type="button" id="workspace-install" hidden>添加到桌面 ↗</button><p>内容有日期，记录有依据。</p></div>
@@ -484,12 +485,21 @@
         <section class="home-panel"><div class="home-panel-head"><h2>可继续了解的机会</h2><button type="button" data-go="comp">全部赛事 ↗</button></div><div class="home-list" id="home-opportunities"></div><p class="home-note">按已收录的明确截止排序；报名资格、费用与本校认定仍需核对。</p></section>
       </div>
       <div class="home-column">
-        <section class="home-panel"><div class="home-panel-head"><h2>今天读一点</h2><button type="button" data-go="magazines">期刊书架 ↗</button></div><div id="home-reading"></div><p class="home-note">按已有编辑精选挑选，不代表原刊热度，也不保证今天发表。</p></section>
+        <section class="home-panel"><div class="home-panel-head"><h2>今天读一点</h2><button type="button" data-go="magazines">期刊书架 ↗</button></div><div id="home-reading"></div><p class="home-note">从未读的编辑精选中挑选，读完后推荐下一篇；不代表原刊热度或今天发表。</p></section>
+        <section class="home-panel"><div class="home-panel-head"><h2>还没看过</h2><button type="button" data-go="library">我的阅读 ↗</button></div><div id="home-watching" class="home-list"></div><p class="home-note">按已收录的精选顺序挑选未看视频；标记已看后换下一条。</p></section>
         <section class="home-panel"><div class="home-panel-head"><h2>常用工具</h2><button type="button" data-go="rank">比较模型 ↗</button></div><div class="home-quick-grid"><button type="button" data-go="daily">📰 今天的 AI 动态</button><button type="button" data-go="learn">📚 学习与实操</button><button type="button" data-go="ted">🎓 TED 练英语</button><button type="button" data-go="forum">🌱 系统听讲坛</button></div></section>
-        <section class="home-panel"><div class="home-panel-head"><h2>最近一次打开</h2></div><div id="home-opened" class="home-empty">打开过的文章或课程会出现在这里；打开不会自动标为已读。</div></section>
+        <section class="home-panel"><div class="home-panel-head"><h2>接着上次看</h2><button type="button" data-go="library">收藏与记录 ↗</button></div><div id="home-opened" class="home-empty">打开过的文章或课程会出现在这里；打开不会自动标为已读。</div></section>
       </div>
     </div>
     <div class="home-footer"><span>先执行，再反馈，再同步；网页不会擅自替你确认任务完成。</span><span id="home-content-state">本地内容就绪</span></div>
+  </section>
+  <section id="view-library" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-library">
+    <div class="view-head"><div><h2>▤ 我的阅读</h2><p>收藏在这里，读过的也在这里。随时回顾，接着上次打开的内容继续看。</p></div></div>
+    <div class="reading-modes" role="group" aria-label="阅读记录状态"><button type="button" data-reading-mode="all" aria-pressed="true">全部记录</button><button type="button" data-reading-mode="continue" aria-pressed="false">继续阅读</button><button type="button" data-reading-mode="fav" aria-pressed="false">我的收藏</button><button type="button" data-reading-mode="done" aria-pressed="false">已读 / 已看</button></div>
+    <div class="reading-tools"><input type="search" id="reading-query" class="section-search" aria-label="搜索我的阅读" placeholder="搜索标题、刊物或讲者…"><select id="reading-kind" aria-label="阅读记录栏目"><option value="all">全部栏目</option><option value="magazines">期刊文章</option><option value="ted">TED</option><option value="forum">成长讲坛</option><option value="learn">AI 学习</option></select><button type="button" class="top-btn" id="reading-reset">清除筛选</button></div>
+    <div class="mag-caption"><h3 id="reading-heading" tabindex="-1">我的书签与足迹</h3><p id="reading-count" role="status" aria-live="polite"></p></div>
+    <div id="reading-list" class="reading-list"></div><div class="reading-load"><button type="button" id="reading-more" class="top-btn" hidden>再看一些记录</button></div>
+    <p id="reading-storage-note" class="mag-notice"></p><button type="button" class="top-btn" data-cloud-open>设备同步设置</button>
   </section>
   <!-- ================= DAILY VIEW ================= -->
   <div id="view-daily" role="tabpanel" aria-labelledby="tab-daily">
@@ -1116,7 +1126,7 @@
   </div>
 
   </div><!-- workspace-content -->
-  <nav class="workspace-mobile-nav" aria-label="快捷入口"><button type="button" data-go="home"><span aria-hidden="true">⌂</span>今天</button><button type="button" data-go="research"><span aria-hidden="true">🔬</span>科研</button><button type="button" data-go="magazines"><span aria-hidden="true">▤</span>期刊</button><button type="button" data-menu-open aria-controls="workspace-menu" aria-expanded="false"><span aria-hidden="true">☰</span>全部</button></nav>
+  <nav class="workspace-mobile-nav" aria-label="快捷入口"><button type="button" data-go="home"><span aria-hidden="true">⌂</span>今天</button><button type="button" data-go="research"><span aria-hidden="true">🔬</span>科研</button><button type="button" data-go="library"><span aria-hidden="true">▤</span>我的阅读</button><button type="button" data-menu-open aria-controls="workspace-menu" aria-expanded="false"><span aria-hidden="true">☰</span>全部</button></nav>
   <dialog id="workspace-search" class="workspace-search-dialog" aria-label="搜索工作台"><div class="workspace-search-head"><input id="workspace-query" type="search" aria-label="搜索所有栏目" placeholder="搜索任务、文章、比赛或课程…" autocomplete="off"><button type="button" id="workspace-search-close">关闭</button></div><div id="workspace-search-results" class="workspace-search-results"></div><div class="workspace-search-footer" id="workspace-search-hint">输入关键词，跨栏目查找。任务进度仍以已同步记录为准。</div></dialog>
   <button id="toTop" title="回到顶部" aria-label="回到顶部">↑</button>
   <div id="copy-status" class="sr-only" role="status" aria-live="polite"></div>
@@ -1180,8 +1190,8 @@
   document.getElementById("copy-close").addEventListener("click",function(){var d=document.getElementById("copy-dialog");if(d.close)d.close();else d.removeAttribute("open");});
   document.getElementById("copy-dialog").addEventListener("close",function(){var el=this._copyTrigger;if(el&&el.focus)el.focus({preventScroll:true});});
   /* ============ TAB SWITCHING ============ */
-  var NAV_TABS=["home","research","cqut","comp","daily","rank","learn","magazines","ted","forum","funds"];
-  var NAV_LABELS={home:"今天",research:"科研",cqut:"校园通知",comp:"赛事机会",daily:"AI日报",rank:"模型与工具",learn:"AI学习",magazines:"期刊阅读",ted:"TED英语",forum:"成长讲坛",funds:"资产记录"};
+  var NAV_TABS=["home","research","cqut","comp","daily","rank","learn","magazines","ted","forum","library","funds"];
+  var NAV_LABELS={home:"今天",research:"科研",cqut:"校园通知",comp:"赛事机会",daily:"AI日报",rank:"模型与工具",learn:"AI学习",magazines:"期刊阅读",ted:"TED英语",forum:"成长讲坛",library:"我的阅读",funds:"资产记录"};
   var NAV_RENDERED=false;
   function exposeNavSelection(tab){
     if(navigationMedia&&navigationMedia.matches&&!menuOpen)return;
@@ -3040,6 +3050,7 @@
   }
 })();
 </script>
+<script src="reading.js"></script>
 <script>
 /* Local learning records: opening a link never automatically marks a lesson as watched. */
 (function(){
@@ -3083,7 +3094,7 @@
   }
   function paint(m){
     var q=m.search.value.trim().toLowerCase(), mode=m.select.value, shown=0;
-    window.AI_SESSION.write("ai-library-"+m.kind,{query:m.search.value.slice(0,200),mode:mode});
+    window.AI_SESSION.write("ai-library-"+m.kind,{query:m.search.value.slice(0,200),mode:mode,unseenDefault:true});
     var cards=Array.from(m.root.querySelectorAll(m.kind==="learn"?".rsrc-item":"article.cmp"));
     var available=new Set();
     cards.forEach(function(card){
@@ -3133,7 +3144,7 @@
       });
     }
     var recent=Object.values(entries).filter(function(x){return x.kind===m.kind&&x.at>0;}).sort(function(a,b){return b.at-a.at;})[0];
-    var html=recent?'上次打开：<a href="'+esc(recent.url)+'" target="_blank" rel="noopener noreferrer">'+esc(recent.title)+'</a>':"";
+    var html=recent?'最近记录：<a href="'+esc(recent.url)+'" target="_blank" rel="noopener noreferrer">'+esc(recent.title)+'</a>':"";
     if(m.recent.innerHTML!==html) m.recent.innerHTML=html;
     m.note.textContent=canSave?"收藏与已看先保存在本机；连接设备后可跨屏同步。打开视频不会自动标记已看。":"浏览器未允许保存，学习记录仅本次有效。";
   }
@@ -3150,7 +3161,7 @@
     var m={kind:pair[0],root:root,search:tools.querySelector("input"),select:tools.querySelector("select"),count:tools.querySelector(".library-count"),recent:tools.querySelector(".library-recent"),note:tools.querySelector(".library-storage-note"),empty:empty,progress:tools.querySelector(".library-progress"),clear:tools.querySelector("[data-library-reset]")};
     var saved=window.AI_SESSION.read("ai-library-"+m.kind);
     m.search.value=typeof saved.query==="string"?saved.query.slice(0,200):"";
-    m.select.value=["all","fav","unseen","done"].indexOf(saved.mode)>=0?saved.mode:"all";
+    m.select.value=(["fav","done"].indexOf(saved.mode)>=0||saved.unseenDefault&&["all","unseen"].indexOf(saved.mode)>=0)?saved.mode:"unseen";
     m.clear.addEventListener("click",function(){m.search.value="";m.select.value="all";document.getElementById("view-"+m.kind).dispatchEvent(new Event("library-reset"));paint(m);});
     modules.push(m);
     m.search.addEventListener("input",function(){paint(m);});m.select.addEventListener("change",function(){paint(m);});
@@ -3164,7 +3175,9 @@
       var card=action.closest("article.cmp,.rsrc-item"),m=modules.find(function(x){return x.root.contains(card);});
       if(!m) return;
       var meta=info(card,m.kind);if(!meta) return;
-      var record=item(meta),key=action.dataset.learnAction;record[key]=!record[key];save();if(window.AI_CLOUD)window.AI_CLOUD.change('learning',meta.id,key,record[key],{kind:record.kind,url:record.url,title:record.title,at:record.at});modules.forEach(paint);return;
+      var record=item(meta),key=action.dataset.learnAction;record[key]=!record[key];record.at=Date.now();save();if(window.AI_CLOUD)window.AI_CLOUD.change('learning',meta.id,key,record[key],{kind:record.kind,url:record.url,title:record.title,at:record.at});if(window.AI_READING)window.AI_READING.notify(KEY);modules.forEach(paint);
+      var allCards=Array.from(m.root.querySelectorAll(m.kind==="learn"?".rsrc-item":"article.cmp")),position=allCards.indexOf(card),nextCard=allCards.slice(position+1).concat(allCards.slice(0,position).reverse()).find(function(c){return !c.hidden;});
+      var replacement=!card.hidden?action:nextCard&&nextCard.querySelector('[data-learn-action="'+key+'"]')||m.select;if(replacement)replacement.focus({preventScroll:true});return;
     }
     var link=e.target.closest?e.target.closest("a[href]"):null;
     if(!link) return;
@@ -3176,6 +3189,7 @@
     });
   },true);
   window.addEventListener("storage",function(e){if(e.key===KEY){entries=Object.create(null);read();modules.forEach(paint);}});
+  window.addEventListener("reading-records-changed",function(e){if(e.detail&&e.detail.key===KEY){entries=Object.create(null);read();modules.forEach(paint);}});
 })();
 </script>
 <script>
@@ -3221,7 +3235,7 @@
   language.value=["zh","en"].indexOf(session.language)>=0?session.language:"all";
   q.value=typeof session.query==="string"?session.query.slice(0,300):"";
   category.value=["商业财经","生活人文","人物纪实","时事观察","科学新知"].indexOf(session.category)>=0?session.category:"all";
-  mode.value=["fav","unread","read"].indexOf(session.mode)>=0?session.mode:"all";
+  mode.value=(["fav","read"].indexOf(session.mode)>=0||session.unreadDefault&&["all","unread"].indexOf(session.mode)>=0)?session.mode:"unread";
   if(Number.isInteger(session.limit)&&session.limit>=18&&session.limit<=2000)limit=session.limit;
   function countFor(id){return articles.filter(function(a){return a.publication===id;}).length;}
   function accent(p){return /^#[a-f0-9]{6}$/i.test(p.accent||"")?p.accent:"#4f46e5";}
@@ -3239,7 +3253,7 @@
     return parts.join(" · ");
   }
   function render(){
-    window.AI_SESSION.write("ai-magazine-filters",{publication:selected,query:q.value,category:category.value,mode:mode.value,language:language.value,order:order,limit:limit});
+    window.AI_SESSION.write("ai-magazine-filters",{publication:selected,query:q.value,category:category.value,mode:mode.value,language:language.value,order:order,limit:limit,unreadDefault:true});
     document.getElementById("magazine-stamp").textContent=pubs.length+" 本刊物 · "+articles.length+" 篇选读 · 最近核查 "+(window.MAGAZINES_CHECKED||"待核查");
     var names={latest:"最新文章",hot:"来源热榜",featured:"编辑精选"};
     ["latest","hot","featured"].forEach(function(name){document.getElementById("magazine-order-"+name).setAttribute("aria-pressed",String(name===order));});
@@ -3272,12 +3286,13 @@
     var url=el.dataset.magUrl,action=el.dataset.magAction,a=currentArticle(url)||(records[url]&&savedArticle(url,records[url]));if(!a||["fav","read"].indexOf(action)<0)return;
     var buttons=Array.prototype.slice.call(document.querySelectorAll('[data-mag-action="'+action+'"]')),index=buttons.indexOf(el),r=records[url]||(records[url]={fav:false,read:false,at:0});
     if(!a.savedCopy)r.article=articleCopy(a);
-    r[action]=!r[action];r.at=Date.now();save();if(window.AI_CLOUD)window.AI_CLOUD.change('magazine',url,action,r[action],{url:url,at:r.at,article:r.article});render();
+    r[action]=!r[action];r.at=Date.now();save();if(window.AI_CLOUD)window.AI_CLOUD.change('magazine',url,action,r[action],{url:url,at:r.at,article:r.article});if(window.AI_READING)window.AI_READING.notify(KEY);render();
     var replacement=document.querySelector('[data-mag-action="'+action+'"][data-mag-url="'+url.replace(/\\/g,"\\\\").replace(/"/g,'\\"')+'"]');
     if(!replacement){var remaining=document.querySelectorAll('[data-mag-action="'+action+'"]');replacement=remaining[Math.min(Math.max(index,0),remaining.length-1)]||document.getElementById("magazine-heading");}
     if(replacement)replacement.focus({preventScroll:true});
   });
   window.addEventListener("storage",function(e){if(e.key===KEY||e.key===null){read();render();}});
+  window.addEventListener("reading-records-changed",function(e){if(e.detail&&e.detail.key===KEY){read();render();}});
   render();
 })();
 </script>

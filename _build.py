@@ -76,6 +76,9 @@ standalone = standalone.replace(research_snapshot, "<script>\nwindow.RESEARCH_SN
 standalone = standalone.replace(research_marker, "<script>\n" + open(os.path.join(base,"research.js"), encoding="utf-8").read() + "\n</script>", 1)
 
 workspace_marker = '<script src="workspace.js"></script>'
+reading_marker = '<script src="reading.js"></script>'
+assert reading_marker in standalone, 'reading script marker missing'
+standalone = standalone.replace(reading_marker, '<script>\n' + open(os.path.join(base, 'reading.js'), encoding='utf-8').read() + '\n</script>', 1)
 assert workspace_marker in standalone, 'workspace script marker missing'
 standalone = standalone.replace(workspace_marker, '<script>\n' + open(os.path.join(base, 'workspace.js'), encoding='utf-8').read() + '\n</script>', 1)
 

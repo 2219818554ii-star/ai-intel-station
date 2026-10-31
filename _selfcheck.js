@@ -9,10 +9,11 @@ const count = (s, re) => (s.match(re) || []).length;
 
 console.log('\n[1] 静态结构');
 const tabs = [...html.matchAll(/data-tab="([^"]+)"/g)].map(m => m[1]);
-const expectedTabs=['home','research','cqut','comp','daily','rank','learn','magazines','ted','forum','funds'];
-ok(tabs.length === 11 && new Set(tabs).size===11 && expectedTabs.every(v=>tabs.includes(v)), `唯一导航保留原10栏目并新增home，共${tabs.length}项: ${tabs.join(', ')}`);
-ok(expectedTabs.every(v => count(html,new RegExp('id="view-'+v+'"','g'))===1 && count(html,new RegExp('id="tab-'+v+'"','g'))===1), '11个视图与规范导航ID逐项唯一，不复制手机快捷导航ID');
-ok(html.includes('var NAV_TABS=["home","research","cqut","comp","daily","rank","learn","magazines","ted","forum","funds"]') && html.includes('NAV_TABS.forEach(function(v)'), '路由白名单保留原10栏目并让home、科研与执行事项优先');
+const expectedTabs=['home','research','cqut','comp','daily','rank','learn','magazines','ted','forum','library','funds'];
+// 用户11/1要求独立阅读记录入口，增加一条完整路由，不减少原栏目或检查。
+ok(tabs.length === 12 && new Set(tabs).size===12 && expectedTabs.every(v=>tabs.includes(v)), `唯一导航保留原11栏目并新增我的阅读，共${tabs.length}项: ${tabs.join(', ')}`);
+ok(expectedTabs.every(v => count(html,new RegExp('id="view-'+v+'"','g'))===1 && count(html,new RegExp('id="tab-'+v+'"','g'))===1), '12个视图与规范导航ID逐项唯一，不复制手机快捷导航ID');
+ok(html.includes('var NAV_TABS=["home","research","cqut","comp","daily","rank","learn","magazines","ted","forum","library","funds"]') && html.includes('NAV_TABS.forEach(function(v)'), '路由白名单保留全部原栏目并加入我的阅读');
 ok(!/<script src="(competitions|ted|forum|rank|cqut|matches|funds|magazines|research)\.js"/.test(html), '八个数据脚本与科研逻辑均已内联（无外链脚本）');
 const httpLeft = count(html, /href="http:\/\//g);
 ok(httpLeft === 0, `无 http:// 明文链接（剩余 ${httpLeft}）`);

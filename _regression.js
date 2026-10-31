@@ -127,7 +127,7 @@ module.exports = async function ({html, inline, sandbox, ok}) {
   ok(base.elements['comp-list'].innerHTML.includes('没有找到匹配'), '比赛搜索无结果时提供恢复操作提示');
   const route=base.ctx.window.__routeUX;
   ok(base.ctx.window.AI_NAV.current()==='home' && base.elements['view-home'].style.display==='' && base.elements['view-daily'].style.display==='none' && base.ctx.document.title==='今天 · 罗浩的工作台', '空地址直接显示今天工作台，旧日报数据加载不会抢占首页');
-  const retainedRoutes=['home','research','cqut','comp','daily','rank','learn','magazines','ted','forum','funds'];
+  const retainedRoutes=['home','research','cqut','comp','daily','rank','learn','magazines','ted','forum','library','funds'];
   retainedRoutes.forEach(tab=>{
     base.ctx.window.location.hash='#'+tab;route.sync();
     ok(base.ctx.window.AI_NAV.current()===tab && retainedRoutes.every(v=>base.elements['view-'+v].style.display===(v===tab?'':'none')), '工作台深链逐项只显示目标视图：'+tab);
@@ -249,11 +249,13 @@ module.exports = async function ({html, inline, sandbox, ok}) {
   expected=expected.replace('<script id="research-data-snapshot"></script>','<script>\nwindow.RESEARCH_SNAPSHOT='+JSON.stringify(JSON.parse(fs.readFileSync(path.join(__dirname,'research-data.json'),'utf8'))).replace(/</g,'\\u003c')+';\nwindow.RESEARCH_DETAILS='+JSON.stringify(JSON.parse(fs.readFileSync(path.join(__dirname,'research-details.json'),'utf8'))).replace(/</g,'\\u003c')+';\n</script>');
   expected=expected.replace('<script src="research.js"></script>','<script>\n'+fs.readFileSync(path.join(__dirname,'research.js'),'utf8')+'\n</script>');
   expected=expected.replace('<script src="workspace.js"></script>','<script>\n'+fs.readFileSync(path.join(__dirname,'workspace.js'),'utf8')+'\n</script>');
+  expected=expected.replace('<script src="reading.js"></script>','<script>\n'+fs.readFileSync(path.join(__dirname,'reading.js'),'utf8')+'\n</script>');
   expected=expected.replace('<script src="cloud.js"></script>','<script>\n'+fs.readFileSync(path.join(__dirname,'cloud.js'),'utf8')+'\n</script>');
   ok(['index.html','gh-pages/index.html','ai_intel_station_standalone.html'].every(f=>fs.readFileSync(path.join(__dirname,f),'utf8').replace(/\r\n/g,'\n')===expected.replace(/\r\n/g,'\n')), '三份构建产物均与当前模板和数据一致');
   await require('./_daily_recovery_regression.js')({inline,sandbox,ok});
   await require('./_magazines_regression.js')({html,inline,sandbox,ok});
   await require('./_section_rankings_regression.js')({inline,sandbox,ok});
   await require('./_workspace_regression.js')({html,ok});
+  await require('./_reading_regression.js')({html,ok});
   await require('./_cloud_regression.js')({ok});
 };
