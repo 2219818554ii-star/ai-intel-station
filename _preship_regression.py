@@ -31,10 +31,13 @@ class Response:
 
 
 class DeploymentChecks(unittest.TestCase):
-    def run_check(self, *, skip=False, changed=False, behind=False, optional_dns=False, gh_timeout=False):
+    def run_check(self, *, skip=False, changed=False, behind=False, optional_dns=False, gh_timeout=False, cqut_timeout=False, retention_proof=False, selfcheck_failure=False, cqut_404=False):
         requests = []
 
         def command(args, **kwargs):
+            if "_selfcheck.js" in args:
+                output = "[PASS] 理工官网受阻有据保留旧内容".encode() if retention_proof else b"[PASS] unrelated check"
+                return subprocess.CompletedProcess(args, 1 if selfcheck_failure else 0, stdout=output, stderr=b"")
             if gh_timeout and str(args[0]).endswith("gh.exe"):
                 self.assertEqual(kwargs.get("timeout"), 25)
                 raise subprocess.TimeoutExpired(args, kwargs["timeout"])
@@ -49,6 +52,11 @@ class DeploymentChecks(unittest.TestCase):
         def urlopen(req, **kwargs):
             url = req.full_url
             requests.append(url)
+            if url == "https://www.cqut.edu.cn/tzgg/bmtz.htm":
+                if cqut_404:
+                    raise urllib.error.HTTPError(url, 404, "Not Found", {}, None)
+                if cqut_timeout:
+                    raise urllib.error.URLError(TimeoutError("fixture handshake timed out"))
             if optional_dns and url == "https://arxiv.org":
                 raise urllib.error.URLError("fixture DNS failure")
             if ".github.io/" in url and changed:
@@ -92,6 +100,23 @@ class DeploymentChecks(unittest.TestCase):
         self.assertIn("取不到仓库里的 index.html", output)
         self.assertTrue(any(".github.io/" in url for url in requests))
         self.assertIn("线上站点页面 = 本地产物", output)
+
+    def test_cqut_timeout_requires_the_existing_complete_selfcheck_retention_proof(self):
+        code, _, output = self.run_check(cqut_timeout=True, retention_proof=True)
+        self.assertEqual(code, 0)
+        self.assertIn("学校来源仍受阻", output)
+        self.assertNotIn("关键入口全部可达", output)
+        for options in ({}, {"retention_proof": True, "selfcheck_failure": True}):
+            with self.subTest(options=options):
+                self.assertEqual(self.run_check(cqut_timeout=True, **options)[0], 1)
+
+    def test_real_404_still_blocks_even_with_retention_proof(self):
+        code, _, output = self.run_check(cqut_404=True, retention_proof=True)
+        self.assertEqual(code, 1)
+        self.assertIn("404", output)
+
+    def test_html_mismatch_still_blocks_when_cqut_retention_is_verified(self):
+        self.assertEqual(self.run_check(changed=True, cqut_timeout=True, retention_proof=True)[0], 1)
 
 
 if __name__ == "__main__":

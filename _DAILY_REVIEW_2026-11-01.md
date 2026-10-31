@@ -27,6 +27,6 @@
 
 ## 发布状态
 
-本记录写入时本地检查通过，线上部署核验将在推送main后执行；此处不预先声明已上线。后续结果见本轮发布核验记录。
+内容提交 d688e06 已推送main，GitHub Pages构建成功；公开HTML及两份科研JSON已完成独立规范化比对。最后补齐总检受阻处理及工具说明的核验范围，详情见 _RELEASE_REVIEW_2026-11-01.md；最终提交的上线比对另存本机核验记录，未用本地通过代替上线结论。
 
 来源证据：_rank_review_2026-11-01.json、_content_review_2026-11-01.json、_learning_review_2026-11-01.json、_forum_metadata_2026-11-01.json、_forum_plays_2026-11-01.json、_funds_review_2026-11-01.json、_magazines_refresh.json。具体时刻与逐项完整性以记录为准。

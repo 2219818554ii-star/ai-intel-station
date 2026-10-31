@@ -20,8 +20,10 @@ import re
 import sys
 import hashlib
 import subprocess
+import shutil
 import urllib.request
 import urllib.error
+from urllib.parse import urlsplit
 
 # 命令行默认码页是 cp936，输出 emoji 会直接 UnicodeEncodeError 崩溃，
 # 所以统一改成「cp936 + 不能编码就替换成 ?」，保证脚本在任何环境都不崩。
@@ -105,6 +107,21 @@ def run(cmd, **kw):
 
 def git(*args):
     return run(["D:/Git/cmd/git.EXE"] + list(args))
+
+
+_cqut_retention_verified = None
+def cqut_retention_verified():
+    """Only the existing full selfcheck may certify the approved exception.
+
+    It independently checks every same-day source failure, pre-check Git baseline,
+    original content date and visible disclosure. A timeout alone never suffices.
+    """
+    global _cqut_retention_verified
+    if _cqut_retention_verified is None:
+        node = shutil.which("node")
+        rc, output = run([node, "_selfcheck.js"], timeout=20) if node else (1, "")
+        _cqut_retention_verified = rc == 0 and "理工官网受阻有据保留旧内容" in output
+    return _cqut_retention_verified
 
 
 # =========================================================
@@ -324,7 +341,7 @@ PROBE = [
     ("arXiv（如用到）", "https://arxiv.org"),
 ]
 WAF = (412, 403, 503)  # 学校站 WAF/反爬，不代表链接失效
-hard_bad, waf_list, ok_list, soft_note = [], [], [], []
+hard_bad, waf_list, ok_list, soft_note, retained_blocked = [], [], [], [], []
 if skip_remote:
     print("  (跳过：手动指定 --skip-remote，未验证远程链接)")
 for name, url in ([] if skip_remote else PROBE):
@@ -348,12 +365,16 @@ for name, url in ([] if skip_remote else PROBE):
                 hard_bad.append("%s → 页面在引用它但连不上（%s）" % (name, getattr(e, "reason", e)))
             else:
                 soft_note.append("%s → 未使用，跳过（%s）" % (name, getattr(e, "reason", e)))
+        elif (urlsplit(url).hostname == "cqut.edu.cn" or str(urlsplit(url).hostname).endswith(".cqut.edu.cn")) and cqut_retention_verified():
+            retained_blocked.append("%s → 来源受阻，未确认失效（%s）；完整同日证据、独立Git基线、原日期与披露已通过全部自检" % (name, getattr(e, "reason", e)))
         else:
             hard_bad.append("%s → 连不上（%s）" % (name, getattr(e, "reason", e)))
-for line in ok_list + waf_list + soft_note:
+for line in ok_list + waf_list + soft_note + retained_blocked:
     print("      %s" % line)
 if hard_bad:
     bad("抽检到 %d 个打不开的链接：%s" % (len(hard_bad), "、".join(hard_bad)))
+elif retained_blocked:
+    warn("学校来源仍受阻；保留旧内容的完整证据已通过自检，不将超时冒称死链或成功更新。线上一致性须另看[4]。")
 elif not skip_remote:
     ok(PASS, "抽检 %d 个关键入口全部可达（%d 个站点反爬已豁免）"
        % (len(PROBE), len(waf_list)))
