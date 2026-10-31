@@ -1,164 +1,1284 @@
 /* AI 情报站 - 实力排行榜数据（每日自动更新） */
-window.RANK_UPDATED = "2026-10-27";
-window.RANK_CHECKED = "2026-10-27";
+window.RANK_UPDATED = "2026-11-01";
+window.RANK_CHECKED = "2026-11-01";
 window.RANK = {
-    models: [
-      {"name": "Kimi K3.1 Pro", "vendor": "Moonshot / 月之暗面（中国）", "price": "具体API价格与可用性请核对厂商官网", "iaa": 55, "tb": null, "t": {"综合": "—", "推理": "—", "代码": "—", "多模态": "—", "长上下文": "—", "中文": "—", "性价比": "—", "开源": "—"}, "note": "10月24日核对AA当前榜与10月23日官方评测公告：智能指数55，1M上下文；公告另列TB4.0为67%，不能填入本页TB2.1列。该公告称权重尚未发布，不能把未来开放计划写成已经开源。价格、产品可用性与主观等级本次不作推断。"},
-      {name:"Claude Opus 5.5", vendor:"Anthropic（美国）", price:"API $4/$20 每百万", iaa:58, tb:null,
-       t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"B",性价比:"B",开源:"—"},
-       note:"2026-09-22 发布，AA 智能指数 v4.3 最高分 58（超越 Fable 5.1 / Astra 的 53）；TB4.0 59.6%（xhigh，与 Astra 并列第一）。价格较 Opus 5 降 20%（$4/$20）。agentic 知识工作领先（AA-Briefcase 1822 Elo）。⚠ 本页 tb 列仍用 TB2.1 旧口径，Opus 5.5 无 TB2.1 公开分，故留空。中文偏弱。"},
-      {name:"Claude Sonnet 5.5", vendor:"Anthropic（美国）", price:"API $2/$10 每百万", iaa:56, tb:null,
-       t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"B",性价比:"A",开源:"—"},
-       note:"2026-09-28 发布，Opus 5.5 同门中杯（5 档 effort：low/medium/high/xhigh/max）；AA 智能指数 v4.3 = 56（max，仅次于 Opus 5.5 的 58，居 AA 榜第 2，较 Sonnet 5 +18 点）。定价 $2/$10，与 Sonnet 5 持平、比 Opus 5.5 便宜一半；1M 上下文、多模态（图/PDF），编码与 agent 强（TB4.0 64%）。⚠ 仅 TB4.0 公开分，无 TB2.1，tb 列留空；中文偏弱，且 max 档 token 消耗极大（约 193K/任务，AA 称史上最高）。"},
-      {name:"Claude Fable 5.1", vendor:"Anthropic（美国）", price:"Pro $17–20/月；API $10/$50 每百万", iaa:53, tb:91.4,
-       t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"B",性价比:"C",开源:"—"},
-       note:"10月19日核对AA官方当前榜：max with fallback智能指数53，与GPT-6 Astra(max)、Gemini4 Argon(high)同分；Opus5.5(max with fallback)为58，故不再称AA并列第一。TB2.1旧收录91.4%保留，与TB4.0不可直接比较。"},
-      {name:"GPT-6 Astra", vendor:"OpenAI（美国）", price:"API $10/$50 每百万", iaa:53, tb:89.9,
-       t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"A",性价比:"C",开源:"—"},
-       note:"10月19日核对AA官方当前榜：max档智能指数53；同一型号xhigh为52、high为51，努力档位必须一同比较。本页tb列89.9%为TB2.1历史口径，本次未改。产品可用性、价格与科学题单成绩不由这次榜单核验推断。"},
-      {name:"Claude Opus 5", vendor:"Anthropic（美国）", price:"Pro $17–20/月；API $5/$25 每百万", iaa:51, tb:89.1,
-       t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"B",性价比:"B",开源:"—"},
-       note:"投票榜 coding 冠军（image-to-WebDev 第一），价格仅 Fable 5.1 一半（$5/$25）；TB2.1 89.1%（TB4.0 49.0%）。英文/代码极强，中文偏弱。"},
-      {name:"Claude Fable 5", vendor:"Anthropic（美国）", price:"Pro $17–20/月；API $10/$50 每百万", iaa:50, tb:83.1,
-       t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"B",性价比:"C",开源:"—"},
-       note:"LMArena 文本盲测长期第一（体感最佳）；AA 50。配 Claude Code 时 SWE-bench Verified 达 95%。综合 S 但价格高。"},
-      {name:"Claude Haiku 5.5", vendor:"Anthropic（美国）", price:"API $0.10/$0.50 每百万（≤100K tokens；>100K 为 $0.50/$2.50）", iaa:43, tb:null,
-       t:{综合:"B",推理:"B",代码:"B",多模态:"B",长上下文:"B",中文:"B",性价比:"S",开源:"—"},
-       note:"2026-10-07 Anthropic 发布，Haiku 系列最新小模型（Opus 5.5 / Sonnet 5.5 同门最小档），面向成本敏感的高并发任务（摘要/分类/路由/子智能体/浏览器操作）。⚠ AA 智能指数 v4.3 = 43（Artificial Analysis 实测，max effort，182 个同级模型中第 2；来源 promtime 引 AA），运行成本较 Haiku 4.5 低约 75%。TB4.0 39.2%（xhigh）；无 TB2.1 公开分，tb 列留空。GDPval-AA v2.1 1620、OSWorld 2.1 72.4%、HLE(no tools)45.9%、FrontierCode 1.1 46.4%。1M 上下文、图文输入，首款支持可调 effort 的 Haiku；性价比 S，但非前沿模型。"},
-      {name:"GPT-5.6 Sol", vendor:"OpenAI（美国）", price:"Plus $20/月；API $4/$20 每百万", iaa:47, tb:89.5,
-       t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"A",性价比:"B",开源:"—"},
-       note:"AA 47、TB2.1 89.5%（与 Astra 同档）；⚠ TB4.0 掉到 39.9%，与 Astra 拉开 19.2 分。代码 Agent 指数 67，生态最全。中文与代码均强，性价比优于 Claude。"},
-      {name:"GPT-6 Sol", vendor:"OpenAI（美国）", price:"API $2/$10 每百万", iaa:48, tb:null,
-       t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"A",性价比:"A",开源:"—"},
-       note:"2026-09-22 发布，GPT-5.6 Sol 的继任者（Codex / ChatGPT Work，非 Chat；API gpt-6-sol）；较 GPT-5.6 Sol 降价约 50%（约 $2/$10）。⚠ AA 智能指数 v4.3.2 官方确认 48（theairankings 9/22 复核，原「待核实」已核实）；TB2.1 暂无，tb 列留空。中文与代码均强，性价比提升明显."},
-      {name:"GPT-6.1 Sol", vendor:"OpenAI（美国）", price:"API $2/$10 每百万", iaa:52, tb:null,
-       t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"A",性价比:"A",开源:"—"},
-       note:"2026-09-30 OpenAI DevDay 发布，GPT-6 Sol 的升级中杯（Codex / ChatGPT Work / API gpt-6.1-sol），距 GPT-6 Sol 仅一周。定价维持 $2/$10 不变，主打 agentic coding / 计算机操作 / 专业工作。⚠ AA 智能指数 v4.3 = 52（max，多源证实：theairankings 9/29 changelog、felloai、mlllm.io 引 Artificial Analysis「52 vs Astra 53 / Opus 5.5 58」、unifically 称 10th of 221 models），较 GPT-6 Sol(48) +4、仅低于 Astra(53) 1 分。据称 DeepSWE v1.1 75.2%、软件工程评测接近 Astra，成本仅约 Astra 1/5。TB2.1 暂无，tb 列留空；中文与代码均强，性价比突出。"},
-      {name:"GPT-5.6 Luna", vendor:"OpenAI（美国）", price:"API $0.10/$0.50 每百万", iaa:37, tb:null,
-       t:{综合:"A",推理:"A",代码:"B",多模态:"B",长上下文:"B",中文:"A",性价比:"S",开源:"—"},
-       note:"2026-09-22 与 GPT-6 Sol 同期发布，GPT-5.6 Sol 同门极致低价版（API $0.10/$0.50，约为 GPT-5.6 Sol 五折）；AA 智能指数 v4.3.2 = 37（同档 DeepSeek V4 Pro 36）。⚠ 定位轻量高-volume 场景，TB2.1 暂无，tb 列留空。性价比 S。"},
-      {name:"Grok 4.6", vendor:"xAI（美国）", price:"API $2/$6 每百万", iaa:44, tb:88.4,
-       t:{综合:"A",推理:"A",代码:"A",多模态:"A",长上下文:"B",中文:"B",性价比:"B",开源:"—"},
-       note:"8 月后训练刷新，AA 跳至 44；TB2.1 88.4%。价格低、长任务回合少。中文/长上下文略逊。"},
-      {name:"Grok 4.7", vendor:"xAI（美国）", price:"API $2/$6 每百万", iaa:46, tb:null,
-       t:{综合:"A",推理:"A",代码:"A",多模态:"A",长上下文:"B",中文:"B",性价比:"B",开源:"—"},
-       note:"2026-09-21 正式发布（GA），参数 2.1 万亿；AA 智能指数 v4.3 确认 46.4（xhigh，显示为 46），较 Grok 4.6 的 44 提升约 2 点；TB4.0 24.7%（high）。⚠ 无 TB2.1 公开分，tb 列留空；价格 $2/$6（xAI 定价）。"},
-      {name:"Muse Spark 1.3", vendor:"Meta（美国）", price:"闭源（开发者发布）", iaa:48, tb:null,
-       t:{综合:"A",推理:"A",代码:"A",多模态:"B",长上下文:"B",中文:"C",性价比:"B",开源:"—"},
-       note:"2026-09-02 发布，AA 48（8 点跃升）；开发者发布、无消费端入口；agent 行全面落后（Meta 自家图）；TB4.0 约 33.3%（AA 口径）。英文生态为主。"},
-      {name:"MuseWonder (Full)", vendor:"Meta（美国）", price:"仅 MuseCode 订阅（Power $50/月、Maximum $200/月）", iaa:56, tb:null,
-       t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"B",性价比:"C",开源:"—"},
-       note:"2026-10-13 Meta 发布（北京时间凌晨），Muse 系列满血旗舰；不按 token 售卖、仅 MuseCode 订阅（Power $50/月 / Maximum $200/月），面向最重编码 / 长程 agent / computer use。AA 智能指数 = 56（Artificial Analysis 实测，最高 effort；VentureBeat / The Signal / capitalandcompute 多源佐证，仅次于 Opus 5.5 的 58，超过 GPT-6 Astra / Gemini 4 Argon / Fable 5.1 的 53）。tb 列无可靠 TB2.1 分，留空。t 评级为基于定位的初步估计."},
-      {name:"MuseWonder", vendor:"Meta（美国）", price:"API $4/$20 每百万（MetaModel API / MuseCode 开放）", iaa:52, tb:null,
-       t:{综合:"A",推理:"A",代码:"A",多模态:"A",长上下文:"A",中文:"B",性价比:"B",开源:"—"},
-       note:"2026-10-13 Meta 发布，Muse 系列标准前沿版（MuseWonderFull 的同门可调用档），通过 MetaModel API 与 MuseCode 开放。AA 智能指数 = 52（Artificial Analysis 实测，最高 effort；多源佐证，与 GPT-6.1 Sol 持平，仅低于 GPT-6 Astra / Gemini 4 Argon / Fable 5.1 的 53 与 Opus 5.5 58 / Sonnet 5.5 56）。tb 列无可靠 TB2.1 分，留空。t 评级为基于定位的初步估计."},
-      {name:"GLM-5.3 / GLM-5.3-Flash", vendor:"智谱 Zhipu（中国）", price:"Flash 开源 MIT；API $0.15/$0.50 每百万", iaa:45, tb:84.3,
-       t:{综合:"A",推理:"A",代码:"A",多模态:"B",长上下文:"A",中文:"S",性价比:"A",开源:"A"},
-       note:"国产综合最强之一；Flash 版 8-26 发布即 MIT 开源、AA 42、性价比之王（列表价 $0.15/$0.50）。中文 S。"},
-      {name:"Kimi K3", vendor:"Moonshot AI（中国）", price:"免费商用 / API 低价", iaa:44, tb:85.0,
-       t:{综合:"A",推理:"A",代码:"A",多模态:"B",长上下文:"A",中文:"A",性价比:"A",开源:"A"},
-       note:"AA 44、Terminal-Bench 85.0；长上下文与中文强，部分权重开源可自部署。"},
-      {name:"Gemini 3.8 Flash", vendor:"Google（美国）", price:"API $0.75/$3.75 每百万（2027 起翻倍）", iaa:41, tb:87.6,
-       t:{综合:"A",推理:"A",代码:"A",多模态:"S",长上下文:"S",中文:"A",性价比:"A",开源:"—"},
-       note:"2026-09-02 发布，Google 当前主力 workhorse；多模态/超长上下文（1M）标杆，TB2.1 87.6%。⚠ TB4.0 仅 19.7%（新榜难度陡增，同模型跌幅最大）。价格友好（限时）。"},
-      {name:"Gemini 4 Argon", vendor:"Google（美国）", price:"API $2/$10 每百万（首发促销价，后续 $4/$20）", iaa:53, tb:null,
-       t:{综合:"S",推理:"S",代码:"S",多模态:"A",长上下文:"S",中文:"A",性价比:"B",开源:"—"},
-       note:"2026-09-30 Google DeepMind 发布（Koray Kavukcuoglu 署名），Gemini 4 系列首款旗舰，面向长周期软件工程 / 企业知识工作(法律·金融) / 网络安全防御。先经 Fairwind Program 向受信任网络防御者开放，后续向付费 API 与 Google AI Ultra 用户开放。亮点：100 万 token 输出上限、DeepSWE v1.1 77.9%（据 Google 发布材料）。⚠ AA 智能指数官方核实 = 53（felloai 10/1 引 Artificial Analysis，与 Astra 持平，仅次于 Opus 5.5 58 / Sonnet 5.5 56）；TB2.1 暂无，tb 列留空。本页已按核实值定级，t 评级维持基于定位的初步估计."},
-      {name:"Gemini 3.1 Pro", vendor:"Google（美国）", price:"API $2/$12 每百万", iaa:null, tb:null,
-       t:{综合:"A",推理:"S",代码:"A",多模态:"A",长上下文:"S",中文:"A",性价比:"B",开源:"—"},
-       note:"现仍在售的真正旗舰 Pro（3.5 Pro 一再跳票）；GPQA Diamond 94.3%、ARC-AGI-1 98%。最强纯推理与超长上下文，价格高于 Flash。"},
-      {name:"Qwen3.8-Max", vendor:"阿里巴巴（中国）", price:"闭源顶配 / Qwen3.8-Flash-Next 开源", iaa:45, tb:null,
-       t:{综合:"A",推理:"A",代码:"A",多模态:"B",长上下文:"A",中文:"A",性价比:"A",开源:"A"},
-       note:"10月19日核对AA官方当前榜：Qwen3.8 Max (0902)智能指数45，原收录40混淆了Max与Flash-Next等不同型号。tb列仍为Terminal-Bench2.1，未核得该型号旧版成绩，留空。"},
-      {"name": "DeepSeek V4.1 Flash 1017 (max)", "vendor": "DeepSeek（中国）", "price": "API每百万token（错峰/高峰）：输入未命中$0.15/$0.30、命中$0.003/$0.006；输出$0.60/$1.20", "iaa": 45, "tb": null, "t": {}, "note": "10月27日核对DeepSeek官方API：调用名deepseek-flash当前指向V4.1-Flash-1017，1M上下文，支持思考与非思考；默认思考high，也可显式关闭。AA45仍是1017的max档评测，不能套给本站JSON任务调整的非思考调用。需要本人API Key与账户额度；官方文档api-docs.deepseek.com，控制台platform.deepseek.com。价格依峰谷和缓存命中区分，本次未重测TB2.1或专项等级。"},
-      {"name": "DeepSeek V4.1-Flash", "vendor": "DeepSeek（中国）", "price": "旧版历史快照；现行Flash API按量付费，价格见1017卡", "iaa": 39, "tb": null, "t": {"综合": "B", "推理": "B", "代码": "A", "多模态": "B", "长上下文": "B", "中文": "A", "性价比": "A", "开源": "—"}, "note": "本卡保留旧版V4.1 Flash的AA max=39历史值，不代表当前官方API版本。10月27日官方文档说明deepseek-v4-flash与deepseek-v4-flash-vision-exp所对应原型号已退役，兼容请求由V4.1-Flash-1017承接并按Flash价格计费；新接入使用deepseek-flash。旧39分及专项等级保持原记录，不因兼容别名改成45分；原“限时预览”不再作为现行API状态。"},
-      {name:"DeepSeek V4 Pro", vendor:"DeepSeek（中国）", price:"开源免费 / API 低价", iaa:36, tb:78.7,
-       t:{综合:"B",推理:"B",代码:"A",多模态:"B",长上下文:"B",中文:"A",性价比:"S",开源:"S"},
-       note:"DeepSWE 1.1 80.6%（开源权重最高）；性价比/开源双 S，可完全自部署。综合与英文稍弱。"},
-      {name:"Mistral Large 4 (预览)", vendor:"Mistral（法国）", price:"API $1.36/$4.18 每百万（预览价）", iaa:38, tb:null,
-       t:{综合:"B",推理:"B",代码:"B",多模态:"A",长上下文:"B",中文:"C",性价比:"B",开源:"A"},
-       note:"2026-10-06 Mistral 发布公开预览版（代号 le Chonk）：1T 总参数 / 49B 激活、原生多模态（文本+图像），权重拟 10 月底开放（Apache 2.0 路线，待官方确认）。⚠ AA 智能指数 v4.3 = 38（Artificial Analysis 实测，称其为「美国与中国之外最聪明模型」），Cyber Index 50；官方自报 Harvey Legal Agent 15%、金融建模对标 Kimi K3。tb 列暂无可靠 TB2.1 分，留空。法语/欧洲合规强、中文弱，开放权重路线值得关注（本页以 AA 整数收录，t 评级为基于定位的初步估计）。"},
-      {name:"Hunyuan 混元", vendor:"腾讯（中国）", price:"Hy4 Preview 开源（Apache 2.0）", iaa:null, tb:null,
-       t:{综合:"B",推理:"B",代码:"B",多模态:"B",长上下文:"B",中文:"A",性价比:"B",开源:"A"},
-       note:"国产主力，中文与性价比均衡；Hy4 Preview 8-28 开源（770B，Apache 2.0），适合国内合规与本地化。"},
-      {name:"Llama 4", vendor:"Meta（美国）", price:"开源权重", iaa:null, tb:null,
-       t:{综合:"B",推理:"B",代码:"B",多模态:"B",长上下文:"B",中文:"C",性价比:"B",开源:"S"},
-       note:"经典开源底座，生态与工具链最成熟；中文弱，是许多自部署方案的首选底模。"},
-      {name:"MiniMax-M3.1-Flash", vendor:"MiniMax（中国）", price:"API（本次未核价）", iaa:43, tb:null,
-       t:{},
-       note:"10月20日核对AA官方榜及10月19日评测更新：M3.1-Flash智能指数43、1M上下文。它与旧M3（29分）分开收录；本次未核验完整专项成绩、TB2.1与当前价格，因此均不猜填。"},
-      {name:"MiniMax M3", vendor:"MiniMax（中国）", price:"开源权重 / API", iaa:29, tb:null,
-       t:{综合:"B",推理:"B",代码:"B",多模态:"B",长上下文:"B",中文:"A",性价比:"B",开源:"A"},
-       note:"10月19日核对AA官方当前榜：MiniMax-M3智能指数29，补入原空值。该分只代表AA综合评测；开放权重与产品价格需另查厂商，不能由分数推断。"},
-      {name:"Ling 3.1 Flash 1019", vendor:"InclusionAI（中国）", price:"API/权重开放与价格待核实", iaa:44, tb:null,
-       t:{},
-       note:"10月23日核对AA官方当前榜与10月22日评测更新：1019独立版本智能指数44、上下文1.05M。旧Ling3.1模型卡不能证明1019权重已开放；本次未核实该版本API开放、价格、TB2.1及专项分级，均不猜填。"},
-      {name:"MiMo V2.6 Pro", vendor:"小米 Xiaomi（中国）", price:"开放权重（可自部署）", iaa:46, tb:null,
-       t:{综合:"A",推理:"A",代码:"A",多模态:"B",长上下文:"B",中文:"B",性价比:"A",开源:"S"},
-       note:"10月19日直接核对AA官方当前榜：MiMo-V2.6-Pro智能指数46，已取得一手来源，撤去原“单一报道待复核”说明。tb列为TB2.1旧口径，尚无本次核实成绩，留空。"},
-      {name:"StepFun Step 5 Preview", vendor:"阶跃星辰 StepFun（中国）", price:"API 预览（权重拟 2026-10-15 释出）", iaa:44, tb:null,
-       t:{综合:"A",推理:"A",代码:"A",多模态:"B",长上下文:"B",中文:"A",性价比:"B",开源:"—"},
-       note:"10月19日核对AA官方当前榜：Step5 Preview智能指数44、1M上下文。10月15日拟开放权重是旧计划，本次未核实是否落实，不能据此改为已开源；TB2.1暂无核实成绩，留空。"},
-      {name:"Reflection Beam", vendor:"Reflection（美国）", price:"开放权重（许可待官方确认）", iaa:30, tb:null,
-       t:{综合:"C",推理:"C",代码:"C",多模态:"C",长上下文:"C",中文:"C",性价比:"B",开源:"A"},
-       note:"2026-10-16 Reflection 发布首款模型 Beam（Beam 1.0），为其首个模型发布。⚠ AA 智能指数 v4.3 = 30（Artificial Analysis 官方 changelog；AA 称其为美国开放权重模型第 2），仅单一官方来源、分数待复核；tb 列无可靠 TB2.1 分，留空。定位开放权重新锐，实际智能处于下游梯队，t 评级为基于定位的初步估计。"},
-      {name:"NVIDIA Nemotron 3.5 Super VL", vendor:"NVIDIA（美国）", price:"开放权重", iaa:26, tb:null,
-       t:{综合:"C",推理:"C",代码:"C",多模态:"B",长上下文:"C",中文:"C",性价比:"B",开源:"A"},
-       note:"2026-10-15 NVIDIA 发布 Nemotron 3.5 Super VL（视觉-语言大模型），AA 智能指数 v4.3 = 26（Artificial Analysis 官方 changelog，称其为当前美国领先开放权重模型）；同批 Nemotron 3.5 Bolt 74B-A9B = 21、Upstage Solar Pro 4 = 27。⚠ tb 列无可靠 TB2.1 分，留空；定位开放权重视觉-语言底座，t 评级为基于定位的初步估计。"}
-    ],
-    tools: [
-      {name:"Claude Code", model:"按账号可用的 Claude 模型选择", price:"订阅或API计费，以官方方案为准", tb:89.1, sv:95.0,
-       t:{上手:"B",开源:"—"},
-       note:"10月20日核对官方文档：支持终端、IDE扩展、桌面与网页，可读写项目、运行命令、使用子代理及hooks。表中TB2.1与SWE为历史模型/工具配对记录，不能代表当前默认模型；成本随模型、任务和方案变化。"},
-      {name:"OpenAI Codex", model:"按账号可用模型选择", price:"ChatGPT订阅或API计费，以官方方案为准", tb:89.5, sv:88.7,
-       t:{上手:"B",开源:"—"},
-       note:"官方文档提供本地桌面、CLI、IDE扩展及云端项目工作流，具体能力依账号和环境。TB2.1历史收录89.5%；SWE历史配对见独立榜单，不把旧成绩归给当前默认模型。"},
-      {name:"opencode", model:"可配置模型与供应商", price:"客户端开源；模型费用依供应商", tb:null, sv:null,
-       t:{上手:"C",开源:"S"},
-       note:"官方文档支持在终端中使用编码代理、配置模型与供应商、连接开发工具。适合需要自行选择模型的项目；实际表现取决于模型与配置，本次未取得同口径可比较的成绩。"},
-      {name:"Cursor", model:"按账号可用模型选择", price:"以官方订阅和用量方案为准", tb:null, sv:74.1,
-       t:{上手:"A",开源:"—"},
-       note:"官方文档提供编辑器Agent、规则、MCP与CLI等入口，适合结合代码编辑器查看和修改项目。表中SWE74.1为历史记录，本次未核得当前同环境新成绩。"},
-      {name:"Gemini CLI", model:"可用Gemini模型，依账号与配置", price:"额度和计费依认证方式与官方方案", tb:70.7, sv:80.6,
-       t:{上手:"B",开源:"—"},
-       note:"官方文档支持终端代码理解、文件操作、命令执行和MCP，可按任务选模型。旧TB70.7与SWE80.6只代表原历史配对；不沿用固定免费请求数或跨工具优劣结论。"},
-      {name:"GitHub Copilot", model:"可用模型依方案、客户端和组织策略", price:"免费与付费方案，以官方额度为准", tb:null, sv:null,
-       t:{上手:"A",开源:"—"},
-       note:"官方文档提供代码建议、问答、评审及任务代理，可结合issues与PR工作流；功能取决于方案、客户端和组织设置。学生等资格用户可查看官方免费访问条件。"},
-      {name:"Google Antigravity", model:"以账号当前可用模型为准", price:"以官方当前方案为准", tb:71.2, sv:79.4,
-       t:{上手:"A",开源:"—"},
-       note:"官方文档提供Antigravity的产品与开发工作流入口。表中TB71.2/SWE79.4为历史记录；本次未取得当前模型、环境一致的速度与质量对照，不据旧吞吐量排名。"},
-      {name:"Cline / Aider", model:"可配置云端或本地模型", price:"依所选服务、模型与方案计费", tb:null, sv:null,
-       t:{上手:"B",开源:"S"},
-       note:"官方文档中Cline提供编辑器、终端等代理入口；Aider侧重终端结对编程和Git工作流。二者分别配置模型与权限，开源客户端不等于模型调用免费；本次无同口径成绩。"}
-    ],
-    combos: [
-      {name:"Claude Code + Claude Fable 5 / Opus 5", score:"S",
-       note:"历史工具与模型配对。SWE Verified95%与TB2.1 89.1%来自不同旧配对；选择前核对当前可用模型、成本和自己的项目效果，不视为当前综合榜首。"},
-      {name:"Codex CLI + GPT-5.6 Sol", score:"S",
-       note:"历史模型配对，TB2.1收录89.5%。可从本地CLI或云端项目工作流入手，当前可选模型与权限以账号和官方文档为准。"},
-      {name:"opencode + 任意模型（如 Claude/GPT/Gemini/本地）", score:"A",
-       note:"适合希望自行选择模型与供应商的终端工作流；质量和费用随底层模型、项目及代理配置变化。本站未取得可与其他组合直接比较的新成绩。"},
-      {name:"Cursor + 前沿模型", score:"A",
-       note:"适合希望在代码编辑器内检查修改、按需调用Agent的工作流。先用自己的项目试验，再按方案、模型和使用量评估是否合适。"},
-      {name:"Google Antigravity + Gemini", score:"A",
-       note:"适合从官方文档了解其开发工作流。旧模型吞吐量不代表当前组合，本次未取得同环境可比较的新速度或质量成绩。"},
-      {name:"Gemini CLI + Gemini 3.1/3.8", score:"B",
-       note:"历史组合名称保留供追溯；当前按账号可用的Gemini模型配置。先核对认证方式、免费额度和计费，再在自己的任务上试用。"},
-      {name:"GitHub Copilot + 多模型", score:"B",
-       note:"适合已在GitHub上管理代码、issues与PR的团队。具体模型、代理功能和免费资格依账号及组织策略，不作跨产品最低价承诺。"}
-    ],
-    tables: {
-      aa: {"title": "Artificial Analysis 智能指数 · 选录20项（18项当前榜，2项10/23历史值；10/27核查）", "unit": "分", "rows": [["Claude Opus 5.5 (max with fallback)", 58], ["Claude Sonnet 5.5 (max with fallback)", 56], ["Muse Wonder Full (max)", 56], ["Kimi K3.1 Pro", 55], ["Claude Fable 5.1 (max with fallback)", 53], ["GPT-6 Astra (max)", 53], ["Gemini 4 Argon (high)", 53], ["GPT-6.1 Sol (max)", 52], ["Muse Wonder (max)", 52], ["Muse Spark 1.3 (max) · 10/23历史值", 48], ["Grok 4.7 (xhigh)", 46], ["MiMo-V2.6-Pro", 46], ["Qwen3.8 Max (0902)", 45], ["DeepSeek V4.1 Flash 1017 (max)", 45], ["GLM-5.3 (max)", 45], ["Ling 3.1 Flash 1019", 44], ["Step 5 Preview", 44], ["Kimi K3 (max) · 10/23历史值", 44], ["Claude Haiku 5.5 (max)", 43], ["MiniMax-M3.1-Flash", 43]]},
-      tb: {title:"Terminal-Bench 2.1 · 历史收录Top10（2026-09；官方当前为4.0，本次未刷新旧分）", capturedAt:"2026-09", unit:"%", rows:[
-        ["Claude Fable 5.1",91.4],["GPT-6 Astra",89.9],["GPT-5.6 Sol",89.5],["Claude Opus 5",89.1],
-        ["Grok 4.6",88.4],["GPT-5.6 Terra",88.0],["Gemini 3.8 Flash",87.6],["Kimi K3",85.0],
-        ["GLM-5.3-Flash",84.3],["DeepSeek V4 Pro",78.7]
-      ]},
-      swe: {title:"SWE-bench Verified · 历史收录（2026-08；本次未取得同口径新分数）", unit:"%", capturedAt:"2026-08", rows:[["Claude Code + Fable 5 — Verified", 95.0], ["Codex + GPT-5.5 — Verified", 88.7], ["Claude Code + Opus 4.8 — Verified", 88.6], ["Gemini CLI + Gemini 3.1 Pro — Verified", 80.6]]},
-      swe_pro: {title:"SWE-bench Pro · 历史收录（2026-08；本次未取得同口径新分数）", unit:"%", capturedAt:"2026-08", rows:[["Claude Code + Fable 5 — Pro", 80.3], ["Codex + GPT-5.5 — Pro", 58.6], ["Gemini CLI + Gemini 3.1 Pro — Pro", 54.2]]}
+  "models": [
+    {
+      "name": "Kimi K3.1 Pro",
+      "vendor": "Moonshot / 月之暗面（中国）",
+      "price": "具体API价格与可用性请核对厂商官网",
+      "iaa": 46,
+      "tb": null,
+      "t": {
+        "综合": "—",
+        "推理": "—",
+        "代码": "—",
+        "多模态": "—",
+        "长上下文": "—",
+        "中文": "—",
+        "性价比": "—",
+        "开源": "—"
+      },
+      "note": "11月1日核对AA v5.0：Kimi K3.1 Pro = 46分。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数55为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】10月24日核对AA当前榜与10月23日官方评测公告：智能指数55，1M上下文；公告另列TB4.0为67%，不能填入本页TB2.1列。该公告称权重尚未发布，不能把未来开放计划写成已经开源。价格、产品可用性与主观等级本次不作推断。",
+      "iaaHistorical": {
+        "value": 55,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "Kimi K3.1 Pro"
+    },
+    {
+      "name": "Claude Opus 5.5",
+      "vendor": "Anthropic（美国）",
+      "price": "API $4/$20 每百万",
+      "iaa": 58,
+      "tb": null,
+      "t": {
+        "综合": "S",
+        "推理": "S",
+        "代码": "S",
+        "多模态": "A",
+        "长上下文": "S",
+        "中文": "B",
+        "性价比": "B",
+        "开源": "—"
+      },
+      "note": "11月1日核对AA v5.0：Claude Opus 5.5 (max with fallback) = 58分。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数58为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】2026-09-22 发布，AA 智能指数 v4.3 最高分 58（超越 Fable 5.1 / Astra 的 53）；TB4.0 59.6%（xhigh，与 Astra 并列第一）。价格较 Opus 5 降 20%（$4/$20）。agentic 知识工作领先（AA-Briefcase 1822 Elo）。⚠ 本页 tb 列仍用 TB2.1 旧口径，Opus 5.5 无 TB2.1 公开分，故留空。中文偏弱。",
+      "iaaHistorical": {
+        "value": 58,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "Claude Opus 5.5 (max with fallback)"
+    },
+    {
+      "name": "Claude Sonnet 5.5",
+      "vendor": "Anthropic（美国）",
+      "price": "API $2/$10 每百万",
+      "iaa": 54,
+      "tb": null,
+      "t": {
+        "综合": "S",
+        "推理": "S",
+        "代码": "S",
+        "多模态": "A",
+        "长上下文": "S",
+        "中文": "B",
+        "性价比": "A",
+        "开源": "—"
+      },
+      "note": "11月1日核对AA v5.0：Claude Sonnet 5.5 (max with fallback) = 54分。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数56为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】2026-09-28 发布，Opus 5.5 同门中杯（5 档 effort：low/medium/high/xhigh/max）；AA 智能指数 v4.3 = 56（max，仅次于 Opus 5.5 的 58，居 AA 榜第 2，较 Sonnet 5 +18 点）。定价 $2/$10，与 Sonnet 5 持平、比 Opus 5.5 便宜一半；1M 上下文、多模态（图/PDF），编码与 agent 强（TB4.0 64%）。⚠ 仅 TB4.0 公开分，无 TB2.1，tb 列留空；中文偏弱，且 max 档 token 消耗极大（约 193K/任务，AA 称史上最高）。",
+      "iaaHistorical": {
+        "value": 56,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "Claude Sonnet 5.5 (max with fallback)"
+    },
+    {
+      "name": "Claude Fable 5.1",
+      "vendor": "Anthropic（美国）",
+      "price": "Pro $17–20/月；API $10/$50 每百万",
+      "iaa": 49,
+      "tb": 91.4,
+      "t": {
+        "综合": "S",
+        "推理": "S",
+        "代码": "S",
+        "多模态": "A",
+        "长上下文": "S",
+        "中文": "B",
+        "性价比": "C",
+        "开源": "—"
+      },
+      "note": "11月1日核对AA v5.0：Claude Fable 5.1 (max with fallback) = 49分。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数53为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】10月19日核对AA官方当前榜：max with fallback智能指数53，与GPT-6 Astra(max)、Gemini4 Argon(high)同分；Opus5.5(max with fallback)为58，故不再称AA并列第一。TB2.1旧收录91.4%保留，与TB4.0不可直接比较。",
+      "iaaHistorical": {
+        "value": 53,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "Claude Fable 5.1 (max with fallback)"
+    },
+    {
+      "name": "GPT-6 Astra",
+      "vendor": "OpenAI（美国）",
+      "price": "API $10/$50 每百万",
+      "iaa": 57,
+      "tb": 89.9,
+      "t": {
+        "综合": "S",
+        "推理": "S",
+        "代码": "S",
+        "多模态": "A",
+        "长上下文": "S",
+        "中文": "A",
+        "性价比": "C",
+        "开源": "—"
+      },
+      "note": "11月1日核对AA v5.0：GPT-6 Astra (max) = 57分。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数53为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】10月19日核对AA官方当前榜：max档智能指数53；同一型号xhigh为52、high为51，努力档位必须一同比较。本页tb列89.9%为TB2.1历史口径，本次未改。产品可用性、价格与科学题单成绩不由这次榜单核验推断。",
+      "iaaHistorical": {
+        "value": 53,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "GPT-6 Astra (max)"
+    },
+    {
+      "name": "Claude Opus 5",
+      "vendor": "Anthropic（美国）",
+      "price": "Pro $17–20/月；API $5/$25 每百万",
+      "iaa": null,
+      "tb": 89.1,
+      "t": {
+        "综合": "S",
+        "推理": "S",
+        "代码": "S",
+        "多模态": "A",
+        "长上下文": "S",
+        "中文": "B",
+        "性价比": "B",
+        "开源": "—"
+      },
+      "note": "11月1日AA v5.0当前榜未找到与本卡名称和版本严格对应的结果，当前分数留空。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数51为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】投票榜 coding 冠军（image-to-WebDev 第一），价格仅 Fable 5.1 一半（$5/$25）；TB2.1 89.1%（TB4.0 49.0%）。英文/代码极强，中文偏弱。",
+      "iaaHistorical": {
+        "value": 51,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": null
+    },
+    {
+      "name": "Claude Fable 5",
+      "vendor": "Anthropic（美国）",
+      "price": "Pro $17–20/月；API $10/$50 每百万",
+      "iaa": null,
+      "tb": 83.1,
+      "t": {
+        "综合": "S",
+        "推理": "S",
+        "代码": "S",
+        "多模态": "A",
+        "长上下文": "S",
+        "中文": "B",
+        "性价比": "C",
+        "开源": "—"
+      },
+      "note": "11月1日AA v5.0当前榜未找到与本卡名称和版本严格对应的结果，当前分数留空。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数50为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】LMArena 文本盲测长期第一（体感最佳）；AA 50。配 Claude Code 时 SWE-bench Verified 达 95%。综合 S 但价格高。",
+      "iaaHistorical": {
+        "value": 50,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": null
+    },
+    {
+      "name": "Claude Haiku 5.5",
+      "vendor": "Anthropic（美国）",
+      "price": "API $0.10/$0.50 每百万（≤100K tokens；>100K 为 $0.50/$2.50）",
+      "iaa": 36,
+      "tb": null,
+      "t": {
+        "综合": "B",
+        "推理": "B",
+        "代码": "B",
+        "多模态": "B",
+        "长上下文": "B",
+        "中文": "B",
+        "性价比": "S",
+        "开源": "—"
+      },
+      "note": "11月1日核对AA v5.0：Claude Haiku 5.5 (max) = 36分。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数43为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】2026-10-07 Anthropic 发布，Haiku 系列最新小模型（Opus 5.5 / Sonnet 5.5 同门最小档），面向成本敏感的高并发任务（摘要/分类/路由/子智能体/浏览器操作）。⚠ AA 智能指数 v4.3 = 43（Artificial Analysis 实测，max effort，182 个同级模型中第 2；来源 promtime 引 AA），运行成本较 Haiku 4.5 低约 75%。TB4.0 39.2%（xhigh）；无 TB2.1 公开分，tb 列留空。GDPval-AA v2.1 1620、OSWorld 2.1 72.4%、HLE(no tools)45.9%、FrontierCode 1.1 46.4%。1M 上下文、图文输入，首款支持可调 effort 的 Haiku；性价比 S，但非前沿模型。",
+      "iaaHistorical": {
+        "value": 43,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "Claude Haiku 5.5 (max)"
+    },
+    {
+      "name": "GPT-5.6 Sol",
+      "vendor": "OpenAI（美国）",
+      "price": "Plus $20/月；API $4/$20 每百万",
+      "iaa": null,
+      "tb": 89.5,
+      "t": {
+        "综合": "S",
+        "推理": "S",
+        "代码": "S",
+        "多模态": "A",
+        "长上下文": "S",
+        "中文": "A",
+        "性价比": "B",
+        "开源": "—"
+      },
+      "note": "11月1日AA v5.0当前榜未找到与本卡名称和版本严格对应的结果，当前分数留空。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数47为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】AA 47、TB2.1 89.5%（与 Astra 同档）；⚠ TB4.0 掉到 39.9%，与 Astra 拉开 19.2 分。代码 Agent 指数 67，生态最全。中文与代码均强，性价比优于 Claude。",
+      "iaaHistorical": {
+        "value": 47,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": null
+    },
+    {
+      "name": "GPT-6 Sol",
+      "vendor": "OpenAI（美国）",
+      "price": "API $2/$10 每百万",
+      "iaa": null,
+      "tb": null,
+      "t": {
+        "综合": "S",
+        "推理": "S",
+        "代码": "S",
+        "多模态": "A",
+        "长上下文": "S",
+        "中文": "A",
+        "性价比": "A",
+        "开源": "—"
+      },
+      "note": "11月1日AA v5.0当前榜未找到与本卡名称和版本严格对应的结果，当前分数留空。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数48为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】2026-09-22 发布，GPT-5.6 Sol 的继任者（Codex / ChatGPT Work，非 Chat；API gpt-6-sol）；较 GPT-5.6 Sol 降价约 50%（约 $2/$10）。⚠ AA 智能指数 v4.3.2 官方确认 48（theairankings 9/22 复核，原「待核实」已核实）；TB2.1 暂无，tb 列留空。中文与代码均强，性价比提升明显.",
+      "iaaHistorical": {
+        "value": 48,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": null
+    },
+    {
+      "name": "GPT-6.1 Sol",
+      "vendor": "OpenAI（美国）",
+      "price": "API $2/$10 每百万",
+      "iaa": 55,
+      "tb": null,
+      "t": {
+        "综合": "S",
+        "推理": "S",
+        "代码": "S",
+        "多模态": "A",
+        "长上下文": "S",
+        "中文": "A",
+        "性价比": "A",
+        "开源": "—"
+      },
+      "note": "11月1日核对AA v5.0：GPT-6.1 Sol (max) = 55分。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数52为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】2026-09-30 OpenAI DevDay 发布，GPT-6 Sol 的升级中杯（Codex / ChatGPT Work / API gpt-6.1-sol），距 GPT-6 Sol 仅一周。定价维持 $2/$10 不变，主打 agentic coding / 计算机操作 / 专业工作。⚠ AA 智能指数 v4.3 = 52（max，多源证实：theairankings 9/29 changelog、felloai、mlllm.io 引 Artificial Analysis「52 vs Astra 53 / Opus 5.5 58」、unifically 称 10th of 221 models），较 GPT-6 Sol(48) +4、仅低于 Astra(53) 1 分。据称 DeepSWE v1.1 75.2%、软件工程评测接近 Astra，成本仅约 Astra 1/5。TB2.1 暂无，tb 列留空；中文与代码均强，性价比突出。",
+      "iaaHistorical": {
+        "value": 52,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "GPT-6.1 Sol (max)"
+    },
+    {
+      "name": "GPT-5.6 Luna",
+      "vendor": "OpenAI（美国）",
+      "price": "API $0.10/$0.50 每百万",
+      "iaa": null,
+      "tb": null,
+      "t": {
+        "综合": "A",
+        "推理": "A",
+        "代码": "B",
+        "多模态": "B",
+        "长上下文": "B",
+        "中文": "A",
+        "性价比": "S",
+        "开源": "—"
+      },
+      "note": "11月1日AA v5.0当前榜未找到与本卡名称和版本严格对应的结果，当前分数留空。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数37为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】2026-09-22 与 GPT-6 Sol 同期发布，GPT-5.6 Sol 同门极致低价版（API $0.10/$0.50，约为 GPT-5.6 Sol 五折）；AA 智能指数 v4.3.2 = 37（同档 DeepSeek V4 Pro 36）。⚠ 定位轻量高-volume 场景，TB2.1 暂无，tb 列留空。性价比 S。",
+      "iaaHistorical": {
+        "value": 37,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": null
+    },
+    {
+      "name": "Grok 4.6",
+      "vendor": "xAI（美国）",
+      "price": "API $2/$6 每百万",
+      "iaa": null,
+      "tb": 88.4,
+      "t": {
+        "综合": "A",
+        "推理": "A",
+        "代码": "A",
+        "多模态": "A",
+        "长上下文": "B",
+        "中文": "B",
+        "性价比": "B",
+        "开源": "—"
+      },
+      "note": "11月1日AA v5.0当前榜未找到与本卡名称和版本严格对应的结果，当前分数留空。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数44为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】8 月后训练刷新，AA 跳至 44；TB2.1 88.4%。价格低、长任务回合少。中文/长上下文略逊。",
+      "iaaHistorical": {
+        "value": 44,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": null
+    },
+    {
+      "name": "Grok 4.7",
+      "vendor": "xAI（美国）",
+      "price": "API $2/$6 每百万",
+      "iaa": 34,
+      "tb": null,
+      "t": {
+        "综合": "A",
+        "推理": "A",
+        "代码": "A",
+        "多模态": "A",
+        "长上下文": "B",
+        "中文": "B",
+        "性价比": "B",
+        "开源": "—"
+      },
+      "note": "11月1日核对AA v5.0：Grok 4.7 (xhigh) = 34分。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数46为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】2026-09-21 正式发布（GA），参数 2.1 万亿；AA 智能指数 v4.3 确认 46.4（xhigh，显示为 46），较 Grok 4.6 的 44 提升约 2 点；TB4.0 24.7%（high）。⚠ 无 TB2.1 公开分，tb 列留空；价格 $2/$6（xAI 定价）。",
+      "iaaHistorical": {
+        "value": 46,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "Grok 4.7 (xhigh)"
+    },
+    {
+      "name": "Muse Spark 1.3",
+      "vendor": "Meta（美国）",
+      "price": "闭源（开发者发布）",
+      "iaa": null,
+      "tb": null,
+      "t": {
+        "综合": "A",
+        "推理": "A",
+        "代码": "A",
+        "多模态": "B",
+        "长上下文": "B",
+        "中文": "C",
+        "性价比": "B",
+        "开源": "—"
+      },
+      "note": "11月1日AA v5.0当前榜未找到与本卡名称和版本严格对应的结果，当前分数留空。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数48为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】2026-09-02 发布，AA 48（8 点跃升）；开发者发布、无消费端入口；agent 行全面落后（Meta 自家图）；TB4.0 约 33.3%（AA 口径）。英文生态为主。",
+      "iaaHistorical": {
+        "value": 48,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": null
+    },
+    {
+      "name": "MuseWonder (Full)",
+      "vendor": "Meta（美国）",
+      "price": "仅 MuseCode 订阅（Power $50/月、Maximum $200/月）",
+      "iaa": 50,
+      "tb": null,
+      "t": {
+        "综合": "S",
+        "推理": "S",
+        "代码": "S",
+        "多模态": "A",
+        "长上下文": "S",
+        "中文": "B",
+        "性价比": "C",
+        "开源": "—"
+      },
+      "note": "11月1日核对AA v5.0：Muse Wonder Full (max) = 50分。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数56为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】2026-10-13 Meta 发布（北京时间凌晨），Muse 系列满血旗舰；不按 token 售卖、仅 MuseCode 订阅（Power $50/月 / Maximum $200/月），面向最重编码 / 长程 agent / computer use。AA 智能指数 = 56（Artificial Analysis 实测，最高 effort；VentureBeat / The Signal / capitalandcompute 多源佐证，仅次于 Opus 5.5 的 58，超过 GPT-6 Astra / Gemini 4 Argon / Fable 5.1 的 53）。tb 列无可靠 TB2.1 分，留空。t 评级为基于定位的初步估计.",
+      "iaaHistorical": {
+        "value": 56,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "Muse Wonder Full (max)"
+    },
+    {
+      "name": "MuseWonder",
+      "vendor": "Meta（美国）",
+      "price": "API $4/$20 每百万（MetaModel API / MuseCode 开放）",
+      "iaa": 43,
+      "tb": null,
+      "t": {
+        "综合": "A",
+        "推理": "A",
+        "代码": "A",
+        "多模态": "A",
+        "长上下文": "A",
+        "中文": "B",
+        "性价比": "B",
+        "开源": "—"
+      },
+      "note": "11月1日核对AA v5.0：Muse Wonder (max) = 43分。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数52为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】2026-10-13 Meta 发布，Muse 系列标准前沿版（MuseWonderFull 的同门可调用档），通过 MetaModel API 与 MuseCode 开放。AA 智能指数 = 52（Artificial Analysis 实测，最高 effort；多源佐证，与 GPT-6.1 Sol 持平，仅低于 GPT-6 Astra / Gemini 4 Argon / Fable 5.1 的 53 与 Opus 5.5 58 / Sonnet 5.5 56）。tb 列无可靠 TB2.1 分，留空。t 评级为基于定位的初步估计.",
+      "iaaHistorical": {
+        "value": 52,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "Muse Wonder (max)"
+    },
+    {
+      "name": "GLM-5.3 / GLM-5.3-Flash",
+      "vendor": "智谱 Zhipu（中国）",
+      "price": "Flash 开源 MIT；API $0.15/$0.50 每百万",
+      "iaa": null,
+      "tb": 84.3,
+      "t": {
+        "综合": "A",
+        "推理": "A",
+        "代码": "A",
+        "多模态": "B",
+        "长上下文": "A",
+        "中文": "S",
+        "性价比": "A",
+        "开源": "A"
+      },
+      "note": "11月1日AA v5.0当前榜未找到与本卡名称和版本严格对应的结果，当前分数留空。官方将GLM-5.3(max)32分与GLM-5.3-Flash28分分别列出，本合并卡不混填一个数。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数45为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】国产综合最强之一；Flash 版 8-26 发布即 MIT 开源、AA 42、性价比之王（列表价 $0.15/$0.50）。中文 S。",
+      "iaaHistorical": {
+        "value": 45,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": null
+    },
+    {
+      "name": "Kimi K3",
+      "vendor": "Moonshot AI（中国）",
+      "price": "免费商用 / API 低价",
+      "iaa": null,
+      "tb": 85,
+      "t": {
+        "综合": "A",
+        "推理": "A",
+        "代码": "A",
+        "多模态": "B",
+        "长上下文": "A",
+        "中文": "A",
+        "性价比": "A",
+        "开源": "A"
+      },
+      "note": "11月1日AA v5.0当前榜未找到与本卡名称和版本严格对应的结果，当前分数留空。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数44为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】AA 44、Terminal-Bench 85.0；长上下文与中文强，部分权重开源可自部署。",
+      "iaaHistorical": {
+        "value": 44,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": null
+    },
+    {
+      "name": "Gemini 3.8 Flash",
+      "vendor": "Google（美国）",
+      "price": "API $0.75/$3.75 每百万（2027 起翻倍）",
+      "iaa": 31,
+      "tb": 87.6,
+      "t": {
+        "综合": "A",
+        "推理": "A",
+        "代码": "A",
+        "多模态": "S",
+        "长上下文": "S",
+        "中文": "A",
+        "性价比": "A",
+        "开源": "—"
+      },
+      "note": "11月1日核对AA v5.0：Gemini 3.8 Flash (high) = 31分。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数41为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】2026-09-02 发布，Google 当前主力 workhorse；多模态/超长上下文（1M）标杆，TB2.1 87.6%。⚠ TB4.0 仅 19.7%（新榜难度陡增，同模型跌幅最大）。价格友好（限时）。",
+      "iaaHistorical": {
+        "value": 41,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "Gemini 3.8 Flash (high)"
+    },
+    {
+      "name": "Gemini 4 Argon",
+      "vendor": "Google（美国）",
+      "price": "API $2/$10 每百万（首发促销价，后续 $4/$20）",
+      "iaa": 50,
+      "tb": null,
+      "t": {
+        "综合": "S",
+        "推理": "S",
+        "代码": "S",
+        "多模态": "A",
+        "长上下文": "S",
+        "中文": "A",
+        "性价比": "B",
+        "开源": "—"
+      },
+      "note": "11月1日核对AA v5.0：Gemini 4 Argon (high) = 50分。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数53为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】2026-09-30 Google DeepMind 发布（Koray Kavukcuoglu 署名），Gemini 4 系列首款旗舰，面向长周期软件工程 / 企业知识工作(法律·金融) / 网络安全防御。先经 Fairwind Program 向受信任网络防御者开放，后续向付费 API 与 Google AI Ultra 用户开放。亮点：100 万 token 输出上限、DeepSWE v1.1 77.9%（据 Google 发布材料）。⚠ AA 智能指数官方核实 = 53（felloai 10/1 引 Artificial Analysis，与 Astra 持平，仅次于 Opus 5.5 58 / Sonnet 5.5 56）；TB2.1 暂无，tb 列留空。本页已按核实值定级，t 评级维持基于定位的初步估计.",
+      "iaaHistorical": {
+        "value": 53,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "Gemini 4 Argon (high)"
+    },
+    {
+      "name": "Gemini 3.1 Pro",
+      "vendor": "Google（美国）",
+      "price": "API $2/$12 每百万",
+      "iaa": null,
+      "tb": null,
+      "t": {
+        "综合": "A",
+        "推理": "S",
+        "代码": "A",
+        "多模态": "A",
+        "长上下文": "S",
+        "中文": "A",
+        "性价比": "B",
+        "开源": "—"
+      },
+      "note": "11月1日AA v5.0当前榜未找到与本卡名称和版本严格对应的结果，当前分数留空。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数None为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】现仍在售的真正旗舰 Pro（3.5 Pro 一再跳票）；GPQA Diamond 94.3%、ARC-AGI-1 98%。最强纯推理与超长上下文，价格高于 Flash。",
+      "iaaHistorical": {
+        "value": null,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": null
+    },
+    {
+      "name": "Qwen3.8-Max",
+      "vendor": "阿里巴巴（中国）",
+      "price": "闭源顶配 / Qwen3.8-Flash-Next 开源",
+      "iaa": 34,
+      "tb": null,
+      "t": {
+        "综合": "A",
+        "推理": "A",
+        "代码": "A",
+        "多模态": "B",
+        "长上下文": "A",
+        "中文": "A",
+        "性价比": "A",
+        "开源": "A"
+      },
+      "note": "11月1日核对AA v5.0：Qwen3.8 Max (0902) = 34分。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数45为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】10月19日核对AA官方当前榜：Qwen3.8 Max (0902)智能指数45，原收录40混淆了Max与Flash-Next等不同型号。tb列仍为Terminal-Bench2.1，未核得该型号旧版成绩，留空。",
+      "iaaHistorical": {
+        "value": 45,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "Qwen3.8 Max (0902)"
+    },
+    {
+      "name": "DeepSeek V4.1 Flash 1017 (max)",
+      "vendor": "DeepSeek（中国）",
+      "price": "API每百万token（错峰/高峰）：输入未命中$0.15/$0.30、命中$0.003/$0.006；输出$0.60/$1.20",
+      "iaa": 32,
+      "tb": null,
+      "t": {},
+      "note": "11月1日核对AA v5.0：DeepSeek V4.1 Flash 1017 (max) = 32分。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数45为旧版历史记录。DeepSeek官方另列Search/Fetch按成功请求计费，自11月1日北京时间00:00起生效；这不代表本站已调用联网工具或已验证付费模型。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】10月27日核对DeepSeek官方API：调用名deepseek-flash当前指向V4.1-Flash-1017，1M上下文，支持思考与非思考；默认思考high，也可显式关闭。AA45仍是1017的max档评测，不能套给本站JSON任务调整的非思考调用。需要本人API Key与账户额度；官方文档api-docs.deepseek.com，控制台platform.deepseek.com。价格依峰谷和缓存命中区分，本次未重测TB2.1或专项等级。",
+      "iaaHistorical": {
+        "value": 45,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "DeepSeek V4.1 Flash 1017 (max)"
+    },
+    {
+      "name": "DeepSeek V4.1-Flash",
+      "vendor": "DeepSeek（中国）",
+      "price": "旧版历史快照；现行Flash API按量付费，价格见1017卡",
+      "iaa": null,
+      "tb": null,
+      "t": {
+        "综合": "B",
+        "推理": "B",
+        "代码": "A",
+        "多模态": "B",
+        "长上下文": "B",
+        "中文": "A",
+        "性价比": "A",
+        "开源": "—"
+      },
+      "note": "11月1日AA v5.0当前榜未找到与本卡名称和版本严格对应的结果，当前分数留空。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数39为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】本卡保留旧版V4.1 Flash的AA max=39历史值，不代表当前官方API版本。10月27日官方文档说明deepseek-v4-flash与deepseek-v4-flash-vision-exp所对应原型号已退役，兼容请求由V4.1-Flash-1017承接并按Flash价格计费；新接入使用deepseek-flash。旧39分及专项等级保持原记录，不因兼容别名改成45分；原“限时预览”不再作为现行API状态。",
+      "iaaHistorical": {
+        "value": 39,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": null
+    },
+    {
+      "name": "DeepSeek V4 Pro",
+      "vendor": "DeepSeek（中国）",
+      "price": "开源免费 / API 低价",
+      "iaa": 23,
+      "tb": 78.7,
+      "t": {
+        "综合": "B",
+        "推理": "B",
+        "代码": "A",
+        "多模态": "B",
+        "长上下文": "B",
+        "中文": "A",
+        "性价比": "S",
+        "开源": "S"
+      },
+      "note": "11月1日核对AA v5.0：DeepSeek V4 Pro 0813 (max) = 23分。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数36为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】DeepSWE 1.1 80.6%（开源权重最高）；性价比/开源双 S，可完全自部署。综合与英文稍弱。",
+      "iaaHistorical": {
+        "value": 36,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "DeepSeek V4 Pro 0813 (max)"
+    },
+    {
+      "name": "Mistral Large 4 (预览)",
+      "vendor": "Mistral（法国）",
+      "price": "API $1.36/$4.18 每百万（预览价）",
+      "iaa": null,
+      "tb": null,
+      "t": {
+        "综合": "B",
+        "推理": "B",
+        "代码": "B",
+        "多模态": "A",
+        "长上下文": "B",
+        "中文": "C",
+        "性价比": "B",
+        "开源": "A"
+      },
+      "note": "11月1日AA v5.0当前榜未找到与本卡名称和版本严格对应的结果，当前分数留空。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数38为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】2026-10-06 Mistral 发布公开预览版（代号 le Chonk）：1T 总参数 / 49B 激活、原生多模态（文本+图像），权重拟 10 月底开放（Apache 2.0 路线，待官方确认）。⚠ AA 智能指数 v4.3 = 38（Artificial Analysis 实测，称其为「美国与中国之外最聪明模型」），Cyber Index 50；官方自报 Harvey Legal Agent 15%、金融建模对标 Kimi K3。tb 列暂无可靠 TB2.1 分，留空。法语/欧洲合规强、中文弱，开放权重路线值得关注（本页以 AA 整数收录，t 评级为基于定位的初步估计）。",
+      "iaaHistorical": {
+        "value": 38,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": null
+    },
+    {
+      "name": "Hunyuan 混元",
+      "vendor": "腾讯（中国）",
+      "price": "Hy4 Preview 开源（Apache 2.0）",
+      "iaa": null,
+      "tb": null,
+      "t": {
+        "综合": "B",
+        "推理": "B",
+        "代码": "B",
+        "多模态": "B",
+        "长上下文": "B",
+        "中文": "A",
+        "性价比": "B",
+        "开源": "A"
+      },
+      "note": "11月1日AA v5.0当前榜未找到与本卡名称和版本严格对应的结果，当前分数留空。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数None为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】国产主力，中文与性价比均衡；Hy4 Preview 8-28 开源（770B，Apache 2.0），适合国内合规与本地化。",
+      "iaaHistorical": {
+        "value": null,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": null
+    },
+    {
+      "name": "Llama 4",
+      "vendor": "Meta（美国）",
+      "price": "开源权重",
+      "iaa": null,
+      "tb": null,
+      "t": {
+        "综合": "B",
+        "推理": "B",
+        "代码": "B",
+        "多模态": "B",
+        "长上下文": "B",
+        "中文": "C",
+        "性价比": "B",
+        "开源": "S"
+      },
+      "note": "11月1日AA v5.0当前榜未找到与本卡名称和版本严格对应的结果，当前分数留空。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数None为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】经典开源底座，生态与工具链最成熟；中文弱，是许多自部署方案的首选底模。",
+      "iaaHistorical": {
+        "value": null,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": null
+    },
+    {
+      "name": "MiniMax-M3.1-Flash",
+      "vendor": "MiniMax（中国）",
+      "price": "API（本次未核价）",
+      "iaa": 29,
+      "tb": null,
+      "t": {},
+      "note": "11月1日核对AA v5.0：MiniMax-M3.1-Flash = 29分。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数43为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】10月20日核对AA官方榜及10月19日评测更新：M3.1-Flash智能指数43、1M上下文。它与旧M3（29分）分开收录；本次未核验完整专项成绩、TB2.1与当前价格，因此均不猜填。",
+      "iaaHistorical": {
+        "value": 43,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "MiniMax-M3.1-Flash"
+    },
+    {
+      "name": "MiniMax M3",
+      "vendor": "MiniMax（中国）",
+      "price": "开源权重 / API",
+      "iaa": 19,
+      "tb": null,
+      "t": {
+        "综合": "B",
+        "推理": "B",
+        "代码": "B",
+        "多模态": "B",
+        "长上下文": "B",
+        "中文": "A",
+        "性价比": "B",
+        "开源": "A"
+      },
+      "note": "11月1日核对AA v5.0：MiniMax-M3 = 19分。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数29为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】10月19日核对AA官方当前榜：MiniMax-M3智能指数29，补入原空值。该分只代表AA综合评测；开放权重与产品价格需另查厂商，不能由分数推断。",
+      "iaaHistorical": {
+        "value": 29,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "MiniMax-M3"
+    },
+    {
+      "name": "Ling 3.1 Flash 1019",
+      "vendor": "InclusionAI（中国）",
+      "price": "API/权重开放与价格待核实",
+      "iaa": 29,
+      "tb": null,
+      "t": {},
+      "note": "11月1日核对AA v5.0：Ling 3.1 Flash 1019 = 29分。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数44为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】10月23日核对AA官方当前榜与10月22日评测更新：1019独立版本智能指数44、上下文1.05M。旧Ling3.1模型卡不能证明1019权重已开放；本次未核实该版本API开放、价格、TB2.1及专项分级，均不猜填。",
+      "iaaHistorical": {
+        "value": 44,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "Ling 3.1 Flash 1019"
+    },
+    {
+      "name": "MiMo V2.6 Pro",
+      "vendor": "小米 Xiaomi（中国）",
+      "price": "开放权重（可自部署）",
+      "iaa": 30,
+      "tb": null,
+      "t": {
+        "综合": "A",
+        "推理": "A",
+        "代码": "A",
+        "多模态": "B",
+        "长上下文": "B",
+        "中文": "B",
+        "性价比": "A",
+        "开源": "S"
+      },
+      "note": "11月1日核对AA v5.0：MiMo-V2.6-Pro = 30分。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数46为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】10月19日直接核对AA官方当前榜：MiMo-V2.6-Pro智能指数46，已取得一手来源，撤去原“单一报道待复核”说明。tb列为TB2.1旧口径，尚无本次核实成绩，留空。",
+      "iaaHistorical": {
+        "value": 46,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "MiMo-V2.6-Pro"
+    },
+    {
+      "name": "StepFun Step 5 Preview",
+      "vendor": "阶跃星辰 StepFun（中国）",
+      "price": "API 预览（权重拟 2026-10-15 释出）",
+      "iaa": 29,
+      "tb": null,
+      "t": {
+        "综合": "A",
+        "推理": "A",
+        "代码": "A",
+        "多模态": "B",
+        "长上下文": "B",
+        "中文": "A",
+        "性价比": "B",
+        "开源": "—"
+      },
+      "note": "11月1日核对AA v5.0：Step 5 Preview = 29分。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数44为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】10月19日核对AA官方当前榜：Step5 Preview智能指数44、1M上下文。10月15日拟开放权重是旧计划，本次未核实是否落实，不能据此改为已开源；TB2.1暂无核实成绩，留空。",
+      "iaaHistorical": {
+        "value": 44,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "Step 5 Preview"
+    },
+    {
+      "name": "Reflection Beam",
+      "vendor": "Reflection（美国）",
+      "price": "开放权重（许可待官方确认）",
+      "iaa": 18,
+      "tb": null,
+      "t": {
+        "综合": "C",
+        "推理": "C",
+        "代码": "C",
+        "多模态": "C",
+        "长上下文": "C",
+        "中文": "C",
+        "性价比": "B",
+        "开源": "A"
+      },
+      "note": "11月1日核对AA v5.0：Beam 1.0 = 18分。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数30为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】2026-10-16 Reflection 发布首款模型 Beam（Beam 1.0），为其首个模型发布。⚠ AA 智能指数 v4.3 = 30（Artificial Analysis 官方 changelog；AA 称其为美国开放权重模型第 2），仅单一官方来源、分数待复核；tb 列无可靠 TB2.1 分，留空。定位开放权重新锐，实际智能处于下游梯队，t 评级为基于定位的初步估计。",
+      "iaaHistorical": {
+        "value": 30,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "Beam 1.0"
+    },
+    {
+      "name": "NVIDIA Nemotron 3.5 Super VL",
+      "vendor": "NVIDIA（美国）",
+      "price": "开放权重",
+      "iaa": 14,
+      "tb": null,
+      "t": {
+        "综合": "C",
+        "推理": "C",
+        "代码": "C",
+        "多模态": "B",
+        "长上下文": "C",
+        "中文": "C",
+        "性价比": "B",
+        "开源": "A"
+      },
+      "note": "11月1日核对AA v5.0：Nemotron 3.5 Super VL = 14分。v5于10月27日更换评测组合，不与旧v4.3分数直接比涨跌。原分数26为旧版历史记录。【以下为升级前历史说明，价格、专项等级与其他基准未在本轮重新认证】2026-10-15 NVIDIA 发布 Nemotron 3.5 Super VL（视觉-语言大模型），AA 智能指数 v4.3 = 26（Artificial Analysis 官方 changelog，称其为当前美国领先开放权重模型）；同批 Nemotron 3.5 Bolt 74B-A9B = 21、Upstage Solar Pro 4 = 27。⚠ tb 列无可靠 TB2.1 分，留空；定位开放权重视觉-语言底座，t 评级为基于定位的初步估计。",
+      "iaaHistorical": {
+        "value": 26,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "Nemotron 3.5 Super VL"
     }
-  };
+  ],
+  "tools": [
+    {
+      "name": "Claude Code",
+      "model": "按账号可用的 Claude 模型选择",
+      "price": "订阅或API计费，以官方方案为准",
+      "tb": 89.1,
+      "sv": 95,
+      "t": {
+        "上手": "B",
+        "开源": "—"
+      },
+      "note": "10月20日核对官方文档：支持终端、IDE扩展、桌面与网页，可读写项目、运行命令、使用子代理及hooks。表中TB2.1与SWE为历史模型/工具配对记录，不能代表当前默认模型；成本随模型、任务和方案变化。"
+    },
+    {
+      "name": "OpenAI Codex",
+      "model": "按账号可用模型选择",
+      "price": "ChatGPT订阅或API计费，以官方方案为准",
+      "tb": 89.5,
+      "sv": 88.7,
+      "t": {
+        "上手": "B",
+        "开源": "—"
+      },
+      "note": "官方文档提供本地桌面、CLI、IDE扩展及云端项目工作流，具体能力依账号和环境。TB2.1历史收录89.5%；SWE历史配对见独立榜单，不把旧成绩归给当前默认模型。"
+    },
+    {
+      "name": "opencode",
+      "model": "可配置模型与供应商",
+      "price": "客户端开源；模型费用依供应商",
+      "tb": null,
+      "sv": null,
+      "t": {
+        "上手": "C",
+        "开源": "S"
+      },
+      "note": "官方文档支持在终端中使用编码代理、配置模型与供应商、连接开发工具。适合需要自行选择模型的项目；实际表现取决于模型与配置，本次未取得同口径可比较的成绩。"
+    },
+    {
+      "name": "Cursor",
+      "model": "按账号可用模型选择",
+      "price": "以官方订阅和用量方案为准",
+      "tb": null,
+      "sv": 74.1,
+      "t": {
+        "上手": "A",
+        "开源": "—"
+      },
+      "note": "官方文档提供编辑器Agent、规则、MCP与CLI等入口，适合结合代码编辑器查看和修改项目。表中SWE74.1为历史记录，本次未核得当前同环境新成绩。"
+    },
+    {
+      "name": "Gemini CLI",
+      "model": "可用Gemini模型，依账号与配置",
+      "price": "额度和计费依认证方式与官方方案",
+      "tb": 70.7,
+      "sv": 80.6,
+      "t": {
+        "上手": "B",
+        "开源": "—"
+      },
+      "note": "官方文档支持终端代码理解、文件操作、命令执行和MCP，可按任务选模型。旧TB70.7与SWE80.6只代表原历史配对；不沿用固定免费请求数或跨工具优劣结论。"
+    },
+    {
+      "name": "GitHub Copilot",
+      "model": "可用模型依方案、客户端和组织策略",
+      "price": "免费与付费方案，以官方额度为准",
+      "tb": null,
+      "sv": null,
+      "t": {
+        "上手": "A",
+        "开源": "—"
+      },
+      "note": "官方文档提供代码建议、问答、评审及任务代理，可结合issues与PR工作流；功能取决于方案、客户端和组织设置。学生等资格用户可查看官方免费访问条件。"
+    },
+    {
+      "name": "Google Antigravity",
+      "model": "以账号当前可用模型为准",
+      "price": "以官方当前方案为准",
+      "tb": 71.2,
+      "sv": 79.4,
+      "t": {
+        "上手": "A",
+        "开源": "—"
+      },
+      "note": "官方文档提供Antigravity的产品与开发工作流入口。表中TB71.2/SWE79.4为历史记录；本次未取得当前模型、环境一致的速度与质量对照，不据旧吞吐量排名。"
+    },
+    {
+      "name": "Cline / Aider",
+      "model": "可配置云端或本地模型",
+      "price": "依所选服务、模型与方案计费",
+      "tb": null,
+      "sv": null,
+      "t": {
+        "上手": "B",
+        "开源": "S"
+      },
+      "note": "官方文档中Cline提供编辑器、终端等代理入口；Aider侧重终端结对编程和Git工作流。二者分别配置模型与权限，开源客户端不等于模型调用免费；本次无同口径成绩。"
+    }
+  ],
+  "combos": [
+    {
+      "name": "Claude Code + Claude Fable 5 / Opus 5",
+      "score": "S",
+      "note": "历史工具与模型配对。SWE Verified95%与TB2.1 89.1%来自不同旧配对；选择前核对当前可用模型、成本和自己的项目效果，不视为当前综合榜首。"
+    },
+    {
+      "name": "Codex CLI + GPT-5.6 Sol",
+      "score": "S",
+      "note": "历史模型配对，TB2.1收录89.5%。可从本地CLI或云端项目工作流入手，当前可选模型与权限以账号和官方文档为准。"
+    },
+    {
+      "name": "opencode + 任意模型（如 Claude/GPT/Gemini/本地）",
+      "score": "A",
+      "note": "适合希望自行选择模型与供应商的终端工作流；质量和费用随底层模型、项目及代理配置变化。本站未取得可与其他组合直接比较的新成绩。"
+    },
+    {
+      "name": "Cursor + 前沿模型",
+      "score": "A",
+      "note": "适合希望在代码编辑器内检查修改、按需调用Agent的工作流。先用自己的项目试验，再按方案、模型和使用量评估是否合适。"
+    },
+    {
+      "name": "Google Antigravity + Gemini",
+      "score": "A",
+      "note": "适合从官方文档了解其开发工作流。旧模型吞吐量不代表当前组合，本次未取得同环境可比较的新速度或质量成绩。"
+    },
+    {
+      "name": "Gemini CLI + Gemini 3.1/3.8",
+      "score": "B",
+      "note": "历史组合名称保留供追溯；当前按账号可用的Gemini模型配置。先核对认证方式、免费额度和计费，再在自己的任务上试用。"
+    },
+    {
+      "name": "GitHub Copilot + 多模型",
+      "score": "B",
+      "note": "适合已在GitHub上管理代码、issues与PR的团队。具体模型、代理功能和免费资格依账号及组织策略，不作跨产品最低价承诺。"
+    }
+  ],
+  "tables": {
+    "aa": {
+      "title": "Artificial Analysis 智能指数 v5.0 · 选录20项（11/1核查，非全榜）",
+      "unit": "分",
+      "version": "5.0",
+      "rows": [
+        [
+          "Gemini 4 Carbon (high)",
+          59
+        ],
+        [
+          "Claude Opus 5.5 (max with fallback)",
+          58
+        ],
+        [
+          "GPT-6 Astra (max)",
+          57
+        ],
+        [
+          "GPT-6.1 Sol (max)",
+          55
+        ],
+        [
+          "Claude Sonnet 5.5 (max with fallback)",
+          54
+        ],
+        [
+          "GPT-6.1 Terra (max)",
+          51
+        ],
+        [
+          "Gemini 4 Argon (high)",
+          50
+        ],
+        [
+          "Muse Wonder Full (max)",
+          50
+        ],
+        [
+          "Claude Fable 5.1 (max with fallback)",
+          49
+        ],
+        [
+          "Kimi K3.1 Pro",
+          46
+        ],
+        [
+          "Muse Wonder (max)",
+          43
+        ],
+        [
+          "Claude Haiku 5.5 (max)",
+          36
+        ],
+        [
+          "Grok 4.7 (xhigh)",
+          34
+        ],
+        [
+          "Qwen3.8 Max (0902)",
+          34
+        ],
+        [
+          "DeepSeek V4.1 Flash 1017 (max)",
+          32
+        ],
+        [
+          "GLM-5.3 (max)",
+          32
+        ],
+        [
+          "MiMo-V2.6-Pro",
+          30
+        ],
+        [
+          "Ling 3.1 Flash 1019",
+          29
+        ],
+        [
+          "MiniMax-M3.1-Flash",
+          29
+        ],
+        [
+          "Step 5 Preview",
+          29
+        ]
+      ]
+    },
+    "tb": {
+      "title": "Terminal-Bench 2.1 · 历史收录Top10（2026-09；官方当前为4.0，本次未刷新旧分）",
+      "capturedAt": "2026-09",
+      "unit": "%",
+      "rows": [
+        [
+          "Claude Fable 5.1",
+          91.4
+        ],
+        [
+          "GPT-6 Astra",
+          89.9
+        ],
+        [
+          "GPT-5.6 Sol",
+          89.5
+        ],
+        [
+          "Claude Opus 5",
+          89.1
+        ],
+        [
+          "Grok 4.6",
+          88.4
+        ],
+        [
+          "GPT-5.6 Terra",
+          88
+        ],
+        [
+          "Gemini 3.8 Flash",
+          87.6
+        ],
+        [
+          "Kimi K3",
+          85
+        ],
+        [
+          "GLM-5.3-Flash",
+          84.3
+        ],
+        [
+          "DeepSeek V4 Pro",
+          78.7
+        ]
+      ]
+    },
+    "swe": {
+      "title": "SWE-bench Verified · 历史收录（2026-08；本次未取得同口径新分数）",
+      "unit": "%",
+      "capturedAt": "2026-08",
+      "rows": [
+        [
+          "Claude Code + Fable 5 — Verified",
+          95
+        ],
+        [
+          "Codex + GPT-5.5 — Verified",
+          88.7
+        ],
+        [
+          "Claude Code + Opus 4.8 — Verified",
+          88.6
+        ],
+        [
+          "Gemini CLI + Gemini 3.1 Pro — Verified",
+          80.6
+        ]
+      ]
+    },
+    "swe_pro": {
+      "title": "SWE-bench Pro · 历史收录（2026-08；本次未取得同口径新分数）",
+      "unit": "%",
+      "capturedAt": "2026-08",
+      "rows": [
+        [
+          "Claude Code + Fable 5 — Pro",
+          80.3
+        ],
+        [
+          "Codex + GPT-5.5 — Pro",
+          58.6
+        ],
+        [
+          "Gemini CLI + Gemini 3.1 Pro — Pro",
+          54.2
+        ]
+      ]
+    }
+  },
+  "aaVersion": "5.0",
+  "aaHistory": {
+    "version": "4.3",
+    "snapshotAsOf": "2026-10-27",
+    "notice": "以下为升级前保留的v4.3快照，不能与当前v5.0比较或合并排序。",
+    "rows": [
+      [
+        "Claude Opus 5.5 (max with fallback)",
+        58
+      ],
+      [
+        "Claude Sonnet 5.5 (max with fallback)",
+        56
+      ],
+      [
+        "Muse Wonder Full (max)",
+        56
+      ],
+      [
+        "Kimi K3.1 Pro",
+        55
+      ],
+      [
+        "Claude Fable 5.1 (max with fallback)",
+        53
+      ],
+      [
+        "GPT-6 Astra (max)",
+        53
+      ],
+      [
+        "Gemini 4 Argon (high)",
+        53
+      ],
+      [
+        "GPT-6.1 Sol (max)",
+        52
+      ],
+      [
+        "Muse Wonder (max)",
+        52
+      ],
+      [
+        "Muse Spark 1.3 (max) · 10/23历史值",
+        48
+      ],
+      [
+        "Grok 4.7 (xhigh)",
+        46
+      ],
+      [
+        "MiMo-V2.6-Pro",
+        46
+      ],
+      [
+        "Qwen3.8 Max (0902)",
+        45
+      ],
+      [
+        "DeepSeek V4.1 Flash 1017 (max)",
+        45
+      ],
+      [
+        "GLM-5.3 (max)",
+        45
+      ],
+      [
+        "Ling 3.1 Flash 1019",
+        44
+      ],
+      [
+        "Step 5 Preview",
+        44
+      ],
+      [
+        "Kimi K3 (max) · 10/23历史值",
+        44
+      ],
+      [
+        "Claude Haiku 5.5 (max)",
+        43
+      ],
+      [
+        "MiniMax-M3.1-Flash",
+        43
+      ]
+    ]
+  }
+};
 
 /* 局部核验边界：AA日期不代表旧TB/SWE/订阅价格全部重新核验。 */
-window.RANK_CHECK_NOTE = "10月27日真实核对AA当前榜：18项当前选录分数未变，2条10/23历史值及全部旧TB/SWE分数保留。实质内容修正为两张DeepSeek Flash卡：现行调用别名、退役兼容型号、已核实峰谷/缓存价格，以及AA max快照与本站非思考JSON任务调用的区别。未声称价格核查等同模型实调或国内全网可达，其他旧型号价格与主观等级未全部复核。";
+window.RANK_CHECK_NOTE = "11月1日核对AA v5.0当前榜，更新选录并补入Gemini4 Carbon与GPT-6.1 Terra。AA于10月27日升级评测组合，分数不能与旧v4.3直接比较；原20项榜单快照单独保留。36张模型卡只显示严格对应的v5分数，未匹配者留空，旧分数保留历史说明；TB/SWE、价格与主观等级未重测。DeepSeek Search/Fetch计费变化另注明，未调用用户模型。";

@@ -49,6 +49,33 @@ def old_article(identifier, path, title="A previously verified article"):
 
 
 class PipelineRegressions(unittest.TestCase):
+    def test_reading_questions_fill_missing_notes_without_changing_source_facts(self):
+        rows = [old_article("one", "/authored"),
+                {**old_article("one", "/battery", "A new battery electrode"), "summary": ""},
+                {**old_article("one", "/unknown", "An ambiguous headline"), "summary": "", "publishedAt": None}]
+        before = deepcopy(rows)
+        count = refresh_module.ensure_reading_guides(rows, [{"id": "one", "category": "科学新知"}])
+        self.assertEqual(count, 2)
+        self.assertEqual(rows[0], before[0])
+        for index in (1, 2):
+            self.assertEqual({k: v for k, v in rows[index].items() if k not in ("summary", "summaryBasis")},
+                             {k: v for k, v in before[index].items() if k != "summary"})
+            self.assertTrue(rows[index]["summary"].startswith("据标题的阅读切入点："))
+            self.assertEqual(rows[index]["summaryBasis"], "title-and-publication")
+        self.assertIn("循环", rows[1]["summary"])
+        self.assertIsNone(rows[2]["publishedAt"])
+        self.assertEqual(refresh_module.ensure_reading_guides(rows, []), 0)
+
+    def test_changed_verified_title_rebuilds_only_automatic_reading_questions(self):
+        old = {**old_article("one", "/known", "An earlier battery headline"), "summary": ""}
+        refresh_module.ensure_reading_guides([old], [{"id": "one", "category": "科学新知"}])
+        incoming = {**old, "title": "A new quantum experiment", "publishedAt": DAY_TWO}
+        merged = refresh_module.merge_articles([old], [incoming], "one")
+        refresh_module.ensure_reading_guides(merged, [{"id": "one", "category": "科学新知"}])
+        self.assertIn(incoming["title"], merged[0]["summary"])
+        self.assertNotIn(old["title"], merged[0]["summary"])
+        self.assertEqual(merged[0]["publishedAt"], DAY_TWO)
+
     def run_refresh(self, publications, previous, today, responses, prior=None, workers=1):
         def fake_fetch(url, hosts, timeout):
             value = responses[url]

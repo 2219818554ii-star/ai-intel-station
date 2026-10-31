@@ -32,6 +32,7 @@
     Object.keys(routes).forEach(function(route){add({route:route,title:routes[route],group:'栏目',text:route});});
     list(data.RESEARCH_SNAPSHOT&&data.RESEARCH_SNAPSHOT.tasks).forEach(function(t){var d=details&&details(t.id)||{};add({route:'research',key:t.id,title:d.title||t.title,group:'科研任务 · '+t.id,text:[t.title,t.category,t.status,d.steps,d.acceptance,d.progress,d.prerequisite,d.gate].join(' ')});});
     list(data.CQUT_NOTICES).forEach(function(t){add({route:'cqut',title:t.t,key:t.t,group:'校园通知 · '+t.date,text:[t.src,t.sum].join(' ')});});
+    list(data.MATCHES).forEach(function(t){add({route:'cqut',kind:'match',title:t.n,key:t.n,group:'报名线索',text:[t.org,t.rego,t.intro,t.help,t.need].join(' ')});});
     list(data.COMP).forEach(function(t){add({route:'comp',title:t.n,key:t.n,group:'赛事库',text:[t.type,t.reg,t.org,t.fit].join(' ')});});
     list(data.MAGAZINE_ARTICLES).forEach(function(t){var p=list(data.MAGAZINES).find(function(p){return p.id===t.publication;});add({route:'magazines',title:t.title,key:t.title,group:'期刊 · '+(p?p.name:t.publication),text:[t.summary,t.featuredReason].join(' ')});});
     list(data.TED).forEach(function(t){add({route:'ted',title:t.en,key:t.en,group:'TED · '+(t.sp||''),text:[t.cn,t.cat,t.why].join(' ')});});
@@ -53,6 +54,13 @@
       closeSearch(false);go(e.route,{focus:true});
       if(e.route==='research'&&e.key&&w.AI_RESEARCH&&w.AI_RESEARCH.focusTask){w.AI_RESEARCH.focusTask(e.key);return;}
       if(!e.key)return;
+      if(e.kind==='match'){
+        var fold=doc.getElementById('cqutMatchFold');if(fold)fold.open=true;
+        clickButton('matchSchoolFilters','data-s','all');clickButton('matchFilters','data-f','all');
+        var matches=doc.getElementById('match-list'),target=matches&&Array.prototype.find.call(matches.querySelectorAll('[data-match-name]'),function(card){return card.getAttribute('data-match-name')===e.key;});
+        if(target){target.focus({preventScroll:true});target.scrollIntoView({block:'start',behavior:'instant'});}
+        return;
+      }
       if(e.route==='cqut'){var reset=doc.getElementById('cqut-reset');if(reset)reset.click();input('cqut-search',e.key);}
       if(e.route==='comp'){clickButton('compScope','data-s','all');clickButton('compFilters','data-f','all');input('comp-search',e.key);}
       if(e.route==='magazines'){doc.getElementById('magazine-reset').click();input('magazine-query',e.key);}
@@ -86,7 +94,7 @@
       var chosen=list(w.MAGAZINE_ARTICLES).filter(function(a){return typeof a.featuredReason==='string'&&a.featuredReason;}).slice().sort(function(a,b){return(a.featuredPriority||999)-(b.featuredPriority||999);}).slice(0,2);
       doc.getElementById('home-reading').innerHTML=chosen.map(function(a){var p=list(w.MAGAZINES).find(function(p){return p.id===a.publication;});return '<div class="home-task home-reading-item"><div class="home-task-meta">'+esc(p?p.name:a.publication)+' · '+esc(a.publishedAt||'原文未标日期')+'</div><button class="home-list-item" type="button" data-home-article="'+esc(a.title)+'"><strong>'+esc(a.title)+'</strong></button><p>'+esc(a.featuredReason)+'</p></div>';}).join('');
       doc.getElementById('home-content-state').textContent='期刊 '+(w.MAGAZINES_CHECKED||'待核对')+'核查 · '+list(w.MAGAZINE_ARTICLES).length+'篇选读';
-      searchEntries=index({RESEARCH_SNAPSHOT:raw,CQUT_NOTICES:w.CQUT_NOTICES,COMP:w.COMP,MAGAZINE_ARTICLES:w.MAGAZINE_ARTICLES,MAGAZINES:w.MAGAZINES,TED:w.TED,FORUM_SERIES:w.FORUM_SERIES,RANK:w.RANK},app&&app.getDetail?app.getDetail:null);renderRecent();renderResume();
+      searchEntries=index({RESEARCH_SNAPSHOT:raw,CQUT_NOTICES:w.CQUT_NOTICES,MATCHES:w.MATCHES,COMP:w.COMP,MAGAZINE_ARTICLES:w.MAGAZINE_ARTICLES,MAGAZINES:w.MAGAZINES,TED:w.TED,FORUM_SERIES:w.FORUM_SERIES,RANK:w.RANK},app&&app.getDetail?app.getDetail:null);renderRecent();renderResume();
     }
     function renderSearch(){currentResults=search(searchEntries,query.value,30);results.innerHTML=currentResults.length?currentResults.map(function(e,i){return '<button type="button" class="workspace-search-result" data-search-result="'+i+'"><span>'+esc(e.group)+'</span><strong>'+esc(e.title)+'</strong></button>';}).join(''):'<div class="workspace-search-empty">没有找到。可以用任务编号、刊物名、研究方向或更短的关键词重试。</div>';}
     function openSearch(button){if(!dialog.open){trigger=button||doc.activeElement;var menu=doc.getElementById('workspace-menu');if(menu&&menu.contains&&menu.contains(trigger))trigger=doc.getElementById('workspace-search-open');}if(w.AI_NAV&&w.AI_NAV.closeMenu)w.AI_NAV.closeMenu({restoreFocus:false});query.value='';renderSearch();if(dialog.showModal&&!dialog.open)dialog.showModal();else if(!dialog.open)dialog.setAttribute('open','');query.focus();}
@@ -99,7 +107,7 @@
     doc.addEventListener('keydown',function(e){var tag=(e.target&&e.target.tagName||'').toLowerCase();if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openSearch(doc.activeElement);}else if(e.key==='/'&&!['input','textarea','select'].includes(tag)&&!e.altKey&&!e.ctrlKey&&!e.metaKey){e.preventDefault();openSearch(doc.activeElement);}});
     doc.addEventListener('click',function(e){
       var el=e.target.closest&&e.target.closest('[data-home-task],[data-home-scope],[data-home-notice],[data-home-opportunity],[data-home-article]');
-      if(el){if(el.dataset.homeTask)openEntry({route:'research',key:el.dataset.homeTask});if(el.dataset.homeScope){go('research',{focus:true});if(w.AI_RESEARCH)w.AI_RESEARCH.setScope(el.dataset.homeScope);}if(el.dataset.homeNotice)openEntry({route:'cqut',key:el.dataset.homeNotice});if(el.dataset.homeOpportunity)openEntry({route:'comp',key:el.dataset.homeOpportunity});if(el.dataset.homeArticle)openEntry({route:'magazines',key:el.dataset.homeArticle});}
+      if(el){if(el.dataset.homeTask)openEntry({route:'research',key:el.dataset.homeTask});if(el.dataset.homeScope){go('research',{focus:true});if(w.AI_RESEARCH)w.AI_RESEARCH.setScope(el.dataset.homeScope);}if(el.dataset.homeNotice)openEntry({route:'cqut',key:el.dataset.homeNotice});if(el.dataset.homeOpportunity)openEntry({route:'cqut',kind:'match',key:el.dataset.homeOpportunity});if(el.dataset.homeArticle)openEntry({route:'magazines',key:el.dataset.homeArticle});}
       var a=e.target.closest&&e.target.closest('a[href]');if(!a||!safeURL(a.href))return;var view=a.closest&&a.closest('#view-magazines,#view-ted,#view-forum,#view-learn');if(!view)return;var article=a.closest('article'),title=article&&article.querySelector('h4,h3,.cmp-name'),record={route:view.id.slice(5),url:a.href,title:(title?title.textContent:a.textContent).trim().slice(0,400),at:Date.now()};if(!record.title)return;try{w.localStorage.setItem(KEY,JSON.stringify(record));}catch(error){}renderRecent();
     });
     if(w.addEventListener){w.addEventListener('research-updated',renderHome);w.addEventListener('workspace:route',function(e){var route=e.detail&&e.detail.tab;if(route&&route!=='home')try{w.sessionStorage.setItem('ai-workspace-last-view',route);}catch(error){}if(route==='home')renderHome();});}

@@ -531,7 +531,7 @@
       🆕 <b>2026 年 9 月新动态：</b>Claude Fable 5.1（9-1，AA 智能指数并列第一）、GPT-6 Astra（9-3，号称 AGI 时代但<b>几乎不可用</b>）、Gemini 3.8 Flash（9-2，多模态标杆）、Muse Spark 1.3（9-2）、Qwen3.8-Max 登 Code Arena WebDev 榜首（9-2）、GLM-5.3-Flash 开源（8-26）、腾讯 Hy4 Preview 开源（8-28）。<b>注意：GPT-6 Astra 被定为「关键网络安全」级，目前仅 Daybreak 计划批准者可用，投票榜样本极少，排名可能随时变化。</b>
     </div>
     <div class="disclaim">
-      <b>数据说明：</b>本页为<b>观点整理快照</b>，非官方实时排名。评级依据 2026-09 公开基准：Artificial Analysis 智能指数 <b>v4.3</b>（10 项标准化评测合成，满分≈58，<b>不同版本分数不可直接比较</b>）、Terminal-Bench 2.1（终端/编码 Agent 实跑）、SWE-bench Verified / Pro（真实 GitHub 任务）。<b>提示：SWE-bench Verified 已被指出存在测试集污染，前沿评测更看 SWE-bench Pro 与 Terminal-Bench 2.1。</b>模型迭代极快，具体分数请以来源链接的实时数据为准。
+      <b>数据说明：</b>本页为<b>观点整理快照</b>，非官方实时排名。Artificial Analysis 智能指数现为 <b>v5.0</b>（9 项评测、4 类各占 25%；2026-10-27 更换评测组合），<b>与旧 v4.3 分数不可直接比较</b>；旧版选录单独保留。主观评级、价格与 Terminal-Bench 2.1、SWE-bench Verified / Pro 为各自注明的历史快照。<b>提示：SWE-bench Verified 存在测试集污染风险。</b>模型迭代极快，具体分数请以来源链接和评测版本为准。
     </div>
 
         </details>
@@ -1375,6 +1375,7 @@
 
   /* ============ RANK DATA (snapshot 2026-10-17) ============ */
   var RANK = window.RANK || {};
+  var AA_VERSION = String(RANK.aaVersion || '4.3.2');
   document.getElementById("rank-updated").textContent=window.RANK_UPDATED||"未知";
   document.getElementById("rank-check-note").textContent=window.RANK_CHECK_NOTE||"各项日期与评测口径见表格说明。";
   ["models","tools","combos"].forEach(function(k){ if(!Array.isArray(RANK[k])) RANK[k]=[]; });
@@ -1392,7 +1393,7 @@
   function renderModels(){
     var dims = ["综合","推理","代码","多模态","长上下文","中文","性价比","开源"];
     var head = '<tr><th>#</th><th style="text-align:left">模型 / 厂商 · 价格</th>'
-      + '<th>AA<br>指数</th><th>代码<br>TB2.1</th>'
+      + '<th>AA<br>v'+esc(AA_VERSION)+'</th><th>代码<br>TB2.1</th>'
       + dims.map(function(d){return '<th>'+d+'</th>';}).join('')
       + '<th style="text-align:left">一句话点评</th></tr>';
     var _msorted = RANK.models.slice().sort(function(a,b){
@@ -1410,7 +1411,7 @@
         + '</tr>';
     }).join('');
     document.getElementById("p-models").innerHTML =
-      '<div class="legend">评级：<span class="tier t-S">S</span>顶尖/第一梯队 <span class="tier t-A">A</span>很强/第二梯队 <span class="tier t-B">B</span>够用/第三梯队 <span class="tier t-C">C</span>偏弱 <span class="tier t-none">—</span>未核实 / 不适用。评级为本站观点。AA = Artificial Analysis 智能指数 v4.3.2，比较时注意具体型号与推理档位；TB2.1 为历史口径，当前官方榜为 4.0，新旧口径不可直接比。表格可左右滑动查看全部列。</div>'
+      '<div class="legend">评级：<span class="tier t-S">S</span>顶尖/第一梯队 <span class="tier t-A">A</span>很强/第二梯队 <span class="tier t-B">B</span>够用/第三梯队 <span class="tier t-C">C</span>偏弱 <span class="tier t-none">—</span>未核实 / 不适用。评级为本站观点。AA = Artificial Analysis 智能指数 v'+esc(AA_VERSION)+'，仅显示严格对应型号与推理档位的当前分数；旧版分数在说明及历史选录中保留，不与新版合并排序。价格、主观等级及 TB2.1 为历史口径；当前 Terminal-Bench 为 4.0，新旧口径不可直接比。表格可左右滑动查看全部列。</div>'
       + '<div class="matrix-wrap"><table class="matrix"><thead>'+head+'</thead><tbody>'+rows+'</tbody></table></div>';
   }
   function renderTools(){
@@ -1462,7 +1463,12 @@
       return '<h3 style="margin:18px 0 8px;font-size:16px">'+esc(obj.title)+'</h3>'+
         '<table class="ranktbl"><thead><tr><th>#</th><th>模型 / 组合</th><th>分数</th></tr></thead><tbody>'+rows+'</tbody></table>';
     }
-    document.getElementById("p-tables").innerHTML = t(RANK.tables.aa)+t(RANK.tables.tb)+t(RANK.tables.swe)+(RANK.tables.swe_pro.rows.length?t(RANK.tables.swe_pro):"")+
+    var history=RANK.aaHistory, historyHTML='';
+    if(history&&Array.isArray(history.rows)&&history.rows.length){
+      historyHTML='<details class="reader-note" id="rank-aa-history"><summary>AA v'+esc(history.version)+' 历史选录 · '+esc(history.snapshotAsOf)+'</summary><p>'+esc(history.notice)+'</p><ul>'+
+        history.rows.filter(Array.isArray).map(function(r){return '<li>'+esc(r[0])+'：'+esc(r[1]==null?'—':r[1])+' 分</li>';}).join('')+'</ul></details>';
+    }
+    document.getElementById("p-tables").innerHTML = t(RANK.tables.aa)+historyHTML+t(RANK.tables.tb)+t(RANK.tables.swe)+(RANK.tables.swe_pro.rows.length?t(RANK.tables.swe_pro):"")+
       '<p style="color:var(--ink-soft);font-size:13px;margin-top:8px">不同评测与版本不作跨表排名。核对实时数据：<a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener noreferrer">Artificial Analysis ↗</a> · <a href="https://www.tbench.ai/leaderboard" target="_blank" rel="noopener noreferrer">Terminal-Bench ↗</a> · <a href="https://www.swebench.com/" target="_blank" rel="noopener noreferrer">SWE-bench ↗</a>。</p>';
   }
   renderModels(); renderTools(); renderCombos(); renderTables();
@@ -1472,12 +1478,12 @@
     function score(x){var v=kind==="models"?x.iaa:(kind==="tools"?x.tb:grades[x.score]);return Number.isFinite(v)?v:-1;}
     var rows=RANK[kind].slice().sort(function(a,b){return score(b)-score(a);});
     document.getElementById("p-"+kind).innerHTML += '<div class="rank-mobile">'+rows.map(function(m,i){
-      var label=kind==="models"?"AA v4.3":(kind==="tools"?"TB 2.1":"综合评级");
+      var label=kind==="models"?"AA v"+AA_VERSION:(kind==="tools"?"TB 2.1":"综合评级");
       var val=kind==="models"?numCell(m.iaa):(kind==="tools"?numCell(m.tb):tierBadge(m.score));
       var meta=kind==="models"?[m.vendor,m.price].filter(Boolean).join(" · "):[m.model,m.price].filter(Boolean).join(" · ");
       var dims=Object.keys(m.t||{}).map(function(k){return '<span>'+esc(({up:"上手",os:"开源"})[k]||k)+' '+tierBadge(m.t[k])+'</span>';}).join("");
       return '<article class="rank-mini"><div class="rank-mini-head"><span class="rank-order">#'+(i+1)+'</span><h3>'+esc(m.name)+'</h3></div>'+
-        '<div class="rank-meta">'+esc(meta)+'</div><div class="rank-score">'+label+' '+val+
+        '<div class="rank-meta">'+esc(meta)+'</div><div class="rank-score">'+esc(label)+' '+val+
         (kind==="tools"?' <span>SWE Verified '+numCell(m.sv)+'</span>':'')+'</div>'+
         '<details><summary>评分与说明</summary><div class="rank-dims">'+dims+'</div><p>'+esc(m.note||"暂无说明")+'</p></details></article>';
     }).join("")+'</div>';
@@ -1689,7 +1695,7 @@
     else COMP_PAGE = parseInt(p, 10);
     renderComp();
     var vc = document.getElementById("view-comp");
-    if(vc && vc.scrollIntoView) vc.scrollIntoView({behavior:"smooth", block:"start"});
+    if(vc && vc.scrollIntoView) vc.scrollIntoView({behavior:readingScrollBehavior(), block:"start"});
   });
   document.getElementById("comp-list").addEventListener("click", function(ev){
     var btn = ev.target.closest ? ev.target.closest(".copybtn") : null;
@@ -2035,15 +2041,18 @@
     window.AI_COPY(location.href,document.getElementById("copyBtn"));
   });
   window.addEventListener("hashchange", syncRoute);
+  function readingScrollBehavior(){
+    return window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches?"instant":"smooth";
+  }
   document.getElementById("nav").addEventListener("click",function(e){
     var link=e.target.closest ? e.target.closest("a[data-target]") : null;
     if(!link) return;
     var target=document.getElementById(link.getAttribute("data-target"));
-    if(target && target.scrollIntoView){e.preventDefault();target.scrollIntoView({behavior:"smooth",block:"start"});}
+    if(target && target.scrollIntoView){e.preventDefault();target.scrollIntoView({behavior:readingScrollBehavior(),block:"start"});}
   });
   var dailyScrollSpy=null;
   var topButton=document.getElementById("toTop");
-  topButton.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"});});
+  topButton.addEventListener("click",function(){window.scrollTo({top:0,behavior:readingScrollBehavior()});});
   window.addEventListener("scroll",function(){
     topButton.classList.toggle("show",window.scrollY>400);
     if(ACTIVE_TAB==="daily"&&dailyScrollSpy)dailyScrollSpy();
@@ -2664,7 +2673,7 @@
         var rego = x.rego
           ? '<span class="chip" style="border-color:var(--line)">👥 ' + esc(x.rego) + '</span>'
           : '';
-        return '<article class="cmp">' +
+        return '<article class="cmp" tabindex="-1" data-match-name="' + esc(x.n || "") + '">' +
           '<div class="cmp-head" style="cursor:default">' +
             '<span class="chip" style="border-color:var(--line)">🏫 ' + esc(sc.n) + '</span>' +
             '<span class="cmp-name">🏅 ' + esc(x.n || "") + '</span>' +

@@ -25,6 +25,16 @@ module.exports = async function ({html, inline, sandbox, ok}) {
     return {ctx,elements,listeners,documentEvents};
   }
   const base = run();
+  const motion=run(x=>'window.__reduceMotion=true;window.__scrolls=[];window.matchMedia=function(q){return {matches:q.includes("prefers-reduced-motion")&&window.__reduceMotion,addEventListener(){}};};window.scrollTo=function(o){window.__scrolls.push(o);};'+x);
+  motion.elements['view-comp'].scrollIntoView=o=>motion.ctx.window.__scrolls.push(o);
+  motion.ctx.document.getElementById('test-reading-anchor').scrollIntoView=o=>motion.ctx.window.__scrolls.push(o);
+  function checkMotion(){
+    motion.listeners.toTop.click();
+    motion.listeners['comp-pager'].click({target:{closest(){return {disabled:false,dataset:{p:'next'}};}}});
+    motion.listeners.nav.click({target:{closest(){return {getAttribute(){return 'test-reading-anchor';}};}},preventDefault(){}});
+  }
+  checkMotion();motion.ctx.window.__reduceMotion=false;checkMotion();
+  ok(motion.ctx.window.__scrolls.length===6&&motion.ctx.window.__scrolls.every((o,i)=>o.behavior===(i<3?'instant':'smooth')), '返回顶部、赛事分页与日报目录滚动均响应减少动画设置，普通模式仍平滑滚动');
   const dailyLinks=base.ctx.window.__dailyLinkUX;
   ok([undefined,null,{},[],0,'javascript:alert(1)','data:text/html,unsafe','//example.org/path','https://','https:///example.org/','https://user:pass@example.org/','https://user@example.org/','https://example.org/\nunsafe','https://example.org/has space','https://example.org\\@evil.org/'].every(u=>dailyLinks.url(u)===''), '日报外链拒绝危险协议、非字符串、畸形URL、凭据与控制字符');
   ok(dailyLinks.url('https://example.org/article?x=1&y=2')==='https://example.org/article?x=1&y=2'&&dailyLinks.url('http://example.org/legacy')==='http://example.org/legacy', '日报保留有效HTTPS与历史HTTP原文链接，不凭协议替换原地址');
@@ -197,6 +207,13 @@ module.exports = async function ({html, inline, sandbox, ok}) {
   ok(toolCells.length===sortedTools.length&&sortedTools.every((tool,i)=>toolCells[i][5]===(tool.t.up||tool.t['上手']||'—')&&toolCells[i][6]===(tool.t.os||tool.t['开源']||'—')), '工具桌面评级与实际中文/英文键数据逐项一致，和手机卡保持一致');
   const currentRankProof=JSON.parse(fs.readFileSync(path.join(__dirname,'_rank_review_'+base.ctx.window.RANK_UPDATED+'.json'),'utf8'));
   ok(currentRankProof.checkedAt===base.ctx.window.RANK_UPDATED&&JSON.stringify(rank.tables.aa.rows)===JSON.stringify(currentRankProof.aaApplied), '当前AA选录逐项对应独立官方核查报告，不混用型号与推理档位');
+  const oldRankProof=JSON.parse(fs.readFileSync(path.join(__dirname,'_rank_review_2026-10-27.json'),'utf8'));
+  ok(rank.aaVersion==='5.0'&&currentRankProof.aaVersion===rank.aaVersion&&rank.tables.aa.version===rank.aaVersion&&rank.aaHistory.version==='4.3'&&JSON.stringify(rank.aaHistory.rows)===JSON.stringify(oldRankProof.aaApplied), 'AA v5当前榜与原v4.3完整快照分开保留，不跨版混排');
+  const observedAA=new Map(currentRankProof.officialObservations.filter(o=>o.observedSelectedRows).flatMap(o=>o.observedSelectedRows.concat(o.additionalExactModelRows||[])));
+  ok(rank.models.length===36&&rank.models.every(m=>m.iaaVersion===rank.aaVersion&&(m.iaaModel?observedAA.get(m.iaaModel)===m.iaa:m.iaa===null)&&m.iaaHistorical.version==='4.3'), '36张模型卡只用精确匹配的v5分数，未匹配者留空并保留历史分数');
+  ok(base.elements['p-models'].innerHTML.includes('AA v5.0')&&!base.elements['p-models'].innerHTML.includes('rank-score">AA v4.3')&&base.elements['p-tables'].innerHTML.includes('id="rank-aa-history"'), '手机卡与桌面同步显示当前AA版本，历史选录可原生展开阅读');
+  const escapedAA=run(x=>x.replace('var RANK = window.RANK || {};','var RANK = window.RANK || {}; RANK.aaVersion="<img src=x>"; RANK.aaHistory.notice="<img src=x>"; RANK.aaHistory.rows[0][0]="<img src=x>";'));
+  ok(!escapedAA.elements['p-models'].innerHTML.includes('<img')&&!escapedAA.elements['p-tables'].innerHTML.includes('<img'), 'AA版本与历史选录来源字段均转义后显示');
   const rankReview=JSON.parse(fs.readFileSync(path.join(__dirname,'_rank_review_2026-10-19.json'),'utf8'));
   ok(rank.tables.swe.rows.length===4 && rank.tables.swe.rows.every(r=>r[0].endsWith(' — Verified')) && rank.tables.swe_pro.rows.length===3 && rank.tables.swe_pro.rows.every(r=>r[0].endsWith(' — Pro')) && JSON.stringify(rank.tables.swe.rows)===JSON.stringify(rankReview.sweApplied.verified) && JSON.stringify(rank.tables.swe_pro.rows)===JSON.stringify(rankReview.sweApplied.pro), 'SWE历史分数完整保留、按基准分组且没有误混TB成绩');
   // Let initialization's intentionally offline fetch settle before exercising request ordering.

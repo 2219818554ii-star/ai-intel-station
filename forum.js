@@ -6,15 +6,16 @@
    2026-10-24：完整响应的分P与总时长未变，保留原元数据采集日期；播放统计继续受限。
    2026-10-25：独立核实9个BV的新播放数并单列采集日期；未核实项仍为10月14日，元数据日期不变。
    2026-10-26：全量尝试194个BV；11个已核实播放变化单列采集日期，其他项保留原逐条日期，元数据日期不变。
-   整理证据见 _learning_review_2026-10-18.json；本次联网记录见 _learning_review_2026-10-26.json；没有为了凑数补入未经核实的视频。 */
-window.FORUM_CHECKED = "2026-10-26";
-window.FORUM_UPDATED = "2026-10-26";
+   2026-11-01：全量尝试194个BV；5个已核实播放变化单列采集日期，其他项保留原逐条日期，元数据日期不变。
+   整理证据见 _learning_review_2026-10-18.json；本次联网记录见 _learning_review_2026-11-01.json；没有为了凑数补入未经核实的视频。 */
+window.FORUM_CHECKED = "2026-11-01";
+window.FORUM_UPDATED = "2026-11-01";
 window.FORUM_PLAY_CAPTURED_AT = "2026-10-14";
-window.FORUM_REVIEW_NOTE = "10月26日实际尝试全部194个独立BV的官方view统计，11个取得完整且BV/标题一致的计数，其中11个发生变化（涉及12条收录），变化项逐条标注采集10月26日；其余保留原逐条日期或历史快照（2026-10-14、2026-10-25），不能当作全量已刷新。另pagelist完整核实189个，分P与总时长未发现变化，元数据日期仍10月22日。分P核验不等于全片可播。";
+window.FORUM_REVIEW_NOTE = "11月1日实际尝试全部194个独立BV的官方view统计，5个取得完整且BV/标题一致的计数，其中5个发生变化（涉及5条收录），变化项逐条标注采集11月1日；其余保留原逐条日期或历史快照（2026-10-14、2026-10-25、2026-10-26），不能当作全量已刷新。另pagelist完整核实185个，分P与总时长未发现变化，元数据日期仍10月22日。分P核验不等于全片可播。";
 window.FORUM_CATS = ["名人与企业家","国学讲坛","阳明心学"];
 window.FORUM_SERIES = [
   {cat:"名人与企业家", who:"马云", desc:"创业经历、教育与经营主题的演讲和访谈。优先从完整演讲入手，再看短剪辑。", vids:[
-    {"t":"马云斯坦福演讲：世界在改变 你要采取行动","bvid":"BV1Az4y1v7Z8","up":"识君SHIJUN","dur":"34:39","play":211489,"pageCount":1,"durationSeconds":2079,"metadataCheckedAt":"2026-10-22"},
+    {"t":"马云斯坦福演讲：世界在改变 你要采取行动","bvid":"BV1Az4y1v7Z8","up":"识君SHIJUN","dur":"34:39","play":211901,"pageCount":1,"durationSeconds":2079,"metadataCheckedAt":"2026-10-22","playCapturedAt":"2026-11-01"},
     {"t":"马云在上海外滩金融峰会上的演讲，内容劲爆，火力全开。","bvid":"BV1va4y1s7k8","up":"小娃放牛","dur":"21:30","play":3663505,"pageCount":1,"durationSeconds":1290,"metadataCheckedAt":"2026-10-22"},
     {"t":"2020年！马云，首次直播谈论 当代年轻人压力。","bvid":"BV17z4y1R7Wm","up":"云中方知雾","dur":"5:30","play":294501,"pageCount":1,"durationSeconds":330,"metadataCheckedAt":"2026-10-22"},
     {"t":"【马云】想看十年前马云的演讲吗？极其经典并有预见性的演讲","bvid":"BV1Fx411t758","up":"從吾遊","dur":"72:35","play":148595,"pageCount":2,"durationSeconds":4355,"metadataCheckedAt":"2026-10-22"},
@@ -24,14 +25,14 @@ window.FORUM_SERIES = [
   ]},
   {cat:"名人与企业家", who:"雷军", desc:"小米创始人每年一场的「年度演讲」，讲风口上的选择逻辑与长期主义心态。", vids:[
     {"t":"【一往无前】小米十周年 雷军公开演讲全程录播","bvid":"BV14Z4y1M7En","up":"小米公司","dur":"174:59","play":832123,"pageCount":1,"durationSeconds":10499,"metadataCheckedAt":"2026-10-22"},
-    {"t":"【演讲回顾】2023雷军年度演讲纯净版","bvid":"BV1pu4y1q7GG","up":"小米公司","dur":"73:30","play":714499,"pageCount":1,"durationSeconds":4410,"metadataCheckedAt":"2026-10-22"},
+    {"t":"【演讲回顾】2023雷军年度演讲纯净版","bvid":"BV1pu4y1q7GG","up":"小米公司","dur":"73:30","play":716297,"pageCount":1,"durationSeconds":4410,"metadataCheckedAt":"2026-10-22","playCapturedAt":"2026-11-01"},
     {"t":"【演讲回顾】2024雷军年度演讲纯净版","bvid":"BV1n2421Z7Uu","up":"小米公司","dur":"74:02","play":546878,"pageCount":1,"durationSeconds":4442,"metadataCheckedAt":"2026-10-22"},
     {"t":"雷军史上最励志，最振奋人心的演讲没有之一！","bvid":"BV13izCY1EA4","up":"账号已注销","dur":"53:38","play":384908,"pageCount":1,"durationSeconds":3218,"metadataCheckedAt":"2026-10-22"},
     {"t":"【高能混剪】雷军年度演讲2024（金句版）","bvid":"BV1jE421w7By","up":"AndyTalk","dur":"6:06","play":372073,"pageCount":1,"durationSeconds":366,"metadataCheckedAt":"2026-10-22","playCapturedAt":"2026-10-26"},
     {"t":"【全程回放】2023雷军年度演讲","bvid":"BV12u4y1q7ns","up":"UplusTech","dur":"197:35","play":293038,"pageCount":1,"durationSeconds":11855,"metadataCheckedAt":"2026-10-22"},
     {"t":"雷军：成功并不取决于你多努力、多聪明 听完后醍醐灌顶","bvid":"BV1sk4y1R7Tj","up":"-1该用户已成仙1-","dur":"11:38","play":1617319,"pageCount":1,"durationSeconds":698,"metadataCheckedAt":"2026-10-22"},
     {"t":"【短的发布会】雷军社恐求学回忆录？小米MIX Fold3怒怼友商你叠徕了！","bvid":"BV1zx4y1f7Zc","up":"短的发布会","dur":"3:57","play":1193617,"pageCount":1,"durationSeconds":237,"metadataCheckedAt":"2026-10-22","playCapturedAt":"2026-10-25"},
-    {"t":"雷军：相信自己，一往无前","bvid":"BV18f4y197P1","up":"雷军","dur":"95:28","play":1046681,"pageCount":1,"durationSeconds":5728,"metadataCheckedAt":"2026-10-22","playCapturedAt":"2026-10-25"},
+    {"t":"雷军：相信自己，一往无前","bvid":"BV18f4y197P1","up":"雷军","dur":"95:28","play":1047230,"pageCount":1,"durationSeconds":5728,"metadataCheckedAt":"2026-10-22","playCapturedAt":"2026-11-01"},
     {"t":"雷军还是那个雷军，但是小米它变了【雪鸡观察局200】","bvid":"BV11r4y197qs","up":"动动枪DongDongGun","dur":"9:57","play":1026050,"pageCount":1,"durationSeconds":597,"metadataCheckedAt":"2026-10-22"}
   ]},
   {cat:"名人与企业家", who:"马斯克", desc:"科技创业、第一性原理与人工智能等话题的访谈，另含传记和第三方评论；字幕以视频页为准。", vids:[
@@ -62,7 +63,7 @@ window.FORUM_SERIES = [
     {"t":"暴君、傀儡、赌徒、硬汉、商业思想家，任正非的多重面孔【奔流·任正非】","bvid":"BV1oTrsYzEb2","up":"大象放映室","dur":"25:06","play":875509,"pageCount":1,"durationSeconds":1506,"metadataCheckedAt":"2026-10-22"},
     {"t":"任正非 · 人物","bvid":"BV1bZ4y1Q7bJ","up":"枕头软睡得香","dur":"59:37","play":172919,"pageCount":4,"durationSeconds":3577,"metadataCheckedAt":"2026-10-22"},
     {"t":"华为任正非接受采访，谈当下的华为与担当。骨子里的自信！","bvid":"BV1Z4411j7Gb","up":"可爱的小潇潇","dur":"14:48","play":141206,"pageCount":1,"durationSeconds":888,"metadataCheckedAt":"2026-10-22"},
-    {"t":"任正非采访演讲合集","bvid":"BV1J64y117fC","up":"青山客呀","dur":"911:03","play":102282,"pageCount":11,"durationSeconds":54663,"metadataCheckedAt":"2026-10-22"},
+    {"t":"任正非采访演讲合集","bvid":"BV1J64y117fC","up":"青山客呀","dur":"911:03","play":102648,"pageCount":11,"durationSeconds":54663,"metadataCheckedAt":"2026-10-22","playCapturedAt":"2026-11-01"},
     {"t":"华为为何组建军团？原来是学谷歌！任正非、余承东来站台，绕过美国制裁？【小丹尼】","bvid":"BV14341187eH","up":"DannyData小丹尼","dur":"13:35","play":440587,"pageCount":1,"durationSeconds":815,"metadataCheckedAt":"2026-10-22"},
     {"t":"【任正非最新霸气专访】我每天洗澡，清清白白，无需跟美国证明什么","bvid":"BV1Nt411g7nx","up":"油兔英语笔记","dur":"12:24","play":171557,"pageCount":2,"durationSeconds":744,"metadataCheckedAt":"2026-10-22"},
     {"t":"【人物志】广东百强民企：任正非、正威王文银、恒大许家印、万科王石、美的方洪波、比亚迪王传福、TCL李东生、顺丰王卫、怡亚通周国辉、立白陈凯旋（全28集）","bvid":"BV1Pi4y1372S","up":"农夫CC","dur":"756:34","play":155618,"pageCount":28,"durationSeconds":45394,"metadataCheckedAt":"2026-10-22"}
@@ -81,7 +82,7 @@ window.FORUM_SERIES = [
   {cat:"名人与企业家", who:"张一鸣", desc:"字节跳动创始人反复强调「延迟满足感」：把眼光放长的人赢面更大。", vids:[
     {"t":"【张一鸣】₂₀₁₇｜趁年轻完成知识和信息的原始积累","bvid":"BV1qa4y1V7a7","up":"励志演说君","dur":"15:17","play":275659,"pageCount":1,"durationSeconds":917,"metadataCheckedAt":"2026-10-22"},
     {"t":"张一鸣的创业之路（合集）更新至2020","bvid":"BV1gp4y1B7wu","up":"羊驼FF","dur":"271:38","play":137184,"pageCount":13,"durationSeconds":16298,"metadataCheckedAt":"2026-10-22"},
-    {"t":"张一鸣早期最精彩的采访没有之一","bvid":"BV19m411q7Jp","up":"B站金融学院","dur":"24:01","play":127686,"pageCount":2,"durationSeconds":1441,"metadataCheckedAt":"2026-10-22","playCapturedAt":"2026-10-25"},
+    {"t":"张一鸣早期最精彩的采访没有之一","bvid":"BV19m411q7Jp","up":"B站金融学院","dur":"24:01","play":129589,"pageCount":2,"durationSeconds":1441,"metadataCheckedAt":"2026-10-22","playCapturedAt":"2026-11-01"},
     {"t":"【中国超经典名人演讲视频集】两弹元勋，科学家，企业家，大学教授，校长，艺人，经济学家-口才，励志，人生，挑战，落泪，勇气，智慧，野心，搞笑，牛人","bvid":"BV1ut411n7Yv","up":"向往诗和远方qq","dur":"263:00","play":119723,"pageCount":39,"durationSeconds":15780,"metadataCheckedAt":"2026-10-22"},
     {"t":"每个创业者至少看五遍以上的访谈，不是三遍！ （张一鸣）","bvid":"BV1z7T7zJE9c","up":"B站金融大学","dur":"11:45","play":109450,"pageCount":2,"durationSeconds":705,"metadataCheckedAt":"2026-10-22"},
     {"t":"【值得观看】张一鸣：字节跳动CEO深度专访 趁年轻完成知识的原始积累！！！","bvid":"BV16x4y1V7KJ","up":"万众创薪","dur":"60:23","play":97715,"pageCount":3,"durationSeconds":3623,"metadataCheckedAt":"2026-10-22"},

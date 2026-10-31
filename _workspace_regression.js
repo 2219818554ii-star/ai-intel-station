@@ -4,6 +4,10 @@ module.exports=async function({html,ok}){
   const summary=JSON.parse(fs.readFileSync(path.join(__dirname,'research-data.json'),'utf8'));
   const details=JSON.parse(fs.readFileSync(path.join(__dirname,'research-details.json'),'utf8'));
   const rows=api.index({RESEARCH_SNAPSHOT:summary},id=>details.tasks.find(t=>t.id===id));
+  const published={window:{}};
+  for(const file of ['matches.js','competitions.js'])require('vm').runInNewContext(fs.readFileSync(path.join(__dirname,file),'utf8'),published);
+  const opportunities=api.index(published.window),matchRows=opportunities.filter(r=>r.kind==='match');
+  ok(matchRows.length===published.window.MATCHES.length&&matchRows.every(r=>r.route==='cqut'&&api.search(opportunities,r.title,30).some(x=>x.kind==='match'&&x.key===r.key))&&opportunities.filter(r=>r.group==='赛事库').length===published.window.COMP.length,'全站搜索逐项收录报名线索，保留全国赛事库的独立身份与入口');
   ok(api.search(rows,'T001',30).some(r=>r.route==='research'&&r.key==='T001')&&api.search(rows,'运输 接收',30).some(r=>r.key==='T001'),'工作台搜索覆盖真实任务编号及执行正文，多关键词同时匹配');
   const originalOrder=JSON.stringify(rows),precise=api.search(rows,'t015',1);
   ok(precise.length===1&&precise[0].key==='T015'&&precise[0].route==='research'&&JSON.stringify(rows)===originalOrder,'精确任务编号忽略大小写并在截断结果前优先本项，不让正文引用抢先或改动索引');
@@ -22,7 +26,7 @@ module.exports=async function({html,ok}){
       focus(){doc.activeElement=this;focusLog.push(id);},addEventListener(type,handler){(events[id]||(events[id]={}))[type]=handler;},querySelector(){return null;},querySelectorAll(){return[];},contains(){return false;},setAttribute(name,value){this[name]=value;},showModal(){this.open=true;},close(){this.open=false;closeQueue.push(()=>events[id].close());}});
   },addEventListener(type,handler){documentEvents[type]=handler;}};
   let focusedTask=null,route=null;
-  const world={RESEARCH_SNAPSHOT:summary,AI_RESEARCH:{state(){return{data:summary};},getDetail(id){return details.tasks.find(t=>t.id===id);},focusTask(id){focusedTask=id;doc.getElementById('task-result-heading').focus();}},
+  const world={RESEARCH_SNAPSHOT:summary,MATCHES:published.window.MATCHES,AI_RESEARCH:{state(){return{data:summary};},getDetail(id){return details.tasks.find(t=>t.id===id);},focusTask(id){focusedTask=id;doc.getElementById('task-result-heading').focus();}},
     AI_NAV:{go(next,options){route=next;if(options&&options.focus)doc.getElementById('section-heading').focus();},closeMenu(){}},
     localStorage:{getItem(){return null;},setItem(){}},sessionStorage:{getItem(){return null;},setItem(){}},navigator:{},location:{protocol:'https:'},addEventListener(){}};
   api.mount(world,doc);
@@ -35,4 +39,22 @@ module.exports=async function({html,ok}){
   ok(prevented&&!dialog.open&&doc.activeElement===opener,'有文本的搜索框一次Escape即关闭并返回触发点，阻止原生search输入只清空文本');
   open();documentEvents.keydown({key:'k',ctrlKey:true,target:field,preventDefault(){}});events['workspace-search-close'].click();closeQueue.shift()();
   ok(!dialog.open&&doc.activeElement===opener,'已打开搜索时再次CtrlK不丢失原触发点，关闭按钮仍正确还焦点');
+  let school='cqut',filter='fit',scrolled=null;
+  function allButton(attribute){return {getAttribute(name){return name===attribute?'all':null;},click(){if(attribute==='data-s')school='all';else filter='all';}};}
+  doc.getElementById('matchSchoolFilters').querySelectorAll=()=>[allButton('data-s')];
+  doc.getElementById('matchFilters').querySelectorAll=()=>[allButton('data-f')];
+  const cards=world.MATCHES.map((match,i)=>{const card=doc.getElementById('match-fixture-'+i);card.getAttribute=name=>name==='data-match-name'?match.n:null;card.scrollIntoView=()=>{scrolled=card;};return card;});
+  doc.getElementById('match-list').querySelectorAll=()=>school==='all'&&filter==='all'?cards:[];
+  doc.getElementById('comp-search').value='保留原赛事筛选';
+  const current=world.MATCHES.filter(t=>api.deadline(t));
+  for(const match of current){
+    school='cqut';filter='fit';doc.getElementById('cqutMatchFold').open=false;scrolled=null;
+    const button={dataset:{homeOpportunity:match.n}};
+    documentEvents.click({target:{closest(selector){return selector.includes('[data-home-opportunity]')?button:null;}}});
+    ok(route==='cqut'&&doc.getElementById('cqutMatchFold').open&&school==='all'&&filter==='all'&&scrolled===doc.activeElement&&doc.activeElement.getAttribute('data-match-name')===match.n&&doc.getElementById('comp-search').value==='保留原赛事筛选','首页报名机会展开并聚焦原始说明，不在全国赛事库制造空搜索：'+match.n);
+  }
+  const pending=world.MATCHES.find(t=>t.deadlineUnverified);
+  school='city';filter='soon';doc.getElementById('cqutMatchFold').open=false;scrolled=null;
+  open();field.value=pending.n;events['workspace-query'].input();events['workspace-query'].keydown({key:'Enter',preventDefault(){}});closeQueue.shift()();
+  ok(route==='cqut'&&doc.getElementById('cqutMatchFold').open&&scrolled===doc.activeElement&&doc.activeElement.getAttribute('data-match-name')===pending.n&&!dialog.open,'搜索待核实报名线索仍打开对应原说明，关闭搜索不会夺走目标焦点');
 };

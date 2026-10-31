@@ -1,4 +1,5 @@
 /* Personal workbench: one navigation, one scrolling document, no external assets. */
+#match-list [data-match-name]{scroll-margin-top:calc(var(--workspace-top,68px) + 16px)}
 :root{--bg:#f5f6f2;--card-bg:#fff;--ink:#18312c;--ink-soft:#64736d;--line:#e2e7df;--brand:#12634e;--brand-soft:#e9f3ec;--accent:#217a64;--warn:#9a611c;--shadow:0 3px 18px rgba(27,57,44,.035);--sidebar-width:232px;--workspace-top:68px}
 body{background:var(--bg);font-size:15px;line-height:1.7;overflow-x:clip}
 button,input,select,textarea{font:inherit}button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}button{touch-action:manipulation}

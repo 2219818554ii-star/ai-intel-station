@@ -7,7 +7,7 @@ module.exports=async function({inline,sandbox,ok}){
     vm.createContext(ctx);vm.runInContext(transform(inline),ctx);
     return {ctx,elements,events,saved};
   }
-  const attr=(k,v)=>({target:{closest(){return {getAttribute(a){return a===k?v:null;}};}}});
+  const attr=(k,v)=>({target:{closest(){return {classList:{add(){}},getAttribute(a){return a===k?v:null;}};}}});
   const change=(page,id,value)=>{page.elements[id].value=value;page.events[id].change({target:{value}});};
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const known=n=>typeof n==='number'&&Number.isFinite(n)&&n>=0?n:-1;
@@ -82,4 +82,9 @@ module.exports=async function({inline,sandbox,ok}){
   const invalid=run(x=>x,{'ai-ted-state':'{"sort":"bad"}','ai-forum-state':'{"sort":"bad","who":"不存在"}','ai-cqut-state':'{"sort":"bad"}'});
   ok(invalid.elements['ted-sort'].value==='curated'&&invalid.elements['forum-sort'].value==='curated'&&invalid.elements['cqut-sort'].value==='latest','失效排序与讲者保存值安全回退');
   ok(base.elements['comp-sort-note'].textContent.includes('明确报名截止')&&run(x=>x,{'ai-comp-state':'{"sort":"pri"}'}).elements['comp-sort-note'].textContent.includes('不代表报名热度'),'比赛保留截止与推荐排序，并解释依据及推荐口径');
+  base.events.matchFilters.click(attr('data-f','all'));
+  ok(w.MATCHES.every(m=>base.elements['match-list'].innerHTML.includes('tabindex="-1" data-match-name="'+esc(m.n)+'"')),'每条报名说明有精确可聚焦的定位标记，包括待核实条目');
+  const quotedName='报名 "A&B" <测试> \'分组\'';
+  const quoted=run(x=>x.replace('var M = window.MATCHES || [];','var M = '+JSON.stringify([{n:quotedName,st:'报名中'}])+';'));
+  ok(quoted.elements['match-list'].innerHTML.includes('data-match-name="'+esc(quotedName)+'"')&&!quoted.elements['match-list'].innerHTML.includes('data-match-name="'+quotedName+'"'),'报名定位标题中的引号、尖括号与符号安全转义，不产生新属性');
 };

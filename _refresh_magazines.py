@@ -2,7 +2,8 @@
 
 Only titles, explicit publication dates and article URLs are collected. A failed
 or empty response preserves every existing article for that publication. This
-script never evaluates publisher JavaScript or synthesizes article summaries.
+script never evaluates publisher JavaScript or synthesizes article contents.
+Missing independent notes receive explicitly labelled title-based reading questions.
 
 Usage: python _refresh_magazines.py [--dry-run] [--today YYYY-MM-DD]
 """
@@ -352,6 +353,9 @@ def merge_articles(previous, incoming, publication):
                 and row.get("title") != old.get("title")):
             merged["title"] = old["title"]
             merged["checkedAt"] = old["checkedAt"]
+        if old.get("summaryBasis") == "title-and-publication" and merged.get("title") != old.get("title"):
+            merged["summary"] = ""
+            merged.pop("summaryBasis", None)
         if merged["url"] not in {x["url"] for x in fresh}:
             fresh.append(merged)
     old_rows = [dict(row) for row in previous if row.get("publication") == publication
@@ -474,6 +478,58 @@ def apply_editorial(rows, editorial):
     return rows
 
 
+def ensure_reading_guides(rows, publications):
+    """Add reading questions, never pretend to summarize an unread article.
+
+    Only title and publication category are used. Existing authored notes and all
+    source facts, dates and rankings remain intact; the basis is visible in text.
+    """
+    categories = {p["id"]: p.get("category", "") for p in publications}
+    angles = [
+        (r"电池|储能|负极|正极|battery|batteries|electrode|electroly", "区分材料性能、器件表现与应用条件；原文给了哪些循环、能量密度或对照证据，哪些仍待验证？"),
+        (r"聚变|超导|fusion|plasma|superconduct", "分清理论、实验装置与工程应用；关注稳定性、能量收支和验证条件，避免把单点突破当成可用系统。"),
+        (r"量子|quantum|entangl|qubit", "先分清研究对象、观测量与实验条件；哪些结论依赖理想模型，作者如何排除其他解释？"),
+        (r"宇宙|星系|行星|黑洞|space|galax|planet|black hole|cosmic|astronom", "把直接观测与模型推断分开记录；结论依赖哪些仪器、样本和误差范围，还有哪些替代解释？"),
+        (r"气候|碳排|气温|climate|warming|carbon emission", "核对空间范围、时间尺度与基线；分清观测趋势、情景预测和政策判断，关注不确定性如何表达。"),
+        (r"药|癌|疫苗|疾病|血糖|植入|cancer|vaccine|disease|implant|blood sugar|therapy|treatment", "先确认是细胞、动物还是人体证据，再看对照、样本量和风险；科研报道的可能性不能直接当作个人诊疗建议。"),
+        (r"脑|记忆|睡眠|brain|memory|sleep|neuron", "区分相关性、实验干预与机制解释；留意参与者范围、测量方法和结果能否迁移到日常生活。"),
+        (r"基因|蛋白|细胞|gene|protein|cell|dna|rna", "记录研究尺度、实验体系和关键对照；作者从分子现象推到生物功能时，还需要补上哪些验证？"),
+        (r"动物|生态|鸟|森林|animal|bird|forest|species|ecolog", "关注观察地点、季节与样本范围；把物种行为、环境压力和人的解释分开，核对结论的适用边界。"),
+        (r"数学|几何|拓扑|math|geometr|topolog|prime", "先写清问题的定义与假设，再找关键论证；哪些是已证明结果，哪些是数值迹象或尚未解决的猜想？"),
+        (r"机器人|robot|自动驾驶|无人驾驶", "区分演示、基准评测与真实场景部署；重点核对任务边界、失效情形、数据条件和人工介入。"),
+        (r"人工智能|大模型|算力|英伟达|OpenAI|\bAI\b|algorithm|artificial intelligence", "区分模型能力、产品体验与商业承诺；核对具体任务、比较基线、数据限制与使用成本，避免把演示当成普遍能力。"),
+        (r"汽车|燃油|新能源车|car market|automaker", "从产品、成本与渠道三处看竞争；核对销量和利润的口径及时间范围，思考技术路线变化如何传到企业经营。"),
+        (r"电力|电网|能源|买电|energy|electricity|power grid", "区分装机、实际发电与可调度能力；关注供需时段、基础设施和成本由谁承担，再判断方案的适用条件。"),
+        (r"利率|加息|美联储|汇率|人民币|通胀|inflation|interest rate", "先核对指标定义、统计时点和传导路径；把已发生的数据与政策预期分开，留意结论依赖的经济情景。"),
+        (r"投资|融资|IPO|上市|理财|基金|赚钱|亏损|亏了|ipo|invest|stock market", "核对收入、利润、现金流与估值各自的口径；关注风险由谁承担以及信息是否完整，不从报道直接推出交易决定。"),
+        (r"消费|零食|品牌|超市|李宁|安踏|阿迪|爱马仕|快时尚|Uniqlo|Lemaire", "观察需求、定价、渠道与品牌定位如何相互作用；区分个别案例和市场趋势，核对数据时间及样本范围。"),
+        (r"职场|员工|打工|工程师|求职|就业|裁员|工作|job|worker|employment", "从岗位、组织和个人选择三个层面读；核对案例背景与制度约束，思考哪些经验可迁移、哪些依赖特定条件。"),
+        (r"学校|大学|教育|阅读力|老师|学生|养育|父母|孩子|education|school|parent", "区分个体经验、调查结果与教育主张；关注年龄、家庭及制度背景，避免把单一案例变成对所有人的要求。"),
+        (r"总统|总理|大选|政治|政党|选举|战争|中东|美国|英国|北爱|加沙|election|president|war\b", "先梳理事件时间线和各方立场；把已核实事实、当事人说法与作者判断分开，再看制度和历史背景如何影响解释。"),
+        (r"访|人物|艺术家|作家|画师|诗人|演员|专栏|访谈|interview|artist|writer", "留意受访者或作者的具体经历、表达语境与选择；把个人叙述和可核实事实分开，记录一个值得继续追问的问题。"),
+        (r"电影|剧|银幕|诺兰|足球|冠军|梅西|music|film|cinema", "区分作品或赛事本身、产业环境和个人评价；找出支撑判断的具体细节，避免只记住评分、输赢或热度。"),
+    ]
+    defaults = {
+        "科学新知": "先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
+        "商业财经": "核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
+        "人物纪实": "沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
+        "时事观察": "先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
+        "生活人文": "从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
+    }
+    added = 0
+    for row in rows:
+        if clean(row.get("summary")):
+            continue
+        title = clean(row.get("title"))
+        angle = next((text for pattern, text in angles if re.search(pattern, title, re.I)),
+                     defaults.get(categories.get(row.get("publication")),
+                                  "先明确文章讨论的对象与问题；区分事实、观点和推断，找出支撑结论的证据与尚未回答的问题。"))
+        row["summary"] = "据标题的阅读切入点：《" + title + "》。" + angle
+        row["summaryBasis"] = "title-and-publication"
+        added += 1
+    return added
+
+
 def main():
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -517,6 +573,8 @@ def main():
                                             prior_report=prior_report, workers=args.workers)
         if args.editorial.exists():
             articles = apply_editorial(articles, json.loads(args.editorial.read_text(encoding="utf-8-sig")))
+        added_guides = ensure_reading_guides(articles, publications)
+        report["readingGuides"] = {"added": added_guides, "basis": "Title and publication category only; explicitly labelled reading questions, not a claim to have read or summarized the full article."}
         if args.dry_run:
             print(json.dumps(report, ensure_ascii=False, indent=2))
         else:
