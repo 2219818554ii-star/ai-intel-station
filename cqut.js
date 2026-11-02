@@ -3175,8 +3175,8 @@ window.CQUT_SOURCES = {
 };
 
 /* 核查尝试与内容成功更新分开记录；反爬挑战不能冒充新通知。 */
-window.CQUT_CHECKED = "2026-11-01";
-window.CQUT_CHECK_NOTE = "11月1日实际请求337条已有通知及学校/学院/部门和备用入口，364个学校去重入口均未取得可核查正文，含412保护、空202与超时。受阻保留旧内容：最近成功内容更新2026-10-30，最近核查2026-11-01；337条原文日期和全部配置与核查日前独立Git基线一致，不声称无新通知。";
+window.CQUT_CHECKED = "2026-11-02";
+window.CQUT_CHECK_NOTE = "11月2日复核：研究生院(cqut.edu.cn/tzgg/bmtz/yjsytz)与化学化工学院(chem.cqut.edu.cn)官网WebFetch仍被WAF拦截(No readable content/404)，沿用官方列表受阻例外保留旧内容；另以独立WebSearch交叉核验研究生院/化工学院/学生工作通知列表，窗口(10/31–11/02)内无新增符合策展范围的通知（研究生院列表最新仍为国奖/学业奖学金公示10-27、学生工作最新10-30、化工学院通知最新09月），与库内LATEST=2026-10-30一致。不声称无新通知，仅记录受阻保留、内容日未推进。";
 
 window.CQUT_SOURCE_STATUS = "blocked";
-window.CQUT_SOURCE_STATE = {"contentDate": "2026-10-30", "checkDate": "2026-11-01", "evidence": "_content_review_2026-11-01.json"};
+window.CQUT_SOURCE_STATE = {"contentDate": "2026-10-30", "checkDate": "2026-11-02", "evidence": "_content_review_2026-11-02.json"};
