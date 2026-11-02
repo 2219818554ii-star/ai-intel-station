@@ -33,9 +33,11 @@ class Response:
 class DeploymentChecks(unittest.TestCase):
     def run_check(self, *, skip=False, changed=False, behind=False, optional_dns=False, gh_timeout=False, cqut_timeout=False, retention_proof=False, selfcheck_failure=False, cqut_404=False):
         requests = []
+        selfcheck_calls = []
 
         def command(args, **kwargs):
             if "_selfcheck.js" in args:
+                selfcheck_calls.append(args)
                 output = "[PASS] 理工官网受阻有据保留旧内容".encode() if retention_proof else b"[PASS] unrelated check"
                 return subprocess.CompletedProcess(args, 1 if selfcheck_failure else 0, stdout=output, stderr=b"")
             if gh_timeout and str(args[0]).endswith("gh.exe"):
@@ -70,6 +72,7 @@ class DeploymentChecks(unittest.TestCase):
                 patch("urllib.request.urlopen", urlopen), redirect_stdout(output):
             with self.assertRaises(SystemExit) as result:
                 runpy.run_path(str(ROOT / "_preship.py"), run_name="__main__")
+        self.assertEqual(len(selfcheck_calls), 1, "full selfcheck must run once, with the result reused for CQUT probes")
         return result.exception.code, requests, output.getvalue()
 
     def test_skip_remote_does_not_access_network_or_claim_deployment(self):
@@ -117,6 +120,17 @@ class DeploymentChecks(unittest.TestCase):
 
     def test_html_mismatch_still_blocks_when_cqut_retention_is_verified(self):
         self.assertEqual(self.run_check(changed=True, cqut_timeout=True, retention_proof=True)[0], 1)
+
+    def test_selfcheck_failure_blocks_even_when_every_remote_probe_succeeds(self):
+        code, _, output = self.run_check(selfcheck_failure=True)
+        self.assertEqual(code, 1)
+        self.assertIn("完整_selfcheck.js未通过", output)
+
+    def test_skip_remote_still_enforces_all_local_selfcheck_guards(self):
+        code, requests, output = self.run_check(skip=True, selfcheck_failure=True)
+        self.assertEqual(code, 1)
+        self.assertEqual(requests, [])
+        self.assertIn("完整_selfcheck.js未通过", output)
 
 
 if __name__ == "__main__":

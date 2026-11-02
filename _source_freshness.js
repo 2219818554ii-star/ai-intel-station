@@ -30,6 +30,13 @@ function sourceURLs(groups){
   return urls;
 }
 function blockedAttempt(row,checked,start,end,now){
+  // Preserve actual HTTP status codes (or null for transport failures), rather
+  // than accepting a maintenance verdict such as "blocked" as a response.
+  if(row.status==null){
+    // Earlier real request logs omitted status on transport errors. Retain that
+    // evidence only with an explicit transport diagnostic, never a bare verdict.
+    if(!/timeout|timed out|connection|network|urlopen|ssl|tls|refused|reset|remote|超时|连接|网络/i.test(String(row.error||'')))return false;
+  }else if(!Number.isInteger(row.status)||row.status<100||row.status>599)return false;
   const diagnostic=[row.error,row.limitation].filter(s=>typeof s==='string').join(' ');
   const failure=/error|fail|timeout|timed out|denied|block|protect|challenge|empty|short|javascript|connection|remote|ssl|tls|refused|reset|unavailable|超时|受阻|保护|验证|失败|不可用|拒绝|空响应/i.test(diagnostic);
   const time=timestamp(row.checkedAtTime);
@@ -61,6 +68,16 @@ function validateCQUTFreshness(input){
   const portals=sourceURLs(data.sources);
   if(!portals||!portals.length)return no('学校配置入口缺失或无效');
   if(!Array.isArray(report.sources))return no('独立请求记录缺失');
+  // Counts must describe these exact attempts. A copied previous-day summary
+  // must not certify a shortened or reconstructed request list.
+  const summary=report.summary,rows=report.sources;
+  const schoolRows=rows.filter(row=>{try{const host=new URL(row.url).hostname.toLowerCase();return host==='cqut.edu.cn'||host.endsWith('.cqut.edu.cn');}catch(e){return false;}});
+  const counts={attempts:rows.length,usable:rows.filter(row=>row&&row.usableContent===true).length,
+    cqutAttempts:schoolRows.length,cqutUsable:schoolRows.filter(row=>row.usableContent===true).length};
+  if(!summary||Object.keys(counts).some(key=>summary[key]!==counts[key]))return no('独立报告汇总与逐项请求证据不一致，不能确认全来源核查');
+  const statuses={};
+  rows.forEach(row=>{const key=row&&row.status==null?'None':String(row&&row.status);statuses[key]=(statuses[key]||0)+1;});
+  if(!same(summary.statusCounts,statuses))return no('独立报告状态码统计与逐项请求证据不一致');
   const required=new Set(data.notices.map(n=>n.url).concat(portals));
   for(const url of required){
     const attempts=report.sources.filter(row=>row&&row.url===url);

@@ -3919,11 +3919,11 @@ window.RANK_CHECK_NOTE = "11月1日核对AA v5.0当前榜，更新选录并补�
 </script>
   <script>
 /* AI 情报站 - 重庆理工大学通知（学校 / 各学院 / 各部门 / 学生会）
-   数据抓取于 2026-10-30，来源均为官网真实页面，URL 未编造。
+   数据主抓于 2026-10-30；2026-11-03 经可读源(校团委·青春重理工 qnzx.cqut.edu.cn)补收 2 条旧通知(10/30、10/28)，来源均为官网真实页面，URL 未编造。CQUT_UPDATED 为本次确有增量的成功内容更新日，逐条通知 date 仍保留原发布日(含补收的 10/30、10/28)，明确为补收旧通知而非当日新发。
    cat: school=学校各部门 | college=各学院 | student=团委·学生会
    tag: 二级细分类，按「对研究生实际有影响的事」分，比 cat 更贴合筛选需求
    刷新后必须同步更新下面的 window.CQUT_UPDATED；_selfcheck.js 会卡住「超过 2 天未更新」的回退。 */
-window.CQUT_UPDATED = "2026-10-30";
+window.CQUT_UPDATED = "2026-11-03";
 
 /* 二级细分类（筛选按钮直接用它） */
 window.CQUT_TAGS = [
@@ -6970,6 +6970,24 @@ window.CQUT_NOTICES = [
     "tag": "grad",
     "sum": "机械学院 2026 年推免招生细则（申请资格、材料清单、复试形式与录取口径）。你现在用不上，但想留本校或往外校申推免的，这份是本院口径的现成参照；下一届细则一般还是 9 月同期发。",
     "url": "https://jxgc.cqut.edu.cn/info/1073/6991.htm"
+  },
+  {
+    "t": "重庆理工大学2026年11月团组织生活指引",
+    "src": "校团委·青春重理工",
+    "date": "2026-10-30",
+    "cat": "student",
+    "tag": "party",
+    "sum": "校团委官方列表列有这篇11月团组织生活指引，标题和10/30日期来自官方列表；正文暂不可读，具体内容、适用对象及安排请核对官方原文或所在支部通知。（原文经 WebFetch/HTTP 双通道均受阻，适用对象未能从正文核实，不作已核实陈述）",
+    "url": "https://qnzx.cqut.edu.cn/info/1016/2261.htm"
+  },
+  {
+    "t": "关于选拔重庆理工大学“青马工程”第十三期培训班学员的通知",
+    "src": "校团委·青春重理工",
+    "date": "2026-10-28",
+    "cat": "student",
+    "tag": "party",
+    "sum": "校团委选拔重庆理工大学“青马工程”第十三期培训班学员：官方正文明确选拔对象为全日制在校大学生（含研究生、本科生），18–35 周岁的中共党员（含预备党员）或共青团员中的入党积极分子可报；报名 2026-10-28 至 11-06 17:00。罗浩若为研究生且为党员/入党积极分子可关注并按学院通知提交（正文经 WebFetch 可读、HTTP 202 空白，以 WebFetch 正文为准）。",
+    "url": "https://qnzx.cqut.edu.cn/info/1016/2251.htm"
   }
 ];
 
@@ -7095,11 +7113,11 @@ window.CQUT_SOURCES = {
 };
 
 /* 核查尝试与内容成功更新分开记录；反爬挑战不能冒充新通知。 */
-window.CQUT_CHECKED = "2026-11-02";
-window.CQUT_CHECK_NOTE = "11月2日复核：研究生院(cqut.edu.cn/tzgg/bmtz/yjsytz)与化学化工学院(chem.cqut.edu.cn)官网WebFetch仍被WAF拦截(No readable content/404)，沿用官方列表受阻例外保留旧内容；另以独立WebSearch交叉核验研究生院/化工学院/学生工作通知列表，窗口(10/31–11/02)内无新增符合策展范围的通知（研究生院列表最新仍为国奖/学业奖学金公示10-27、学生工作最新10-30、化工学院通知最新09月），与库内LATEST=2026-10-30一致。不声称无新通知，仅记录受阻保留、内容日未推进。";
+window.CQUT_CHECKED = "2026-11-03";
+window.CQUT_CHECK_NOTE = "2026-11-03 补收：经校团委·青春重理工(qnzx.cqut.edu.cn)核验，补收 2 篇库内缺失旧通知——『重庆理工大学2026年11月团组织生活指引』(原 2026-10-30)、『关于选拔重庆理工大学“青马工程”第十三期培训班学员的通知』(原 2026-10-28)；逐条通知 date 保留原发布日，属补收旧通知而非当日新发。重点来源研究生院通知列表(yjsytz)、化学化工学院、研究生会(yjsh)仍受官网 WAF 拦截，其原 10-30 内容保留不变。其中『11月团组织生活指引』适用对象未能从正文核实(官网与 WebFetch 双通道均未取得可读正文)，请以所在支部通知为准。";
 
-window.CQUT_SOURCE_STATUS = "blocked";
-window.CQUT_SOURCE_STATE = {"contentDate": "2026-10-30", "checkDate": "2026-11-02", "evidence": "_content_review_2026-11-02.json"};
+window.CQUT_SOURCE_STATUS = "partial";
+window.CQUT_SOURCE_STATE = null;
 
 </script>
   <script>

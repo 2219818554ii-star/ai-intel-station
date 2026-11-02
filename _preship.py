@@ -110,6 +110,17 @@ def git(*args):
 
 
 _cqut_retention_verified = None
+_selfcheck_result = None
+
+
+def full_selfcheck():
+    global _selfcheck_result
+    if _selfcheck_result is None:
+        node = shutil.which("node")
+        _selfcheck_result = run([node, "_selfcheck.js"], timeout=20) if node else (1, "找不到node，未执行完整自检")
+    return _selfcheck_result
+
+
 def cqut_retention_verified():
     """Only the existing full selfcheck may certify the approved exception.
 
@@ -118,8 +129,7 @@ def cqut_retention_verified():
     """
     global _cqut_retention_verified
     if _cqut_retention_verified is None:
-        node = shutil.which("node")
-        rc, output = run([node, "_selfcheck.js"], timeout=20) if node else (1, "")
+        rc, output = full_selfcheck()
         _cqut_retention_verified = rc == 0 and "理工官网受阻有据保留旧内容" in output
     return _cqut_retention_verified
 
@@ -258,6 +268,17 @@ if len(tagkeys) == 8:
 elif tagkeys:
     bad("细分类枚举数量 = %d，但 _selfcheck.js 期望 8——两边不同步了"
         % len(tagkeys))
+
+# Always enforce content, identity and account guards, even when remote probes
+# happen to succeed or the caller intentionally skips the network stage.
+print("\n[2.1] 完整自检（不因跳过网络或入口可达而省略）")
+rc, output = full_selfcheck()
+if rc != 0:
+    failures = [line.strip() for line in output.splitlines() if "[FAIL]" in line]
+    bad("完整_selfcheck.js未通过，不能确认发布验收通过",
+        "\n".join(failures[:6]) if failures else output[-1500:])
+else:
+    ok(PASS, "完整_selfcheck.js通过，内容新鲜度、身份及账户护栏有效")
 
 # ---------- [3] git 是否与线上同步 ----------
 print("\n[3] git 同步状态")
