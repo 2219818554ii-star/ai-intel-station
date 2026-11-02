@@ -255,6 +255,7 @@ module.exports = async function ({html, inline, sandbox, ok}) {
   await require('./_daily_recovery_regression.js')({inline,sandbox,ok});
   await require('./_magazines_regression.js')({html,inline,sandbox,ok});
   await require('./_section_rankings_regression.js')({inline,sandbox,ok});
+  await require('./_cqut_content_scope_regression.js')({ok});
   await require('./_workspace_regression.js')({html,ok});
   await require('./_reading_regression.js')({html,ok});
   await require('./_cloud_regression.js')({ok});

@@ -278,7 +278,8 @@ const cqNotices = sandbox.window.CQUT_NOTICES || [];
   const maxD = cqNotices.map(n => { const mm = /(\d{4})-(\d{2})-(\d{2})/.exec(n.date||''); return mm ? Date.parse(mm[1]+'-'+mm[2]+'-'+mm[3]) : 0; }).reduce((a,b)=>Math.max(a,b),0);
   const dataGap = Math.round((d0 - new Date(maxD)) / 86400000);
   /* 判据适用的前提：本轮真的动了 cqut.js（与 git HEAD 内容不一致）。没动就别拿它定罪。*/
-  let touched = false;
+  // Without a readable Git baseline, keep the strict date/increment checks.
+  let touched = true;
   try{
     const cp = require('child_process');
     const fs = require('fs');
@@ -287,7 +288,12 @@ const cqNotices = sandbox.window.CQUT_NOTICES || [];
     for(const g of gits){
       try { prev = cp.execFileSync(g, ['show', 'HEAD:cqut.js'], {encoding:'utf8', maxBuffer: 64*1024*1024}); break; } catch(e){}
     }
-    if(prev) touched = (prev !== fs.readFileSync(require('path').join(__dirname, 'cqut.js'), 'utf8'));
+    if(prev){
+      const current = fs.readFileSync(require('path').join(__dirname, 'cqut.js'), 'utf8');
+      // Git normalizes Windows CRLF to LF; only that representation difference
+      // is ignored. Dates, article content and other whitespace still count.
+      touched = prev.replace(/\r\n/g,'\n') !== current.replace(/\r\n/g,'\n');
+    }
   }catch(e){}
   if(!touched){
     ok(true, `数据非空更新：CQUT_UPDATED=${ud} 时最新通知日期差 ${dataGap} 天 —— ` +
