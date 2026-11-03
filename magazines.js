@@ -1,5 +1,5 @@
 // 仅官方渠道元数据与独立导读；证据见 _magazines_sources_a/b.json。
-window.MAGAZINES_CHECKED = "2026-11-02";
+window.MAGAZINES_CHECKED = "2026-11-03";
 window.MAGAZINES = [
   {
     "id": "shangjie",
@@ -14,10 +14,10 @@ window.MAGAZINES = [
     "feedUrl": "https://www.pedaily.cn/media/m439",
     "note": "官方账号入驻投资界；目前可核实列表以往期文章为主，以下保留原发布日期。",
     "accent": "#9f272b",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "status": "ok",
     "sourceNote": "官方账号入驻投资界；目前可核实列表以往期文章为主，以下保留原发布日期。",
-    "lastSuccessAt": "2026-11-02",
+    "lastSuccessAt": "2026-11-03",
     "language": "zh"
   },
   {
@@ -32,11 +32,11 @@ window.MAGAZINES = [
     "feedUrl": "https://www.lifeweek.com.cn/magazine?magazineid=1",
     "note": "单篇未明确发布日期时留空，不以期刊出版日代填。数字刊可看导读，全文可能需要订阅。",
     "accent": "#be312f",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "status": "ok",
     "sourceNote": "单篇未明确发布日期时留空，不以期刊出版日代填。数字刊可看导读，全文可能需要订阅。",
     "language": "zh",
-    "lastSuccessAt": "2026-11-02"
+    "lastSuccessAt": "2026-11-03"
   },
   {
     "id": "yimagazine",
@@ -50,10 +50,10 @@ window.MAGAZINES = [
     "feedUrl": "https://www.yicai.com/api/ajax/getlistbypid?page=1&pagesize=30&id=55&type=3",
     "note": "原《第一财经周刊》，现名《第一财经》YiMagazine，为月刊。可看导读，全文依官方提示订阅。",
     "accent": "#153f75",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "status": "ok",
     "sourceNote": "原《第一财经周刊》，现名《第一财经》YiMagazine，为月刊。可看导读，全文依官方提示订阅。",
-    "lastSuccessAt": "2026-11-02",
+    "lastSuccessAt": "2026-11-03",
     "language": "zh"
   },
   {
@@ -69,7 +69,7 @@ window.MAGAZINES = [
     "feedUrl": "https://boyamedia.com/category-rw/",
     "note": "来自博雅天下官方频道。自动核查遇到空页面时保留已核实内容；不同网络访问情况可能不同。 本次自动核查未成功，保留已核实文章。",
     "accent": "#383e49",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "status": "unavailable",
     "sourceNote": "来自博雅天下官方频道。自动核查遇到空页面时保留已核实内容；不同网络访问情况可能不同。",
     "language": "zh"
@@ -87,7 +87,7 @@ window.MAGAZINES = [
     "feedUrl": "https://boyamedia.com/category-bk/",
     "note": "来自博雅天下官方频道。自动核查遇到空页面时保留已核实内容；不同网络访问情况可能不同。 本次自动核查未成功，保留已核实文章。",
     "accent": "#be6a26",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "status": "unavailable",
     "sourceNote": "来自博雅天下官方频道。自动核查遇到空页面时保留已核实内容；不同网络访问情况可能不同。",
     "language": "zh"
@@ -104,7 +104,7 @@ window.MAGAZINES = [
     "feedUrl": "https://www.globalpeople.com.cn/",
     "note": "正式刊名《环球人物》。标题与日期已通过官方索引核实，原站直接访问可能受限。 本次自动核查未成功，保留已核实文章。",
     "accent": "#297274",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "status": "unavailable",
     "sourceNote": "正式刊名《环球人物》。标题与日期已通过官方索引核实，原站直接访问可能受限。",
     "language": "zh"
@@ -123,9 +123,9 @@ window.MAGAZINES = [
     "accent": "#b92836",
     "language": "zh",
     "parser": "cn",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "status": "ok",
-    "lastSuccessAt": "2026-11-02",
+    "lastSuccessAt": "2026-11-03",
     "sourceNote": "仅收官方新闻频道；品牌观察推广稿不纳入。"
   },
   {
@@ -142,9 +142,9 @@ window.MAGAZINES = [
     "accent": "#e44052",
     "language": "zh",
     "parser": "cn",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "status": "ok",
-    "lastSuccessAt": "2026-11-02",
+    "lastSuccessAt": "2026-11-03",
     "sourceNote": "官方 apex 站点可访问；专栏含历史精选，日期按原发布时间。"
   },
   {
@@ -161,9 +161,9 @@ window.MAGAZINES = [
     "accent": "#c54733",
     "language": "zh",
     "parser": "cn",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "status": "ok",
-    "lastSuccessAt": "2026-11-02",
+    "lastSuccessAt": "2026-11-03",
     "sourceNote": "从官网提取题名和文章页明确日期。"
   },
   {
@@ -180,9 +180,9 @@ window.MAGAZINES = [
     "accent": "#194988",
     "language": "zh",
     "parser": "cn",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "status": "ok",
-    "lastSuccessAt": "2026-11-02",
+    "lastSuccessAt": "2026-11-03",
     "sourceNote": "部分原文需订阅；仅显示元数据并链接官网。"
   },
   {
@@ -199,9 +199,9 @@ window.MAGAZINES = [
     "accent": "#287084",
     "language": "zh",
     "parser": "cn",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "status": "ok",
-    "lastSuccessAt": "2026-11-02",
+    "lastSuccessAt": "2026-11-03",
     "sourceNote": "原文可能需要财新订阅；不绕过付费墙。"
   },
   {
@@ -218,9 +218,9 @@ window.MAGAZINES = [
     "accent": "#296d52",
     "language": "zh",
     "parser": "cn",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "status": "ok",
-    "lastSuccessAt": "2026-11-02",
+    "lastSuccessAt": "2026-11-03",
     "sourceNote": "新闻周报；部分文章有会员阅读限制。"
   },
   {
@@ -236,9 +236,9 @@ window.MAGAZINES = [
     "note": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "accent": "#a93329",
     "language": "en",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "status": "ok",
-    "lastSuccessAt": "2026-11-02",
+    "lastSuccessAt": "2026-11-03",
     "sourceNote": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "parser": "rss",
     "feedUrls": [
@@ -258,9 +258,9 @@ window.MAGAZINES = [
     "note": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "accent": "#d2222a",
     "language": "en",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "status": "ok",
-    "lastSuccessAt": "2026-11-02",
+    "lastSuccessAt": "2026-11-03",
     "sourceNote": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "parser": "rss",
     "feedUrls": [
@@ -280,9 +280,9 @@ window.MAGAZINES = [
     "note": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "accent": "#267e9a",
     "language": "en",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "status": "ok",
-    "lastSuccessAt": "2026-11-02",
+    "lastSuccessAt": "2026-11-03",
     "sourceNote": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "parser": "rss",
     "feedUrls": [
@@ -303,7 +303,7 @@ window.MAGAZINES = [
     "note": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。 本次自动核查未成功，保留已核实文章。",
     "accent": "#c33229",
     "language": "en",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "status": "unavailable",
     "lastSuccessAt": "2026-11-01",
     "sourceNote": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
@@ -325,7 +325,7 @@ window.MAGAZINES = [
     "note": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。 本次自动核查未成功，保留已核实文章。",
     "accent": "#d02a25",
     "language": "en",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "status": "unavailable",
     "lastSuccessAt": "2026-11-01",
     "sourceNote": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
@@ -348,9 +348,9 @@ window.MAGAZINES = [
     "note": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "accent": "#aa6c22",
     "language": "en",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "status": "ok",
-    "lastSuccessAt": "2026-11-02",
+    "lastSuccessAt": "2026-11-03",
     "sourceNote": "英文原文；本站仅收录标题、时间和官方链接，全文访问及订阅要求以官网提示为准。",
     "parser": "rss",
     "feedUrls": [
@@ -372,9 +372,9 @@ window.MAGAZINES = [
     "note": "英文原文；官方说明提供免费可读的科学报道。热门依据官网过去一周 Most Read Articles，不代表全网热度。",
     "accent": "#286c8d",
     "language": "en",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "status": "ok",
-    "lastSuccessAt": "2026-11-02",
+    "lastSuccessAt": "2026-11-03",
     "sourceNote": "英文原文；官方说明提供免费可读的科学报道。热门依据官网过去一周 Most Read Articles，不代表全网热度。",
     "parser": "rss",
     "feedUrls": [
@@ -394,7 +394,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://news.pedaily.cn/202504/549033.shtml",
     "publishedAt": "2025-04-28",
     "summary": "从钢琴行业案例，观察需求变化与企业转型。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "archive": true,
     "featuredReason": "以往期行业案例观察需求变化；先核对原日期，再思考哪些问题仍值得参考。",
     "featuredPriority": 43
@@ -405,7 +405,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://news.pedaily.cn/202405/534446.shtml",
     "publishedAt": "2024-05-24",
     "summary": "沿着折扣零售的选品与供应链，拆解一家企业的经营路径。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "archive": true
   },
   {
@@ -414,7 +414,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://news.pedaily.cn/202403/531673.shtml",
     "publishedAt": "2024-03-27",
     "summary": "据标题的阅读切入点：《100亿的福耀科技大学，藏着曹德旺的什么企图？》。区分个体经验、调查结果与教育主张；关注年龄、家庭及制度背景，避免把单一案例变成对所有人的要求。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -423,7 +423,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://news.pedaily.cn/202403/530654.shtml",
     "publishedAt": "2024-03-05",
     "summary": "据标题的阅读切入点：《2024年，谁能拿到投资机构的钱？》。核对收入、利润、现金流与估值各自的口径；关注风险由谁承担以及信息是否完整，不从报道直接推出交易决定。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -432,7 +432,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://news.pedaily.cn/202402/530448.shtml",
     "publishedAt": "2024-02-29",
     "summary": "据标题的阅读切入点：《价格战杀疯了，燃油车苦撑》。从产品、成本与渠道三处看竞争；核对销量和利润的口径及时间范围，思考技术路线变化如何传到企业经营。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -441,7 +441,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://news.pedaily.cn/202402/530247.shtml",
     "publishedAt": "2024-02-26",
     "summary": "据标题的阅读切入点：《李宁，真急了》。观察需求、定价、渠道与品牌定位如何相互作用；区分个别案例和市场趋势，核对数据时间及样本范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -450,7 +450,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://news.pedaily.cn/202402/530139.shtml",
     "publishedAt": "2024-02-23",
     "summary": "据标题的阅读切入点：《2024年，第一家停产的新能源汽车出现了》。从产品、成本与渠道三处看竞争；核对销量和利润的口径及时间范围，思考技术路线变化如何传到企业经营。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -459,7 +459,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://news.pedaily.cn/202307/517233.shtml",
     "publishedAt": "2023-07-10",
     "summary": "据标题的阅读切入点：《3年狂飙900亿，恐怖的极兔》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -468,7 +468,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.lifeweek.com.cn/article/274736",
     "publishedAt": null,
     "summary": "据标题的阅读切入点：《我们的摇滚四十年》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -477,7 +477,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.lifeweek.com.cn/article/274739",
     "publishedAt": null,
     "summary": "据标题的阅读切入点：《张楚：我喜欢那种充满爱和喜悦的艺术家》。留意受访者或作者的具体经历、表达语境与选择；把个人叙述和可核实事实分开，记录一个值得继续追问的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -486,7 +486,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.lifeweek.com.cn/article/274747",
     "publishedAt": null,
     "summary": "据标题的阅读切入点：《辽阔的崔健》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -495,7 +495,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.lifeweek.com.cn/article/274748",
     "publishedAt": null,
     "summary": "据标题的阅读切入点：《三元理论的时空》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -579,7 +579,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394820.html",
     "publishedAt": "2026-10-15",
     "summary": "从媒介与渠道的分散，理解品牌争取消费者注意力的难题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "access": "导读 / 订阅全文",
     "featuredReason": "从消费和渠道的变化进入商业问题，练习把具体案例连回需求。",
     "featuredPriority": 32
@@ -590,7 +590,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394594.html",
     "publishedAt": "2026-10-15",
     "summary": "关注跨国公司的本地经营，比较“本土化”在不同阶段的含义。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "access": "导读 / 订阅全文"
   },
   {
@@ -599,7 +599,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394573.html",
     "publishedAt": "2026-10-15",
     "summary": "围绕零售商自有品牌，审视品牌与渠道之间的竞争关系。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "access": "导读 / 订阅全文"
   },
   {
@@ -608,7 +608,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394569.html",
     "publishedAt": "2026-10-15",
     "summary": "据标题的阅读切入点：《谁是2026年的商业新锐势力？》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -617,7 +617,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394558.html",
     "publishedAt": "2026-10-15",
     "summary": "据标题的阅读切入点：《秦朔：新消费的下半场，回归自我与真实的连接》。观察需求、定价、渠道与品牌定位如何相互作用；区分个别案例和市场趋势，核对数据时间及样本范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -626,7 +626,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394546.html",
     "publishedAt": "2026-10-15",
     "summary": "据标题的阅读切入点：《新鲜零食，何以新鲜》。观察需求、定价、渠道与品牌定位如何相互作用；区分个别案例和市场趋势，核对数据时间及样本范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -635,7 +635,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394545.html",
     "publishedAt": "2026-10-15",
     "summary": "据标题的阅读切入点：《徐阳离场与安踏主品牌之惑》。观察需求、定价、渠道与品牌定位如何相互作用；区分个别案例和市场趋势，核对数据时间及样本范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -644,7 +644,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394537.html",
     "publishedAt": "2026-10-15",
     "summary": "据标题的阅读切入点：《中剧是平台的新救赎吗？》。区分作品或赛事本身、产业环境和个人评价；找出支撑判断的具体细节，避免只记住评分、输赢或热度。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -653,7 +653,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394470.html",
     "publishedAt": "2026-10-15",
     "summary": "据标题的阅读切入点：《非典型中国公司禾赛》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -662,7 +662,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394466.html",
     "publishedAt": "2026-10-15",
     "summary": "据标题的阅读切入点：《被计算的热爱：谷子消费背后的理智与情感》。观察需求、定价、渠道与品牌定位如何相互作用；区分个别案例和市场趋势，核对数据时间及样本范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -671,7 +671,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103394460.html",
     "publishedAt": "2026-10-15",
     "summary": "据标题的阅读切入点：《汽车大厂集体瘦身，新机会在哪里？》。从产品、成本与渠道三处看竞争；核对销量和利润的口径及时间范围，思考技术路线变化如何传到企业经营。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -680,7 +680,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393433.html",
     "publishedAt": "2026-10-15",
     "summary": "据标题的阅读切入点：《英伟达则兼济天下？》。区分模型能力、产品体验与商业承诺；核对具体任务、比较基线、数据限制与使用成本，避免把演示当成普遍能力。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -689,7 +689,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393424.html",
     "publishedAt": "2026-10-15",
     "summary": "据标题的阅读切入点：《当苏格兰、威尔士及北爱尔兰不愿再与英格兰联合》。先梳理事件时间线和各方立场；把已核实事实、当事人说法与作者判断分开，再看制度和历史背景如何影响解释。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -698,7 +698,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393421.html",
     "publishedAt": "2026-10-15",
     "summary": "据标题的阅读切入点：《并不想独立的北爱尔兰》。先梳理事件时间线和各方立场；把已核实事实、当事人说法与作者判断分开，再看制度和历史背景如何影响解释。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -707,7 +707,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393409.html",
     "publishedAt": "2026-10-15",
     "summary": "据标题的阅读切入点：《美联储，加息》。先核对指标定义、统计时点和传导路径；把已发生的数据与政策预期分开，留意结论依赖的经济情景。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -716,7 +716,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393406.html",
     "publishedAt": "2026-10-15",
     "summary": "据标题的阅读切入点：《不要“小看”非洲》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -725,7 +725,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393404.html",
     "publishedAt": "2026-10-15",
     "summary": "据标题的阅读切入点：《韩国进入超老龄化社会》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -734,7 +734,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393400.html",
     "publishedAt": "2026-10-14",
     "summary": "据标题的阅读切入点：《技术巨头开始在芬兰买电》。区分装机、实际发电与可调度能力；关注供需时段、基础设施和成本由谁承担，再判断方案的适用条件。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -743,7 +743,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393379.html",
     "publishedAt": "2026-10-14",
     "summary": "据标题的阅读切入点：《为什么不能完全依赖他国的AI技术？》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -752,7 +752,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393374.html",
     "publishedAt": "2026-10-14",
     "summary": "据标题的阅读切入点：《OpenAI的重启时刻》。区分模型能力、产品体验与商业承诺；核对具体任务、比较基线、数据限制与使用成本，避免把演示当成普遍能力。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -761,7 +761,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393373.html",
     "publishedAt": "2026-10-14",
     "summary": "据标题的阅读切入点：《屏幕越看越久，青少年阅读力越来越弱》。区分个体经验、调查结果与教育主张；关注年龄、家庭及制度背景，避免把单一案例变成对所有人的要求。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -770,7 +770,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393371.html",
     "publishedAt": "2026-10-14",
     "summary": "据标题的阅读切入点：《游戏需要“真实滤镜”吗？》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -779,7 +779,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393365.html",
     "publishedAt": "2026-10-14",
     "summary": "据标题的阅读切入点：《有个王国叫汤加（下）》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -788,7 +788,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393342.html",
     "publishedAt": "2026-10-14",
     "summary": "据标题的阅读切入点：《“老登”和对权威的反抗》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -797,7 +797,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393333.html",
     "publishedAt": "2026-10-14",
     "summary": "据标题的阅读切入点：《体验的商业价值》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -806,7 +806,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393298.html",
     "publishedAt": "2026-10-14",
     "summary": "据标题的阅读切入点：《别逗了， 倒霉的理财师》。核对收入、利润、现金流与估值各自的口径；关注风险由谁承担以及信息是否完整，不从报道直接推出交易决定。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -815,7 +815,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393295.html",
     "publishedAt": "2026-10-14",
     "summary": "据标题的阅读切入点：《从简单到复杂》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -824,7 +824,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393289.html",
     "publishedAt": "2026-10-14",
     "summary": "据标题的阅读切入点：《告别Lemaire的Uniqlo U时代》。观察需求、定价、渠道与品牌定位如何相互作用；区分个别案例和市场趋势，核对数据时间及样本范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -833,7 +833,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.yicai.com/vip/news/103393280.html",
     "publishedAt": "2026-10-14",
     "summary": "据标题的阅读切入点：《如何理解法国对于“超快时尚”的敌意》。观察需求、定价、渠道与品牌定位如何相互作用；区分个别案例和市场趋势，核对数据时间及样本范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -920,11 +920,74 @@ window.MAGAZINE_ARTICLES = [
   },
   {
     "publication": "chinanewsweek",
+    "title": "特朗普的“死对头”，走了",
+    "url": "https://www.inewsweek.cn/world/2026-11-03/32853.shtml",
+    "publishedAt": "2026-11-03",
+    "summary": "据标题的阅读切入点：《特朗普的“死对头”，走了》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "世界顶流漫画家突然去世后，家要被拆了？",
+    "url": "https://www.inewsweek.cn/wh/2026-11-03/32852.shtml",
+    "publishedAt": "2026-11-03",
+    "summary": "据标题的阅读切入点：《世界顶流漫画家突然去世后，家要被拆了？》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "杨瀚森，回不了家了？",
+    "url": "https://www.inewsweek.cn/wh/2026-11-03/32851.shtml",
+    "publishedAt": "2026-11-03",
+    "summary": "据标题的阅读切入点：《杨瀚森，回不了家了？》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "再被指暗讽消费者是狗，知名科技品牌又“翻车”",
+    "url": "https://www.inewsweek.cn/finance/2026-11-03/32857.shtml",
+    "publishedAt": "2026-11-03",
+    "summary": "据标题的阅读切入点：《再被指暗讽消费者是狗，知名科技品牌又“翻车”》。观察需求、定价、渠道与品牌定位如何相互作用；区分个别案例和市场趋势，核对数据时间及样本范围。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "百股涨停，大资金即将出手",
+    "url": "https://www.inewsweek.cn/finance/2026-11-03/32856.shtml",
+    "publishedAt": "2026-11-03",
+    "summary": "据标题的阅读切入点：《百股涨停，大资金即将出手》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "云南白药牙膏，不能“止血”了",
+    "url": "https://www.inewsweek.cn/society/2026-11-02/32832.shtml",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《云南白药牙膏，不能“止血”了》。先确认是细胞、动物还是人体证据，再看对照、样本量和风险；科研报道的可能性不能直接当作个人诊疗建议。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "chinanewsweek",
+    "title": "保时捷守护“心”生之路先心病患儿关爱行动于广西正式启动",
+    "url": "https://www.inewsweek.cn/auto/2026-11-02/32842.shtml",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《保时捷守护“心”生之路先心病患儿关爱行动于广西正式启动》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "chinanewsweek",
     "title": "68人遇难，西班牙全国哀悼三天",
     "url": "https://www.inewsweek.cn/world/2026-10-30/32820.shtml",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《68人遇难，西班牙全国哀悼三天》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -933,7 +996,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-30/32816.shtml",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《“丢了总统，逃去美国”》。先梳理事件时间线和各方立场；把已核实事实、当事人说法与作者判断分开，再看制度和历史背景如何影响解释。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -942,7 +1005,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-30/32811.shtml",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《哈里王子岳父，被儿子举报“藏儿童色情影像”》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -951,7 +1014,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-30/32819.shtml",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《老干妈，“消失的员工”》。从岗位、组织和个人选择三个层面读；核对案例背景与制度约束，思考哪些经验可迁移、哪些依赖特定条件。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -960,7 +1023,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-30/32814.shtml",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《钓到300多斤大鱼，说放就放了？》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -969,7 +1032,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-30/32813.shtml",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《床单和枕头沾满血迹，31岁女工程师猝死》。从岗位、组织和个人选择三个层面读；核对案例背景与制度约束，思考哪些经验可迁移、哪些依赖特定条件。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -978,7 +1041,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-30/32812.shtml",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《“2字头”重现，被疯抢》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -987,7 +1050,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-29/32793.shtml",
     "publishedAt": "2026-10-29",
     "summary": "据标题的阅读切入点：《“老朋友”走了》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -996,7 +1059,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-29/32785.shtml",
     "publishedAt": "2026-10-29",
     "summary": "据标题的阅读切入点：《前总统的儿子，败了，逃了》。先梳理事件时间线和各方立场；把已核实事实、当事人说法与作者判断分开，再看制度和历史背景如何影响解释。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1005,7 +1068,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/wh/2026-10-29/32791.shtml",
     "publishedAt": "2026-10-29",
     "summary": "据标题的阅读切入点：《两大娱乐巨头，谈崩了》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1014,7 +1077,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/wh/2026-10-29/32790.shtml",
     "publishedAt": "2026-10-29",
     "summary": "据标题的阅读切入点：《“8岁了，该找个对象了”》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1023,7 +1086,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/wh/2026-10-29/32784.shtml",
     "publishedAt": "2026-10-29",
     "summary": "据标题的阅读切入点：《影史最高分，神作来了》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1032,7 +1095,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-29/32792.shtml",
     "publishedAt": "2026-10-29",
     "summary": "据标题的阅读切入点：《小天才，发小学生的财？》。区分个体经验、调查结果与教育主张；关注年龄、家庭及制度背景，避免把单一案例变成对所有人的要求。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1041,7 +1104,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-29/32789.shtml",
     "publishedAt": "2026-10-29",
     "summary": "据标题的阅读切入点：《七位创始人身价或翻倍，但公司亏了超800亿美元》。核对收入、利润、现金流与估值各自的口径；关注风险由谁承担以及信息是否完整，不从报道直接推出交易决定。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1050,7 +1113,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-29/32788.shtml",
     "publishedAt": "2026-10-29",
     "summary": "据标题的阅读切入点：《“你居然管陌生人叫爸爸，我白养你了”》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1059,7 +1122,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-29/32786.shtml",
     "publishedAt": "2026-10-29",
     "summary": "据标题的阅读切入点：《知名品牌签下姆巴佩仅39天，悄然下架相关宣传物料》。观察需求、定价、渠道与品牌定位如何相互作用；区分个别案例和市场趋势，核对数据时间及样本范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1068,7 +1131,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-29/32783.shtml",
     "publishedAt": "2026-10-29",
     "summary": "据标题的阅读切入点：《今年“双十一”，明星危险了？》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1077,7 +1140,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-28/32774.shtml",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《奥列什基的流浪狗“已经习惯了人肉的味道”》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1086,7 +1149,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-28/32766.shtml",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《“辞了总统，丢了总理”》。先梳理事件时间线和各方立场；把已核实事实、当事人说法与作者判断分开，再看制度和历史背景如何影响解释。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1095,7 +1158,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-28/32760.shtml",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《“3000万豪宅地库出入口在隧道”，当地回应》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1104,7 +1167,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-28/32761.shtml",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《参保人数裁减2000人，老干妈怎么了？》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1113,7 +1176,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-28/32759.shtml",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《最贵iPhone出故障，苹果承认了》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1122,7 +1185,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-28/32758.shtml",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《高“价”疫苗，来了》。先确认是细胞、动物还是人体证据，再看对照、样本量和风险；科研报道的可能性不能直接当作个人诊疗建议。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1131,7 +1194,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-27/32731.shtml",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《内塔尼亚胡，“又打一仗”》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1140,7 +1203,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-27/32721.shtml",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《美国“第一夫人”说了算？》。先梳理事件时间线和各方立场；把已核实事实、当事人说法与作者判断分开，再看制度和历史背景如何影响解释。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1149,7 +1212,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/wh/2026-10-27/32737.shtml",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《谁再说他拿不到冠军？》。区分作品或赛事本身、产业环境和个人评价；找出支撑判断的具体细节，避免只记住评分、输赢或热度。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1158,7 +1221,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-27/32733.shtml",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《严禁叫老师“哥姐”，管得也太严了》。区分个体经验、调查结果与教育主张；关注年龄、家庭及制度背景，避免把单一案例变成对所有人的要求。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1167,7 +1230,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-27/32735.shtml",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《年轻人爱上“床车自驾”》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1176,7 +1239,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-27/32730.shtml",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《HYROX火了，凭什么？》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1185,7 +1248,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-27/32729.shtml",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《爱马仕也卖不动了？》。观察需求、定价、渠道与品牌定位如何相互作用；区分个别案例和市场趋势，核对数据时间及样本范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1194,7 +1257,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-27/32728.shtml",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《人均48杯，卖得比咖啡还疯》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1203,7 +1266,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-27/32727.shtml",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《商场排队王，一年开店800家》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1212,7 +1275,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-27/32726.shtml",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《大厂紧急辟谣，事关算力》。区分模型能力、产品体验与商业承诺；核对具体任务、比较基线、数据限制与使用成本，避免把演示当成普遍能力。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1221,7 +1284,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-27/32725.shtml",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《阿迪达斯，有一点隐忧》。观察需求、定价、渠道与品牌定位如何相互作用；区分个别案例和市场趋势，核对数据时间及样本范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1230,7 +1293,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-27/32723.shtml",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《“电视大王”，4年亏了200亿》。核对收入、利润、现金流与估值各自的口径；关注风险由谁承担以及信息是否完整，不从报道直接推出交易决定。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1239,7 +1302,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/finance/2026-10-27/32722.shtml",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《困住张雪的这个问题，引发无数打工人共情》。从岗位、组织和个人选择三个层面读；核对案例背景与制度约束，思考哪些经验可迁移、哪些依赖特定条件。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1248,7 +1311,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/wh/2026-10-26/32709.shtml",
     "publishedAt": "2026-10-26",
     "summary": "按题目选读：先核对报道确认的消息来源和人物生平，再看作品评价如何展开；不把标题中的突发信息扩写为未经核实的细节。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "chinanewsweek",
@@ -1256,7 +1319,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-26/32710.shtml",
     "publishedAt": "2026-10-26",
     "summary": "按题目选读：关注平台如何识别异常订单、如何保留证据与处理申诉，区分记者调查的个案和能够支持普遍判断的统计。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "chinanewsweek",
@@ -1296,7 +1359,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-23/32680.shtml",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：人物去留的争议依据是什么？把原话、相关回应与报道判断分开。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "chinanewsweek",
@@ -1304,7 +1367,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-23/32683.shtml",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：震中现场、震级和受灾信息来自哪些部门？区分已核实情况与后续通报。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "chinanewsweek",
@@ -1312,7 +1375,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-23/32682.shtml",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：先查人体试验的阶段、样本和终点；“返老还童”标题不能替代疗效证据。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "chinanewsweek",
@@ -1320,7 +1383,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-23/32681.shtml",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：关注救援时间线和已确认的事件信息，区分现场叙述与死因推测；不据标题给个人急救判断。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "chinanewsweek",
@@ -1328,7 +1391,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-23/32678.shtml",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：礼金上限由谁提出、怎样执行？留意倡议、习俗和强制规则的差别。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "chinanewsweek",
@@ -1408,7 +1471,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-22/32659.shtml",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：标题中的“大礼”具体指哪项政策或承诺，谁可能受益？先还原对象与生效条件，再判断政治修辞。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "chinanewsweek",
@@ -1416,7 +1479,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-22/32647.shtml",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：街头抗议与领导人公开形象为何形成反差？阅读时核对事件时间线、现场消息和各方解释。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "chinanewsweek",
@@ -1424,7 +1487,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-22/32663.shtml",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：柜面服务时段由谁决定，受影响的用户有哪些替代渠道？可从规则依据、实际执行和反馈机制三层读。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "chinanewsweek",
@@ -1432,7 +1495,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-22/32654.shtml",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：传言与官方通报各自能证明什么？先核实空间用途、调查范围和后续措施，不把标题当成完整事实。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "chinanewsweek",
@@ -1440,7 +1503,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-22/32646.shtml",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：一审判决认定了哪些事实，裁判理由与后续程序是什么？避免用情绪化细节替代司法信息核对。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "chinanewsweek",
@@ -1520,7 +1583,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/world/2026-10-21/32640.shtml",
     "publishedAt": "2026-10-21",
     "summary": "沿着报道梳理前总统与现任政治竞争的关系，把选举叙事、法律程序和各方说法分开判断。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "chinanewsweek",
@@ -1528,7 +1591,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-21/32633.shtml",
     "publishedAt": "2026-10-21",
     "summary": "按题目选读：救援费用争议有哪些当事人说法与正式规则？先梳理证据来源，避免未经核实就对家属作道德判断。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "chinanewsweek",
@@ -1536,65 +1599,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.inewsweek.cn/society/2026-10-21/32632.shtml",
     "publishedAt": "2026-10-21",
     "summary": "关注判决所依据的事实、程序与裁判理由，区分已经司法认定的内容和标题中的情绪性表述。",
-    "checkedAt": "2026-11-02"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "手机出货量，暴跌",
-    "url": "https://www.inewsweek.cn/finance/2026-10-21/32639.shtml",
-    "publishedAt": "2026-10-21",
-    "summary": "先辨认手机出货统计的地区、周期和比较基准，再判断下滑反映的是需求变化还是渠道调整。",
-    "checkedAt": "2026-10-26"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "知名女星，深夜维权",
-    "url": "https://www.inewsweek.cn/finance/2026-10-21/32636.shtml",
-    "publishedAt": "2026-10-21",
-    "summary": "把明星维权事件拆成权利主张、可验证事实与处理进展，观察公众传播怎样影响纠纷讨论。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "“一句话办事”，被拒了",
-    "url": "https://www.inewsweek.cn/finance/2026-10-21/32635.shtml",
-    "publishedAt": "2026-10-21",
-    "summary": "从具体办事流程看人情请求与制度规则的边界，留意拒绝理由及其对普通办事者意味着什么。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "刚刚，宇树科技回应了",
-    "url": "https://www.inewsweek.cn/finance/2026-10-21/32634.shtml",
-    "publishedAt": "2026-10-21",
-    "summary": "对照宇树科技回应的原话与争议问题，区分企业已经确认的事实、解释和仍待核实的说法。",
-    "checkedAt": "2026-10-25"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "“幼儿园新来老师可厉害了，我被踢个大跟头”",
-    "url": "https://www.inewsweek.cn/politics/2026-10-21/32638.shtml",
-    "publishedAt": "2026-10-21",
-    "summary": "从儿童陈述如何被核实、园方怎样回应切入，关注证据保存与学校责任，而不凭片段先作定论。",
-    "checkedAt": "2026-10-22"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "金与正警告，“必将招致严重灾祸”",
-    "url": "https://www.inewsweek.cn/world/2026-10-20/32610.shtml",
-    "publishedAt": "2026-10-20",
-    "summary": "据标题的阅读切入点：《金与正警告，“必将招致严重灾祸”》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-11-02",
-    "summaryBasis": "title-and-publication"
-  },
-  {
-    "publication": "chinanewsweek",
-    "title": "爱尔兰顶流作家，要被封杀了？",
-    "url": "https://www.inewsweek.cn/wh/2026-10-20/32604.shtml",
-    "publishedAt": "2026-10-20",
-    "summary": "据标题的阅读切入点：《爱尔兰顶流作家，要被封杀了？》。留意受访者或作者的具体经历、表达语境与选择；把个人叙述和可核实事实分开，记录一个值得继续追问的问题。",
-    "checkedAt": "2026-11-02",
-    "summaryBasis": "title-and-publication"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "chinanewsweek",
@@ -1609,11 +1614,29 @@ window.MAGAZINE_ARTICLES = [
   },
   {
     "publication": "neweekly",
+    "title": "从婚姻中“毕业”的中年人，努力学着体面告别",
+    "url": "https://neweekly.com.cn/article/shp0313758325",
+    "publishedAt": "2026-11-03",
+    "summary": "据标题的阅读切入点：《从婚姻中“毕业”的中年人，努力学着体面告别》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "neweekly",
+    "title": "“年轻人一头扎进爱情，是一种很美的能力”｜专访燕妮·埃彭贝克",
+    "url": "https://neweekly.com.cn/article/shp0815884509",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《“年轻人一头扎进爱情，是一种很美的能力”｜专访燕妮·埃彭贝克》。留意受访者或作者的具体经历、表达语境与选择；把个人叙述和可核实事实分开，记录一个值得继续追问的问题。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "neweekly",
     "title": "《山有木兮》画册发布：愿生命的美好可以一直延续",
     "url": "https://neweekly.com.cn/article/shp0558799080",
     "publishedAt": "2026-11-01",
     "summary": "据标题的阅读切入点：《《山有木兮》画册发布：愿生命的美好可以一直延续》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1631,7 +1654,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp1438545101",
     "publishedAt": "2026-10-31",
     "summary": "据标题的阅读切入点：《8年出了8本书，他却还是被十万医药费压着》。先确认是细胞、动物还是人体证据，再看对照、样本量和风险；科研报道的可能性不能直接当作个人诊疗建议。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1864,7 +1887,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp1934294882",
     "publishedAt": "2026-09-15",
     "summary": "据标题的阅读切入点：《有的环保主义者，只是在cosplay｜专访罗伯特·麦克法伦》。留意受访者或作者的具体经历、表达语境与选择；把个人叙述和可核实事实分开，记录一个值得继续追问的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1873,7 +1896,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp0981957709",
     "publishedAt": "2026-09-10",
     "summary": "据标题的阅读切入点：《在标准时代，做一个反思标准的人|专访艺术家高孝午》。留意受访者或作者的具体经历、表达语境与选择；把个人叙述和可核实事实分开，记录一个值得继续追问的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1882,7 +1905,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp1303778613",
     "publishedAt": "2026-08-23",
     "summary": "据标题的阅读切入点：《安妮宝贝到庆山的26年｜专访庆山》。留意受访者或作者的具体经历、表达语境与选择；把个人叙述和可核实事实分开，记录一个值得继续追问的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1891,7 +1914,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp1975407750",
     "publishedAt": "2026-08-22",
     "summary": "据标题的阅读切入点：《李现都沦陷了，观鸟为何让人如此“上头”？》。关注观察地点、季节与样本范围；把物种行为、环境压力和人的解释分开，核对结论的适用边界。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1900,7 +1923,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp0364599521",
     "publishedAt": "2026-08-21",
     "summary": "据标题的阅读切入点：《陈丹青：AI这事儿，我根本没资格有意见》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1909,7 +1932,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp0419494440",
     "publishedAt": "2026-08-20",
     "summary": "据标题的阅读切入点：《许知远：我们对具体经验的提问变少了》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1918,7 +1941,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp0302116189",
     "publishedAt": "2026-08-08",
     "summary": "据标题的阅读切入点：《采访诺兰火遍外网后，她说自己随时准备退网 | 专访仲树》。留意受访者或作者的具体经历、表达语境与选择；把个人叙述和可核实事实分开，记录一个值得继续追问的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1927,7 +1950,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp0849948013",
     "publishedAt": "2026-06-23",
     "summary": "据标题的阅读切入点：《一夜爆红后潇洒“退圈”，30年前的顶流女星如今怎样了?》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1936,7 +1959,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp1568390836",
     "publishedAt": "2026-06-05",
     "summary": "据标题的阅读切入点：《拍出《无名之辈》的他，成了“最佳演员”》。留意受访者或作者的具体经历、表达语境与选择；把个人叙述和可核实事实分开，记录一个值得继续追问的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1945,7 +1968,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp0482480332",
     "publishedAt": "2026-04-24",
     "summary": "据标题的阅读切入点：《王朔：我不是一个人，只不过室友不是人》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1954,7 +1977,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp0971100706",
     "publishedAt": "2026-03-26",
     "summary": "据标题的阅读切入点：《一个70岁走红的女人，拒绝被浪漫化》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1963,7 +1986,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp0933852543",
     "publishedAt": "2026-03-08",
     "summary": "据标题的阅读切入点：《10个消失在家谱里的女人，秘密终于被她拆开了》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1972,7 +1995,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp2077773423",
     "publishedAt": "2026-01-18",
     "summary": "据标题的阅读切入点：《不会再有第二个侯孝贤，也不会再有第二个朱天文｜专访朱天文》。留意受访者或作者的具体经历、表达语境与选择；把个人叙述和可核实事实分开，记录一个值得继续追问的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1981,7 +2004,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp1985323427",
     "publishedAt": "2025-11-28",
     "summary": "据标题的阅读切入点：《屈雨瑜：用行动打破偏见，女性照样颠大勺 | 极限女性第二季第9期》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1990,7 +2013,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp1871871995",
     "publishedAt": "2025-11-07",
     "summary": "据标题的阅读切入点：《中国父母的空心病，正在传给孩子丨专访梁鸿》。区分个体经验、调查结果与教育主张；关注年龄、家庭及制度背景，避免把单一案例变成对所有人的要求。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -1999,7 +2022,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp0621368846",
     "publishedAt": "2025-11-03",
     "summary": "据标题的阅读切入点：《专访舒淇：不会撒娇的女孩，从小就学着长大》。留意受访者或作者的具体经历、表达语境与选择；把个人叙述和可核实事实分开，记录一个值得继续追问的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2008,7 +2031,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp0554301326",
     "publishedAt": "2025-10-28",
     "summary": "据标题的阅读切入点：《真人秀结束一年，李行亮们还在被网暴》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2017,7 +2040,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp1871552011",
     "publishedAt": "2025-10-16",
     "summary": "据标题的阅读切入点：《99.99%的普通人，不该从历史中消失｜专访王笛》。留意受访者或作者的具体经历、表达语境与选择；把个人叙述和可核实事实分开，记录一个值得继续追问的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2026,7 +2049,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp0186469144",
     "publishedAt": "2025-09-23",
     "summary": "据标题的阅读切入点：《她，不仅仅是“蔡磊的妻子” | 极限女性第二季第7期》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2035,7 +2058,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp1962820666",
     "publishedAt": "2025-08-26",
     "summary": "据标题的阅读切入点：《房主任：我没有退路，所以才努力爬上岸 | 极限女性第二季第6期》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2044,7 +2067,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp0750839517",
     "publishedAt": "2025-07-22",
     "summary": "据标题的阅读切入点：《龚琳娜：50岁，我开始真正的叛逆期 | 极限女性第二季第5期》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2053,7 +2076,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp1020363549",
     "publishedAt": "2025-05-26",
     "summary": "据标题的阅读切入点：《马静芬：过去我叫褚马氏，现在我叫马静芬｜极限女性第二季第 4 期》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2062,7 +2085,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp1265701687",
     "publishedAt": "2025-02-18",
     "summary": "据标题的阅读切入点：《颜怡颜悦：我们要写自己也会被“骂到”的东西｜极限女性第二季》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2071,7 +2094,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp2063280335",
     "publishedAt": "2025-01-21",
     "summary": "据标题的阅读切入点：《张越：进入和离开个体生命，是让人生更丰富和宽广的过程｜极限女性第二季》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2080,7 +2103,106 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://neweekly.com.cn/article/shp0655033518",
     "publishedAt": "2024-12-31",
     "summary": "据标题的阅读切入点：《“在我追求的极致中，不能有任何灰度”｜极限女性第八期》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "nfpeople",
+    "title": "村上龙：在文学里惊世骇俗丨逝者",
+    "url": "https://www.nfpeople.com/article/14377",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《村上龙：在文学里惊世骇俗丨逝者》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "nfpeople",
+    "title": "《余红旧事》的实验性",
+    "url": "https://www.nfpeople.com/article/14376",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《《余红旧事》的实验性》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "nfpeople",
+    "title": "被边缘化的法国年轻人，决定掀桌子",
+    "url": "https://www.nfpeople.com/article/14374",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《被边缘化的法国年轻人，决定掀桌子》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "nfpeople",
+    "title": "要么多花钱，要么冒风险：我们能避开有毒产品吗？",
+    "url": "https://www.nfpeople.com/article/14373",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《要么多花钱，要么冒风险：我们能避开有毒产品吗？》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "nfpeople",
+    "title": "球王李惠堂的故乡五华：一座县城，如何走出一代代足球少年丨县城故事",
+    "url": "https://www.nfpeople.com/article/14372",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《球王李惠堂的故乡五华：一座县城，如何走出一代代足球少年丨县城故事》。区分作品或赛事本身、产业环境和个人评价；找出支撑判断的具体细节，避免只记住评分、输赢或热度。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "nfpeople",
+    "title": "张雪在家乡麻阳刷新吉尼斯世界纪录丨眼界",
+    "url": "https://www.nfpeople.com/article/14370",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《张雪在家乡麻阳刷新吉尼斯世界纪录丨眼界》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "nfpeople",
+    "title": "西藏巴青发生7.0级地震丨眼界",
+    "url": "https://www.nfpeople.com/article/14369",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《西藏巴青发生7.0级地震丨眼界》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "nfpeople",
+    "title": "企业算着AI省钱的账，谁来算城市的就业风险账丨维度",
+    "url": "https://www.nfpeople.com/article/14368",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《企业算着AI省钱的账，谁来算城市的就业风险账丨维度》。从岗位、组织和个人选择三个层面读；核对案例背景与制度约束，思考哪些经验可迁移、哪些依赖特定条件。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "nfpeople",
+    "title": "SpaceX可能是对地缘格局影响最大的私企丨军事",
+    "url": "https://www.nfpeople.com/article/14367",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《SpaceX可能是对地缘格局影响最大的私企丨军事》。把直接观测与模型推断分开记录；结论依赖哪些仪器、样本和误差范围，还有哪些替代解释？",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "nfpeople",
+    "title": "回音（20261102）",
+    "url": "https://www.nfpeople.com/article/14366",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《回音（20261102）》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "nfpeople",
+    "title": "无法用金额衡量的恶意丨记者手记",
+    "url": "https://www.nfpeople.com/article/14365",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《无法用金额衡量的恶意丨记者手记》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2089,7 +2211,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14364",
     "publishedAt": "2026-10-26",
     "summary": "据标题的阅读切入点：《RJ·米特：名声本身并没有实质意义丨逝者》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2098,7 +2220,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14363",
     "publishedAt": "2026-10-26",
     "summary": "据标题的阅读切入点：《《生化危机：爆发夜》：普通人的生存危机》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2107,7 +2229,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14362",
     "publishedAt": "2026-10-26",
     "summary": "据标题的阅读切入点：《双城镜像：从威尼斯到伊斯坦布尔》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2116,7 +2238,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14361",
     "publishedAt": "2026-10-26",
     "summary": "据标题的阅读切入点：《叶檀：与生命和解》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2125,7 +2247,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14360",
     "publishedAt": "2026-10-26",
     "summary": "据标题的阅读切入点：《薛舟：韩国文学热背后，一个译者的冷板凳》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2134,7 +2256,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14358",
     "publishedAt": "2026-10-26",
     "summary": "据标题的阅读切入点：《被打了十年却越打越强的“拖鞋军”，正在把中东第一巨头按着揍》。先梳理事件时间线和各方立场；把已核实事实、当事人说法与作者判断分开，再看制度和历史背景如何影响解释。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2143,7 +2265,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14357",
     "publishedAt": "2026-10-26",
     "summary": "据标题的阅读切入点：《25岁画师受骗后轻生：小额电诈围猎年轻人》。留意受访者或作者的具体经历、表达语境与选择；把个人叙述和可核实事实分开，记录一个值得继续追问的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2152,7 +2274,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14355",
     "publishedAt": "2026-10-26",
     "summary": "据标题的阅读切入点：《俄多地遭大规模无人机袭击丨眼界》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2206,7 +2328,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14349",
     "publishedAt": "2026-10-19",
     "summary": "据标题的阅读切入点：《伊娃·玛丽·森特：不愿成为超级明星的人丨逝者》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2215,7 +2337,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14348",
     "publishedAt": "2026-10-19",
     "summary": "据标题的阅读切入点：《《巴比伦柏林》：在世界倾覆之前》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2224,7 +2346,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14347",
     "publishedAt": "2026-10-19",
     "summary": "据标题的阅读切入点：《福柯诞辰百年：“塑造自我”是生命的任务》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2233,7 +2355,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14346",
     "publishedAt": "2026-10-19",
     "summary": "据标题的阅读切入点：《李梓新：“被放逐”的潮汕DNA》。记录研究尺度、实验体系和关键对照；作者从分子现象推到生物功能时，还需要补上哪些验证？",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2242,7 +2364,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14345",
     "publishedAt": "2026-10-19",
     "summary": "据标题的阅读切入点：《AI速通多项难题：人类还需要数学家吗？》。先写清问题的定义与假设，再找关键论证；哪些是已证明结果，哪些是数值迹象或尚未解决的猜想？",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication",
     "featuredReason": "以 AI 与数学家的关系为切口，思考研究训练中哪些工作能借助工具，哪些仍需自己理解。",
     "featuredPriority": 23
@@ -2253,7 +2375,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14344",
     "publishedAt": "2026-10-19",
     "summary": "据标题的阅读切入点：《失能与孤独：小城市的养老院里，护理员开始想象自己的晚年》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2262,7 +2384,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14343",
     "publishedAt": "2026-10-19",
     "summary": "据标题的阅读切入点：《他免费给你电脑杀毒，但你要给他写检讨》。区分相关性、实验干预与机制解释；留意参与者范围、测量方法和结果能否迁移到日常生活。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2325,7 +2447,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/14335",
     "publishedAt": "2026-10-05",
     "summary": "据标题的阅读切入点：《吴文伦：“没这种戏了，也没这种修养了”丨逝者》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2579,7 +2701,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/11026",
     "publishedAt": "2021-11-24",
     "summary": "据标题的阅读切入点：《姚璇秋：前人传给我， 我就有责任传给后人》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2588,7 +2710,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/10979",
     "publishedAt": "2021-11-05",
     "summary": "据标题的阅读切入点：《卢永根：把根深深扎在泥土里》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2597,7 +2719,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/10917",
     "publishedAt": "2021-10-09",
     "summary": "据标题的阅读切入点：《黄文秀 走完心中的长征》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2606,7 +2728,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/10746",
     "publishedAt": "2021-06-19",
     "summary": "据标题的阅读切入点：《刘斯奋 最大的野心 是成为一名文化人》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2615,7 +2737,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/10703",
     "publishedAt": "2021-05-24",
     "summary": "据标题的阅读切入点：《彭士禄 “我一生也离不开核事业”》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2624,7 +2746,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/10684",
     "publishedAt": "2021-05-21",
     "summary": "据标题的阅读切入点：《小林治 热血漫中的人生全剧终》。区分作品或赛事本身、产业环境和个人评价；找出支撑判断的具体细节，避免只记住评分、输赢或热度。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2633,7 +2755,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/10674",
     "publishedAt": "2021-05-20",
     "summary": "据标题的阅读切入点：《在纳雍，成为1600名孩子的“校长妈妈”》。区分个体经验、调查结果与教育主张；关注年龄、家庭及制度背景，避免把单一案例变成对所有人的要求。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2642,7 +2764,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/6513",
     "publishedAt": "2018-01-03",
     "summary": "据标题的阅读切入点：《眼界 | 法国》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2651,7 +2773,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/6511",
     "publishedAt": "2018-01-03",
     "summary": "据标题的阅读切入点：《眼界 | 俄罗斯》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2660,7 +2782,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/6487",
     "publishedAt": "2018-01-03",
     "summary": "据标题的阅读切入点：《图片故事 | 住在上海的洋人》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2669,7 +2791,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/6476",
     "publishedAt": "2018-01-03",
     "summary": "据标题的阅读切入点：《眼界 | 印度》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2678,7 +2800,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/6475",
     "publishedAt": "2018-01-03",
     "summary": "据标题的阅读切入点：《眼界 | 俄罗斯》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2687,7 +2809,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/6474",
     "publishedAt": "2018-01-03",
     "summary": "据标题的阅读切入点：《眼界 | 日本》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2696,7 +2818,16 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nfpeople.com/article/6473",
     "publishedAt": "2018-01-03",
     "summary": "据标题的阅读切入点：《眼界 | 俄罗斯》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "nfpeople",
+    "title": "他是“拉美毕加索”，是巫师、医者、哭泣的老虎",
+    "url": "https://www.nfpeople.com/article/14375",
+    "publishedAt": null,
+    "summary": "据标题的阅读切入点：《他是“拉美毕加索”，是巫师、医者、哭泣的老虎》。沿着具体经历和选择阅读；注意叙述者视角及可核实细节，保留人物处境，避免把个体经验当作普遍答案。",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2705,7 +2836,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261026/5189745.shtml",
     "publishedAt": "2026-10-26",
     "summary": "按题目选读：从材料产业链角度追问矿石品位、基础设施、运输成本与投产节奏各起什么作用；标题本身不能证明供应规模或经济性。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "featuredReason": "从材料产业链读资源、运输与成本：可把报道里的矿石指标和基础设施条件逐项列证据，再判断“储量”与“可稳定供应”之间还缺什么。",
     "featuredPriority": 3
   },
@@ -2715,7 +2846,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261026/5189744.shtml",
     "publishedAt": "2026-10-26",
     "summary": "按题目选读：先查受挫对应临床、审批还是商业环节，再看具体试验终点与适用人群；不能由新闻标题推断个体用药选择。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "caijing",
@@ -2723,7 +2854,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261026/5189742.shtml",
     "publishedAt": "2026-10-26",
     "summary": "按题目选读：把文章提出的增长来源逐项对应可观察指标，区分需求、供给与政策预期；不把宏观判断直接当成个人投资结论。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "caijing",
@@ -2731,7 +2862,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261026/5189741.shtml",
     "publishedAt": "2026-10-26",
     "summary": "按题目选读：区分直接投资、财务投资与产业合作，核对资金流向的时间和统计范围，再看技术限制如何影响交易。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "caijing",
@@ -2747,7 +2878,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261012/5187292.shtml",
     "publishedAt": "2026-10-12",
     "summary": "据标题的阅读切入点：《“宁王”的九月围城》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2756,7 +2887,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261012/5187290.shtml",
     "publishedAt": "2026-10-12",
     "summary": "据标题的阅读切入点：《一粒药到患者手中加价几成？》。先确认是细胞、动物还是人体证据，再看对照、样本量和风险；科研报道的可能性不能直接当作个人诊疗建议。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2765,7 +2896,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261012/5187289.shtml",
     "publishedAt": "2026-10-12",
     "summary": "据标题的阅读切入点：《百亿基金经理大迁徙》。核对收入、利润、现金流与估值各自的口径；关注风险由谁承担以及信息是否完整，不从报道直接推出交易决定。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2774,7 +2905,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261012/5187286.shtml",
     "publishedAt": "2026-10-12",
     "summary": "据标题的阅读切入点：《中欧经贸磋商再迎关键节点》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2783,7 +2914,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261012/5187285.shtml",
     "publishedAt": "2026-10-12",
     "summary": "据标题的阅读切入点：《清欠连环债》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2792,7 +2923,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261010/5187070.shtml",
     "publishedAt": "2026-10-10",
     "summary": "据标题的阅读切入点：《美国加密货币立法失败》。先梳理事件时间线和各方立场；把已核实事实、当事人说法与作者判断分开，再看制度和历史背景如何影响解释。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2801,7 +2932,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261010/5187069.shtml",
     "publishedAt": "2026-10-10",
     "summary": "据标题的阅读切入点：《国内外药企押注降压疫苗》。先确认是细胞、动物还是人体证据，再看对照、样本量和风险；科研报道的可能性不能直接当作个人诊疗建议。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2810,7 +2941,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261010/5187068.shtml",
     "publishedAt": "2026-10-10",
     "summary": "据标题的阅读切入点：《未来五年，香港资本市场进阶路》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2819,7 +2950,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261010/5187067.shtml",
     "publishedAt": "2026-10-10",
     "summary": "据标题的阅读切入点：《脑机接口的两个故事版本》。区分相关性、实验干预与机制解释；留意参与者范围、测量方法和结果能否迁移到日常生活。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2828,7 +2959,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20261010/5187065.shtml",
     "publishedAt": "2026-10-10",
     "summary": "据标题的阅读切入点：《寻找地方新税源》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2837,7 +2968,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260914/5183335.shtml",
     "publishedAt": "2026-09-14",
     "summary": "据标题的阅读切入点：《北交所五载蝶变》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2846,7 +2977,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260914/5183333.shtml",
     "publishedAt": "2026-09-14",
     "summary": "据标题的阅读切入点：《博士真的“过剩”了吗？》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2855,7 +2986,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260914/5183332.shtml",
     "publishedAt": "2026-09-14",
     "summary": "据标题的阅读切入点：《香港北都“土地新政”新在哪里？》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2864,7 +2995,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260914/5183331.shtml",
     "publishedAt": "2026-09-14",
     "summary": "据标题的阅读切入点：《金融央企增资扩围》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2873,7 +3004,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260914/5183330.shtml",
     "publishedAt": "2026-09-14",
     "summary": "据标题的阅读切入点：《楼市现房时刻》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2882,7 +3013,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260831/5180700.shtml",
     "publishedAt": "2026-08-31",
     "summary": "据标题的阅读切入点：《信用评级挤水分》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2891,7 +3022,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260831/5180698.shtml",
     "publishedAt": "2026-08-31",
     "summary": "据标题的阅读切入点：《年轻人为何不爱出国留学了？》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2900,7 +3031,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260831/5180694.shtml",
     "publishedAt": "2026-08-31",
     "summary": "据标题的阅读切入点：《多部门联手应对青年失业率上升》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2909,7 +3040,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260831/5180692.shtml",
     "publishedAt": "2026-08-31",
     "summary": "据标题的阅读切入点：《证券业黑灰产调查》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2918,7 +3049,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260831/5180688.shtml",
     "publishedAt": "2026-08-31",
     "summary": "据标题的阅读切入点：《宇树的低成本密码》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2927,7 +3058,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260818/5177724.shtml",
     "publishedAt": "2026-08-18",
     "summary": "据标题的阅读切入点：《这些专业为何“招不满”？》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2936,7 +3067,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260818/5177720.shtml",
     "publishedAt": "2026-08-18",
     "summary": "据标题的阅读切入点：《蚂蚁分拆融资启幕》。核对收入、利润、现金流与估值各自的口径；关注风险由谁承担以及信息是否完整，不从报道直接推出交易决定。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2945,7 +3076,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260818/5177719.shtml",
     "publishedAt": "2026-08-18",
     "summary": "据标题的阅读切入点：《城市更新的15万亿元账本》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication",
     "featuredReason": "从城市更新的资金与需求关系入手，理解一个长期议题。",
     "featuredPriority": 33
@@ -2956,7 +3087,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260818/5177718.shtml",
     "publishedAt": "2026-08-18",
     "summary": "据标题的阅读切入点：《宇树科技估值大考》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -2965,7 +3096,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://magazine.caijing.com.cn/20260818/5177717.shtml",
     "publishedAt": "2026-08-18",
     "summary": "据标题的阅读切入点：《Token经济，中国账本》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3006,11 +3137,20 @@ window.MAGAZINE_ARTICLES = [
   },
   {
     "publication": "caixin",
+    "title": "越南买房潮起：哪些资产能穿越周期？",
+    "url": "https://weekly.caixin.com/2026-11-02/102499834.html",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《越南买房潮起：哪些资产能穿越周期？》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "caixin",
     "title": "回溯｜一周回溯（《财新周刊》2026年第42期）",
     "url": "https://weekly.caixin.com/2026-10-31/102499451.html",
     "publishedAt": "2026-10-31",
     "summary": "据标题的阅读切入点：《回溯｜一周回溯（《财新周刊》2026年第42期）》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3019,7 +3159,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-31/102499450.html",
     "publishedAt": "2026-10-31",
     "summary": "据标题的阅读切入点：《答疑（《财新周刊》2026年第42期）》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3028,7 +3168,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-31/102499448.html",
     "publishedAt": "2026-10-31",
     "summary": "据标题的阅读切入点：《融媒精选（《财新周刊》2026年第42期）》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3037,7 +3177,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-31/102499447.html",
     "publishedAt": "2026-10-31",
     "summary": "据标题的阅读切入点：《读周刊 看视频（《财新周刊》2026年第42期）》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3046,7 +3186,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-31/102499446.html",
     "publishedAt": "2026-10-31",
     "summary": "据标题的阅读切入点：《回声（《财新周刊》2026年第41期）》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3055,7 +3195,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-31/102499441.html",
     "publishedAt": "2026-10-31",
     "summary": "据标题的阅读切入点：《天眼｜西班牙高铁追尾》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3064,7 +3204,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-31/102499432.html",
     "publishedAt": "2026-10-31",
     "summary": "据标题的阅读切入点：《心智｜养育不是木匠活》。区分个体经验、调查结果与教育主张；关注年龄、家庭及制度背景，避免把单一案例变成对所有人的要求。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3073,7 +3213,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-31/102499431.html",
     "publishedAt": "2026-10-31",
     "summary": "据标题的阅读切入点：《前瞻｜新西兰将举行大选》。先梳理事件时间线和各方立场；把已核实事实、当事人说法与作者判断分开，再看制度和历史背景如何影响解释。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3082,7 +3222,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-31/102499430.html",
     "publishedAt": "2026-10-31",
     "summary": "据标题的阅读切入点：《国风｜横店自救》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3091,7 +3231,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-31/102499429.html",
     "publishedAt": "2026-10-31",
     "summary": "据标题的阅读切入点：《逝者｜福田康夫：最没有权力欲的政治家》。先梳理事件时间线和各方立场；把已核实事实、当事人说法与作者判断分开，再看制度和历史背景如何影响解释。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3100,7 +3240,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-31/102499427.html",
     "publishedAt": "2026-10-31",
     "summary": "据标题的阅读切入点：《专栏｜为什么足球重于一切？》。留意受访者或作者的具体经历、表达语境与选择；把个人叙述和可核实事实分开，记录一个值得继续追问的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3109,7 +3249,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-31/102499346.html",
     "publishedAt": "2026-10-31",
     "summary": "据标题的阅读切入点：《随笔｜致艾米莉：只因此生有你》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3118,7 +3258,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-31/102499345.html",
     "publishedAt": "2026-10-31",
     "summary": "据标题的阅读切入点：《最新财新周刊｜付费求职的“灰色生意”》。从岗位、组织和个人选择三个层面读；核对案例背景与制度约束，思考哪些经验可迁移、哪些依赖特定条件。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3127,7 +3267,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-31/102499344.html",
     "publishedAt": "2026-10-31",
     "summary": "据标题的阅读切入点：《最新财新周刊｜自动驾驶如何走出“试验田”》。区分演示、基准评测与真实场景部署；重点核对任务边界、失效情形、数据条件和人工介入。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3136,7 +3276,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-31/102499337.html",
     "publishedAt": "2026-10-31",
     "summary": "据标题的阅读切入点：《最新财新周刊｜华为再攀顶》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3145,7 +3285,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-31/102499336.html",
     "publishedAt": "2026-10-31",
     "summary": "据标题的阅读切入点：《专栏｜小型参与者如何在AI浪潮中生存》。留意受访者或作者的具体经历、表达语境与选择；把个人叙述和可核实事实分开，记录一个值得继续追问的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3154,7 +3294,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-31/102499335.html",
     "publishedAt": "2026-10-31",
     "summary": "据标题的阅读切入点：《最新封面报道之二｜最赚钱“AI实验室”IPO揭幕》。核对收入、利润、现金流与估值各自的口径；关注风险由谁承担以及信息是否完整，不从报道直接推出交易决定。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3163,7 +3303,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-31/102499331.html",
     "publishedAt": "2026-10-31",
     "summary": "据标题的阅读切入点：《专栏｜中美利差创新低，人民币为何还能升值？》。先核对指标定义、统计时点和传导路径；把已发生的数据与政策预期分开，留意结论依赖的经济情景。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3172,7 +3312,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-31/102499329.html",
     "publishedAt": "2026-10-31",
     "summary": "据标题的阅读切入点：《最新财新周刊｜竞逐亚洲金融中心》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3181,7 +3321,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-31/102499328.html",
     "publishedAt": "2026-10-31",
     "summary": "据标题的阅读切入点：《最新财新周刊｜规制向AI“投毒”》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3190,7 +3330,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-31/102499318.html",
     "publishedAt": "2026-10-31",
     "summary": "据标题的阅读切入点：《最新财新周刊｜卢拉逆风翻盘》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3199,7 +3339,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-31/102499317.html",
     "publishedAt": "2026-10-31",
     "summary": "据标题的阅读切入点：《财新观察｜建设生育友好型社会如何持续发力》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3208,7 +3348,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-30/102498781.html",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《最新封面报道｜重估科技股》。核对商业模式、成本与利益分配；把案例叙述和数据证据分开，观察结论适用于什么市场与时间范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3652,7 +3792,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://weekly.caixin.com/2026-10-30/102498794.html",
     "publishedAt": null,
     "summary": "据标题的阅读切入点：《显影｜从风电牧场到“Token之都”：一座草原小城的算力狂飙》。区分模型能力、产品体验与商业承诺；核对具体任务、比较基线、数据限制与使用成本，避免把演示当成普遍能力。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3674,6 +3814,132 @@ window.MAGAZINE_ARTICLES = [
   },
   {
     "publication": "infzm",
+    "title": "“消费入座”，本不该有争议",
+    "url": "https://www.infzm.com/contents/343910",
+    "publishedAt": "2026-11-03",
+    "summary": "据标题的阅读切入点：《“消费入座”，本不该有争议》。观察需求、定价、渠道与品牌定位如何相互作用；区分个别案例和市场趋势，核对数据时间及样本范围。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "infzm",
+    "title": "在洞庭湖的黄昏中，重新看见父母与故乡",
+    "url": "https://www.infzm.com/contents/343896",
+    "publishedAt": "2026-11-03",
+    "summary": "据标题的阅读切入点：《在洞庭湖的黄昏中，重新看见父母与故乡》。区分个体经验、调查结果与教育主张；关注年龄、家庭及制度背景，避免把单一案例变成对所有人的要求。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "infzm",
+    "title": "前国乒主教练，给阿尔兹海默病开出特别的处方",
+    "url": "https://www.infzm.com/contents/343894",
+    "publishedAt": "2026-11-03",
+    "summary": "据标题的阅读切入点：《前国乒主教练，给阿尔兹海默病开出特别的处方》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "infzm",
+    "title": "访谈阿代尔·特纳：中国在清洁技术上对世界贡献非凡",
+    "url": "https://www.infzm.com/contents/343878",
+    "publishedAt": "2026-11-03",
+    "summary": "据标题的阅读切入点：《访谈阿代尔·特纳：中国在清洁技术上对世界贡献非凡》。留意受访者或作者的具体经历、表达语境与选择；把个人叙述和可核实事实分开，记录一个值得继续追问的问题。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "infzm",
+    "title": "智能体“潜入”银行：人机共事，权责悬置 ｜2026年“金标杆”",
+    "url": "https://www.infzm.com/contents/343868",
+    "publishedAt": "2026-11-03",
+    "summary": "据标题的阅读切入点：《智能体“潜入”银行：人机共事，权责悬置 ｜2026年“金标杆”》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "infzm",
+    "title": "对话《盛世天下》主演黄羿、官鸿",
+    "url": "https://www.infzm.com/contents/343852",
+    "publishedAt": "2026-11-03",
+    "summary": "据标题的阅读切入点：《对话《盛世天下》主演黄羿、官鸿》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "infzm",
+    "title": "从“破防”到“烧心”，梗是这届年轻人的社交保护色?",
+    "url": "https://www.infzm.com/contents/343578",
+    "publishedAt": "2026-11-03",
+    "summary": "据标题的阅读切入点：《从“破防”到“烧心”，梗是这届年轻人的社交保护色?》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "infzm",
+    "title": "曾经日赚过万的同声传译，AI目前还取代不了",
+    "url": "https://www.infzm.com/contents/343888",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《曾经日赚过万的同声传译，AI目前还取代不了》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "infzm",
+    "title": "166家公司暴露ESG风险，多家银行分支机构业务违规同日被罚｜善择ESG风险跟踪第161期",
+    "url": "https://www.infzm.com/contents/343886",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《166家公司暴露ESG风险，多家银行分支机构业务违规同日被罚｜善择ESG风险跟踪第161期》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "infzm",
+    "title": "虹影：手搓29年的一部纪录片 | 凝视",
+    "url": "https://www.infzm.com/contents/343870",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《虹影：手搓29年的一部纪录片 | 凝视》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "infzm",
+    "title": "客群下沉、利率更低，进击抑或退守的普惠金融｜2026年“金标杆”",
+    "url": "https://www.infzm.com/contents/343864",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《客群下沉、利率更低，进击抑或退守的普惠金融｜2026年“金标杆”》。先核对指标定义、统计时点和传导路径；把已发生的数据与政策预期分开，留意结论依赖的经济情景。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "infzm",
+    "title": "“一日店长”爆火：体验上班，但不用一直上班",
+    "url": "https://www.infzm.com/contents/343610",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《“一日店长”爆火：体验上班，但不用一直上班》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "infzm",
+    "title": "2026年“金标杆”",
+    "url": "https://www.infzm.com/contents/343400",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《2026年“金标杆”》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "infzm",
+    "title": "年轻人“把医院搬进厕所”，坐个马桶就能体检靠谱吗？",
+    "url": "https://www.infzm.com/contents/331234",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《年轻人“把医院搬进厕所”，坐个马桶就能体检靠谱吗？》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "infzm",
     "title": "一个人看病有点慌？陪诊国标出台了｜周一健",
     "url": "https://www.infzm.com/contents/343804",
     "publishedAt": "2026-11-02",
@@ -3687,8 +3953,12 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.infzm.com/contents/343806",
     "publishedAt": "2026-11-01",
     "summary": "据标题的阅读切入点：《状告铁路局：火车站台控烟难题》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-11-02",
-    "summaryBasis": "title-and-publication"
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication",
+    "hotRank": 5,
+    "hotSource": "https://www.infzm.com/hot_contents?format=json",
+    "hotLabel": "南方周末热门文章",
+    "hotCheckedAt": "2026-11-03"
   },
   {
     "publication": "infzm",
@@ -3858,12 +4128,12 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.infzm.com/contents/343725",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《当父亲决定成为“大体老师”》。区分个体经验、调查结果与教育主张；关注年龄、家庭及制度背景，避免把单一案例变成对所有人的要求。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication",
     "hotRank": 6,
     "hotSource": "https://www.infzm.com/hot_contents?format=json",
     "hotLabel": "南方周末热门文章",
-    "hotCheckedAt": "2026-11-02"
+    "hotCheckedAt": "2026-11-03"
   },
   {
     "publication": "infzm",
@@ -3871,12 +4141,12 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.infzm.com/contents/343687",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《零售界刮起隐秘风暴：品牌失去名字，集体给“山姆们”打工》。观察需求、定价、渠道与品牌定位如何相互作用；区分个别案例和市场趋势，核对数据时间及样本范围。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication",
-    "hotRank": 2,
+    "hotRank": 1,
     "hotSource": "https://www.infzm.com/hot_contents?format=json",
     "hotLabel": "南方周末热门文章",
-    "hotCheckedAt": "2026-11-02"
+    "hotCheckedAt": "2026-11-03"
   },
   {
     "publication": "infzm",
@@ -3884,11 +4154,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.infzm.com/contents/343580",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《移民英国的中国父母，躲不开鸡娃的焦虑》。区分个体经验、调查结果与教育主张；关注年龄、家庭及制度背景，避免把单一案例变成对所有人的要求。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "hotRank": 10,
     "hotSource": "https://www.infzm.com/hot_contents?format=json",
     "hotLabel": "南方周末热门文章",
-    "hotCheckedAt": "2026-11-02",
+    "hotCheckedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3897,11 +4167,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.infzm.com/contents/343584",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《癌症年轻化或因年轻人老得快》。先确认是细胞、动物还是人体证据，再看对照、样本量和风险；科研报道的可能性不能直接当作个人诊疗建议。",
-    "checkedAt": "2026-11-02",
-    "hotRank": 5,
+    "checkedAt": "2026-11-03",
+    "hotRank": 4,
     "hotSource": "https://www.infzm.com/hot_contents?format=json",
     "hotLabel": "南方周末热门文章",
-    "hotCheckedAt": "2026-11-02",
+    "hotCheckedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3910,11 +4180,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.infzm.com/contents/343537",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《一种“万金油”脑病疗法，走到合规的“十字路口”》。区分相关性、实验干预与机制解释；留意参与者范围、测量方法和结果能否迁移到日常生活。",
-    "checkedAt": "2026-11-02",
-    "hotRank": 4,
+    "checkedAt": "2026-11-03",
+    "hotRank": 3,
     "hotSource": "https://www.infzm.com/hot_contents?format=json",
     "hotLabel": "南方周末热门文章",
-    "hotCheckedAt": "2026-11-02",
+    "hotCheckedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3923,11 +4193,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.infzm.com/contents/343509",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《“小宪法”四修：刑诉法学界三年等待》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "hotRank": 7,
     "hotSource": "https://www.infzm.com/hot_contents?format=json",
     "hotLabel": "南方周末热门文章",
-    "hotCheckedAt": "2026-11-02",
+    "hotCheckedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3936,11 +4206,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.infzm.com/contents/343507",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《揭露电诈遭绑架后死去，朋友回忆吴恺“倔脾气、直来直去”》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "hotRank": 8,
     "hotSource": "https://www.infzm.com/hot_contents?format=json",
     "hotLabel": "南方周末热门文章",
-    "hotCheckedAt": "2026-11-02",
+    "hotCheckedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3949,11 +4219,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.infzm.com/contents/343457",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《“贫穷的最大责任是自己吗？”：考上最好的大学，她仍在承受痛苦》。区分个体经验、调查结果与教育主张；关注年龄、家庭及制度背景，避免把单一案例变成对所有人的要求。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "hotRank": 9,
     "hotSource": "https://www.infzm.com/hot_contents?format=json",
     "hotLabel": "南方周末热门文章",
-    "hotCheckedAt": "2026-11-02",
+    "hotCheckedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3962,11 +4232,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.infzm.com/contents/343455",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《工人的耳朵都快被吵聋了，为什么不算职业病？》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-11-02",
-    "hotRank": 3,
+    "checkedAt": "2026-11-03",
+    "hotRank": 2,
     "hotSource": "https://www.infzm.com/hot_contents?format=json",
     "hotLabel": "南方周末热门文章",
-    "hotCheckedAt": "2026-11-02",
+    "hotCheckedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -3976,10 +4246,6 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-26",
     "summary": "据标题的阅读切入点：《超低生育率的另一个解释：谁该带孩子？|大侦探经济学》。区分个体经验、调查结果与教育主张；关注年龄、家庭及制度背景，避免把单一案例变成对所有人的要求。",
     "checkedAt": "2026-11-02",
-    "hotRank": 1,
-    "hotSource": "https://www.infzm.com/hot_contents?format=json",
-    "hotLabel": "南方周末热门文章",
-    "hotCheckedAt": "2026-11-02",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4276,120 +4542,6 @@ window.MAGAZINE_ARTICLES = [
   },
   {
     "publication": "infzm",
-    "title": "“一场巨大的冒险”：40岁单身女子，出国借精生子",
-    "url": "https://www.infzm.com/contents/342964",
-    "publishedAt": "2026-10-20",
-    "summary": "以个人经历为入口，分开理解生育选择、跨境制度与这则报道能够证实的信息范围。",
-    "checkedAt": "2026-10-26"
-  },
-  {
-    "publication": "infzm",
-    "title": "30天阅读挑战，今年只此一次，来玩吗？",
-    "url": "https://www.infzm.com/contents/342714",
-    "publishedAt": "2026-10-20",
-    "summary": "把这次活动当作阅读习惯实验：先核对参与规则，再想清楚记录天数与真正理解一本书有何区别。",
-    "checkedAt": "2026-10-26"
-  },
-  {
-    "publication": "infzm",
-    "title": "善择ESG风险跟踪第159期｜258家公司暴露ESG风险，永泰能源子公司煤矿再因超额生产被罚",
-    "url": "https://www.infzm.com/contents/343034",
-    "publishedAt": "2026-10-20",
-    "summary": "据标题的阅读切入点：《善择ESG风险跟踪第159期｜258家公司暴露ESG风险，永泰能源子公司煤矿再因超额生产被罚》。区分装机、实际发电与可调度能力；关注供需时段、基础设施和成本由谁承担，再判断方案的适用条件。",
-    "checkedAt": "2026-10-21",
-    "summaryBasis": "title-and-publication"
-  },
-  {
-    "publication": "infzm",
-    "title": "“还我白砂糖”冲上热搜：从“健康公敌”到“白月光”，白砂糖为何突然被全网心疼？",
-    "url": "https://www.infzm.com/contents/343026",
-    "publishedAt": "2026-10-20",
-    "summary": "据标题的阅读切入点：《“还我白砂糖”冲上热搜：从“健康公敌”到“白月光”，白砂糖为何突然被全网心疼？》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-10-21",
-    "summaryBasis": "title-and-publication"
-  },
-  {
-    "publication": "infzm",
-    "title": "对奇葩投诉说“不”",
-    "url": "https://www.infzm.com/contents/343016",
-    "publishedAt": "2026-10-20",
-    "summary": "据标题的阅读切入点：《对奇葩投诉说“不”》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-10-21",
-    "summaryBasis": "title-and-publication"
-  },
-  {
-    "publication": "infzm",
-    "title": "对话矩阵超智张海星：Optimus“标签”撕不掉，那就先一步上产线",
-    "url": "https://www.infzm.com/contents/343002",
-    "publishedAt": "2026-10-20",
-    "summary": "据标题的阅读切入点：《对话矩阵超智张海星：Optimus“标签”撕不掉，那就先一步上产线》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-10-21",
-    "summaryBasis": "title-and-publication"
-  },
-  {
-    "publication": "infzm",
-    "title": "半年新增37所本科院校：职业教育的“学历升级”",
-    "url": "https://www.infzm.com/contents/342994",
-    "publishedAt": "2026-10-20",
-    "summary": "据标题的阅读切入点：《半年新增37所本科院校：职业教育的“学历升级”》。区分个体经验、调查结果与教育主张；关注年龄、家庭及制度背景，避免把单一案例变成对所有人的要求。",
-    "checkedAt": "2026-10-21",
-    "summaryBasis": "title-and-publication"
-  },
-  {
-    "publication": "infzm",
-    "title": "顾彬：手机病 | 游说",
-    "url": "https://www.infzm.com/contents/342918",
-    "publishedAt": "2026-10-20",
-    "summary": "据标题的阅读切入点：《顾彬：手机病 | 游说》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-10-21",
-    "summaryBasis": "title-and-publication"
-  },
-  {
-    "publication": "infzm",
-    "title": "“爱你老己”，百年前出生的学者会怎么看？",
-    "url": "https://www.infzm.com/contents/342916",
-    "publishedAt": "2026-10-20",
-    "summary": "据标题的阅读切入点：《“爱你老己”，百年前出生的学者会怎么看？》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-10-21",
-    "summaryBasis": "title-and-publication"
-  },
-  {
-    "publication": "infzm",
-    "title": "车前子：大溪水 | 走走看看",
-    "url": "https://www.infzm.com/contents/342764",
-    "publishedAt": "2026-10-20",
-    "summary": "据标题的阅读切入点：《车前子：大溪水 | 走走看看》。先整理事件时间线、来源与各方说法；区分报道事实、因果解释和评论，检查是否遗漏关键背景。",
-    "checkedAt": "2026-10-21",
-    "summaryBasis": "title-and-publication"
-  },
-  {
-    "publication": "infzm",
-    "title": "趋势与样本：转折时刻的中国城市消费（下篇）——扩大消费成为必选项",
-    "url": "https://www.infzm.com/contents/343030",
-    "publishedAt": "2026-10-20",
-    "summary": "据标题的阅读切入点：《趋势与样本：转折时刻的中国城市消费（下篇）——扩大消费成为必选项》。观察需求、定价、渠道与品牌定位如何相互作用；区分个别案例和市场趋势，核对数据时间及样本范围。",
-    "checkedAt": "2026-10-20",
-    "summaryBasis": "title-and-publication"
-  },
-  {
-    "publication": "infzm",
-    "title": "趋势与样本：转折时刻的中国城市消费（上篇）——新旧动能转换，中国消费的警示时刻",
-    "url": "https://www.infzm.com/contents/343028",
-    "publishedAt": "2026-10-20",
-    "summary": "据标题的阅读切入点：《趋势与样本：转折时刻的中国城市消费（上篇）——新旧动能转换，中国消费的警示时刻》。观察需求、定价、渠道与品牌定位如何相互作用；区分个别案例和市场趋势，核对数据时间及样本范围。",
-    "checkedAt": "2026-10-20",
-    "summaryBasis": "title-and-publication"
-  },
-  {
-    "publication": "infzm",
-    "title": "25岁画师，受骗后轻生：被小额电诈围猎的年轻人",
-    "url": "https://www.infzm.com/contents/342956",
-    "publishedAt": "2026-10-19",
-    "summary": "可从信任怎样被利用、求助为何困难切入，避免把受害者的处境简化成一句“不够警惕”。",
-    "checkedAt": "2026-10-26"
-  },
-  {
-    "publication": "infzm",
     "title": "AI、机器人、芯片封测，上演“破产三姐妹”丨科创要闻",
     "url": "https://www.infzm.com/contents/342851",
     "publishedAt": "2026-10-19",
@@ -4401,11 +4553,38 @@ window.MAGAZINE_ARTICLES = [
   },
   {
     "publication": "scientificamerican",
+    "title": "This bull and donkey show interspecies homosexual bonds can run deep",
+    "url": "https://www.scientificamerican.com/article/this-bull-and-donkey-show-interspecies-homosexual-bonds-can-run-deep/",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《This bull and donkey show interspecies homosexual bonds can run deep》。关注观察地点、季节与样本范围；把物种行为、环境压力和人的解释分开，核对结论的适用边界。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "How to tell if a voice recording is AI-generated",
+    "url": "https://www.scientificamerican.com/article/how-to-tell-if-a-voice-recording-is-ai-generated/",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《How to tell if a voice recording is AI-generated》。记录研究尺度、实验体系和关键对照；作者从分子现象推到生物功能时，还需要补上哪些验证？",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "scientificamerican",
+    "title": "Ebola update, AI math scoop and permanent daylight saving time",
+    "url": "https://www.scientificamerican.com/podcast/episode/ebola-update-ai-math-scoop-and-permanent-daylight-saving-time/",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《Ebola update, AI math scoop and permanent daylight saving time》。先写清问题的定义与假设，再找关键论证；哪些是已证明结果，哪些是数值迹象或尚未解决的猜想？",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "scientificamerican",
     "title": "These tattoos can magically' disappear—here’s how they work",
     "url": "https://www.scientificamerican.com/article/these-tattoos-can-magically-disappear-heres-how-they-work/",
     "publishedAt": "2026-11-01",
     "summary": "据标题的阅读切入点：《These tattoos can magically' disappear—here’s how they work》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4414,7 +4593,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/how-your-brain-can-turn-your-own-reflection-into-something-unrecognizable/",
     "publishedAt": "2026-10-31",
     "summary": "据标题的阅读切入点：《How your brain can turn your own reflection into something unrecognizable》。区分相关性、实验干预与机制解释；留意参与者范围、测量方法和结果能否迁移到日常生活。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4423,7 +4602,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/how-to-fall-back-this-weekend-without-losing-your-mind/",
     "publishedAt": "2026-10-31",
     "summary": "据标题的阅读切入点：《How to ‘fall back’ this weekend without losing your mind》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4432,7 +4611,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/boo-see-the-universes-spookiest-sights-in-time-for-halloween/",
     "publishedAt": "2026-10-31",
     "summary": "据标题的阅读切入点：《Boo! See the universe’s spookiest sights in time for Halloween》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4441,7 +4620,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/math-puzzle-mysterious-pyramid/",
     "publishedAt": "2026-10-31",
     "summary": "据标题的阅读切入点：《Math Puzzle: Mysterious pyramid》。先写清问题的定义与假设，再找关键论证；哪些是已证明结果，哪些是数值迹象或尚未解决的猜想？",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4450,7 +4629,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/the-worlds-biggest-cities-are-sinking-is-yours-one-of-them/",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《The world’s biggest cities are sinking. Is yours one of them?》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4459,7 +4638,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/paleo-lighting-can-fix-your-brains-clock-after-daylight-savings/",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《‘Paleo lighting’ can fix your brain’s clock after daylight savings》。区分相关性、实验干预与机制解释；留意参与者范围、测量方法和结果能否迁移到日常生活。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4468,7 +4647,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/this-october-is-on-track-to-be-the-hottest-ever-recorded/",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《This October is on track to be the hottest ever recorded》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4477,7 +4656,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/an-exclusive-conversation-with-the-developer-of-rea-the-viral-ai-reverse-engineering-tool/",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《An exclusive conversation with the developer of REA, the viral AI reverse engineering tool》。区分模型能力、产品体验与商业承诺；核对具体任务、比较基线、数据限制与使用成本，避免把演示当成普遍能力。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4486,7 +4665,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/whats-the-scariest-thing-in-the-universe/",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《What’s the scariest thing in the universe?》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4495,7 +4674,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/podcast/episode/the-science-of-why-were-obsessed-with-vampires/",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《The science of why we’re obsessed with vampires》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4504,7 +4683,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/oldest-known-mars-rock-is-a-rosetta-stone-for-the-red-planets-watery-past/",
     "publishedAt": "2026-10-29",
     "summary": "据标题的阅读切入点：《Oldest known Mars rock is a ‘Rosetta stone’ for the Red Planet’s watery past》。把直接观测与模型推断分开记录；结论依赖哪些仪器、样本和误差范围，还有哪些替代解释？",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4513,7 +4692,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/scientists-can-now-rewire-living-brains/",
     "publishedAt": "2026-10-29",
     "summary": "据标题的阅读切入点：《Scientists can now rewire living brains》。区分相关性、实验干预与机制解释；留意参与者范围、测量方法和结果能否迁移到日常生活。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4522,7 +4701,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/five-things-you-need-to-know-about-the-trump-administrations-rollback-of-methane-regulations/",
     "publishedAt": "2026-10-29",
     "summary": "据标题的阅读切入点：《Five things you need to know about the Trump administration’s rollback of methane regulations》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4531,7 +4710,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/mathematicians-find-an-infinite-number-of-ramanujan-equations/",
     "publishedAt": "2026-10-29",
     "summary": "据标题的阅读切入点：《Mathematicians find an infinite number of Ramanujan equations》。先写清问题的定义与假设，再找关键论证；哪些是已证明结果，哪些是数值迹象或尚未解决的猜想？",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4540,7 +4719,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/can-the-worlds-religions-survive-the-existence-of-aliens/",
     "publishedAt": "2026-10-29",
     "summary": "据标题的阅读切入点：《Can the world’s religions survive the existence of aliens?》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4549,7 +4728,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/rfk-jr-loosens-restrictions-for-six-popular-peptides-bypassing-the-fda/",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《RFK, Jr., loosens restrictions for six popular peptides, bypassing the FDA》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4558,7 +4737,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/landmark-study-finds-three-in-four-nfl-players-die-with-cte/",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Landmark study finds three in four NFL players die with CTE》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4567,7 +4746,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/sci-fi-horror-collides-with-small-town-politics-in-john-scalzis-monsters-of-ohio/",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Sci-fi horror collides with small-town politics in John Scalzi’s Monsters of Ohio》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4576,7 +4755,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/animal-borne-shamonda-virus-infects-and-kills-a-human-for-the-first-time/",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Animal-borne Shamonda virus infects and kills a human for the first time》。关注观察地点、季节与样本范围；把物种行为、环境压力和人的解释分开，核对结论的适用边界。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4585,7 +4764,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/7-spooky-bat-facts-right-in-time-for-halloween/",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《7 spooky bat facts—right in time for Halloween》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4594,7 +4773,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/podcast/episode/why-science-is-on-the-ballot-in-the-2026-midterm-elections/",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Why science is on the ballot in the 2026 midterm elections》。先梳理事件时间线和各方立场；把已核实事实、当事人说法与作者判断分开，再看制度和历史背景如何影响解释。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4603,7 +4782,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/the-vera-c-rubin-observatory-may-have-just-discovered-our-solar-systems-sixth-dwarf-planet/",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《The Vera C. Rubin Observatory may have just discovered our solar system’s sixth dwarf planet》。把直接观测与模型推断分开记录；结论依赖哪些仪器、样本和误差范围，还有哪些替代解释？",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4612,7 +4791,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/openai-just-scooped-human-researchers-on-a-million-dollar-quantum-math-problem/",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《OpenAI just scooped human researchers on a million-dollar quantum math problem》。先分清研究对象、观测量与实验条件；哪些结论依赖理想模型，作者如何排除其他解释？",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4621,7 +4800,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/how-a-16th-century-pirate-accidentally-spawned-a-centuries-old-math-problem/",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《How a 16th century pirate accidentally spawned a centuries-old math problem》。先写清问题的定义与假设，再找关键论证；哪些是已证明结果，哪些是数值迹象或尚未解决的猜想？",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4630,7 +4809,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/cdc-deputy-director-jennifer-shuford-resigns-after-just-four-months-in-the-role/",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《CDC deputy director Jennifer Shuford resigns after just four months in the role》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4639,7 +4818,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/dueling-proofs-from-openai-and-anthropic-astound-scientists/",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《Dueling proofs from OpenAI and Anthropic astound scientists》。区分模型能力、产品体验与商业承诺；核对具体任务、比较基线、数据限制与使用成本，避免把演示当成普遍能力。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4648,7 +4827,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/sleep-and-depression-may-be-more-intertwined-than-we-thought/",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《Sleep and depression may be more intertwined than we thought》。区分相关性、实验干预与机制解释；留意参与者范围、测量方法和结果能否迁移到日常生活。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4657,7 +4836,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/underwater-data-centers-may-be-coming-to-the-u-s-smack-in-the-middle-of-endangered-whale-habitat/",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《Underwater data centers may be coming to the U.S.—smack in the middle of endangered whale habitat》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4666,7 +4845,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/why-well-never-have-another-black-death/",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《Why we’ll never have another Black Death》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4675,7 +4854,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/anthropics-s-1-filing-spotlights-safety-fears-and-science-ambitions-ahead-of-ipo/",
     "publishedAt": "2026-10-26",
     "summary": "据标题的阅读切入点：《Anthropic’s S-1 filing spotlights safety fears and science ambitions ahead of IPO》。核对收入、利润、现金流与估值各自的口径；关注风险由谁承担以及信息是否完整，不从报道直接推出交易决定。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4684,7 +4863,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/how-birds-can-quietly-spread-a-severe-form-of-pneumonia/",
     "publishedAt": "2026-10-26",
     "summary": "据标题的阅读切入点：《How birds can quietly spread a severe form of pneumonia》。关注观察地点、季节与样本范围；把物种行为、环境压力和人的解释分开，核对结论的适用边界。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4693,7 +4872,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/podcast/episode/snakes-that-cartwheel-vultures-that-groan-a-mysterious-martian-moon-and-more/",
     "publishedAt": "2026-10-26",
     "summary": "按题目选读：这是一组跨主题科学播客，可按动物行为或行星科学选择片段，再沿每项原始研究找方法与证据；趣闻标题不替代研究结论。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "scientificamerican",
@@ -4701,7 +4880,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/what-is-trypophobia-why-some-peoples-skin-crawls-when-they-see-tiny-holes/",
     "publishedAt": "2026-10-26",
     "summary": "据标题的阅读切入点：《What is trypophobia? Why some people's skin crawls when they see tiny holes》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4710,7 +4889,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/why-partisan-politics-may-be-changing-peoples-accents/",
     "publishedAt": "2026-10-25",
     "summary": "按题目选读：留意语言变化怎样测量、政治认同如何定义，以及地区和社交环境等替代解释；标题中的may提示仍需区分关联与因果。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "scientificamerican",
@@ -4718,7 +4897,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/meet-the-original-ghost-busters-the-17th-century-scientists-who-investigated-hauntings/",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：十七世纪研究者怎样调查所谓闹鬼？可从观察记录和替代解释学习证据方法。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "scientificamerican",
@@ -4726,7 +4905,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/math-puzzle-ring-liars/",
     "publishedAt": "2026-10-24",
     "summary": "据标题的阅读切入点：《Math Puzzle: Ring of liars》。先写清问题的定义与假设，再找关键论证；哪些是已证明结果，哪些是数值迹象或尚未解决的猜想？",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4735,7 +4914,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/nasa-lays-out-a-packed-14-day-schedule-for-2027s-artemis-iii-moon-mission/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：十四天登月任务有哪些关键节点和约束？规划中的安排不等于任务已经完成。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "scientificamerican",
@@ -4743,7 +4922,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/warhound-wants-to-engineer-and-clone-military-super-dogs-can-they-do-it/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：工程化与克隆军用犬的设想需要哪些技术及伦理验证？区分公司计划和实测能力。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "scientificamerican",
@@ -4751,7 +4930,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/strange-triangular-craft-reported-in-new-u-s-government-ufo-release/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：先查UFO材料的记录方式与可用数据；形状描述不能直接证明物体来源。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "scientificamerican",
@@ -4759,7 +4938,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/the-trump-administration-is-considering-a-heat-ray-weapon-for-the-border-heres-what-to-know/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：热射线装置的工作原理、适用条件和风险证据是什么？区分拟议用途与实际部署。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "scientificamerican",
@@ -4767,7 +4946,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/how-exposing-yourself-to-your-fears-can-tame-your-anxiety/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：暴露于恐惧刺激怎样与焦虑干预联系？留意研究对象，不能把阅读当治疗建议。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "scientificamerican",
@@ -4775,7 +4954,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/japans-mmx-mission-will-reveal-the-origins-of-weird-martian-moons/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：火星卫星起源有哪些竞争假说？看看MMX计划中的测量如何区分它们。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "scientificamerican",
@@ -4783,7 +4962,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/podcast/episode/how-the-brain-handles-uncertainty-and-why-resilience-matters/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：大脑处理不确定性的证据来自哪些任务？区分机制解释和日常韧性建议。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "scientificamerican",
@@ -4791,7 +4970,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/rfk-jr-promised-to-define-ultraprocessed-food-whats-taking-so-long/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：“超加工”定义涉及哪些分类标准与政策争议？留意研究概念和监管口径的区别。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "scientificamerican",
@@ -4799,7 +4978,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/heres-what-modernas-latest-mrna-cancer-vaccine-data-actually-show/",
     "publishedAt": "2026-10-22",
     "summary": "据标题的阅读切入点：《Here’s what the new Merck-Moderna mRNA cancer vaccine data actually show》。先确认是细胞、动物还是人体证据，再看对照、样本量和风险；科研报道的可能性不能直接当作个人诊疗建议。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -4808,7 +4987,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.scientificamerican.com/article/rfk-jr-adviser-calley-means-announces-his-resignation-from-the-trump-administration/",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：卫生政策顾问离任的背景与职权范围是什么？把人事消息、公开表态和已经实施的政策区分开。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "scientificamerican",
@@ -5068,33 +5247,6 @@ window.MAGAZINE_ARTICLES = [
     "summaryBasis": "title-and-publication"
   },
   {
-    "publication": "scientificamerican",
-    "title": "Science crossword: Scroll bars",
-    "url": "https://www.scientificamerican.com/article/science-crossword-scroll-bars/",
-    "publishedAt": "2026-10-20",
-    "summary": "据标题的阅读切入点：《Science crossword: Scroll bars》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-10-26",
-    "summaryBasis": "title-and-publication"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "What actually makes ultraprocessed foods unhealthy?",
-    "url": "https://www.scientificamerican.com/article/what-actually-makes-ultraprocessed-foods-unhealthy/",
-    "publishedAt": "2026-10-20",
-    "summary": "据标题的阅读切入点：《What actually makes ultraprocessed foods unhealthy?》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-10-26",
-    "summaryBasis": "title-and-publication"
-  },
-  {
-    "publication": "scientificamerican",
-    "title": "Readers respond to the June 2026 issue",
-    "url": "https://www.scientificamerican.com/article/readers-respond-to-the-june-2026-issue/",
-    "publishedAt": "2026-10-20",
-    "summary": "据标题的阅读切入点：《Readers respond to the June 2026 issue》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-10-26",
-    "summaryBasis": "title-and-publication"
-  },
-  {
     "title": "Can AI break encryption? OpenAI’s new math has cryptographers divided",
     "url": "https://www.scientificamerican.com/article/can-ai-break-encryption-openai-new-math-has-cryptographers-divided/",
     "publishedAt": "2026-10-15",
@@ -5118,11 +5270,110 @@ window.MAGAZINE_ARTICLES = [
   },
   {
     "publication": "nature",
+    "title": "Chinese PhD students in clinical medicine can graduate without a thesis — more degrees to follow",
+    "url": "https://www.nature.com/articles/d41586-026-03480-7",
+    "publishedAt": "2026-11-03",
+    "summary": "据标题的阅读切入点：《Chinese PhD students in clinical medicine can graduate without a thesis — more degrees to follow》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "nature",
+    "title": "Author Correction: mTORC1 drives cell-autonomous astrocyte reactivity in tuberous sclerosis",
+    "url": "https://www.nature.com/articles/s41586-026-11350-5",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《Author Correction: mTORC1 drives cell-autonomous astrocyte reactivity in tuberous sclerosis》。记录研究尺度、实验体系和关键对照；作者从分子现象推到生物功能时，还需要补上哪些验证？",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "nature",
+    "title": "Measles made a stealthy return as another virus took the spotlight",
+    "url": "https://www.nature.com/articles/d41586-026-03387-3",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《Measles made a stealthy return as another virus took the spotlight》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "nature",
+    "title": "Earth’s resources sustain humanity — but they come at a high price",
+    "url": "https://www.nature.com/articles/d41586-026-03506-0",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《Earth’s resources sustain humanity — but they come at a high price》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "nature",
+    "title": "What tech entrepreneurs can teach scientists about failure",
+    "url": "https://www.nature.com/articles/d41586-026-03485-2",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《What tech entrepreneurs can teach scientists about failure》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "nature",
+    "title": "Iranian scientists in the United States face major upheaval",
+    "url": "https://www.nature.com/articles/d41586-026-03346-y",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《Iranian scientists in the United States face major upheaval》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "nature",
+    "title": "Five overlooked steps to identify new epidemics, fast",
+    "url": "https://www.nature.com/articles/d41586-026-03509-x",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《Five overlooked steps to identify new epidemics, fast》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "nature",
+    "title": "Meet Neuropixels: how probes that track hundreds of brain cells at once are revolutionizing neuroscience",
+    "url": "https://www.nature.com/articles/d41586-026-03511-3",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《Meet Neuropixels: how probes that track hundreds of brain cells at once are revolutionizing neuroscience》。区分相关性、实验干预与机制解释；留意参与者范围、测量方法和结果能否迁移到日常生活。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "nature",
+    "title": "In Indonesia, PhD students blow the whistle on bad supervision",
+    "url": "https://www.nature.com/articles/d41586-026-02465-w",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《In Indonesia, PhD students blow the whistle on bad supervision》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "nature",
+    "title": "How researchers debunked ‘race science’: ‘a triumph of scientific self-correction’",
+    "url": "https://www.nature.com/articles/d41586-026-03507-z",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《How researchers debunked ‘race science’: ‘a triumph of scientific self-correction’》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "nature",
+    "title": "‘A perfect scientist, a perfect mum’: researchers mourn two biologists’ deaths in Spanish train crash",
+    "url": "https://www.nature.com/articles/d41586-026-03564-4",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《‘A perfect scientist, a perfect mum’: researchers mourn two biologists’ deaths in Spanish train crash》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "nature",
     "title": "Briefing Chat: Dog years: could longevity science extend your pets' lives?",
     "url": "https://www.nature.com/articles/d41586-026-03553-7",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《Briefing Chat: Dog years: could longevity science extend your pets' lives?》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5131,7 +5382,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11337-2",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《Author Correction: Rh3+ stabilized in KRh@MFI catalyses regioselective hydroformylation》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5140,7 +5391,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03543-9",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《Patrick Stewart dies: how Captain Picard inspired today’s science leaders》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5149,7 +5400,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03368-6",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《Somewhere over the transcontinental burrito tunnel》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5158,7 +5409,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03502-4",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《I built the UK government’s metascience unit — here’s what countries need to know》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5167,7 +5418,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03455-8",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《Record-breaking retraction: scholarly publisher pulls 1,400 conference papers on one day》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5176,7 +5427,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03512-2",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《Are dinosaur fossils hogging top journals? Analysis sparks debate over ‘charismatic’ finds》。记录研究尺度、实验体系和关键对照；作者从分子现象推到生物功能时，还需要补上哪些验证？",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5185,7 +5436,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03386-4",
     "publishedAt": "2026-10-29",
     "summary": "据标题的阅读切入点：《Even stupendous black holes can’t explain dark matter》。把直接观测与模型推断分开记录；结论依赖哪些仪器、样本和误差范围，还有哪些替代解释？",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5194,7 +5445,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03548-4",
     "publishedAt": "2026-10-29",
     "summary": "据标题的阅读切入点：《Daily briefing: The three red flags of suspicious journals》。记录研究尺度、实验体系和关键对照；作者从分子现象推到生物功能时，还需要补上哪些验证？",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5203,7 +5454,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03479-0",
     "publishedAt": "2026-10-29",
     "summary": "据标题的阅读切入点：《How the US mid-term elections could shake up science》。先梳理事件时间线和各方立场；把已核实事实、当事人说法与作者判断分开，再看制度和历史背景如何影响解释。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5212,7 +5463,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11348-z",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Switchable Chlorine Atom Transfer Radical Reactions》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5221,7 +5472,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11335-4",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Back-to-monomer depolymerization of silicones by deoxygenative chlorination》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5230,7 +5481,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03486-1",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Why did ancient humans avoid this lush paradise》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5239,7 +5490,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03484-3",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《This Arabian desert was once a lush paradise. Why did ancient humans avoid it?》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5248,7 +5499,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03260-3",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Accounting of Africa’s water reveals a management gap》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5257,7 +5508,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03444-x",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《The brain liquidates billions of mutant neurons around the time we’re born》。区分相关性、实验干预与机制解释；留意参与者范围、测量方法和结果能否迁移到日常生活。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5266,7 +5517,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03531-z",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Daily briefing: The big push to personalize psychiatry》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5275,7 +5526,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03263-0",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Tethered to stone: how rock and water availability shaped early desert occupation》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5284,7 +5535,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-02202-3",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《What students think about my teaching doesn’t matter. Am I wrong?》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5293,7 +5544,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03402-7",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《How personalization and psychedelics are revitalizing psychiatry》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5302,7 +5553,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03261-2",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Lactate takes a shortcut into mitochondria to power the heart》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5311,7 +5562,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03294-7",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Clues about complex life come from freshly cultivated archaea》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5320,7 +5571,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03445-w",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Preprint-centric publishing model gets major boost》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5329,7 +5580,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03325-3",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《These three red flags could unmask dodgy journals》。记录研究尺度、实验体系和关键对照；作者从分子现象推到生物功能时，还需要补上哪些验证？",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5338,7 +5589,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03476-3",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Is research funding now a lottery? Elite funder ERC swamped by applications》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5347,7 +5598,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03488-z",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Dengue comes back even in vaccinated people — new clues》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5356,7 +5607,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03391-7",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《The grand plan to transform psychiatry — by personalizing mental-health care》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5365,7 +5616,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03415-2",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Could a giant sunshade in space ‘solve global warming’? Scientists are taking the idea seriously》。把直接观测与模型推断分开记录；结论依赖哪些仪器、样本和误差范围，还有哪些替代解释？",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5374,7 +5625,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03288-5",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《An unexpected function of a cell-cycle enzyme might explain the toxic effects of its inhibitors》。记录研究尺度、实验体系和关键对照；作者从分子现象推到生物功能时，还需要补上哪些验证？",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5383,7 +5634,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03262-1",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Meta-study sparks questions about what it means to be good at regulating emotions》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5392,7 +5643,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03248-z",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《How the pandemic changed trust in science — in four charts》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5401,7 +5652,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03067-2",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Genetic variants that alter gene regulation in specific cell types are closely tied to disease》。先确认是细胞、动物还是人体证据，再看对照、样本量和风险；科研报道的可能性不能直接当作个人诊疗建议。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5410,7 +5661,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03298-3",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Ribbon made of carbon pentagons and heptagons has metallic properties》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5419,7 +5670,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03107-x",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Where have all the saucers flown?》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5428,7 +5679,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-02670-7",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《The shifting sands of research independence: why mid-career scientists crave security》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5437,7 +5688,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11180-5",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Stone and water governed early human settlement of the desert》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5446,7 +5697,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11211-1",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Clostridium perfringens Delta toxin targets CD9 to drive NEC and brain injury》。区分相关性、实验干预与机制解释；留意参与者范围、测量方法和结果能否迁移到日常生活。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5455,7 +5706,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-10438-2",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Tandem repeat variation shapes immune cell type-specific gene expression》。记录研究尺度、实验体系和关键对照；作者从分子现象推到生物功能时，还需要补上哪些验证？",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5464,7 +5715,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11223-x",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Delayed electron–hole recombination in a pseudo-direct semiconductor》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5473,7 +5724,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11190-3",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Perinatal elimination of genetically aberrant human cortical neurons》。区分相关性、实验干预与机制解释；留意参与者范围、测量方法和结果能否迁移到日常生活。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5482,7 +5733,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11195-y",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Connectome simulations identify a central pattern generator for fly walking》。记录研究尺度、实验体系和关键对照；作者从分子现象推到生物功能时，还需要补上哪些验证？",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5491,7 +5742,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11202-2",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Narrow carbon pentaheptite nanoribbon as a covalent metal》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5500,7 +5751,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-10966-x",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Molecular underpinnings of rheumatic diseases and emerging therapeutic concepts》。先确认是细胞、动物还是人体证据，再看对照、样本量和风险；科研报道的可能性不能直接当作个人诊疗建议。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5509,7 +5760,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11214-y",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Subcycle videography of Landau–Zener–Majorana transitions in graphene》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5518,7 +5769,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11181-4",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Diet at disease onset determines tissue inflammatory memory》。先确认是细胞、动物还是人体证据，再看对照、样本量和风险；科研报道的可能性不能直接当作个人诊疗建议。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5527,7 +5778,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11219-7",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《T and B cells recognize splicing-derived neutrophil neoantigens in lupus》。记录研究尺度、实验体系和关键对照；作者从分子现象推到生物功能时，还需要补上哪些验证？",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5536,7 +5787,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-10721-2",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Rare and common genetic variants shape single-cell immune gene expression》。记录研究尺度、实验体系和关键对照；作者从分子现象推到生物功能时，还需要补上哪些验证？",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5545,7 +5796,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11203-1",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Emotion regulation capacity lacks a shared neural signature》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5554,7 +5805,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11208-w",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Tumour assembloids recapitulate tumour–CAF–T cell crosstalk in renal cancer》。先确认是细胞、动物还是人体证据，再看对照、样本量和风险；科研报道的可能性不能直接当作个人诊疗建议。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5563,7 +5814,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11182-3",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《MCT1-dependent mitochondrial lactate import sustains cardiac metabolism》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5572,7 +5823,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11170-7",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Eukaryotes’ closest relatives are internally simple syntrophic peptidotrophic archaea》。记录研究尺度、实验体系和关键对照；作者从分子现象推到生物功能时，还需要补上哪些验证？",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5581,7 +5832,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11222-y",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Monolithically and in situ integrated PbS infrared imagers》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5590,7 +5841,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11227-7",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Time-reversal-symmetry-breaking spin injection from a compensated magnet》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5599,7 +5850,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11147-6",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《A single-molecule spin–photon interface》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5608,7 +5859,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11201-3",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Presynaptic homeostasis mediated by exocytosis of a SNARE protein》。记录研究尺度、实验体系和关键对照；作者从分子现象推到生物功能时，还需要补上哪些验证？",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5617,7 +5868,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11199-8",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Spatial and sectoral water demand assessment for the African continent》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5626,7 +5877,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11206-y",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Alzheimer’s disease genetics converges on microglial and neuronal dysregulation》。先确认是细胞、动物还是人体证据，再看对照、样本量和风险；科研报道的可能性不能直接当作个人诊疗建议。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5635,7 +5886,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11173-4",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Genetic variants shape single-cell chromatin accessibility and disease risk》。先确认是细胞、动物还是人体证据，再看对照、样本量和风险；科研报道的可能性不能直接当作个人诊疗建议。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5644,7 +5895,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11178-z",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Pharmacological inhibition of METTL1 as a therapy against solid and blood cancers》。先确认是细胞、动物还是人体证据，再看对照、样本量和风险；科研报道的可能性不能直接当作个人诊疗建议。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5653,7 +5904,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/s41586-026-11197-w",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《SWI/SNF complexes shape 3D chromatin architecture through CTCF and cohesin》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5662,7 +5913,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03404-5",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《The Nobel prize in economic science has a serious gender problem》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5671,7 +5922,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03388-2",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《Methane emissions remain flat even as biggest US oil region opens the tap》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5680,7 +5931,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03407-2",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《AI-hallucinated citations should be treated as research misconduct》。区分模型能力、产品体验与商业承诺；核对具体任务、比较基线、数据限制与使用成本，避免把演示当成普遍能力。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5689,7 +5940,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.nature.com/articles/d41586-026-03405-4",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《Short-term academic visits to China could sustain ties》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5739,60 +5990,6 @@ window.MAGAZINE_ARTICLES = [
   },
   {
     "publication": "nature",
-    "title": "Gene therapy that led to boy’s death had limited efficacy",
-    "url": "https://www.nature.com/articles/d41586-026-03449-6",
-    "publishedAt": "2026-10-27",
-    "summary": "据标题的阅读切入点：《Gene therapy that led to boy’s death had limited efficacy》。先确认是细胞、动物还是人体证据，再看对照、样本量和风险；科研报道的可能性不能直接当作个人诊疗建议。",
-    "checkedAt": "2026-11-02",
-    "summaryBasis": "title-and-publication"
-  },
-  {
-    "publication": "nature",
-    "title": "Daily briefing: The future of psychedelics",
-    "url": "https://www.nature.com/articles/d41586-026-03482-5",
-    "publishedAt": "2026-10-27",
-    "summary": "据标题的阅读切入点：《Daily briefing: The future of psychedelics》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
-    "summaryBasis": "title-and-publication"
-  },
-  {
-    "publication": "nature",
-    "title": "Why pharma firms are betting billions on psychedelic drugs despite setbacks",
-    "url": "https://www.nature.com/articles/d41586-026-03390-8",
-    "publishedAt": "2026-10-27",
-    "summary": "据标题的阅读切入点：《Why pharma firms are betting billions on psychedelic drugs despite setbacks》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
-    "summaryBasis": "title-and-publication"
-  },
-  {
-    "publication": "nature",
-    "title": "Revered NASA spacecraft is about to perish in flames — astronomers are mourning",
-    "url": "https://www.nature.com/articles/d41586-026-03461-w",
-    "publishedAt": "2026-10-27",
-    "summary": "据标题的阅读切入点：《Revered NASA spacecraft is about to perish in flames — astronomers are mourning》。把直接观测与模型推断分开记录；结论依赖哪些仪器、样本和误差范围，还有哪些替代解释？",
-    "checkedAt": "2026-11-02",
-    "summaryBasis": "title-and-publication"
-  },
-  {
-    "publication": "nature",
-    "title": "Could measuring immune health reshape medical care?",
-    "url": "https://www.nature.com/articles/d41586-026-03396-2",
-    "publishedAt": "2026-10-27",
-    "summary": "据标题的阅读切入点：《Could measuring immune health reshape medical care?》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
-    "summaryBasis": "title-and-publication"
-  },
-  {
-    "publication": "nature",
-    "title": "Mysterious flickering brain signals could help to unlock secrets of consciousness",
-    "url": "https://www.nature.com/articles/d41586-026-03384-6",
-    "publishedAt": "2026-10-27",
-    "summary": "据标题的阅读切入点：《Mysterious flickering brain signals could help to unlock secrets of consciousness》。区分相关性、实验干预与机制解释；留意参与者范围、测量方法和结果能否迁移到日常生活。",
-    "checkedAt": "2026-11-02",
-    "summaryBasis": "title-and-publication"
-  },
-  {
-    "publication": "nature",
     "title": "Are salaries getting worse? Many scientists think so",
     "url": "https://www.nature.com/articles/d41586-026-03398-0",
     "publishedAt": "2026-10-26",
@@ -5800,38 +5997,6 @@ window.MAGAZINE_ARTICLES = [
     "checkedAt": "2026-10-26",
     "featuredReason": "适合研究生把职业感受转成可比较的问题：关注地区、职位阶段、样本与生活成本，区分收入变化和对职业前景的感受。",
     "featuredPriority": 6
-  },
-  {
-    "publication": "nature",
-    "title": "The Selfish Gene, 50 years on — it’s time for an update",
-    "url": "https://www.nature.com/articles/d41586-026-03393-5",
-    "publishedAt": "2026-10-26",
-    "summary": "按题目选读：对照原有概念与作者认为需要更新的部分，区分理论解释、后续证据和评论立场；适合练习追踪经典论述的适用边界。",
-    "checkedAt": "2026-10-26"
-  },
-  {
-    "publication": "nature",
-    "title": "ctDNA clearance and outcomes for resectable lung cancer from NeoCOAST-2",
-    "url": "https://www.nature.com/articles/s41586-026-11328-3",
-    "publishedAt": "2026-10-25",
-    "summary": "按题目选读：先确认研究设计、ctDNA清除的定义和临床终点，再看相关性与预测价值的验证；不由题目推出治疗有效性或个体预后。",
-    "checkedAt": "2026-10-26"
-  },
-  {
-    "publication": "nature",
-    "title": "Author Correction: DYNLL1 binds to MRE11 to limit DNA end resection in BRCA1-deficient cells",
-    "url": "https://www.nature.com/articles/s41586-026-11303-y",
-    "publishedAt": "2026-10-23",
-    "summary": "按题目选读：这是作者更正，应先对照原论文与改动范围；更正标题不代表出现新的实验结论。",
-    "checkedAt": "2026-10-26"
-  },
-  {
-    "publication": "nature",
-    "title": "Elusive snow leopards and evasive particles: Books in brief",
-    "url": "https://www.nature.com/articles/d41586-026-03395-3",
-    "publishedAt": "2026-10-23",
-    "summary": "按题目选读：短书评怎样串联雪豹与粒子等主题？可以从选书问题进入，再查书籍本身。",
-    "checkedAt": "2026-10-26"
   },
   {
     "publication": "nature",
@@ -5929,11 +6094,29 @@ window.MAGAZINE_ARTICLES = [
   },
   {
     "publication": "sciencenews",
+    "title": "Newborn survival improves when families receive financial support",
+    "url": "https://www.sciencenews.org/article/newborn-cash-support-survival",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《Newborn survival improves when families receive financial support》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "sciencenews",
+    "title": "Melting permafrost has birthed a new type of large landslide",
+    "url": "https://www.sciencenews.org/article/melting-permafrost-new-type-landslide",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《Melting permafrost has birthed a new type of large landslide》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "sciencenews",
     "title": "This Halloween, amateur astronomers may be in for a dwarf planet treat",
     "url": "https://www.sciencenews.org/article/halloween-astronomers-dwarf-planet",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《This Halloween, amateur astronomers may be in for a dwarf planet treat》。把直接观测与模型推断分开记录；结论依赖哪些仪器、样本和误差范围，还有哪些替代解释？",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5942,7 +6125,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/exhumed-aaron-mahnke-vampire-book",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《‘Exhumed’ recounts the true story of America’s first vampire》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5951,7 +6134,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/nasa-swift-telescope-gamma-ray-burst",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《NASA’s Swift telescope will face a fiery demise after a failed rescue》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5960,7 +6143,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/urine-test-bladder-cancer-analyze-rna",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《A proof-of-concept test can spot bladder cancer in urine》。先确认是细胞、动物还是人体证据，再看对照、样本量和风险；科研报道的可能性不能直接当作个人诊疗建议。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5969,7 +6152,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/seabird-jet-lag-navigation-off-course",
     "publishedAt": "2026-10-29",
     "summary": "据标题的阅读切入点：《Seabirds get jet lag, too — and it can throw them a bit off course》。关注观察地点、季节与样本范围；把物种行为、环境压力和人的解释分开，核对结论的适用边界。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5978,7 +6161,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/bats-get-smaller-madagascan-flying-fox",
     "publishedAt": "2026-10-29",
     "summary": "据标题的阅读切入点：《Some of the world’s biggest bats are getting smaller》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5987,7 +6170,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/mars-cloud-homogenous-nucleation",
     "publishedAt": "2026-10-29",
     "summary": "据标题的阅读切入点：《A striking Mars cloud may be born from surprising physics》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -5996,7 +6179,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/football-nfl-players-cte-brain-disease",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Three-quarters of NFL football players may end up with CTE》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -6005,7 +6188,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/flamingos-dance-eat-scientist",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Why do flamingos dance while they eat? This scientist found out》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -6014,7 +6197,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/comet-chemistry-life-earth-speed-sharp",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《Comets probably didn’t deliver life’s building blocks to Earth》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -6023,7 +6206,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/brain-implants-thoughts-speech-podcast",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《How brain implants turn thoughts into speech》。先确认是细胞、动物还是人体证据，再看对照、样本量和风险；科研报道的可能性不能直接当作个人诊疗建议。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -6032,7 +6215,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/extreme-roller-coaster-brain-safety",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《Roller coaster safety is a matter of science》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -6041,7 +6224,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/d-rex-fungus-mushroom-dinosaurs-china",
     "publishedAt": "2026-10-27",
     "summary": "据标题的阅读切入点：《After the dinosaurs died, the massive ‘D. rex’ fungus ruled the woods》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -6050,7 +6233,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/volcanoes-impact-human-history-climate",
     "publishedAt": "2026-10-26",
     "summary": "据标题的阅读切入点：《Volcanoes lurk behind the scenes of human history》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -6059,7 +6242,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/claude-bird-flu-research-ai-biology",
     "publishedAt": "2026-10-26",
     "summary": "据标题的阅读切入点：《Claude helped plan risky bird flu research. What did the AI add?》。关注观察地点、季节与样本范围；把物种行为、环境压力和人的解释分开，核对结论的适用边界。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -6068,7 +6251,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/ed-note-november-2026",
     "publishedAt": "2026-10-24",
     "summary": "按题目选读：这篇编者文字如何定义“人的声音”？留意它与本期报道的编辑联系。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "sciencenews",
@@ -6076,7 +6259,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/human-chimp-brains-different-virus-dna",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：病毒相关DNA与脑演化的联系怎样研究？区分遗传关联、功能实验和宏观叙事。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "sciencenews",
@@ -6084,7 +6267,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/sugar-antibiotics-squash-gut-bacteria",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：糖摄入与抗生素对肠道菌的影响在哪种体系观察？不要直接外推到个人用药。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "sciencenews",
@@ -6100,11 +6283,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/car-t-cell-therapy-autoimmune-diseases",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：细胞疗法用于自身免疫病处在哪个验证阶段？疗效、安全性和随访需分别阅读。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "hotRank": 8,
     "hotSource": "https://www.sciencenews.org/",
     "hotLabel": "Trending Stories",
-    "hotCheckedAt": "2026-11-02"
+    "hotCheckedAt": "2026-11-03"
   },
   {
     "publication": "sciencenews",
@@ -6188,11 +6371,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.sciencenews.org/article/tiny-snakes-cartwheel-escape-video",
     "publishedAt": "2026-10-19",
     "summary": "据标题的阅读切入点：《These tiny snakes cartwheel to escape danger》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "hotRank": 1,
     "hotSource": "https://www.sciencenews.org/",
     "hotLabel": "Trending Stories",
-    "hotCheckedAt": "2026-11-02",
+    "hotCheckedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -6266,11 +6449,11 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-14",
     "summary": "据标题的阅读切入点：《Voyager 1 is nearly one light-day from Earth. What’s out there?》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
     "publication": "sciencenews",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "hotRank": 2,
     "hotSource": "https://www.sciencenews.org/",
     "hotLabel": "Trending Stories",
-    "hotCheckedAt": "2026-11-02",
+    "hotCheckedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -6344,11 +6527,11 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-09",
     "summary": "据标题的阅读切入点：《How the Grand Canyon could have lost 1 billion years of geologic history》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
     "publication": "sciencenews",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "hotRank": 6,
     "hotSource": "https://www.sciencenews.org/",
     "hotLabel": "Trending Stories",
-    "hotCheckedAt": "2026-11-02",
+    "hotCheckedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -6366,11 +6549,11 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-08",
     "summary": "据标题的阅读切入点：《An experimental drug kills fat cells, rather than shrinking them》。记录研究尺度、实验体系和关键对照；作者从分子现象推到生物功能时，还需要补上哪些验证？",
     "publication": "sciencenews",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "hotRank": 5,
     "hotSource": "https://www.sciencenews.org/",
     "hotLabel": "Trending Stories",
-    "hotCheckedAt": "2026-11-02",
+    "hotCheckedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -6415,11 +6598,11 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-24",
     "summary": "据标题的阅读切入点：《Meet the newest living cat species, the first described in 100 years》。关注观察地点、季节与样本范围；把物种行为、环境压力和人的解释分开，核对结论的适用边界。",
     "publication": "sciencenews",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "hotRank": 3,
     "hotSource": "https://www.sciencenews.org/",
     "hotLabel": "Trending Stories",
-    "hotCheckedAt": "2026-11-02",
+    "hotCheckedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -6464,11 +6647,11 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-16",
     "summary": "据标题的阅读切入点：《Alzheimer’s damage may begin outside the brain》。区分相关性、实验干预与机制解释；留意参与者范围、测量方法和结果能否迁移到日常生活。",
     "publication": "sciencenews",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "hotRank": 4,
     "hotSource": "https://www.sciencenews.org/",
     "hotLabel": "Trending Stories",
-    "hotCheckedAt": "2026-11-02",
+    "hotCheckedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -6477,11 +6660,11 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2025-04-11",
     "summary": "据标题的阅读切入点：《An overlooked organ may help the ovary function》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
     "publication": "sciencenews",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "hotRank": 7,
     "hotSource": "https://www.sciencenews.org/",
     "hotLabel": "Trending Stories",
-    "hotCheckedAt": "2026-11-02",
+    "hotCheckedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -7882,11 +8065,83 @@ window.MAGAZINE_ARTICLES = [
   },
   {
     "publication": "smithsonian",
+    "title": "Engineers Delicately Removed the Masts From This Bomb-Laden World War II Shipwreck in the River Thames. But 1,500 Tons of Explosives Are Still in Place",
+    "url": "https://www.smithsonianmag.com/smart-news/engineers-delicately-removed-the-masts-from-this-bomb-laden-world-war-2-shipwreck-in-the-river-thames-but-1500-tons-of-explosives-are-still-in-place-180989798/",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《Engineers Delicately Removed the Masts From This Bomb-Laden World War II Shipwreck in the River Thames. But 1,500 Tons of Explosives Are Still in Place》。先梳理事件时间线和各方立场；把已核实事实、当事人说法与作者判断分开，再看制度和历史背景如何影响解释。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "smithsonian",
+    "title": "Scientists Feared This Cute but Venomous Primate Had Gone Extinct Nearly 100 Years Ago. It Was Hiding in Plain Sight All Along",
+    "url": "https://www.smithsonianmag.com/smart-news/for-nearly-100-years-scientists-feared-this-cute-but-venomous-primate-had-gone-extinct-it-was-hiding-in-plain-sight-all-along-180989795/",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《Scientists Feared This Cute but Venomous Primate Had Gone Extinct Nearly 100 Years Ago. It Was Hiding in Plain Sight All Along》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "smithsonian",
+    "title": "Do Spiders Dream? These Arachnids Twitch, Curl Their Legs and Move Their Eyes When Asleep, Hinting at a Complex Brain State",
+    "url": "https://www.smithsonianmag.com/smart-news/do-spiders-dream-these-arachnids-twitch-curl-their-legs-and-move-their-eyes-when-asleep-hinting-at-a-complex-brain-state-180989789/",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《Do Spiders Dream? These Arachnids Twitch, Curl Their Legs and Move Their Eyes When Asleep, Hinting at a Complex Brain State》。区分相关性、实验干预与机制解释；留意参与者范围、测量方法和结果能否迁移到日常生活。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "smithsonian",
+    "title": "As Most of England Relaxed Its Stance on Witchcraft, One Hardline City Bucked the Trend. It Even Went After 'Service Magicians,' Who Used Magic to Investigate Petty Crimes",
+    "url": "https://www.smithsonianmag.com/smart-news/as-most-of-england-relaxed-its-stance-on-witchcraft-one-hardline-city-bucked-the-trend-it-even-went-after-service-magicians-who-used-magic-to-investigate-petty-crimes-180989794/",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《As Most of England Relaxed Its Stance on Witchcraft, One Hardline City Bucked the Trend. It Even Went After 'Service Magicians,' Who Used Magic to Investigate Petty Crimes》。核对收入、利润、现金流与估值各自的口径；关注风险由谁承担以及信息是否完整，不从报道直接推出交易决定。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "smithsonian",
+    "title": "How an Irish Backroad Tradition Is Rolling Into Small-Town America",
+    "url": "https://www.smithsonianmag.com/travel/how-an-irish-backroad-tradition-is-rolling-into-small-town-america-180989768/",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《How an Irish Backroad Tradition Is Rolling Into Small-Town America》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "smithsonian",
+    "title": "After Sitting in a London Museum Since 1924, This Dinosaur Fossil Was Named a New Predatory Species—an 'Unconquered Female Warrior'",
+    "url": "https://www.smithsonianmag.com/smart-news/after-sitting-in-a-london-museum-since-1924-this-dinosaur-fossil-was-named-a-new-predatory-species-an-unconquered-female-warrior-180989683/",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《After Sitting in a London Museum Since 1924, This Dinosaur Fossil Was Named a New Predatory Species—an 'Unconquered Female Warrior'》。关注观察地点、季节与样本范围；把物种行为、环境压力和人的解释分开，核对结论的适用边界。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "smithsonian",
+    "title": "Melting Ice in the Italian Dolomites Exposes Hundreds of World War I Munitions, Vestiges of the Vertiginous 'White War'",
+    "url": "https://www.smithsonianmag.com/smart-news/melting-ice-in-the-italian-dolomites-exposes-hundreds-of-world-war-i-munitions-vestiges-of-the-vertiginous-winter-war-180989787/",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《Melting Ice in the Italian Dolomites Exposes Hundreds of World War I Munitions, Vestiges of the Vertiginous 'White War'》。先梳理事件时间线和各方立场；把已核实事实、当事人说法与作者判断分开，再看制度和历史背景如何影响解释。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "smithsonian",
+    "title": "Tired of the Winter Blues? The Unique Festival of Lights Zagreb Marks the Much-Anticipated Arrival of Spring",
+    "url": "https://www.smithsonianmag.com/sponsored/tired-of-the-winter-blues-the-unique-festival-of-lights-zagreb-marks-the-much-anticipated-arrival-of-spring-180989751/",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《Tired of the Winter Blues? The Unique Festival of Lights Zagreb Marks the Much-Anticipated Arrival of Spring》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
+    "checkedAt": "2026-11-03",
+    "summaryBasis": "title-and-publication"
+  },
+  {
+    "publication": "smithsonian",
     "title": "Crafted From Bone, This 2,800-Year-Old Flute Unearthed in Troy May Have Been Played Around the Time That Homer Composed 'The Iliad' and 'The Odyssey'",
     "url": "https://www.smithsonianmag.com/smart-news/crafted-from-bone-this-2800-year-old-flute-unearthed-in-troy-may-have-been-played-around-the-time-that-homer-composed-the-iliad-and-the-odyssey-180989792/",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《Crafted From Bone, This 2,800-Year-Old Flute Unearthed in Troy May Have Been Played Around the Time That Homer Composed 'The Iliad' and 'The Odyssey'》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -7895,7 +8150,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.smithsonianmag.com/smart-news/a-dog-left-a-paw-print-on-this-mud-brick-4000-years-ago-archaeologists-discovered-it-in-the-rubble-of-a-bronze-age-house-180989785/",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《A Dog Left a Paw Print on This Mud Brick 4,000 Years Ago. Archaeologists Discovered It in the Rubble of a Bronze Age House》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -7976,7 +8231,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.smithsonianmag.com/arts-culture/cult-grew-around-first-emperor-rome-27-bce-new-book-argues-followers-created-template-christ-180989647/",
     "publishedAt": "2026-10-29",
     "summary": "据标题的阅读切入点：《A Cult Grew Around the First Emperor of Rome in 27 B.C. A New Book Argues His Followers Might Have Created the Template for Christianity》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -7985,7 +8240,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.smithsonianmag.com/arts-culture/how-astronomers-art-historians-working-together-identify-inspiration-behind-famous-works-art-180989649/",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《How Astronomers and Art Historians Are Working Together to Identify the Inspiration Behind Famous Works of Art》。把直接观测与模型推断分开记录；结论依赖哪些仪器、样本和误差范围，还有哪些替代解释？",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -7994,7 +8249,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.smithsonianmag.com/history/two-years-after-world-war-ii-ended-this-ship-brought-the-bodies-of-6251-fallen-service-members-back-home-to-america-180989740/",
     "publishedAt": "2026-10-26",
     "summary": "据标题的阅读切入点：《Two Years After World War II Ended, This Ship Brought the Bodies of 6,251 Fallen Service Members Back Home to America》。先梳理事件时间线和各方立场；把已核实事实、当事人说法与作者判断分开，再看制度和历史背景如何影响解释。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -8003,7 +8258,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.smithsonianmag.com/history/archaeologists-ancient-maya-metropolist-forest-belize-debunking-long-held-myth-about-mesoamerican-civilization-180989648/",
     "publishedAt": "2026-10-26",
     "summary": "按题目选读：把考古发现、年代测定和作者要修正的旧说逐一对应，留意证据覆盖范围；标题中的去神话不意味着所有争议都已解决。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "smithsonian",
@@ -8027,7 +8282,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.smithsonianmag.com/history/ivan-the-terrible-wanted-to-marry-elizabeth-i-how-did-englands-virgin-queen-reject-the-russian-czar-without-souring-trade-relations-180989656/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：婚姻外交与贸易关系怎样相互牵制？对照书信、历史记录和后世解释。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "smithsonian",
@@ -8035,7 +8290,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.smithsonianmag.com/arts-culture/wildwood-is-the-longest-stop-motion-animated-film-ever-each-frame-of-the-movie-is-a-marvel-of-handcrafted-world-building-180989742/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：逐帧动画的手工世界怎样建成？留意制作尺度、镜头安排与工艺取舍。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "smithsonian",
@@ -8099,7 +8354,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.smithsonianmag.com/history/pretty-boy-floyd-one-of-the-most-notorious-outlaws-of-the-great-depression-was-shot-and-killed-in-an-fbi-raid-92-years-ago-180989725/",
     "publishedAt": "2026-10-22",
     "summary": "按题目选读：怎样在历史人物的传奇和档案记录之间建立距离？关注执法过程、时代背景与公众形象的形成。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "smithsonian",
@@ -8157,7 +8412,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.smithsonianmag.com/history/were-two-chinese-astronomers-were-beheaded-for-failing-to-predict-an-eclipse-2134-bce-the-story-may-be-a-myth-but-it-underscores-the-real-risks-of-interpreting-celestial-events-180989715/",
     "publishedAt": "2026-10-21",
     "summary": "把日食预报失误受罚的故事放回史料脉络，区分传说真实性与天象解释在政治中的实际风险。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "smithsonian",
@@ -8371,7 +8626,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-16",
     "summary": "据标题的阅读切入点：《Arthur Conan Doyle Based Sherlock Holmes on a Real-Life Scottish Surgeon Who Used Deduction to Diagnose Patients and Investigate Crimes》。核对收入、利润、现金流与估值各自的口径；关注风险由谁承担以及信息是否完整，不从报道直接推出交易决定。",
     "publication": "smithsonian",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -8461,7 +8716,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-09",
     "summary": "据标题的阅读切入点：《Celebrate Indigenous Peoples’ Day With These 15 Dramatic Images of the Rich, Enduring Traditions of Native Americans》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
     "publication": "smithsonian",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -8470,7 +8725,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-08",
     "summary": "据标题的阅读切入点：《From Slasher Films to Vampire Flicks, Horror Movies Are More Popular Than Ever. Relive the Genre's Scariest Moments—if You Dare—at a New Exhibition》。区分作品或赛事本身、产业环境和个人评价；找出支撑判断的具体细节，避免只记住评分、输赢或热度。",
     "publication": "smithsonian",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -8479,7 +8734,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-01",
     "summary": "据标题的阅读切入点：《The Marquis de Lafayette's Brother-in-Law Participated in Three Revolutionary Wars, Supporting American Independence but Brutally Suppressing an Uprising by Enslaved Africans in Haiti》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
     "publication": "smithsonian",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -8488,7 +8743,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-28",
     "summary": "据标题的阅读切入点：《Who Wrote Elizabeth I's Most Scathing Letters? New Research Suggests the Tudor Queen's Male Secretaries Revised Her Correspondence to Emphasize Her Temper》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
     "publication": "smithsonian",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication",
     "featuredReason": "从历史书信的作者与修订痕迹进入史料判断，区分记录与解释。",
     "featuredPriority": 42
@@ -8499,79 +8754,16 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-24",
     "summary": "据标题的阅读切入点：《During the American Revolution, the City of Lancaster, Pennsylvania, Served as the United States' Capital for Just One Day》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
     "publication": "smithsonian",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
-    "title": "This Social Worker Was Supposed to Help Orphans Find Homes. Instead, She Abducted Children Who Already Had Families and Sold Them for Profit",
-    "url": "https://www.smithsonianmag.com/history/this-social-worker-was-supposed-to-help-orphans-find-homes-instead-she-abducted-children-who-already-had-families-and-sold-them-for-profit-180989543/",
-    "publishedAt": "2026-09-23",
-    "summary": "据标题的阅读切入点：《This Social Worker Was Supposed to Help Orphans Find Homes. Instead, She Abducted Children Who Already Had Families and Sold Them for Profit》。从岗位、组织和个人选择三个层面读；核对案例背景与制度约束，思考哪些经验可迁移、哪些依赖特定条件。",
-    "publication": "smithsonian",
-    "checkedAt": "2026-11-02",
-    "summaryBasis": "title-and-publication"
-  },
-  {
-    "title": "The Founders of the 'New York Times' Pledged to Cover 'Every Subject of Public Importance.' 175 Years Later, the Paper Continues to Publish 'All the News That's Fit to Print'",
-    "url": "https://www.smithsonianmag.com/history/the-founders-of-the-new-york-times-pledged-to-cover-every-subject-of-public-importance-175-years-later-the-paper-continues-to-publish-all-the-news-thats-fit-to-print-180989512/",
-    "publishedAt": "2026-09-18",
-    "summary": "据标题的阅读切入点：《The Founders of the 'New York Times' Pledged to Cover 'Every Subject of Public Importance.' 175 Years Later, the Paper Continues to Publish 'All the News That's Fit to Print'》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "publication": "smithsonian",
-    "checkedAt": "2026-11-02",
-    "summaryBasis": "title-and-publication"
-  },
-  {
-    "title": "Six Ways That People of the Past Used Magic to Protect Their Homes, From Witch Bottles to Mystical Symbols",
-    "url": "https://www.smithsonianmag.com/history/six-ways-that-people-of-the-past-used-magic-to-protect-their-homes-from-witch-bottles-to-mystical-symbols-180989493/",
-    "publishedAt": "2026-09-15",
-    "summary": "据标题的阅读切入点：《Six Ways That People of the Past Used Magic to Protect Their Homes, From Witch Bottles to Mystical Symbols》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "publication": "smithsonian",
-    "checkedAt": "2026-11-02",
-    "summaryBasis": "title-and-publication"
-  },
-  {
-    "title": "The Real Story Behind 'The Uprising' and the 1381 Peasants' Revolt, When Thousands Marched on London to Demand a Fairer Society",
-    "url": "https://www.smithsonianmag.com/history/the-real-story-behind-the-uprising-and-the-1381-peasants-revolt-when-thousands-marched-on-london-to-demand-a-fairer-society-180989464/",
-    "publishedAt": "2026-09-09",
-    "summary": "据标题的阅读切入点：《The Real Story Behind 'The Uprising' and the 1381 Peasants' Revolt, When Thousands Marched on London to Demand a Fairer Society》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "publication": "smithsonian",
-    "checkedAt": "2026-11-02",
-    "summaryBasis": "title-and-publication"
-  },
-  {
-    "title": "How Did the Nation Get Its Name? Other Suggestions Included the United Colonies, Columbia and the United States of Alleghania",
-    "url": "https://www.smithsonianmag.com/history/how-did-the-nation-get-its-name-other-suggestions-included-the-united-colonies-columbia-and-the-united-states-of-alleghania-180989435/",
-    "publishedAt": "2026-09-08",
-    "summary": "据标题的阅读切入点：《How Did the Nation Get Its Name? Other Suggestions Included the United Colonies, Columbia and the United States of Alleghania》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "publication": "smithsonian",
-    "checkedAt": "2026-11-02",
-    "summaryBasis": "title-and-publication"
-  },
-  {
-    "title": "To Defeat the Royal Navy During the American Revolution, a Rebel Inventor Designed a Secret Weapon: a Bomb-Carrying Submarine",
-    "url": "https://www.smithsonianmag.com/history/to-defeat-the-royal-navy-during-the-american-revolution-a-rebel-inventor-designed-a-secret-weapon-a-bomb-carrying-submarine-180989400/",
-    "publishedAt": "2026-09-03",
-    "summary": "据标题的阅读切入点：《To Defeat the Royal Navy During the American Revolution, a Rebel Inventor Designed a Secret Weapon: a Bomb-Carrying Submarine》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "publication": "smithsonian",
-    "checkedAt": "2026-11-02",
-    "summaryBasis": "title-and-publication"
-  },
-  {
-    "title": "Some of the Earliest Automobile Enthusiasts Signed Up to Help the Allies in WWI. They Also Ushered in the Mechanization of War",
-    "url": "https://www.smithsonianmag.com/history/some-earliest-automobile-enthusiasts-signed-up-help-allies-world-war-i-also-ushered-in-mechanization-war-180989285/",
-    "publishedAt": "2026-09-01",
-    "summary": "据标题的阅读切入点：《Some of the Earliest Automobile Enthusiasts Signed Up to Help the Allies in WWI. They Also Ushered in the Mechanization of War》。先梳理事件时间线和各方立场；把已核实事实、当事人说法与作者判断分开，再看制度和历史背景如何影响解释。",
-    "publication": "smithsonian",
-    "checkedAt": "2026-10-26",
-    "summaryBasis": "title-and-publication"
-  },
-  {
-    "title": "‘Rocky’ Is the Story of an Underdog, Created by an Underdog, That Has Spawned Box-Office Champions for Half a Century",
-    "url": "https://www.smithsonianmag.com/arts-culture/rocky-story-underdog-created-underdog-spawned-box-office-champions-half-century-180989274/",
-    "publishedAt": "2026-08-31",
-    "summary": "据标题的阅读切入点：《‘Rocky’ Is the Story of an Underdog, Created by an Underdog, That Has Spawned Box-Office Champions for Half a Century》。从作者选取的细节与观察角度入手；区分个人体验、文化解释与普遍判断，记录一个与你自身经验相关的问题。",
-    "publication": "smithsonian",
-    "checkedAt": "2026-10-26",
+    "publication": "quanta",
+    "title": "Is There Anything Left in the Dream of Cold Fusion?",
+    "url": "https://www.quantamagazine.org/is-there-anything-left-in-the-dream-of-cold-fusion-20261102/",
+    "publishedAt": "2026-11-02",
+    "summary": "据标题的阅读切入点：《Is There Anything Left in the Dream of Cold Fusion?》。分清理论、实验装置与工程应用；关注稳定性、能量收支和验证条件，避免把单点突破当成可用系统。",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -8580,11 +8772,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.quantamagazine.org/a-new-map-of-empty-space-challenges-a-tranquil-picture-of-the-galaxy-20261030/",
     "publishedAt": "2026-10-30",
     "summary": "据标题的阅读切入点：《A New Map of ‘Empty’ Space Challenges a Tranquil Picture of the Galaxy》。把直接观测与模型推断分开记录；结论依赖哪些仪器、样本和误差范围，还有哪些替代解释？",
-    "checkedAt": "2026-11-02",
-    "hotRank": 2,
+    "checkedAt": "2026-11-03",
+    "hotRank": 1,
     "hotSource": "https://www.quantamagazine.org/",
     "hotLabel": "Past Week · Most Read Articles",
-    "hotCheckedAt": "2026-11-02",
+    "hotCheckedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -8593,12 +8785,12 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.quantamagazine.org/how-do-you-take-a-picture-of-a-black-hole-20261029/",
     "publishedAt": "2026-10-29",
     "summary": "据标题的阅读切入点：《How Do You Take a Picture of a Black Hole?》。把直接观测与模型推断分开记录；结论依赖哪些仪器、样本和误差范围，还有哪些替代解释？",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication",
-    "hotRank": 6,
+    "hotRank": 5,
     "hotSource": "https://www.quantamagazine.org/",
     "hotLabel": "Past Week · Most Read Articles",
-    "hotCheckedAt": "2026-11-02"
+    "hotCheckedAt": "2026-11-03"
   },
   {
     "publication": "quanta",
@@ -8606,11 +8798,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.quantamagazine.org/how-spiders-spin-silk-dope-into-natures-toughest-material-20261028/",
     "publishedAt": "2026-10-28",
     "summary": "据标题的阅读切入点：《How Spiders Spin ‘Silk Dope’ Into Nature’s Toughest Material》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
-    "hotRank": 4,
+    "checkedAt": "2026-11-03",
+    "hotRank": 3,
     "hotSource": "https://www.quantamagazine.org/",
     "hotLabel": "Past Week · Most Read Articles",
-    "hotCheckedAt": "2026-11-02",
+    "hotCheckedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -8619,11 +8811,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.quantamagazine.org/how-voting-is-like-a-klein-bottle-20261026/",
     "publishedAt": "2026-10-26",
     "summary": "据标题的阅读切入点：《How Voting Is Like a Klein Bottle》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
-    "hotRank": 1,
+    "checkedAt": "2026-11-03",
+    "hotRank": 2,
     "hotSource": "https://www.quantamagazine.org/",
     "hotLabel": "Past Week · Most Read Articles",
-    "hotCheckedAt": "2026-11-02",
+    "hotCheckedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -8632,7 +8824,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.quantamagazine.org/malaria-parasite-caught-in-the-act-of-breaking-and-entering-20261023/",
     "publishedAt": "2026-10-23",
     "summary": "按题目选读：疟原虫侵入细胞的过程如何被捕捉？重点看时间分辨率、模型体系和可重复观察。",
-    "checkedAt": "2026-11-02"
+    "checkedAt": "2026-11-03"
   },
   {
     "publication": "quanta",
@@ -8640,11 +8832,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.quantamagazine.org/see-inside-cells-like-never-before-in-these-vivid-microscopic-images-20261021/",
     "publishedAt": "2026-10-21",
     "summary": "从新显微图像能显示哪些细胞结构切入，同时关注成像方法的分辨率与限制，避免把清晰图像等同完整机制。",
-    "checkedAt": "2026-11-02",
-    "hotRank": 5,
+    "checkedAt": "2026-11-03",
+    "hotRank": 6,
     "hotSource": "https://www.quantamagazine.org/",
     "hotLabel": "Past Week · Most Read Articles",
-    "hotCheckedAt": "2026-11-02"
+    "hotCheckedAt": "2026-11-03"
   },
   {
     "publication": "quanta",
@@ -8652,11 +8844,11 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.quantamagazine.org/ai-proved-the-quasi-riemann-hypothesis-what-happens-now-20261019/",
     "publishedAt": "2026-10-19",
     "summary": "据标题的阅读切入点：《AI Proved the Quasi-Riemann Hypothesis. What Happens Now?》。区分模型能力、产品体验与商业承诺；核对具体任务、比较基线、数据限制与使用成本，避免把演示当成普遍能力。",
-    "checkedAt": "2026-11-02",
-    "hotRank": 3,
+    "checkedAt": "2026-11-03",
+    "hotRank": 4,
     "hotSource": "https://www.quantamagazine.org/",
     "hotLabel": "Past Week · Most Read Articles",
-    "hotCheckedAt": "2026-11-02",
+    "hotCheckedAt": "2026-11-03",
     "summaryBasis": "title-and-publication",
     "featuredReason": "区分猜想的不同版本、形式化验证与人类理解，阅读时追踪每种结论的证据边界。",
     "featuredPriority": 22
@@ -8667,7 +8859,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-16",
     "summary": "据标题的阅读切入点：《He Wants AI Benchmarking To Be a Science, Not a Dark Art》。区分模型能力、产品体验与商业承诺；核对具体任务、比较基线、数据限制与使用成本，避免把演示当成普遍能力。",
     "publication": "quanta",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication",
     "featuredReason": "从评测方法切入，关注模型排名背后的指标、复现和验证过程。",
     "featuredPriority": 27
@@ -8678,7 +8870,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-15",
     "summary": "据标题的阅读切入点：《How Do Fungi Keep the Planet Healthy?》。把直接观测与模型推断分开记录；结论依赖哪些仪器、样本和误差范围，还有哪些替代解释？",
     "publication": "quanta",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -8687,7 +8879,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-14",
     "summary": "据标题的阅读切入点：《Triplet of ‘Ghostly’ Galaxies Hints at What Dark Matter Is — and Isn’t》。把直接观测与模型推断分开记录；结论依赖哪些仪器、样本和误差范围，还有哪些替代解释？",
     "publication": "quanta",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -8696,7 +8888,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-12",
     "summary": "据标题的阅读切入点：《Is ‘Attention’ the Essence of Intelligence?》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
     "publication": "quanta",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication",
     "featuredReason": "借注意力机制的讨论，回到智能的定义与模型工作方式。",
     "featuredPriority": 44
@@ -8707,7 +8899,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-09",
     "summary": "据标题的阅读切入点：《How Does Life Unfold? A Landscape Metaphor Comes Into Its Own.》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
     "publication": "quanta",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -8716,7 +8908,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-07",
     "summary": "据标题的阅读切入点：《As AI Closed In on ‘Unique Games’ Proof, Researchers Raced to Beat the Machines》。区分模型能力、产品体验与商业承诺；核对具体任务、比较基线、数据限制与使用成本，避免把演示当成普遍能力。",
     "publication": "quanta",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -8725,7 +8917,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-10-05",
     "summary": "据标题的阅读切入点：《Is AI the End of Math As We Know It?》。先写清问题的定义与假设，再找关键论证；哪些是已证明结果，哪些是数值迹象或尚未解决的猜想？",
     "publication": "quanta",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication",
     "featuredReason": "从数学工作的问题与方法出发，思考AI怎样改变研究者的角色。",
     "featuredPriority": 45
@@ -8736,7 +8928,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.quantamagazine.org/sea-monkeys-show-scientists-how-to-rewrite-a-rule-of-turbulence-20261002/",
     "publishedAt": "2026-10-02",
     "summary": "据标题的阅读切入点：《Sea Monkeys Show Scientists How To Rewrite a Rule of Turbulence》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -8745,7 +8937,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.quantamagazine.org/what-does-the-fourth-dimension-actually-look-like-20261001/",
     "publishedAt": "2026-10-01",
     "summary": "据标题的阅读切入点：《What Does the Fourth Dimension Actually Look Like?》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -8754,7 +8946,7 @@ window.MAGAZINE_ARTICLES = [
     "url": "https://www.quantamagazine.org/surprisingly-complex-waves-reveal-the-brains-inner-workings-20260930/",
     "publishedAt": "2026-09-30",
     "summary": "据标题的阅读切入点：《Surprisingly Complex Waves Reveal the Brain’s Inner Workings》。区分相关性、实验干预与机制解释；留意参与者范围、测量方法和结果能否迁移到日常生活。",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -8763,7 +8955,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-28",
     "summary": "据标题的阅读切入点：《Mathematicians Harness Randomness To Crack a 55-Year-Old Conjecture》。先写清问题的定义与假设，再找关键论证；哪些是已证明结果，哪些是数值迹象或尚未解决的猜想？",
     "publication": "quanta",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -8772,7 +8964,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-25",
     "summary": "据标题的阅读切入点：《Gravity Seems Holographic. What Does That Mean for Reality?》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
     "publication": "quanta",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -8781,7 +8973,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-23",
     "summary": "据标题的阅读切入点：《Biology Might Not Be Quantum, but Its Math Is Quantumlike》。先分清研究对象、观测量与实验条件；哪些结论依赖理想模型，作者如何排除其他解释？",
     "publication": "quanta",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -8790,7 +8982,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-21",
     "summary": "据标题的阅读切入点：《How Virus-like ‘Jumping Genes’ Became Our Partners in Evolution》。记录研究尺度、实验体系和关键对照；作者从分子现象推到生物功能时，还需要补上哪些验证？",
     "publication": "quanta",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -8799,7 +8991,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-18",
     "summary": "据标题的阅读切入点：《Mathematicians Build Long-Awaited Graph Sandwich》。先写清问题的定义与假设，再找关键论证；哪些是已证明结果，哪些是数值迹象或尚未解决的猜想？",
     "publication": "quanta",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -8808,7 +9000,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-17",
     "summary": "据标题的阅读切入点：《Where Does the Quantum World End and Ours Begin?》。先分清研究对象、观测量与实验条件；哪些结论依赖理想模型，作者如何排除其他解释？",
     "publication": "quanta",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
@@ -8817,7 +9009,7 @@ window.MAGAZINE_ARTICLES = [
     "publishedAt": "2026-09-16",
     "summary": "据标题的阅读切入点：《Ctenophores Aren’t Just Beautiful. They’re Biological Wonders.》。先确认研究问题、证据类型与验证条件；记录一个关键变量和一项限制，分清观测、推断与应用设想。",
     "publication": "quanta",
-    "checkedAt": "2026-11-02",
+    "checkedAt": "2026-11-03",
     "summaryBasis": "title-and-publication"
   },
   {
