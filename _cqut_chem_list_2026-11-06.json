@@ -1,0 +1,71 @@
+{
+  "checkedAt": "2026-11-06T00:23:42+08:00",
+  "contentDate": "2026-11-05",
+  "purpose": "化学化工学院完整通知列表页突破与补漏复核（上一轮遗留：/tzgg.htm 返回 202 challenge）",
+  "breakthrough": {
+    "domainCorrection": "官方域名 chem.cqut.edu.cn；hgxy.cqut.edu.cn 为 DNS NXDOMAIN（上一轮已纠正）",
+    "listUrl": "https://chem.cqut.edu.cn/tzgg.htm?x=1&a=1",
+    "result": "可读，取得完整列表：共 131 条 / 17 页；每页 8 条，含标题、发布日期、摘要与官方 URL",
+    "previousBlock": "/tzgg.htm、/tzgg.htm?x=1、/tzgg.htm?x=2、?level=985 均为 HTTP 202 JS challenge 或不可读；追加 &a=1 参数后放行",
+    "pagination": {
+      "total": 131,
+      "pages": 17,
+      "newest": "/tzgg.htm",
+      "olderExample": "/tzgg/16.htm",
+      "oldest": "/tzgg/1.htm"
+    }
+  },
+  "firstPage": [
+    {
+      "date": "2026-10-30",
+      "title": "第二届师生AI共创课程思政案例大赛获奖情况公示",
+      "url": "https://chem.cqut.edu.cn/info/1116/5451.htm",
+      "inLibrary": true
+    },
+    {
+      "date": "2026-10-28",
+      "title": "关于化学化工学院2026年下半年团组织“推优”名单的公示",
+      "url": "https://chem.cqut.edu.cn/info/1116/5442.htm",
+      "inLibrary": true
+    },
+    {
+      "date": "2026-10-27",
+      "title": "关于程双龙同学退学处理的公告",
+      "url": "https://chem.cqut.edu.cn/info/1116/5431.htm",
+      "inLibrary": true
+    },
+    {
+      "date": "2026-10-12",
+      "title": "2026-2027学年化学化工学院第四届“菁英训练营”教师科研项目征集通知",
+      "url": "https://chem.cqut.edu.cn/info/1116/5391.htm",
+      "inLibrary": true
+    },
+    {
+      "date": "2026-09-27",
+      "title": "关于举办第二届超星杯・重庆理工大学师生AI共创课程思政案例大赛-院赛通知",
+      "url": "https://chem.cqut.edu.cn/info/1116/5342.htm",
+      "inLibrary": true
+    },
+    {
+      "date": "2026-09-11",
+      "title": "关于化学化工学院2026年重庆理工大学研究生教育教学改革研究项目推荐申报的公示",
+      "url": "https://chem.cqut.edu.cn/info/1116/5301.htm",
+      "inLibrary": true
+    },
+    {
+      "date": "2026-09-02",
+      "title": "化学化工学院2026级特种能源材料教改班报名学生集中面试考核的安排",
+      "url": "https://chem.cqut.edu.cn/info/1116/5281.htm",
+      "inLibrary": true
+    },
+    {
+      "date": "2026-08-26",
+      "title": "化学化工学院关于特种能源材料教改班报名学生资格审查结果公示通知",
+      "url": "https://chem.cqut.edu.cn/info/1116/5276.htm",
+      "inLibrary": true
+    }
+  ],
+  "dedupe": "第 1 页 8 条 URL 与 cqut.js 345 条逐一比对，全部已收录（含上一轮补录的 5451/5442/5431），无新增漏项",
+  "conclusion": "本轮不修改 cqut.js：官方最新一页已完整覆盖，未发现新的真实漏项；不因取得列表页而空滚 CQUT_UPDATED/CHECKED。",
+  "notes": "含个人身份信息的公告摘要在库内已按最小必要原则脱敏，本证据不复述。"
+}

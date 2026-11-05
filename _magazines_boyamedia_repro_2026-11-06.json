@@ -1,0 +1,76 @@
+{
+  "checkedAt": "2026-11-06T00:24:04+08:00",
+  "purpose": "期刊 renwu / blogweekly 不可用的完整复现与留给 Codex 的修复线索",
+  "conclusion": "按「失败/空页保留旧内容与原日期」规则，两刊各 3 篇旧文章逐字保留，未强行收录；本文件记录源站真实可读证据与脚本两处失败点。",
+  "sources": [
+    {
+      "publication": "renwu",
+      "listUrl": "https://boyamedia.com/category-rw/",
+      "channel": "curl / WebFetch 可读，HTTP 200，约 25076 B",
+      "scriptResult": "_refresh_magazines.py 报 HTTP 204 空响应 → status unavailable / 0 verified",
+      "verifiedNewArticles": [
+        {
+          "date": "2026-11-05",
+          "title": "王一楠 不如意时，我曾追问出租车司机什么是幸福",
+          "url": "https://boyamedia.com/sys-nd/241.html"
+        },
+        {
+          "date": "2026-11-04",
+          "title": "在「标准关系」之外，人生还有多少种奇缘",
+          "url": "https://boyamedia.com/sys-nd/239.html"
+        },
+        {
+          "date": "2026-11-02",
+          "title": "卫诗雅 拿了影后，我还是怕没戏拍",
+          "url": "https://boyamedia.com/sys-nd/235.html"
+        }
+      ]
+    },
+    {
+      "publication": "blogweekly",
+      "listUrl": "https://boyamedia.com/category-bk/",
+      "channel": "curl / WebFetch 可读，HTTP 200",
+      "scriptResult": "_refresh_magazines.py 报 HTTP 204 空响应 → status unavailable / 0 verified",
+      "verifiedNewArticles": [
+        {
+          "date": "2026-11-05",
+          "title": "吕星辰，影后缓步而行",
+          "url": "https://boyamedia.com/sys-nd/243.html"
+        },
+        {
+          "date": "2026-11-05",
+          "title": "登上双11彩妆TOP6，海外爆火的花知晓要把品牌心智种回天猫",
+          "url": "https://boyamedia.com/sys-nd/242.html"
+        },
+        {
+          "date": "2026-11-04",
+          "title": "《小城良方》，一剂普通人的治愈良方",
+          "url": "https://boyamedia.com/sys-nd/240.html"
+        }
+      ]
+    }
+  ],
+  "failurePoints": [
+    {
+      "where": "_refresh_magazines.py fetch_text (urllib build_opener + Request)",
+      "observed": "列表页返回 HTTP 204，脚本判定 no verified article list；同一 URL 用 curl 带完整 Chrome UA 返回 HTTP 200 且有完整文章列表",
+      "suggestion": "对 204/空响应增加独立 HTTP 通道兜底或调整请求头，不要据 204 判死链"
+    },
+    {
+      "where": "_refresh_magazines.py boyamedia branch, marker = 人物\\s*作者 / 博客\\s*作者",
+      "observed": "文章详情页 https://boyamedia.com/sys-nd/241.html 返回 HTTP 200 约 30980 B，但全文不含「人物」「博客」「作者」，也无静态 <title>；页面已改版为脚本化渲染，旧归属签名不再存在",
+      "suggestion": "改用「官方分类频道 URL + 列表页标题/日期/URL + 详情页显式刊物字段」组合确认归属，或更新签名；在归属无法确认前不要自动收录"
+    }
+  ],
+  "retained": {
+    "renwu": 3,
+    "blogweekly": 3,
+    "note": "_magazines_refresh.json 与本轮 diff 核对：两刊旧文章标题、URL、发布日期、checkedAt 逐字未变"
+  },
+  "otherUnavailable": {
+    "globalpeople": "HTTP 403 WAF",
+    "atlantic": "curl 000 / WebFetch fetch failed（出口不可达）",
+    "economist": "curl 000 / WebFetch fetch failed（出口不可达）"
+  },
+  "refreshedThisRound": "14/19 成功，1007 → 1010 篇，新增 32 篇官方真实文章（多为 2026-11-05），滚动移除 29 篇旧文；nature 保持 ok"
+}
