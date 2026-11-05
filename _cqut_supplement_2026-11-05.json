@@ -1,0 +1,126 @@
+{
+  "checkedAt": "2026-11-05T23:31:32+08:00",
+  "contentDate": "2026-11-05",
+  "sourceDataDates": [
+    "2026-11-04",
+    "2026-11-03",
+    "2026-11-02",
+    "2026-10-30",
+    "2026-10-28",
+    "2026-10-27"
+  ],
+  "purpose": "CQUT 真实补漏证据：研究生院 + 化学化工学院，按 URL 去重",
+  "requests": [
+    {
+      "url": "https://hgxy.cqut.edu.cn/index.htm",
+      "result": "DNS NXDOMAIN (nslookup dns1.cqut.edu.cn; socket.getaddrinfo gaierror); HTTP https 000 / http 502",
+      "conclusion": "此前使用的化学化工学院域名不存在，已纠正为 chem.cqut.edu.cn"
+    },
+    {
+      "url": "https://chem.cqut.edu.cn/",
+      "result": "WebFetch no readable content; DNS OK 202.202.157.110",
+      "conclusion": "默认路径受阻"
+    },
+    {
+      "url": "https://chem.cqut.edu.cn/?x=1",
+      "result": "WebFetch 200 readable",
+      "conclusion": "取得官方首页完整「通知公告」栏目 4 条及「更多」链接 /tzgg.htm"
+    },
+    {
+      "url": "https://chem.cqut.edu.cn/tzgg.htm",
+      "result": "curl HTTP 202 JS challenge (2463 bytes); WebFetch no readable content; ?x=1/?x=2 同",
+      "conclusion": "完整列表页仍受阻，不据此编造内容；以首页官方栏目 + 单篇正文为可读依据"
+    },
+    {
+      "url": "https://chem.cqut.edu.cn/info/1116/5451.htm?x=1",
+      "result": "WebFetch 200 readable",
+      "publishedAt": "2026-10-30",
+      "verified": "标题、时间 2026-10-30、作者肖芃颖、150/149 项、5%/10%/20%、53 项、公示期 10/30-11/2、附件 xls"
+    },
+    {
+      "url": "https://chem.cqut.edu.cn/info/1116/5442.htm?x=1",
+      "result": "WebFetch 200 readable",
+      "publishedAt": "2026-10-28",
+      "verified": "标题、时间 2026-10-28、28 位本科生+3 位研究生、公示期 10/28-11/3、郝老师 023-62565268、至善楼515、院团委"
+    },
+    {
+      "url": "https://chem.cqut.edu.cn/info/1116/5431.htm?x=1",
+      "result": "WebFetch 200 readable",
+      "publishedAt": "2026-10-27",
+      "verified": "标题、时间 2026-10-27、重理工[2020]72号第三十一条、学习年限超6年、校长办公会2026-10-23第20次会议、化学化工学院；摘要脱敏不复述姓名/学号/班级"
+    },
+    {
+      "url": "https://chem.cqut.edu.cn/info/1116/5421.htm?x=1",
+      "result": "WebFetch 404 错误提示",
+      "conclusion": "不存在，不收录"
+    },
+    {
+      "url": "https://chem.cqut.edu.cn/info/1116/5422.htm?x=1",
+      "result": "WebFetch 404 错误提示",
+      "conclusion": "不存在，不收录"
+    },
+    {
+      "url": "https://chem.cqut.edu.cn/info/1116/5391.htm (首页栏目)",
+      "result": "已在库，URL 去重后不重复收录"
+    },
+    {
+      "url": "https://yjsy.cqut.edu.cn/index/xshd.htm",
+      "result": "WebFetch 200 readable (82 条学术活动列表)",
+      "conclusion": "研究生院补漏依据"
+    },
+    {
+      "url": "https://yjsy.cqut.edu.cn/index/tzgg.htm",
+      "result": "WebFetch 200 readable",
+      "conclusion": "研究生院通知公告列表依据"
+    },
+    {
+      "url": "https://yjsy.cqut.edu.cn/info/1024/5414.htm?x=1",
+      "result": "WebFetch 200 readable",
+      "publishedAt": "2026-11-04"
+    },
+    {
+      "url": "https://yjsy.cqut.edu.cn/info/1041/5405.htm",
+      "result": "WebFetch 200 readable",
+      "publishedAt": "2026-11-03"
+    },
+    {
+      "url": "https://yjsy.cqut.edu.cn/info/1024/5394.htm",
+      "result": "WebFetch 200 readable",
+      "publishedAt": "2026-11-02"
+    }
+  ],
+  "added": [
+    {
+      "title": "第二届师生AI共创课程思政案例大赛获奖情况公示",
+      "date": "2026-10-30",
+      "url": "https://chem.cqut.edu.cn/info/1116/5451.htm"
+    },
+    {
+      "title": "关于化学化工学院2026年下半年团组织“推优”名单的公示",
+      "date": "2026-10-28",
+      "url": "https://chem.cqut.edu.cn/info/1116/5442.htm"
+    },
+    {
+      "title": "关于一名本科生学籍作退学处理的公告（化学化工学院）",
+      "date": "2026-10-27",
+      "url": "https://chem.cqut.edu.cn/info/1116/5431.htm"
+    }
+  ],
+  "addedEarlierThisRound": [
+    {
+      "date": "2026-11-04",
+      "url": "https://yjsy.cqut.edu.cn/info/1024/5414.htm"
+    },
+    {
+      "date": "2026-11-03",
+      "url": "https://yjsy.cqut.edu.cn/info/1041/5405.htm"
+    },
+    {
+      "date": "2026-11-02",
+      "url": "https://yjsy.cqut.edu.cn/info/1024/5394.htm"
+    }
+  ],
+  "dedupe": "新增 6 条 URL 在补录前均不在 cqut.js 的 339 条基线与 342 条中间态中；逐条比对完成",
+  "baseline": "git HEAD bd426d0:cqut.js 339 条；本轮结束后 345 条",
+  "note": "CQUT_SOURCE_STATUS=ok / CQUT_SOURCE_STATE=null，走正常新鲜内容路径，不使用 blocked-retained 例外；日期字段保持各篇官方发布日，CQUT_UPDATED 为确有增量的内容日 2026-11-05"
+}
