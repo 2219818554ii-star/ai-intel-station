@@ -64,16 +64,10 @@ assert magazines_marker in html, "magazines marker not found in index.src.html!"
 magazines_data = open(magazines, encoding="utf-8").read()
 standalone = standalone.replace(magazines_marker, "<script>\n" + magazines_data + "\n</script>", 1)
 
-# 只允许已审核的六字段展示摘要；网页含回退副本，在线时另取最新JSON。
+# 归档仍只允许已审核的摘要/正文及固定审核digest，撤栏不改变档案。
 research_data = validate_research(json.load(open(os.path.join(base, "research-data.json"), encoding="utf-8")))
 research_details = validate_research_details(json.load(open(os.path.join(base, "research-details.json"), encoding="utf-8")), research_data)
-research_snapshot = '<script id="research-data-snapshot"></script>'
-research_marker = '<script src="research.js"></script>'
-assert research_snapshot in standalone and research_marker in standalone, "research markers missing"
-research_json = json.dumps(research_data, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
-details_json = json.dumps(research_details, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
-standalone = standalone.replace(research_snapshot, "<script>\nwindow.RESEARCH_SNAPSHOT=" + research_json + ";\nwindow.RESEARCH_DETAILS=" + details_json + ";\n</script>", 1)
-standalone = standalone.replace(research_marker, "<script>\n" + open(os.path.join(base,"research.js"), encoding="utf-8").read() + "\n</script>", 1)
+# 2026-11-05：用户撤下科研界面；原摘要与审核正文仍校验并归档，不再嵌入页面。
 
 workspace_marker = '<script src="workspace.js"></script>'
 reading_marker = '<script src="reading.js"></script>'

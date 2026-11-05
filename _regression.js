@@ -127,7 +127,7 @@ module.exports = async function ({html, inline, sandbox, ok}) {
   ok(base.elements['comp-list'].innerHTML.includes('没有找到匹配'), '比赛搜索无结果时提供恢复操作提示');
   const route=base.ctx.window.__routeUX;
   ok(base.ctx.window.AI_NAV.current()==='home' && base.elements['view-home'].style.display==='' && base.elements['view-daily'].style.display==='none' && base.ctx.document.title==='今天 · 罗浩的工作台', '空地址直接显示今天工作台，旧日报数据加载不会抢占首页');
-  const retainedRoutes=['home','research','cqut','comp','daily','rank','learn','magazines','ted','forum','library','funds'];
+  const retainedRoutes=['home','cqut','comp','daily','rank','learn','magazines','ted','forum','library','funds'];
   retainedRoutes.forEach(tab=>{
     base.ctx.window.location.hash='#'+tab;route.sync();
     ok(base.ctx.window.AI_NAV.current()===tab && retainedRoutes.every(v=>base.elements['view-'+v].style.display===(v===tab?'':'none')), '工作台深链逐项只显示目标视图：'+tab);
@@ -140,20 +140,15 @@ module.exports = async function ({html, inline, sandbox, ok}) {
   base.ctx.window.location.hash='#funds'; route.sync();
   ok(base.elements['view-funds'].style.display==='' && base.elements['view-daily'].style.display==='none' && route.hash('funds')==='#funds', '基金独立链接打开基金栏目，不被日报覆盖');
   base.ctx.window.location.hash='#research'; route.sync();
-  ok(base.elements['view-research'].style.display==='' && base.elements['view-funds'].style.display==='none' && route.hash('research')==='#research', '科研独立链接切换栏目且隐藏前一栏目');
-  const researchMarkup=html.split('id="view-research"')[1].split('id="view-funds"')[0];
-  ok(researchMarkup.includes('id="research-list"') && researchMarkup.includes('id="research-stats"') && !researchMarkup.includes('<iframe') && !/<details[^>]*class="[^"]*research-public-summary/.test(researchMarkup), '科研原生任务和统计直接可读，不藏在外站登录后的折叠回退中');
+  ok(base.ctx.window.AI_NAV.current()==='home' && !html.includes('id="view-research"') && !html.includes('id="tab-research"'), '用户撤下科研后，旧科研深链安全回首页，导航与视图均无残留');
   const canonicalNavigation=[...html.matchAll(/id="tab-([^"]+)"/g)].map(m=>m[1]);
-  ok(JSON.stringify(canonicalNavigation)===JSON.stringify(retainedRoutes) && html.includes('aria-orientation="vertical"') && html.includes('id="workspace-menu"'), '用户授权的新分组导航以今天、科研和执行事项优先，原10个栏目按DOM顺序全部可达');
+  ok(JSON.stringify(canonicalNavigation)===JSON.stringify(retainedRoutes) && html.includes('aria-orientation="vertical"') && html.includes('id="workspace-menu"'), '其余11个栏目保持唯一导航和原有顺序，手机入口仍可达');
   const homeMarkup=html.split('id="view-home"')[1].split('id="view-daily"')[0];
-  ok(homeMarkup.includes('id="home-tasks"') && homeMarkup.includes('id="home-notices"') && homeMarkup.includes('id="home-opportunities"') && homeMarkup.includes('id="home-reading"') && html.includes('id="workspace-content"') && html.includes('id="workspace-search-open"'), '今天工作台保留科研、校园、赛事和阅读入口，正文及全局搜索可达');
-  ok(!html.includes('1-dfc8ry6ARxWM071wltd-LSZq30FtxxQwPoKD9zMuFw'), '科研公开页面不包含完整总表ID');
-  // 2026-10-26: the user explicitly approved publishing this reviewed native
-  // task/journal export. The strict schema and approved digest are checked by
-  // the dedicated export/runtime suites; unrelated private-source data stays out.
-  const nativePublished=base.ctx.window.RESEARCH_DETAILS||{},nativePublishedText=JSON.stringify(nativePublished);
-  ok(researchMarkup.includes('id="research-record-list"') && researchMarkup.includes('实验记录 · 原生只读') && !researchMarkup.includes('<iframe') && !researchMarkup.includes('chatgpt.site') && Array.isArray(nativePublished.tasks) && nativePublished.tasks.length===base.ctx.window.RESEARCH_SNAPSHOT.tasks.length && Array.isArray(nativePublished.records) && nativePublished.records.length===5, '已审核的科研正文与5条记录在主站原生展示，不依赖外站或登录iframe');
-  ok(researchMarkup.includes('来源、版本与事实边界') && researchMarkup.includes('工时') && researchMarkup.includes('原始数据、凭据、联系人与本机证据路径未放入本页') && !/(?:file:|https?:\/\/|[A-Za-z]:[\\/]|(?:api[_ -]?key|access[_ -]?token|refresh[_ -]?token|client[_ -]?secret|password|passwd|private[_ -]?key|authorization|bearer\s)|密码|验证码|(?<!\d)1[3-9]\d{9}(?!\d)|[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}|"(?:rawData|rawOCV|rawPoints|evidencePath|sourceSpreadsheetId|contact|credentials)"\s*:)/i.test(nativePublishedText), '经授权公开仅限已审字段，原始数据、凭据、联系方式及本机路径仍禁止进入发布内容');
+  ok(!homeMarkup.includes('home-tasks') && homeMarkup.includes('id="home-notices"') && homeMarkup.includes('id="home-opportunities"') && homeMarkup.includes('id="home-reading"'), '首页改为校园、机会与未读内容，不再显示个人科研任务');
+  ok(!html.includes('1-dfc8ry6ARxWM071wltd-LSZq30FtxxQwPoKD9zMuFw') && !html.includes('window.RESEARCH_SNAPSHOT=') && !html.includes('window.RESEARCH_DETAILS=') && !html.includes('id="research-ai-propose"'), '任务总表、科研快照、审核正文及任务助手不再嵌入公开页面');
+  const archiveSummary=JSON.parse(fs.readFileSync(path.join(__dirname,'research-data.json'),'utf8'));
+  const archiveDetails=JSON.parse(fs.readFileSync(path.join(__dirname,'research-details.json'),'utf8'));
+  ok(archiveSummary.tasks.length===136 && archiveDetails.tasks.length===136 && archiveDetails.records.length===5,'136项原摘要、审核正文和5条记录继续归档保留，未因撤栏删除');
   await require('./_research_regression.js')({ok});
   base.ctx.window.location.hash='#rank';route.sync();
   ok(base.elements['view-rank'].style.display==='' && base.elements['view-funds'].style.display==='none', '栏目地址变化正确切换可见视图');

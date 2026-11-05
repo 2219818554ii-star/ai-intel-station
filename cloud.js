@@ -65,22 +65,23 @@
     function setAuth(token){epoch++;auth={token:token,generation:id()};state.token=token;writeJSON(AUTH,auth);connected=false;invalidateProposal();modelsLoaded=false;modelConfigs=[];modelRequest++;}
     function modelNote(text){doc.getElementById('cloud-model-note').textContent=text;}
     function providerName(provider){return provider==='openai'?'OpenAI':'DeepSeek';}
+    function connectionKeyHint(){return doc.getElementById('cloud-provider')?'这里需要设备连接码，不是模型API Key；请把API Key填到模型设置，或选择桌面说明自动连接。':'这是设备连接入口，不接收模型API Key；请使用8位配对码或桌面连接说明。';}
     function modelConfig(provider){return modelConfigs.find(function(p){return p.provider===provider;});}
     function feedbackContext(){var s=w.AI_RESEARCH&&w.AI_RESEARCH.state?w.AI_RESEARCH.state():{},provider=doc.getElementById('research-ai-provider').value,config=modelConfig(provider);return{text:doc.getElementById('research-feedback-text').value,provider:provider,baseRevision:s.baseData&&s.baseData.revision||'',cloudRevision:s.cloud&&s.cloud.revision||'0',model:modelsLoaded?(config&&config.model||''):null};}
     function sameFeedback(a,b){return !!(a&&b&&a.text===b.text&&a.provider===b.provider&&a.baseRevision===b.baseRevision&&a.cloudRevision===b.cloudRevision&&(a.model===null||b.model===null||a.model===b.model));}
-    function invalidateProposal(message){var active=!!(proposal||pendingContext);proposal=null;proposalContext=null;pendingContext=null;proposalRequest++;doc.getElementById('research-ai-apply').hidden=true;if(active){doc.getElementById('research-ai-propose').disabled=false;doc.getElementById('research-ai-preview').textContent=message||'反馈、模型或任务安排已变化，请重新整理建议。';}}
-    function checkProposalContext(){var context=feedbackContext();if(proposalContext&&!sameFeedback(proposalContext,context)||pendingContext&&!sameFeedback(pendingContext,context))invalidateProposal();}
-    function providerOptions(){['cloud-provider','research-ai-provider'].forEach(function(id){var select=doc.getElementById(id);Array.prototype.forEach.call(select.options||[],function(option){var config=modelConfig(option.value);option.textContent=providerName(option.value)+(config&&config.hasKey?'':'（未设置）');});});}
+    function invalidateProposal(message){var active=!!(proposal||pendingContext);proposal=null;proposalContext=null;pendingContext=null;proposalRequest++;if(!doc.getElementById('research-ai-apply'))return;doc.getElementById('research-ai-apply').hidden=true;if(active){doc.getElementById('research-ai-propose').disabled=false;doc.getElementById('research-ai-preview').textContent=message||'反馈、模型或任务安排已变化，请重新整理建议。';}}
+    function checkProposalContext(){if(!doc.getElementById('research-feedback-text'))return;var context=feedbackContext();if(proposalContext&&!sameFeedback(proposalContext,context)||pendingContext&&!sameFeedback(pendingContext,context))invalidateProposal();}
+    function providerOptions(){['cloud-provider','research-ai-provider'].forEach(function(id){var select=doc.getElementById(id);if(!select)return;Array.prototype.forEach.call(select.options||[],function(option){var config=modelConfig(option.value);option.textContent=providerName(option.value)+(config&&config.hasKey?'':'（未设置）');});});}
     function applyModelMetadata(data,fillForm){
       if(!data||!Array.isArray(data.providers))throw Error('模型配置响应不完整，请稍后重试。');
       modelConfigs=data.providers.filter(function(p){return p&&['deepseek','openai'].includes(p.provider);}).map(function(p){return{provider:p.provider,hasKey:p.hasKey===true,model:typeof p.model==='string'?p.model.slice(0,100):''};});modelsLoaded=true;providerOptions();
       var preferred=modelConfigs.find(function(p){return p.provider==='deepseek'&&p.hasKey;})||modelConfigs.find(function(p){return p.hasKey;}),research=doc.getElementById('research-ai-provider');
-      if(!researchProviderExplicit&&preferred)research.value=preferred.provider;
+      if(research&&!researchProviderExplicit&&preferred)research.value=preferred.provider;
       if(fillForm&&modelEdit===0){if(preferred)doc.getElementById('cloud-provider').value=preferred.provider;modelChoice();}
       checkProposalContext();
     }
     async function loadModelSettings(){
-      if(modelSaving)return false;
+      if(!doc.getElementById('cloud-provider')||modelSaving)return false;
       var mine=++modelRequest,edit=modelEdit;
       try{var data=await request('settings.get');if(mine!==modelRequest)return false;applyModelMetadata(data,edit===modelEdit);modelNote(modelConfigs.map(function(p){return providerName(p.provider)+'：'+(p.hasKey?'已设置Key':'未设置Key')+(p.model?' · '+p.model:'');}).join('；')||'尚未设置模型密钥。');return true;}
       catch(e){if(!e.stale&&mine===modelRequest)modelNote('模型设置暂未核对：'+e.message);return false;}
@@ -196,9 +197,9 @@
     async function connect(raw){
       if(connecting)return false;var input=doc.getElementById('cloud-code'),code=normalizeConnectionCode(raw===undefined?input.value:raw),type='';
       if(/^[A-Za-z0-9]{8}$/.test(code))type='pair';else if(/^[A-Za-z0-9_-]{43}$/.test(code))type='recovery';
-      else if(/^(?:sk[-_]|Bearer|API[_-]?Key[:=])/i.test(code)){status('这里需要设备连接码，不是模型API Key；请把API Key填到模型设置，或选择桌面说明自动连接。');return false;}
+      else if(/^(?:sk[-_]|Bearer|API[_-]?Key[:=])/i.test(code)){status(connectionKeyHint());return false;}
       else if(/[\r\n]/.test(String(raw===undefined?input.value:raw))){try{code=parseConnectionNote(raw===undefined?input.value:raw);type='recovery';}catch(e){status(e.message);return false;}}
-      if(!type){status(/^sk[-_]|^Bearer/i.test(code)?'这里需要设备连接码，不是模型API Key；请把API Key填到模型设置，或选择桌面说明自动连接。':'连接码格式不正确：可选择桌面说明自动连接，或填写8位配对码。');return false;}
+      if(!type){status(/^sk[-_]|^Bearer/i.test(code)?connectionKeyHint():'连接码格式不正确：可选择桌面说明自动连接，或填写8位配对码。');return false;}
       var labelInput=doc.getElementById('cloud-device-label'),label=labelInput.value.trim()||defaultDeviceLabel(w.navigator);labelInput.value=label;doc.getElementById('cloud-code-type').value=type;
       var button=doc.getElementById('cloud-connect'),importButton=doc.getElementById('cloud-import-note'),buttonLabel=button.textContent,importLabel=importButton&&importButton.textContent;connecting=true;button.disabled=true;button.textContent='连接中…';if(importButton){importButton.disabled=true;importButton.textContent='连接中…';}status('正在连接这台设备…');
       try{
@@ -209,7 +210,7 @@
     function open(){var panel=doc.getElementById('cloud-settings');if(!panel)return;panel.showModal();var token=current().token;doc.getElementById('cloud-connection').hidden=!!token;doc.getElementById('cloud-connected').hidden=!token;if(token){sync();loadModelSettings();}}
     function modelChoice(){var provider=doc.getElementById('cloud-provider').value,config=modelConfigs.find(function(p){return p.provider===provider;}),field=doc.getElementById('cloud-model');field.value=config&&config.model?config.model:(provider==='deepseek'?'deepseek-flash':'');field.placeholder=provider==='deepseek'?'DeepSeek模型名称':'填写你可用的OpenAI模型名称';if(modelsLoaded)modelNote(providerName(provider)+(config&&config.hasKey?'已设置Key；尚未验证真实模型调用。':'尚未设置Key，请补充本提供方的API Key。'));}
     async function devices(){var list=doc.getElementById('cloud-devices');try{var result=await request('devices.list');list.replaceChildren();(result.devices||[]).filter(function(d){return!d.revoked;}).forEach(function(d){var row=doc.createElement('p'),label=doc.createElement('span');label.textContent=d.label+(d.current?'（本设备）':'')+' · 最近 '+new Date(d.lastSeenAt).toLocaleString('zh-CN');row.appendChild(label);if(!d.current){var b=doc.createElement('button');b.type='button';b.textContent='撤销连接';b.onclick=async function(){try{await request('devices.revoke',{deviceId:d.deviceId});devices();}catch(e){status(e.message);}};row.appendChild(b);}list.appendChild(row);});}catch(e){status(e.message);}}
-    function init(){var panel=doc.getElementById('cloud-settings');if(!panel)return;doc.querySelectorAll('[data-cloud-open]').forEach(function(b){b.addEventListener('click',open);});doc.getElementById('cloud-close').onclick=function(){panel.close();};panel.addEventListener('close',function(){noteGeneration++;doc.getElementById('cloud-api-key').value='';doc.getElementById('cloud-code').value='';var file=doc.getElementById('cloud-note-file');if(file)file.value='';});doc.getElementById('cloud-provider').onchange=function(){modelEdit++;doc.getElementById('cloud-api-key').value='';invalidateProposal('模型设置已变化，请重新整理建议。');modelChoice();};['cloud-model','cloud-api-key'].forEach(function(id){doc.getElementById(id).addEventListener('input',function(){modelEdit++;invalidateProposal('模型设置已变化，请重新整理建议。');});});doc.getElementById('research-ai-provider').addEventListener('change',function(){researchProviderExplicit=true;invalidateProposal('模型选择已变化，请重新整理建议。');});doc.getElementById('research-feedback-text').addEventListener('input',checkProposalContext);w.addEventListener('research-feedback-changed',function(){invalidateProposal();});w.addEventListener('research-updated',checkProposalContext);doc.getElementById('cloud-devices-refresh').onclick=devices;panel.addEventListener('keydown',function(e){if(e.key==='Escape'){e.preventDefault();panel.close();}});
+    function init(){var panel=doc.getElementById('cloud-settings');if(!panel)return;doc.querySelectorAll('[data-cloud-open]').forEach(function(b){b.addEventListener('click',open);});doc.getElementById('cloud-close').onclick=function(){panel.close();};panel.addEventListener('close',function(){noteGeneration++;var key=doc.getElementById('cloud-api-key');if(key)key.value='';doc.getElementById('cloud-code').value='';var file=doc.getElementById('cloud-note-file');if(file)file.value='';});if(doc.getElementById('cloud-provider'))doc.getElementById('cloud-provider').onchange=function(){modelEdit++;doc.getElementById('cloud-api-key').value='';invalidateProposal('模型设置已变化，请重新整理建议。');modelChoice();};['cloud-model','cloud-api-key'].forEach(function(id){var field=doc.getElementById(id);if(field)field.addEventListener('input',function(){modelEdit++;invalidateProposal('模型设置已变化，请重新整理建议。');});});if(doc.getElementById('research-ai-provider'))doc.getElementById('research-ai-provider').addEventListener('change',function(){researchProviderExplicit=true;invalidateProposal('模型选择已变化，请重新整理建议。');});if(doc.getElementById('research-feedback-text'))doc.getElementById('research-feedback-text').addEventListener('input',checkProposalContext);w.addEventListener('research-feedback-changed',function(){invalidateProposal();});w.addEventListener('research-updated',checkProposalContext);doc.getElementById('cloud-devices-refresh').onclick=devices;panel.addEventListener('keydown',function(e){if(e.key==='Escape'){e.preventDefault();panel.close();}});
       doc.getElementById('cloud-connect').onclick=function(){return connect();};
       doc.getElementById('cloud-code').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();connect();}});
       var noteFile=doc.getElementById('cloud-note-file'),importNote=doc.getElementById('cloud-import-note');
@@ -218,13 +219,13 @@
       doc.getElementById('cloud-pair').onclick=async function(){try{var result=await request('pairing.create');doc.getElementById('cloud-pair-code').textContent='配对码：'+result.code+'（有效至 '+new Date(result.expiresAt).toLocaleTimeString('zh-CN')+'，仅用一次）';}catch(e){status(e.message);}};
       doc.getElementById('cloud-disconnect').onclick=function(){setAuth('');persist();if(w.AI_RESEARCH)w.AI_RESEARCH.clearCloud();connected=false;doc.getElementById('cloud-pair-code').textContent='';doc.getElementById('cloud-connection').hidden=false;doc.getElementById('cloud-connected').hidden=true;status('此设备已断开；本机阅读记录仍保留。');};
       doc.getElementById('cloud-conflict-retry').onclick=function(){conflicts().forEach(function(c){var source=c.event;if(source&&change(source.namespace,source.key,source.field,source.value,source.metadata))writeJSON(RESOLVED+c.opId,{at:Date.now()});});persist();sync();};
-      doc.getElementById('cloud-model-save').onclick=async function(){
+      if(doc.getElementById('cloud-model-save'))doc.getElementById('cloud-model-save').onclick=async function(){
         var b=this,key=doc.getElementById('cloud-api-key'),mine=++modelRequest,edit=modelEdit;b.disabled=true;modelSaving=true;invalidateProposal('模型设置正在保存，请保存后重新整理建议。');
         var values={provider:doc.getElementById('cloud-provider').value,model:doc.getElementById('cloud-model').value.trim()};if(key.value.trim())values.apiKey=key.value.trim();
         try{var result=await request('settings.save',values);if(mine!==modelRequest)return;applyModelMetadata(result,false);if(edit===modelEdit&&doc.getElementById('cloud-provider').value===values.provider)key.value='';var config=modelConfig(values.provider);modelNote(providerName(values.provider)+'：'+(!config?'模型设置已提交，密钥状态暂未核实，请重新打开设置核对。':!config.hasKey?'模型设置已保存，尚未设置Key；请补充本提供方API Key后再生成建议。':values.apiKey?'密钥已加密保存到服务端；尚未验证真实模型调用。':'模型设置已保存，沿用服务端已有密钥；尚未验证真实模型调用。'));}
         catch(e){if(!e.stale&&mine===modelRequest)modelNote(providerName(values.provider)+'模型设置未保存：'+e.message);}finally{modelSaving=false;b.disabled=false;}
       };
-      doc.getElementById('research-ai-propose').onclick=async function(){
+      if(doc.getElementById('research-ai-propose'))doc.getElementById('research-ai-propose').onclick=async function(){
         if(!current().token){open();return;}if(modelSaving){doc.getElementById('research-ai-preview').textContent='模型设置正在保存，请完成后再整理建议。';return;}
         var b=this,mine=++proposalRequest,ctx=current(),bound=feedbackContext();proposal=null;proposalContext=null;pendingContext=bound;doc.getElementById('research-ai-apply').hidden=true;
         if(bound.text.length>6000){pendingContext=null;doc.getElementById('research-ai-preview').textContent='反馈超过6000字，请分成几次整理；本次尚未发送。';return;}
@@ -239,12 +240,12 @@
           proposal=result;proposalContext=bound;pendingContext=null;doc.getElementById('research-ai-preview').textContent=(result.summary||'任务调整建议')+'\n'+result.patches.map(function(p){var labels={status:'状态',suggestedDate:'建议日期',plannedHours:'预计主动工时',progress:'用户进展'};return p.id+'：'+Object.keys(p).filter(function(k){return k!=='id';}).map(function(k){return(labels[k]||k)+' → '+(p[k]===null?'待定':String(p[k]));}).join('；');}).join('\n');doc.getElementById('research-ai-apply').hidden=!result.patches.length;
         }catch(e){if(!e.stale&&mine===proposalRequest)doc.getElementById('research-ai-preview').textContent='未修改任务：'+e.message;}finally{if(mine===proposalRequest){pendingContext=null;b.disabled=false;}}
       };
-      doc.getElementById('research-ai-apply').onclick=async function(){
+      if(doc.getElementById('research-ai-apply'))doc.getElementById('research-ai-apply').onclick=async function(){
         if(!proposal)return;if(!sameFeedback(proposalContext,feedbackContext())){invalidateProposal();return;}this.disabled=true;var ctx=current();
         try{var result=await request('research.apply',{proposalId:proposal.id,expectedRevision:proposal.revision},false,ctx);guard(ctx);if(!result.research)throw Error('服务未返回完整任务状态，请重新同步确认');w.AI_RESEARCH.applyCloud(result.research);proposal=null;this.hidden=true;doc.getElementById('research-ai-preview').textContent='已应用，其他已连接设备联网后同步。任务完成状态不代表实验验收通过。';await sync();guard(ctx);}
         catch(e){if(!e.stale)doc.getElementById('research-ai-preview').textContent='未确认应用：'+e.message;}finally{this.disabled=false;}
       };
-      doc.getElementById('research-ai-undo').onclick=async function(){
+      if(doc.getElementById('research-ai-undo'))doc.getElementById('research-ai-undo').onclick=async function(){
         this.disabled=true;var ctx=current();
         try{var cloud=w.AI_RESEARCH.state().cloud,result=await request('research.undo',{expectedRevision:cloud?cloud.revision:'0'},false,ctx);guard(ctx);if(!result.research)throw Error('服务未返回完整任务状态，请重新同步确认');w.AI_RESEARCH.applyCloud(result.research);doc.getElementById('research-ai-preview').textContent='已撤销，其他已连接设备联网后同步。';await sync();guard(ctx);}
         catch(e){if(!e.stale)doc.getElementById('research-ai-preview').textContent='未确认撤销：'+e.message;}finally{this.disabled=false;}

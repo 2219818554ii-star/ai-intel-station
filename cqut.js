@@ -3193,8 +3193,8 @@ window.CQUT_SOURCES = {
 };
 
 /* 核查尝试与内容成功更新分开记录；反爬挑战不能冒充新通知。 */
-window.CQUT_CHECKED = "2026-11-03";
-window.CQUT_CHECK_NOTE = "2026-11-03 补收：经校团委·青春重理工(qnzx.cqut.edu.cn)核验，补收 2 篇库内缺失旧通知——『重庆理工大学2026年11月团组织生活指引』(原 2026-10-30)、『关于选拔重庆理工大学“青马工程”第十三期培训班学员的通知』(原 2026-10-28)；逐条通知 date 保留原发布日，属补收旧通知而非当日新发。重点来源研究生院通知列表(yjsytz)、化学化工学院、研究生会(yjsh)仍受官网 WAF 拦截，其原 10-30 内容保留不变。其中『11月团组织生活指引』适用对象未能从正文核实(官网与 WebFetch 双通道均未取得可读正文)，请以所在支部通知为准。";
+window.CQUT_CHECKED = "2026-11-05";
+window.CQUT_CHECK_NOTE = "2026-11-05 全部校园原文和配置入口实际请求均受阻，保留旧内容。独立已提交基线339条及原内容日2026-11-03完全保留；本次核查日2026-11-05。WorkBuddy另补的一条通知尚缺可读原文证据，保留在其原工作区待重新核查；不判死链，不冒称有新通知。";
 
-window.CQUT_SOURCE_STATUS = "partial";
-window.CQUT_SOURCE_STATE = null;
+window.CQUT_SOURCE_STATUS = "blocked";
+window.CQUT_SOURCE_STATE = {"contentDate": "2026-11-03", "checkDate": "2026-11-05", "evidence": "_content_review_2026-11-05.json"};

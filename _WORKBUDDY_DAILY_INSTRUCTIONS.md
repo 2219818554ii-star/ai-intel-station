@@ -1,5 +1,9 @@
 # WorkBuddy 每日全栏目维护指令
 
+## 2026-11-05 用户变更（优先于下文旧科研界面要求）
+
+罗浩要求撤下网站科研栏目，并进一步明确科研计划在独立普通ChatGPT聊天维护，本Codex聊天主要负责网站。后续维护不得恢复科研导航、首页任务卡、任务搜索、AI调整表单或模型设置，也不将任务反馈自动发布到网站。原Google表、136项摘要、审核正文及5条记录保留归档，双文件审核digest继续校验；这不再要求科研正文在主站原生显示。独立云服务的设备、密钥、D1、旧安排及本机草稿不改动，收藏/已读/已看同步继续检查。Codex独立分支的撤栏变更须与WorkBuddy内容更新妥善合并、通过原新鲜度与发布检查后再上线，不夹带未完成内容、不修改日期过门槛。
+
 罗浩2026-11-01最新分工：WorkBuddy负责真实内容采集、更新和内容发布；Codex负责独立检查、问题修复和网站设计，不再重复刷新内容。用本指令替换现有校园通知每日任务，保持一个全栏目维护任务，其他旧单栏任务继续暂停，避免重复写入。每天北京时间09:30执行，沿用现有本机工作目录；只设置未来运行，不立即抢占正在开发的工作区。
 
 ## 开始与工作边界
@@ -10,7 +14,7 @@ python：C:/Users/22198/.workbuddy/binaries/python/versions/3.13.12/python.exe �
 
 ## 每天覆盖全部栏目
 
-逐栏实际检查日报API、模型与工具排行榜、全国赛事及精选报名、AI学习工具、TED、成长讲坛、重理工通知、全部期刊及基金公开数据；首页、科研和我的阅读同时做可用性检查。优先研究生、化工、材料、电化学、储能相关内容。仅使用官网、主办方或官方API，保留请求URL、实际检查时刻、返回状态、来源数据日及变化依据。无变化仍须实际核查；列表不变不能称新增，核查日不能替换内容更新日。空响应、登录、保护、超时和接口故障不作死链或退役证据。
+逐栏实际检查日报API、模型与工具排行榜、全国赛事及精选报名、AI学习工具、TED、成长讲坛、重理工通知、全部期刊及基金公开数据；首页和我的阅读同时做可用性检查。优先研究生、化工、材料、电化学、储能相关内容。仅使用官网、主办方或官方API，保留请求URL、实际检查时刻、返回状态、来源数据日及变化依据。无变化仍须实际核查；列表不变不能称新增，核查日不能替换内容更新日。空响应、登录、保护、超时和接口故障不作死链或退役证据。
 
 - 日报：核实公开索引和最新一期正文可用，标题、分区、发布日期按API原文；不改浏览器自动刷新逻辑来假造今天的日报。
 - 排行榜：保持评测版本、型号及推理档位精确对应，当前AA v5与旧v4.3分别展示；TB/SWE等历史分数不能冒充同日实测。官网没有新证据的价格、评级、模型支持不滚动成今天已核实。排序必须实际生效，无分留空；只用真实公开指标，不编统一热度。
@@ -22,9 +26,11 @@ python：C:/Users/22198/.workbuddy/binaries/python/versions/3.13.12/python.exe �
 - 期刊：必须实际运行_refresh_magazines.py（可用--workers 3 --timeout 8），读取magazines.js配置的全部官方期刊，当前19本，使用_magazines_cn.py和_magazines_rss.py真实来源解析。每篇只保存标题、官方入口、明确单篇发布日期与独立导读，不转载全文、不猜日期，不用期刊日期或核查日代替文章日期；未知日期null。_magazines_refresh.json逐篇保留标题、URL和日期证据，失败沿用上次独立证据；订阅/空页面/保护/超时保留原文章和原日期。最新、来源热榜、编辑精选三入口分开；热榜只用原刊真实排名/指标，保留榜单语义、名次及采样日，不跨刊造统一热度；新榜成功清掉落榜标记但保留原文，失败保留旧榜及原日期。_magazines_editorial.json标题/URL/理由精确匹配，不冒称热门。保留主题/刊物/语言组合筛选、收藏、已读、批次、位置、键盘和手机体验。导读仅依据标题时必须明确说明阅读切入点，不冒称阅读全文。
 - 基金：只更新核实的公开净值等数据，来源交易日如实保留，QDII滞后不补猜日期。账户amt/dayPL/holdPL/holdPct/cumulativePL/amtDate/navAt及余额宝快照一律不动；_funds_snapshot_2026-10-15.json不改。无新净值不能滚内容更新日或档案日，实际核查日单独记录；不给买卖建议。
 
+基金更新流程已修复：在当前检出目录运行_refresh_funds.py，仅采集4只公开净值完整响应至schema=2的临时文件，不写funds.js、不采集或覆盖股票行情；再运行_apply_funds.py验证同日时刻、完整HTTP、基金身份、原始正文digest、逐项净值及当前源文件指纹后应用。旧版只有nav/astk/ustk的临时文件必须拒绝，不能补造证据使其可用。应用只允许公开净值及独立核查说明变化，完整账户/现金快照和其他历史档案逐项保持；无变化时原内容日和原应用证据日不滚动。验证用_funds_public_nav_regression.py。
+
 ## 科研、阅读和个人云保护
 
-科研136项摘要及原生执行正文/5条记录必须在主站可读，保留research-data.json、research-details.json及双文件审核digest；不能依赖外部登录页，不因迁移或核查滚动原日期。
+科研136项摘要及审核正文/5条记录只作归档，保留research-data.json、research-details.json及双文件审核digest和原日期；不恢复主站展示、任务搜索、模型设置或主动缓存。科研计划另在用户的普通ChatGPT聊天维护，网站日常检查不读取私人近况或重新排期。
 
 收藏、已读、已看和继续打开保存在用户浏览器及原有认证云服务，不能随公开源更新清空或提交到仓库。新的“我的阅读”统一回顾记录，默认未看优先不能把已看条目删掉；用户可切换全部并回顾。滚出本期文章仍须保留原文入口及已保存元数据；打开不等于读完，外站阅读/视频不能伪造精确进度。
 
@@ -32,7 +38,7 @@ python：C:/Users/22198/.workbuddy/binaries/python/versions/3.13.12/python.exe �
 
 ## 验收与发布
 
-运行_build.py生成index.html、gh-pages/index.html、ai_intel_station_standalone.html并比较一致。运行_selfcheck.js、_magazines_refresh_regression.py、_magazines_cn_regression.py、_magazines_rss_regression.py、_magazines_pipeline_regression.py、_research_details_regression.py、_source_freshness_regression.js、_cloud_regression.js（按现有自检入口执行）、_preship_regression.py及相关浏览器回归，包括我的阅读、未看优先和记录持久化。核验账户快照、全国赛事身份及科研双文件完整。
+运行_build.py生成index.html、gh-pages/index.html、ai_intel_station_standalone.html并比较一致。运行_selfcheck.js、_magazines_refresh_regression.py、_magazines_cn_regression.py、_magazines_rss_regression.py、_magazines_pipeline_regression.py、_research_details_regression.py、_source_freshness_regression.js、_cloud_regression.js（按现有自检入口执行）、_preship_regression.py、_funds_public_nav_regression.py及相关浏览器回归，包括我的阅读、未看优先和记录持久化。核验账户快照、全国赛事身份及科研双文件完整。
 
 先做本地发布检查；公开线上HTML尚是旧版本时应按阶段解释，不能用预计中的差异宣称上线失败后削弱检查。通过后只暂存本次明确文件，提交并推送main；等GitHub Pages部署成功，再运行完整发布总检，逐字规范化HTML、解析规范化两份科研JSON与本地比较，并确认日报API和关键操作。网络警告保留，失败须修复或说明阻碍，不能仅看push成功就称上线。源数据无变化且无可操作问题保持安静，仅实质更新、部署完成、失败或需用户处理时通知。
 

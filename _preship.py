@@ -166,7 +166,7 @@ if fresh:
         + "\n        ".join(fresh),
         "先跑：python _build.py  然后重新推送")
 else:
-    ok(PASS, "源文件全部已构建进产物（%d 个输入）" % len(src_files))
+    ok(PASS, "活动源文件和归档校验输入均已在构建时核对（%d 个输入）" % len(src_files))
 
 # 产物里必须内联全部数据文件，不能还是外链
 leftover = [f for f in src_files[1:]
@@ -175,15 +175,11 @@ if leftover:
     bad("产物里仍有未内联的外链：%s" % ", ".join(leftover),
         "跑 python _build.py，它会在内联失败时报错退出")
 else:
-    ok(PASS, "%d 份数据文件全部内联，产物自包含" % (len(src_files) - 1))
+    ok(PASS, "活动脚本无遗留外链，产物自包含；科研文件仅保留归档校验")
 
 # ---------- [2] 关键内容是否真的落地 ----------
 print("\n[2] 关键内容落地检查（直接读产物全文，emoji 也精确匹配）")
 MUST_CONTAIN = [
-    ("科研栏目", 'id="view-research"'),
-    ("科研原生任务清单", 'id="research-list"'),
-    ("科研刷新入口", 'id="research-refresh"'),
-    ("科研六字段摘要", 'window.RESEARCH_SNAPSHOT='),
     ("每日日报 tab 文案", "📰"),
     ("实力排行榜 tab 文案", "🏆"),
     ("可报名比赛 tab 文案", "🏁"),
@@ -195,7 +191,6 @@ MUST_CONTAIN = [
     ("我的阅读栏目", 'id="view-library"'),
     ("统一阅读记录列表", 'id="reading-list"'),
     ("统一阅读记录搜索", 'id="reading-query"'),
-    ("科研执行正文", 'window.RESEARCH_DETAILS='),
     ("设备同步设置", 'id="cloud-settings"'),
     ("期刊阅读架", 'id="magazine-publishers"'),
     ("期刊文章列表", 'id="magazine-list"'),
@@ -229,11 +224,15 @@ if missing:
     bad("产物里找不到：%s" % "、".join(missing),
         "改了 index.src.html 但没构建 / 或改动本身有 bug")
 else:
-    ok(PASS, "%d 项关键结构全部存在（12 栏目及各栏关键组件）"
+    ok(PASS, "%d 项关键结构全部存在（11 栏目及各栏关键组件）"
        % len(MUST_CONTAIN))
 
 # 反向：这些必须一条不剩（获奖喜报、已结束条目、旧字段）
 MUST_ABSENT = [
+    ("已撤下的科研视图", 'id="view-research"'),
+    ("已撤下的科研导航", 'id="tab-research"'),
+    ("已撤下的个人任务快照", "window.RESEARCH_SNAPSHOT="),
+    ("已撤下的个人任务正文", "window.RESEARCH_DETAILS="),
     ("获奖喜报通稿", "[喜讯]"),
     ("旧字段「具体要干啥」", "具体要干啥"),
     ("旧全国赛事区块容器", 'id="nation-list"'),

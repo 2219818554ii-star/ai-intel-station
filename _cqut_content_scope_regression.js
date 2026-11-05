@@ -14,11 +14,11 @@ module.exports=function({ok}){
   const backfill={date:'2026-10-28',url:'https://official.example/backfill'};
   const file=(day,notices)=>'window.CQUT_UPDATED = "'+day+'";\nwindow.CQUT_NOTICES = '+JSON.stringify(notices,null,2)+';\n';
   const windows=text=>text.replace(/\n/g,'\r\n');
-  function check(label,{before,current,noGit=false},expected,reason){
+  function check(label,{before,current,noGit=false,retention={ok:false,mode:'rejected'}},expected,reason){
     const data={window:{}};vm.runInNewContext(current,data);
     const results=[];
     vm.runInNewContext(guard,{
-      sandbox:data,cqNotices:data.window.CQUT_NOTICES,__dirname,
+      sandbox:data,cqNotices:data.window.CQUT_NOTICES,cqSourceFreshness:retention,__dirname,
       process:{env:{}},ok:(pass,text)=>results.push({pass,text}),
       require(name){
         if(name==='child_process')return {execFileSync(){if(noGit)throw Error('Git unavailable');return before;}};
@@ -37,6 +37,10 @@ module.exports=function({ok}){
   check('原文日期不变的真实补收仍通过增量校验',{before:file('2026-10-30',original),current:windows(file('2026-11-03',original.concat(backfill)))},true,/新增 1 条.*补漏抓/);
   check('缺少Git基线不能推定未改动并绕过严格日期门',{before:same,current:same,noGit:true},false,/新增 -1 条/);
   check('缺少Git时仍允许满足严格日期条件的正常内容',{before:'',current:file('2026-11-03',[{date:'2026-11-02',url:'https://official.example/recent'}]),noGit:true},true,/<= 3 天/);
+  const disclosed=same+'window.CQUT_CHECK_NOTE="Official sources blocked; original content retained";\n';
+  check('完整证据验证通过后只增受阻说明不冒称内容更新',{before:same,current:disclosed,retention:{ok:true,mode:'blocked-retained'}},true,/受阻保留已独立完整核验.*不声称新增/);
+  check('受阻验证失败仍必须通过原日期与增量判据',{before:same,current:disclosed,retention:{ok:false,mode:'blocked-retained'}},false,/新增 0 条/);
+  check('普通新鲜内容结论不能借受阻路径跳过空滚检查',{before:file('2026-11-02',original),current:same,retention:{ok:true,mode:'fresh-content'}},false,/新增 0 条/);
 };
 
 if(require.main===module){

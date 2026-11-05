@@ -8,18 +8,18 @@ module.exports=async function({html,ok}){
   for(const file of ['matches.js','competitions.js'])require('vm').runInNewContext(fs.readFileSync(path.join(__dirname,file),'utf8'),published);
   const opportunities=api.index(published.window),matchRows=opportunities.filter(r=>r.kind==='match');
   ok(matchRows.length===published.window.MATCHES.length&&matchRows.every(r=>r.route==='cqut'&&api.search(opportunities,r.title,30).some(x=>x.kind==='match'&&x.key===r.key))&&opportunities.filter(r=>r.group==='赛事库').length===published.window.COMP.length,'全站搜索逐项收录报名线索，保留全国赛事库的独立身份与入口');
-  ok(api.search(rows,'T001',30).some(r=>r.route==='research'&&r.key==='T001')&&api.search(rows,'运输 接收',30).some(r=>r.key==='T001'),'工作台搜索覆盖真实任务编号及执行正文，多关键词同时匹配');
-  const originalOrder=JSON.stringify(rows),precise=api.search(rows,'t015',1);
-  ok(precise.length===1&&precise[0].key==='T015'&&precise[0].route==='research'&&JSON.stringify(rows)===originalOrder,'精确任务编号忽略大小写并在截断结果前优先本项，不让正文引用抢先或改动索引');
+  ok(!rows.some(r=>r.route==='research') && !api.search(rows,'T001',30).length,'即使传入旧科研快照，全站搜索也不再收录科研任务或入口');
+  const originalOrder=JSON.stringify(rows),precise=api.search(rows,'校园通知',1);
+  ok(precise.length===1 && precise[0].route==='cqut' && JSON.stringify(rows)===originalOrder,'栏目搜索保持正确命中且不改原始索引顺序');
   ok(api.search(rows,'完全不存在的工作台词条',30).length===0&&api.search(rows,'',5).length===5,'工作台搜索空态与批次数量正确，不用虚构结果填充');
   ok(!api.personalNotice({cat:'college',src:'机械工程学院',tag:'money',t:'本院助学金',sum:'仅影响该院'})&&api.personalNotice({cat:'college',src:'化学化工学院',tag:'money',t:'助学金公示'})&&!api.personalNotice({cat:'school',src:'教务处',tag:'exam',t:'收卷通知',sum:'面向出题教师'})&&api.personalNotice({cat:'school',src:'研究生院',tag:'rs',t:'研究生科研成果奖励申报'}),'首页校园推荐按化工研究生相关性筛选，不把其他学院或教师办理事项放到个人待看首排');
   const noon=api.deadline({st:'报名中',dl:'2026-10-23',deadlineTime:'12:00'});
   ok(noon.at===Date.parse('2026-10-23T12:00:00+08:00')&&api.deadline({st:'报名中',dl:'2026-10-23'}).at===Date.parse('2026-10-23T23:59:59+08:00'),'首页明确时刻精确到截止瞬间，未注明时刻才按北京日末');
   ok([{st:'报名中',dl:'2026-02-30'},{st:'报名中',dl:'2026-10-26',deadlineTime:'24:30'},{st:'报名中',dl:'2026-10-26 12:00',deadlineTime:'18:00'},{st:'报名中',dl:'2026-10-26',deadlineUnverified:true},{st:'已截止',dl:'2026-10-26'}].every(t=>api.deadline(t)===null),'首页不将非法、矛盾、资格未核实或已截止数据伪造成确定报名机会');
   ok(['javascript:alert(1)','data:text/html,hi','https://user:pass@example.org/','//example.org/x','https://example.org/\nraw'].every(u=>!api.safeURL(u))&&api.safeURL('https://example.org/a')==='https://example.org/a','最近打开记录拒绝危险URL与凭据地址，合法入口保留');
-  ok(html.includes('id="view-home"')&&html.includes('id="home-tasks"')&&html.includes('id="home-metrics"')&&html.includes('workspace-mobile-nav')&&!/<script src="workspace\.js"/.test(html),'今天工作台与单手快捷入口都存在，运行代码已内联可离线执行');
+  ok(html.includes('id="view-home"')&&!html.includes('id="home-tasks"')&&html.includes('id="home-metrics"')&&html.includes('workspace-mobile-nav')&&!/<script src="workspace\.js"/.test(html),'今天工作台与单手快捷入口都存在，运行代码已内联可离线执行');
   const sw=fs.readFileSync(path.join(__dirname,'sw.js'),'utf8');
-  ok(sw.includes("url.origin!==self.location.origin")&&sw.includes("request.method!=='GET'")&&sw.includes('research-details.json')&&!sw.includes('chatgpt.site'),'离线层只缓存本站发布资料，不缓存外站登录或发送科研写请求');
+  ok(sw.includes("url.origin!==self.location.origin")&&sw.includes("request.method!=='GET'")&&!sw.includes('research-details.json')&&!sw.includes('chatgpt.site'),'离线层只缓存本站发布资料，不缓存外站登录或发送科研写请求');
   const elements={},events={},documentEvents={},closeQueue=[],focusLog=[];
   const doc={activeElement:null,getElementById(id){
     return elements[id]||(elements[id]={id,tagName:id==='workspace-query'?'INPUT':'BUTTON',innerHTML:'',textContent:'',value:'',style:{},dataset:{},hidden:false,open:false,isConnected:true,
@@ -32,10 +32,10 @@ module.exports=async function({html,ok}){
   api.mount(world,doc);
   const opener=doc.getElementById('workspace-search-open'),field=doc.getElementById('workspace-query'),dialog=doc.getElementById('workspace-search');
   function open(){opener.focus();events['workspace-search-open'].click.call(opener);}
-  open();field.value='T015';events['workspace-query'].input();events['workspace-query'].keydown({key:'Enter',preventDefault(){}});
+  open();field.value='校园通知';events['workspace-query'].input();events['workspace-query'].keydown({key:'Enter',preventDefault(){}});
   closeQueue.shift()();
-  ok(route==='research'&&focusedTask==='T015'&&doc.activeElement.id==='task-result-heading'&&!dialog.open,'选择搜索结果后迟到的dialog close事件不把焦点从目标正文抢回打开按钮');
-  open();field.value='T015';let prevented=false;events['workspace-search'].keydown({key:'Escape',preventDefault(){prevented=true;}});closeQueue.shift()();
+  ok(route==='cqut'&&focusedTask===null&&doc.activeElement.id==='section-heading'&&!dialog.open,'选择搜索结果后迟到的dialog close事件不把焦点从目标正文抢回打开按钮');
+  open();field.value='校园通知';let prevented=false;events['workspace-search'].keydown({key:'Escape',preventDefault(){prevented=true;}});closeQueue.shift()();
   ok(prevented&&!dialog.open&&doc.activeElement===opener,'有文本的搜索框一次Escape即关闭并返回触发点，阻止原生search输入只清空文本');
   open();documentEvents.keydown({key:'k',ctrlKey:true,target:field,preventDefault(){}});events['workspace-search-close'].click();closeQueue.shift()();
   ok(!dialog.open&&doc.activeElement===opener,'已打开搜索时再次CtrlK不丢失原触发点，关闭按钮仍正确还焦点');

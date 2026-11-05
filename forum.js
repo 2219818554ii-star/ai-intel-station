@@ -8,14 +8,14 @@
    2026-10-26：全量尝试194个BV；11个已核实播放变化单列采集日期，其他项保留原逐条日期，元数据日期不变。
    2026-11-01：全量尝试194个BV；5个已核实播放变化单列采集日期，其他项保留原逐条日期，元数据日期不变。
    整理证据见 _learning_review_2026-10-18.json；本次联网记录见 _learning_review_2026-11-01.json；没有为了凑数补入未经核实的视频。 */
-window.FORUM_CHECKED = "2026-11-01";
-window.FORUM_UPDATED = "2026-11-01";
+window.FORUM_CHECKED = "2026-11-05";
+window.FORUM_UPDATED = "2026-11-05";
 window.FORUM_PLAY_CAPTURED_AT = "2026-10-14";
-window.FORUM_REVIEW_NOTE = "11月1日实际尝试全部194个独立BV的官方view统计，5个取得完整且BV/标题一致的计数，其中5个发生变化（涉及5条收录），变化项逐条标注采集11月1日；其余保留原逐条日期或历史快照（2026-10-14、2026-10-25、2026-10-26），不能当作全量已刷新。另pagelist完整核实185个，分P与总时长未发现变化，元数据日期仍10月22日。分P核验不等于全片可播。";
+window.FORUM_REVIEW_NOTE = "11月5日逐项尝试全部194个独立BV，取得3个完整且BV、标题、播放一致的官方响应，更新对应播放数；其余保留原播放与逐条采集日，历史回退日仍为2026-10-14。不是全量同期刷新，分P/总时长仍沿用原核验，不能据统计响应声称全片可播。";
 window.FORUM_CATS = ["名人与企业家","国学讲坛","阳明心学"];
 window.FORUM_SERIES = [
   {cat:"名人与企业家", who:"马云", desc:"创业经历、教育与经营主题的演讲和访谈。优先从完整演讲入手，再看短剪辑。", vids:[
-    {"t":"马云斯坦福演讲：世界在改变 你要采取行动","bvid":"BV1Az4y1v7Z8","up":"识君SHIJUN","dur":"34:39","play":211901,"pageCount":1,"durationSeconds":2079,"metadataCheckedAt":"2026-10-22","playCapturedAt":"2026-11-01"},
+    {"t":"马云斯坦福演讲：世界在改变 你要采取行动","bvid":"BV1Az4y1v7Z8","up":"识君SHIJUN","dur":"34:39","play":211983,"pageCount":1,"durationSeconds":2079,"metadataCheckedAt":"2026-10-22","playCapturedAt":"2026-11-05"},
     {"t":"马云在上海外滩金融峰会上的演讲，内容劲爆，火力全开。","bvid":"BV1va4y1s7k8","up":"小娃放牛","dur":"21:30","play":3663505,"pageCount":1,"durationSeconds":1290,"metadataCheckedAt":"2026-10-22"},
     {"t":"2020年！马云，首次直播谈论 当代年轻人压力。","bvid":"BV17z4y1R7Wm","up":"云中方知雾","dur":"5:30","play":294501,"pageCount":1,"durationSeconds":330,"metadataCheckedAt":"2026-10-22"},
     {"t":"【马云】想看十年前马云的演讲吗？极其经典并有预见性的演讲","bvid":"BV1Fx411t758","up":"從吾遊","dur":"72:35","play":148595,"pageCount":2,"durationSeconds":4355,"metadataCheckedAt":"2026-10-22"},
@@ -48,12 +48,12 @@ window.FORUM_SERIES = [
   ]},
   {cat:"名人与企业家", who:"乔布斯", desc:"2005 斯坦福毕业演讲「Stay hungry, stay foolish」，三个故事讲热爱、失去与死亡。", vids:[
     {"t":"乔布斯在斯坦福大学毕业典礼上的演讲（中英字幕）","bvid":"BV1oW411h7Ea","up":"风上面的天","dur":"14:25","play":1582629,"pageCount":1,"durationSeconds":865,"metadataCheckedAt":"2026-10-22"},
-    {"t":"【油管5000w播放】乔布斯在斯坦福大学毕业典礼上的演讲！","bvid":"BV1T2YLeYE3g","up":"TED口语官方","dur":"14:25","play":153927,"pageCount":1,"durationSeconds":865,"metadataCheckedAt":"2026-10-22"},
+    {"t":"【油管5000w播放】乔布斯在斯坦福大学毕业典礼上的演讲！","bvid":"BV1T2YLeYE3g","up":"TED口语官方","dur":"14:25","play":157457,"pageCount":1,"durationSeconds":865,"metadataCheckedAt":"2026-10-22","playCapturedAt":"2026-11-05"},
     {"t":"每当深处低谷，听听这段讲话 | 重温经典 | 乔布斯在斯坦福大学毕业典礼上的演讲","bvid":"BV1BBuBzVENh","up":"青云英语每日更新","dur":"14:38","play":62169,"pageCount":1,"durationSeconds":878,"metadataCheckedAt":"2026-10-22"},
     {"t":"乔布斯 1983 年的这场演讲，提前看穿了 50 年，这场演讲里，一共有 10 个关键预言，后来几乎全部应验这是一场被严重低估的演讲。【完整版】","bvid":"BV1ahB1BVExB","up":"spanking_","dur":"54:51","play":41632,"pageCount":1,"durationSeconds":3291,"metadataCheckedAt":"2026-10-22"},
     {"t":"乔布斯 史上最著名的演讲：求知若饥，虚心若愚","bvid":"BV12N411G7QQ","up":"名言语录QUOTES","dur":"15:38","play":21498,"pageCount":1,"durationSeconds":938,"metadataCheckedAt":"2026-10-22"},
     {"t":"中文·高清 乔布斯 2007年iPhone发布会完整版","bvid":"BV1C441187qa","up":"LeowangWorld-王川","dur":"79:20","play":1330187,"pageCount":1,"durationSeconds":4760,"metadataCheckedAt":"2026-10-22"},
-    {"t":"乔布斯1995年谈微软，巨人的思想真的太可怕了！强烈建议大家收藏","bvid":"BV1fh411r7nd","up":"外星人点看","dur":"4:05","play":402231,"pageCount":1,"durationSeconds":245,"metadataCheckedAt":"2026-10-22"},
+    {"t":"乔布斯1995年谈微软，巨人的思想真的太可怕了！强烈建议大家收藏","bvid":"BV1fh411r7nd","up":"外星人点看","dur":"4:05","play":402322,"pageCount":1,"durationSeconds":245,"metadataCheckedAt":"2026-10-22","playCapturedAt":"2026-11-05"},
     {"t":"乔布斯斯坦福大学演讲（高清 中英文字幕）","bvid":"BV1Us411i7Ym","up":"風見ヽ隼人","dur":"14:24","play":303820,"pageCount":1,"durationSeconds":864,"metadataCheckedAt":"2026-10-22"},
     {"t":"现场被技术男羞辱不懂技术？乔布斯的回应也太秀了吧！","bvid":"BV18A411n7CQ","up":"油兔英语笔记","dur":"13:15","play":290116,"pageCount":3,"durationSeconds":795,"metadataCheckedAt":"2026-10-22"}
   ]},

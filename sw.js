@@ -1,7 +1,7 @@
 /* Same-origin published snapshots only. No private sites, external API or images. */
-const CACHE='luohao-workspace-20261026-v2';
+const CACHE='luohao-workspace-20261105-v3';
 const ROOT=new URL('./',self.location.href).href;
-const FILES=['./','./research-data.json','./research-details.json','./manifest.webmanifest','./workspace-icon.svg'].map(x=>new URL(x,ROOT).href);
+const FILES=['./','./manifest.webmanifest','./workspace-icon.svg'].map(x=>new URL(x,ROOT).href);
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES)).then(()=>self.skipWaiting()));});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('luohao-workspace-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});
 self.addEventListener('fetch',event=>{

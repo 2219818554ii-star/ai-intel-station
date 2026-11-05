@@ -449,12 +449,11 @@
 <body class="workspace-shell">
   <a class="skip-link" href="#workspace-content" id="skip-content">跳到正文</a>
   <aside class="workspace-sidebar" id="workspace-menu" aria-label="全部栏目">
-    <div class="workspace-brand"><span class="workspace-monogram" aria-hidden="true">LH</span><div><strong>罗浩的工作台</strong><small>科研 · 机会 · 阅读</small></div></div>
+    <div class="workspace-brand"><span class="workspace-monogram" aria-hidden="true">LH</span><div><strong>罗浩的工作台</strong><small>机会 · 学习 · 阅读</small></div></div>
     <button type="button" id="workspace-menu-close" class="workspace-menu-close" aria-label="关闭全部栏目">×</button>
     <nav class="tabs" role="tablist" aria-label="工作台栏目" aria-orientation="vertical">
       <div class="nav-group-label" aria-hidden="true">日常 / Daily</div>
       <button class="tab active" id="tab-home" role="tab" aria-selected="true" aria-controls="view-home" data-tab="home">⌂ 今天</button>
-      <button class="tab" id="tab-research" role="tab" aria-selected="false" aria-controls="view-research" data-tab="research">🔬 科研</button>
       <button class="tab" id="tab-cqut" role="tab" aria-selected="false" aria-controls="view-cqut" data-tab="cqut">🏫 校园通知</button>
       <button class="tab" id="tab-comp" role="tab" aria-selected="false" aria-controls="view-comp" data-tab="comp">🏁 赛事机会</button>
       <div class="nav-group-label" aria-hidden="true">工具与学习 / Learn</div>
@@ -475,12 +474,11 @@
   <header class="appbar"><div class="appbar-inner"><button class="workspace-menu-toggle" id="workspace-menu-toggle" type="button" aria-label="打开全部栏目" aria-controls="workspace-menu" aria-expanded="false">☰</button><div class="workspace-breadcrumb"><span>我的工作台 /</span><strong id="workspace-current-title">今天</strong></div><div class="workspace-header-actions"><span class="workspace-header-date" id="workspace-header-date"></span><button type="button" class="workspace-cloud-button" data-cloud-open>设备同步</button><button type="button" class="workspace-search-button" id="workspace-search-open" aria-haspopup="dialog">搜索栏目与内容 <kbd>Ctrl K</kbd></button></div></div></header>
   <div id="workspace-content">
   <section id="view-home" class="view workbench-home" role="tabpanel" aria-labelledby="tab-home">
-    <div class="home-heading"><div><div class="home-eyebrow" id="home-date">MY DAILY WORKSPACE</div><h1>今天，从这里开始。</h1><p>先看科研安排，再挑值得投入的机会与阅读。</p></div><div class="home-personal"><span>化工 / 材料</span><span>电化学 / 储能</span></div></div>
+    <div class="home-heading"><div><div class="home-eyebrow" id="home-date">MY DAILY WORKSPACE</div><h1>今天，从这里开始。</h1><p>从校园通知、赛事机会和未读内容开始。</p></div><div class="home-personal"><span>化工 / 材料</span><span>电化学 / 储能</span></div></div>
     <div id="home-resume" hidden></div>
     <div class="home-metrics" id="home-metrics"></div>
     <div class="home-grid">
       <div class="home-column">
-        <section class="home-panel"><div class="home-panel-head"><h2>今天的科研</h2><button type="button" data-go="research">全部任务 ↗</button></div><div id="home-tasks"></div><div id="home-attention"></div><p id="home-research-stamp" class="home-note"></p></section>
         <section class="home-panel"><div class="home-panel-head"><h2>校园事务</h2><button type="button" data-go="cqut">查看通知 ↗</button></div><div class="home-list" id="home-notices"></div><p class="home-note" id="home-notice-stamp"></p></section>
         <section class="home-panel"><div class="home-panel-head"><h2>可继续了解的机会</h2><button type="button" data-go="comp">全部赛事 ↗</button></div><div class="home-list" id="home-opportunities"></div><p class="home-note">按已收录的明确截止排序；报名资格、费用与本校认定仍需核对。</p></section>
       </div>
@@ -491,7 +489,7 @@
         <section class="home-panel"><div class="home-panel-head"><h2>接着上次看</h2><button type="button" data-go="library">收藏与记录 ↗</button></div><div id="home-opened" class="home-empty">打开过的文章或课程会出现在这里；打开不会自动标为已读。</div></section>
       </div>
     </div>
-    <div class="home-footer"><span>先执行，再反馈，再同步；网页不会擅自替你确认任务完成。</span><span id="home-content-state">本地内容就绪</span></div>
+    <div class="home-footer"><span>收藏、已读和已看集中保存在“我的阅读”，随时回来继续。</span><span id="home-content-state">本地内容就绪</span></div>
   </section>
   <section id="view-library" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-library">
     <div class="view-head"><div><h2>▤ 我的阅读</h2><p>收藏在这里，读过的也在这里。随时回顾，接着上次打开的内容继续看。</p></div></div>
@@ -1043,26 +1041,6 @@
     </div>
   </div>
 
-  <div id="view-research" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-research">
-    <header class="research-hero"><div><span class="research-kicker" id="research-date">我的科研 · 北京时间</span><h2>科研 · 把今天做清楚</h2><p id="research-focus">正在读取任务与执行内容…</p></div><button type="button" class="research-refresh" id="research-refresh">检查更新</button></header>
-    <p id="research-sync-status" class="research-sync" role="status"></p>
-    <div class="research-stats" id="research-stats" aria-label="任务与预计工时"></div>
-    <p id="research-risk-note" class="research-risk-note"></p>
-    <div class="research-filters"><input type="search" id="research-search" aria-label="搜索任务编号或完整执行内容" placeholder="搜任务、步骤、完成标准…"><select id="research-category" aria-label="任务分类"><option value="all">全部分类</option></select><select id="research-state" aria-label="任务状态"><option value="all">全部状态</option><option>计划中</option><option>进行中</option><option>待条件</option><option>待确认</option><option>已完成</option><option>已取消</option></select><button type="button" id="research-reset" class="research-refresh">清除筛选</button></div>
-    <div class="research-section-head"><h3 id="research-list-heading" tabindex="-1">今日任务</h3><span id="research-result-count" role="status"></span></div>
-    <div id="research-list" class="research-task-list"></div>
-    <button type="button" class="research-refresh" id="research-more" hidden>再看12项任务</button>
-    <details id="research-completed-panel" class="research-completed-panel" hidden><summary>已完成事项 · 执行完成与证据验收分别记录</summary><div id="research-completed-list"></div><button type="button" class="research-refresh" data-rscope="done">查看全部已完成</button></details>
-    <details class="research-chart-box"><summary>未来7天 · 预计主动工时</summary><div id="research-week-chart" class="research-week-chart" aria-label="未来7天预计主动工时图"></div><p class="research-chart-note">不含今天；工时是计划估计，等待、交通与实际工时分别记录。</p><div class="research-progress-track" aria-hidden="true"><span id="research-progress-fill"></span></div><p id="research-progress" class="research-chart-note"></p></details>
-    <section class="research-records" aria-labelledby="research-record-heading"><div class="research-section-head"><h3 id="research-record-heading" tabindex="-1">实验记录 · 原生只读</h3><span id="research-record-count" role="status"></span></div><p class="research-chart-note">这里只展示已经核对发布的记录。任务计划不会自动变成实做；未知起止时间与实际工时保持“待补充”。</p><div class="research-filters"><select id="research-record-task" aria-label="按任务筛选实验记录"><option value="all">全部关联任务</option></select><input type="search" id="research-record-query" aria-label="搜索实验记录" placeholder="搜索已记录的工作、观察或异常…"><button type="button" id="research-record-reset" class="research-refresh">清除记录筛选</button></div><div id="research-record-list"></div><button type="button" id="research-record-more" class="research-refresh" hidden>再看12条记录</button></section>
-    <section id="research-feedback-box" class="research-feedback"><h3>记录进展，调整安排</h3><p>写下实际完成的内容或新的安排。草稿先保存在这台设备；点AI整理才发送，核对后应用到任务。实际工时和实验结果按你的原话记录。</p><div class="cloud-actions research-draft-actions"><button type="button" id="research-draft-new">切到通用反馈</button><button type="button" id="research-draft-clear">清空当前草稿</button><button type="button" id="research-draft-undo" hidden>恢复刚清空的草稿</button></div><label for="research-feedback-text">进展或调整内容</label><textarea id="research-feedback-text" rows="7" aria-describedby="research-draft-status">任务ID：
-进展 / 新情况：
-实际日期 / 希望调整到：
-实际主动工时（可选）：
-需要协调的事：</textarea><p id="research-draft-status" class="research-draft-status" role="status" aria-live="polite">草稿仅保存在这台设备；保存不会自动发送或应用任务。</p><div class="cloud-actions"><select id="research-ai-provider" aria-label="任务助手模型"><option value="deepseek">DeepSeek</option><option value="openai">OpenAI</option></select><button type="button" class="research-refresh" id="research-ai-propose">AI 整理调整建议</button><button type="button" id="research-copy">复制反馈内容</button><button type="button" data-cloud-open>设备与模型设置</button></div><pre id="research-ai-preview" class="cloud-preview" aria-live="polite"></pre><div class="cloud-actions"><button type="button" id="research-ai-apply" hidden>应用这些调整</button><button type="button" id="research-ai-undo">撤销上次调整</button></div><p data-cloud-status></p></section>
-    <footer class="research-source"><details><summary>来源、版本与事实边界</summary><p id="research-details-note" class="research-sync" role="status"></p><p id="research-meta"></p><p>日期、公开状态和预计工时来自原六字段摘要；执行正文及记录按已审核版本关联。完成标记不等于科学验证或证据验收通过。原始数据、凭据、联系人与本机证据路径未放入本页。</p></details></footer>
-  </div>
-
   <div id="view-funds" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-funds">
     <div class="view-head"><h2>📈 基金看板 · 我的持仓</h2>
       <p>只记录不荐股。金额与盈亏来自你自己的持仓，配色按国内习惯：<b style="color:#e02424">涨红</b> / <b style="color:#16a34a">跌绿</b>。公开数据最近成功更新于 <span id="funds-updated"></span>，最近核查 <span id="funds-checked"></span>。</p>
@@ -1126,8 +1104,8 @@
   </div>
 
   </div><!-- workspace-content -->
-  <nav class="workspace-mobile-nav" aria-label="快捷入口"><button type="button" data-go="home"><span aria-hidden="true">⌂</span>今天</button><button type="button" data-go="research"><span aria-hidden="true">🔬</span>科研</button><button type="button" data-go="library"><span aria-hidden="true">▤</span>我的阅读</button><button type="button" data-menu-open aria-controls="workspace-menu" aria-expanded="false"><span aria-hidden="true">☰</span>全部</button></nav>
-  <dialog id="workspace-search" class="workspace-search-dialog" aria-label="搜索工作台"><div class="workspace-search-head"><input id="workspace-query" type="search" aria-label="搜索所有栏目" placeholder="搜索任务、文章、比赛或课程…" autocomplete="off"><button type="button" id="workspace-search-close">关闭</button></div><div id="workspace-search-results" class="workspace-search-results"></div><div class="workspace-search-footer" id="workspace-search-hint">输入关键词，跨栏目查找。任务进度仍以已同步记录为准。</div></dialog>
+  <nav class="workspace-mobile-nav" aria-label="快捷入口"><button type="button" data-go="home"><span aria-hidden="true">⌂</span>今天</button><button type="button" data-go="cqut"><span aria-hidden="true">🏫</span>校园</button><button type="button" data-go="library"><span aria-hidden="true">▤</span>我的阅读</button><button type="button" data-menu-open aria-controls="workspace-menu" aria-expanded="false"><span aria-hidden="true">☰</span>全部</button></nav>
+  <dialog id="workspace-search" class="workspace-search-dialog" aria-label="搜索工作台"><div class="workspace-search-head"><input id="workspace-query" type="search" aria-label="搜索所有栏目" placeholder="搜索文章、比赛或课程…" autocomplete="off"><button type="button" id="workspace-search-close">关闭</button></div><div id="workspace-search-results" class="workspace-search-results"></div><div class="workspace-search-footer" id="workspace-search-hint">输入关键词，跨栏目查找文章、视频、通知和比赛。</div></dialog>
   <button id="toTop" title="回到顶部" aria-label="回到顶部">↑</button>
   <div id="copy-status" class="sr-only" role="status" aria-live="polite"></div>
   <dialog id="copy-dialog" aria-labelledby="copy-title" style="max-width:min(540px,calc(100vw - 32px));width:100%;border:1px solid var(--line);border-radius:14px;padding:20px;box-sizing:border-box">
@@ -1190,8 +1168,8 @@
   document.getElementById("copy-close").addEventListener("click",function(){var d=document.getElementById("copy-dialog");if(d.close)d.close();else d.removeAttribute("open");});
   document.getElementById("copy-dialog").addEventListener("close",function(){var el=this._copyTrigger;if(el&&el.focus)el.focus({preventScroll:true});});
   /* ============ TAB SWITCHING ============ */
-  var NAV_TABS=["home","research","cqut","comp","daily","rank","learn","magazines","ted","forum","library","funds"];
-  var NAV_LABELS={home:"今天",research:"科研",cqut:"校园通知",comp:"赛事机会",daily:"AI日报",rank:"模型与工具",learn:"AI学习",magazines:"期刊阅读",ted:"TED英语",forum:"成长讲坛",library:"我的阅读",funds:"资产记录"};
+  var NAV_TABS=["home","cqut","comp","daily","rank","learn","magazines","ted","forum","library","funds"];
+  var NAV_LABELS={home:"今天",cqut:"校园通知",comp:"赛事机会",daily:"AI日报",rank:"模型与工具",learn:"AI学习",magazines:"期刊阅读",ted:"TED英语",forum:"成长讲坛",library:"我的阅读",funds:"资产记录"};
   var NAV_RENDERED=false;
   function exposeNavSelection(tab){
     if(navigationMedia&&navigationMedia.matches&&!menuOpen)return;
@@ -1212,7 +1190,6 @@
     if(!RESTORE_PENDING) VIEW_SCROLL[ACTIVE_TAB] = window.scrollY || 0;
     if(DOM_READY) RESTORE_PENDING=false;
     ACTIVE_TAB = tab;
-    if(tab==="research"&&window.AI_RESEARCH&&typeof window.AI_RESEARCH.refresh==="function")window.AI_RESEARCH.refresh();
     document.querySelectorAll(".tab").forEach(function(t){ var on=(t.dataset.tab===tab); t.classList.toggle("active", on); t.setAttribute("aria-selected", on?"true":"false");t.setAttribute("tabindex",on?"0":"-1"); });
     NAV_TABS.forEach(function(v){
       var el=document.getElementById("view-"+v);
@@ -3296,10 +3273,8 @@
   render();
 })();
 </script>
-<script id="research-data-snapshot"></script>
-<script src="research.js"></script>
 <dialog id="cloud-settings" class="cloud-dialog" aria-labelledby="cloud-settings-title">
-  <div class="cloud-dialog-head"><h2 id="cloud-settings-title">设备与模型</h2><button id="cloud-close" type="button" aria-label="关闭设备与模型设置">×</button></div>
+  <div class="cloud-dialog-head"><h2 id="cloud-settings-title">我的设备</h2><button id="cloud-close" type="button" aria-label="关闭我的设备设置">×</button></div>
   <p id="cloud-status" role="status" aria-live="polite"></p>
   <section id="cloud-connection">
     <h3>连接我的设备</h3>
@@ -3313,19 +3288,12 @@
       <label>恢复码 / 配对码<input type="password" id="cloud-code" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="粘贴恢复码，或8位配对码"></label>
       <button type="button" id="cloud-connect">连接这台设备</button>
     </details>
-    <p class="cloud-import-help">DeepSeek / OpenAI 的 API Key 请在连接成功后填写到模型设置。</p>
   </section>
   <section id="cloud-connected" hidden>
     <div class="cloud-actions"><button type="button" id="cloud-sync-now">立即同步</button><button type="button" id="cloud-pair">连接另一台设备</button><button type="button" id="cloud-disconnect">断开此设备</button></div>
     <p id="cloud-pair-code" class="cloud-code" aria-live="polite"></p>
     <details><summary>同步冲突</summary><p>旧设备与新设备同时改了同一项时，会保留云端值。重试会再次提交你在这台设备的选择。</p><button type="button" id="cloud-conflict-retry">重试冲突的本机选择</button></details>
     <details><summary>已连接设备</summary><button type="button" id="cloud-devices-refresh">查看已连接设备</button><div id="cloud-devices"></div></details>
-    <h3>科研任务助手</h3>
-    <p>密钥只发送到个人同步服务加密保存。DeepSeek作为国内访问优先入口；OpenAI需另有API密钥和额度。未设置时仍能正常查看任务。</p>
-    <label>提供方<select id="cloud-provider"><option value="deepseek">DeepSeek</option><option value="openai">OpenAI</option></select></label>
-    <label>模型名称<input id="cloud-model" value="deepseek-flash" maxlength="100" autocomplete="off"></label>
-    <label>API Key<input id="cloud-api-key" type="password" autocomplete="new-password" spellcheck="false"></label>
-    <button type="button" id="cloud-model-save">加密保存模型设置</button><p id="cloud-model-note" role="status" aria-live="polite"></p>
   </section>
 </dialog>
 <script src="workspace.js"></script>

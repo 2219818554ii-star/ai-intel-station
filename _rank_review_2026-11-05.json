@@ -1,0 +1,541 @@
+{
+  "checkedAt": "2026-11-05",
+  "attemptedAt": "2026-11-05T20:19:05+08:00",
+  "completedAt": "2026-11-05T20:19:22+08:00",
+  "aaVersion": "5.0",
+  "officialObservations": [
+    {
+      "url": "https://artificialanalysis.ai/leaderboards/models",
+      "method": "Complete official server-rendered model table; model name and Intelligence Index column parsed independently of rank.js. Exact selected rows only, not a claim that all models or prices were recertified.",
+      "observedSelectedRows": [
+        [
+          "Gemini 4 Carbon (high)",
+          60
+        ],
+        [
+          "Claude Opus 5.5 (max)",
+          59
+        ],
+        [
+          "GPT-6 Astra (max)",
+          57
+        ],
+        [
+          "GPT-6.1 Sol (max)",
+          55
+        ],
+        [
+          "Claude Sonnet 5.5 (max)",
+          55
+        ],
+        [
+          "GPT-6.1 Terra (max)",
+          51
+        ],
+        [
+          "Gemini 4 Argon (high)",
+          50
+        ],
+        [
+          "Muse Wonder Full (max)",
+          50
+        ],
+        [
+          "Claude Fable 5.1 (max)",
+          49
+        ],
+        [
+          "Kimi K3.1 Pro",
+          46
+        ],
+        [
+          "Muse Wonder (max)",
+          44
+        ],
+        [
+          "Claude Haiku 5.5 (max)",
+          36
+        ],
+        [
+          "Grok 4.7 (xhigh)",
+          35
+        ],
+        [
+          "Qwen3.8 Max (0902)",
+          34
+        ],
+        [
+          "DeepSeek V4.1 Flash 1017 (max)",
+          33
+        ],
+        [
+          "GLM-5.3 (max)",
+          32
+        ],
+        [
+          "MiMo-V2.6-Pro",
+          30
+        ],
+        [
+          "Ling 3.1 Flash 1019",
+          30
+        ],
+        [
+          "MiniMax-M3.1-Flash",
+          29
+        ],
+        [
+          "Step 5 Preview",
+          29
+        ]
+      ],
+      "additionalExactModelRows": [
+        [
+          "Kimi K3.1 Pro",
+          46
+        ],
+        [
+          "Claude Opus 5.5 (max)",
+          59
+        ],
+        [
+          "Claude Sonnet 5.5 (max)",
+          55
+        ],
+        [
+          "Claude Fable 5.1 (max)",
+          49
+        ],
+        [
+          "GPT-6 Astra (max)",
+          57
+        ],
+        [
+          "Claude Haiku 5.5 (max)",
+          36
+        ],
+        [
+          "GPT-6.1 Sol (max)",
+          55
+        ],
+        [
+          "Grok 4.7 (xhigh)",
+          35
+        ],
+        [
+          "Muse Wonder Full (max)",
+          50
+        ],
+        [
+          "Muse Wonder (max)",
+          44
+        ],
+        [
+          "Gemini 3.8 Flash (high)",
+          31
+        ],
+        [
+          "Gemini 4 Argon (high)",
+          50
+        ],
+        [
+          "Qwen3.8 Max (0902)",
+          34
+        ],
+        [
+          "DeepSeek V4.1 Flash 1017 (max)",
+          33
+        ],
+        [
+          "DeepSeek V4 Pro 0813 (max)",
+          23
+        ],
+        [
+          "MiniMax-M3.1-Flash",
+          29
+        ],
+        [
+          "MiniMax-M3",
+          19
+        ],
+        [
+          "Ling 3.1 Flash 1019",
+          30
+        ],
+        [
+          "MiMo-V2.6-Pro",
+          30
+        ],
+        [
+          "Step 5 Preview",
+          29
+        ],
+        [
+          "Beam 1.0",
+          18
+        ],
+        [
+          "Nemotron 3.5 Super VL",
+          14
+        ]
+      ]
+    }
+  ],
+  "transport": [
+    {
+      "url": "https://artificialanalysis.ai/leaderboards/models",
+      "checkedAt": "2026-11-05",
+      "checkedAtTime": "2026-11-05T20:19:05+08:00",
+      "status": 200,
+      "http": 200,
+      "curlExit": 0,
+      "finalURL": "https://artificialanalysis.ai/leaderboards/models",
+      "complete": true,
+      "error": null,
+      "completedAt": "2026-11-05T20:19:22+08:00",
+      "bytes": 1752898,
+      "sha256": "fa9c90996c97e6776a2ed4f013b9dd4cc44df4c2b9de897341ca87b8a8c239a1",
+      "title": "LLM Leaderboard - Comparison of AI models from OpenAI, Anthropic, Google, SpaceXAI & others | Artificial Analysis",
+      "usableContent": true
+    }
+  ],
+  "aaApplied": [
+    [
+      "Gemini 4 Carbon (high)",
+      60
+    ],
+    [
+      "Claude Opus 5.5 (max)",
+      59
+    ],
+    [
+      "GPT-6 Astra (max)",
+      57
+    ],
+    [
+      "GPT-6.1 Sol (max)",
+      55
+    ],
+    [
+      "Claude Sonnet 5.5 (max)",
+      55
+    ],
+    [
+      "GPT-6.1 Terra (max)",
+      51
+    ],
+    [
+      "Gemini 4 Argon (high)",
+      50
+    ],
+    [
+      "Muse Wonder Full (max)",
+      50
+    ],
+    [
+      "Claude Fable 5.1 (max)",
+      49
+    ],
+    [
+      "Kimi K3.1 Pro",
+      46
+    ],
+    [
+      "Muse Wonder (max)",
+      44
+    ],
+    [
+      "Claude Haiku 5.5 (max)",
+      36
+    ],
+    [
+      "Grok 4.7 (xhigh)",
+      35
+    ],
+    [
+      "Qwen3.8 Max (0902)",
+      34
+    ],
+    [
+      "DeepSeek V4.1 Flash 1017 (max)",
+      33
+    ],
+    [
+      "GLM-5.3 (max)",
+      32
+    ],
+    [
+      "MiMo-V2.6-Pro",
+      30
+    ],
+    [
+      "Ling 3.1 Flash 1019",
+      30
+    ],
+    [
+      "MiniMax-M3.1-Flash",
+      29
+    ],
+    [
+      "Step 5 Preview",
+      29
+    ]
+  ],
+  "previousContentUpdatedAt": "2026-11-01",
+  "modelChanges": [
+    {
+      "name": "Kimi K3.1 Pro",
+      "beforeModel": "Kimi K3.1 Pro",
+      "beforeScore": 46,
+      "afterModel": "Kimi K3.1 Pro",
+      "afterScore": 46
+    },
+    {
+      "name": "Claude Opus 5.5",
+      "beforeModel": "Claude Opus 5.5 (max with fallback)",
+      "beforeScore": 58,
+      "afterModel": "Claude Opus 5.5 (max)",
+      "afterScore": 59
+    },
+    {
+      "name": "Claude Sonnet 5.5",
+      "beforeModel": "Claude Sonnet 5.5 (max with fallback)",
+      "beforeScore": 54,
+      "afterModel": "Claude Sonnet 5.5 (max)",
+      "afterScore": 55
+    },
+    {
+      "name": "Claude Fable 5.1",
+      "beforeModel": "Claude Fable 5.1 (max with fallback)",
+      "beforeScore": 49,
+      "afterModel": "Claude Fable 5.1 (max)",
+      "afterScore": 49
+    },
+    {
+      "name": "GPT-6 Astra",
+      "beforeModel": "GPT-6 Astra (max)",
+      "beforeScore": 57,
+      "afterModel": "GPT-6 Astra (max)",
+      "afterScore": 57
+    },
+    {
+      "name": "Claude Opus 5",
+      "beforeModel": null,
+      "beforeScore": null,
+      "afterModel": null,
+      "afterScore": null
+    },
+    {
+      "name": "Claude Fable 5",
+      "beforeModel": null,
+      "beforeScore": null,
+      "afterModel": null,
+      "afterScore": null
+    },
+    {
+      "name": "Claude Haiku 5.5",
+      "beforeModel": "Claude Haiku 5.5 (max)",
+      "beforeScore": 36,
+      "afterModel": "Claude Haiku 5.5 (max)",
+      "afterScore": 36
+    },
+    {
+      "name": "GPT-5.6 Sol",
+      "beforeModel": null,
+      "beforeScore": null,
+      "afterModel": null,
+      "afterScore": null
+    },
+    {
+      "name": "GPT-6 Sol",
+      "beforeModel": null,
+      "beforeScore": null,
+      "afterModel": null,
+      "afterScore": null
+    },
+    {
+      "name": "GPT-6.1 Sol",
+      "beforeModel": "GPT-6.1 Sol (max)",
+      "beforeScore": 55,
+      "afterModel": "GPT-6.1 Sol (max)",
+      "afterScore": 55
+    },
+    {
+      "name": "GPT-5.6 Luna",
+      "beforeModel": null,
+      "beforeScore": null,
+      "afterModel": null,
+      "afterScore": null
+    },
+    {
+      "name": "Grok 4.6",
+      "beforeModel": null,
+      "beforeScore": null,
+      "afterModel": null,
+      "afterScore": null
+    },
+    {
+      "name": "Grok 4.7",
+      "beforeModel": "Grok 4.7 (xhigh)",
+      "beforeScore": 34,
+      "afterModel": "Grok 4.7 (xhigh)",
+      "afterScore": 35
+    },
+    {
+      "name": "Muse Spark 1.3",
+      "beforeModel": null,
+      "beforeScore": null,
+      "afterModel": null,
+      "afterScore": null
+    },
+    {
+      "name": "MuseWonder (Full)",
+      "beforeModel": "Muse Wonder Full (max)",
+      "beforeScore": 50,
+      "afterModel": "Muse Wonder Full (max)",
+      "afterScore": 50
+    },
+    {
+      "name": "MuseWonder",
+      "beforeModel": "Muse Wonder (max)",
+      "beforeScore": 43,
+      "afterModel": "Muse Wonder (max)",
+      "afterScore": 44
+    },
+    {
+      "name": "GLM-5.3 / GLM-5.3-Flash",
+      "beforeModel": null,
+      "beforeScore": null,
+      "afterModel": null,
+      "afterScore": null
+    },
+    {
+      "name": "Kimi K3",
+      "beforeModel": null,
+      "beforeScore": null,
+      "afterModel": null,
+      "afterScore": null
+    },
+    {
+      "name": "Gemini 3.8 Flash",
+      "beforeModel": "Gemini 3.8 Flash (high)",
+      "beforeScore": 31,
+      "afterModel": "Gemini 3.8 Flash (high)",
+      "afterScore": 31
+    },
+    {
+      "name": "Gemini 4 Argon",
+      "beforeModel": "Gemini 4 Argon (high)",
+      "beforeScore": 50,
+      "afterModel": "Gemini 4 Argon (high)",
+      "afterScore": 50
+    },
+    {
+      "name": "Gemini 3.1 Pro",
+      "beforeModel": null,
+      "beforeScore": null,
+      "afterModel": null,
+      "afterScore": null
+    },
+    {
+      "name": "Qwen3.8-Max",
+      "beforeModel": "Qwen3.8 Max (0902)",
+      "beforeScore": 34,
+      "afterModel": "Qwen3.8 Max (0902)",
+      "afterScore": 34
+    },
+    {
+      "name": "DeepSeek V4.1 Flash 1017 (max)",
+      "beforeModel": "DeepSeek V4.1 Flash 1017 (max)",
+      "beforeScore": 32,
+      "afterModel": "DeepSeek V4.1 Flash 1017 (max)",
+      "afterScore": 33
+    },
+    {
+      "name": "DeepSeek V4.1-Flash",
+      "beforeModel": null,
+      "beforeScore": null,
+      "afterModel": null,
+      "afterScore": null
+    },
+    {
+      "name": "DeepSeek V4 Pro",
+      "beforeModel": "DeepSeek V4 Pro 0813 (max)",
+      "beforeScore": 23,
+      "afterModel": "DeepSeek V4 Pro 0813 (max)",
+      "afterScore": 23
+    },
+    {
+      "name": "Mistral Large 4 (预览)",
+      "beforeModel": null,
+      "beforeScore": null,
+      "afterModel": null,
+      "afterScore": null
+    },
+    {
+      "name": "Hunyuan 混元",
+      "beforeModel": null,
+      "beforeScore": null,
+      "afterModel": null,
+      "afterScore": null
+    },
+    {
+      "name": "Llama 4",
+      "beforeModel": null,
+      "beforeScore": null,
+      "afterModel": null,
+      "afterScore": null
+    },
+    {
+      "name": "MiniMax-M3.1-Flash",
+      "beforeModel": "MiniMax-M3.1-Flash",
+      "beforeScore": 29,
+      "afterModel": "MiniMax-M3.1-Flash",
+      "afterScore": 29
+    },
+    {
+      "name": "MiniMax M3",
+      "beforeModel": "MiniMax-M3",
+      "beforeScore": 19,
+      "afterModel": "MiniMax-M3",
+      "afterScore": 19
+    },
+    {
+      "name": "Ling 3.1 Flash 1019",
+      "beforeModel": "Ling 3.1 Flash 1019",
+      "beforeScore": 29,
+      "afterModel": "Ling 3.1 Flash 1019",
+      "afterScore": 30
+    },
+    {
+      "name": "MiMo V2.6 Pro",
+      "beforeModel": "MiMo-V2.6-Pro",
+      "beforeScore": 30,
+      "afterModel": "MiMo-V2.6-Pro",
+      "afterScore": 30
+    },
+    {
+      "name": "StepFun Step 5 Preview",
+      "beforeModel": "Step 5 Preview",
+      "beforeScore": 29,
+      "afterModel": "Step 5 Preview",
+      "afterScore": 29
+    },
+    {
+      "name": "Reflection Beam",
+      "beforeModel": "Beam 1.0",
+      "beforeScore": 18,
+      "afterModel": "Beam 1.0",
+      "afterScore": 18
+    },
+    {
+      "name": "NVIDIA Nemotron 3.5 Super VL",
+      "beforeModel": "Nemotron 3.5 Super VL",
+      "beforeScore": 14,
+      "afterModel": "Nemotron 3.5 Super VL",
+      "afterScore": 14
+    }
+  ],
+  "protected": "All 36 model identities, prices, vendors, subjective grades, TB/SWE, tools, combinations and original v4.3 history preserved. Explicit current model/effort and its observed score only.",
+  "written": true
+}

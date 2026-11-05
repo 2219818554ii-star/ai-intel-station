@@ -9,12 +9,12 @@ const count = (s, re) => (s.match(re) || []).length;
 
 console.log('\n[1] 静态结构');
 const tabs = [...html.matchAll(/data-tab="([^"]+)"/g)].map(m => m[1]);
-const expectedTabs=['home','research','cqut','comp','daily','rank','learn','magazines','ted','forum','library','funds'];
-// 用户11/1要求独立阅读记录入口，增加一条完整路由，不减少原栏目或检查。
-ok(tabs.length === 12 && new Set(tabs).size===12 && expectedTabs.every(v=>tabs.includes(v)), `唯一导航保留原11栏目并新增我的阅读，共${tabs.length}项: ${tabs.join(', ')}`);
-ok(expectedTabs.every(v => count(html,new RegExp('id="view-'+v+'"','g'))===1 && count(html,new RegExp('id="tab-'+v+'"','g'))===1), '12个视图与规范导航ID逐项唯一，不复制手机快捷导航ID');
-ok(html.includes('var NAV_TABS=["home","research","cqut","comp","daily","rank","learn","magazines","ted","forum","library","funds"]') && html.includes('NAV_TABS.forEach(function(v)'), '路由白名单保留全部原栏目并加入我的阅读');
-ok(!/<script src="(competitions|ted|forum|rank|cqut|matches|funds|magazines|research)\.js"/.test(html), '八个数据脚本与科研逻辑均已内联（无外链脚本）');
+const expectedTabs=['home','cqut','comp','daily','rank','learn','magazines','ted','forum','library','funds'];
+// 用户11/5明确撤下科研栏目；其余11个栏目与身份、新鲜度护栏全部保留。
+ok(tabs.length === 11 && new Set(tabs).size===11 && expectedTabs.every(v=>tabs.includes(v)), `按用户要求撤下科研，保留今天、我的阅读及全部内容栏目，共${tabs.length}项: ${tabs.join(', ')}`);
+ok(expectedTabs.every(v => count(html,new RegExp('id="view-'+v+'"','g'))===1 && count(html,new RegExp('id="tab-'+v+'"','g'))===1), '11个视图与规范导航ID逐项唯一，不复制手机快捷导航ID');
+ok(html.includes('var NAV_TABS=["home","cqut","comp","daily","rank","learn","magazines","ted","forum","library","funds"]') && html.includes('NAV_TABS.forEach(function(v)'), '路由白名单保留11个活动栏目，科研不再公开展示');
+ok(!/<script src="(competitions|ted|forum|rank|cqut|matches|funds|magazines|research)\.js"/.test(html), '活动数据脚本均无外链加载，已撤下科研逻辑也不再外链加载');
 const httpLeft = count(html, /href="http:\/\//g);
 ok(httpLeft === 0, `无 http:// 明文链接（剩余 ${httpLeft}）`);
 
@@ -277,6 +277,14 @@ const cqNotices = sandbox.window.CQUT_NOTICES || [];
   const d0 = new Date(+m[1], +m[2] - 1, +m[3]);
   const maxD = cqNotices.map(n => { const mm = /(\d{4})-(\d{2})-(\d{2})/.exec(n.date||''); return mm ? Date.parse(mm[1]+'-'+mm[2]+'-'+mm[3]) : 0; }).reduce((a,b)=>Math.max(a,b),0);
   const dataGap = Math.round((d0 - new Date(maxD)) / 86400000);
+  // Only the complete validator above can certify this existing exception.
+  // It requires unchanged notices/content date/configuration against a pre-day
+  // Git baseline, all same-day source failures and visible disclosure. Adding
+  // that disclosure does not claim a new notice or a content-date update.
+  if(cqSourceFreshness.ok&&cqSourceFreshness.mode==='blocked-retained'){
+    ok(true, `数据非空更新：受阻保留已独立完整核验，原内容日${ud}及通知不变；仅核查说明变化，不声称新增通知`);
+    return;
+  }
   /* 判据适用的前提：本轮真的动了 cqut.js（与 git HEAD 内容不一致）。没动就别拿它定罪。*/
   // Without a readable Git baseline, keep the strict date/increment checks.
   let touched = true;
