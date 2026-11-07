@@ -1,0 +1,56 @@
+{
+  "reviewedAt": "2026-11-07T09:46:53+08:00",
+  "attemptedAt": "2026-11-07T09:46:53+08:00",
+  "completedAt": "2026-11-07T09:46:53+08:00",
+  "scope": "match-retirement-evidence",
+  "note": "退役 2026全国高校计算机能力挑战赛·大数据挑战赛：官网区域赛页面明示报名/预测CSV提交截止 2026-11-06 23:59，核查日 2026-11-07 已过期；晋级公示与国赛为已报名队伍后续阶段。",
+  "retirementAllowedHosts": ["www.ncccu.org.cn"],
+  "officialExtracts": [
+    {
+      "url": "https://www.ncccu.org.cn/index/Paper/case2.html",
+      "checkedAt": "2026-11-07",
+      "checkedAtTime": "2026-11-07T09:46:53+08:00",
+      "publishedAt": null,
+      "method": "Fresh independent HTTPS GET of the organizer page (HTTP 200, 52698 bytes); grep confirmed '11月6日23:59' deadline text.",
+      "title": "2026 全国高校计算机能力挑战赛 · 大数据挑战赛（区域赛）",
+      "finding": "官网（ncccu.org.cn 区域赛页面）明示区域赛报名与预测CSV提交于2026年11月6日23:59截止；截至核查日2026-11-07该截止已过去，晋级公示与国赛为已报名队伍后续阶段。",
+      "evidenceExcerpt": "官网区域赛：报名、考试和评审费200元/队；11月6日23:59前提交预测CSV，每天最多2次；11月12日晋级公示。",
+      "verifiedDeadline": "2026-11-06"
+    }
+  ],
+  "removedMatches": [
+    {
+      "n": "2026 全国高校计算机能力挑战赛 · 大数据挑战赛",
+      "url": "https://www.ncccu.org.cn/index/Paper/case2.html",
+      "dl": "2026-11-06",
+      "snapshot": {
+        "n": "2026 全国高校计算机能力挑战赛 · 大数据挑战赛",
+        "school": "national",
+        "org": "全国高等学校计算机教育研究会",
+        "lv": "全国性",
+        "st": "报名中",
+        "dl": "2026-11-06",
+        "fit": false,
+        "rego": "高校所有专业在校生；本研组与高职组分别评奖；1–3人含队长，可跨校，可设1名指导教师",
+        "intro": "本届题目围绕眼底图像的青光眼分类，重点处理样本不平衡；区域赛数据已于 10 月 13 日开放。",
+        "help": "协助理解眼底图像二分类与不平衡数据评价。官方主指标为AUROC，辅指标AUPRC；初赛提交UTF-8的submission.csv，复赛还需模型，不把辅助指标误作主排名。最终由队伍核验模型、结果与原创性。",
+        "need": "先确认本校认定与训练资源。区域赛报名、考试和评审费200元/队，由队长缴费，其他队员不重复缴费；国赛不另收费。11月6日23:59前提交预测CSV，每天最多2次；11月12日晋级公示，国赛11月13日17:00至18日。核对字段与数据使用限制后再投入训练。 资源核对：官方训练/验证/测试分别51396/5849/5855张眼底图像；评测T4 16GB，模型压缩前不超过500MB，单图端到端不超过100ms，仅用指定训练数据、禁用外部标注。先核算图像训练时间与不平衡验证，再决定投入；与材料储能主线关联有限。 合规材料不能只交评分CSV：还须按官网更新清单准备中文核验压缩包；模型权重、许可证、训练说明的核验外链必须无需登录即可查看，伪造链接、权重哈希或许可信息会按严重违规处理。公开核验不等于可以传播赛题数据；不得擅自公开主办方数据。",
+        "url": "https://www.ncccu.org.cn/index/Paper/case2.html"
+      },
+      "retiredAt": "2026-11-07",
+      "retiredAtTime": "2026-11-07T09:46:53+08:00",
+      "reasonCode": "deadline",
+      "deadline": "2026-11-06",
+      "reason": "区域赛报名与预测CSV提交已于北京时间2026年11月6日23:59截止；11月12日晋级公示与11月13–18日国赛为已报名队伍的后续阶段，不能作为新队伍报名期。",
+      "sourceEvidence": [
+        "https://www.ncccu.org.cn/index/Paper/case2.html"
+      ],
+      "evidenceExcerpt": "官网区域赛：报名、考试和评审费200元/队；11月6日23:59前提交预测CSV，每天最多2次；11月12日晋级公示。"
+    }
+  ],
+  "summary": {
+    "attempts": 1,
+    "usable": 1,
+    "note": "Single match retirement with verified organizer deadline (HTTP 200)."
+  }
+}
