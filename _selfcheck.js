@@ -384,16 +384,22 @@ const cqNotices = sandbox.window.CQUT_NOTICES || [];
   ok(checked >= 6, `全局新鲜度门已覆盖 ${checked} 个栏目（期望 >=6）`);
 })();
 const tagKeys = cqTags.map(x => x.k);
-ok(tagKeys.length === 8, `理工细分类定义 = ${tagKeys.length}（期望 8）: ${tagKeys.join(',')}`);
+ok(tagKeys.length === 9, `理工细分类定义 = ${tagKeys.length}（期望 9，含新增 news 学校要闻/动态）: ${tagKeys.join(',')}`);
 const badTag = cqNotices.filter(n => !n.tag || tagKeys.indexOf(n.tag) < 0);
 ok(badTag.length === 0, `理工每条通知都有合法 tag（非法 ${badTag.length} 条）${badTag.length ? ' → ' + badTag.map(n=>n.t).join('; ') : ''}`);
 const usedTags = cqNotices.map(n => n.tag).filter((v, i, a) => a.indexOf(v) === i);
-ok(usedTags.length === tagKeys.length, `8 个细分类都有通知覆盖（实际用到 ${usedTags.length}）`);
+ok(usedTags.length === tagKeys.length, `9 个细分类都有通知覆盖（实际用到 ${usedTags.length}）`);
 ok(!cqNotices.some(n => !n.sum || !n.url || !n.date), '理工每条通知的 sum/url/date 均完整');
 
 const tagBtns = count(((store['cqutTagFilters']||{}).innerHTML||''), /class="filterbtn/g);
-ok(tagBtns === 9, `理工二级分类按钮 = ${tagBtns}（期望 9 = 全部分类 + 8 个细分类）`);
-ok(cqHtml.includes('💰') && cqHtml.includes('🎓'), '理工卡片显示细分类徽章');
+ok(tagBtns === 10, `理工二级分类按钮 = ${tagBtns}（期望 10 = 全部分类 + 9 个细分类，含新增 news）`);
+/* 细分类徽章：渲染出的每张卡片都会把其 tag 的标签（如「🎓 研究生事务」）作为 chip 显示。
+   原来硬编码同时要求 💰 与 🎓，但列表按发布日期倒序、每页 30 条，加入 2026-11-11/12 的
+   学校要闻/科研等大量新条目后，奖助学金类（💰）被挤到后续页，导致首页不再含 💰 而误报。
+   改为：只要 CQUT_TAGS 中任意一种标签真实渲染进了卡片，即证明徽章机制生效（当前首页含 🎓）。 */
+const cqTagLabels = (sandbox.window.CQUT_TAGS || []).map(function(t){ return t.n; });
+ok(cqTagLabels.some(function(l){ return cqHtml.includes(l); }),
+   '理工卡片显示细分类徽章（'+cqTagLabels.length+' 个细分类标签中至少一种已渲染入卡片）');
 
 /* [2c-2] 比赛板块（罗浩 2026-09-26 重做：只留还能参加的 / 删喜报 / 按学校分类）
    —— 旧的 CQUT_MATCHES（13 条获奖通稿 + 已结束条目）与 NATION_MATCHES（约 15 条已过期）

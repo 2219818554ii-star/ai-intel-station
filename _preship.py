@@ -247,7 +247,7 @@ else:
     ok(PASS, "%d 项「不该出现的东西」确认已清零（喜报 / 旧字段 / 旧全国区块）"
        % len(MUST_ABSENT))
 
-# 8 个细分类：直接从 cqut.js 读真名，再去产物里找
+# 9 个细分类（含 2026-11-12 新增的 news 学校要闻/动态）：直接从 cqut.js 读真名，再去产物里找
 try:
     mo = re.search(r"window\.CQUT_TAGS\s*=\s*\[(.*?)\];", read("cqut.js"), re.S)
     tagnames = re.findall(r'n:"([^"]+)"', mo.group(1)) if mo else []
@@ -256,16 +256,16 @@ except Exception:
     tagnames, tagkeys = [], []
 miss_tag = [t for t in tagnames if t not in prod]
 if tagnames and not miss_tag:
-    ok(PASS, "理工 8 个细分类名全部出现在产物：%s" % " / ".join(tagnames))
+    ok(PASS, "理工 9 个细分类名全部出现在产物：%s" % " / ".join(tagnames))
 elif not tagnames:
     bad("cqut.js 里解析不出 CQUT_TAGS")
 else:
     bad("产物里缺少细分类：%s" % "、".join(miss_tag),
         "改完 index.src.html 没重新构建")
-if len(tagkeys) == 8:
+if len(tagkeys) == 9:
     ok(PASS, "细分类枚举数量 = %d（与自检期望一致）" % len(tagkeys))
 elif tagkeys:
-    bad("细分类枚举数量 = %d，但 _selfcheck.js 期望 8——两边不同步了"
+    bad("细分类枚举数量 = %d，但 _selfcheck.js 期望 9——两边不同步了"
         % len(tagkeys))
 
 # Always enforce content, identity and account guards, even when remote probes
