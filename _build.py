@@ -91,7 +91,7 @@ print("OK  bytes=%d  资源库=%s  比赛内联=%s  TED内联=%s(%d)  讲坛内�
     ted_marker not in standalone, standalone.count('sp:"'),
     forum_marker not in standalone, standalone.count('{cat:"'),
     rank_marker not in standalone,
-    cqut_marker not in standalone, cqut_data.count('{t:"'),
+    cqut_marker not in standalone, cqut_data.count('"t": "'),
     nation_marker not in standalone, nation_data.count('n:"'),
     funds_marker not in standalone, funds_data.count('{ n: "'),
 ))

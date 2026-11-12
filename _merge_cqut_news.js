@@ -2,6 +2,7 @@
 const fs = require('fs');
 const vm = require('vm');
 const path = require('path');
+const relevance = require('./_cqut_relevance.js');
 
 const file = path.join(__dirname, 'cqut.js');
 const text = fs.readFileSync(file, 'utf8');
@@ -152,6 +153,10 @@ if (!tags.some(t => t.k === 'news')) {
   tags.push({ k: 'news', n: '📰 学校要闻/动态' });
 }
 
+// 「🎯 与我相关」标记：由 _cqut_relevance.js 单一事实来源重算，保证每日维护幂等、不可手工漂移。
+// _selfcheck.js 会对每条复算并断言一致；新增/改写通知后只需重跑本脚本。
+const mergedWithRel = relevance.apply(merged);
+
 // rebuild file: head(full header comment) + UPDATED + TAGS + NOTICES + tail(SOURCES..)
 // IMPORTANT: the header comment *prose* mentions window.CQUT_UPDATED, so do NOT slice at
 // the first string match — that would cut the comment open and break the whole script.
@@ -166,12 +171,16 @@ const tagsSrc = '[\n' + tags.map(function(t){
 const out =
   head +
   'window.CQUT_UPDATED = "2026-11-12";\n\n' +
+  'window.CQUT_REL_NOTE = "🎯 与我相关：按研究生院/研工部、化工·材料学院、研究生培养与学位、科研项目与成果、化工材料方向、学科竞赛、奖助、文献资源、校园运行等公开信号自动标记（依据 src/tag/标题，规则见 _cqut_relevance.js）；仅作快速定位，不替代逐条阅读，也不隐藏任何通知。";\n\n' +
   'window.CQUT_TAGS = ' + tagsSrc + ';\n\n' +
-  'window.CQUT_NOTICES = ' + JSON.stringify(merged, null, 2) + ';\n\n' +
+  'window.CQUT_NOTICES = ' + JSON.stringify(mergedWithRel, null, 2) + ';\n\n' +
   tail;
 
 fs.writeFileSync(file, out, 'utf8');
 
 // full-file syntax validation (catches unterminated comment / broken script)
 new vm.Script(out);
-console.log('syntax OK; total notices now:', merged.length, ' UPDATED=2026-11-12');
+const relCount = mergedWithRel.filter(n => n.rel === 1).length;
+console.log('syntax OK; total notices now:', merged.length, ' UPDATED=2026-11-12',
+  ' 与我相关:', relCount, '（强相关', mergedWithRel.filter(n => n.w === 2).length,
+  '｜可能相关', mergedWithRel.filter(n => n.w === 1).length, '）');

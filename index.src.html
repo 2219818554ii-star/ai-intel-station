@@ -1023,7 +1023,9 @@
       <button class="filterbtn" data-c="student">🎒 团委·学生会</button>
     </div>
     <div class="cmp-toolbar" id="cqutTagFilters" style="margin-top:9px"></div>
-    <div class="cmp-toolbar"><label for="cqut-sort" style="font-size:13px;color:var(--ink-soft)">通知排序</label><select id="cqut-sort" class="filterbtn"><option value="latest">最新发布</option><option value="grad">研究生优先</option></select></div>
+    <div class="cmp-toolbar" id="cqutRelFilters" style="margin-top:9px"></div>
+    <p id="cqut-rel-note" class="library-storage-note" role="status"></p>
+    <div class="cmp-toolbar"><label for="cqut-sort" style="font-size:13px;color:var(--ink-soft)">通知排序</label><select id="cqut-sort" class="filterbtn"><option value="latest">最新发布</option><option value="rel">🎯 与我相关优先</option><option value="grad">研究生优先</option></select></div>
     <p id="cqut-sort-note" class="library-storage-note" role="status"></p>
     <p id="cqut-source-state" class="library-storage-note" role="status"></p>
     <div class="search-row"><input type="search" class="section-search" id="cqut-search" aria-label="搜索学校通知" placeholder="搜索通知、学院、关键词…"><button type="button" class="reset-filter" id="cqut-reset" hidden>清除筛选</button></div>
@@ -1037,7 +1039,7 @@
     </div>
     <div id="cqut-sources"></div>
     <div class="lk-tip" style="margin-top:18px">
-      💡 <b>怎么快速筛：</b>研究生最先看「🏛 学校各部门」里的<b>教务 / 研究生院 / 科研</b>三条，其次看自己学院；<b>团委·学生会</b>看着像闲事，但入党、评优、团员关系全挂在这。
+      💡 <b>怎么快速筛：</b>先点「🎯 与我相关」，一键聚焦研究生院/研工部、化工·材料、科研、竞赛、奖助与文献类；想看全校全貌就切回「🗂 全部通知」——学校官网的通知一条都没隐藏。也可按<b>🏛 学校各部门 / 🏫 各学院 / 🎒 团委·学生会</b>叠加二级分类细查；<b>团委·学生会</b>看着像闲事，但入党、评优、团员关系全挂在这。
     </div>
   </div>
 
@@ -2433,19 +2435,40 @@
   var CQUT_CAT = CAT[cqSaved.cat]?cqSaved.cat:"全部";
   var CQUT_TAG = TAGNAME[cqSaved.tag]?cqSaved.tag:"全部";
   var CQUT_QUERY = typeof cqSaved.query==="string"?cqSaved.query.slice(0,200):"";
-  var CQUT_SORT = cqSaved.sort==="grad"?"grad":"latest";
+  var CQUT_SORT = (cqSaved.sort==="grad"||cqSaved.sort==="rel")?cqSaved.sort:"latest";
+  /* 「🎯 与我相关」：rel 维度独立于 cat/tag，默认「全部」= 不隐藏任何学校通知。 */
+  var CQUT_REL = (cqSaved.rel==="rel"||cqSaved.rel==="other")?cqSaved.rel:"全部";
   var CQUT_PAGE = Number.isInteger(cqSaved.page)&&cqSaved.page>0?cqSaved.page:1, CQUT_PAGE_SIZE=30;
   document.getElementById("cqut-search").value=CQUT_QUERY;
 
   function inCat(n){ return CQUT_CAT==="全部" || n.cat===CQUT_CAT; }
   function inTag(n){ return CQUT_TAG==="全部" || n.tag===CQUT_TAG; }
+  function inRel(n){ return CQUT_REL==="全部" || (CQUT_REL==="rel" ? n.rel===1 : n.rel!==1); }
+
+  /* 相关维度三档：全部通知 / 与我相关 / 其他通知。数字跟着当前大类与二级分类走，避免点了没结果。 */
+  function renderRelBar(){
+    var rw = document.getElementById('cqutRelFilters');
+    if(!rw) return;
+    var base = N.filter(inCat).filter(inTag);
+    var nRel = base.filter(function(n){ return n.rel===1; }).length;
+    var opts = [
+      {k:"全部", label:"🗂 全部通知（"+base.length+"）"},
+      {k:"rel",  label:"🎯 与我相关（"+nRel+"）"},
+      {k:"other",label:"📄 其他通知（"+(base.length-nRel)+"）"}
+    ];
+    rw.innerHTML = opts.map(function(o){
+      return '<button type="button" class="filterbtn'+(CQUT_REL===o.k?" active":"")+'" data-r="'+o.k+'" aria-pressed="'+(CQUT_REL===o.k)+'">'+o.label+'</button>';
+    }).join("");
+    var note = document.getElementById('cqut-rel-note');
+    if(note) note.textContent = window.CQUT_REL_NOTE || "";
+  }
 
   /* 二级筛选：只列出「当前大类下真实存在」的细分类，避免出现点了没结果的按钮 */
   function renderTagBar(){
     var tw = document.getElementById('cqutTagFilters');
     if(!tw) return;
     var avail = [];
-    N.filter(inCat).forEach(function(n){
+    N.filter(inCat).filter(inRel).forEach(function(n){
       if(n.tag && avail.indexOf(n.tag)<0) avail.push(n.tag);
     });
     if(CQUT_TAG!=="全部" && avail.indexOf(CQUT_TAG)<0) CQUT_TAG = "全部";
@@ -2471,19 +2494,31 @@
       fw.innerHTML = hs.join("");
     }
     renderTagBar();
-    document.getElementById("cqut-reset").hidden=!CQUT_QUERY&&CQUT_CAT==="全部"&&CQUT_TAG==="全部"&&CQUT_SORT==="latest";
+    renderRelBar();
+    document.getElementById("cqut-reset").hidden=!CQUT_QUERY&&CQUT_CAT==="全部"&&CQUT_TAG==="全部"&&CQUT_REL==="全部"&&CQUT_SORT==="latest";
     document.getElementById("cqut-sort").value=CQUT_SORT;
-    document.getElementById("cqut-sort-note").textContent=CQUT_SORT==="grad"?"依次优先研究生事务、奖助学金、考试考务，其余分类随后；每组按原文发布日期从新到旧。这是办事优先级，不代表阅读热度。":"按原文发布日期从新到旧排列；没有可核实的官网阅读量，暂不提供热门榜。";
+    document.getElementById("cqut-sort-note").textContent=CQUT_SORT==="rel"?"与我相关的通知优先（🎯 强相关在前、🔎 可能相关随后），其余通知按原文发布日期从新到旧；标记只是定位辅助，不代表阅读热度。":CQUT_SORT==="grad"?"依次优先研究生事务、奖助学金、考试考务，其余分类随后；每组按原文发布日期从新到旧。这是办事优先级，不代表阅读热度。":"按原文发布日期从新到旧排列；没有可核实的官网阅读量，暂不提供热门榜。";
     var list = N.filter(function(n){
-      var hay=[n.t,n.src,n.sum,n.date,TAGNAME[n.tag]].join(" ").toLowerCase();
-      return inCat(n) && inTag(n) && CQUT_QUERY.split(/\s+/).filter(Boolean).every(function(q){return hay.indexOf(q)>=0;});
+      var hay=[n.t,n.src,n.sum,n.date,TAGNAME[n.tag],n.why].join(" ").toLowerCase();
+      return inCat(n) && inTag(n) && inRel(n) && CQUT_QUERY.split(/\s+/).filter(Boolean).every(function(q){return hay.indexOf(q)>=0;});
     });
-    list.sort(function(a,b){var priority={grad:0,money:1,exam:2};if(CQUT_SORT==="grad"){var pa=priority[a.tag]===undefined?3:priority[a.tag],pb=priority[b.tag]===undefined?3:priority[b.tag];if(pa!==pb)return pa-pb;}return String(b.date||"").localeCompare(String(a.date||""));});
+    list.sort(function(a,b){
+      if(CQUT_SORT==="rel"){
+        var wa=a.rel===1?(a.w||0):0, wb=b.rel===1?(b.w||0):0;
+        if(wa!==wb) return wb-wa;
+      } else if(CQUT_SORT==="grad"){
+        var priority={grad:0,money:1,exam:2};
+        var pa=priority[a.tag]===undefined?3:priority[a.tag],pb=priority[b.tag]===undefined?3:priority[b.tag];
+        if(pa!==pb)return pa-pb;
+      }
+      return String(b.date||"").localeCompare(String(a.date||""));
+    });
     var pages=Math.max(1,Math.ceil(list.length/CQUT_PAGE_SIZE));
     CQUT_PAGE=Math.min(CQUT_PAGE,pages);
     var start=(CQUT_PAGE-1)*CQUT_PAGE_SIZE;
-    window.AI_SESSION.write("ai-cqut-state",{cat:CQUT_CAT,tag:CQUT_TAG,query:CQUT_QUERY,page:CQUT_PAGE,sort:CQUT_SORT});
-    document.getElementById("cqut-search-count").textContent="共找到 "+list.length+" 条通知"+(list.length?" · 显示 "+(start+1)+"–"+Math.min(start+CQUT_PAGE_SIZE,list.length)+" 条 · 第 "+CQUT_PAGE+" / "+pages+" 页":"");
+    window.AI_SESSION.write("ai-cqut-state",{cat:CQUT_CAT,tag:CQUT_TAG,rel:CQUT_REL,query:CQUT_QUERY,page:CQUT_PAGE,sort:CQUT_SORT});
+    var relInList=list.filter(function(n){return n.rel===1;}).length;
+    document.getElementById("cqut-search-count").textContent="共找到 "+list.length+" 条通知（与我相关 "+relInList+" 条）"+(list.length?" · 显示 "+(start+1)+"–"+Math.min(start+CQUT_PAGE_SIZE,list.length)+" 条 · 第 "+CQUT_PAGE+" / "+pages+" 页":"");
     var pager=pages>1?'<button type="button" class="pg" data-cqut-page="'+(CQUT_PAGE-1)+'"'+(CQUT_PAGE===1?' disabled':'')+'>上一页</button><span class="pg-ell">'+CQUT_PAGE+' / '+pages+'</span><button type="button" class="pg" data-cqut-page="'+(CQUT_PAGE+1)+'"'+(CQUT_PAGE===pages?' disabled':'')+'>下一页</button>':"";
     ["cqut-pager-top","cqut-pager"].forEach(function(id){document.getElementById(id).innerHTML=pager;});
     var box = document.getElementById('cqut-list');
@@ -2492,6 +2527,9 @@
     box.innerHTML = list.slice(start,start+CQUT_PAGE_SIZE).map(function(n, i){
       var num = (start+i+1<10?"0":"")+(start+i+1);
       var tagHtml = TAGNAME[n.tag] ? '<span class="chip" style="border-color:var(--line)">'+TAGNAME[n.tag]+'</span>' : "";
+      var relHtml = n.rel===1
+        ? '<span class="chip" title="'+esc(n.why||"与我相关")+'" style="border-color:var(--brand);color:var(--brand);background:var(--brand-soft)">'+(n.w===2?'🎯 与我相关':'🔎 可能相关')+'</span>'
+        : "";
       return '<article class="cmp">'+
         '<div class="cmp-head" style="cursor:default">'+
           '<span class="chip" style="border-color:var(--brand);color:var(--brand);background:var(--brand-soft)">'+esc(n.src||"")+'</span>'+
@@ -2500,6 +2538,7 @@
         '<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--ink-soft);margin:8px 0">'+
           '<span class="chip" style="border-color:var(--line)">📅 '+esc(n.date||"")+'</span>'+
           tagHtml+
+          relHtml+
           '<span class="chip" style="border-color:var(--line)">#'+num+'</span>'+
         '</div>'+
         '<div class="d-row"><span class="d-k">我该关注啥</span><span class="d-v">'+esc(n.sum||"")+'</span></div>'+
@@ -2511,8 +2550,8 @@
   }
   var f = document.getElementById('cqutFilters');
   document.getElementById("cqut-search").addEventListener("input",function(e){CQUT_QUERY=(e.target.value||"").trim().toLowerCase();CQUT_PAGE=1;render();});
-  document.getElementById("cqut-sort").addEventListener("change",function(e){CQUT_SORT=e.target.value==="grad"?"grad":"latest";CQUT_PAGE=1;render();});
-  document.getElementById("cqut-reset").addEventListener("click",function(){CQUT_QUERY="";CQUT_CAT="全部";CQUT_TAG="全部";CQUT_SORT="latest";CQUT_PAGE=1;document.getElementById("cqut-search").value="";render();});
+  document.getElementById("cqut-sort").addEventListener("change",function(e){CQUT_SORT=(e.target.value==="grad"||e.target.value==="rel")?e.target.value:"latest";CQUT_PAGE=1;render();});
+  document.getElementById("cqut-reset").addEventListener("click",function(){CQUT_QUERY="";CQUT_CAT="全部";CQUT_TAG="全部";CQUT_REL="全部";CQUT_SORT="latest";CQUT_PAGE=1;document.getElementById("cqut-search").value="";render();});
   ["cqut-pager-top","cqut-pager"].forEach(function(id){
     document.getElementById(id).addEventListener("click",function(e){
       var b=e.target.closest?e.target.closest("button[data-cqut-page]"):null;
@@ -2546,6 +2585,20 @@
       CQUT_PAGE = 1;
       render();
       if(keepFocus&&tf.querySelector){var current=tf.querySelector('button[aria-pressed="true"]');if(current&&current.focus)current.focus({preventScroll:true});}
+    });
+  }
+  var rf = document.getElementById('cqutRelFilters');
+  if(rf){
+    rf.addEventListener("click", function(ev){
+      var b = ev.target.closest ? ev.target.closest(".filterbtn") : null;
+      if(!b) return;
+      var keepFocus=document.activeElement===b;
+      var r = b.getAttribute("data-r") || "全部";
+      CQUT_REL = (r==="rel"||r==="other") ? r : "全部";
+      CQUT_TAG = "全部";
+      CQUT_PAGE = 1;
+      render();
+      if(keepFocus&&rf.querySelector){var current=rf.querySelector('button[aria-pressed="true"]');if(current&&current.focus)current.focus({preventScroll:true});}
     });
   }
   render();

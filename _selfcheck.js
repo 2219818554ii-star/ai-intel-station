@@ -401,6 +401,41 @@ const cqTagLabels = (sandbox.window.CQUT_TAGS || []).map(function(t){ return t.n
 ok(cqTagLabels.some(function(l){ return cqHtml.includes(l); }),
    '理工卡片显示细分类徽章（'+cqTagLabels.length+' 个细分类标签中至少一种已渲染入卡片）');
 
+/* [2c-1] 🎯 与我相关（罗浩 2026-11-12 新增）：规则单一事实来源逐条复算 + UI 护栏。
+   铁律：默认「全部通知」必须展示所有条目，相关性只是快捷筛选，绝不隐藏任何学校通知。 */
+const relevance = require('./_cqut_relevance.js');
+const relMismatch = cqNotices.filter(function(n){
+  const c = relevance.classify(n);
+  return n.rel !== c.rel || n.w !== c.w || n.why !== c.why;
+});
+ok(relMismatch.length === 0,
+   `理工每条通知 rel/w/why 与 _cqut_relevance.js 规则一致（不一致 ${relMismatch.length} 条）${relMismatch.length ? ' → ' + relMismatch.slice(0,3).map(n=>n.t).join('; ') : ''}`);
+const badRel = cqNotices.filter(function(n){
+  return !(n.rel===0 || n.rel===1) || !(n.w===0 || n.w===1 || n.w===2) ||
+         typeof n.why !== 'string' || (n.rel===1 && !n.why) || (n.rel===0 && !!n.why);
+});
+ok(badRel.length === 0, `理工 rel/w/why 字段合法且理由与标记自洽（异常 ${badRel.length} 条）`);
+const relCount = cqNotices.filter(n => n.rel===1).length;
+const relStrong = cqNotices.filter(n => n.w===2).length;
+const relMaybe = cqNotices.filter(n => n.w===1).length;
+ok(relCount >= 80 && relCount < cqNotices.length * 0.75,
+   `理工「与我相关」覆盖合理：${relCount}/${cqNotices.length}（${Math.round(relCount/cqNotices.length*100)}%，强相关 ${relStrong} / 可能相关 ${relMaybe}）`);
+ok(relStrong > 0 && relMaybe > 0, '理工相关标记含强相关与可能相关两档，便于区分优先级');
+const relNote = String(sandbox.window.CQUT_REL_NOTE || '');
+ok(relNote.includes('与我相关') && relNote.includes('不隐藏任何通知') && relNote.includes('_cqut_relevance.js'),
+   '理工相关标记口径说明完整（含规则来源与不隐藏任何通知的承诺）');
+ok(((store['cqut-rel-note']||{}).textContent||'') === relNote, '页面渲染的相关标记说明与数据口径逐字一致');
+const relBtns = count(((store['cqutRelFilters']||{}).innerHTML||''), /class="filterbtn/g);
+ok(relBtns === 3, `理工相关维度筛选按钮 = ${relBtns}（期望 3 = 全部通知 / 与我相关 / 其他通知）`);
+const relBarHtml = (store['cqutRelFilters']||{}).innerHTML || '';
+ok(relBarHtml.includes('全部通知') && relBarHtml.includes('与我相关') && relBarHtml.includes('其他通知'),
+   '理工相关维度三档按钮文案齐全');
+ok(cqHtml.includes('🎯 与我相关') || cqHtml.includes('🔎 可能相关'), '理工卡片显示「与我相关」强弱徽章');
+ok(html.includes('value="rel"') && html.includes('🎯 与我相关优先'), '通知排序含「与我相关优先」选项');
+const cqCountText = (store['cqut-search-count']||{}).textContent || '';
+ok(cqCountText.includes('共找到 ' + cqNotices.length + ' 条通知'),
+   `默认「全部通知」未隐藏任何条目（计数 ${cqCountText.slice(0,40)}… / 数据 ${cqNotices.length} 条）`);
+
 /* [2c-2] 比赛板块（罗浩 2026-09-26 重做：只留还能参加的 / 删喜报 / 按学校分类）
    —— 旧的 CQUT_MATCHES（13 条获奖通稿 + 已结束条目）与 NATION_MATCHES（约 15 条已过期）
       已全部并入 matches.js 的 window.MATCHES，按学校分类，每条三段式文案。 */

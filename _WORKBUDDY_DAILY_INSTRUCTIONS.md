@@ -1,5 +1,16 @@
 # WorkBuddy 每日全栏目维护指令
 
+## 2026-11-12 用户变更（最高优先级，覆盖下文所有旧口径）
+
+罗浩看图发现学校官网 4 条要闻没进网站，明确要求：**凡是学校官网能看到的任何通知，都要在网站看见**。此前「只收研究生/化学化工/重理工优先、跳过仅本科/教职工/其他学院专属」的策展排除口径**作废**；不得再以「仅本科 / 教职工 / 其他学院专属」为由跳过任何官网通知。已按此补入主站 41 条（学校要闻、工作动态、通知公告、采购招投标、人才培养、学术科研、对外合作、文化活动等），共 389 条。
+
+- **每日必须逐栏核查主站**（此前漏掉的就是这些）：学校要闻、工作动态、通知公告、采购招投标、人才培养、学术科研、对外合作、文化活动，外加研究生院与化学化工学院等原有栏目。`www.cqut.edu.cn` 对 curl 返回 412，但 WorkBuddy 的 WebFetch 可读首页与单篇正文；不要因 curl 受阻就判死链，也不要编造正文细节。按 URL 去重，按官方原文日期排序，标题/URL/单篇日期逐条核实；正文受阻时只写有边界的说明。
+- **「🎯 与我相关」是筛选不是过滤**：新增独立 rel 维度（研究生院/研工部、化工·材料学院、研究生培养与学位、科研项目与成果、化工材料方向、学科竞赛、奖助、文献资源、校园运行等信号），三档「全部通知 / 与我相关 / 其他通知」+「相关优先」排序。默认必须展示全量，不隐藏任何条目。判定规则的唯一事实来源是 `_cqut_relevance.js`；**改动 cqut.js 后必须重跑 `node _merge_cqut_news.js` 幂等重算 rel/w/why，禁止手改标记**；`_selfcheck.js` 会逐条复算并断言一致。
+- **细分类现为 9 个**（含 `news` 学校要闻/动态），`_selfcheck.js` 与 `_preship.py` 的计数断言已同步为 9 / 按钮 10（相关维度按钮另计 3）。`CQUT_TAGS` 必须保持 `k:"exam", n:"…"` 手写格式（键不加引号、冒号后无空格），`_preship.py` 用文本正则解析，JSON 风格 `"k": "…"` 会导致误报。
+- **发布通道（github.com 出口被阻断时）**：`git push` 常因 schannel 断连失败，但 `api.github.com` 经本机代理可达。等价发布走 Git Data API：`git credential fill` 取凭据管理器 PAT → blobs（base64 用 `@file` 传，避免参数过长）→ tree（base_tree=父树）→ commit（复用本地 author/committer + 保留尾随换行的 message，使 API 生成的 SHA 与本地完全一致）→ `PATCH /git/refs/heads/main`（复数 refs，force=false）。随后等 Pages `status=built` 且 commit 匹配，再做线上 HTML 规范化比对与关键资源核验。
+- **推送后必须同步本地远端引用**：`git fetch` 同样被墙，所以 API 推送成功后本地 `origin/main` 仍停在旧 SHA，`_preship.py` 会误报「还有 N 个提交没推到 GitHub」。用 API 确认远端 main 已等于本地 HEAD 后，执行 `git update-ref refs/remotes/origin/main <HEAD_SHA>` 纠正滞后（只改本地跟踪引用，不动远端、不伪造提交），再跑发布检查。这是纠正滞后，不是降低门槛；远端 SHA 未经 API 确认不得擅自更新引用。
+- 自检门槛：`_selfcheck.js` 必须 **0 失败**（当前 601 条断言，含 13 条相关维度护栏；断言数会随功能增加而增长，硬门槛是 0 失败，不是某个固定数字）；全量回归清单见「验收与发布」，须全部通过才可发布。
+
 ## 2026-11-05 用户变更（优先于下文旧科研界面要求）
 
 罗浩要求撤下网站科研栏目，并进一步明确科研计划在独立普通ChatGPT聊天维护，本Codex聊天主要负责网站。后续维护不得恢复科研导航、首页任务卡、任务搜索、AI调整表单或模型设置，也不将任务反馈自动发布到网站。原Google表、136项摘要、审核正文及5条记录保留归档，双文件审核digest继续校验；这不再要求科研正文在主站原生显示。独立云服务的设备、密钥、D1、旧安排及本机草稿不改动，收藏/已读/已看同步继续检查。Codex独立分支的撤栏变更须与WorkBuddy内容更新妥善合并、通过原新鲜度与发布检查后再上线，不夹带未完成内容、不修改日期过门槛。
@@ -22,7 +33,7 @@ python：C:/Users/22198/.workbuddy/binaries/python/versions/3.13.12/python.exe �
 - AI学习：检查现有官方课程/工具入口和适配说明，来源受阻保留，不删除用户收藏或已看记录。
 - TED：按公开累计播放和演讲年份，40条逐项核查；播放采集日独立于内容更新日。不能获取的数据保留原计数及采样日期；排序在页面真实生效。
 - 讲坛：按已收录视频的真实播放排序，系列为收录视频播放合计。逐BV匹配标题/身份/计数与完整响应后更新该条playCapturedAt；局部成功不改成全量同期，不自动滚FORUM_PLAY_CAPTURED_AT，不声称验证了全部视频可播。
-- 重理工：读取cqut.js当前全部配置主/备用源，以WebFetch等可用方式访问学校及学院官方列表，优先研究生院、化学化工学院及研究生奖助、培养、学位、考试、科研服务；标题/URL/单篇日期逐项核验。已抓到列表但正文受阻，只能据已核实标题/日期写有边界的说明，不编联系人、要求或截止。按明确原文日期排序，跳过仅本科、教职工或其他学院专属的个人推荐。当天新通知可能早于现有最新日期，应按URL去重，不只抓date>LATEST。保留CQUT_UPDATED为最近成功内容日，CQUT_CHECKED为实际核查日。原两天内容门继续有效；仅按用户10/26授权和最新brief采用既有受阻例外，必须完整同日全来源失败证据、核查日前独立Git基线与通知/配置/原日期一致、页面明确受阻及两个原始日期。不得把受阻称为新内容，不复用旧失败日志冒称当天核查。
+- 重理工：读取cqut.js当前全部配置主/备用源，以WebFetch等可用方式访问**学校主站全部栏目**（学校要闻、工作动态、通知公告、采购招投标、人才培养、学术科研、对外合作、文化活动）及学院官方列表，优先研究生院、化学化工学院及研究生奖助、培养、学位、考试、科研服务；标题/URL/单篇日期逐项核验。已抓到列表但正文受阻，只能据已核实标题/日期写有边界的说明，不编联系人、要求或截止。按明确原文日期排序，**一律收录，不再按「仅本科 / 教职工 / 其他学院专属」排除**（2026-11-12 用户要求，见文首变更）。当天新通知可能早于现有最新日期，应按URL去重，不只抓date>LATEST。**收录或改写条目后必须重跑 `node _merge_cqut_news.js` 重算 rel/w/why，`_selfcheck.js` 逐条复算断言**；不要手改相关标记，也不要让相关筛选隐藏任何通知。保留CQUT_UPDATED为最近成功内容日，CQUT_CHECKED为实际核查日。原两天内容门继续有效；仅按用户10/26授权和最新brief采用既有受阻例外，必须完整同日全来源失败证据、核查日前独立Git基线与通知/配置/原日期一致、页面明确受阻及两个原始日期。不得把受阻称为新内容，不复用旧失败日志冒称当天核查。
 - 期刊：必须实际运行_refresh_magazines.py（可用--workers 3 --timeout 8），读取magazines.js配置的全部官方期刊，当前19本，使用_magazines_cn.py和_magazines_rss.py真实来源解析。每篇只保存标题、官方入口、明确单篇发布日期与独立导读，不转载全文、不猜日期，不用期刊日期或核查日代替文章日期；未知日期null。_magazines_refresh.json逐篇保留标题、URL和日期证据，失败沿用上次独立证据；订阅/空页面/保护/超时保留原文章和原日期。最新、来源热榜、编辑精选三入口分开；热榜只用原刊真实排名/指标，保留榜单语义、名次及采样日，不跨刊造统一热度；新榜成功清掉落榜标记但保留原文，失败保留旧榜及原日期。_magazines_editorial.json标题/URL/理由精确匹配，不冒称热门。保留主题/刊物/语言组合筛选、收藏、已读、批次、位置、键盘和手机体验。导读仅依据标题时必须明确说明阅读切入点，不冒称阅读全文。
 - 基金：只更新核实的公开净值等数据，来源交易日如实保留，QDII滞后不补猜日期。账户amt/dayPL/holdPL/holdPct/cumulativePL/amtDate/navAt及余额宝快照一律不动；_funds_snapshot_2026-10-15.json不改。无新净值不能滚内容更新日或档案日，实际核查日单独记录；不给买卖建议。
 
@@ -38,7 +49,7 @@ python：C:/Users/22198/.workbuddy/binaries/python/versions/3.13.12/python.exe �
 
 ## 验收与发布
 
-运行_build.py生成index.html、gh-pages/index.html、ai_intel_station_standalone.html并比较一致。运行_selfcheck.js、_magazines_refresh_regression.py、_magazines_cn_regression.py、_magazines_rss_regression.py、_magazines_pipeline_regression.py、_research_details_regression.py、_source_freshness_regression.js、_cloud_regression.js（按现有自检入口执行）、_preship_regression.py、_funds_public_nav_regression.py及相关浏览器回归，包括我的阅读、未看优先和记录持久化。核验账户快照、全国赛事身份及科研双文件完整。
+运行_build.py生成index.html、gh-pages/index.html、ai_intel_station_standalone.html并比较一致（构建输出的「理工内联=(N)」应等于 cqut.js 里 `"t":` 条数，N=0 说明计数口径坏了，须修 `_build.py`）。运行 `_selfcheck.js`（必须 0 失败，当前 601 条断言，内含 `_regression.js` 全 harness、7 个模块回归及新增「与我相关」交互回归）、`_cqut_content_scope_regression.js`（9/0）、`_source_freshness_regression.js`（51/0）、`_cloud_regression.js`（82/0），以及 `_magazines_refresh_regression.py`、`_magazines_cn_regression.py`、`_magazines_rss_regression.py`、`_magazines_pipeline_regression.py`、`_research_details_regression.py`、`_research_export_regression.py`、`_preship_regression.py`、`_funds_public_nav_regression.py` 全部 OK；还有我的阅读、未看优先和记录持久化等浏览器回归。核验账户快照、全国赛事身份及科研双文件完整。**任何一栏回归失败都不得发布，也不得改断言让它变绿**。
 
 先做本地发布检查；公开线上HTML尚是旧版本时应按阶段解释，不能用预计中的差异宣称上线失败后削弱检查。通过后只暂存本次明确文件，提交并推送main；等GitHub Pages部署成功，再运行完整发布总检，逐字规范化HTML、解析规范化两份科研JSON与本地比较，并确认日报API和关键操作。网络警告保留，失败须修复或说明阻碍，不能仅看push成功就称上线。源数据无变化且无可操作问题保持安静，仅实质更新、部署完成、失败或需用户处理时通知。
 

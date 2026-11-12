@@ -184,6 +184,42 @@ module.exports = async function ({html, inline, sandbox, ok}) {
   ok((firstNotices.match(/<article /g)||[]).length===30 && base.elements['cqut-list'].innerHTML!==firstNotices && base.elements['cqut-search-count'].textContent.includes('31–60') && JSON.parse(base.ctx.window.sessionStorage.getItem('ai-cqut-state')).page===2, '通知分页真实显示下一批30条，页码与阅读状态保存');
   base.listeners['cqut-search'].input({target:{value:'奖学金'}});
   ok(JSON.parse(base.ctx.window.sessionStorage.getItem('ai-cqut-state')).page===1 && base.elements['cqut-search-count'].textContent.includes(String(base.ctx.window.CQUT_NOTICES.filter(n=>[n.t,n.src,n.sum,n.date].join(' ').includes('奖学金')).length)), '分页后搜索仍覆盖全部通知，并回到第一页');
+
+  /* 「🎯 与我相关」交互回归（罗浩 2026-11-12 新增）：用隔离实例，不影响上面的搜索/分页断言。 */
+  const relRun = run();
+  const relAll = relRun.ctx.window.CQUT_NOTICES || [];
+  const relTotal = relAll.filter(n=>n.rel===1).length;
+  const relStrong = relAll.filter(n=>n.w===2).length;
+  const clickRel = key => relRun.listeners['cqutRelFilters'].click({
+    target:{closest(sel){ return sel==='.filterbtn' ? {getAttribute(k){ return k==='data-r' ? key : null; }} : null; }}
+  });
+  const relCards = () => (relRun.elements['cqut-list'].innerHTML.match(/<article class="cmp"/g)||[]).length;
+  ok(relRun.elements['cqut-search-count'].textContent.includes('共找到 '+relAll.length+' 条通知') && relCards()===30,
+     '与我相关：默认「全部通知」展示全量，不隐藏任何学校通知');
+  clickRel('rel');
+  const relShown = relRun.elements['cqut-list'].innerHTML;
+  const badges = (relShown.match(/🎯 与我相关|🔎 可能相关/g)||[]).length;
+  ok(relRun.elements['cqut-search-count'].textContent.includes('共找到 '+relTotal+' 条通知') &&
+     badges===relCards() && badges>0 &&
+     JSON.parse(relRun.ctx.window.sessionStorage.getItem('ai-cqut-state')).rel==='rel',
+     '与我相关：点选后只显示相关条目，每张卡片都有强弱徽章，筛选状态持久保存');
+  clickRel('other');
+  const otherShown = relRun.elements['cqut-list'].innerHTML;
+  ok(!/🎯 与我相关|🔎 可能相关/.test(otherShown) &&
+     relRun.elements['cqut-search-count'].textContent.includes('共找到 '+(relAll.length-relTotal)+' 条通知'),
+     '与我相关：切换「其他通知」后相关徽章清零，数量与补集一致');
+  clickRel('全部');
+  ok(relRun.elements['cqut-search-count'].textContent.includes('共找到 '+relAll.length+' 条通知'),
+     '与我相关：切回「全部通知」恢复全量，未丢失任何条目');
+  relRun.listeners['cqut-sort'].change({target:{value:'rel'}});
+  const sortedHtml = relRun.elements['cqut-list'].innerHTML;
+  ok(relStrong>30 && (sortedHtml.match(/🎯 与我相关/g)||[]).length===30 &&
+     !/🔎 可能相关/.test(sortedHtml) && relRun.elements['cqut-sort-note'].textContent.includes('优先'),
+     '与我相关：「相关优先」排序把强相关条目置顶，可能相关与其余通知随后');
+  relRun.listeners['cqut-reset'].click();
+  ok(JSON.parse(relRun.ctx.window.sessionStorage.getItem('ai-cqut-state')).rel==='全部' &&
+     relRun.elements['cqut-search-count'].textContent.includes('共找到 '+relAll.length+' 条通知'),
+     '与我相关：清除筛选会复位相关维度，回到全量通知');
   const escaped=run(x=>x.replace('var RANK = window.RANK || {};','var RANK = window.RANK || {}; RANK.combos[0].score="<img src=x onerror=alert(1)>"; RANK.tables.aa.rows[0][1]="<img src=x onerror=alert(1)>";'));
   ok(!escaped.elements['p-combos'].innerHTML.includes('<img') && !escaped.elements['p-tables'].innerHTML.includes('<img'), '排行榜评级及分数不会插入 HTML 标签');
   const empty=run(x=>x.replace('var RANK = window.RANK || {};','var RANK = {};'));
