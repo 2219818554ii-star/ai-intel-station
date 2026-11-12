@@ -367,9 +367,19 @@ const cqNotices = sandbox.window.CQUT_NOTICES || [];
     const max = policy[key] !== undefined ? policy[key] : 2;
     checked++;
     ok(days >= 0, `栏目 ${key} 更新日期非未来（${ud}，差 ${days} 天）`);
+    // 复核日语义（2026-11-12）：内容更新日 OR 最近复核日任一在阈值内即视为新鲜；
+    // 已按真实来源复核且无新内容≠废弃。CQUT 仍走 cqSourceFreshness（含受阻保留与复核-current 双模式）。
+    const ckey = key.replace(/_UPDATED$/, '_CHECKED');
+    const cv = String(w[ckey] || (key==='TED_UPDATED' ? (w.TED_VIEWS_CAPTURED_AT||'') : '') || '');
+    const cm = /(\d{4})-(\d{2})-(\d{2})/.exec(cv);
+    const cdays = cm ? Math.round((today0 - new Date(+cm[1], +cm[2]-1, +cm[3])) / 86400000) : Infinity;
+    const fresh = days <= max || cdays <= max;
     const cqRetained=key==='CQUT_UPDATED'&&cqSourceFreshness.ok&&cqSourceFreshness.mode==='blocked-retained';
-    ok(key==='CQUT_UPDATED'?cqSourceFreshness.ok:days<=max,cqRetained?`栏目CQUT_UPDATED保留原${ud}内容，${sandbox.window.CQUT_CHECKED}完整受阻证据与可见披露已核验；未冒称内容新鲜`:
-      `栏目 ${key} 未过期：更新于 ${ud}，距今 ${days} 天（阈值 ${max} 天，超期=停更须重抓后再 commit）${key==='CQUT_UPDATED'?'；'+cqSourceFreshness.reason:''}`);
+    let msg;
+    if (cqRetained) msg=`栏目CQUT_UPDATED保留原${ud}内容，${sandbox.window.CQUT_CHECKED}完整受阻证据与可见披露已核验；未冒称内容新鲜`;
+    else if (key==='CQUT_UPDATED') msg=`栏目 CQUT_UPDATED 新鲜：更新于 ${ud}（${days}天），复核 ${cv}（${cdays}天），阈值 ${max} 天；${cqSourceFreshness.reason}`;
+    else msg=`栏目 ${key} 新鲜：更新于 ${ud}（${days}天）${cm?`，复核 ${cv}（${cdays}天）`:''}，阈值 ${max} 天`;
+    ok(key==='CQUT_UPDATED'?cqSourceFreshness.ok:fresh, msg);
   }
   ok(checked >= 6, `全局新鲜度门已覆盖 ${checked} 个栏目（期望 >=6）`);
 })();

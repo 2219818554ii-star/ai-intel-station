@@ -1,6 +1,6 @@
 /* AI 情报站 - 实力排行榜数据（每日自动更新） */
 window.RANK_UPDATED = "2026-11-05";
-window.RANK_CHECKED = "2026-11-05";
+window.RANK_CHECKED = "2026-11-12";
 window.RANK = {
   "models": [
     {

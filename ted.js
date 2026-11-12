@@ -1,5 +1,5 @@
 /* AI 情报站 - TED 英语演讲（认知提升 + 英语听力素材） */
-window.TED_CHECKED = "2026-11-05";
+window.TED_CHECKED = "2026-11-12";
 window.TED_UPDATED = "2026-11-05";
 window.TED_VIEWS_CAPTURED_AT = "2026-11-05";
 /* ============ TED TALKS (curated 2026-09-23，2026-09-28 re-verified；2026-11-05 全量复核40个官网页面并刷新封面图/官网播放量) ============

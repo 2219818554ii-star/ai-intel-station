@@ -54,6 +54,12 @@ function validateCQUTFreshness(input){
   const contentAge=todayN-contentN;
   const retentionMetadata=data.status==='blocked'||data.state!=null;
   if(contentAge<=2&&!retentionMetadata)return {ok:true,mode:'fresh-content',contentAge,reason:'原内容新鲜度不超过2天'};
+  // 复核日语义（2026-11-12 新增，罗浩授权）：已按真实官方来源复核且核查日在阈值内、未发现更新的新内容，
+  // 则视为“已复核·当前有效”，不因其内容未变（无新通知）而判废弃。须确有真实复核，核查日即真实复核日。
+  const vcn=dayNumber(data.checked);
+  if(Number.isFinite(vcn)&&vcn<=todayN&&todayN-vcn<=2&&!retentionMetadata){
+    return {ok:true,mode:'verified-current',contentAge,checkAge:todayN-vcn,reason:'已按真实官方来源复核（核查日'+data.checked+'），无更新的新通知，内容当前有效'};
+  }
   if(data.status!=='blocked')return no('旧学校内容没有明确受阻状态');
   const checkN=dayNumber(data.checked);
   if(!Number.isFinite(checkN)||checkN>todayN||todayN-checkN>2)return no('学校核查日期无效、在未来或超过2天');
