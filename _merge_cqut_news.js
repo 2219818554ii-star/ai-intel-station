@@ -124,6 +124,18 @@ const NEW = [
   { t:`重庆工商大学文学与新闻学院副教授杨霞做客“两江讲坛”`, src:`重庆工商大学`, date:`2026-11-10`, cat:`school`, tag:`act`, col:`文化活动` },
   { t:`学校开展辅导员心理健康工作专项培训`, src:`学生工作部（处）`, date:`2026-11-06`, cat:`school`, tag:`svc`, col:`文化活动` },
   { t:`西南大学文学院教授张兴成做客“两江讲坛”`, src:`西南大学`, date:`2026-11-04`, cat:`school`, tag:`act`, col:`文化活动` },
+
+  // ===== 2026-11-13 维护：补全主站可读源漏抓（全量覆盖口径；xxyw 学校要闻列表 + 主页 通知公告/工作动态 核实） =====
+  { t:`关于选派教职工在职攻读博士、硕士学位的通知`, src:`人事处`, date:`2026-11-13`, cat:`school`, tag:`svc`, col:`通知公告`,
+    url:`https://www.cqut.edu.cn/info/1101/72992.htm` },
+  { t:`学校成功获批机械工程博士后科研流动站`, src:`研究生院`, date:`2026-11-12`, cat:`school`, tag:`news`, col:`学校要闻`,
+    url:`https://www.cqut.edu.cn/info/1049/72990.htm` },
+  { t:`学校党委理论学习中心组（扩大）会专题学习贯彻党的二十届五中全会精神`, src:`党委宣传部`, date:`2026-11-12`, cat:`school`, tag:`news`, col:`工作动态`,
+    url:`https://www.cqut.edu.cn/info/1262/72989.htm` },
+  { t:`学校举行2026年新进教职工校内岗前培训开班仪式`, src:`人事处`, date:`2026-11-10`, cat:`school`, tag:`news`, col:`学校要闻`,
+    url:`https://www.cqut.edu.cn/info/1049/72928.htm` },
+  { t:`2026年西部陆海新通道知识产权高校联盟年会暨中国—东盟知识产权人才培养论坛在校举行`, src:`重庆知识产权学院`, date:`2026-11-09`, cat:`school`, tag:`news`, col:`学校要闻`,
+    url:`https://www.cqut.edu.cn/info/1049/72906.htm` },
 ];
 
 // build final objects, bounded summary for non-verified
@@ -170,7 +182,7 @@ const tagsSrc = '[\n' + tags.map(function(t){
 }).join(',\n') + '\n]';
 const out =
   head +
-  'window.CQUT_UPDATED = "2026-11-12";\n\n' +
+  'window.CQUT_UPDATED = "2026-11-13";\n\n' +
   'window.CQUT_REL_NOTE = "🎯 与我相关：按研究生院/研工部、化工·材料学院、研究生培养与学位、科研项目与成果、化工材料方向、学科竞赛、奖助、文献资源、校园运行等公开信号自动标记（依据 src/tag/标题，规则见 _cqut_relevance.js）；仅作快速定位，不替代逐条阅读，也不隐藏任何通知。";\n\n' +
   'window.CQUT_TAGS = ' + tagsSrc + ';\n\n' +
   'window.CQUT_NOTICES = ' + JSON.stringify(mergedWithRel, null, 2) + ';\n\n' +
