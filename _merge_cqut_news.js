@@ -136,6 +136,42 @@ const NEW = [
     url:`https://www.cqut.edu.cn/info/1049/72928.htm` },
   { t:`2026年西部陆海新通道知识产权高校联盟年会暨中国—东盟知识产权人才培养论坛在校举行`, src:`重庆知识产权学院`, date:`2026-11-09`, cat:`school`, tag:`news`, col:`学校要闻`,
     url:`https://www.cqut.edu.cn/info/1049/72906.htm` },
+
+  // ===== 2026-11-15 维护：补全主站可读源漏抓（全量覆盖口径；xxtz1 学校通知 + bmtz 部门通知 + zbxx 采购 列表核实） =====
+  { t:`关于举行"九秩长征路·万里薪火传"全国高校接力宣讲活动（重庆理工大学站）启动仪式暨示范宣讲的通知`, src:`党委研究生工作部 研究生院`, date:`2026-11-14`, cat:`school`, tag:`act`, col:`通知公告`,
+    url:`https://www.cqut.edu.cn/info/1101/73014.htm`,
+    sum:`2026年是中国工农红军长征胜利90周年，由全国高校青年宣讲联盟发起、我校承办的"九秩长征路·万里薪火传"全国高校接力宣讲活动启动仪式暨示范宣讲，定于2026年11月16日（星期一）14:30在花溪校区丸美学生活动中心影剧场举行；参会含市教委领导、兄弟高校研工部负责人、校领导、各学院书记副书记及研究生辅导员、研究生宣讲团成员、本硕博学生代表等。联系人曾老师 62563405。来源：党委研究生工作部·研究生院（2026-11-14）。` },
+  { t:`关于举办重庆理工大学"清廉校园"创意作品大赛的通知`, src:`纪委`, date:`2026-11-13`, cat:`school`, tag:`act`, col:`通知公告`,
+    url:`https://www.cqut.edu.cn/2025clnr.jsp?urltype=news.NewsContentUrl&wbnewsid=73011&wbtreeid=1101` },
+  { t:`关于开展重庆理工大学2026届毕业生就业工作先进集体和先进个人评选的通知`, src:`招生就业处`, date:`2026-11-13`, cat:`school`, tag:`pub`, col:`通知公告`,
+    url:`https://www.cqut.edu.cn/info/1101/73004.htm` },
+  { t:`关于做好2026年终关账及2027年开账相关事项的通知`, src:`财务处`, date:`2026-11-10`, cat:`school`, tag:`svc`, col:`通知公告`,
+    url:`https://www.cqut.edu.cn/2025clnr.jsp?urltype=news.NewsContentUrl&wbnewsid=72932&wbtreeid=1101` },
+  { t:`关于召开纪法教育专题培训的通知`, src:`纪委`, date:`2026-11-10`, cat:`school`, tag:`svc`, col:`通知公告`,
+    url:`https://www.cqut.edu.cn/2025clnr.jsp?urltype=news.NewsContentUrl&wbnewsid=72925&wbtreeid=1101` },
+  { t:`重庆理工大学"三审三校"审核与发布管理系统建设项目（融媒体二期）单一来源采购公示`, src:`采购与招投标管理中心`, date:`2026-11-12`, cat:`school`, tag:`svc`, col:`招标信息`,
+    url:`https://www.cqut.edu.cn/info/1056/72984.htm`,
+    sum:`重庆理工大学"三审三校"审核与发布管理系统建设项目（融媒体二期）（2026FW-0076）单一来源采购公示：拟由四川云华天成科技有限公司承接，预算¥180000元，将"三审三校"审核与发布管理能力扩展至全校20个二级学院，公示期2026年11月13日—11月17日。来源：采购与招投标管理中心（2026-11-12）。` },
+  { t:`关于2026年重庆市优秀硕士学位论文拟推荐人选的公示`, src:`研究生院`, date:`2026-11-13`, cat:`school`, tag:`grad`, col:`部门通知`,
+    url:`https://www.cqut.edu.cn/info/1105/73003.htm` },
+  { t:`关于参加2026年重庆理工大学化学实验创新设计大赛暨第六届大学生化学实验创新设计大赛选拔赛的通知`, src:`教务处`, date:`2026-11-13`, cat:`school`, tag:`act`, col:`部门通知`,
+    url:`https://www.cqut.edu.cn/info/1103/73002.htm` },
+  { t:`关于举办2026-2027学年第1学期《高等数学》课程讲座的通知`, src:`教务处`, date:`2026-11-13`, cat:`school`, tag:`act`, col:`部门通知`,
+    url:`https://www.cqut.edu.cn/info/1103/73001.htm` },
+  { t:`关于公布第十八届全国大学生数学竞赛考场安排的通知`, src:`教务处`, date:`2026-11-13`, cat:`school`, tag:`exam`, col:`部门通知`,
+    url:`https://www.cqut.edu.cn/info/1103/72901.htm` },
+  { t:`第二十届一研究生学术活动月专家学术报告——基于强瞬变功率输出特性的预测辅助分频MPC能量管理策略`, src:`研究生院`, date:`2026-11-12`, cat:`school`, tag:`grad`, col:`部门通知`,
+    url:`https://www.cqut.edu.cn/info/1105/72988.htm` },
+  { t:`第二十届一研究生学术活动月专家学术报告——锂离子电池健康状态估计的可解释距离特征与跨工况自适应模型`, src:`研究生院`, date:`2026-11-12`, cat:`school`, tag:`grad`, col:`部门通知`,
+    url:`https://www.cqut.edu.cn/info/1105/72987.htm` },
+  { t:`第二十届一研究生学术活动月专家学术报告——原子级催化材料的结构设计及在高性能锂硫电池中的应用`, src:`研究生院`, date:`2026-11-12`, cat:`school`, tag:`grad`, col:`部门通知`,
+    url:`https://www.cqut.edu.cn/info/1105/72986.htm` },
+  { t:`关于举办重庆理工大学第八届"书山寻宝"大赛的通知`, src:`图书馆`, date:`2026-11-12`, cat:`school`, tag:`act`, col:`部门通知`,
+    url:`https://www.cqut.edu.cn/info/1111/72981.htm` },
+  { t:`图书馆中山讲堂数字资源使用培训专题（2026-24）——大学学习为什么需要文献检索`, src:`图书馆`, date:`2026-11-12`, cat:`school`, tag:`svc`, col:`部门通知`,
+    url:`https://www.cqut.edu.cn/info/1111/72976.htm` },
+  { t:`"读人：MBTI十六人格分析"个人成长小组招募通知`, src:`学生工作部（处）`, date:`2026-11-12`, cat:`school`, tag:`act`, col:`部门通知`,
+    url:`https://www.cqut.edu.cn/info/1106/72973.htm` },
 ];
 
 // build final objects, bounded summary for non-verified
@@ -182,7 +218,7 @@ const tagsSrc = '[\n' + tags.map(function(t){
 }).join(',\n') + '\n]';
 const out =
   head +
-  'window.CQUT_UPDATED = "2026-11-13";\n\n' +
+  'window.CQUT_UPDATED = "2026-11-14";\n\n' +
   'window.CQUT_REL_NOTE = "🎯 与我相关：按研究生院/研工部、化工·材料学院、研究生培养与学位、科研项目与成果、化工材料方向、学科竞赛、奖助、文献资源、校园运行等公开信号自动标记（依据 src/tag/标题，规则见 _cqut_relevance.js）；仅作快速定位，不替代逐条阅读，也不隐藏任何通知。";\n\n' +
   'window.CQUT_TAGS = ' + tagsSrc + ';\n\n' +
   'window.CQUT_NOTICES = ' + JSON.stringify(mergedWithRel, null, 2) + ';\n\n' +
@@ -193,6 +229,6 @@ fs.writeFileSync(file, out, 'utf8');
 // full-file syntax validation (catches unterminated comment / broken script)
 new vm.Script(out);
 const relCount = mergedWithRel.filter(n => n.rel === 1).length;
-console.log('syntax OK; total notices now:', merged.length, ' UPDATED=2026-11-12',
+console.log('syntax OK; total notices now:', merged.length, ' UPDATED=2026-11-14',
   ' 与我相关:', relCount, '（强相关', mergedWithRel.filter(n => n.w === 2).length,
   '｜可能相关', mergedWithRel.filter(n => n.w === 1).length, '）');
