@@ -172,6 +172,30 @@ const NEW = [
     url:`https://www.cqut.edu.cn/info/1111/72976.htm` },
   { t:`"读人：MBTI十六人格分析"个人成长小组招募通知`, src:`学生工作部（处）`, date:`2026-11-12`, cat:`school`, tag:`act`, col:`部门通知`,
     url:`https://www.cqut.edu.cn/info/1106/72973.htm` },
+
+  // ===== 2026-11-16 维护：主站首页/学术讲座栏目可读源新增与漏抓补全（全量覆盖口径，逐条按官网标题+日期核实） =====
+  { t:`学校举办2026年哈密市科技创新能力提升培训班`, src:`继续教育学院、高等教育自学考试办公室`, date:`2026-11-16`, cat:`school`, tag:`news`, col:`工作动态`,
+    url:`https://www.cqut.edu.cn/info/1262/73026.htm`,
+    sum:`2026年哈密市科技创新能力提升培训班由新疆哈密市科技局主办、学校继续教育学院承办，11月7日至13日在花溪校区举办，30名哈密科技系统管理干部与科技骨干参训；培训聚焦高端科创能力、企业自主创新、产学研融合等，并组织赴储能、智能网联汽车相关科研机构与企业现场研学。属校园运行/对外合作动态，与研究生科研无直接安排。来源：继续教育学院、高等教育自学考试办公室（2026-11-16）。` },
+  { t:`【智汇理工·两江讲坛】从人工智能到脑科学：跨学科科研探索与创新实践`, src:`两江人工智能学院`, date:`2026-11-16`, cat:`school`, tag:`act`, col:`学术讲座`,
+    url:`https://www.cqut.edu.cn/info/1341/73028.htm`,
+    sum:`【智汇理工·两江讲坛】从人工智能到脑科学：跨学科科研探索与创新实践，主讲人何东毅（香港理工大学语言科学与技术系博士研究生、重理工两江人工智能学院2022-2026届校友），2026年11月16日16:30在两江校区汇文楼学术报告厅举行。内容围绕科研认知—学术成长—科研创新—学科前沿，分享科研选题、文献阅读、实验设计、SCI论文写作发表路径及AI与脑科学交叉前沿。对研究生科研思维与论文写作有参考价值。来源：两江校区党工委/管委会、两江人工智能学院官方学术讲座页（单篇日期2026-11-16）。` },
+  { t:`扁担挑初心 金融照长征——“扁担银行的长征记忆”专题展在校开展`, src:`经济金融学院`, date:`2026-11-15`, cat:`school`, tag:`news`, col:`学校要闻`,
+    url:`https://www.cqut.edu.cn/info/1049/73021.htm`,
+    sum:`“扁担银行的长征记忆——纪念中国工农红军长征胜利90周年红色货币专题展”全国高校巡展（重庆站）11月11日起在花溪校区开展，由党委宣传部、经济金融学院党委联合中国钱币博物馆等策划，设五大板块按时间轴梳理红色金融从萌芽到赓续的发展脉络。属红色文化育人活动。来源：经济金融学院（2026-11-15）。` },
+  { t:`学校与市棋牌运动管理中心举行棋牌项目合作签约仪式`, src:`学校`, date:`2026-11-13`, cat:`school`, tag:`news`, col:`学校要闻`,
+    url:`https://www.cqut.edu.cn/info/1049/73005.htm` },
+  { t:`学校士继方程式车队斩获2026“吉利杯”FSCC全国一等奖`, src:`学校`, date:`2026-11-13`, cat:`school`, tag:`news`, col:`学校要闻`,
+    url:`https://www.cqut.edu.cn/info/1049/72998.htm`,
+    sum:`据重庆理工大学官网（栏目：学校要闻，发布日期 2026-11-13）核实，标题原文以「喜讯」标注车队斩获2026“吉利杯”中国大学生方程式汽车大赛（FSCC）全国总成绩一等奖，为建队以来首个 FSCC 全国一等奖，刷新参赛历史最佳战绩。点击官方链接查看正文详情。` },
+  { t:`学校召开2026年秋季学期第三次学科建设与研究生教育工作例会`, src:`研究生院`, date:`2026-11-13`, cat:`school`, tag:`news`, col:`工作动态`,
+    url:`https://www.cqut.edu.cn/info/1262/73009.htm` },
+  { t:`巴南区税务局来校调研并开展涉税业务交流活动`, src:`学校`, date:`2026-11-13`, cat:`school`, tag:`news`, col:`工作动态`,
+    url:`https://www.cqut.edu.cn/info/1262/72993.htm` },
+  { t:`【智汇理工·重理工期刊谷】名篇精读系列｜《智能技术学报（英文）》作者分享会（第12期）`, src:`期刊社`, date:`2026-11-12`, cat:`school`, tag:`act`, col:`学术讲座`,
+    url:`https://www.cqut.edu.cn/info/1341/72983.htm` },
+  { t:`学校第二十一届研究生学术活动月开幕式暨首届博硕学术创新论坛顺利举行`, src:`党委研究生工作部 研究生院`, date:`2026-11-12`, cat:`school`, tag:`news`, col:`学术科研`,
+    url:`https://www.cqut.edu.cn/info/1264/72980.htm` },
 ];
 
 // build final objects, bounded summary for non-verified
@@ -218,7 +242,7 @@ const tagsSrc = '[\n' + tags.map(function(t){
 }).join(',\n') + '\n]';
 const out =
   head +
-  'window.CQUT_UPDATED = "2026-11-14";\n\n' +
+  'window.CQUT_UPDATED = "2026-11-16";\n\n' +
   'window.CQUT_REL_NOTE = "🎯 与我相关：按研究生院/研工部、化工·材料学院、研究生培养与学位、科研项目与成果、化工材料方向、学科竞赛、奖助、文献资源、校园运行等公开信号自动标记（依据 src/tag/标题，规则见 _cqut_relevance.js）；仅作快速定位，不替代逐条阅读，也不隐藏任何通知。";\n\n' +
   'window.CQUT_TAGS = ' + tagsSrc + ';\n\n' +
   'window.CQUT_NOTICES = ' + JSON.stringify(mergedWithRel, null, 2) + ';\n\n' +
@@ -229,6 +253,6 @@ fs.writeFileSync(file, out, 'utf8');
 // full-file syntax validation (catches unterminated comment / broken script)
 new vm.Script(out);
 const relCount = mergedWithRel.filter(n => n.rel === 1).length;
-console.log('syntax OK; total notices now:', merged.length, ' UPDATED=2026-11-14',
+console.log('syntax OK; total notices now:', merged.length, ' UPDATED=2026-11-16',
   ' 与我相关:', relCount, '（强相关', mergedWithRel.filter(n => n.w === 2).length,
   '｜可能相关', mergedWithRel.filter(n => n.w === 1).length, '）');
