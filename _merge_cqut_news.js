@@ -196,6 +196,26 @@ const NEW = [
     url:`https://www.cqut.edu.cn/info/1341/72983.htm` },
   { t:`学校第二十一届研究生学术活动月开幕式暨首届博硕学术创新论坛顺利举行`, src:`党委研究生工作部 研究生院`, date:`2026-11-12`, cat:`school`, tag:`news`, col:`学术科研`,
     url:`https://www.cqut.edu.cn/info/1264/72980.htm` },
+
+  // ===== 2026-11-17 维护：主站首页全栏目可读源新增（全量覆盖口径，逐条按官网标题+单篇日期核实） =====
+  { t:`学校举办2026年下半年党员发展对象培训`, src:`党委组织部、党委党校`, date:`2026-11-16`, cat:`school`, tag:`party`, col:`工作动态`,
+    url:`https://www.cqut.edu.cn/info/1262/73031.htm`,
+    sum:`学校党委党校举办2026年下半年党员发展对象培训，全校329名党员发展对象参加，采取专题辅导、实践观摩、研讨交流相结合；专题报告涵盖纪律作风、习近平新时代中国特色社会主义思想与青年成长、文化自信、党史学习，并赴校史馆与红岩精神展览馆现场教学。来源：党委组织部、党委党校（单篇正文日期 2026-11-16，已读取核实）。` },
+  { t:`学校教师在第十九届图书馆管理与服务创新论坛征文中获一等奖并作大会报告`, src:`图书馆`, date:`2026-11-16`, cat:`school`, tag:`news`, col:`学校要闻`,
+    url:`https://www.cqut.edu.cn/info/1049/73032.htm`,
+    sum:`第十九届图书馆管理与服务创新论坛在海南海口举办，学校图书馆王丽娜老师论文《AI+HI协同的高校图书馆垂域知识服务生态构建研究——以重庆理工大学图书馆"科研态势数字驾驶舱"为例》获优秀论文一等奖并作大会报告，系重庆市高校图工委2026年度科研项目阶段性成果。论坛由教育部高校图指委、CALIS管理中心等主办。来源：图书馆（单篇正文日期 2026-11-16，已读取核实；标题去掉原文"喜讯"前缀）。` },
+  { t:`让长征精神在当代青年身上打下"思想钢印"——重庆理工大学站接力宣讲启动`, src:`党委宣传部`, date:`2026-11-16`, cat:`school`, tag:`act`, col:`学校要闻`,
+    url:`https://www.cqut.edu.cn/info/1049/73042.htm`,
+    sum:`"九秩长征路·万里薪火传"全国高校接力宣讲活动重庆理工大学站在花溪校区启动，市教委二级巡视员卢明伦、校党委书记康骞出席致辞，校党委常委、副校长李璐主持，活动由全国高校青年宣讲联盟与学校主办。来源：学校要闻（单篇日期 2026-11-16；正文页 WAF 仅返回导航，标题经首页栏目与正文页标题核实，未编造细节）。` },
+  { t:`学校承办第四届中国研究生企业管理创新大赛工商管理案例赛道西部赛区复赛`, src:`学校`, date:`2026-11-16`, cat:`school`, tag:`act`, col:`人才培养`,
+    url:`https://www.cqut.edu.cn/info/1263/73034.htm`,
+    sum:`由教育部学位管理与研究生教育司指导，中国学位与研究生教育学会、全国工商管理专业学位研究生教育指导委员会联合主办，学校承办的第四届中国研究生企业管理创新大赛工商管理案例赛道西部赛区复赛近日举行。属研究生学科竞赛承办动态。来源：人才培养栏目（单篇日期 2026-11-16，正文返回无可读内容，据首页栏目核实标题与日期，未编造正文细节）。` },
+  { t:`学校学子在第十一届中国高校计算机大赛—移动应用创新赛中斩获三等奖`, src:`重庆知识产权学院`, date:`2026-11-16`, cat:`school`, tag:`act`, col:`人才培养`,
+    url:`https://www.cqut.edu.cn/info/1263/73037.htm`,
+    sum:`第十一届"中国高校计算机大赛—移动应用创新赛"决赛在浙江大学紫金港校区举行，学校重庆知识产权学院电子商务及法律专业2025级本科生于修齐在曹峥林、贾铠桦老师指导下，凭作品《PixPet——番茄钟专注与像素宠物养成》获启航赛三等奖。属本科生学科竞赛获奖动态。来源：人才培养栏目（单篇日期 2026-11-16，正文返回无可读内容，据首页栏目核实标题与日期，未编造正文细节）。` },
+  { t:`【智汇理工·两江讲坛】迈向超级智能（S1）：S1时代智能医学工程人才的学习与成长`, src:`药学与生物工程学院`, date:`2026-11-11`, cat:`school`, tag:`act`, col:`学术讲座`,
+    url:`https://www.cqut.edu.cn/info/1341/72953.htm`,
+    sum:`主讲人杨万荣（英国利物浦大学计算机科学系博士研究生，重理工药学与生物工程学院2019-2023届本科校友），结合"医学—工程—智能"交叉领域的学术成长经历，探讨独立思辨、批判性判断、跨学科创新及人机协作能力培养，并分享奖学金申请、学科竞赛与学生科研实践成长经验；由刘盛平主持，2026年11月12日14:30在两江校区汇文楼国际学术报告厅举行。对研究生学术成长与科研实践有参考价值。来源：学术讲座页（单篇发布日期 2026-11-11，已读取核实）。` },
 ];
 
 // build final objects, bounded summary for non-verified
@@ -242,7 +262,7 @@ const tagsSrc = '[\n' + tags.map(function(t){
 }).join(',\n') + '\n]';
 const out =
   head +
-  'window.CQUT_UPDATED = "2026-11-16";\n\n' +
+  'window.CQUT_UPDATED = "2026-11-17";\n\n' +
   'window.CQUT_REL_NOTE = "🎯 与我相关：按研究生院/研工部、化工·材料学院、研究生培养与学位、科研项目与成果、化工材料方向、学科竞赛、奖助、文献资源、校园运行等公开信号自动标记（依据 src/tag/标题，规则见 _cqut_relevance.js）；仅作快速定位，不替代逐条阅读，也不隐藏任何通知。";\n\n' +
   'window.CQUT_TAGS = ' + tagsSrc + ';\n\n' +
   'window.CQUT_NOTICES = ' + JSON.stringify(mergedWithRel, null, 2) + ';\n\n' +
@@ -253,6 +273,6 @@ fs.writeFileSync(file, out, 'utf8');
 // full-file syntax validation (catches unterminated comment / broken script)
 new vm.Script(out);
 const relCount = mergedWithRel.filter(n => n.rel === 1).length;
-console.log('syntax OK; total notices now:', merged.length, ' UPDATED=2026-11-16',
+console.log('syntax OK; total notices now:', merged.length, ' UPDATED=2026-11-17',
   ' 与我相关:', relCount, '（强相关', mergedWithRel.filter(n => n.w === 2).length,
   '｜可能相关', mergedWithRel.filter(n => n.w === 1).length, '）');
