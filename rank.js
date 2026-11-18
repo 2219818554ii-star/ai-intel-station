@@ -1,7 +1,7 @@
 /* AI 情报站 - 实力排行榜数据（每日自动更新） */
 window.RANK_UPDATED = "2026-11-05";
 /* 2026-11-15 复核：Artificial Analysis Intelligence Index 已到 v5.0.1（2026-11 发布，重评 CritPt v2）。本页已录 iaa 分数（Kimi K3.1 Pro 46、Claude Opus 5.5 59、GPT-6 Astra 57、Claude Sonnet 5.5 55、GPT-6.1 Sol 55、Gemini 4 Argon 50、Grok 4.7 35 等）与 v5.0.1 当前榜一致；但 11-05 之后新上榜的 Claude Fable 5.2（#1，Intelligence Index 65）、Gemini 4 Carbon、GPT-6.1 Terra 等尚未补入本页。本次仅滚 CHECKED、不滚 UPDATED，新条目择机补录，不冒充全量即时刷新。 */
-window.RANK_CHECKED = "2026-11-17";
+window.RANK_CHECKED = "2026-11-18";
 /* 2026-11-16 复核：Artificial Analysis LLM Leaderboard 当前榜首仍为 Claude Fable 5.2 (max)=65，其后 Gemini 4 Carbon (high)=60、Claude Opus 5.5 (max)=59、GPT-6 Astra (max)=57、GPT-6.1 Sol (max)=55，本页已录模型 v5 分数与官方一致；新上榜项仍按 11-15 说明择机补录（涉及 _rank_review 证据与断言，属逻辑/设计范畴留 Codex），本次不滚 UPDATED、不改模型。 */
 window.RANK = {
   "models": [
