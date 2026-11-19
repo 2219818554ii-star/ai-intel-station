@@ -1,10 +1,21 @@
 /* AI 情报站 - 实力排行榜数据（每日自动更新） */
-window.RANK_UPDATED = "2026-11-05";
+/* 2026-11-19 复核：罗浩要求每天检查即真更新。已据独立官方抓取补入当日新上榜的 10 张模型卡（含榜首 Claude Fable 5.2 (max)=65），AA选录20项同步更新；旧卡与v4.3历史、TB/SWE保留，新卡未核实字段留空，不冒充全榜即时刷新。 */
+window.RANK_UPDATED = "2026-11-19";
 /* 2026-11-15 复核：Artificial Analysis Intelligence Index 已到 v5.0.1（2026-11 发布，重评 CritPt v2）。本页已录 iaa 分数（Kimi K3.1 Pro 46、Claude Opus 5.5 59、GPT-6 Astra 57、Claude Sonnet 5.5 55、GPT-6.1 Sol 55、Gemini 4 Argon 50、Grok 4.7 35 等）与 v5.0.1 当前榜一致；但 11-05 之后新上榜的 Claude Fable 5.2（#1，Intelligence Index 65）、Gemini 4 Carbon、GPT-6.1 Terra 等尚未补入本页。本次仅滚 CHECKED、不滚 UPDATED，新条目择机补录，不冒充全量即时刷新。 */
 window.RANK_CHECKED = "2026-11-19";
 /* 2026-11-16 复核：Artificial Analysis LLM Leaderboard 当前榜首仍为 Claude Fable 5.2 (max)=65，其后 Gemini 4 Carbon (high)=60、Claude Opus 5.5 (max)=59、GPT-6 Astra (max)=57、GPT-6.1 Sol (max)=55，本页已录模型 v5 分数与官方一致；新上榜项仍按 11-15 说明择机补录（涉及 _rank_review 证据与断言，属逻辑/设计范畴留 Codex），本次不滚 UPDATED、不改模型。 */
 window.RANK = {
   "models": [
+      {"name": "Claude Fable 5.2", "vendor": "Anthropic（美国）", "price": "AA单次任务成本约$26.54（非API单价）；具体价格核对厂商官网", "iaa": 65, "tb": null, "t": {"综合": "—", "推理": "—", "代码": "—", "多模态": "—", "长上下文": "—", "中文": "—", "性价比": "—", "开源": "—"}, "note": "11月19日核对AA官方当前榜：Claude Fable 5.2 (max) = 65分，位列第1。价格栏为AA单次任务成本约$26.54（非API每百万单价），API价格/主观评级/TB2.1本次未核实，故评级留「—」、tb留空。v5与旧v4.3不作直接涨跌比较。新模型无v4.3历史分，iaaHistorical.value留null。", "iaaHistorical": {"value": null, "version": "4.3", "snapshotAsOf": "2026-10-27"}, "iaaVersion": "5.0", "iaaModel": "Claude Fable 5.2 (max)"},
+      {"name": "GPT-6.2 Astra", "vendor": "OpenAI（美国）", "price": "AA单次任务成本约$4.00（非API单价）；具体价格核对厂商官网", "iaa": 62, "tb": null, "t": {"综合": "—", "推理": "—", "代码": "—", "多模态": "—", "长上下文": "—", "中文": "—", "性价比": "—", "开源": "—"}, "note": "11月19日核对AA官方当前榜：GPT-6.2 Astra (max) = 62分，位列第2。价格栏为AA单次任务成本约$4.00（非API每百万单价），API价格/主观评级/TB2.1本次未核实，故评级留「—」、tb留空。v5与旧v4.3不作直接涨跌比较。新模型无v4.3历史分，iaaHistorical.value留null。", "iaaHistorical": {"value": null, "version": "4.3", "snapshotAsOf": "2026-10-27"}, "iaaVersion": "5.0", "iaaModel": "GPT-6.2 Astra (max)"},
+      {"name": "Gemini 4 Neon", "vendor": "Google（美国）", "price": "AA单次任务成本约$6.44（非API单价）；具体价格核对厂商官网", "iaa": 61, "tb": null, "t": {"综合": "—", "推理": "—", "代码": "—", "多模态": "—", "长上下文": "—", "中文": "—", "性价比": "—", "开源": "—"}, "note": "11月19日核对AA官方当前榜：Gemini 4 Neon (xhigh) = 61分，位列第3。价格栏为AA单次任务成本约$6.44（非API每百万单价），API价格/主观评级/TB2.1本次未核实，故评级留「—」、tb留空。v5与旧v4.3不作直接涨跌比较。新模型无v4.3历史分，iaaHistorical.value留null。", "iaaHistorical": {"value": null, "version": "4.3", "snapshotAsOf": "2026-10-27"}, "iaaVersion": "5.0", "iaaModel": "Gemini 4 Neon (xhigh)"},
+      {"name": "Gemini 4 Carbon", "vendor": "Google（美国）", "price": "AA单次任务成本约$4.90（非API单价）；具体价格核对厂商官网", "iaa": 60, "tb": null, "t": {"综合": "—", "推理": "—", "代码": "—", "多模态": "—", "长上下文": "—", "中文": "—", "性价比": "—", "开源": "—"}, "note": "11月19日核对AA官方当前榜：Gemini 4 Carbon (high) = 60分，位列第4。价格栏为AA单次任务成本约$4.90（非API每百万单价），API价格/主观评级/TB2.1本次未核实，故评级留「—」、tb留空。v5与旧v4.3不作直接涨跌比较。新模型无v4.3历史分，iaaHistorical.value留null。", "iaaHistorical": {"value": null, "version": "4.3", "snapshotAsOf": "2026-10-27"}, "iaaVersion": "5.0", "iaaModel": "Gemini 4 Carbon (high)"},
+      {"name": "GPT-6.2 Sol", "vendor": "OpenAI（美国）", "price": "AA单次任务成本约$1.01（非API单价）；具体价格核对厂商官网", "iaa": 57, "tb": null, "t": {"综合": "—", "推理": "—", "代码": "—", "多模态": "—", "长上下文": "—", "中文": "—", "性价比": "—", "开源": "—"}, "note": "11月19日核对AA官方当前榜：GPT-6.2 Sol (max) = 57分，位列第6。价格栏为AA单次任务成本约$1.01（非API每百万单价），API价格/主观评级/TB2.1本次未核实，故评级留「—」、tb留空。v5与旧v4.3不作直接涨跌比较。新模型无v4.3历史分，iaaHistorical.value留null。", "iaaHistorical": {"value": null, "version": "4.3", "snapshotAsOf": "2026-10-27"}, "iaaVersion": "5.0", "iaaModel": "GPT-6.2 Sol (max)"},
+      {"name": "Gemini 4 Hydrogen", "vendor": "Google（美国）", "price": "AA单次任务成本约$3.16（非API单价）；具体价格核对厂商官网", "iaa": 54, "tb": null, "t": {"综合": "—", "推理": "—", "代码": "—", "多模态": "—", "长上下文": "—", "中文": "—", "性价比": "—", "开源": "—"}, "note": "11月19日核对AA官方当前榜：Gemini 4 Hydrogen (xhigh) = 54分，位列第8。价格栏为AA单次任务成本约$3.16（非API每百万单价），API价格/主观评级/TB2.1本次未核实，故评级留「—」、tb留空。v5与旧v4.3不作直接涨跌比较。新模型无v4.3历史分，iaaHistorical.value留null。", "iaaHistorical": {"value": null, "version": "4.3", "snapshotAsOf": "2026-10-27"}, "iaaVersion": "5.0", "iaaModel": "Gemini 4 Hydrogen (xhigh)"},
+      {"name": "GPT-6.1 Terra", "vendor": "OpenAI（美国）", "price": "AA单次任务成本约$0.96（非API单价）；具体价格核对厂商官网", "iaa": 51, "tb": null, "t": {"综合": "—", "推理": "—", "代码": "—", "多模态": "—", "长上下文": "—", "中文": "—", "性价比": "—", "开源": "—"}, "note": "11月19日核对AA官方当前榜：GPT-6.1 Terra (max) = 51分，位列第9。价格栏为AA单次任务成本约$0.96（非API每百万单价），API价格/主观评级/TB2.1本次未核实，故评级留「—」、tb留空。v5与旧v4.3不作直接涨跌比较。新模型无v4.3历史分，iaaHistorical.value留null。", "iaaHistorical": {"value": null, "version": "4.3", "snapshotAsOf": "2026-10-27"}, "iaaVersion": "5.0", "iaaModel": "GPT-6.1 Terra (max)"},
+      {"name": "Qwen4 Max", "vendor": "阿里巴巴 / 通义（中国）", "price": "AA单次任务成本约$3.27（非API单价）；具体价格核对厂商官网", "iaa": 43, "tb": null, "t": {"综合": "—", "推理": "—", "代码": "—", "多模态": "—", "长上下文": "—", "中文": "—", "性价比": "—", "开源": "—"}, "note": "11月19日核对AA官方当前榜：Qwen4 Max = 43分，位列第13。价格栏为AA单次任务成本约$3.27（非API每百万单价），API价格/主观评级/TB2.1本次未核实，故评级留「—」、tb留空。v5与旧v4.3不作直接涨跌比较。新模型无v4.3历史分，iaaHistorical.value留null。", "iaaHistorical": {"value": null, "version": "4.3", "snapshotAsOf": "2026-10-27"}, "iaaVersion": "5.0", "iaaModel": "Qwen4 Max"},
+      {"name": "Muse Ember", "vendor": "Meta（美国）", "price": "AA单次任务成本约$0.14（非API单价）；具体价格核对厂商官网", "iaa": 36, "tb": null, "t": {"综合": "—", "推理": "—", "代码": "—", "多模态": "—", "长上下文": "—", "中文": "—", "性价比": "—", "开源": "—"}, "note": "11月19日核对AA官方当前榜：Muse Ember (max) = 36分，位列第15。价格栏为AA单次任务成本约$0.14（非API每百万单价），API价格/主观评级/TB2.1本次未核实，故评级留「—」、tb留空。v5与旧v4.3不作直接涨跌比较。新模型无v4.3历史分，iaaHistorical.value留null。", "iaaHistorical": {"value": null, "version": "4.3", "snapshotAsOf": "2026-10-27"}, "iaaVersion": "5.0", "iaaModel": "Muse Ember (max)"},
+      {"name": "Tencent Hy4", "vendor": "腾讯（中国）", "price": "AA单次任务成本约$1.03（非API单价）；具体价格核对厂商官网", "iaa": 35, "tb": null, "t": {"综合": "—", "推理": "—", "代码": "—", "多模态": "—", "长上下文": "—", "中文": "—", "性价比": "—", "开源": "—"}, "note": "11月19日核对AA官方当前榜：Tencent Hy4 = 35分，位列第17。价格栏为AA单次任务成本约$1.03（非API每百万单价），API价格/主观评级/TB2.1本次未核实，故评级留「—」、tb留空。v5与旧v4.3不作直接涨跌比较。新模型无v4.3历史分，iaaHistorical.value留null。", "iaaHistorical": {"value": null, "version": "4.3", "snapshotAsOf": "2026-10-27"}, "iaaVersion": "5.0", "iaaModel": "Tencent Hy4"},
     {
       "name": "Kimi K3.1 Pro",
       "vendor": "Moonshot / 月之暗面（中国）",
@@ -1016,90 +1027,30 @@ window.RANK = {
   ],
   "tables": {
     "aa": {
-      "title": "Artificial Analysis 智能指数 v5.0 · 选录20项（11/5核查，非全榜）",
+      "title": "Artificial Analysis 智能指数 v5.0 · 选录20项（11/19核查，非全榜）",
       "unit": "分",
       "version": "5.0",
       "rows": [
-        [
-          "Gemini 4 Carbon (high)",
-          60
-        ],
-        [
-          "Claude Opus 5.5 (max)",
-          59
-        ],
-        [
-          "GPT-6 Astra (max)",
-          57
-        ],
-        [
-          "GPT-6.1 Sol (max)",
-          55
-        ],
-        [
-          "Claude Sonnet 5.5 (max)",
-          55
-        ],
-        [
-          "GPT-6.1 Terra (max)",
-          51
-        ],
-        [
-          "Gemini 4 Argon (high)",
-          50
-        ],
-        [
-          "Muse Wonder Full (max)",
-          50
-        ],
-        [
-          "Claude Fable 5.1 (max)",
-          49
-        ],
-        [
-          "Kimi K3.1 Pro",
-          46
-        ],
-        [
-          "Muse Wonder (max)",
-          44
-        ],
-        [
-          "Claude Haiku 5.5 (max)",
-          36
-        ],
-        [
-          "Grok 4.7 (xhigh)",
-          35
-        ],
-        [
-          "Qwen3.8 Max (0902)",
-          34
-        ],
-        [
-          "DeepSeek V4.1 Flash 1017 (max)",
-          33
-        ],
-        [
-          "GLM-5.3 (max)",
-          32
-        ],
-        [
-          "MiMo-V2.6-Pro",
-          30
-        ],
-        [
-          "Ling 3.1 Flash 1019",
-          30
-        ],
-        [
-          "MiniMax-M3.1-Flash",
-          29
-        ],
-        [
-          "Step 5 Preview",
-          29
-        ]
+        ["Claude Fable 5.2 (max)", 65],
+        ["GPT-6.2 Astra (max)", 62],
+        ["Gemini 4 Neon (xhigh)", 61],
+        ["Gemini 4 Carbon (high)", 60],
+        ["Claude Opus 5.5 (max)", 59],
+        ["GPT-6.2 Sol (max)", 57],
+        ["Claude Sonnet 5.5 (max)", 55],
+        ["Gemini 4 Hydrogen (xhigh)", 54],
+        ["GPT-6.1 Terra (max)", 51],
+        ["Gemini 4 Argon (high)", 50],
+        ["Kimi K3.1 Pro", 46],
+        ["Muse Wonder (max)", 44],
+        ["Qwen4 Max", 43],
+        ["Claude Haiku 5.5 (max)", 36],
+        ["Muse Ember (max)", 36],
+        ["Grok 4.7 (xhigh)", 35],
+        ["Tencent Hy4", 35],
+        ["DeepSeek V4.1 Flash 1017 (max)", 33],
+        ["GLM-5.3 (max)", 32],
+        ["Inkling 2 Small", 31]
       ]
     },
     "tb": {
@@ -1283,4 +1234,4 @@ window.RANK = {
 };
 
 /* 局部核验边界：AA日期不代表旧TB/SWE/订阅价格全部重新核验。 */
-window.RANK_CHECK_NOTE = "11月5日完整获取官方AA模型表，更新20项选录及36张卡的精确型号/推理档位映射；Gemini4 Carbon high为60分，Opus5.5当前max档59分。原with fallback与当前max严格区分，未匹配型号留空。v4.3历史快照、TB/SWE、旧价格与主观等级未重测；未调用任何用户模型。";
+window.RANK_CHECK_NOTE = "11月19日按罗浩「每天检查更新」要求真实刷新：官方AA v5.0当前榜首已为 Claude Fable 5.2 (max)=65，GPT-6.2 Astra 62、Gemini 4 Neon 61、Gemini 4 Carbon 60、GPT-6.2 Sol 57、Gemini 4 Hydrogen 54、GPT-6.1 Terra 51 等新条目当日实测；补入10张新模型卡并更新20项AA选录。旧36卡与其历史分数一律保留，新卡未核实的价格/评级/TB留空，未混用版本与推理档位，v4.3历史快照/TB/SWE/工具榜未重测。未调用用户模型。";

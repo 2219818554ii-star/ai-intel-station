@@ -241,7 +241,8 @@ module.exports = async function ({html, inline, sandbox, ok}) {
   const oldRankProof=JSON.parse(fs.readFileSync(path.join(__dirname,'_rank_review_2026-10-27.json'),'utf8'));
   ok(rank.aaVersion==='5.0'&&currentRankProof.aaVersion===rank.aaVersion&&rank.tables.aa.version===rank.aaVersion&&rank.aaHistory.version==='4.3'&&JSON.stringify(rank.aaHistory.rows)===JSON.stringify(oldRankProof.aaApplied), 'AA v5当前榜与原v4.3完整快照分开保留，不跨版混排');
   const observedAA=new Map(currentRankProof.officialObservations.filter(o=>o.observedSelectedRows).flatMap(o=>o.observedSelectedRows.concat(o.additionalExactModelRows||[])));
-  ok(rank.models.length===36&&rank.models.every(m=>m.iaaVersion===rank.aaVersion&&(m.iaaModel?observedAA.get(m.iaaModel)===m.iaa:m.iaa===null)&&m.iaaHistorical.version==='4.3'), '36张模型卡只用精确匹配的v5分数，未匹配者留空并保留历史分数');
+  const expectedCards=currentRankProof.expectedModelCount||36;
+  ok(rank.models.length===expectedCards&&rank.models.every(m=>m.iaaVersion===rank.aaVersion&&(m.iaaModel?observedAA.get(m.iaaModel)===m.iaa:m.iaa===null)&&m.iaaHistorical.version==='4.3'), expectedCards+'张模型卡只用精确匹配的v5分数，未匹配者留空并保留历史分数');
   ok(base.elements['p-models'].innerHTML.includes('AA v5.0')&&!base.elements['p-models'].innerHTML.includes('rank-score">AA v4.3')&&base.elements['p-tables'].innerHTML.includes('id="rank-aa-history"'), '手机卡与桌面同步显示当前AA版本，历史选录可原生展开阅读');
   const escapedAA=run(x=>x.replace('var RANK = window.RANK || {};','var RANK = window.RANK || {}; RANK.aaVersion="<img src=x>"; RANK.aaHistory.notice="<img src=x>"; RANK.aaHistory.rows[0][0]="<img src=x>";'));
   ok(!escapedAA.elements['p-models'].innerHTML.includes('<img')&&!escapedAA.elements['p-tables'].innerHTML.includes('<img'), 'AA版本与历史选录来源字段均转义后显示');

@@ -1,0 +1,589 @@
+{
+  "checkedAt": "2026-11-19",
+  "method": "独立官方抓取（curl HTTP 200，完整响应）读取当日 Artificial Analysis 模型榜；旧卡分数保留其各自 11-05 独立证据，不从 rank.js 自证；新卡仅用当日精确型号+推理档位分数。",
+  "transport": [
+    {
+      "url": "https://artificialanalysis.ai/leaderboards/models",
+      "method": "GET",
+      "checkedAt": "2026-11-19",
+      "checkedAtTime": "2026-11-19T18:14:57+08:00",
+      "status": 200,
+      "http": 200,
+      "curlExit": 0,
+      "finalURL": "https://artificialanalysis.ai/leaderboards/models",
+      "complete": true,
+      "error": null,
+      "completedAt": "2026-11-19",
+      "httpSize": 143661,
+      "decodedBytes": 1433122,
+      "timeTotalSec": 4.056404,
+      "headers": [
+        "Accept: text/html",
+        "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/125.0 Safari/537.36"
+      ]
+    }
+  ],
+  "officialObservations": [
+    {
+      "url": "https://artificialanalysis.ai/leaderboards/models",
+      "method": "curl+HTML table parse",
+      "observedSelectedRows": [
+        [
+          "Claude Fable 5.2 (max)",
+          65
+        ],
+        [
+          "GPT-6.2 Astra (max)",
+          62
+        ],
+        [
+          "Gemini 4 Neon (xhigh)",
+          61
+        ],
+        [
+          "Gemini 4 Carbon (high)",
+          60
+        ],
+        [
+          "Claude Opus 5.5 (max)",
+          59
+        ],
+        [
+          "GPT-6.2 Sol (max)",
+          57
+        ],
+        [
+          "Claude Sonnet 5.5 (max)",
+          55
+        ],
+        [
+          "Gemini 4 Hydrogen (xhigh)",
+          54
+        ],
+        [
+          "GPT-6.1 Terra (max)",
+          51
+        ],
+        [
+          "Gemini 4 Argon (high)",
+          50
+        ],
+        [
+          "Kimi K3.1 Pro",
+          46
+        ],
+        [
+          "Muse Wonder (max)",
+          44
+        ],
+        [
+          "Qwen4 Max",
+          43
+        ],
+        [
+          "Claude Haiku 5.5 (max)",
+          36
+        ],
+        [
+          "Muse Ember (max)",
+          36
+        ],
+        [
+          "Grok 4.7 (xhigh)",
+          35
+        ],
+        [
+          "Tencent Hy4",
+          35
+        ],
+        [
+          "DeepSeek V4.1 Flash 1017 (max)",
+          33
+        ],
+        [
+          "GLM-5.3 (max)",
+          32
+        ],
+        [
+          "Inkling 2 Small",
+          31
+        ]
+      ],
+      "additionalExactModelRows": [
+        [
+          "GPT-6 Astra (max)",
+          57
+        ],
+        [
+          "GPT-6.1 Sol (max)",
+          55
+        ],
+        [
+          "Muse Wonder Full (max)",
+          50
+        ],
+        [
+          "Claude Fable 5.1 (max)",
+          49
+        ],
+        [
+          "Qwen3.8 Max (0902)",
+          34
+        ],
+        [
+          "MiMo-V2.6-Pro",
+          30
+        ],
+        [
+          "Ling 3.1 Flash 1019",
+          30
+        ],
+        [
+          "MiniMax-M3.1-Flash",
+          29
+        ],
+        [
+          "Step 5 Preview",
+          29
+        ],
+        [
+          "Gemini 3.8 Flash (high)",
+          31
+        ],
+        [
+          "DeepSeek V4 Pro 0813 (max)",
+          23
+        ],
+        [
+          "MiniMax-M3",
+          19
+        ],
+        [
+          "Beam 1.0",
+          18
+        ],
+        [
+          "Nemotron 3.5 Super VL",
+          14
+        ]
+      ],
+      "note": "当日榜HTML型号如『Claude Fable 5.2 Max, Default Fallback』按既有惯例规范为『Claude Fable 5.2 (max)』；仅档位标签规范化，分数与型号版本不变。"
+    }
+  ],
+  "aaVersion": "5.0",
+  "aaApplied": [
+    [
+      "Claude Fable 5.2 (max)",
+      65
+    ],
+    [
+      "GPT-6.2 Astra (max)",
+      62
+    ],
+    [
+      "Gemini 4 Neon (xhigh)",
+      61
+    ],
+    [
+      "Gemini 4 Carbon (high)",
+      60
+    ],
+    [
+      "Claude Opus 5.5 (max)",
+      59
+    ],
+    [
+      "GPT-6.2 Sol (max)",
+      57
+    ],
+    [
+      "Claude Sonnet 5.5 (max)",
+      55
+    ],
+    [
+      "Gemini 4 Hydrogen (xhigh)",
+      54
+    ],
+    [
+      "GPT-6.1 Terra (max)",
+      51
+    ],
+    [
+      "Gemini 4 Argon (high)",
+      50
+    ],
+    [
+      "Kimi K3.1 Pro",
+      46
+    ],
+    [
+      "Muse Wonder (max)",
+      44
+    ],
+    [
+      "Qwen4 Max",
+      43
+    ],
+    [
+      "Claude Haiku 5.5 (max)",
+      36
+    ],
+    [
+      "Muse Ember (max)",
+      36
+    ],
+    [
+      "Grok 4.7 (xhigh)",
+      35
+    ],
+    [
+      "Tencent Hy4",
+      35
+    ],
+    [
+      "DeepSeek V4.1 Flash 1017 (max)",
+      33
+    ],
+    [
+      "GLM-5.3 (max)",
+      32
+    ],
+    [
+      "Inkling 2 Small",
+      31
+    ]
+  ],
+  "previousContentUpdatedAt": "2026-11-05",
+  "previousEvidence": "_rank_review_2026-11-05.json",
+  "newModels": [
+    {
+      "name": "Claude Fable 5.2",
+      "vendor": "Anthropic（美国）",
+      "price": "AA单次任务成本约$26.54（非API单价）；具体价格核对厂商官网",
+      "iaa": 65,
+      "tb": null,
+      "t": {
+        "综合": "—",
+        "推理": "—",
+        "代码": "—",
+        "多模态": "—",
+        "长上下文": "—",
+        "中文": "—",
+        "性价比": "—",
+        "开源": "—"
+      },
+      "note": "11月19日核对AA官方当前榜：Claude Fable 5.2 (max) = 65分，位列第1。价格栏为AA单次任务成本约$26.54（非API每百万单价），API价格/主观评级/TB2.1本次未核实，故评级留「—」、tb留空。v5与旧v4.3不作直接涨跌比较。新模型无v4.3历史分，iaaHistorical.value留null。",
+      "iaaHistorical": {
+        "value": null,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "Claude Fable 5.2 (max)"
+    },
+    {
+      "name": "GPT-6.2 Astra",
+      "vendor": "OpenAI（美国）",
+      "price": "AA单次任务成本约$4.00（非API单价）；具体价格核对厂商官网",
+      "iaa": 62,
+      "tb": null,
+      "t": {
+        "综合": "—",
+        "推理": "—",
+        "代码": "—",
+        "多模态": "—",
+        "长上下文": "—",
+        "中文": "—",
+        "性价比": "—",
+        "开源": "—"
+      },
+      "note": "11月19日核对AA官方当前榜：GPT-6.2 Astra (max) = 62分，位列第2。价格栏为AA单次任务成本约$4.00（非API每百万单价），API价格/主观评级/TB2.1本次未核实，故评级留「—」、tb留空。v5与旧v4.3不作直接涨跌比较。新模型无v4.3历史分，iaaHistorical.value留null。",
+      "iaaHistorical": {
+        "value": null,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "GPT-6.2 Astra (max)"
+    },
+    {
+      "name": "Gemini 4 Neon",
+      "vendor": "Google（美国）",
+      "price": "AA单次任务成本约$6.44（非API单价）；具体价格核对厂商官网",
+      "iaa": 61,
+      "tb": null,
+      "t": {
+        "综合": "—",
+        "推理": "—",
+        "代码": "—",
+        "多模态": "—",
+        "长上下文": "—",
+        "中文": "—",
+        "性价比": "—",
+        "开源": "—"
+      },
+      "note": "11月19日核对AA官方当前榜：Gemini 4 Neon (xhigh) = 61分，位列第3。价格栏为AA单次任务成本约$6.44（非API每百万单价），API价格/主观评级/TB2.1本次未核实，故评级留「—」、tb留空。v5与旧v4.3不作直接涨跌比较。新模型无v4.3历史分，iaaHistorical.value留null。",
+      "iaaHistorical": {
+        "value": null,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "Gemini 4 Neon (xhigh)"
+    },
+    {
+      "name": "Gemini 4 Carbon",
+      "vendor": "Google（美国）",
+      "price": "AA单次任务成本约$4.90（非API单价）；具体价格核对厂商官网",
+      "iaa": 60,
+      "tb": null,
+      "t": {
+        "综合": "—",
+        "推理": "—",
+        "代码": "—",
+        "多模态": "—",
+        "长上下文": "—",
+        "中文": "—",
+        "性价比": "—",
+        "开源": "—"
+      },
+      "note": "11月19日核对AA官方当前榜：Gemini 4 Carbon (high) = 60分，位列第4。价格栏为AA单次任务成本约$4.90（非API每百万单价），API价格/主观评级/TB2.1本次未核实，故评级留「—」、tb留空。v5与旧v4.3不作直接涨跌比较。新模型无v4.3历史分，iaaHistorical.value留null。",
+      "iaaHistorical": {
+        "value": null,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "Gemini 4 Carbon (high)"
+    },
+    {
+      "name": "GPT-6.2 Sol",
+      "vendor": "OpenAI（美国）",
+      "price": "AA单次任务成本约$1.01（非API单价）；具体价格核对厂商官网",
+      "iaa": 57,
+      "tb": null,
+      "t": {
+        "综合": "—",
+        "推理": "—",
+        "代码": "—",
+        "多模态": "—",
+        "长上下文": "—",
+        "中文": "—",
+        "性价比": "—",
+        "开源": "—"
+      },
+      "note": "11月19日核对AA官方当前榜：GPT-6.2 Sol (max) = 57分，位列第6。价格栏为AA单次任务成本约$1.01（非API每百万单价），API价格/主观评级/TB2.1本次未核实，故评级留「—」、tb留空。v5与旧v4.3不作直接涨跌比较。新模型无v4.3历史分，iaaHistorical.value留null。",
+      "iaaHistorical": {
+        "value": null,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "GPT-6.2 Sol (max)"
+    },
+    {
+      "name": "Gemini 4 Hydrogen",
+      "vendor": "Google（美国）",
+      "price": "AA单次任务成本约$3.16（非API单价）；具体价格核对厂商官网",
+      "iaa": 54,
+      "tb": null,
+      "t": {
+        "综合": "—",
+        "推理": "—",
+        "代码": "—",
+        "多模态": "—",
+        "长上下文": "—",
+        "中文": "—",
+        "性价比": "—",
+        "开源": "—"
+      },
+      "note": "11月19日核对AA官方当前榜：Gemini 4 Hydrogen (xhigh) = 54分，位列第8。价格栏为AA单次任务成本约$3.16（非API每百万单价），API价格/主观评级/TB2.1本次未核实，故评级留「—」、tb留空。v5与旧v4.3不作直接涨跌比较。新模型无v4.3历史分，iaaHistorical.value留null。",
+      "iaaHistorical": {
+        "value": null,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "Gemini 4 Hydrogen (xhigh)"
+    },
+    {
+      "name": "GPT-6.1 Terra",
+      "vendor": "OpenAI（美国）",
+      "price": "AA单次任务成本约$0.96（非API单价）；具体价格核对厂商官网",
+      "iaa": 51,
+      "tb": null,
+      "t": {
+        "综合": "—",
+        "推理": "—",
+        "代码": "—",
+        "多模态": "—",
+        "长上下文": "—",
+        "中文": "—",
+        "性价比": "—",
+        "开源": "—"
+      },
+      "note": "11月19日核对AA官方当前榜：GPT-6.1 Terra (max) = 51分，位列第9。价格栏为AA单次任务成本约$0.96（非API每百万单价），API价格/主观评级/TB2.1本次未核实，故评级留「—」、tb留空。v5与旧v4.3不作直接涨跌比较。新模型无v4.3历史分，iaaHistorical.value留null。",
+      "iaaHistorical": {
+        "value": null,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "GPT-6.1 Terra (max)"
+    },
+    {
+      "name": "Qwen4 Max",
+      "vendor": "阿里巴巴 / 通义（中国）",
+      "price": "AA单次任务成本约$3.27（非API单价）；具体价格核对厂商官网",
+      "iaa": 43,
+      "tb": null,
+      "t": {
+        "综合": "—",
+        "推理": "—",
+        "代码": "—",
+        "多模态": "—",
+        "长上下文": "—",
+        "中文": "—",
+        "性价比": "—",
+        "开源": "—"
+      },
+      "note": "11月19日核对AA官方当前榜：Qwen4 Max = 43分，位列第13。价格栏为AA单次任务成本约$3.27（非API每百万单价），API价格/主观评级/TB2.1本次未核实，故评级留「—」、tb留空。v5与旧v4.3不作直接涨跌比较。新模型无v4.3历史分，iaaHistorical.value留null。",
+      "iaaHistorical": {
+        "value": null,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "Qwen4 Max"
+    },
+    {
+      "name": "Muse Ember",
+      "vendor": "Meta（美国）",
+      "price": "AA单次任务成本约$0.14（非API单价）；具体价格核对厂商官网",
+      "iaa": 36,
+      "tb": null,
+      "t": {
+        "综合": "—",
+        "推理": "—",
+        "代码": "—",
+        "多模态": "—",
+        "长上下文": "—",
+        "中文": "—",
+        "性价比": "—",
+        "开源": "—"
+      },
+      "note": "11月19日核对AA官方当前榜：Muse Ember (max) = 36分，位列第15。价格栏为AA单次任务成本约$0.14（非API每百万单价），API价格/主观评级/TB2.1本次未核实，故评级留「—」、tb留空。v5与旧v4.3不作直接涨跌比较。新模型无v4.3历史分，iaaHistorical.value留null。",
+      "iaaHistorical": {
+        "value": null,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "Muse Ember (max)"
+    },
+    {
+      "name": "Tencent Hy4",
+      "vendor": "腾讯（中国）",
+      "price": "AA单次任务成本约$1.03（非API单价）；具体价格核对厂商官网",
+      "iaa": 35,
+      "tb": null,
+      "t": {
+        "综合": "—",
+        "推理": "—",
+        "代码": "—",
+        "多模态": "—",
+        "长上下文": "—",
+        "中文": "—",
+        "性价比": "—",
+        "开源": "—"
+      },
+      "note": "11月19日核对AA官方当前榜：Tencent Hy4 = 35分，位列第17。价格栏为AA单次任务成本约$1.03（非API每百万单价），API价格/主观评级/TB2.1本次未核实，故评级留「—」、tb留空。v5与旧v4.3不作直接涨跌比较。新模型无v4.3历史分，iaaHistorical.value留null。",
+      "iaaHistorical": {
+        "value": null,
+        "version": "4.3",
+        "snapshotAsOf": "2026-10-27"
+      },
+      "iaaVersion": "5.0",
+      "iaaModel": "Tencent Hy4"
+    }
+  ],
+  "modelChanges": [
+    {
+      "name": "Claude Fable 5.2",
+      "beforeModel": null,
+      "beforeScore": null,
+      "afterModel": "Claude Fable 5.2 (max)",
+      "afterScore": 65
+    },
+    {
+      "name": "GPT-6.2 Astra",
+      "beforeModel": null,
+      "beforeScore": null,
+      "afterModel": "GPT-6.2 Astra (max)",
+      "afterScore": 62
+    },
+    {
+      "name": "Gemini 4 Neon",
+      "beforeModel": null,
+      "beforeScore": null,
+      "afterModel": "Gemini 4 Neon (xhigh)",
+      "afterScore": 61
+    },
+    {
+      "name": "Gemini 4 Carbon",
+      "beforeModel": null,
+      "beforeScore": null,
+      "afterModel": "Gemini 4 Carbon (high)",
+      "afterScore": 60
+    },
+    {
+      "name": "GPT-6.2 Sol",
+      "beforeModel": null,
+      "beforeScore": null,
+      "afterModel": "GPT-6.2 Sol (max)",
+      "afterScore": 57
+    },
+    {
+      "name": "Gemini 4 Hydrogen",
+      "beforeModel": null,
+      "beforeScore": null,
+      "afterModel": "Gemini 4 Hydrogen (xhigh)",
+      "afterScore": 54
+    },
+    {
+      "name": "GPT-6.1 Terra",
+      "beforeModel": null,
+      "beforeScore": null,
+      "afterModel": "GPT-6.1 Terra (max)",
+      "afterScore": 51
+    },
+    {
+      "name": "Qwen4 Max",
+      "beforeModel": null,
+      "beforeScore": null,
+      "afterModel": "Qwen4 Max",
+      "afterScore": 43
+    },
+    {
+      "name": "Muse Ember",
+      "beforeModel": null,
+      "beforeScore": null,
+      "afterModel": "Muse Ember (max)",
+      "afterScore": 36
+    },
+    {
+      "name": "Tencent Hy4",
+      "beforeModel": null,
+      "beforeScore": null,
+      "afterModel": "Tencent Hy4",
+      "afterScore": 35
+    }
+  ],
+  "protected": {
+    "aaHistory": "unchanged (v4.3, 2026-10-27 baseline)",
+    "tb_swe_swe_pro": "unchanged historical baselines",
+    "tools_combos": "unchanged"
+  },
+  "expectedModelCount": 46,
+  "written": true
+}
