@@ -289,6 +289,16 @@
   .reader-note{margin:10px 0 16px;border:1px solid var(--line);border-radius:10px;background:#fff;padding:10px 13px;font-size:13px;color:var(--ink-soft);}
   .reader-note>summary{cursor:pointer;font-weight:600;color:var(--ink-soft);}
   .reader-note .news,.reader-note .disclaim{margin:10px 0 0;}
+  /* 更新说明折叠：默认只显示一行「最近更新时间」，点开看完整核查说明（内容不删，可随时展开） */
+  .stamp-note{margin:8px 0 16px;border:1px solid var(--line);border-radius:10px;background:#fff;padding:9px 13px;font-size:13px;color:var(--ink-soft);}
+  .stamp-note>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-height:26px;font-weight:600;color:var(--ink);user-select:none;}
+  .stamp-note>summary::-webkit-details-marker{display:none;}
+  .stamp-note>summary::before{content:'🕒';font-size:13px;}
+  .stamp-note>summary .stamp-more{margin-left:auto;font-weight:400;font-size:12px;color:var(--brand);white-space:nowrap;}
+  .stamp-note[open]>summary .stamp-more::after{content:'收起';}
+  .stamp-note:not([open])>summary .stamp-more::after{content:'展开说明';}
+  .stamp-note .stamp-body{margin:9px 0 2px;padding-top:9px;border-top:1px dashed var(--line);line-height:1.75;}
+  .stamp-note .stamp-body p{margin:0 0 6px;}
   .section-search{display:block;width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:15px;margin:0 0 12px;}
   .search-row{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
   .search-row .section-search{margin:0;min-width:0;flex:1;}
@@ -533,7 +543,11 @@
   <!-- ================= RANK VIEW ================= -->
   <div id="view-rank" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-rank">
     <div class="view-head"><h2>🏆 AI 实力排行榜</h2>
-      <p>大模型 / 编程工具 / 工具×模型组合 的分维度与综合实力评级。最近维护 <b id="rank-updated"></b>。</p><p id="rank-check-note" style="font-size:13px"></p></div>
+      <p>大模型 / 编程工具 / 工具×模型组合 的分维度与综合实力评级。</p>
+      <details class="stamp-note"><summary>最近维护 <b id="rank-updated"></b><span class="stamp-more"></span></summary>
+        <div class="stamp-body"><p id="rank-check-note"></p></div>
+      </details>
+    </div>
     <details class="reader-note"><summary>评级口径与历史动态</summary>
     <div class="news">
       🆕 <b>2026 年 9 月新动态：</b>Claude Fable 5.1（9-1，AA 智能指数并列第一）、GPT-6 Astra（9-3，号称 AGI 时代但<b>几乎不可用</b>）、Gemini 3.8 Flash（9-2，多模态标杆）、Muse Spark 1.3（9-2）、Qwen3.8-Max 登 Code Arena WebDev 榜首（9-2）、GLM-5.3-Flash 开源（8-26）、腾讯 Hy4 Preview 开源（8-28）。<b>注意：GPT-6 Astra 被定为「关键网络安全」级，目前仅 Daybreak 计划批准者可用，投票榜样本极少，排名可能随时变化。</b>
@@ -896,7 +910,9 @@
         <button class="filterbtn" data-sort="default">默认</button>
       </div>
     </div>
-    <p id="comp-check-note" class="library-storage-note"></p>
+    <details class="stamp-note"><summary>最近核查与更新说明<span class="stamp-more"></span></summary>
+      <div class="stamp-body"><p id="comp-check-note"></p></div>
+    </details>
     <p id="comp-sort-note" class="library-storage-note"></p>
     <div id="comp-world-note" class="news" style="display:none">
       🌍 <b>全球一览：</b>以下为世界级赛事——AI / 机器人 / 航天 / 科创的"奥运会"。多数你<b>无法以个人身份报名</b>（限国籍 / 年龄 / 高校团队 / 邀请制），列出仅供开眼界：看全球在比什么、顶尖水平在哪。少数（如 NASA Space Apps、Kaggle）其实对中国开放，卡片里标了就说明你能上。
@@ -986,7 +1002,9 @@
 
   <div id="view-cqut" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-cqut">
     <div class="view-head"><h2>🏫 重庆理工：学校 / 学院 / 部门 / 学生会通知</h2>
-      <p>每天核查官网通知。每条都写清「我该关注啥」，末尾附信源直达入口。最近成功内容更新于 <span id="cqut-updated"></span>。<span id="cqut-check-note"></span></p>
+      <details class="stamp-note"><summary>最近成功内容更新于 <span id="cqut-updated"></span><span class="stamp-more"></span></summary>
+        <div class="stamp-body"><p>每天核查官网通知。每条都写清「我该关注啥」，末尾附信源直达入口。</p><span id="cqut-check-note"></span></div>
+      </details>
     </div>
 <details id="cqutMatchFold" style="margin-top:32px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden">
       <summary id="cqutMatchSummary" style="cursor:pointer;list-style:none;padding:14px 18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;user-select:none">
@@ -996,7 +1014,9 @@
         <span style="font-size:12px;color:#94a3b8;margin-left:auto;flex:none" id="cqutFoldHint">展开 ▾</span>
       </summary>
       <div style="padding:2px 18px 16px;border-top:1px dashed var(--line)">
-        <p style="font-size:13px;color:#64748b;margin:12px 0 0">已核实截止或不符合研究生资格的条目会清退，待核实信息单独提示。报名资格和各校通道仍需以官网为准；每条写清<b>这是什么 / 能帮你做什么 / 需要你做什么</b>。最近维护于 <span id="cqut-match-updated"></span></p>
+        <details class="stamp-note" style="margin:12px 0 0"><summary>最近维护于 <span id="cqut-match-updated"></span><span class="stamp-more"></span></summary>
+          <div class="stamp-body"><p>已核实截止或不符合研究生资格的条目会清退，待核实信息单独提示。报名资格和各校通道仍需以官网为准；每条写清<b>这是什么 / 能帮你做什么 / 需要你做什么</b>。</p><span id="match-note"></span></div>
+        </details>
 
         <div style="font-size:14px;font-weight:800;color:var(--ink);margin:16px 0 7px;padding-left:10px;border-left:3px solid var(--brand)">🏫 按学校 / 单位分类 · <span style="font-weight:600;color:#64748b">点一下只看这一类</span></div>
         <div class="cmp-toolbar" id="matchSchoolFilters" style="margin-top:0"></div>
@@ -1004,7 +1024,6 @@
         <div style="font-size:14px;font-weight:800;color:var(--ink);margin:15px 0 7px;padding-left:10px;border-left:3px solid #4f46e5">🔥 按报名状态筛 · <span style="font-weight:600;color:#64748b">先看还能报的</span></div>
         <div class="cmp-toolbar" id="matchFilters"></div>
 
-        <p style="font-size:12.5px;color:#64748b;margin:12px 0 9px" id="match-note"></p>
         <div class="cmp-list" id="match-list"></div>
 
         <div class="lk-tip" style="margin-top:18px">先核对截止时间、报名资格和组队要求，再看是否贴合化工、材料或储能方向。下方保留官网入口，报名状态以官网最新通知为准。</div>
@@ -1045,8 +1064,10 @@
 
   <div id="view-funds" class="view" style="display:none" role="tabpanel" aria-labelledby="tab-funds">
     <div class="view-head"><h2>📈 基金看板 · 我的持仓</h2>
-      <p>只记录不荐股。金额与盈亏来自你自己的持仓，配色按国内习惯：<b style="color:#e02424">涨红</b> / <b style="color:#16a34a">跌绿</b>。公开数据最近成功更新于 <span id="funds-updated"></span>，最近核查 <span id="funds-checked"></span>。</p>
-      <p id="funds-check-note" class="library-storage-note"></p>
+      <p>只记录不荐股。金额与盈亏来自你自己的持仓，配色按国内习惯：<b style="color:#e02424">涨红</b> / <b style="color:#16a34a">跌绿</b>。</p>
+      <details class="stamp-note"><summary>公开数据最近成功更新于 <span id="funds-updated"></span> · 最近核查 <span id="funds-checked"></span><span class="stamp-more"></span></summary>
+        <div class="stamp-body"><p id="funds-check-note"></p></div>
+      </details>
     </div>
 
     <div id="funds-stats" style="margin-bottom:16px"></div>
@@ -2224,7 +2245,7 @@
       });
     }
     var uel=document.getElementById('forum-updated'); if(uel){ uel.textContent=(window.FORUM_UPDATED||'未知'); }
-    if(window.FORUM_REVIEW_NOTE && uel && uel.parentElement && uel.parentElement.insertAdjacentElement){var note=document.createElement("p");note.className="library-storage-note";note.textContent=window.FORUM_REVIEW_NOTE;uel.parentElement.insertAdjacentElement("afterend",note);}
+    if(window.FORUM_REVIEW_NOTE && uel && uel.parentElement && uel.parentElement.insertAdjacentElement){var det=document.createElement("details");det.className="stamp-note";var sm=document.createElement("summary");sm.textContent="最近核查说明";var more=document.createElement("span");more.className="stamp-more";sm.appendChild(more);det.appendChild(sm);var bd=document.createElement("div");bd.className="stamp-body";var note=document.createElement("p");note.textContent=window.FORUM_REVIEW_NOTE;bd.appendChild(note);det.appendChild(bd);uel.parentElement.insertAdjacentElement("afterend",det);}
     /* vm 沙箱无 ICU，播放量格式化手写：12500 -> 1.3万 */
     function fmtPlay(n){
       if(typeof n!=="number"||!Number.isFinite(n)||n<0) return "未披露";
