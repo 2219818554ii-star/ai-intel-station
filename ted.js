@@ -1,6 +1,6 @@
 /* AI 情报站 - TED 英语演讲（认知提升 + 英语听力素材） */
 /* 2026-11-15 复核：40 条 TED 为 2026-09-23 策展、2026-11-05 全量核验官网页面（均 HTTP 200）的经典演讲，内容静态、不会过期；本次仅滚 CHECKED、不滚 UPDATED，无新增或下架。 */
-window.TED_CHECKED = "2026-11-18";
+window.TED_CHECKED = "2026-11-20";
 window.TED_UPDATED = "2026-11-05";
 window.TED_VIEWS_CAPTURED_AT = "2026-11-05";
 /* ============ TED TALKS (curated 2026-09-23，2026-09-28 re-verified；2026-11-05 全量复核40个官网页面并刷新封面图/官网播放量) ============
