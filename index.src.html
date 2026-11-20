@@ -1468,10 +1468,10 @@
     function t(obj){
       var _rows = (Array.isArray(obj.rows)?obj.rows:[]).filter(Array.isArray).slice().sort(function(a,b){ return (parseFloat(b[1])||0)-(parseFloat(a[1])||0); }); /* 同基准内按分数降序 */
       var rows = _rows.map(function(r,i){
-        return '<tr><td class="num-cell">'+(i+1)+'</td><td>'+esc(r[0])+'</td><td style="font-weight:700">'+esc(r[1]==null?'—':r[1])+' '+esc(obj.unit)+'</td></tr>';
+        return '<tr><td class="num-cell">'+(i+1)+'</td><td>'+esc(r[0])+'</td><td style="font-weight:700">'+esc(r[1]==null?'—':r[1])+' '+esc(obj.unit)+'</td>'+ (obj.showTaskMetrics ? r.slice(2,6).map(function(value){return '<td>'+esc(value==='--'?'—':value)+'</td>';}).join('') : '') +'</tr>';
       }).join("");
       return '<h3 style="margin:18px 0 8px;font-size:16px">'+esc(obj.title)+'</h3>'+
-        '<table class="ranktbl"><thead><tr><th>#</th><th>模型 / 组合</th><th>分数</th></tr></thead><tbody>'+rows+'</tbody></table>';
+        '<table class="ranktbl"><thead><tr><th>#</th><th>模型 / 组合</th><th>分数</th>'+ (obj.showTaskMetrics ? '<th>任务成本（USD）</th><th>任务耗时（分钟）</th><th>首个答案 token（秒）</th><th>上下文窗口</th>' : '') +'</tr></thead><tbody>'+rows+'</tbody></table>'+ (obj.showTaskMetrics ? '<p class="reader-note">成本、耗时和延迟来自 AA 基准任务。实际使用会随任务和服务商变化。— 表示官网未披露。</p>' : '');
     }
     var history=RANK.aaHistory, historyHTML='';
     if(history&&Array.isArray(history.rows)&&history.rows.length){
