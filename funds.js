@@ -410,6 +410,6 @@ window.FUNDS_STOCKS = {
   ]
 };
 
-window.FUNDS_CHECKED = "2026-11-21";
+window.FUNDS_CHECKED = "2026-11-22";
 
-window.FUNDS_CHECK_NOTE = "2026-11-21 实抓复核4只基金已公布公开净值，原净值日见逐条navDate；账户及余额宝仍为2026-10-15快照。股票、阶段业绩和持仓档案保留旧值、旧日期。";
+window.FUNDS_CHECK_NOTE = "2026-11-22 完整实抓4只基金公开净值，与收录值一致，未发现新公布值；最近成功内容更新仍为2026-11-21。原净值日、账户及余额宝快照、股票和档案日期不变。";
