@@ -1,6 +1,6 @@
 /* AI 情报站 - TED 英语演讲（认知提升 + 英语听力素材） */
 /* 2026-11-15 复核：40 条 TED 为 2026-09-23 策展、2026-11-05 全量核验官网页面（均 HTTP 200）的经典演讲，内容静态、不会过期；本次仅滚 CHECKED、不滚 UPDATED，无新增或下架。 */
-window.TED_CHECKED = "2026-11-24";
+window.TED_CHECKED = "2026-11-25";
 window.TED_UPDATED = "2026-11-05";
 window.TED_VIEWS_CAPTURED_AT = "2026-11-05";
 /* ============ TED TALKS (curated 2026-09-23，2026-09-28 re-verified；2026-11-05 全量复核40个官网页面并刷新封面图/官网播放量) ============
@@ -158,4 +158,4 @@ window.TED = [
    url:"https://www.ted.com/talks/david_steindl_rast_want_to_be_happy_be_grateful", cover:"https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/02722e8404d9e8dd2ec003b249db0ce3d05bda19_1600x1200.jpg", views:9702167}
 ]
 
-window.TED_CHECK_NOTE = "11月5日完整获取40条官网演讲页并逐条核对英文标题；39条公开累计播放数，1条未披露继续留空。仅播放数/封面变化，不称新增演讲；年份仍为原演讲年份，不代表发布日期，页面成功不等于已验证全片播放。";
+window.TED_CHECK_NOTE = "11月5日完整获取40条官网演讲页并逐条核对英文标题；39条公开累计播放数，1条未披露继续留空。仅播放数/封面变化，不称新增演讲；年份仍为原演讲年份，不代表发布日期，页面成功不等于已验证全片播放。 2026-11-25 抽样复核：TED 官方演讲页可读（示例 charlie_robinson 页标题与年份一致、页面显示 15,709 plays），未逐条重抓 40 条，播放数与 TED_VIEWS_CAPTURED_AT 保留原采样，只滚 CHECKED。";

@@ -1,0 +1,404 @@
+{
+  "checkedAt": "2026-11-25",
+  "method": "独立读取当日 Artificial Analysis 官方模型榜（WorkBuddy WebFetch 两次一致）；按精确型号+推理档位核对 Intelligence Index 分，只同步真实变化的 Index 分。单次任务成本/耗时/延迟会实时抖动，保留上次快照，不冒充今日重测。",
+  "transport": [
+    {
+      "url": "https://artificialanalysis.ai/leaderboards/models",
+      "method": "WebFetch official page read (2 independent reads)",
+      "checkedAt": "2026-11-25",
+      "checkedAtTime": "2026-11-25T09:50:31+08:00",
+      "status": 200,
+      "http": 200,
+      "curlExit": null,
+      "finalURL": "https://artificialanalysis.ai/leaderboards/models",
+      "complete": true,
+      "error": null,
+      "completedAt": "2026-11-25",
+      "note": "WebFetch 两次均返回完整官方榜单、Index 分一致；本机直连 curl 21 秒连接超时（HTTP 000），因此不声明 curl 字节数或直连成功。"
+    }
+  ],
+  "officialObservations": [
+    {
+      "url": "https://artificialanalysis.ai/leaderboards/models",
+      "method": "WorkBuddy WebFetch official HTML table read (2 independent reads, consistent Index scores)",
+      "observedSelectedRows": [
+        [
+          "Claude Fable 5.2 (max)",
+          65
+        ],
+        [
+          "GPT-6.2 Astra (max)",
+          62
+        ],
+        [
+          "Gemini 4 Neon (xhigh)",
+          61
+        ],
+        [
+          "Gemini 4 Carbon (high)",
+          60
+        ],
+        [
+          "Claude Opus 5.5 (max)",
+          59
+        ],
+        [
+          "GPT-6.2 Sol (max)",
+          57
+        ],
+        [
+          "Claude Sonnet 5.5 (max)",
+          55
+        ],
+        [
+          "Gemini 4 Hydrogen (xhigh)",
+          54
+        ],
+        [
+          "GPT-6.1 Terra (max)",
+          51
+        ],
+        [
+          "Gemini 4 Argon (high)",
+          50
+        ],
+        [
+          "Kimi K3.1 Pro",
+          47
+        ],
+        [
+          "Muse Wonder (max)",
+          44
+        ],
+        [
+          "Qwen4 Max",
+          43
+        ],
+        [
+          "Claude Haiku 5.5 (max)",
+          36
+        ],
+        [
+          "Muse Ember (max)",
+          36
+        ],
+        [
+          "Grok 4.7 (xhigh)",
+          35
+        ],
+        [
+          "Tencent Hy4",
+          35
+        ],
+        [
+          "DeepSeek V4.1 Flash 1017 (max)",
+          32
+        ],
+        [
+          "GLM-5.3 (max)",
+          32
+        ],
+        [
+          "Inkling 2 Small",
+          31
+        ]
+      ],
+      "additionalExactModelRows": [
+        [
+          "GPT-6 Astra (max)",
+          57
+        ],
+        [
+          "GPT-6.1 Sol (max)",
+          55
+        ],
+        [
+          "Muse Wonder Full (max)",
+          50
+        ],
+        [
+          "Claude Fable 5.1 (max)",
+          49
+        ],
+        [
+          "Qwen3.8 Max (0902)",
+          34
+        ],
+        [
+          "MiMo-V2.6-Pro",
+          30
+        ],
+        [
+          "Ling 3.1 Flash 1019",
+          30
+        ],
+        [
+          "MiniMax-M3.1-Flash",
+          29
+        ],
+        [
+          "Step 5 Preview",
+          29
+        ],
+        [
+          "Gemini 3.8 Flash (high)",
+          31
+        ],
+        [
+          "DeepSeek V4 Pro 0813 (max)",
+          23
+        ],
+        [
+          "MiniMax-M3",
+          19
+        ],
+        [
+          "Beam 1.0",
+          18
+        ],
+        [
+          "Nemotron 3.5 Super VL",
+          14
+        ]
+      ],
+      "note": "当日榜HTML型号如『Claude Fable 5.2 Max, Default Fallback』按既有惯例规范为『Claude Fable 5.2 (max)』；仅档位标签规范化，分数与型号版本不变。"
+    },
+    {
+      "url": "https://artificialanalysis.ai/leaderboards/models?x=2",
+      "method": "WebFetch targeted second read of exact models",
+      "observedSelectedRows": [
+        [
+          "Gemini 4 Neon (xhigh)",
+          62
+        ],
+        [
+          "Gemini 4 Argon (high)",
+          51
+        ],
+        [
+          "Kimi K3.1 Pro",
+          47
+        ],
+        [
+          "Claude Haiku 5.5 (max)",
+          37
+        ],
+        [
+          "DeepSeek V4.1 Flash 1017 (max)",
+          32
+        ]
+      ],
+      "finding": "Six exact indexed models re-read; all five changed scores and unchanged leader Fable 5.2 (max)=65 confirmed consistent."
+    }
+  ],
+  "aaVersion": "5.0",
+  "aaApplied": [
+    [
+      "Claude Fable 5.2 Max, Default Fallback",
+      65,
+      "$26.54",
+      "41.5",
+      "249.47",
+      "1M"
+    ],
+    [
+      "GPT-6.2 Astra Max",
+      62,
+      "$4.00",
+      "14.3",
+      "203.16",
+      "1M"
+    ],
+    [
+      "Gemini 4 Neon Xhigh",
+      62,
+      "$6.44",
+      "21.5",
+      "56.51",
+      "1M"
+    ],
+    [
+      "Gemini 4 Carbon High",
+      60,
+      "$7.76",
+      "39.8",
+      "74.48",
+      "1M"
+    ],
+    [
+      "Claude Opus 5.5 Max, Default Fallback",
+      59,
+      "$10.04",
+      "25.7",
+      "370.63",
+      "1M"
+    ],
+    [
+      "GPT-6.2 Sol Max",
+      57,
+      "$1.01",
+      "9.4",
+      "80.62",
+      "1M"
+    ],
+    [
+      "Claude Sonnet 5.5 Max, Default Fallback",
+      55,
+      "$10.02",
+      "32.9",
+      "273.44",
+      "1M"
+    ],
+    [
+      "Gemini 4 Hydrogen Xhigh",
+      54,
+      "$3.16",
+      "15.7",
+      "51.32",
+      "1M"
+    ],
+    [
+      "GPT-6.1 Terra Max",
+      51,
+      "$0.96",
+      "16.2",
+      "175.31",
+      "1M"
+    ],
+    [
+      "Gemini 4 Argon High",
+      51,
+      "$4.97",
+      "28.7",
+      "47.12",
+      "1M"
+    ],
+    [
+      "Muse Wonder Full Max",
+      50,
+      "--",
+      "--",
+      "--",
+      "1M"
+    ],
+    [
+      "Kimi K3.1 Pro",
+      47,
+      "$3.68",
+      "39.7",
+      "162.76",
+      "1M"
+    ],
+    [
+      "Muse Wonder Max",
+      44,
+      "$6.95",
+      "14.1",
+      "20.92",
+      "1M"
+    ],
+    [
+      "Qwen4 Max",
+      43,
+      "$3.27",
+      "29.8",
+      "136.30",
+      "984k"
+    ],
+    [
+      "Claude Haiku 5.5 Max",
+      37,
+      "$0.41",
+      "15.0",
+      "180.05",
+      "1M"
+    ],
+    [
+      "Muse Ember Max",
+      36,
+      "$0.14",
+      "3.0",
+      "5.11",
+      "1M"
+    ],
+    [
+      "Grok 4.7 Xhigh",
+      35,
+      "$7.77",
+      "25.4",
+      "57.69",
+      "500k"
+    ],
+    [
+      "Tencent Hy4",
+      35,
+      "$1.03",
+      "14.0",
+      "115.94",
+      "1M"
+    ],
+    [
+      "DeepSeek V4.1 Flash 1017 Max",
+      32,
+      "$0.60",
+      "14.2",
+      "47.23",
+      "1M"
+    ],
+    [
+      "GLM-5.3 Max",
+      32,
+      "$5.01",
+      "26.9",
+      "75.52",
+      "1M"
+    ]
+  ],
+  "previousContentUpdatedAt": "2026-11-20",
+  "previousEvidence": "_rank_review_2026-11-19.json",
+  "newModels": [],
+  "modelChanges": [
+    {
+      "name": "Gemini 4 Neon",
+      "beforeModel": "Gemini 4 Neon (xhigh)",
+      "beforeScore": 61,
+      "afterModel": "Gemini 4 Neon (xhigh)",
+      "afterScore": 62
+    },
+    {
+      "name": "Gemini 4 Argon",
+      "beforeModel": "Gemini 4 Argon (high)",
+      "beforeScore": 50,
+      "afterModel": "Gemini 4 Argon (high)",
+      "afterScore": 51
+    },
+    {
+      "name": "Kimi K3.1 Pro",
+      "beforeModel": "Kimi K3.1 Pro",
+      "beforeScore": 46,
+      "afterModel": "Kimi K3.1 Pro",
+      "afterScore": 47
+    },
+    {
+      "name": "Claude Haiku 5.5",
+      "beforeModel": "Claude Haiku 5.5 (max)",
+      "beforeScore": 36,
+      "afterModel": "Claude Haiku 5.5 (max)",
+      "afterScore": 37
+    },
+    {
+      "name": "DeepSeek V4.1 Flash 1017 (max)",
+      "beforeModel": "DeepSeek V4.1 Flash 1017 (max)",
+      "beforeScore": 33,
+      "afterModel": "DeepSeek V4.1 Flash 1017 (max)",
+      "afterScore": 32
+    }
+  ],
+  "protected": {
+    "aaHistory": "unchanged (v4.3, 2026-10-27 baseline)",
+    "tb_swe_swe_pro": "unchanged historical baselines",
+    "tools_combos": "unchanged"
+  },
+  "expectedModelCount": 46,
+  "written": true
+}
