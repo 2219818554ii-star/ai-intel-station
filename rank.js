@@ -2,7 +2,7 @@
 /* 2026-11-19 复核：罗浩要求每天检查即真更新。已据独立官方抓取补入当日新上榜的 10 张模型卡（含榜首 Claude Fable 5.2 (max)=65），AA选录20项同步更新；旧卡与v4.3历史、TB/SWE保留，新卡未核实字段留空，不冒充全榜即时刷新。 */
 window.RANK_UPDATED = "2026-11-25";
 /* 2026-11-15 复核：Artificial Analysis Intelligence Index 已到 v5.0.1（2026-11 发布，重评 CritPt v2）。本页已录 iaa 分数（Kimi K3.1 Pro 46、Claude Opus 5.5 59、GPT-6 Astra 57、Claude Sonnet 5.5 55、GPT-6.1 Sol 55、Gemini 4 Argon 50、Grok 4.7 35 等）与 v5.0.1 当前榜一致；但 11-05 之后新上榜的 Claude Fable 5.2（#1，Intelligence Index 65）、Gemini 4 Carbon、GPT-6.1 Terra 等尚未补入本页。本次仅滚 CHECKED、不滚 UPDATED，新条目择机补录，不冒充全量即时刷新。 */
-window.RANK_CHECKED = "2026-11-26";
+window.RANK_CHECKED = "2026-11-27";
 /* 2026-11-16 复核：Artificial Analysis LLM Leaderboard 当前榜首仍为 Claude Fable 5.2 (max)=65，其后 Gemini 4 Carbon (high)=60、Claude Opus 5.5 (max)=59、GPT-6 Astra (max)=57、GPT-6.1 Sol (max)=55，本页已录模型 v5 分数与官方一致；新上榜项仍按 11-15 说明择机补录（涉及 _rank_review 证据与断言，属逻辑/设计范畴留 Codex），本次不滚 UPDATED、不改模型。 */
 window.RANK = {
   "models": [
@@ -1375,4 +1375,4 @@ window.RANK = {
 };
 
 /* 局部核验边界：AA日期不代表旧TB/SWE/订阅价格全部重新核验。 */
-window.RANK_CHECK_NOTE = "11月20日核对 Artificial Analysis 官网默认榜单，更新前20项及原站型号档位，并补充基准任务成本、耗时、首个答案 token 延迟和上下文。模型卡沿用此前有单独证据的采样，历史基准与工具评级仍按原口径展示。 2026-11-24 复核：官网当前榜前20项精确型号/推理档位/智能 Index 分与库内 11-20 选录逐项一致（榜首 Claude Fable 5.2 (max)=65），无新模型、无新 Index 分；单次任务的成本/耗时/首 token 延迟自身实时抖动，未当作新分数写入。RANK_CHECKED 滚至 11-24，UPDATED 维持 11-20。 2026-11-25 真更新：独立读取 Artificial Analysis 官方当前榜两次，5 个精确型号/推理档位的 Index 分发生变化（Gemini 4 Neon xhigh 61→62、Gemini 4 Argon high 50→51、Kimi K3.1 Pro 46→47、Claude Haiku 5.5 max 36→37、DeepSeek V4.1 Flash 1017 max 33→32），已同步 5 张模型卡与 AA 选录表并生成当日 review；榜首 Fable 5.2 (max)=65 不变。单次任务成本/耗时/首 token 延迟仍属实时抖动，保留 11-20 快照、不冒充今日重测；v4.3/TB/SWE 历史与其余卡片全部保留。 2026-11-26 复核：Artificial Analysis 官方当前榜前20项精确型号/推理档位/Index 分与库内 11-25 选录逐项一致（榜首 Fable 5.2 max=65）；单次任务成本/耗时/延迟实时抖动，不当作新分数写入。RANK_CHECKED 滚至 11-26，RANK_UPDATED 维持 11-25。";
+window.RANK_CHECK_NOTE = "11月20日核对 Artificial Analysis 官网默认榜单，更新前20项及原站型号档位，并补充基准任务成本、耗时、首个答案 token 延迟和上下文。模型卡沿用此前有单独证据的采样，历史基准与工具评级仍按原口径展示。 2026-11-24 复核：官网当前榜前20项精确型号/推理档位/智能 Index 分与库内 11-20 选录逐项一致（榜首 Claude Fable 5.2 (max)=65），无新模型、无新 Index 分；单次任务的成本/耗时/首 token 延迟自身实时抖动，未当作新分数写入。RANK_CHECKED 滚至 11-24，UPDATED 维持 11-20。 2026-11-25 真更新：独立读取 Artificial Analysis 官方当前榜两次，5 个精确型号/推理档位的 Index 分发生变化（Gemini 4 Neon xhigh 61→62、Gemini 4 Argon high 50→51、Kimi K3.1 Pro 46→47、Claude Haiku 5.5 max 36→37、DeepSeek V4.1 Flash 1017 max 33→32），已同步 5 张模型卡与 AA 选录表并生成当日 review；榜首 Fable 5.2 (max)=65 不变。单次任务成本/耗时/首 token 延迟仍属实时抖动，保留 11-20 快照、不冒充今日重测；v4.3/TB/SWE 历史与其余卡片全部保留。 2026-11-26 复核：Artificial Analysis 官方当前榜前20项精确型号/推理档位/Index 分与库内 11-25 选录逐项一致（榜首 Fable 5.2 max=65）；单次任务成本/耗时/延迟实时抖动，不当作新分数写入。RANK_CHECKED 滚至 11-26，RANK_UPDATED 维持 11-25。 2026-11-27 复核：Artificial Analysis 官方当前榜前20项精确型号/推理档位/智能 Index 分与库内 11-25 选录逐项一致（榜首 Fable 5.2 max=65）；单次任务成本/耗时/延迟实时抖动，不当作新分数写入。RANK_CHECKED 滚至 11-27，RANK_UPDATED 维持 11-25。"

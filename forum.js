@@ -8,7 +8,7 @@
    2026-10-26：全量尝试194个BV；11个已核实播放变化单列采集日期，其他项保留原逐条日期，元数据日期不变。
    2026-11-01：全量尝试194个BV；5个已核实播放变化单列采集日期，其他项保留原逐条日期，元数据日期不变。
    整理证据见 _learning_review_2026-10-18.json；本次联网记录见 _learning_review_2026-11-01.json；没有为了凑数补入未经核实的视频。 */
-window.FORUM_CHECKED = "2026-11-26";
+window.FORUM_CHECKED = "2026-11-27";
 /* 2026-11-25 抽样复核：B站官方 view API 以完整浏览器请求头读取 BV1Az4y1v7Z8，HTTP 200 / apiCode 0，标题与计数可读；未逐条验证全部视频，单条 playCapturedAt 与 FORUM_PLAY_CAPTURED_AT 不动，只滚 CHECKED。 */
 window.FORUM_UPDATED = "2026-11-05";
 window.FORUM_PLAY_CAPTURED_AT = "2026-10-14";
